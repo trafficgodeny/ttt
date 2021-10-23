@@ -1,22 +1,22 @@
 $REQUIRE GETOPT.TTT
 $REQUIRE BG_DEF.TTT
-%DEF(POOLFLAGS=F=SDEGLMFPUOXZNBRC123456;)
-# 1 - 6 Epoche
-# S	Steam
+%DEF(POOLFLAGS=F=SDEGLMFPUOXZNBRC1234567;)
+# 1 - 7 Epoche
+# B
+# C	Stadtverkehr
 # D	Diesel
 # E	Elektrisch
-# G	Gleichstrom / andere Oberleitung
-# X	Mehrsystemlok / Hohe Oberleitung ( Landabhängig )
-# C	Stadtverkehr
-# L	Niedrigere Oberleitung
-# U	Wendezug
-# M	Stromschiene
 # F	Freight
-# P	Personenzug
-# O	Operation - kein M=SIMPLE
+# G	Gleichstrom / andere Oberleitung
+# L	Niedrigere Oberleitung
+# M	Stromschiene
 # N	Narrow gauge
+# O	Operation - kein M=SIMPLE
+# P	Personenzug
+# S	Steam
+# U	Wendezug
+# X	Mehrsystemlok / Hohe Oberleitung ( Landabhängig )
 # Z	Opaque
-# B
 {H?    			$POOL N=POOL_HUN;    	%POOLFLAGS; AP=M_ENV; 	}
 {D&(E1|E2)?		$POOL N=POOL_GHIST;  	%POOLFLAGS; AP=DRG_ENV; }
 {BRD&(E3|E4|E5|E6)?	$POOL N=POOL_BRD;    	%POOLFLAGS; AP=DB_ENV; 	}
@@ -44,22 +44,23 @@ $REQUIRE BG_DEF.TTT
 {HR?			$POOL N=POOL_HR; 	%POOLFLAGS; AP=HR_ENV;	}
 {YU?			$POOL N=POOL_YU; 	%POOLFLAGS; AP=YU_ENV;	}
 {HSH?			$POOL N=POOL_HSH;	%POOLFLAGS; 		}
-{ASSD|USA|AF|AS?	$POOL N=POOL_OTH;	%POOLFLAGS; AP=YU_ENV;	}
+{ASSD|AF|AS?		$POOL N=POOL_OTH;	%POOLFLAGS; AP=YU_ENV;	}
 {BG?			$POOL N=POOL_BG; 	%POOLFLAGS; AP=BG_ENV;	}
 {GR?			$POOL N=POOL_GR; 	%POOLFLAGS; AP=GR_ENV;	}
 {TR?			$POOL N=POOL_TR;	%POOLFLAGS; AP=TR_ENV;	}
-{SU|RZD|UZ|BCH|EVR|LDZ|LG|GEO|AZ|KAZ|MD?
+{SU|RZD|UZ|BCH|EVR|LDZ|LG|GEO|AZ|KAZ|MD|UZB?
 			$POOL N=POOL_SU; 	%POOLFLAGS; AP=SU_ENV;	}
-{USA?			$POOL N=POOL_USA; 	%POOLFLAGS; AP=US_ENV;	}
+{USA|MEX|CAN?		$POOL N=POOL_USA; 	%POOLFLAGS; AP=US_ENV;	}
 {J?			$POOL N=POOL_JP; 	%POOLFLAGS; AP=J_ENV;	}
 {CN?			$POOL N=POOL_CN;	$POOLFLAGS; AP=CN_ENV;	}
 {SA?			$POOL N=POOL_SA; 	%POOLFLAGS; AP=SA_ENV;	} 
 
 
 $DEF Q_H=[POOL=POOL_HUN:#O]
-$DEF Q_D=[POOL=POOL_GHIST:#O]|[POOL=POOL_BRD:#O]|[POOL=POOL_DDR:#O]
+$DEF Q_D=[POOL=POOL_GHIST:#O]|[POOL=POOL_BRD:#O]|[POOL=POOL_DDR:#O]|[POOL=MLG_D:#O]
 $DEF Q_CH=[POOL=POOL_CH:#O]|[POOL=MLG_CH:#O]
 $DEF Q_F=[POOL=POOL_F:#O]|[POOL=MLG_F3B:#O]|[POOL=MLG_F4A:#O]|[POOL=MLG_F4B:#O]|[POOL=MLG_F5A:#O]|[POOL=MLG_F5B:#O]|[POOL=MLG_F6:#O]
+$DEF Q_A=[POOL=POOL_A:#O]|[POOL=MLG_A:#O]
 $DEF Q_B=[POOL=POOL_B:#O]|[POOL=MLG_B:#O]
 $DEF Q_L=[POOL=POOL_L:#O]|[POOL=MLG_L:#O]
 $DEF Q_NL=[POOL=POOL_NL:#O]|[POOL=MLG_NL:#O]
@@ -72,7 +73,7 @@ $SET QP={H|BRD|DDR|F|NL?1?0}
 $DEF QH=Q_D|Q_F|Q_B|Q_L|Q_I
 $SET QH={BRD|DDR|F|B|L|I?1?0}
 
-$DEF QM=Q_CH|Q_I
+$DEF QM=Q_CH|Q_A|Q_I
 $SET QM={CH|I?1?0}
 
 $DEF QN=Q_N

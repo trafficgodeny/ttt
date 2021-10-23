@@ -68,6 +68,19 @@ $SCENE DY=400; DX=1800; BG=BGPIC\ag_(159a|197b).JPG;					\
     POOL=POOL_BRD:3&#Z&#S&#O;
   $ENDPATH 
 $ENDSCENE 
+#------------------------------------------------------------------------------
+$SCENE DX=1680; DY=600; YDIR=U;										\
+  BG=(EMB11[BC:10]:..,^31; TRBED13[BC:-20]:..,^40; BGPIC/SXC1425761.jpg[BC:-25]:,15);
+  $PATH Y=40; LC=3;
+    POOL=POOL_BRD:#Z&#O&D&P&(5|6); AP=[TX=];
+  $ENDPATH 
+  $PATH Y=500; TB=15; LC=1;
+    C=(JAL_DC10_1970|JAL_DE1|JAL_DE2|JAL_DE4|JAL_FAMILY|JAL_RESOCHA|JAL_B747|JAL_MD11|JAL_B737_400|	\
+	JAL_B747_200SR|JAL_B747_200F|JAL_B747_400|JAL_B767_300|JAL_B770_300|JAL_MD11A|JAL_MD87|		\
+	JAL_B737_400A|JAL_B747_400A|JAL_B747_200SR1|JAL_B747_200F1|JAL_B767_300A|JAL_B777_300|		\
+	JAL_A300_600R)[SP:60];
+  $ENDPATH 
+$ENDSCENE 
 #==============================================================================
 #
 # Switzerland
@@ -136,13 +149,27 @@ $ENDSECTION
 # Italy
 #
 #==============================================================================
+#
+# Viadukt
+#
+$GROUP LC=3; AB=283; BL=300; DX=1680; D=X; TE=2;				\
+    BG=(BGPIC/SXC1424357.JPG:,-340;BRIDGE43:..,^-4,170;TRBED3:..,^0);		\
+    FG=(FL_HOLZ_M1,FL_FS3_F:..,-4);
+  C=FAP_E400,FAP_AN101,FAP_AC201,FAP_C301;
+  C=FS_E400BL,FS_BCIZ62900,FS_BIZ29800,FS_CIZ41100;
+  C=FS_E400_002,FAP_GG301,										\
+      3-6*(FAP_PG601|FAP_PG601F|FAP_PG601A|FAP_LG401|FAP_LG401F|FAP_LG401AF|FAP_LG401A|FAP_SG501|	\
+      FAP_SG501A),$DIR(FAP_LG401,FAP_LG401AF);
+$ENDGROUP 
+#------------------------------------------------------------------------------
 $DEF ISTRIPS= \
 	[DX=1800][DY=480][BG+=BGPIC\BGI1.JPG:,10;] | \
 	[DX=1800][DY=400][BG+=BGPIC\BGI2.JPG:,10;] | \
     	[DX=1544][DY=460][BG+=BGPIC\BGI3.JPG:,10;] | \
     	[DX=1500][DY=600][BG+=BGPIC\BGI4.JPG:,10;] | \
     	[DX=1500][DY=560][BG+=BGPIC\BGI5.JPG;]     | \
-    	[DX=1700][DY=360][BG+=BGPIC\BGI6.JPG:,10;]
+    	[DX=1700][DY=460][BG+=BGPIC\BGI6.JPG:,10;] | \
+    	[DX=2199][DY=760][BG+=BGPIC\BGI8.JPG:,10;]
 #------------------------------------------------------------------------------
 #
 # Dubrovnik (used as an italian city)
@@ -169,7 +196,7 @@ $ENDGROUP
 #------------------------------------------------------------------------------
 # INCROCIO CON SOSTA/SOSTA TD   
 # (LB)
-$SCENE DY=250; YDIR=U; AP=ISTRIPS;
+$SCENE YDIR=U; AP=ISTRIPS;
 #200 è l'altezza della scena
   $PATH Y=20; FG=(HEDGE1:..,-20;PBRIDGE2:35,-3;TRBED25:..,^0;45*STACCION:60);
     M=STOP; D=R; C=(FS_DIESEL_IV,I4PR)|FS_ALN_IV; TB=20;
@@ -182,7 +209,7 @@ $SCENE DY=250; YDIR=U; AP=ISTRIPS;
 $ENDSCENE 
 #------------------------------------------------------------------------------
 # (LB)
-$SCENE DY=200; YDIR=U; AP=ISTRIPS;
+$SCENE YDIR=U; AP=ISTRIPS;
   $PATH Y=20;												\
     FG=(WATERCOLUMNFS:12,-4;(<FL_FS5C,FL_FS5B),2*(<FL_FS5A,FL_FS5B),4*(<FL_FS4A,FL_FS4B):..,-4,#);
     M=$FLG(P,STOP,SIMPLE); POOL=POOL_I:#C&#X&#N&(#S|F)&(2|3|4); D=L; TB=15;
@@ -196,7 +223,7 @@ $ENDSCENE
 #------------------------------------------------------------------------------
 # INCROCIO CON SOSTA/TRANSITO TT
 # (LB)
-$SCENE DY=200; YDIR=U; AP=ISTRIPS;
+$SCENE YDIR=U; AP=ISTRIPS;
   $PATH Y=20; FG=(30*STACCION:20,-4;TREE44:75,-8;palo_tt:..,-4,#);
     M=$FLG(P,STOP,SIMPLE); POOL=POOL_I:(X|D|S)&#N&(#S|F)&(3|4); D=L; TB=20;
   $ENDPATH 
@@ -220,6 +247,14 @@ $GROUP LC=2; AB=330;											\
     14*WALL04:>50-50,-14; WALL04:..,-30);								\
   DX=1600;
   M=$FLG(P,STOP,SIMPLE); POOL=POOL_I:#Z&#O&#C&#X&#N&(#S|F); P=>50+100;
+$ENDGROUP 
+#==============================================================================
+#
+# Kosovo
+#
+#==============================================================================
+$GROUP LC=2; AB=240; BL=100; BG=BGPIC\SXC1345917A.JPG:,-100; FG=BRIDGE43:..,^6; DX=800;
+  POOL=POOL_YU:#E&#O&#M&#Z; AP=[TX=""];
 $ENDGROUP 
 #==============================================================================
 #
@@ -327,3 +362,28 @@ $GROUP LC=2; AB=1330; BL=68; BG=(BGPIC\SXC1259251.JPG; TRBED13:..,^0);					\
   POOL=POOL_USA:#E#Z#O(4|5|6);
 #ENDGROUP
 #==============================================================================
+#
+# China
+#
+#==============================================================================
+#
+# Chinesische Fluss, unterschiedliche Brücken
+#
+$POOL F=PFDES; NAME=POOL_CR;
+  C=CR_ND2L|CR_ND2|CR_DF4OL|CR_DF4C2|CR_DF8B_5001|CR_DF8B_0059|CR_DF8B_7001|CR_DF8B_5178|CR_DF8B_0074|	\
+      CR_DF8B_9000|CR_DF11|CR_NY7,CR_25TTZ|CR_25K(1|2)|CR_25ZGZ;					\
+    F=DP;
+  C=(<CR_DF324L,CR_DF324),15-25*(CR_FLATS|CR_FLATW|CR_C60|CR_C62C|CR_C63T|CR_C63|CR_BOX2|CR_BOX1); F=DF;
+$ENDPOOL 
+
+$SECTION LC=1;
+  $GROUP AB=698; BL=50; BG=BGPIC/SXC1381887.JPG[BC:-30]:,-50;					\
+    FG=(2*(#BRIDGE42A,BRIDGE42A):,-14;BRIDGE42B,469,BRIDGE42B,469,BRIDGE42B:,^-14); DX=1680; D=X;
+    POOL=POOL_CR;
+  $ENDGROUP 
+
+  $GROUP AB=678; BL=70; BG=BGPIC/SXC1381887.JPG:,-70;						\
+    FG=(#BRIDGE12A,2*BRIDGE13,BRIDGE12A:,-15;BRIDGE42B,732,BRIDGE42B,732,BRIDGE42B,:,^-15); DX=1680; D=X;
+    POOL=POOL_CR;
+  $ENDGROUP 
+$ENDSECTION 

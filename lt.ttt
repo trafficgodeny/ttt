@@ -5,8 +5,9 @@
 %*DEFINE(LTFB(B)=120[B:0,20,120,160,%LTSIDE][B:0,18,120,2,#C0C0C0][B:0,0,120,18,#604040]:>100,-20;%B;B:*100-60;)
 %*DEFINE(LTL(B)=C=%B;L; D=L; V=10-15; %LTBG;)
 %*DEFINE(LTLF(B)=C=%B;L; D=L; V=10-15; FG=(%LTFF(%B);); %LTBG;)
+%*DEFINE(LTLB(B)=C=%B;L; D=L; V=10-15; FG=(%LTFB(%B);); %LTBG;)
 %*DEFINE(LTLD(B)=C=%B;L; D=L; V=10-15; %LTBG; FG=(%LTFF(%B); %LTFB(%B););)
-%*DEFINE(LTR(B)=C=%B; D=R; V=10-15; %LTBG;)
+%*DEFINE(LTR(B)=C=%B;; D=R; V=10-15; %LTBG;)
 %*DEFINE(LTRF(B)=C=%B;; D=R; V=10-15; FG=(%LTFF(%B);); %LTBG;)
 %*DEFINE(LTRB(B)=C=%B;; D=R; V=10-15; %LTBG; FG=(%LTFB(%B););)
 %*DEFINE(LTRD(B)=C=%B;; D=R; V=10-15; %LTBG; FG=(%LTFF(%B);%LTFB(%B););)
@@ -16,9 +17,28 @@
 %*DEFINE(LTD(B)=M=PASS; C1=%B;; D1=R; V1=10-15; C2=%B;L; D2=L; V2=10-15; P=*50; T1=0.1; T2=0.1; %LTBG; FG=(%LTFF(%B); %LTFB(%B););)
 %*DEFINE(LTSB=$SECTION LC=1;  IMGY=150; BL=20; AB=10; DY=180;)
 %*DEFINE(LTSE=$ENDSECTION)
+%*DEFINE(LTC(K,T)=)
 
+#-------------------------------
+# 1920 - 30s
+  %LTC(LT20,London in the 1920s)
   %LTSB;
-# 1930s - 40s   
+    %LTSB;
+      %LTD(TILLING_O1)
+      %LTD(TILLING_O2)
+      %LTD(LGOC_O168)
+    %LTSE;
+    %LTSB;
+      %LTD(LGOC_NS_O)
+      %LTD(LGOC_NS_LID)
+      %LTD(LGOC_NS_TUN)
+      %LTLF(TILLING_NS)
+      %LTD(LGOC_NS_PNEU)
+      %LTD(LT_NS_GREEN)
+      %LTD(LGOC_LSO1)
+      %LTD(LGOC_LSO2)
+      %LTD(LGOC_LSO6)
+    %LTSE;
     %LTSB;
       %LTLF(LT_R_SEMI1)
       %LTRF(LT_R_SEMI2)
@@ -27,12 +47,35 @@
     %LTSE;
     %LTRF(LT_R44)
     %LTSB;
+      %LTDF(LT_CH)
+      %LTLF(LT_CH2)
+    %LTSE;
+    %LTSB;
+      %LTRF(LT_DE24)
+      %LTD(BIRCH_B14)
+      %LTRF(WESTM_DE41)
+      %LTRF(LGOC_DE_COUNTRY)
+      %LTLF(LT_D2)
+    %LTSE;
+  %LTSE;
+#-------------------------------
+# 1930s - 40s double decker
+  %LTC(LT30D,London Transport in the 1930s)
+  %LTSB;
+    %LTSB;
       %LTD(LT_LT1)
       %LTD(LT_LT2)
       %LTD(LT_LT2_1)
       %LTD(LT_LT3)
       %LTD(LT_LT5)
       %LTD(LT_LT5_1)
+      %LTD(LT_LT6)
+      %LTD(LT_LT7)      
+    %LTSE;
+    %LTSB;
+      %LTD(LT_LT1137_1)
+      %LTLF(LT_LT1137_2)
+      %LTD(LT_LT1137_3)
     %LTSE;
     %LTD(LT_CC)
     %LTSB;
@@ -52,53 +95,6 @@
       %LTD(LT_DST)
       %LTDF(LT_DST5)
     %LTSE;
-    %LTSB;    
-      %LTD(LT_LTL1)
-      %LTD(LT_LT1131)
-      %LTD(LT_LTLREB)
-    %LTSE;
-    %LTSB;
-      %LTD(GEN_1T1)
-      %LTD(LT_1T1_2)
-      %LTD(LT_1T1_3)
-      %LTD(GEN_T38)
-      %LTD(LT_T38_2)
-      %LTD(GEN_7T7_1)
-      %LTD(LT_7T7_2)
-      %LTRF(LT_LORRY)
-      %LTD(LT_7T7_3)
-      %LTD(LT_7T7_5)
-      %LTLF(LT_7T7_4A)
-      %LTLF(LT_7T7_4B)
-      %LTDF(LT_8T8)
-      %LTD(LT_3T3_2)
-      %LTLF(LT_T401)
-      %LTRF(LT_114W)
-      %LTD(LT_5T4)
-      %LTLF(LT_T363)
-      %LTDF(LT_T366)
-      %LTLF(LT_T367)
-      %LTLF(LT_T369G)
-      %LTLF(LT_T369R)
-      %LTD(LT_T372)
-      %LTLF(LT_T382)
-      %LTLF(LT_T391G)
-      %LTLF(LT_T391R)
-      %LTLF(LT_T396)
-      %LTD(LT_11T11A)
-      %LTD(LT_11T11B)
-      %LTD(LT_11T11C)
-      %LTD(LT_9T9_1)
-      %LTD(LT_9T9_CBUS)
-      %LTD(LT_9T9_GRN)
-      %LTD(LT_10T10_1)
-      %LTD(LT_10T10_2)
-      %LTD(LT_10T10_3)
-      %LTD(LT_10T10ARC)
-      %LTD(LT_10T10)
-      %LTD(LT_10T10RED)
-    %LTSE;
-    %LTD(LT_CB)
     %LTSB;
       %LTD(LT_DL)
       %LTRF(LT_DL_LT)
@@ -106,46 +102,14 @@
       %LTRF(LT_DL_BRCH)
     %LTSE;
     %LTSB;
-      %LTLF(LT_DDL)
-      %LTLF(LT_DT1)
-      %LTD(LT_DT3)
-      %LTDF(LT_DT7)
-      %LTLF(LT_DT9)
-    %LTSE;
-    %LTSB;
-      %LTD(LT_DARED)
-      %LTD(LT_DA2)
-    %LTSE;
-    %LTSB;
-      %LTD(LT_GF129B)
-      %LTLF(LT_GF193)
-      %LTD(LT_GF22)
-      %LTDF(LT_GF51)
-    %LTSE;
-    %LTSB;
-      %LTLF(LT_DC1)
-      %LTRF(LT_DC3)
-    %LTSE;
-    %LTSB;
       %LTD(LT_TD_BASE)
       %LTD(LT_TD_DOD)
       %LTRF(LT_TD_BRCH1)
       %LTD(LT_TD_BRCH2)
-      %LTD(LT_TD131B)
-      %LTRD(LT_TD_PREM)
-    %LTSE;
-    %LTSB;
       %LTD(LT_TD_MDHI)
       %LTD(LT_TD_MDLO)
       %LTRF(LT_TD_MDOT1)
       %LTLD(LT_TD_MDOT2)
-    %LTSE;
-    %LTSB;
-      %LTD(LT_TR_MD)
-      %LTD(LT_TR_PREM)
-      %LTD(LT_TR1B)
-      %LTLF(LT_TR_RED1)
-      %LTRF(LT_TR_RED2)
     %LTSE;
     %LTSB;
       %LTD(LT_STLGEN)
@@ -201,8 +165,122 @@
       %LTD(LT_STD_PST2)
     %LTSE;
     %LTSB;
-      %LTDF(LT_CH)
-      %LTLF(LT_CH2)
+      %LTD(LT_2Q2RED)
+      %LTD(LT_2Q2GRN)
+      %LTD(LT_3Q3GRN)
+      %LTD(LT_7Q7GRN)
+      %LTD(LT_7Q7_2GRN)
+    %LTSE;
+  %LTSE;
+#-------------------------------
+# 1930s - 40s single decker
+  %LTC(LT30S,London Transport in the 1930-1940s)
+  %LTSB;
+    %LTSB;
+      %LTD(LT_14T12)
+      %LTD(LT_15T13GW)
+      %LTD(LT_15T13)
+    %LTSE;
+    %LTSB;    
+      %LTD(LT_LTL1)
+      %LTD(LT_LTLWAR)
+      %LTD(LT_LT1131)
+      %LTD(LT_LTLREB)
+      %LTLF(LT_LTL_LGCS)
+      %LTRB(LGOC_LTL_LGCS)
+      %LTD(LT_2LTL3)
+      %LTD(LT_LTL1428)
+      %LTD(LT_LT1429)
+    %LTSE;
+    %LTSB;
+      %LTD(LT_LTC)
+      %LTD(LT_LTCPOST)
+    %LTSE;
+    %LTSB;
+      %LTD(LGOC_1T1)
+      %LTD(LT_1T1_2)
+      %LTD(LT_1T1_3)
+      %LTD(LGOC_T38)
+      %LTD(LT_T38_2)
+      %LTD(LGOC_7T7_1)
+      %LTD(LT_7T7_2)
+      %LTRF(LT_LORRY)
+      %LTD(LT_7T7_3)
+      %LTD(LT_7T7_5)
+      %LTLF(LT_7T7_4A)
+      %LTLF(LT_7T7_4B)
+      %LTDF(LT_8T8)
+      %LTD(LT_3T3_2)
+      %LTLF(LT_T401)
+      %LTRF(LT_114W)
+      %LTD(LT_5T4)
+      %LTLF(LT_T363)
+      %LTDF(LT_T366)
+      %LTLF(LT_T367)
+      %LTLF(LT_T369G)
+      %LTLF(LT_T369R)
+      %LTD(LT_T372)
+      %LTLF(LT_T382)
+      %LTLF(LT_T391G)
+      %LTLF(LT_T391R)
+      %LTLF(LT_T396)
+      %LTD(LT_11T11A)
+      %LTD(LT_11T11B)
+      %LTD(LT_11T11C)
+      %LTD(LT_9T9_1)
+      %LTD(LT_9T9_CBUS)
+      %LTD(LT_9T9_GRN)
+      %LTD(LT_10T10_1)
+      %LTD(LT_10T10_2)
+      %LTD(LT_10T10_3)
+      %LTD(LT_10T10ARC)
+      %LTD(LT_10T10)
+      %LTD(LT_10T10RED)
+    %LTSE;
+    %LTD(LT_CB)
+    %LTSB;
+      %LTLF(LT_DDL)
+      %LTLF(LT_DT1)
+      %LTD(LT_DT3)
+      %LTDF(LT_DT7)
+      %LTLF(LT_DT9)
+    %LTSE;
+    %LTSB;
+      %LTD(LT_DARED)
+      %LTD(LT_DA2)
+    %LTSE;
+    %LTSB;
+      %LTD(LT_GF129B)
+      %LTLF(LT_GF193)
+      %LTD(LT_GF22)
+      %LTRF(LT_GF29)
+      %LTDF(LT_GF51)
+      %LTRF(LT_GF111C)
+      %LTLF(LT_GF92C)
+      %LTD(LT_GF123C)
+      %LTRF(LT_GF139B)
+      %LTRF(LT_GF145)
+      %LTD(LT_GF149B)
+      %LTLF(LT_GF160C)
+      %LTRF(LT_GF171B)
+      %LTRF(LT_GF_CP6)
+      %LTLF(LT_GF194)
+    %LTSE;
+    %LTSB;
+      %LTLF(LT_DC1)
+      %LTR(LGOC_DC1G)
+      %LTRF(LT_DC3)
+    %LTSE;
+    %LTSB;
+      %LTD(LT_TD131B)
+      %LTRD(LT_TD_PREM)
+      %LTD(LT_TR_MD)
+      %LTD(LT_TR_PREM)
+      %LTD(LT_TR1B)
+      %LTLF(LT_TR_RED1)
+      %LTRF(LT_TR_RED2)
+    %LTSE;
+    %LTSB;
       %LTLF(LT_BD1)
       %LTRF(LT_BD9)
     %LTSE;
@@ -220,11 +298,6 @@
       %LTD(LT_1Q1C)
     %LTSE;
     %LTSB;
-      %LTD(LT_2Q2RED)
-      %LTD(LT_2Q2GRN)
-      %LTD(LT_3Q3GRN)
-    %LTSE;
-    %LTSB;
       %LTD(LT_4Q4GG)
       %LTD(LT_4Q4RW226)
       %LTD(LT_4Q4GL)
@@ -236,14 +309,6 @@
       %LTD(LT_5Q5RED)
       %LTD(LT_6Q6GG)
       %LTD(LT_6Q6POST)
-    %LTSE;
-    %LTSB;
-      %LTD(LT_7Q7GRN)
-      %LTD(LT_7Q7_2GRN)
-    %LTSE;
-    %LTSB;
-      %LTD(LT_LTC)
-      %LTD(LT_LTCPOST)
     %LTSE;
     %LTSB;
       %LTD(LT_1TF1)
@@ -258,8 +323,10 @@
       %LTD(LT_CRGRN)    
     %LTSE;
   %LTSE;
-  %LTSB;  
+#-------------------------------
 # 1940s - 50s  
+  %LTC(LT40S,London Transport in the 1940-1950s)
+  %LTSB;  
     %LTSB;
       %LTD(LT_B_PK1)
       %LTD(LT_B_DUP2)
@@ -315,10 +382,12 @@
     %LTSB;
       %LTD(LT_1TD1)
       %LTD(LT_2TD2)
-      %LTL(LT_ST1140)
     %LTSE;
+#-------------------------------
 # 1950s - 70s    
+    %LTC(LT50A,London Transport in the 1950-1970s)
     %LTSB;
+      %LTL(LT_ST1140)
       %LTD(LT_RT1_1)
       %LTD(LT_RT1_2)
       %LTD(LT_RT_WAR)
@@ -371,8 +440,10 @@
       %LTD(LT_RLH_RED)
     %LTSE;
   %LTSE;
-  %LTSB;
+#-------------------------------
 # 1950s - 90s    
+  %LTC(LT50B,London Transport in the 1950-1990s);
+  %LTSB;
     %LTSB;
       %LTD(LT_RM1PROTO)
       %LTD(LT_RM1_2)
@@ -447,8 +518,10 @@
       %LTD(LT_RCGRN)
     %LTSE;
   %LTSE;
-  %LTSB;  
+#-------------------------------
 # 1960s - 70s
+  %LTC(LT60,London Transport in the 1960-1970s)
+  %LTSB;  
     %LTSB;
       %LTD(LT_XF)
       %LTD(LT_XA1)
@@ -488,6 +561,7 @@
       %LTLF(LT_FS3)
     %LTSE;
 # 1970s - 90s    
+    %LTC(LT70,1970-1990)
     %LTSB;
       %LTD(LT_MS_DEMO)
       %LTD(LT_MS_LT)
@@ -499,6 +573,8 @@
       %LTD(LT_LS_50)
       %LTD(LT_LS_DC)
       %LTLF(LT_LS_FOR)
+      %LTD(LT_LS_2)
+      %LTD(LT_LS454)
     %LTSE;
     %LTSB;
       %LTD(LT_GLS1)
@@ -518,8 +594,10 @@
       %LTLF(LT_MD127)
     %LTSE;
   %LTSE;
-  %LTSB; 
+#-------------------------------
 # 1980s - 2000s   
+  %LTC(LT80,London Transport in the 1980s)
+  %LTSB; 
     %LTSB;
       %LTD(LT_B15)
       %LTD(LT_TN_1A)
@@ -542,122 +620,229 @@
       %LTD(LT_V_VHM)
       %LTD(LT_V_WM_PB)
     %LTSE;
-# London Buses and successors
+    %LTD(LT_C1)
+# London Buses
+    %LTC(LTBU,London Buses)
     %LTSB;
       %LTD(LTBU_T_1)
       %LTD(LTBU_M9)
       %LTD(LTBU_M10)
       %LTDF(LTBU_M11)
       %LTDF(LT_A)
+      %LTD(LT_OV)
       %LTD(LTBU_H)
-      %LTD(LTBU_H)
+      %LTD(LTBU_DA1)
+      %LTD(LTBU_DA_EL)
+      %LTD(LTBU_DA2A)
+      %LTDF(LTBU_SA1)
       %LTD(LTBU_L_AVE)
       %LTD(LTBU_L_LB1)
+      %LTD(LTBU_S)
+      %LTRF(LTBU_SD1)
+      %LTRF(LTBU_SX43)
+      %LTD(LTBU_S_NC2)
     %LTSE;
     %LTSB;
-      %LTDF(HARB_M12)
-      %LTD(HARB_V_WM)
+      %LTD(LTBU_LX)
+      %LTLF(LTBU_LX2)
+      %LTD(LTBU_LA)
+      %LTD(LTBU_LN)
+      %LTD(LTBU_LV)
     %LTSE;
+    %LTSB;
+      %LTD(LTBU_DR)
+      %LTD(LTBU_DR9)
+      %LTD(LTBU_DT)
+      %LTD(LTBU_DEL1)
+    %LTSE;
+    %LTSB;
+      %LTD(LTBU_OV)
+      %LTD(LTBU_OV_CARE)
+      %LTD(LTBU_MR14)
+      %LTRF(LTBU_MR_WA)
+      %LTRF(LTBU_MR_NU)
+      %LTD(LTBU_MRL210)
+      %LTD(LTBU_OP1)
+      %LTD(LTBU_SR)
+      %LTD(LTBU_MA_GA)
+      %LTD(LTBU_MA_UX)
+      %LTRF(LTBU_MA_SL)
+      %LTRF(LTBU_MA_MIDI)
+      %LTD(LTBU_MT_SS)
+      %LTD(LTBU_MT6)
+      %LTRF(LTBU_MT_MOB)
+      %LTRF(LTBU_MTL1)
+      %LTD(LTBU_MTL2)
+      %LTD(LTBU_MW)
+      %LTRF(LTBU_MW_MOB)
+      %LTD(LTBU_MW17)
+    %LTSE;
+    %LTRF(LTBU_LD)
+  %LTSE;
+#-------------------------------
+# London Buses successors
+  %LTSB;
+# Centrewest    
+    %LTC(LTCW,Centrewest)
     %LTSB;
       %LTLF(LTCW_M)
       %LTLF(LTCW_L_NC)
-      %LTLF(LTFR_L_A)
-      %LTRF(LTFR_L_NC)
-      %LTLF(LTFR_L_AH)
+      %LTD(LTCW_DW_GA)
+      %LTD(LTCW_DRL)
+      %LTRF(LTCW_EDR)
+      %LTD(LTCW_DM_EALING)
+      %LTLF(LTCW_DLP1)
+      %LTRF(LTCW_L_A10)
+      %LTRF(LTCW_L105)
+      %LTD(LTCW_LS2)
+      %LTD(LORP_OV)
+      %LTD(LORP_MRL)
     %LTSE;
-    %LTD(LTLE_L_ALEX)
-    %LTD(LTCE_T_SL)
+# Leaside    
+    %LTC(LTLE,Leaside)
+    %LTSB;
+      %LTD(LTLE_L_ALEX)
+      %LTD(LTLE_DBS)
+      %LTD(LTLE_DRL)
+      %LTD(LTLE_LDR)
+    %LTSE;
+# London Central
+    %LTC(LTCE,London Central)
+    %LTSB;
+      %LTD(LTCE_T_SL)
+      %LTD(LTCE_NV1)
+      %LTD(LTCE_NV2)
+      %LTRF(LTCE_NV_DX)
+      %LTD(LTCE_AV)
+      %LTD(LTCE_LDP_L1B)
+      %LTLF(LTCE_LDP_MPD)
+      %LTD(LTCE_DMS)
+      %LTD(LTCE_DML)
+      %LTRF(LTCE_SR_P)
+      %LTRF(LTCE_SR_CAMB)
+    %LTSE;    
+# London Forest 
+    %LTC(LFOR,London Forest)   
     %LTRF(LFOR_TP)
-    %LTRF(LTGO_MT)
-    %LTD(MTL_T)
+# London General
+    %LTC(LGEN,London General)
+    %LTSB;
+      %LTD(LGEN_VC1)
+      %LTD(LGEN_NV2)
+      %LTRF(LGEN_MT)
+      %LTD(LGEN_DW)
+      %LTD(LGEN_DRL)
+      %LTLF(LGEN_LDP_M1B)
+      %LTLF(LGEN_LDP_L1B)
+      %LTD(LGEN_LDP_L2)
+    %LTSE;  
+# London United
+    %LTC(LTLU,London United)
     %LTSB;
       %LTD(LTLU_L)
       %LTRF(LTLU_L_AIR)
+      %LTLF(LTLU_LX)
+      %LTD(LTLU_VA1)
+      %LTD(LTLU_VA2)
+      %LTD(LTLU_AV_AIR1)
+      %LTD(LTLU_DFD)
+      %LTD(LTLU_DT)
+      %LTRF(LTLU_DR)
+      %LTD(LTLU_DRL)
+      %LTD(LTLU_CD)
+      %LTD(LTLU_L21)
+      %LTD(LTLU_T4)
+      %LTD(LTLU_555)
+      %LTLF(LTLU_L22)
+      %LTLF(LTLU_M22)
+      %LTD(LTLU_S21)
+      %LTLF(TDEVU_S21)
     %LTSE;
+# Metroline
+    %LTC(LMET,Metroline)
     %LTSB;
+      %LTD(LMET_EDR)
+      %LTD(LMET_EDR2)
+      %LTD(LMET_AV)
+      %LTD(LMET_NV_LP2)
+      %LTLF(LMET_LN)
+      %LTD(LMET_DT)
+      %LTD(LMET_DMS)
+      %LTD(LMET_DML)
+      %LTD(LMET_DL)
+      %LTD(LMET_DLS)
+      %LTD(LMET_DLD)
+      %LTLF(LMET_DLM)
+      %LTLF(LMET_DSD)
+      %LTLF(LMET_DP)
+      %LTRF(LMET_SR_NLR)
+    %LTSE;    
+# London Northern / MTL London
+    %LTSB;
+      %LTC(LBNO,London Northern)
+      %LTD(LBNO_DNL)
+      %LTD(LBNO_OP2)
+      %LTD(LBNO_SR)
+      %LTC(MTL,MTL London)    
+      %LTD(MTL_T)
+      %LTD(MTL_DA)
+      %LTRF(MTL_NV_P2)
+      %LTD(MTL_DC)
+      %LTD(MTL_DR9)
+      %LTDF(MTL_DM242)
+      %LTD(MTL_MM)
+      %LTD(MTL_MM2)
+      %LTD(MTL_MV)
+      %LTD(MTL_MW1)
+    %LTSE;
+# Selkent + South London
+    %LTSB;    
+      %LTC(SELK,Selkent)
       %LTD(SELK_TN_WM)
       %LTD(SELK_L_SKT)
+      %LTC(SLON,South London)
+      %LTD(SLON_RM5_B)
+      %LTC(LTCG,Cowie Group)
+      %LTLF(LTCG_L)
+    %LTSE;
+# Westlink  
+    %LTC(LTWL,Westlink)
+    %LTSB;  
+      %LTD(LTWL_TN)
+      %LTD(LTWL_LS)
+      %LTD(LTWL_DA3)
+      %LTD(LTWL_VA2)
+      %LTRF(LTWL_DWL)
+      %LTLF(LTWL_DR)
+      %LTLF(LTWL_MV2)
+      %LTD(LTWL_XL)
+      %LTD(LTWL_MR)
+      %LTD(LTWL_MRL211)
+      %LTRF(LTWL_MRW)
+    %LTSE;
+# Bexleybus
+    %LTC(BEX,Bexleybus)
+    %LTSB;
       %LTLF(BEX_DMS2)
       %LTLF(BEX_DMS1)
       %LTD(BEX_L)
+      %LTLF(BEX_MR)
+      %LTLF(BEX_SR)
     %LTSE;
+# Harrow Buses  
+    %LTC(HARB,Harrow Buses)  
     %LTSB;
-      %LTD(SLON_RM5_B)
-      %LTLF(LTCG_L)
-      %LTD(ARLS_L_NC)
+      %LTDF(HARB_M12)
+      %LTD(HARB_V_WM)
+      %LTD(HARB_LT_LS)
+      %LTLF(HARB_MR)
+      %LTLF(HARB_SR)
     %LTSE;
-    %LTD(LTWL_TN)
-# London buses new operators
-    %LTD(LTAT_T)
-    %LTSB;
-      %LTD(LTBT_T)
-      %LTD(LTBT_M)
-      %LTLF(LTBT_M2)
-    %LTSE;
-    %LTSB;
-      %LTRF(BTS_AN)
-      %LTD(BTS_L_NC)
-    %LTSE;
-    %LTSB;
-      %LTRF(BORM_V)
-      %LTD(BORM_L)
-      %LTD(BORM_L_NC)
-    %LTSE;
-    %LTSB;
-      %LTRF(CITR_DM1)
-      %LTRF(CITR_DM2)
-    %LTSE;
-    %LTSB;
-      %LTD(ENS_DMS)
-      %LTRF(ENS_M)
-      %LTRF(ENS_DDN2)
-      %LTD(ENS_L_A)
-    %LTSE;
-    %LTSB;
-      %LTRF(LTCC_RM5)
-      %LTD(LTCC_T)
-      %LTD(LTCC_DDN2)
-      %LTLF(LTCC_DDN1)
-      %LTLF(LTCC_DDE)
-      %LTRF(LTCC_DA_ML)
-      %LTLF(LTCC_DDA_KC)
-      %LTDF(LTCC_DDE_LC)
-      %LTD(LTCC_L_NC)
-      %LTLF(LTCC_LR250A)
-      %LTLF(LTCC_LR250B)
-      %LTD(LTCC_LL)
-      %LTD(LTCC_L_NC166)
-      %LTD(LTCC_L_A)
-    %LTSE;
-    %LTSB;
-      %LTLF(LTGG_DM)
-      %LTLF(LTGG_DMNC)
-      %LTLF(LTGG_DFNC)
-      %LTLF(LTGG_M14)
-      %LTLF(LTGG_L_NC)
-    %LTSE;
-    %LTSB;
-      %LTD(LTMB_DMS)
-      %LTLF(LTMB_LRC)
-      %LTD(LTMB_M13)
-      %LTD(LTMB_LR)
-      %LTD(LTMB_LL)
-    %LTSE;
-    %LTSB;
-      %LTRF(LONB_DM)
-      %LTLF(LONB_DMNC)
-      %LTD(LONB_L_A)
-      %LTLF(LONB_L_NC)
-    %LTSE;
-    %LTSB;
-      %LTLF(LCOA_LC)
-      %LTRF(LCOA_H)
-    %LTSE;
-    %LTRF(SAMP_DM)
-    %LTD(UNIB_GSN)
   %LTSE;
+#-------------------------------
+# London Country
   %LTSB;
-# London Country      
+    %LTC(LONC,London Country)
     %LTSB;
       %LTLF(LONC_RF1)
       %LTLF(LONC_RF2)
@@ -787,12 +972,39 @@
       %LTD(LONC_LR_ROE)
       %LTD(LONC_LR_ECW)
     %LTSE;
+    %LTSB;
+      %LTD(LONC_VCEL1)
+      %LTD(LONC_VCNC1)
+    %LTSE;
     %LTD(LONC_PD3LR)
-# London Country successors
+  %LTSE;    
+#-------------------------------
+  %LTSB;
+# Alder Valley  
+    %LTC(LTAV, Alder Valley)
+    %LTDF(LTAV_L_A) 
+# Eastern National / Thamesway    
+    %LTSB;
+      %LTC(ENAT,Eastern National)
+      %LTLF(ENAT_LRC)
+      %LTD(ENAT_MT1)
+      %LTD(ENAT_MTL1)
+      %LTC(THAM,Thamesway)
+      %LTD(THAM_LL)
+      %LTD(THAM_DRL)
+      %LTD(THAM_EDR)
+      %LTDF(THAM_DM)
+      %LTDF(THAM_MT1)
+      %LTRF(THAM_MTL1)
+    %LTSE;
+# London Country North-East   
+    %LTC(LCNE,London Country North-East) 
     %LTSB;
       %LTD(LCNE_AN_SCO)
       %LTLF(LCNE_LR)
     %LTSE;
+# London Country North-West
+    %LTC(LCNW,London Country North-West)
     %LTSB;
       %LTD(LCNW_AN_GM)
       %LTLF(LCNW_LNB69)
@@ -800,19 +1012,51 @@
       %LTLF(LCNW_TPL)
       %LTD(LCNW_LR)
       %LTRB(LCNW_L_NC)
+      %LTRF(LCNW_DC)
+      %LTD(LCNW_MR)
+      %LTLF(LCNW_OV)
     %LTSE;
+# Kentish Bus    
+    %LTC(KEB,Kentisch Bus)
     %LTSB;
-      %LTD(KEB_AN)
-      %LTRF(KEB_AN_G)
-      %LTD(KEB_SNB)
-      %LTD(KEB_GSN1)
-      %LTD(KEB_GSN2)
-      %LTRF(KEB_LEX)
-      %LTLF(KEB_L)
-      %LTD(KEB_L_NC)
-      %LTD(KEB_L_NC2)
-      %LTD(KEB_LR)
+      %LTSB;
+        %LTD(KEB_AN)
+        %LTRF(KEB_AN_G)
+        %LTRF(KEB_VA)
+        %LTRF(KEB_LEX)
+        %LTLF(KEB_L)
+        %LTD(KEB_L_NC)
+        %LTD(KEB_L_NC2)
+        %LTD(KEB_LR)
+        %LTRF(KEB_VCNC1)
+        %LTD(KEB_S)
+        %LTD(KEB_NV_P2)
+      %LTSE;
+      %LTSB;
+        %LTD(KEB_SNB)
+        %LTD(KEB_GSN1)
+        %LTD(KEB_GSN2)
+        %LTLF(KEB_LX1)
+        %LTRF(KEB_LX_NLR)
+        %LTRF(KEB_LX2)
+        %LTRF(KEB_DC)
+        %LTD(KEB_DNL)
+        %LTD(KEB_VB6)
+        %LTRF(KEB_SLF_L1A)
+        %LTD(KEB_PL)
+        %LTLF(KEB_TL240)
+        %LTD(KEB_LSL)
+      %LTSE;
+      %LTSB;
+        %LTD(KEB_MR_NU)
+        %LTD(KEB_MRL_D)
+        %LTRF(KEB_MRL)
+        %LTD(KEB_MRL3)
+        %LTD(KEB_MRL4)
+      %LTSE;
     %LTSE;
+# London Country South-West
+    %LTC(LCSW,London COuntry South-West)
     %LTSB;
       %LTD(LCSW_AN_GM)
       %LTRF(LCSW_TP_SR)
@@ -821,13 +1065,88 @@
       %LTRF(LCSW_DD1C)
       %LTRF(LCSW_LR_LAC)
     %LTSE;
+# Bee Line + Maidstone & District
+    %LTSB;
+      %LTC(LBEE,Bee Line)
+      %LTRF(LBEE_L1)
+      %LTLF(LBEE_L2)
+      %LTRF(LBEE_L505)
+      %LTRF(LBEE_LX)
+      %LTRF(LBEE_EDR)
+      %LTRF(LBEE_L212)
+      %LTLF(LBEE_L213)
+      %LTD(LBEE_MPD)
+      %LTC(MAIN,Maidstone & District)
+      %LTDF(MAID_D)
+      %LTD(MAID_L_NC1)
+    %LTSE; 
+# Luton & District, The Shires
+    %LTC(LUTD,Luton & District - The Shires)
+    %LTSB;
+      %LTRF(LUTD_L_AL)
+      %LTD(LUTD_DW)
+      %LTRF(LUTD_DW2)
+      %LTRF(LUTD_L_AL2)
+      %LTRF(LUTD_AN)
+      %LTD(LUTD_GSN)
+      %LTRF(LUTD_LR)
+      %LTRF(LUTD_L_NC)
+      %LTLF(LUTD_L_ALXCS)
+      %LTD(LUTD_NV_P1)
+      %LTRF(LUTD_LX)
+      %LTRF(LUTD_DC)
+      %LTD(LUTD_VB6)
+      %LTRF(LUTD_ATS)
+      %LTRF(LUTD_SLF_L1A)
+      %LTD(LUTD_LS2)
+      %LTD(LUTD_MBV)
+      %LTRF(LUTD_MBV_PR)
+    %LTSE;
+# National Express    
+    %LTC(NEX,National Express)
+    %LTD(NEX_AV)
+  %LTSB;
+#-------------------------------  
+  %LTSE;
+# County Bus and Coach
+    %LTC(COBC,County Bus and Coach)
     %LTSB;
       %LTLF(COBC_SNB_LV)
       %LTLF(COBC_M15)
       %LTRF(COBC_LR1)
       %LTRF(COBC_LR2)
       %LTLF(COBC_L_NC)
+      %LTRF(COBC_OD621)
+      %LTRF(COBC_LX)
+      %LTLF(COBC_LX2)
+      %LTD(COBC_DRL)
+      %LTRF(COBC_DW)
+      %LTRF(COBC_DWM)
+      %LTRF(COBC_L1)
+      %LTRF(COBC_DPP)
+      %LTLF(COBC_MT1)
+      %LTLF(COBC_MT2)
+      %LTRF(COBC_MTL1)
     %LTSE;
+# Epsom Coaches 
+    %LTC(EPSC,Epsom Coaches)   
+    %LTSB;
+      %LTRF(EPSC_K321GEW)
+      %LTD(EPSC_MPD)
+      %LTRF(EPSC_MPDR)
+      %LTD(EPSC_L1)
+      %LTD(EPSC_ALX_X1)
+      %LTRF(EPS_ALX_X1R)
+      %LTRF(EPSC_ALX_K50)
+      %LTRF(EPSC_ALX2)
+      %LTD(EPSC_ELM)
+      %LTRF(EPSC_MRL)
+      %LTD(EPSC_MT)
+      %LTDF(EPSC_MB_UVG)
+      %LTD(EPSC_MB)
+    %LTSE;
+# London & Country
+    %LTC(LAC,London & Country)   
     %LTSB;
       %LTD(LAC_AN)
       %LTD(LAC_SNB)
@@ -835,17 +1154,38 @@
       %LTDF(LAC_DD_MAYNE)
       %LTDF(LAC_DD16)
       %LTLF(LAC_L_NC)
+      %LTLF(LAC_L_A)
+      %LTRF(LAC_LX)
+      %LTD(LAC_VO1)
+      %LTDF(LAC_LS)
+      %LTD(LAC_DEL1)
+      %LTD(LAC_DEL2)
+      %LTRF(LAC_DSL)
+      %LTRF(LAC_DSL_EL)
+      %LTRF(LAC_DSL_L1A)
+      %LTRF(LAC_DSL_H)
     %LTSE;
+# London Links  
+    %LTC(LLNK,London Links)
     %LTSB;
-      %LTRF(TSHI_AN)
-      %LTD(TSHI_GSN)
-      %LTRF(TSHI_LR)
-      %LTRF(TSHI_L_NC)
+      %LTD(LLNK_VCELDD1)
+      %LTD(LLNK_VCELNW1)
+      %LTRF(LLNK_VA)
+      %LTD(LLNK_DRL)
+      %LTLF(LLNK_DNL)
+      %LTD(LLNK_VB6)
+      %LTRF(LLNK_MRL)
     %LTSE;
+# Regal Busways
+    %LTC(REGAL,Regal Busways)    
     %LTSB;
-      %LTLF(ATSH_BTL)
-      %LTL(ATSH_L_NC)
+      %LTD(REGAL_LT)
+      %LTLF(REGAL_VB6)
+      %LTD(REGAL_701)
+      %LTD(REGAL_604)
     %LTSE;
+# Sovereign Bus and Coach
+    %LTC(SOV,Sovereign Bus and Coach)    
     %LTSB;
       %LTRF(SOV_SNB)
       %LTLF(SOV_SNB_WHL)
@@ -853,68 +1193,765 @@
       %LTRF(SOV_LR1)
       %LTRF(SOV_LR2)
       %LTRF(SOV_L_NC)
+      %LTD(SOV_NV_P1)
+      %LTLF(SOV_LX1)
+      %LTRF(SOV_LX2)
+      %LTRF(SOV_VA2)
+      %LTRF(SOV_501A)
+      %LTRF(SOV_501B)
+      %LTLF(SOV_502)
+      %LTLF(SOV_M2)
+      %LTLF(SOV_S2)
+      %LTD(SOV_L1)
+      %LTD(SOV_MPD)
+      %LTRF(SOV_MR)
+      %LTLF(SOV_MT1)
+      %LTD(SOV_MTL1)
+      %LTRF(SOV_MTL2)
+      %LTLF(WHL_OV)
+      %LTRF(WHL_SR)
+      %LTRF(WHL_MTL1)
+      %LTLF(TDEV_M2)
+      %LTLF(TDEV_S2)
     %LTSE;
-# Other companies
+  %LTSE;
+#-------------------------------
+  %LTSB;
+# Various (1-2 buses)
+    %LTSB;
+      %LTC(BEL,Bus Engineering Limited)
+      %LTD(BEL_RMA)
+      %LTC(BUZZ,Buzz Co-operative)
+      %LTRF(BUZZ_SR)
+      %LTC(CLOG,Capital Logistics)
+      %LTD(CLOG_XL)
+      %LTC(CRYS,Crystals coaches)
+      %LTSB;
+        %LTRF(CRYS_SR)
+        %LTD(CRYS_MB)
+      %LTSE;
+      %LTC(DTA,Dartford Tunnel Authority)
+      %LTD(DTA_TT)
+      %LTC(ELC,East London Coaches)
+      %LTRF(ELC_TP)
+      %LTC(ESUR,East Surrey)
+      %LTL(ESUR_SR)
+      %LTC(FHAL,Flights Hallmark)
+      %LTSB;
+        %LTD(FHAL_MPD)
+        %LTRF(FHAL_MB)
+      %LTSE;
+      %LTC(GBOY,Golden Boy)
+      %LTRF(GBOY_MB)
+      %LTC(GPAL,Grant Palmer)
+      %LTSB;
+        %LTRF(GPAL_MB1)
+        %LTLF(GPAL_MB2)
+      %LTSE;
+      %LTC(GOCO,Go coach)
+      %LTRF(GOCO_AV_DUB)
+      %LTC(LEWIS,Lewis Travel)
+      %LTLF(LEWIS_MB)
+      %LTC(LCOA,London Coaches)
+      %LTSB;
+        %LTLF(LCOA_LC)
+        %LTRF(LCOA_H)      
+      %LTSE;
+      %LTC(LSUB,London Suburban (1993-1996))
+      %LTLF(LSUB_NV_P2) 
+      %LTC(OWEN,Owens Coaches)
+      %LTLF(OWEN_MB)
+      %LTC(REDLINE,Redline Buses)
+      %LTRF(REDLINE_MB)
+      %LTC(REDL,Red Line (Brickwood))
+      %LTD(REDL_STL1)
+      %LTC(REDR,Red Rose Travel of Aylesbury)
+      %LTSB;
+        %LTRF(REDR_MB)
+        %LTRF(REDR_MB2)
+      %LTSE;
+      %LTC(REDROV,Red Rover)
+      %LTLF(REDROV_OV)
+      %LTC(REPT,Reptons Coaches)
+      %LTRF(REPT_MB)
+      %LTC(LTRI,R&I Tours of North London)
+      %LTSB;
+        %LTRF(LTRI_DC)
+        %LTRF(LTRI_MRL)
+      %LTSE;
+      %LTC(SAFG,Safeguard Coaches)
+      %LTD(SAFG_XL)
+      %LTC(SEAM,Seamarks (Luton))
+      %LTRF(SEAM_DA)
+      %LTC(SAMP,Sampsons)
+      %LTRF(SAMP_DM)
+      %LTC(SMCO,S.M.Coaches)
+      %LTSB;
+        %LTLF(SMCO_DAF)
+        %LTD(SMCO_MB)
+      %LTSE;
+      %LTC(SEPR,South Eastern Provincial)
+      %LTLF(SEPR_MBA)
+      %LTC(SOUE,Southend Corporation)
+      %LTD(SOUE_PD3)
+      %LTC(TVT,Thames Valley Training)
+      %LTD(TVT_LS)
+      %LTC(TCTY,TransCity)
+      %LTD(TCTY_DRL)
+      %LTC(ABES,Abellio Surrey)
+      %LTDF(ABES_AB)
+      %LTC(WOT,Walton on Thames)
+      %LTRF(WOT_DC)
+      %LTC(WILTAX,Wiltax Buses)
+      %LTLF(WILTAX_AV)
+      %LTC(WOOT,Woottens Luxury Travel)
+      %LTSB;
+        %LTRF(WOOT_L)
+        %LTD(WOOT_LT)
+      %LTSE;
+      %LTC(ZSI,Z&S International)
+      %LTSB;
+        %LTRF(ZSI_MB1)
+        %LTRF(ZSI_MB2)
+      %LTSE;
+      %LTC(LHIL,London Borough of Hillingdon)
+      %LTD(LHIL_LX)
+      %LTC(SUCC,Surrey County Council)
+      %LTLF(SUCC_SLF)
+    %LTSE;
+# Various (3-5 buses)    
+    %LTSB;
+# Atlas Bus
+      %LTC(LTAT,Atlas Bus)
+      %LTSB;
+        %LTD(LTAT_T)
+        %LTD(LTAT_L_NC)
+        %LTD(LTAT_LX)
+      %LTSE;
+# Borehamwood Travel Services 
+      %LTC(BTS,Borehamwood Travel Services)
+      %LTSB;
+        %LTRF(BTS_AN)
+        %LTD(BTS_L_NC)
+        %LTD(BTS_S)
+        %LTRF(BTS_MR)
+      %LTSE;
+# Connex     
+      %LTC(CNXB,Connex) 
+      %LTSB;
+        %LTLF(CNXB_DP1)
+        %LTLF(CNXB_DP62R)
+        %LTD(CNXB_DA)
+        %LTD(CNXB_DPL)
+        %LTD(CNXB_DCL)
+      %LTSE;  
+# Docklands Buses  
+      %LTC(DOCK,Docklands Transit / Docklands Buses)    
+      %LTSB;
+        %LTD(DOCK_DP)
+        %LTD(DOCK_DC)
+        %LTD(DOCK_EDL)
+        %LTD(DOCK_ED_S)
+        %LTD(GOAL_ED_L_NX)
+      %LTSE; 
+# Imperial Bus 
+      %LTC(IBC,Imperial Bus Company)     
+      %LTSB;
+        %LTRF(IBC_T)
+      	%LTRF(IBC_DNL)
+      	%LTRF(IBC_MBA)
+      %LTSE;
+# Jubilee Coaches
+      %LTC(LTJC,Jubilee Coaches)
+      %LTSB;
+        %LTRF(LTJC_DF_BIRM)
+        %LTRF(LTJC_LX)
+        %LTRF(LTJC_MR)
+      %LTSE; 
+# Limebourne
+      %LTC(LIMQ,Limebourne)
+      %LTSB;
+        %LTD(LIMQ_Q)
+        %LTL(LIMQ_Q156)
+        %LTD(LIMQ_MRL)
+        %LTD(LIMI_DCL)
+      %LTSE;       
+# Lutonian Buses
+      %LTC(LUTB,Lutonian Buses)
+      %LTSB;
+        %LTLF(LUTB_922)
+        %LTLF(LUTB_CC)
+        %LTLF(LUTB_MB)
+      %LTSE; 
+# Mitcham Belle
+      %LTC(MITB,Mitcham Belle)
+      %LTSB;
+        %LTD(MITB_DP_L2)
+        %LTD(MITB_DP_M2)
+        %LTD(MITB_DC_M2)
+      %LTSE;
+# Sullivan Buses  
+      %LTC(SUL,Sullivan Buses)         
+      %LTSB;
+        %LTL(SUL_DN1)
+        %LTL(SUL_DN2)
+        %LTLD(SUL_DN3)
+        %LTLF(SUL_DPS)
+      %LTSE; 
+# F.E. Thorpe
+      %LTC(THORPE,F. E. Thorpe)
+      %LTSB;
+        %LTD(THORPE_DLF)
+        %LTLF(THORPE_DLF41)
+        %LTLF(THORPE_DLF2)
+        %LTRF(THORPE_MLF122)
+        %LTD(THORPE_XL)
+      %LTSE;
+# Tillingbourne
+      %LTC(TILB,Tillingbourne)
+      %LTSB;
+        %LTRF(TILB_VE1)
+        %LTRF(TILB_MV)
+        %LTRF(TILB_XL)
+        %LTRF(TILB_MB)
+      %LTSE; 
+# Town & Country
+      %LTC(TCOU,Town & Country)
+      %LTSB;
+        %LTRF(TCOU_XL)
+        %LTRF(TCOU_MB)
+        %LTD(TCOU_MBA)
+      %LTSE;
+# Travel London
+      %LTC(TRAL,Travel London)
+      %LTSB;
+        %LTD(TRAL_DP)
+        %LTRF(TRAL_WINGSELR)
+        %LTD(TRAL_AIRCON)
+        %LTLF(TRAL_XL)
+      %LTSE;
+    %LTSE; 
+# Armchair Passenger Transport
+    %LTC(LARM,Armchair Passenger Transport)
+    %LTSB;
+      %LTD(LARM_L_AL)
+      %LTD(LARM_LL)
+      %LTD(LARM_NV_P2)
+      %LTD(LARM_EDR)
+      %LTD(LARM_DP_L1)
+      %LTD(LARM_DA)
+      %LTRF(LARM_DA1)
+      %LTLF(LARM_DP962)
+      %LTLF(LARM_DP1001)
+      %LTRF(LARM_DP1009)
+    %LTSE;
+# Boro'line Maidstone
+    %LTC(BORM,"Boro'line Maidstone")
+    %LTSB;
+      %LTRF(BORM_V)
+      %LTD(BORM_L)
+      %LTD(BORM_L_NC)
+      %LTD(BORM_VA)
+      %LTD(BORM_S)
+      %LTD(BORM_LX)
+    %LTSE; 
+# Britis European Airways
+    %LTC(BEA,British European Airways (own and hired))       
     %LTSB;
       %LTLF(BEA_RFAIRSID)
       %LTD(LT_BEA1)
       %LTD(LT_BEA2)
       %LTD(LT_BEA3)
+      %LTD(LT_BEA4)
       %LTD(BEA_RMA1)
       %LTD(BEA_RMA2)
       %LTD(BEA_RMA3)
       %LTD(BEA_ECB)
       %LTD(BEA_ECO)
-      %LTD(BEL_RMA)
-      %LTD(DTA_TT)
-      %LTRF(ELC_TP)
-      %LTLF(ENAT_LRC)
-      %LTRF(IBC_T)
-      %LTRF(LTJC_DF_BIRM)
-      %LTDF(MAID_D)
-      %LTD(REDL_STL1)
-      %LTD(SOUE_PD3)
-      %LTD(SCSE_RMC_4)
-      %LTRF(WOT_DC)
-      %LTRF(WKM_DC)
-      %LTLF(WBSW_DC)
+    %LTSE;    
+# Blue Triangle
+    %LTC(LTBT,Blue Triangle)    
+    %LTSB;
+      %LTD(LTBT_T)
+      %LTD(LTBT_M)
+      %LTLF(LTBT_M2)
+      %LTRF(LTBT_LX)
+      %LTD(LTBT_DN)
+      %LTLF(LTBT_DP1)
+      %LTLF(LTBT_DP2)
+      %LTLF(LTBT_DP209)
+      %LTLF(LTBT_DP3)      
     %LTSE;
+# Carousel Buses
+    %LTC(LCAR,Carousel Buses (2000 - 2012))
+    %LTSB;
+      %LTLF(LCAR_LX)
+      %LTD(LCAR_DAF)
+      %LTD(LCAR_DAFG)
+      %LTLF(LCAR_DAFW)
+      %LTRF(LCAR_DAFR)
+      %LTLF(LCAR_DPL1)
+      %LTLF(LCAR_DPL2)
+      %LTD(LCAR_DMS6)
+      %LTRF(LCAR_DMS1)
+      %LTRF(LCAR_DMS2)
+    %LTSE;
+# Centra 
+    %LTC(CENTRA,Centra)     
+    %LTSB;
+      %LTLF(CENTRA_AV)
+      %LTLF(CENTRA_L1)
+      %LTRF(CENTRA_SPD)
+      %LTLF(CENTRA_MPD)
+      %LTRF(CENTRA_DP)
+      %LTD(CENTRA_DC)
+      %LTRF(CENTRA_MB)
+    %LTSE;
+    %LTSB;
+# Centrebus  
+      %LTC(CENB,Centrebus)  
+      %LTSB;
+        %LTRF(CENB_502A)
+        %LTRF(CENB_502B)
+        %LTLB(CENB_L1A)
+        %LTRF(CENB_L1B)
+        %LTD(CENB_MPD)
+        %LTD(CENB_CC)
+        %LTLF(CENB_521)
+        %LTLF(CENB_S1)
+        %LTD(CENB_CN)
+        %LTLB(CENB_EL)
+        %LTD(CENB_MB)
+      %LTSE;
+# Trustline
+      %LTC(TRUST,Trustline)
+      %LTSB;
+        %LTRF(TRUST_DPL1)
+        %LTRF(TRUST_DPL2)
+        %LTLF(TRUST_DPS3)
+        %LTD(TRUST_CC)
+        %LTDF(TRUST_DML)
+        %LTDF(TRUST_DMA)
+        %LTD(TRUST_DMS)
+        %LTRF(TRUST_EL)
+      %LTSE;
+    %LTSE;
+# Countryliner
+    %LTC(CLIN,Countryliner)
+    %LTSB;
+      %LTD(CLIN_DP)
+      %LTD(CLIN_DP_M1)
+      %LTLF(CLIN_DP_L1)
+      %LTD(CLIN_DM_L1)
+      %LTD(CLIN_MRD)
+      %LTD(CLIN_DC)
+      %LTRF(CLIN_DM_S)
+      %LTRF(CLIN_MB)
+    %LTSE;
+    %LTSB;
+# Ensignbus
+      %LTC(ENS,Ensignbus (-1990)) 
+      %LTSB;
+        %LTD(ENS_DMS)
+        %LTRF(ENS_M)
+        %LTRF(ENS_DDN2)
+        %LTD(ENS_L_A)
+        %LTRF(ENS_AV_DUB)
+        %LTD(ENS_AV)
+        %LTD(ENS_NV)
+        %LTD(ENS_AVYC)
+        %LTD(ENS_AVRH)
+        %LTRF(ENS_VB6)
+      %LTSE;
+# Capital Citybus 
+      %LTC(LTCC,Capital Citybus (1991-))   
+      %LTSB;
+        %LTRF(LTCC_RM5)
+        %LTD(LTCC_T)
+        %LTD(LTCC_DDN2)
+        %LTLF(LTCC_DDN1)
+        %LTLF(LTCC_DDE)
+        %LTRF(LTCC_DA_ML)
+        %LTLF(LTCC_DDA_KC)
+        %LTDF(LTCC_DDE_LC)
+        %LTD(LTCC_L_NC)
+        %LTLF(LTCC_LR250A)
+        %LTLF(LTCC_LR250B)
+        %LTD(LTCC_LL)
+        %LTD(LTCC_L_NC166)
+        %LTD(LTCC_L_A)
+        %LTRF(LTCC_L_OP)
+        %LTD(LTCC_NV1)
+        %LTD(LTCC_NV2)
+        %LTLF(TLCC_DAF)
+        %LTD(LTCC_AV)
+      %LTSE;
+      %LTSB;
+        %LTD(LTCC_LS)
+        %LTRF(LTCC_S)
+        %LTRF(LTCC_DNL)
+        %LTRF(LTCC_DWS)
+        %LTD(LTCC_VB6_DASH)
+        %LTD(LTCC_VB6)
+        %LTD(TLCC_XL)
+        %LTRF(TLCC_MRL1)
+      %LTSE;
+# Ensignbus (2004-)
+      %LTC(ENS,Ensignbus (2004-))    
+      %LTSB;
+        %LTD(ENS_UVG)
+        %LTD(ENS_EXDL)
+        %LTRF(ENS_DP41)
+        %LTD(ENS_EXDML)
+        %LTD(ENS_714)
+        %LTLF(ENS_MPD)
+        %LTLF(ENS_SLD)
+      %LTSE;    
+    %LTSE;
+# Grey-Green    
+    %LTSB;
+      %LTLF(LTGG_DM)
+      %LTLF(LTGG_DMNC)
+      %LTLF(LTGG_DFNC)
+      %LTLF(LTGG_M14)
+      %LTLF(LTGG_L_NC)
+      %LTD(LTGG_VAG)
+      %LTLF(LTGG_S107)
+      %LTRF(LTGG_S108)
+      %LTRF(LTGG_S_EL)
+      %LTLF(LTGG_S_ELG)
+      %LTLF(LTGG_S_NC)
+      %LTD(LTGG_VB10)
+      %LTD(LTGG_VB10M61)
+      %LTLF(LTGG_LX1)
+      %LTLF(LTGG_LX2)
+      %LTD(LTGG_DRL)
+      %LTRF(LTGG_ADL2)
+    %LTSE;  
+# Harris Bus / East Thames
+    %LTSB;
+      %LTC(HARRIS,Harris Bus)
+      %LTRF(HARRIS_S)
+      %LTD(HARRIS_VO1)
+      %LTD(HARRIS_DAF1)
+      %LTD(HARRIS_DAF2)
+      %LTRF(HARRIS_XL383)
+      %LTRF(HARRIS_XL_DEMO)
+      %LTD(HARRIS_XL108)
+      %LTC(DURH,Durham Travel Services (Easylink))
+      %LTRF(DURH_DE)
+      %LTLF(DURH_DP)
+      %LTLF(DURH_DCL)
+      %LTC(ETHB,East Thames)
+      %LTD(ETHB_ELV)
+      %LTRF(ETHB_DAF)
+      %LTLF(ETHB_DC15)
+      %LTD(ETHB_DC)
+    %LTSE;    
+# London Buslines
+    %LTC(LONB,London Buslines)
+    %LTSB;
+      %LTRF(LONB_DM)
+      %LTLF(LONB_DMNC)
+      %LTD(LONB_L_A)
+      %LTLF(LONB_L_NC)
+      %LTD(LONB_LX2)
+      %LTD(LONB_EDR)
+      %LTD(LONB_DML)
+    %LTSE;    
+# Metrobus
+    %LTC(LTMB,Metrobus)
+    %LTSB;
+      %LTSB;
+        %LTD(LTMB_DMS)
+        %LTLF(LTMB_LRC)
+        %LTD(LTMB_M13)
+        %LTD(LTMB_LR)
+        %LTD(LTMB_LL)
+        %LTRF(LTMB_NV1)
+        %LTD(LTMB_NV2)
+        %LTD(LTMB_PYONEER)
+        %LTD(LTMB_NV3)
+        %LTRF(LTMB_DAF)
+      %LTSE;
+      %LTSB;
+        %LTLF(LTMB_LX)
+        %LTLF(LTMB_LX2)
+        %LTD(LTMB_LO)
+        %LTD(LTMB_DR)
+        %LTRF(LTMB_DWS)
+        %LTLF(LTMB_SLF_M1B)
+        %LTLF(LTMB_MPD)
+        %LTD(LTMB_SLF_L2B)
+        %LTD(LTMB_CN_L1B)
+        %LTD(LTMB_XL)
+        %LTD(LTMB_ELE)
+      %LTSE;
+      %LTSB;
+        %LTD(MTMB_MRL)
+        %LTRF(MTMB_SR)
+        %LTD(MTMB_MT)
+      %LTSE;
+    %LTSE; 
+# Tellings-Golden Miller
+    %LTC(TGM,Tellings-Golden Miller)
+    %LTSB;
+      %LTD(TGM_L1)
+      %LTRF(TGM_L1R)
+      %LTRF(TGM_L2)
+      %LTD(TGM_DSL)
+      %LTLF(TGM_MPD)
+      %LTD(TGM_M22)
+      %LTD(TGM_CC)
+      %LTD(TGM_CN)
+      %LTD(TGM_XL)
+      %LTD(TGM_M22R)
+      %LTD(TGM_CNR)
+      %LTLF(TGM_ARM)
+      %LTLF(TGM_MPDR)
+      %LTD(TGM_MPD_BAA)
+      %LTRF(TGM_EL1)
+      %LTD(TGM_CN_ORP)
+      %LTLF(TGM_MR)
+      %LTD(TGM_MB)
+    %LTSE;       
+# Universitybus
+    %LTC(UNIB,Universitybus)
+    %LTSB;    
+      %LTD(UNIB_GSN)
+      %LTRF(UNIB_DWL)
+      %LTRF(UNIB_AV)
+      %LTDF(UNIB_DMA)
+      %LTD(UNIB_DWC)
+      %LTD(UNIB_101)
+      %LTD(UNIB_101U)
+      %LTD(UNIB_DP)
+      %LTD(UNIB_CN)
+    %LTSE;
+  %LTSE;    
+# ------------------------------
+# Actual bus companies
+  %LTSB;
+# Arriva
+    %LTSB;
+      %LTC(ARNE,Arriva London North-East)
+      %LTSB;
+        %LTLF(ARNE_L_NE)
+        %LTRF(ARNE_VANE)
+        %LTD(ARNE_VEGG2)
+        %LTD(ARNE_DNL)
+        %LTD(ARNE_PDL_L2)
+      %LTSE;
+      %LTC(ARLN,Arriva London North)
+      %LTSB;
+        %LTRF(ARLN_S_NCF)
+        %LTD(ARLN_DBS15)
+        %LTD(ARLN_DNL)
+        %LTD(ARLN_ADL2)
+        %LTLB(ARLN_ADL952)
+        %LTD(ARLN_ADL61)
+        %LTLF(ARLN_PDL1)
+        %LTLF(ARLN_PDL_DHSS)
+        %LTLF(ARLN_PDL101)
+        %LTLB(ARLN_DPP)
+        %LTLF(ARLN_MTL1)
+      %LTSE;
+      %LTC(ARLS,Arriva London South)
+      %LTSB;
+        %LTDF(ARLS_LS)
+        %LTD(ARLS_L_NC)
+        %LTD(ARLS_VESL1)
+        %LTD(ARLS_VO_S)
+        %LTD(ARLS_DT)
+        %LTD(ARLS_DRL1)
+        %LTD(ARLS_DRL2)
+        %LTD(ARLS_ADL_L2)
+        %LTD(ARLS_PDL117)
+        %LTD(ARLS_DDL1)
+      %LTSE;
+      %LTC(ATSH,Arriva The Shires)
+      %LTSB;
+        %LTLF(ATSH_BTL)
+        %LTL(ATSH_L_NC)
+        %LTD(ATSH_NV_P2)
+        %LTD(ATSH_DF_DBLUE)
+        %LTD(ATSH_PDL_GAS)
+        %LTD(ATSH_PDL_INTER)
+        %LTRF(ATSH_LX)
+        %LTD(ATSH_EDR)
+        %LTD(ATSH_VB6)
+        %LTLB(ATSH_ATS)
+        %LTLB(ATSH_SLF_L1A)
+        %LTLF(ATSH_SLF_S1A)
+        %LTD(ATSH_DW)
+        %LTD(ATSH_ALX_S2)
+        %LTLF(ATSH_DDL15)
+        %LTLF(ATSH_DDL16)
+        %LTD(ATSH_XL)
+        %LTD(ATSH_MBV)
+        %LTD(AEHE_PDL)
+        %LTD(AEHE_ADL3461)
+        %LTLB(AEHE_DW)
+        %LTLF(AEHE_MBV)
+      %LTSE;
+      %LTSB;
+        %LTC(AKSX,Arriva Kent & Sussex)
+        %LTLF(AKSX_SLF_402)
+        %LTLB(AKSX_L1)
+        %LTD(AKSX_MRL)
+        %LTC(AKTH,Arriva Kent Thameside)
+        %LTLB(AKTH_SLF_L1A)
+        %LTRF(AKTH_SLF_L2A1)
+        %LTLB(AKTH_SLF_L2A2)
+        %LTRF(AKTH_SLF_L2B1)
+        %LTLB(AKTH_SLF_L2B2)
+        %LTLF(AKTH_MPD_S1)
+        %LTC(ASWS,Arriva Surrey & Sussex)
+        %LTLB(ASWS_DSL)
+        %LTLB(ASWS_DSL_EL)
+        %LTLB(ASWS_DSL_L1A)
+        %LTC(AGWS,Arriva Guildford & West Surrey)
+        %LTRF(AGWS_3179)
+        %LTLF(AGWS_CC)
+      %LTSE;
+      %LTC(ATGM,Arriva TGM (Tellings-Golden Miller))
+      %LTSB;
+        %LTD(ATGM_DDL)
+        %LTLB(ATGM_DWM)
+      %LTSE;
+    %LTSE;
+# First   
+    %LTC(LTFR,First London) 
+    %LTSB;
+      %LTLF(LTFR_L_A)
+      %LTRF(LTFR_L_NC)
+      %LTLF(LTFR_L_AH)
+      %LTD(LTFR_NV2)
+      %LTD(LTFR_NV_UXP2)
+      %LTD(LTFR_NV_CWP1)
+      %LTD(LTFR_DRL)
+      %LTRF(LTFR_EDR)
+      %LTD(LTFR_DML1)
+      %LTD(LTFR_DM_GA2)
+      %LTD(LTFR_DML_HOTEL)
+      %LTD(LTFR_DML2)
+      %LTD(LTFR_DMS)
+      %LTD(LTFR_DML2W)
+      %LTD(LTFR_DML2RW)
+      %LTD(LTFR_DM_R)
+      %LTRF(LTFR_DMS_ELW)
+      %LTD(LTFR_DHL)
+    %LTSE;
+    %LTSB;
+      %LTC(LFCC,First Capital Citybus)
+      %LTSB;      
+        %LTD(LFCC_DE)
+        %LTRF(LFCC_DE1)
+        %LTDX(LFCC_NV3)
+        %LTRF(LFCC_MRL2)
+      %LTSE;
+      %LTC(FBTV,First Berkshire & The Thames Valley)
+      %LTSB;
+        %LTRF(FBTV_DML)
+        %LTLF(FBTV_MPD)
+        %LTD(FBTV_ALX)
+        %LTDF(FBTV_DME)
+      %LTSE;
+      %LTC(FESX,First Essex)
+      %LTRF(FESX_MM)
+    %LTSE;
+# Stagecoach    
+    %LTSB;
+      %LTC(SCSE,Stagecoach Selkent)
+      %LTSB;
+        %LTD(SCSE_RMC_4)
+        %LTD(SCSE_DA)
+        %LTD(SCSE_VN)
+        %LTD(SCSE_VN_LOW1)
+        %LTD(SCSE_VN_LOW2)
+        %LTD(SCSE_VA1)
+        %LTLF(SCSE_LA)
+        %LTD(SCSE_LV)
+        %LTD(SCSE_DT)
+        %LTD(SCSE_DRL)
+        %LTD(SCSE_DP)
+        %LTD(SCSE_DAL1)
+        %LTD(SCSE_SLD_ALX1)
+        %LTLF(SCSE_SLD_PLAX2)
+        %LTD(SCSE_MB)
+        %LTD(SCSE_SLD_ALX2)
+        %LTLF(SCSE_SLD_PLAX1)
+      %LTSE;
+      %LTC(SCEL,Stagecoach East London)
+      %LTSB;
+        %LTD(SCEL_DWL)
+        %LTD(SCEL_DAL)
+        %LTD(SCEL_SLD_ALX1)
+        %LTLF(SCEL_LCY)
+        %LTLF(SCEL_SLD_ALX2)
+        %LTD(SCEL_SLD_PLAX1)
+        %LTLF(SCEL_SLD_PLAX2)
+        %LTD(SCEL_SLD_ALX3)
+        %LTLF(SCEL_SR_ELT)
+      %LTSE;
+    %LTSE;  
+    
   %LTSE;
-  %LTSB;  
-# Maintenance  
+# ------------------------------
+# Sightseeing
+  %LTSB;
+    %LTC(LTSS,Sightseeing in London)
+    %LTSB;
+# Cityrama  
+      %LTSB;
+        %LTRF(CITR_DM1)
+        %LTRF(CITR_DM2)
+        %LTD(CITR_L)
+      %LTSE;
+# London Pride    
+      %LTSB;
+        %LTLF(EMMH_DMS)
+        %LTLF(ENS_DMSS)
+        %LTLF(ENS_DMS_LP)
+        %LTRF(ENS_DOM_TD)
+        %LTRF(ENS_DOM_KC1)
+        %LTLF(ENS_DOM_KC2)
+        %LTLF(ENS_L_NC)
+      %LTSE;
+      %LTSB;
+        %LTDX(LT_RM5_OT)
+        %LTD(LT_DMO)
+        %LTRF(LT_DMOO)
+        %LTD(LT_AN_RLST)
+        %LTD(LT_AN_OT)
+      %LTSE;
+      %LTSB;
+        %LTLF(CULT_DMS)
+        %LTRF(LTAR_DOM)
+        %LTRF(CITR_DM)
+      %LTSE;
+      %LTSB;
+        %LTLF(LCOA_RM5_WL)
+        %LTLF(LCOA_RM5_OTC)
+        %LTLF(LCOA_ERM)
+        %LTLF(LCOA_RCL_OTC)
+        %LTD(LT_M7)
+        %LTLF(WEAL_DMS)
+      %LTSE;
+    %LTSE;
+# Maintenance 
+    %LTC(LT_M,London Transport maintenance vehicles) 
     %LTSB;
       %LTLF(LT_TOWER1)
+      %LTDF(LT_219U)
       %LTD(LT_LOPPER)
       %LTD(LT_SLAVERIG)
+      %LTRF(LT_NS_LUBE)
+      %LTRF(LT_NS_TREE)
+      %LTLF(LT_NS_CANT)
       %LTLF(LT_RCL_4)
       %LTD(LT_RMA3)
     %LTSE;
-# Sightseeing    
-    %LTSB;
-      %LTDX(LT_RM5_OT)
-      %LTD(LT_DMO)
-      %LTRF(LT_DMOO)
-      %LTD(LT_AN_RLST)
-      %LTD(LT_AN_OT)
-    %LTSE;
-    %LTSB;
-      %LTLF(CULT_DMS)
-      %LTLF(EMMH_DMS)
-      %LTLF(ENS_DMSS)
-      %LTLF(ENS_DMS_LP)
-      %LTRF(ENS_DOM_TD)
-      %LTRF(ENS_DOM_KC1)
-      %LTLF(ENS_L_NC)
-      %LTRF(LTAR_DOM)
-      %LTRF(RAMA_DM)
-    %LTSE;
-    %LTSB;
-      %LTLF(LCOA_RM5_WL)
-      %LTLF(LCOA_RM5_OTC)
-      %LTLF(LCOA_ERM)
-      %LTLF(LCOA_RCL_OTC)
-      %LTD(LT_M7)
-      %LTLF(WEAL_DMS)
-    %LTSE;
   %LTSE;
+  %LTC(,)
   

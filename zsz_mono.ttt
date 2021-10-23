@@ -69,3 +69,27 @@ $SCENE YDIR=U; DY=130; BG=(FIELD01:..,6; SEE03:..,9,0; STREET01:..); FG=ST_TOKYO
     M=STOP; POOL=POOL_TOKM; D=R; P=>0+286;
   $ENDPATH 
 $ENDSCENE 
+#------------------------------------------------------------------------------
+#
+# Ueno Zoo Monorail
+#        (ZSz)
+$SECTION LC=1;
+  $GROUP LC=2; IMGY=50; AB=200; BL=70;									\
+    BG=(FOREST05[SM:0.4]:..,-(55-95),<=>; FOREST09[SM:0.4]:..,-(25-65),<=>; @@EMB(3|4|5|6):..,^-25;	\
+      SCENE_UENOZOOB1:..,-28);										\
+    DX=1600;												\
+    AP=SKYW,80-120*[BG<=TREE_AUTUMN[SM:0.3-0.6]:1-99+,-25;],						\
+      5-8*[FG+=BUSH(10|12)|SHRUBBERY(6|7):1-99+,^-5--15;];
+    D=L; C=UENO_H; V=2;
+    D=L; C=UENO_M; V=2;
+    D=L; C=UENO_30; V=2;
+  $ENDGROUP 
+
+  $GROUP LC=2; IMGY=50; AB=400; BL=28; BG=(BGPIC\SXC1226606.JPG:,-28;SCENE_UENOZOOB1:..,-28);	\
+    DX=1600;
+    D=L; C=UENO_H; V=2;
+    D=L; C=UENO_M; V=2;
+    D=L; C=UENO_30; V=2;
+  $ENDGROUP 
+$ENDSECTION 
+#------------------------------------------------------------------------------

@@ -107,7 +107,7 @@ $DEF MURGE5=(1-2*BR627R)|(<DBAG_218410(|L),DBAG_BN433HH,DBAG_ABN416,DBAG_BN433HH
 
 $DEF MURGE6=6:(2*(AVG_GT8_100PA2|AVG_GT8_100C|AVG_GT8_100D|AVG_836|AVG_GT8_BISTRO|AVG_837|AVG_880|	\
     AVG_882|AVG_898|AVG_813|AVG_832|AVG_871))|1:((<DB_465005L,DB_865011)|(<DB_865011L,DB_465005))|	\
-    1:(DB_50_2640L|DB_50_2640,(<DB_3B_GMS54T,DB_3C_AB4Y3055(|L),2*DB_3C_B4Y3050(|L),DB_AB4NB58G(|L)))
+    1:(DB_50_2640L|DB_50_2640,(<DB_3B_GMS54T,DB_3C_AB4Y3055A(|L),2*DB_3C_B4Y3050(|L),DB_AB4NB58G(|L)))
 
 $DEF MURGBGH1=(D_MONSCHAU01A,D_MONSCHAU01B,D_MONSCHAU05,D_H014,D_H042B,D_H007,				\
     NL_UITHUIZERMEEDEN_CHURCH2,D_H010,D_H026,A_H005,A_H002A,A_H002B)
@@ -117,112 +117,44 @@ $DEF MURGBGH2=(15*BRMB_L_BOXL,D_RATHAUS1,15*BRMB_L_BOXL,D_H027,15*BRMB_L_BOXL,D_
     
 #------------------------------------------------------------------------------
 #
-#	Germany - town
-# 
-$SECTION LC=1; ML=1; DX=1800; DY=400; Y=*;
-  POOL=POOL_BRD:#Z&#S&P;											\
-    BG=@@;												\
-    AP2=(|3:[M#=STOP]),[P#=*50], [BG-=TRBED7:..,^0;],							\
-      [BG-=D_SCHOENMUENZACH|D_RAUENSTEIN1|D_SCHOENMUENZACH|D_TITISEE1|D_MUHLHEIM_STYRUM|		\
-      D_LITTENWEILERB|D_KIRCHZARTEN|D_GERNSBACH|D_FORBACH|D_BAIERSBRONN2|D_BUXTEHUDE_SUED;],		\
-      [BG-=#STACCION:0..50-150; STACCION:50+150..100;],							\
-      (3:2|4:3|6:4|4:5|3:6|2:7|1:8*[BG-=TREES_SUMMER:*+0-400;]),					\
-      [BG-=6*D_HM,D_HR:>50-240;D_HL,6*D_HM:<50+240;],							\
-      SKYC,												\
-      [TX=];												\
-    AB=380; BL=20;
-$ENDSECTION 
-#------------------------------------------------------------------------------
-#
-#	Pine forest
-#
+# Random towns
+#    
 $SECTION LC=1;
-  POOL=POOL_BRD:#Z&#O;										\
-    BG=(FOREST02:..,-(30-70),<=>; BUSH01,BUSH16:..,-(0-10),<=>; @@ EMB(3|4|5|6):..,^0; TRBED13:..,^0);	\
-    AP=SKYW,80-120*[BG<=PINE:1-99+;]; AB=300; BL=20;
-$ENDSECTION 
-#------------------------------------------------------------------------------
-$SECTION LC=1;
-#
-#
-#
-  $SCENE DY=300; DX=1800; YDIR=U; AP=SKYS; BG=10[B:0,0,10,20,#000]:..;
-    $PATH Y=20; FG=(WATERCOLUMNDB:7,-3;<FL_DB3F,FL_DB3B,FL_DB3F,FL_DB3M,FL_DB3B:..,,#);
-      M=$FLG(P,STOP,SIMPLE); POOL=POOL_BRD:#C&#X&#N&(3); D=R; P=@+96; TB=15;
-    $ENDPATH 
-    $PATH Y=20;												\
-      FG=(TRBED25:..,^0;B_PLF1E,15*PLF_5D,#B_PLF1E;#PLF_D01B,6*PLF_D01C,PLF_D01B:,8;			\
-	PAS15,16,LAMP06,30,PAS13,20,PAS08,20,PAS25,154,PERS05,20,I_TIMTAB1,26,BANK04,BANK8,20,20,PAS11,	\
-	40,PASG01,28,PAS23,20,BANK06,BANK05,24,I_TIMTAB1,16,PAS05,30,PAS03,30,BANK06,24,PAS05,18,LAMP06, \
-	12,PERS01,20,PERS03:,8; WATERCOLUMNDB:93,3);							\
-      BG=(M_RAKOSPALOTA:47,3;DB_3B_GMS54BL,DB_3B_GMHS35KEMB,12,#BOCK2:90;				\
-	(PLF2P[AR:1*PLF2P][O:NL_GENDLOOS5,10,9][O:NL_GENDLOOS4,84,9]):90; WASSERTURM_KOETHEN:10;	\
-	D_FABRIK01_1,D_FABRIK01_2:10; CS_H002,12,CS_H001,12,D_H044A,6,D_H044B,12,D_H046B,6,D_H046A:75;	\
-	D_FABRIK01H,300,TREE31,8,TREE47,10,TREE46,6,TREE16,16,TREE53,12,TREE23);
-      M=$FLG(P,STOP,SIMPLE); POOL=POOL_BRD:#C&#Z&#X&#N&(3); D=L; P=@+96; T=20;
-    $ENDPATH 
-  $ENDSCENE 
-#
-# Murgtal E5
-#
-  $GROUP LC=2; AB=300;											\
-    BG=(BGPIC\hl_141(a|b).JPG;MURGBGH1;MURGBGH2;(50*I_MARCIAP):..;					\
-      (LAMP_DB4,35*BRMB_L_BOXL,I_TIMTAB1,PASG01,35*BRMB_L_BOXL,LAMP07,235*BRMB_L_BOXL,LAMP_DB4,		\
-      35*BRMB_L_BOXL,PASG02):,3);									\
-    FG=(TRBED11:..,^0;#SIG_DB_1:90,-4;									\
-      (D_BAIERSBRONNB|D_FORBACHB|D_GERNSBACHB|D_LANGENBRANDB|D_SCHOENMUENZACHB):,-4;STREET1:..,-8);	\
-    DX=1800;
-    M=STOP; C=MURGE5;
-  $ENDGROUP 
-#
-# Murgtal E6
-#
-  $GROUP LC=2; AB=300;											\
-    BG=(BGPIC\hl_140(a|b).JPG;MURGBGH1,,5;MURGBGH2;							\
-      (D_SCHOENMUENZACH|D_LANGENBRAND|D_GERNSBACH|D_FORBACH|						\
-      D_BAIERSBRONN1 [AR:D_BAIERSBRONN2,D_BAIERSBRONN3]):,-4;(50*I_MARCIAP):..;				\
-      (PASG04,PASG03,35*BRMB_L_BOXL,PLF_LAMP_DB5B,35*BRMB_L_BOXL,SHELTER01,35*BRMB_L_BOXL,LAMP12,	\
-      35*BRMB_L_BOXL,PAS70,PLF_LAMP_DB5B,PASG05):,3;(<FL_DB3F,FL_DB3B,FL_DB3F,FL_DB3M,FL_DB3B):..,,#);	\
-    FG=(TRBED11:..,^0;#SIG_DB_1:90,-4;STREET1:..,-8;TREE12:70,-10); DX=1800;
-    M=STOP; C=MURGE6;
-  $ENDGROUP 
-$ENDSECTION 
-#------------------------------------------------------------------------------
-#
-#	Netherland - town
-#                                       
-$SECTION LC=1; DX=1800; ML=1; DY=400; Y=*;
-  POOL=POOL_NL:#Z&#S&P&(2|3|4);										\
-    BG=@@;												\
-    AP2=(|3:[M#=STOP]),[P#=*50], [BG-=TRBED7:..,^0;],							\
-      [BG-=NL_AMERSFOORT_NCS|NL_APPINGEDAM1|NL_BILTHOVEN|NL_DALFSEN|NL_DELFZIJL|NL_GRONINGEN_CS|	\
-      NL_GRONINGEN_NOORD_OLDB|NL_GRONINGEN_NTM|NL_KAMPEN|NL_HULSHORST|NL_LANDGRAAF|NL_LOPPERSUM2|	\
-      NL_MEPPEL|NL_NIJKERK|NL_OOSTERWIJTWERD1|NL_ROODESCHOOL|NL_ROOSENDAAL|NL_SAUWERD|NL_ULRUM|		\
-      NL_USQUERT_OLD|NL_WAARDANOOK|NL_WINSUM1940|NL_ZEVENAAR1|NL_ZWOLLEB|NL_SLAPPHUT;],			\
-      [BG-=#STACCION:0..50-150; STACCION:50+150..100;],							\
-      (3:2|4:3|6:4|4:5|3:6|2:7|1:8*[BG-=TREES_SUMMER:*+0-400;]),					\
-      [BG-=10*NL_H1M,NL_H1R:>50-240;NL_H1L,10*NL_H1M:<50+240;]|						\
-      [BG-=10*NL_H2M,NL_H2R:>50-240;NL_H2L,10*NL_H2M:<50+240;],						\
-      SKYC, 												\
-      [TX=],												\
-      [C-=[!C]];											\
-    AB=380; BL=20;
-$ENDSECTION 
-#------------------------------------------------------------------------------
-#
-#	Forest in Summer
-#
-$SECTION LC=1;
-  POOL=POOL_BRD:#Z&#O;										\
-    BG=(FOREST05:..,-(30-70),<=>; FOREST09:..,-(0-40),<=>; @@ EMB(3|4|5|6):..,^0; TRBED13:..,^0);	\
-    AP=SKYW,80-120*[BG<=TREE_SUMMER:1-99+;],0-8*[FG+=BUSH(10|12)|SHRUBBERY(6|7):1-99+,^20--1;]; AB=300;	\
-    BL=20;
-$ENDSECTION 
-#------------------------------------------------------------------------------
-#
-#	Italy - small town
-#
-$SECTION LC=1;
+  #............................................................................
+  #
+  # Germany - town
+  #
+  $SECTION LC=1; ML=1; DX=1800; DY=400; Y=*;
+    POOL=POOL_BRD:#Z&#S&P; BG=@@;									\
+      AP2=(|3:[M#=STOP]),[P#=*50],[BG-=TRBED7:..,^0;],							\
+	[BG-=D_SCHOENMUENZACH|D_RAUENSTEIN1|D_SCHOENMUENZACH|D_TITISEE1|D_MUHLHEIM_STYRUM|		\
+	D_LITTENWEILERB|D_KIRCHZARTEN|D_GERNSBACH|D_FORBACH|D_BAIERSBRONN2|D_BUXTEHUDE_SUED;],		\
+	[BG-=#STACCION:0..50-150; STACCION:50+150..100;],						\
+	(3:2|4:3|6:4|4:5|3:6|2:7|1:8*[BG-=TREES_SUMMER:*+0-400;]),					\
+	[BG-=6*D_HM,D_HR:>50-240;D_HL,6*D_HM:<50+240;],SKYC,[TX=];					\
+      AB=380; BL=20;
+  $ENDSECTION 
+  #............................................................................
+  #
+  # Netherland - town
+  #
+  $SECTION LC=1; ML=1; DX=1800; DY=400; Y=*;
+    POOL=POOL_NL:#Z&#S&P&(2|3|4); BG=@@;								\
+      AP2=(|3:[M#=STOP]),[P#=*50],[BG-=TRBED7:..,^0;],							\
+	[BG-=NL_AMERSFOORT_NCS|NL_APPINGEDAM1|NL_BILTHOVEN|NL_DALFSEN|NL_DELFZIJL|NL_GRONINGEN_CS|	\
+	NL_GRONINGEN_NOORD_OLDB|NL_GRONINGEN_NTM|NL_KAMPEN|NL_HULSHORST|NL_LANDGRAAF|NL_LOPPERSUM2|	\
+	NL_MEPPEL|NL_NIJKERK|NL_OOSTERWIJTWERD1|NL_ROODESCHOOL|NL_ROOSENDAAL|NL_SAUWERD|NL_ULRUM|	\
+	NL_USQUERT_OLD|NL_WAARDANOOK|NL_WINSUM1940|NL_ZEVENAAR1|NL_ZWOLLEB|NL_SLAPPHUT;],		\
+	[BG-=#STACCION:0..50-150; STACCION:50+150..100;],						\
+	(3:2|4:3|6:4|4:5|3:6|2:7|1:8*[BG-=TREES_SUMMER:*+0-400;]),					\
+	[BG-=10*NL_H1M,NL_H1R:>50-240;NL_H1L,10*NL_H1M:<50+240;]|					\
+	[BG-=10*NL_H2M,NL_H2R:>50-240;NL_H2L,10*NL_H2M:<50+240;],SKYC,[TX=],[C-=[!C]];			\
+      AB=380; BL=20;
+  $ENDSECTION 
+  #............................................................................
+  #
+  #	Italy - small town
+  #
   $GROUP LC=2; AB=300; DX=1830; \
     BG=( \
       0|I_H046|I_H072|I_CURCH1(|[M])|US_WILM1_1:50+-100-100; \
@@ -253,73 +185,320 @@ $SECTION LC=1;
 $ENDSECTION 
 #------------------------------------------------------------------------------
 #
-#	Forest in Autumn
+# Forest
 #
 $SECTION LC=1;
-  POOL=POOL_BRD:#Z&#O;										\
-    BG=(FOREST05:..,-(30-70),<=>; FOREST09:..,-(0-40),<=>; @@ EMB(3|4|5|6):..,^0; TRBED13:..,^0);	\
-    AP=SKYW,80-120*[BG<=TREE_AUTUMN:1-99+;],0-8*[FG+=BUSH(10|12)|SHRUBBERY(6|7):1-99+,^20--1;]; AB=300;	\
-    BL=20;
+  #............................................................................
+  #
+  # Pine forest
+  #
+  $SECTION LC=1;
+    POOL=POOL_BRD:#Z&#O; TE=2;										\
+      BG=(FOREST02:..,-(30-70),<=>; BUSH01,BUSH16:..,-(0-10),<=>; @@EMB(3|4|5|6):..,^0; TRBED13:..,^0);	\
+      AP=SKYW,80-120*[BG<=PINE:1-99+;]; AB=300; BL=20;
+  $ENDSECTION 
+  #............................................................................
+  #
+  #	Forest in Summer
+  #
+  $SECTION LC=1;
+    POOL=POOL_BRD:#Z&#O;										\
+      BG=(FOREST05:..,-(30-70),<=>; FOREST09:..,-(0-40),<=>; @@ EMB(3|4|5|6):..,^0; TRBED13:..,^0);	\
+      AP=SKYW,80-120*[BG<=TREE_SUMMER:1-99+;],0-8*[FG+=BUSH(10|12)|SHRUBBERY(6|7):1-99+,^20--1;]; AB=300;	\
+      BL=20;
+  $ENDSECTION 
+  #............................................................................
+  #
+  #	Forest in Autumn
+  #
+  $SECTION LC=1;
+    POOL=POOL_BRD:#Z&#O;										\
+      BG=(FOREST05:..,-(30-70),<=>; FOREST09:..,-(0-40),<=>; @@ EMB(3|4|5|6):..,^0; TRBED13:..,^0);	\
+      AP=SKYW,80-120*[BG<=TREE_AUTUMN:1-99+;],0-8*[FG+=BUSH(10|12)|SHRUBBERY(6|7):1-99+,^20--1;]; 	\
+      AB=300; BL=20;
+  $ENDSECTION 
+  #............................................................................
+  #
+  # 	BELGIUM
+  #
+  $SCENE DY=250; DX=1800; BG=(FOREST0(4|5|6):..;BGPIC\ag_(89a|79b).JPG);
+    $PATH Y=172; FG=(CABLE15:..,-10;(50*TRBED12,BRIDGE10,5*TRBED12,BRIDGE2,50*TRBED12):,-20); TXY=-200;
+      POOL=POOL_B:#E&#Z&#O&(3|4|5|6);
+    $ENDPATH 
+  $ENDSCENE 
+  #............................................................................
+  #
+  # Mariazell narrow gauge
+  #
+  $SECTION LC=1;
+  #GURK
+    $GROUP LC=2; AB=250;										\
+      BG=(FOREST02:..,-(30-70),<=>; BUSH01,BUSH16:..,-(0-10),<=>; @@GURK:25;A_H006:5;A_H005:45;		\
+	BUSH15,BUSH14,BUSH07:80;A_H001:60);								\
+      FG=(TRBED11:..,^0;FL_OBB_ASPMA,FL_OBB_MA1,4*(FL_OBB_MA2,FL_OBB_MA1):..,-7,0);			\
+      AP=SKYW,80-120*[BG<=PINE:1-99+;];
+      TX=ÖBB Schmalspur Mariazell;									\
+	M=STOP; D=L; C=OBB_399A,OBB_S_WG_BSCH,OBB_S_WG_BSCH1,OBB_S_WG_BSCH,OBB_S_WG_BDSCH1; V=5; P=1;	\
+	W=4;
+      TX=ÖBB Schmalspur Mariazell;									\
+	M=STOP; D=L; C=OBB_5090_005,OBB_5090_005; P=1;
+      TX=ÖBB Schmalspur Mariazell;									\
+	M=STOP; D=L;											\
+	C=<MZEL_1099008,MZEL_6_1099_007[PU],OBB_2091R4,OBB_KWG_BBM,OBB_2WG1,OBB_2WG3,OBB_KWG_BDML4; P=1; \
+	T=5,PD,5,C.3.PU,C.2.PU,C.1.PU,2,w,1;
+      TX=ÖBB Schmalspur Mariazell;									\
+	M=BACK; D=R; C=<MZEL_1099008,MZEL_1099007[PU],OBB_2091R3; P=90;					\
+	T=5,PD,5,C.3.PU,C.2.PU,C.1.PU,2,w,1;
+    $ENDGROUP 
+
+  #ZWEINITZ
+  ; A_H009:80;TREE55:90);
+    $GROUP LC=2; AB=250;										\
+      BG=(FOREST02:..,-(30-70),<=>; BUSH01,BUSH16:..,-(0-10),<=>; @@DEPOT1_1:1,-4;BLD_002A:30;		\
+	ZWEINITZ:50); FG=(TRBED11:..,^0;FL_OBB_ASPMA,FL_OBB_MA1,4*(FL_OBB_MA2,FL_OBB_MA1):..,-7,0);	\
+	AP=SKYW,80-120*[BG<=PINE:1-99+;];;
+      TX=ÖBB Schmalspur Mariazell;									\
+	M=TURN; D=L; C=OBB_KWG_BBM,OBB_KWG_BDML3; C1=OBB_399A; P=20; W=4; P1=8; P2=60;
+      TX=ÖBB Schmalspur Mariazell;									\
+	M=UNIT; D=L; C1=MZEL_1099008,OBB_KWG_BBM,OBB_KWG_BUND3,OBB_KWG_BDML; C2=OBB_399A; D1=L; D2=R;	\
+	P=75; T1=2,C1.PD,W,2; T2=2,PD,5,C1.PU,C2.PU,W,3;
+      TX=ÖBB Schmalspur Mariazell;									\
+	M=TURN; D=L; C=OBB_KWG_BUND3,OBB_KWG_BMM_BAR,OBB_KWG_BDML2; C1=OBB_2091R1; P=30; BEHIND; P1=10;	\
+	P2=70;
+    $ENDGROUP 
+  $ENDSECTION 
 $ENDSECTION 
 #------------------------------------------------------------------------------
 #
-#	Mariazell narrow gauge
+# Imagenary towns
 #
 $SECTION LC=1;
-#GURK
-  $GROUP LC=2; AB=250;											\
-    BG=(FOREST02:..,-(30-70),<=>; BUSH01,BUSH16:..,-(0-10),<=>; @@GURK:25;A_H006:5;A_H005:45;		\
-      BUSH15,BUSH14,BUSH07:80;A_H001:60);								\
-    FG=(TRBED11:..,^0;FL_OBB_ASPMA,FL_OBB_MA1,4*(FL_OBB_MA2,FL_OBB_MA1):..,-7,0);			\
-    AP=SKYW,80-120*[BG<=PINE:1-99+;];
-    TX=ÖBB Schmalspur Mariazell;									\
-      M=STOP; D=L; C=OBB_399A,OBB_S_WG_BSCH,OBB_S_WG_BSCH1,OBB_S_WG_BSCH,OBB_S_WG_BDSCH1; V=5; P=1; W=4;
-    TX=ÖBB Schmalspur Mariazell;									\
-      M=STOP; D=L; C=OBB_5090_005,OBB_5090_005; P=1;
-    TX=ÖBB Schmalspur Mariazell;									\
-      M=STOP; D=L;											\
-      C=<MZEL_1099008,MZEL_6_1099_007[PU],OBB_2091R4,OBB_KWG_BBM,OBB_2WG1,OBB_2WG3,OBB_KWG_BDML4; P=1;	\
-      T=5,PD,5,C.3.PU,C.2.PU,C.1.PU,2,w,1;
-    TX=ÖBB Schmalspur Mariazell;									\
-      M=BACK; D=R; C=<MZEL_1099008,MZEL_1099007[PU],OBB_2091R3; P=90;					\
-      T=5,PD,5,C.3.PU,C.2.PU,C.1.PU,2,w,1;
+  #............................................................................
+  $SCENE DY=300; DX=1800; YDIR=U; AP=SKYS; BG=10[B:0,0,10,20,#000]:..;
+    $PATH Y=20; FG=(WATERCOLUMNDB:7,-3;<FL_DB3F,FL_DB3B,FL_DB3F,FL_DB3M,FL_DB3B:..,,#);
+      M=$FLG(P,STOP,SIMPLE); POOL=POOL_BRD:#C&#X&#N&(3); D=R; P=@+96; TB=15;
+    $ENDPATH 
+    $PATH Y=20;												\
+      FG=(TRBED25:..,^0;B_PLF1E,15*PLF_5D,#B_PLF1E;#PLF_D01B,6*PLF_D01C,PLF_D01B:,8;			\
+	PAS15,16,LAMP06,30,PAS13,20,PAS08,20,PAS25,154,PERS05,20,I_TIMTAB1,26,BANK04,BANK8,20,20,PAS11,	\
+	40,PASG01,28,PAS23,20,BANK06,BANK05,24,I_TIMTAB1,16,PAS05,30,PAS03,30,BANK06,24,PAS05,18,LAMP06, \
+	12,PERS01,20,PERS03:,8; WATERCOLUMNDB:93,3);							\
+      BG=(M_RAKOSPALOTA:47,3;DB_3B_GMS54BL,DB_3B_GMHS35KEMB,12,#BOCK2:90;				\
+	(PLF2P[AR:1*PLF2P][O:NL_GENDLOOS5,10,9][O:NL_GENDLOOS4,84,9]):90; WASSERTURM_KOETHEN:10;	\
+	D_FABRIK01_1,D_FABRIK01_2:10; CS_H002,12,CS_H001,12,D_H044A,6,D_H044B,12,D_H046B,6,D_H046A:75;	\
+	D_FABRIK01H,300,TREE31,8,TREE47,10,TREE46,6,TREE16,16,TREE53,12,TREE23);
+      M=$FLG(P,STOP,SIMPLE); POOL=POOL_BRD:#C&#Z&#X&#N&(3); D=L; P=@+96; T=20;
+    $ENDPATH 
+  $ENDSCENE 
+  #............................................................................
+  #
+  # Murgtal E5
+  #
+  $GROUP LC=2; AB=300;											\
+    BG=(BGPIC\hl_141(a|b).JPG;MURGBGH1;MURGBGH2;(50*I_MARCIAP):..;					\
+      (LAMP_DB4,35*BRMB_L_BOXL,I_TIMTAB1,PASG01,35*BRMB_L_BOXL,LAMP07,235*BRMB_L_BOXL,LAMP_DB4,		\
+      35*BRMB_L_BOXL,PASG02):,3);									\
+    FG=(TRBED11:..,^0;#SIG_DB_1:90,-4;									\
+      (D_BAIERSBRONNB|D_FORBACHB|D_GERNSBACHB|D_LANGENBRANDB|D_SCHOENMUENZACHB):,-4;STREET01:..,-8);	\
+    DX=1800;
+    M=STOP; C=MURGE5;
   $ENDGROUP 
-
-#ZWEINITZ
-  $GROUP LC=2; AB=250;											\
-    BG=(FOREST02:..,-(30-70),<=>; BUSH01,BUSH16:..,-(0-10),<=>; @@DEPOT1_1:1,-4;BLD_002A:30;ZWEINITZ:50; \
-      ; A_H009:80;TREE55:90);										\
-    FG=(TRBED11:..,^0;FL_OBB_ASPMA,FL_OBB_MA1,4*(FL_OBB_MA2,FL_OBB_MA1):..,-7,0);			\
-    AP=SKYW,80-120*[BG<=PINE:1-99+;];
-    TX=ÖBB Schmalspur Mariazell;									\
-      M=TURN; D=L; C=OBB_KWG_BBM,OBB_KWG_BDML3; C1=OBB_399A; P=20; W=4; P1=8; P2=60;
-    TX=ÖBB Schmalspur Mariazell;									\
-      M=UNIT; D=L; C1=MZEL_1099008,OBB_KWG_BBM,OBB_KWG_BUND3,OBB_KWG_BDML; C2=OBB_399A; D1=L; D2=R; P=75; \
-      T1=2,C1.PD,W,2; T2=2,PD,5,C1.PU,C2.PU,W,3;
-    TX=ÖBB Schmalspur Mariazell;									\
-      M=TURN; D=L; C=OBB_KWG_BUND3,OBB_KWG_BMM_BAR,OBB_KWG_BDML2; C1=OBB_2091R1; P=30; BEHIND; P1=10;	\
-      P2=70;
+  #............................................................................
+  #
+  # Murgtal E6
+  #
+  $GROUP LC=2; AB=300;											\
+    BG=(BGPIC\hl_140(a|b).JPG;MURGBGH1,,5;MURGBGH2;							\
+      (D_SCHOENMUENZACH|D_LANGENBRAND|D_GERNSBACH|D_FORBACH|						\
+      D_BAIERSBRONN1[AR:D_BAIERSBRONN2,D_BAIERSBRONN3]):,-4;(50*I_MARCIAP):..;				\
+      (PASG04,PASG03,35*BRMB_L_BOXL,PLF_LAMP_DB5B,35*BRMB_L_BOXL,SHELTER01,35*BRMB_L_BOXL,LAMP12,	\
+      35*BRMB_L_BOXL,PAS70,PLF_LAMP_DB5B,PASG05):,3;(<FL_DB3F,FL_DB3B,FL_DB3F,FL_DB3M,FL_DB3B):..,,#);	\
+    FG=(TRBED11:..,^0;#SIG_DB_1:90,-4;STREET01:..,-8;TREE12:70,-10); DX=1800;
+    M=STOP; C=MURGE6;
   $ENDGROUP 
+  #............................................................................
+  #
+  # Auf der Strassen der DDR
+  #
+  $SCENE YDIR=U; DX=1680; DY=300; %SECFIN;								\
+    BG=(HANDRAIL08(A,15*B,D),2,PIKE6,2,HANDRAIL08(A,18*B,D):<0+869,50; C2IF_DDR02:<0+873,50;		\
+      IFA_W50_KMS1L,#IFA_W50_KMS1T:<0+1367,50; TRBED47:..,0; EMB8:..,18; STREET05:..,0;			\
+      DDR_H01,DDR_H02,DDR_H03,DDR_H04,DDR_H05,DDR_H06,DDR_H07,BUSH28:<0+7,50; DDR_FABRIK1:<0+1509,50;	\
+      D_HALLE1:>0+1410,50; SKY02:..,50); %SECFIN;
+    $PATH Y=18; BG=HANDRAIL07(22*B,50*B,C,32*B):,8,,; LC=2;
+      POOL=POOL_DDR:D&F&#O&#Z; TB=3;
+    $ENDPATH 
+    $PATH Y=31;
+      M=FOLLOW; D=R;											\
+	C=(IFA_W50_PLANE_BAU2,IFA_W50_TRAIL4;IK_55_2;BARKAS_B1000OG[O:BOX35,6,14];TRABANT_601_02;	\
+	  WARTBURG_353Y1);
+    $ENDPATH 
+    $PATH Y=38;
+      M=FOLLOW; D=L;											\
+	C=(IFA_W50_3700_02L;SKODA_100R;TRABANT_601_01;WARTBURG_353COB;SIMSON_SR2; POL_WARTBURG1;	\
+	  BARKAS_B1000KB3L,TRAIL_BARKAS1L;FIRE_URAL_1L);
+    $ENDPATH 
+  $ENDSCENE 
+  #............................................................................
 $ENDSECTION 
 #------------------------------------------------------------------------------
 #
 #	Bridges - Netherlands
 #
-$SCENE DY=400; DX=1852; BG=BGPIC\bdwh001.jpg:,-100;
-  $PATH Y=200; FG=NL_DEVENTER:,-146; LC=4; TXY=7;
-    M=SIMPLE; POOL=POOL_NL:#E&#O&#Z&(4|5|6);
-  $ENDPATH 
-  $PATH Y=290; LC=1;
-    C=FISHER_GRE5[#D:L]; V=0.75;
-  $ENDPATH 
-$ENDSCENE 
+$SECTION LC=1;
+  #............................................................................
+  $SCENE DY=400; DX=1852; BG=BGPIC\bdwh001.jpg:,-100;
+    $PATH Y=200; FG=NL_DEVENTER:,-146; LC=4; TXY=7;
+      M=SIMPLE; POOL=POOL_NL:#E&#O&#Z&(4|5|6);
+    $ENDPATH 
+    $PATH Y=290; LC=1;
+      C=FISHER_GRE5[#D:L]; V=0.75;
+    $ENDPATH 
+  $ENDSCENE 
+  #............................................................................
+  $GROUP LC=2; AB=360; BL=120;										\
+    BG=(SEE02:..,-121; BGPIC/CLOUD(62|63|64|65|66|67).JPG:..,50; BRIDGE_DORDRECHTB:,-121);		\
+    FG=BRIDGE_DORDRECHTF; DX=1912; VM=HEAD; BGC=157,193,229;
+    POOL=POOL_NL:D&#O&#Z;
+  $ENDGROUP 
+  #............................................................................
+  $GROUP LC=2; AB=100; BL=109;										\
+    BG=(BGPIC/CLOUD(62|63|64|65|66|67).JPG:..,50; SEE02:..,-109; EMB3:0..50-380,^-6;			\
+      EMB4:50+380..100,^-6; TRBED15:0..50-330,^0; RAIL3:50-330..50+330,^0; TRBED15:50+330..100,^0);	\
+    FG=BRIDGE_NEERPELT:*50,-117; BGC=157,193,229;
+    POOL=POOL_NL:D&#O&#Z;
+  $ENDGROUP 
+  #............................................................................
+$ENDSECTION 
 #------------------------------------------------------------------------------
 #
-# 	BELGIUM
+#	Gezeichnete Szenenstreifen
 #
-$SCENE DY=250; DX=1800; BG=(FOREST0(4|5|6):..;BGPIC\ag_(89a|79b).JPG);
-  $PATH Y=172; FG=(CABLE15:..,-10;(50*TRBED12,BRIDGE10,5*TRBED12,BRIDGE2,50*TRBED12):,-20); TXY=-200;
-    POOL=POOL_B:#E&#Z&#O&(3|4|5|6);
-  $ENDPATH 
-$ENDSCENE 
-    
+$SECTION LC=1;
+  #............................................................................
+  #
+  # Klaus D. Schneider: rotes Viadukt in Dunkeln 
+  #
+  $SECTION LC=1;
+    #..........................................................................
+    $SCENE DX=985; DY=525; YDIR=U;									\
+      BG=(EMB10:..,0; TRBED49:..,^25; BGPIC/KDS2.JPG:,25;						\
+	0[AR:BRIDGE53(A,B,C,D,E,A)][OMH:,BRIDGE53F]:<0-9,215; TRBED50:..,^425;			\
+	BGPIC/KDS1.GIF:,225; BGPIC/KDSSKY(1|2).JPG:<0-0-600,100-225);
+      $PATH Y=425;
+	D=L; C=WUE_KITTEL1L,WUE_KITW2L,WUE_KITW3L; V=2;
+	D=R; C=WUE_KITTEL2,WUE_D1,WUE_E4_1,WUE_E4_3,WUE_E2; V=2; TE=2;
+      $ENDPATH 
+    $ENDSCENE 
+    #..........................................................................
+    $SCENE DX=985; DY=525; YDIR=U;									\
+      BG=(EMB10:..,0; TRBED49:..,^25; BGPIC/KDS2.JPG:,25;						\
+	0[AR:BRIDGE53(A,B,C,D,E,A)][OMH:,BRIDGE53F]:<0-9,215; TRBED50:..,^425;			\
+	BGPIC/KDS1.GIF:,225; BGPIC/KDSSKY(1|2).JPG:<0-0-600,100-225);
+      $PATH Y=425;
+	D=L;												\
+	  C=KPEV_G8S,KPEV_PWG92CL,KPEV_H1L,KPEV_H2L,KPEV_G10_MBHL,KPEV_W3L,KPEV_W3BL,KPEV_W4L,	\
+	    KPEV_W4BL;										\
+	  V=3;
+      $ENDPATH 
+    $ENDSCENE 
+    #..........................................................................
+    $DEF MB2LKW1=LKW_1|LKW_3|LKW_4|LKW_9|LKW_10|LKW_5|LKW_6|LKW_7|LKW_8|MB_2B_LKWPB|MB_2LKWPM|	\
+	MB_2LKWPC
+    $DEF MB2LKW2=MB_2B_LKWO_KOHLE|LKW_2
+    $DEF DRG_R1LKW=DRG_K_R1(3:[O:FIX_LKW1,,12][O:<MB2LKW1,,12]|[O:FIX_LKW2,,12][O:<MB2LKW2,,12])
+    $DEF DRG_R1HLKW=DRG_K_R1H(3:[O:FIX_LKW1,18,12][O:<MB2LKW1,18,12]|					\
+	[O:FIX_LKW2,22,12][O:<MB2LKW2,22,12])
+    $SCENE DX=985; DY=525; YDIR=U;									\
+      BG=(EMB10:..,0; TRBED49:..,^25; BGPIC/KDS2.JPG:,25;						\
+	0[AR:BRIDGE53(A,B,C,D,E,A)][OMH:,BRIDGE53F]:<0-9,215; TRBED50:..,^425;			\
+	BGPIC/KDS1.GIF:,225; BGPIC/KDSSKY(1|2).JPG:<0-0-600,100-225);
+      $PATH Y=425;
+	D=L; C=DRG_553100SL,DRG_PWG1L,4-6*(DRG_R1HLKW,DRG_R1LKW); V=3; TE=2;
+      $ENDPATH 
+    $ENDSCENE 
+    #..........................................................................
+    $SCENE DX=985; DY=525; YDIR=U;									\
+      BG=(D_LANDBAHNHOF:<0+195,25; D_LOKSCH5:<0+687,25;						\
+	KPEV_BCI95KL,KPEV_CI95KL,KPEV_CDI95KL,KPEV_DI95KL,KPEV_PWPOSTIL:<0+185,225; EMB10:..,0;	\
+	TRBED49:..,^25; BGPIC/KDS2.JPG:,25; 0[AR:BRIDGE53(A,B,C,D,E,A)][OMH:,BRIDGE53F]:<0-9,215;	\
+	TRBED50:..,^425; BGPIC/KDS1.GIF:,225; BGPIC/KDSSKY(1|2).JPG:<0-0-600,100-225);
+      $PATH Y=425;
+	D=R; C=KPEV_KITTEL1,KPEV_CDI95K,KPEV_PWPOSTIK; V=2;
+      $ENDPATH 
+    $ENDSCENE 
+    #..........................................................................
+    $SCENE DX=985; DY=525; YDIR=U;									\
+      BG=(D_LOKSCH7_1:<0+345,25; EMB10:..,0; TRBED49:..,^25; BGPIC/KDS2.JPG:,25;			\
+	0[AR:BRIDGE53(A,B,C,D,E,A)][OMH:,BRIDGE53F]:<0-9,215; TRBED50:..,^425;			\
+	BGPIC/KDS1.GIF:,225; BGPIC/KDSSKY(1|2).JPG:<0-0-600,100-225);
+      $PATH Y=25;
+	D=L;												\
+	  C=DB_4_260OB8L,DR_4EL15,									\
+	    G_TORPEDO(|L)|										\
+	    G_ROGESA(11|14|14D|16|16L|17|18D|1L|21|23L|25OL|26|27|27L|28|28L|29|30|31D|32O|32OL|33|35| \
+	    36|37L|38|38D);										\
+	  V=3;
+      $ENDPATH; 
+      $PATH Y=225;
+	D=L; V=5; C=DB_4_212BL, \
+	       20*DR_4EL(1|10|11|12|13|14|15|16|17|18|19|2|3|4|5|6|7|8|9) \
+	           [O:FR_RUEB(1|10|11|12|2|3|4|5|6|7|8|9),,27];
+      $ENDPATH 
+    $ENDSCENE 
+    #..........................................................................
+  $ENDSECTION   
+  $SECTION LC=1;
+    #
+    # Klaus D. Schneider: Überlandstrecke
+    #
+    #..........................................................................
+    $SCENE DX=1680; DY=300; YDIR=U; \
+        BG=( \
+	    EMB9:..; \
+	    STREET06:..,19,70; \
+	    STREET3B,250,STREET3B,250,STREET3B,501:..,45,909; \
+	    TREE111,65,#TREE111,65,TREE111,65,#TREE111,65,TREE111:<50+336,45; \
+	    BRIDGE54B:<50-100,^48; \
+	    WALL24(A,B,C,D,E,F):<0+1069,45; \
+	    TRBED47E:>50+334,^97; TRBED47:50+334..,^97; BOCK4:50+374,97; \
+	    BRIDGE54A:<50-90,^117; \
+	    90[B:0,0,90,50,#111]:<50-75,^100; \
+	    STREET07:..,39; \
+	    BUSH29:<50+61,51; \
+	    BUSH(30,31,32,33,34,35,36):>50-99,51; \
+	    EMB11:50+30..,51; \
+	    EMB11:0..50-70,51; \
+	    TRBED47:..,99; \
+	    4*FL_DB4M,FL_DB4B:50-120,117; \
+	    FOREST14_2:<50-664,117; \
+	    STELLWERK_ERFURT:>50-736,117; \
+	    BGPIC\CLOUD(59|60|61|62|63|64|65|66|67|68|69|70).JPG:,110; \
+        ); \
+	FG=( \
+	    STREET3:..,13,157; \
+	);
+      $PATH Y=23; D=R;
+        M=FOLLOW; D=R; \
+  	    C=(IFA_W50_PLANE_BAU2,IFA_W50_TRAIL4;IK_55_2;BARKAS_B1000OG[O:BOX35,6,14];TRABANT_601_02;	\
+	        WARTBURG_353Y1);
+      $ENDPATH
+      $PATH Y=34; D=L;
+        M=FOLLOW; D=L; \
+	    C=(IFA_W50_3700_02L;SKODA_100R;TRABANT_601_01;WARTBURG_353COB;SIMSON_SR2; POL_WARTBURG1;	\
+	        BARKAS_B1000KB3L,TRAIL_BARKAS1L;FIRE_URAL_1L);
+      $ENDPATH
+      $PATH Y=97; LC=1;
+        M=BACK; D=L; P=<50+400; C=DR_110K,DR_ICHQSSZ5,DR_RGS3920L[O:TARP20,,12]; TB=12; T=15;
+      $ENDPATH
+      $PATH Y=117; LC=3;
+        POOL=POOL_BRD:E&4&#O&#Z; AP2=[TX=]; D=R;
+      $ENDPATH
+      $PATH Y=117; LC=3;
+        POOL=POOL_BRD:E&4&#O&#Z; A2P=[TX=]; D=L;
+      $ENDPATH
+    $ENDSCENE  
+    #..........................................................................
+  $ENDSECTION
+$ENDSECTION
+#------------------------------------------------------------------------------

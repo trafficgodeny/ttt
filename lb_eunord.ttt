@@ -5,493 +5,717 @@
 $REQUIRE TRAINDEF.TTT
 
 ###############################################################################
-##              							     ##
-##                               Denmark                                     ##
+##                                                                           ##
+##                                  Denmark                                  ##
 ##                                                                           ##
 ###############################################################################
 {DK?
-  %ADDPOOL(POOL_DK,DK_ENV);									
-  {E3?
-    TX=DSB N200;											\
-      C=DSB_N20(1|2|9)(|L),DK3P; F=SF3;
-    TX=DSB MX Nohab;											\
-      C=DSB_MX_DL|DSB_MX_D, 5-8*DK3O; F=DF3;
-    TX=DSB MY Nohab mit Personenzug;									\
-    C=DSB_MY_C|DSB_MY_CL|DSB_MY_F|DSB_MY_FL,(<DSB_4BN,DSB_4BNL,DSB_79AN,DSB_4BN,DSB_4BD); F=DP3;
-  }
-  {E4?
-    TX=DSB ME mit Personenzug;										\
-    C=DSB_ME1|DSB_ME2,(<DSB_5BDL,DSB_4BL,DSB_4BK|DSB_4BKL,DSB_4AB,DSB_4AL|DSB_4A,DSB_4B); F=DP45;
-    TX=DSB MY Nohab;											\
-      C=DSB_MY_AL|DSB_MY_A|DSB_MY_BL|DSB_MY_B|DSB_MY_EL|DSB_MY_E|DSB_MY_DL|DSB_MY_D|DSB_MY_GL| DSB_MY_G| \
-	DSB_MY_HL|DSB_MY_H,										\
-	(<3-5*(DSB_4A_ELO5110L|DSB_4A_ELO5110|DSB_4A_ELO5110ML|DSB_4A_ELO5110M|DSB_4A_E5020EU|		\
-	DSB_4A_E5000EBL|DSB_4A_E5000EB));								\
-      F=DF45;
-    TX=DSB MY Nohab;											\
-      C=DSB_79MY,6*(DSB_HBIS225GD|DSB_HBIS225SCISSORS|DSB_HBIS225PIANO|DSB_HBIS225ALBANI,DSB_EAOS1);	\
-      F=DF34;
-    TX=DSB MZ mit Schnellzug;										\
-      C=<DSB_1435L,2*DSB_4BNL|DSB_4BN,DSB_4BKDL|DSB_4BKD,DSB_4BDANL,DSB_4ABNS; F=DPU45;
-    TX=DSB MZ mit Schnellzug;										\
-      C=<DSB_1401L|DSB_1401|DSB_4BDL,3*DSB_4BNL,DSB_4ADNS; F=DP4;
-    TX=DSB MZ mit Schnellzug;										\
-      C=DSB_1420L|DSB_1420|DSB_1431L|DSB_1431|DSB_1435,							\
-	(DSB_HBIKKS1,DSB_HBIKKS2,DSB_HBIKKS3,DSB_HBIKKS4);						\
-      F=DP45;
-    TX=DSB MA Lyntog;											\
-      C=(<DSB_MA1L,DSB_AM1,DSB_BMK1,DSB_BMS1,DSB_BMS1L,DSB_BM1L,DSB_AM1L,DSB_MA1)|			\
-	(<DSB_MA1L,DSB_AM1,DSB_BM1,DSB_BMS1,DSB_BMS1L,DSB_BMK1L,DSB_AM1L,DSB_MA1);			\
-      F=DPU34;
-    TX=DSB MA Lyntog;											\
-      C=(<DSB_MA2L,DSB_AM2,DSB_BMK2,DSB_BMS2,DSB_BMS2L,DSB_BM2L,DSB_AM2L,DSB_MA2)|			\
-	(<DSB_MA2L,DSB_AM2,DSB_BM2,DSB_BMS2,DSB_BMS2L,DSB_BMK2L,DSB_AM2L,DSB_MA2)|			\
-	(<DSB_MA3L,DSB_AM3,DSB_BMK3,DSB_BMS3,DSB_BMS3L,DSB_BM3L,DSB_AM3L,DSB_MA3)|			\
-	(<DSB_MA3L,DSB_AM3,DSB_BM3,DSB_BMS3,DSB_BMS3L,DSB_BMK3L,DSB_AM3L,DSB_MA3);			\
-      F=DPU4;
-    TX=DSB MR;												\
-      C=(<DSB_MRL,DSB_MR)|(<DSB_MR1L,DSB_MR1,DSB_MR2L,DSB_MR2); F=DPU45;
-  }
-  {E5?
-    TX=DSB ME mit Intercity;										\
-      C=<DSB_BFSL,3*DSB_BFM,2*DSB_AFM,DSB_ME1|DSB_ME2; F=DPU5;
-    TX=DSB ME mit Nachtzug;										\
-      C=DSB_MER~OLE,2*DSB_5BCL,2*DSB_5BC,DSB_WLABMHTENL,DSB_WLABMHTEN; F=DP5;
-    TX=DSB MZ mit Regionalzug;										\
-      C=(<DSB_1447L|DSB_1447,,2*DSB_5BN,DSB_5ABNS|DSB_5ADNS)|						\
-	(<DSB_5ABNSL,DSB_5ADNSL|2*DSB_5BNL,DSB_1452L|DSB_1452);						\
-      F=DP5;
-    TX=DSB IC3 zwischen Hamburg und Københaven, 1995 bis 1998;						\
-      C=(2:3|1:2)*DSB_IC3A[MX:504,32,59,3]; F=DPU5;
+  %ADDPOOL(POOL_DK,DK_ENV);
+    {E1?
+      TX=DSB Q;												\
+	C=DSB_Q,DSB_DL(1|2),DSB_BB,DSB_S2,DSB_SB2,DSB_S3,DSB_S7,DSB_S6,DSB_S4,DSB_S1_1; F=SP1;
+      TX=DSB Q;												\
+	C=DSB_Q,DSB_DL(1|2),DSB_BL0,2*DSB_CO,DSB_S11; F=SP1;
+      TX=DSB D;												\
+	C=DSB_LITRA_D,3*DSB_CM4,DSB_WR_CIWL|DSB_WR_CIWL,3*DSB_BL3,DSB_DJ1_STAF; F=SP1;
+    }
+    {E2?
+      TX=DSB Q;												\
+	C=DSB_Q,DSB_DL2|DSB_DL1,(<DSB_CXM1,DSB_FD1,DSB_BC1,DSB_S5); F=SP2;
+      TX=DSB PR;											\
+	C=DSB_PR1(|L),DSB_DJ1_STAF|DSB_DJ1,								\
+	  (<DSB_CT,DSB_CK,DSB_AA2,DSB_CK)|(<DSB_CK,DSB_AA1,DSB_CT,DSB_CTE);				\
+	F=SP2;
+      TX=DSB FRICHS;											\
+	C=DSB_FRICHS(|L),DSB_PBH|DSB_DB,|(<DSB_CM3,DSB_CM4,DSB_ARM,DSB_CP1); F=SP2;
+      TX=DSB R2;											\
+	C=DSB_R2,DSB_DJ1|DSB_DJ1_STAF,(<3*DSB_CB_STAF,DSB_CLE_STAF,DSB_BL3,DSB_3011CIWL|DSB_WR_CIWL);	\
+	F=SP2;
+      TX=DSB MAO;											\
+	C=DSB_MA0; F=DPU2;
+      TX=DSB MC;											\
+	C=DSB_MC; F=DPU2;
+      TX=DSB MEO;											\
+	C=DSB_ME0; F=DPU2;
+      TX=DSB MFO;											\
+	C=DSB_MF0,DSB_MF0; F=DP2;
+      TX=LSJS M2;											\
+	C=LSJS_M2; F=DP2;
+      TX=LSJS M4;											\
+	C=LSJS_M4,LSJS_FD4806; F=DP2;
+      TX=Ebeltoft - Trustrup Jernbane M6;								\
+	C=ETJ_M6; F=DP2;
+      TX=RGGJ: Ryomgard - Gjerrild - Grena Jernbane M3;							\
+	C=RGGJ_M3; F=DP2;
+      TX=VAGJ: Varde - Grindsted Jernbane M4;								\
+	C=VAGJ_M4; F=DP2;
+      TX=VLTJ: Lemvigbanen M1;										\
+	C=VLTJ_M1; F=DP2;
+      TX=VLTJ: Lemvigbanen M2;										\
+	C=VLTJ_M2; F=DP2;
+      TX=Nordfynske Jernbane M3;									\
+	C=NFJ_M3; F=DP2;
+      TX=Stubbekobing - Nykobing - Nysted Banen M5;							\
+	C=SNNB_M5; F=DP2;
+
+    }
+    {E3?
+      TX=DSB 56 + Salonwagen;										\
+	C=DSB_56_3(|L),DSB_S001|DSB_S1_2; F=DF3;
+      TX=DSB MO 1800;											\
+	C=DSB_MO_1800; F=DP3;
+      TX=DSB N200;											\
+	C=DSB_N20(1|2|9)(|L),DK3P; F=SF3;
+      TX=DSB MX Nohab;											\
+	C=DSB_MX_D(|L),(<DSB_DD2,3*DSB_CB1,DSB_CL,DSB_AL2); F=DP3;
+      TX=DSB MX Nohab;											\
+	C=DSB_MX_D(|L),(<DSB_CLE1,DSB_CL|DSB_CLS1,DSB_CB1,DSB_AD_AY1); F=DP3;
+      TX=DSB MX Nohab;											\
+	C=DSB_MX_DL|DSB_MX_D,5-6*DK3O,DSB_EM,DSB_EQ,DSB_QB; F=DF3;
+      TX=DSB MY Nohab + Personenzug;									\
+	C=DSB_MY_C|DSB_MY_CL|DSB_MY_F|DSB_MY_FL,(<DSB_4BN,DSB_4BNL,DSB_79AN,DSB_4BN,DSB_4BD); F=DP3;
+      TX=DSB MY Nohab + Skandinavien-Italien-Express 1954;						\
+	C=DSB_3_MY_H(|L),										\
+	  (<CIWL_3WLUHL,DSB_3_BC4UL,FS_3DZ80000BH,DSB_3_B4UL,FS_BZ23010B,FS_AZ13010B,2*CIWL_3WLUH,	\
+	  CIWL_3WLUHL,SBB_3A_AB42800)|									\
+	  (<,SBB_3A_AB42800L,2*CIWL_3WLUHL,CIWL_3WLUH,FS_AZ13010BL,FS_BZ23010BL,DSB_3_B4U,		\
+	  FS_3DZ80000BHL,DSB_3_BC4U,CIWL_3WLUH);							\
+	F=DP3;
+      TX=VLTJ: Lemvigbanen M12;										\
+	C=VLTJ_M_12,2*VLTJ_C3; F=DP3;
+
+    }
+    {E4?
+      TX=DSB 57 + Dienstzug;										\
+	C=DSB_57_4(A|B)(|L),DSB_ZT99999[OB:TARP9,40,6]; F=DF4;
+      TX=DSB ME + Schnellzug;										\
+	C=DSB_ME1|DSB_ME2,(<(2*DSB_A(F|G))|DSB_AL2,DSB_WRM601,DSB_BFG,3*DSB_BG,DSB_BU1); F=DP4;
+      TX=DSB ME + Personenzug;										\
+	C=DSB_ME1|DSB_ME2,(<DSB_P1,DSB_5BDL,DSB_4BL,DSB_4BK|DSB_4BKL,DSB_4AB,DSB_4AL|DSB_4A,DSB_4B);	\
+	F=DP45;
+      TX=DSB MX Nohab;											\
+	C=DSB_MX_A(|L),(<DSB_4AB,DSB_BAB,DSB_4BK,DSB_5BD); F=DP3;
+      TX=DSB MY Nohab;											\
+	C=DSB_MY_AL|DSB_MY_A|DSB_MY_BL|DSB_MY_B|DSB_MY_EL|DSB_MY_E|DSB_MY_DL|DSB_MY_D|DSB_MY_GL|	\
+	  DSB_MY_G|DSB_MY_HL|DSB_MY_H,									\
+	  (<3-5*(DSB_4A_ELO5110L|DSB_4A_ELO5110|DSB_4A_ELO5110ML|DSB_4A_ELO5110M|DSB_4A_E5020EU|	\
+	  DSB_4A_E5000EBL|DSB_4A_E5000EB),DSB_KOMMUNEKEMI1,						\
+	  DSB_KSL[NC:B,3,8][OB:BOX_FRICHS,23,12][OB:BOX34,87,12]);					\
+	F=DF45;
+      TX=DSB MY Nohab;											\
+	C=DSB_79MY,6*(DSB_HBIS225GD|DSB_HBIS225SCISSORS|DSB_HBIS225PIANO|DSB_HBIS225ALBANI,DSB_EAOS1),	\
+	  DSB_ZB_TUBORG;										\
+	F=DF34;
+      TX=DSB MZ + Schnellzug;										\
+	C=(<DSB_1435L,2*DSB_4BN(|L),DSB_4BKD(|L),DSB_4BDANL,DSB_4ABNS)|					\
+	  (<DSB_4ABNSL,DSB_4BDAN,DSB_4BKD(|L),2*DSB_4BN(|L),DSB_1435);					\
+	F=DPU45;
+      TX=DSB MZ + Schnellzug;										\
+	C=<DSB_1401L|DSB_1401|DSB_4BDL,3*DSB_4BNL,DSB_4ADNS; F=DP4;
+      TX=DSB MZ + Schnellzug;										\
+	C=DSB_1420L|DSB_1420|DSB_1431L|DSB_1431|DSB_1435,						\
+	  (DSB_HBIKKS1,DSB_HBIKKS2,DSB_HBIKKS3,DSB_HBIKKS4);						\
+	F=DP45;
+      TX=DSB MA Lyntog;											\
+	C=(<DSB_MA1L,DSB_AM1,DSB_BMK1,DSB_BMS1,DSB_BMS1L,DSB_BM1L,DSB_AM1L,DSB_MA1)|			\
+	  (<DSB_MA1L,DSB_AM1,DSB_BM1,DSB_BMS1,DSB_BMS1L,DSB_BMK1L,DSB_AM1L,DSB_MA1);			\
+	F=DPU34;
+      TX=DSB MA Lyntog;											\
+	C=(<DSB_MA2L,DSB_AM2,DSB_BMK2,DSB_BMS2,DSB_BMS2L,DSB_BM2L,DSB_AM2L,DSB_MA2)|			\
+	  (<DSB_MA2L,DSB_AM2,DSB_BM2,DSB_BMS2,DSB_BMS2L,DSB_BMK2L,DSB_AM2L,DSB_MA2)|			\
+	  (<DSB_MA3L,DSB_AM3,DSB_BMK3,DSB_BMS3,DSB_BMS3L,DSB_BM3L,DSB_AM3L,DSB_MA3)|			\
+	  (<DSB_MA3L,DSB_AM3,DSB_BM3,DSB_BMS3,DSB_BMS3L,DSB_BMK3L,DSB_AM3L,DSB_MA3);			\
+	F=DPU4;
+      TX=DSB MR;											\
+	C=(<DSB_MRL,DSB_MR)|(<DSB_MR1L,DSB_MR1,DSB_MR2L,DSB_MR2); F=DPU45;
+      TX=TTVJ: Tinglev-Tonder Veteran Jernbane M3;							\
+	C=TTVJ_M3(|L); F=DP4;
+      TX=VLTJ: Lemvigbanen YS + YM;									\
+	C=<VLTJ_YS,VLTJ_YM; F=DP4;
+      TX=Hillerød-Frederiksværk-Hundested Jernbane NOHAB;						\
+	C=HFHJ_MX_A(|L),HFHJ_BN,HFHJ_AG,HFHJ_BG; F=DP4;
+      TX=Lollandsbanen M32;										\
+	C=LJ_M_32,2*LJ_BG; F=DP4;
+      TX=Odsherreds Jernbane Y;										\
+	C=<OHJ_YS,OHJ_YP,OHJ_YM; F=DPU4;
+      TX=Odsherreds Jernbane 39;									\
+	C=OHJ_39,3-5*G_ES1|G_ESBL|G_ESB; F=DF4;
+
+
+    }
+    {E5?
+      TX=DSB 57 + Dienstzug;										\
+	C=DSB_57_5A_HEN(|L),DSB_SV338; F=DF5;
+      TX=DSB 57 + Dienstzug;										\
+	C=DSB_57_5A_ZS(|L),DSB_SV738,DSB_SV475; F=DF5;
+      TX=DSB ME + Intercity;										\
+	C=<DSB_BFSL,3*DSB_BFM,2*DSB_AFM,DSB_ME1|DSB_ME2; F=DPU5;
+      TX=DSB ME + Nachtzug;										\
+	C=DSB_MER~OLE,2*DSB_5BCL,2*DSB_5BC,DSB_WLABMHTENL,DSB_WLABMHTEN; F=DP5;
+      TX=DSB MO 1800;											\
+	C=DSB_MO_1800_STAF; F=DP4;
+      TX=DSB MZ + Regionalzug;										\
+	C=(<DSB_1447L|DSB_1447,,2*DSB_5BN,DSB_5ABNS|DSB_5ADNS)|						\
+	  (<DSB_5ABNSL,DSB_5ADNSL|2*DSB_5BNL,DSB_1452L|DSB_1452);					\
+	F=DP5;
+      TX=DSB MY + Dienstzug;										\
+	C=DSB_MY_J(|L),DSB_SV785,DSB_SV791,DSB_SV792; F=DF5;
+      TX=DSB IC3 zwischen Hamburg und Københaven, 1995 bis 1998;					\
+	C=(2:3|1:2)*DSB_IC3A[MX:504,32,59,3]; F=DPU5;
+      TX=VLTJ: Lemvigbanen YM;										\
+	C=VLTJ_YM15; F=DP5;
+      TX=Vestbanen YS + YM;										\
+	C=<VNJ_YS,VNJ_YM; F=DPU5;
+      TX=Skagensbahen Y;										\
+	C=<SB_YS,SB_YP,SB_YM; F=DPU5;
 
 # Daenemark E
-    TX=DSB ET;												\
-      C=DSB_ET~CG; F=EF56;
-  }
-  {E6?
-    TX=DSB ME mit Personenzug;										\
-      C=(<DSB_DDSL,DSB_DDW,DSB_DDP,DSB_DDW,DSB_MEB~OLE)|(<DSB_MEB~OLE,DSB_DDW,DSB_DDP,DSB_DDW,DSB_DDS);	\
-      F=DP6;
-    TX=DSB ME mit Gueterzug;										\
-      C=DSB_EG3103L|DSB_EG3103|DSB_EG3113L|DSB_EG3113,DK6F; F=DF6;
-    TX=DSB IC4;												\
-      C=DSB_IC4~GOU|DSB_IC4L; F=DPU6;
-    TX=DSB IC3;												\
-      C=DSB_IC3~LIP; F=DPU6;
-    TX=DSB IC4;												\
-      C=<DSB_IC4FL~LIP,DSB_IC4M1~LIP,DSB_IC4M2~LIP,DSB_IC4F~LIP; F=DPU6;
-    TX=DSB MQ;												\
-      C=DSB_MQB~LIP; F=DPU6;
-    TX=DSB IC4;												\
-      C=DSB_IC4|DSB_IC4L; F=DPU6;
+      TX=DSB EA 3002 + Wendezug Kopenhagen-Helsingör um 1990;						\
+	C=(<DSB_3002(|L),4*DSB_4BN(|L),DSB_4BDANL,DSB_4ABNS)|						\
+	  (<DSB_4ABNSL,DSB_4BDAN,4*DSB_4BN(|L),DSB_3002(|L));						\
+	F=EP6;
+      TX=DSB ET;											\
+	C=DSB_ET~CG; F=EF56;
+    }
+    {E6?
+      TX=DSB ME + Nachtzug;										\
+	C=<(5*(DSB_BCM1|DSB_BCM_MOON)),DSB_9969007,DSB_T2S; F=DP6;
+      TX=DSB ME + Personenzug;										\
+	C=(<DSB_DDSL,DSB_DDW,DSB_DDP,DSB_DDW,DSB_MEB~OLE)|(<DSB_MEB~OLE,DSB_DDW,DSB_DDP,DSB_DDW,DSB_DDS); \
+	F=DP6;
+      TX=DSB ME + Gueterzug;										\
+	C=DSB_EG3103L|DSB_EG3103|DSB_EG3113L|DSB_EG3113,DK6F; F=DF6;
+      TX=DSB ME + Intercity;										\
+	C=<DSB_BFS100L,5*DSB_BFM100,DSB_MEB~OLE; F=DPU6;
+      TX=DSB IC4;											\
+	C=DSB_IC4L|DSB_IC4~GOU; F=DPU6;
+      TX=DSB IC3;											\
+	C=DSB_IC3~LIP; F=DPU6;
+      TX=DSB IC4;											\
+	C=<DSB_IC4FL~LIP,DSB_IC4M1~LIP,DSB_IC4M2~LIP,DSB_IC4F~LIP; F=DPU6;
+      TX=DSB MQ;											\
+	C=DSB_MQB~LIP; F=DPU6;
+      TX=DSB IC4;											\
+	C=DSB_IC4|DSB_IC4L; F=DPU6;
 
 # Daenemark E
-    TX=DSB ER;												\
-      C=DSB_6IR4; F=EF6;
-    TX=DBSC 185;											\
-      C=DBSC_185_2A1L|DBSC_185_2A1|DBSC_185_2A2L|DBSC_185_2A2|DBSC_185_2B1L|DBSC_185_2B1| DBSC_185_2B2L| \
-	DBSC_185_2B2|DBSC_185_325L| DBSC_185_325,(5*(RAI_EAOS1|RAI_EAS1L|RAI_EAS1));			\
-      F=EF6;
+      TX=DSB EA 3002 + IC Fredericia-Hannover 2002;							\
+	C=DSB_3002(|L),											\
+	  (<(2*DBAG_AVMZ109WL),DBAG_APMZ121W,DBAG_WRMZ134W,2*DBAG_BOMZ236W,DBAG_BPMZ292_0TL,		\
+	  2*DBAG_BM235WL)|										\
+	  (<(2*DBAG_BM235W),DBAG_BPMZ292_0T,2*DBAG_BOMZ236WL,DBAG_WRMZ134WL,DBAG_APMZ121_0WL,		\
+	  2*DBAG_AVMZ109W);										\
+	F=EP6;
+      TX=DSB EA 3004 + CNL 473 Kopenhagen-Basel 2011;							\
+	C=DSB_3020(|L),											\
+	  (<DB_BCOMH244,2*DB_BCVMBZ248,DB_WLABMH175AL,CNL_WLABMZ173R,DB_WLABM171L,DB_WRMBZ,		\
+	  2*DB_BCVMBZ248)|										\
+	  (<(2*DB_BCVMBZ248L),DB_WRMBZL,2*DB_WLABM171,DB_WLABSMH166L,DB_WLABMH175A,2*DB_BCVMBZ248L,	\
+	  DB_BCOMH244L);										\
+	F=EP6;
+      TX=DSB EA 3005 + Regionalzug 2007;								\
+	C=(<DSB_3005(|L),6*DSB_5BN,DSB_5ADNS)|(<DSB_5ADNSL,6*DSB_5BN(|L),DSB_3020(|L)); F=EP6;
+      TX=DSB EA 3010 + Containerzug um 1999;								\
+	C=DSB_3020(|L),G_SGNNS4(|L)[O:BOX7_EVALS1,107,11][O:C3_EWALS10,11,11],				\
+	  6*(G_SGGMRSS2(|L)[O:BOX7_R1,14,12][O:BOX7_R1,86,12][O:BOX7_R1,177,12][O:BOX7_R1,249,12]);	\
+	F=EF6;
+      TX=DSB EA 3020 + Urlauber-Sonderzug Kopenhagen März 2008;						\
+	C=DSB_3020(|L),8@DSB_5BC(|L); F=EP6;
+      TX=DSB ER;											\
+	C=DSB_6IR4; F=EF6;
+      TX=DBSC 185;											\
+	C=DBSC_185_2A1L|DBSC_185_2A1|DBSC_185_2A2L|DBSC_185_2A2|DBSC_185_2B1L|DBSC_185_2B1|		\
+	  DBSC_185_2B2L|DBSC_185_2B2|DBSC_185_325L|DBSC_185_325,(5*(RAI_EAOS1|RAI_EAS1L|RAI_EAS1));	\
+	F=EF6;
 
 #Daenemark privat
-    TX=Daenemark Arriva 41;										\
-      C=AR_41; F=DPU6;
-    TX=Daenemark Banedanmark 1419;									\
-      C=BDK_1419L|BDK_1419; F=DF6;
-    TX=Daenemark Lokalbanen 41;										\
-      C=LB_41; F=DPU6;
-    TX=Daenemark Lyngby-Nærum Jernbane Regio Sprinter;							\
-      C=LNJ_RS~LIP; F=DPU6;
-    TX=Daenemark Odsherreds Jernbane MX;								\
-      C=OHJ_MX101|OHJ_MX102|OHJ_MX_AL|OHJ_MX_A|OHJ_MX103|OHJ_MX_BL|OHJ_MX_B|OHJ_MX104| OHJ_MX_CL|	\
-	OHJ_MX_C,DK6F;										\
-      F=DF6;
-    TX=Daenemark Odsherreds Jernbane MF21;								\
-      C=1-2*OHJ_MF_21~LIP; F=DPU6;
-    TX=Daenemark Vestsjallands Lokalbaner 41;								\
-      C=VLA_41; F=DPU6;
-  }
-  %ENDPOOL;												\
+      TX=Daenemark Arriva 41;										\
+	C=AR_41; F=DPU6;
+      TX=Daenemark Banedanmark 1419;									\
+	C=BDK_1419L|BDK_1419; F=DF6;
+      TX=Daenemark Lokalbanen 41;									\
+	C=LB_41; F=DPU6;
+      TX=Daenemark Lyngby-Nærum Jernbane Regio Sprinter;						\
+	C=LNJ_RS~LIP; F=DPU6;
+      TX=Daenemark Odsherreds Jernbane MX;								\
+	C=OHJ_MX101|OHJ_MX102|OHJ_MX_AL|OHJ_MX_A|OHJ_MX103|OHJ_MX_BL|OHJ_MX_B|OHJ_MX104|OHJ_MX_CL|	\
+	  OHJ_MX_C,DK6F;										\
+	F=DF6;
+      TX=Daenemark Odsherreds Jernbane MF21;								\
+	C=1-2*OHJ_MF_21~LIP; F=DPU6;
+      TX=Daenemark Vestsjallands Lokalbaner 41;								\
+	C=VLA_41; F=DPU6;
+    }
+  %ENDPOOL;
 }
+
 ###############################################################################
 ##                                                                           ##
-##                                   Norway                                  ##
+##                                  Norway                                   ##
 ##                                                                           ##
 ###############################################################################
 {N?
-  %ADDPOOL(POOL_N,N_ENV);							
-    
-  {E3?
-    TX=NSB 27;												\
-      C=NSB_2770~NEK2,N3P; F=SP3;
-    TX=NSB Di3;												\
-      C=NSB_DI3_DL|NSB_DI3_D|NSB_DI3_H|NSB_DI3_HL|NSB_DI3_ML|NSB_DI3_M,					\
-	(<(2*NSB_B3_BL),NSB_AB3_B,NSB_AB3_BL,2*NSB_B3_B,NSB_BD3_BL);					\
-      F=DP3;
-    TX=NSB 18293;											\
-      C=NSB_18293(|L); F=DP3;
+  %ADDPOOL(POOL_N,N_ENV);
+
+    {E3?
+      TX=NSB 5371;											\
+	C=NSB_5371(|L),S3FG1; F=SF3;
+      TX=NSB 49;											\
+	C=NSB_49A_463,N3P; F=SP3;
+      TX=NSB 27;											\
+	C=NSB_2770~NEK2,N3P; F=SP3;
+      TX=NSB Di3;											\
+	C=NSB_DI3_DL|NSB_DI3_D|NSB_DI3_H|NSB_DI3_HL|NSB_DI3_ML|NSB_DI3_M,				\
+	  (<(2*NSB_B3_BL),NSB_AB3_B,NSB_AB3_BL,2*NSB_B3_B,NSB_BD3_BL);					\
+	F=DP3;
+      TX=NSB 18293;											\
+	C=NSB_18293(|L); F=DP3;
 
 
 # Norwegen E
-    TX=NSB EL16;											\
-      C=NSB_EL16_A|NSB_EL16_C,(<NSB_BD3_A,2*NSB_BC3_AL,2*NSB_WLAB3_A,2*NSB_BC3_A,NSB_WR3_B); F=EP3;
-  }
-  {E4?
-    TX=NSB Di3;												\
-      C=NSB_DI3_OL|NSB_DI3_O|NSB_DI3_NL|NSB_DI3_N,N4F; F=DF4;
-    TX=NSB Di4;												\
-      C=NSB_DI4~ZS,N4F; F=DF45;
-    TX=NSB BM89;											\
-      C=NSB_BM89; F=DPU4;
+      TX=NSB EL16;											\
+	C=NSB_EL16_A|NSB_EL16_C,(<NSB_BD3_A,2*NSB_BC3_AL,2*NSB_WLAB3_A,2*NSB_BC3_A,NSB_WR3_B); F=EP3;
+    }
+    {E4?
+      TX=NSB Di3;											\
+	C=NSB_DI3_OL|NSB_DI3_O|NSB_DI3_NL|NSB_DI3_N,N4F; F=DF4;
+      TX=NSB Di4;											\
+	C=NSB_DI4~ZS,N4F; F=DF45;
+      TX=NSB BM89;											\
+	C=NSB_BM89; F=DPU4;
 
 # Norwegen E
-    TX=NSB EL12;											\
-      C=NSB_EL12~ARN,N4F; F=EF34;
-    TX=NSB EL15;											\
-      C=NSB_EL15L~NR|NSB_EL15~NR,N4F; F=EF4;
-    TX=NSB EL15;											\
-      C=NSB_EL15D,N4F; F=EF4;
-    TX=NSB EL16;											\
-      C=NSB_EL16_B|NSB_EL16O,N4F; F=EF4;
-  }
-  {E5?
-    TX=NSB Di5;												\
-      C=NSB_DI5L,N5F; F=DF56;
-    TX=NSB BM92;											\
-      C=NSB_BM92L~ZS|NSB_BM92~ZS; F=DPU56;
+      TX=NSB EL12;											\
+	C=NSB_EL12~ARN,N4F; F=EF34;
+      TX=NSB EL15;											\
+	C=NSB_EL15L~NR|NSB_EL15~NR,N4F; F=EF4;
+      TX=NSB EL15;											\
+	C=NSB_EL15D,N4F; F=EF4;
+      TX=NSB EL16;											\
+	C=NSB_EL16A,											\
+	  (<NSB_BD3_C,3*NSB_B3_AL,NSB_WR3_C,NSB_AB3_A,NSB_F3|NSB_F1_3)|					\
+	  (<NSB_F1_3|NSB_F3,3*NSB_B3_AL,NSB_WR3_B,NSB_AB3_AL,NSB_BD3_CL);				\
+	F=EP4;
+      TX=NSB EL16;											\
+	C=NSB_EL16_B|NSB_EL16O,N4F; F=EF4;
+    }
+    {E5?
+      TX=NSB Di5;											\
+	C=NSB_DI5L,N5F; F=DF56;
+      TX=NSB BM92;											\
+	C=NSB_BM92L~ZS|NSB_BM92~ZS; F=DPU56;
+      TX=Jernbaneverket DI3;										\
+	C=JBV_DI3,N5F; F=E56;
+      TX=Jernbaneverket 1000;										\
+	C=JBV_ROGER1000,N5F; F=E56;
+      TX=Jernbaneverket DI3;										\
+	C=JBV_DI3_PLOG; F=E56;
+      TX=Jernbaneverket 1415;										\
+	C=JBV_1415_PLOG; F=E56;
+      TX=Jernbaneverket 1415;										\
+	C=JBV_1415(|L)~HW|JBV_1415~OLE,N5F; F=E56;
 
 # Norwegen E
-    TX=NSB EL17;											\
-      C=NSB_EL17~DK|NSB_EL17_2220|NSB_EL17_2223|NSB_EL17_2224|NSB_EL17_2226|NSB_EL17_BETA,		\
-	6*(NSB_HCCRRS0|NSB_HCCRRS1|NSB_HCCRRS2|NSB_HCCRRS3|NSB_HCCRRS);					\
-      F=EF456;
-    TX=NSB EL18;											\
-      C=NSB_EL18~HEN,N5F; F=EF56;
-  }
+      TX=NSB EL17;											\
+	C=NSB_EL17~DK|NSB_EL17_2220|NSB_EL17_2223|NSB_EL17_2224|NSB_EL17_2226|NSB_EL17_BETA,		\
+	  6*(NSB_HCCRRS0|NSB_HCCRRS1|NSB_HCCRRS2|NSB_HCCRRS3|NSB_HCCRRS);				\
+	F=EF456;
+      TX=NSB EL18;											\
+	C=NSB_EL18~HEN,N5F; F=EF56;
+      TX=NSB EL18;											\
+	C=NSB_EL18~ARN,(NSB_B5A,NSB_A3A)|(NSB_A3,4*NSB_B5); F=EP5;
+      TX=MTAS T44;											\
+	C=MTAS_T44A|MTAS_T44,N5FS; F=EF5;
+      TX=MTAS EL 15;											\
+	C=MTAS_EL15B~HAG|MTAS_EL15B(|L)~NR|MTAS_EL15G(|L)|MTAS_EL15R(|L)~HEN,N5F; F=EF56;
+    }
+    {E6?
+      TX=NSB BM 92;											\
+	C=NSB_BM92A; F=DPU6;
+      TX=NSB BM 93;											\
+	C=NSB_BM93|NSB_TALENT; F=DPU6;
+      TX=NSB BFM70;											\
+	C=NSB_BFM70_012; F=EPU6;
+      TX=NSB BFM71;											\
+	C=<NSB_BM71FL,2*NSB_BM71L,NSB_BM71F; F=EPU6;
+      TX=NSB 73;											\
+	C=<NSB_73BFL,NSB_73BEL,NSB_73BM,NSB_73BF; F=EPU6;
+      TX=Baneservice 1411;										\
+	C=BSERV_1411(|L)|BSERV_MZ,N5F; F=E56;
+      TX=CargoNet AS JT42;										\
+	C=CGN_JT42CWR(|L),N5F; F=DF6;
+      TX=CargoNet AS 4000;										\
+	C=CGN_4000(|L),N5F; F=DF6;
+      TX=CargoNet AS 185;										\
+	C=CGN_185,N5F; F=E56;
+    }
+  %ENDPOOL;
 }
+
 ###############################################################################
 ##                                                                           ##
-##                                   Sweden                                  ##
+##                                  Sweden                                   ##
 ##                                                                           ##
 ###############################################################################
 {S?
-  %ADDPOOL(POOL_S,S_ENV);							
-    
-  {E2?
-    TX=SJ CD mit Schnellzug;										\
-      C=SJ_CD,(<SJ_BO3G,SJ_BO3A~ARN,2*SJ_CO1A,SJ_BCO1A,SJ_DFO1A); F=SP2;
-    TX=SJ D mit Schnellzug;										\
-      C=SJ_F_S, (<SJ_CFO2A,SJ_DO2,SJ_CO9,SJ_AO2,SJ_ABCO2,SJ_BO5|SJ_AO2B,SJ_BO4|SJ_BCO7,SJ_BCO6B|SJ_CO8A); \
-      F=SP2;
-    TX=SJ Sa mit Personenzug;										\
-      C=SJ_SA,(<(2*SJ_GSU),SJ_CD3,SJ_F5~KAR); F=SP2;
-  }
-  {E3?
-    TX=SJ E;												\
-      C=SJ_E~ARN,S3P; F=SP23;
-    TX=SJ E2;												\
-      C=SJ_E2~ARN,S3P; F=SP23;
-    TX=SJ GA;												\
-      C=SJ_1425~NM,S3P; F=SP23;
-    TX=SJ GA2;												\
-      C=SJ_GA2~ARN,S3P; F=SP23;
-    TX=SJ GA3;												\
-      C=SJ_GA3~ARN,S3P; F=SP23;
-    TX=SJ GA4;												\
-      C=SJ_GA4~ARN,S3F; F=SF23;
-    TX=SJ GB;												\
-      C=SJ_GB~ARN,S3F; F=SF23;
-    TX=SJ GB2;												\
-      C=SJ_GB2~ARN,S3P; F=SP23;
-    TX=SJ S1;												\
-      C=SJ_S1~ARN,S3F; F=SF23;
-    TX=SJ SB;												\
-      C=SJ_SB~ARN,S3P; F=SP23;
+  %ADDPOOL(POOL_S,S_ENV);
+
+    {E2?
+      TX=SJ CD + Schnellzug;										\
+	C=SJ_CD,(<SJ_BO3G,SJ_BO3A~ARN,2*SJ_CO1A,SJ_BCO1A,SJ_DFO1A); F=SP2;
+      TX=SJ D + Schnellzug;										\
+	C=SJ_F_S,											\
+	  (<SJ_CFO2A,SJ_DO2,SJ_CO9,SJ_AO2,SJ_ABCO2,SJ_BO5|SJ_AO2B,SJ_BO4|SJ_BCO7,SJ_BCO6B|SJ_CO8A);	\
+	F=SP2;
+      TX=SJ Sa + Personenzug;										\
+	C=SJ_SA,(<(2*SJ_GSU),SJ_CD3,SJ_F5~KAR); F=SP2;
+    }
+    {E3?
+      TX=SJ E;												\
+	C=SJ_E~ARN,S3P; F=SP23;
+      TX=SJ E2;												\
+	C=SJ_E2~ARN,S3P; F=SP23;
+      TX=SJ GA;												\
+	C=SJ_1425~NM,S3P; F=SP23;
+      TX=SJ GA2;											\
+	C=SJ_GA2~ARN,S3P; F=SP23;
+      TX=SJ GA3;											\
+	C=SJ_GA3~ARN,S3P; F=SP23;
+      TX=SJ GA4;											\
+	C=SJ_GA4~ARN,S3F; F=SF23;
+      TX=SJ GB;												\
+	C=SJ_GB~ARN,S3F; F=SF23;
+      TX=SJ GB2;											\
+	C=SJ_GB2~ARN,S3P; F=SP23;
+      TX=SJ S1;												\
+	C=SJ_S1~ARN,S3F; F=SF23;
+      TX=SJ SB;												\
+	C=SJ_SB~ARN,S3P; F=SP23;
 
 # Schweden E
-    TX=SJ DU mit Personenzug;										\
-      C=SJ_DUL|SJ_DU~ARN,(<SJ_DFO5|SJ_DFO20,SJ_C3DC,2*SJ_CC2,SJ_C3DB,SJ_CF3); F=EP3;
-    TX=SJ F mit Schnellzug;										\
-      C=SJ_F1|SJ_F~ARN,(<SJ_BO8A,SJ_AO14A,SJ_AB9|SJ_ABO7,SJ_R2Y,3*SJ_BO8A,SJ_DF28Y); F=EP3;
-    TX=SJ Mg mit Schnellzug;										\
-      C=SJ_MG~ARN|SJ_MG1,										\
-	(< SJ_CO6A,SJ_ACO4, SJ_CO8CS, SJ_BO4B,SJ_RO3A, SJ_BO15U, SJ_BCO7B, SJ_AO15B, SJ_B6,		\
-	SJ_FO14A|SJ_FO14|SJ_CFO4);									\
-      F=EP3;
-  }
-  {E4?
-    TX=SJ V1;												\
-      C=SJ_V1,2-5*G_SHIM; F=DF4;
-    TX=SJ V3;												\
-      C=SJ_V3~ARN,G_GABS; F=DF4;
-    TX=SJ T11;												\
-      C=SJ_T11A,4*SJ_HBBINS2Z; F=DF4;
-    TX=SJ T43;												\
-      C=SJ_T43O|SJ_T43~ARN,1-3*G_Z1; F=DF4;
-    TX=SJ T44;												\
-      C=SJ_T44F|SJ_T44A|SJ_T44B|SJ_T44D,4-12*G_OIL1; F=DF4;
+      TX=SJ DU + Personenzug;										\
+	C=SJ_DUL|SJ_DU~ARN,(<SJ_DFO5|SJ_DFO20,SJ_C3DC,2*SJ_CC2,SJ_C3DB,SJ_CF3); F=EP3;
+      TX=SJ F + Schnellzug;										\
+	C=SJ_F2|SJ_F1|SJ_F~ARN,(<SJ_BO8A,SJ_AO14A,SJ_AB9|SJ_ABO7,SJ_R2Y,3*SJ_BO8A,SJ_DF28Y); F=EP3;
+      TX=SJ Mg + Schnellzug;										\
+	C=SJ_MG~ARN|SJ_MG1,										\
+	  (< SJ_CO6A,SJ_ACO4,SJ_CO8CS,SJ_BO4B,SJ_RO3A,SJ_BO15U,SJ_BCO7B,SJ_AO15B,SJ_B6,			\
+	  SJ_FO14A|SJ_FO14|SJ_CFO4)|(<2*SJ_AO15,2*SJ_BCO7B1,3*SJ_BO15U1,SJ_RO3,SJ_FO14B);		\
+	F=EP3;
+    }
+    {E4?
+      TX=SJ V1;												\
+	C=SJ_V1,2-5*G_SHIM; F=DF4;
+      TX=SJ V3;												\
+	C=SJ_V3~ARN,G_GABS; F=DF4;
+      TX=SJ T11;											\
+	C=SJ_T11A,4*SJ_HBBINS2Z; F=DF4;
+      TX=SJ T43;											\
+	C=SJ_T43O|SJ_T43~ARN,1-3*G_Z1; F=DF4;
+      TX=SJ T44;											\
+	C=SJ_T44G|SJ_T44F|SJ_T44A|SJ_T44B|SJ_T44D,4-12*G_OIL1; F=DF4;
 
 # VT
-    TX=SJ Y1;												\
-      C=SJ_Y1A|SJ_Y1~LIP; F=DPU45;
-    TX=SJ Y3;												\
-      C=<SJ_Y3,SJ_UAB3|SJ_UA3,SJ_UB3|SJ_UB3B,SJ_UB3Y; F=DPU4;
-    TX=SJ YF;												\
-      C=SJ_YF1L|SJ_YF1; F=DPU45;
-    TX=SJ Y6;												\
-      C=(SJ_Y6,SJ_UFV)|(<SJ_UBO6L|SJ_UBO6,SJ_UF6L|SJ_UF6,SJ_UBFO8Y)|					\
-	(<SJ_UBO6L,SJ_UFO6L|SJ_UFO6|SJ_UDFO15L|SJ_UDFO15|SJ_UDFO20L|SJ_UDFO20,SJ_UBO6)|			\
-	(<SJ_UBO6L,SJ_UBFO6|SJ_UAFO6Y|SJ_UBFO6Y|SJ_UABFO7Y|SJ_UAFO7YE|SJ_UBFO7YE|SJ_UBFO8Y|SJ_UBO6)|	\
-	(<SJ_UBFO6L|SJ_UAFO6YL|SJ_UBFO6YL|SJ_UBFO6YE|SJ_UABFO7YL|SJ_UAFO7YEL|SJ_UBFO7YEL|SJ_UBFO8YL,	\
-	SJ_UBO6)| SJ_YPL|SJ_YP|SJ_YBO6L|SJ_YBO6;							\
-      F=DPU45;
-    TX=SJ Y7;												\
-      C=(<SJ_Y7,SJ_UABF7Y,SJ_Y7)|SJ_YBO7L|SJ_YBO7|SJ_YBO7_1224V; F=DPU45;
-    TX=SJ Y8;												\
-      C=SJ_YBO8L|SJ_YBO8; F=DPU45;
+      TX=SJ Y1;												\
+	C=SJ_Y1A|SJ_Y1~LIP; F=DPU45;
+      TX=SJ Y3;												\
+	C=<SJ_Y3,SJ_UAB3|SJ_UA3,SJ_UB3|SJ_UB3B,SJ_UB3Y; F=DPU4;
+      TX=SJ YF;												\
+	C=SJ_YF1L|SJ_YF1; F=DPU45;
+      TX=SJ Y6;												\
+	C=(SJ_Y6,SJ_UFV)|(<SJ_UBO6L|SJ_UBO6,SJ_UF6L|SJ_UF6,SJ_UBFO8Y)|					\
+	  (<SJ_UBO6L,SJ_UFO6L|SJ_UFO6|SJ_UDFO15L|SJ_UDFO15|SJ_UDFO20L|SJ_UDFO20,SJ_UBO6)|		\
+	  (<SJ_UBO6L,SJ_UBFO6|SJ_UAFO6Y|SJ_UBFO6Y|SJ_UABFO7Y|SJ_UAFO7YE|SJ_UBFO7YE|SJ_UBFO8Y|SJ_UBO6)|	\
+	  (<SJ_UBFO6L|SJ_UAFO6YL|SJ_UBFO6YL|SJ_UBFO6YE|SJ_UABFO7YL|SJ_UAFO7YEL|SJ_UBFO7YEL|SJ_UBFO8YL,	\
+	  SJ_UBO6)|SJ_YPL|SJ_YP|SJ_YBO6L|SJ_YBO6;							\
+	F=DPU45;
+      TX=SJ Y7;												\
+	C=(<SJ_Y7,SJ_UABF7Y,SJ_Y7)|SJ_YBO7L|SJ_YBO7|SJ_YBO7_1224V; F=DPU45;
+      TX=SJ Y8;												\
+	C=SJ_YBO8L|SJ_YBO8; F=DPU45;
 
 # Schweden E
-    TX=SJ BK mit Güterzug;										\
-      C=SJ_BK,SJ_GE,SJ_GE3,SJ_GE1,SJ_GBS,((SJ_KBPS761|SJ_KBPS741)[OB:PIPE32,,12]),SJ_OS; F=EF34;
-    TX=SJ D mit Güterzug;										\
-      D=L;												\
-      C=SJ_D101,											\
-	(<SJ_GRH,SJ_G,SJ_GE2,SJ_OR[OB:CABLE18,70,15][OB:CABLE18,20,15],SJ_OBP,				\
-	4*(SJ_O[OB:WOOD77,65,15][OB:WOOD77,16,15]), SJ_H1,SJ_HR,SJ_GSH,SJ_GSU,SJ_GS,SJ_GS1,SJ_H|SJ_HZ,	\
-	SJ_L[OB:WOOD138,,35],SJ_L1[OB:WOOD137,,35]);							\
-      F=EF34;
-    TX=SJ DA mit Personenzug;										\
-      C=SJ_DA~ARN,(< SJ_F6|SJ_F5B|SJ_F7,SJ_RB1Y, SJ_B1Z,SJ_AB3Y, SJ_B5~ARN); F=EP34;
-    TX=SJ DK mit Personenzug;										\
-      C=SJ_DK,(<SJ_C3AA,SJ_C3A1,SJ_C3C,SJ_CF4A); F=EP34;
-    TX=SJ Dg mit Personenzug;										\
-      C=SJ_DG~ARN,(<SJ_CO5A2,SJ_3C,SJ_3BC|SJ_3BCL,SJ_3A|SJ_3B,SJ_3C); F=EP34;
-    TX=SJ Dg mit Personenzug;										\
-      C=SJ_DG2,(<SJ_CO13,SJ_CO1B,SJ_BCO1B,SJ_BO3B,SJ_CO7,SJ_DFO29); F=EP3;
-    TX=SJ DU mit Personenzug;										\
-      C=SJ_DUA,(<SJ_F5BY|SJ_F6Y,2*SJ_B1Y,SJ_A2Y,SJ_AB2Y); F=EP34;
-    TX=SJ DM mit Güterzug;										\
-      C=SJ_DM~ARN|SJ_DMZ~ARN,										\
-	(<SJ_DV30F,SJ_GBS_T,4*(SJ_GBS1[OB:FR_CP,22,16]),						\
-	4*(SJ_OMS[OB:COIL5,14,15][OB:COIL5,38,16][OB:COIL5,62,16][OB:COIL5,86,16][OB:COIL5,109,16]),	\
-	SJ_OS1, 4*((SJ_ELOS[O:COAL19])|(SJ_ELOS[O:#COAL19])),						\
-	5*((SJ_EKLOS_T[O:COAL19])|(SJ_EKLOS_T[O:#COAL19])),2*SJ_L);					\
-      F=EF34;
-    TX=SJ DM3;												\
-      C=SJ_DM3~ARN|SJ_DM3B,20-30*SJ_ERZ(4|5|6); F=EF34;
-    TX=SJ F mit Schnellzug;										\
-      C=SJ_F1|SJ_F~ARN,											\
-	(<,2*SJ_B5Y,SJ_R1Y|SJ_RB1|SJ_R2Z|SJ_R2,SJ_AB2|SJ_AB3,2*SJ_B1~ARN,SJ_DF28AZ|SJ_DF28A|SJ_DF28Z);	\
-      F=EP4;
-    TX=SJ OF mit Schnellzug;										\
-      C=SJ_OF2|SJ_OF2A,(<(2*SJ_B15),SJ_AB7,SJ_A5A|SJ_A3,SJ_B3S,2*SJ_B15B,2*SJ_B3,SJ_F4|SJ_F4A); F=EP4;
-    TX=SJ Ma mit Güterzug;										\
-      C=SJ_MA~ARN|SJ_MAA[PFU],(2*SJ_Q12,12*SJ_ZACS); F=EF34;
-    TX=SJ RA;												\
-      C=SJ_RA|SJ_RAB,(<2*SJ_B5~ARN,SJ_AB3L,SJ_A2Z,SJ_R1~ARN,2*SJ_B1~ARN,SJ_F5B); F=EP4;
-    TX=SJ RC1;												\
-      C=SJ_RC1~ARN; F=EF45;
-    TX=SJ RC2;												\
-      C=SJ_RC2~ARN; F=EF45;
-    TX=SJ RC3;												\
-      C=SJ_RC3~ARN; F=EF45;
-    TX=SJ RC4;												\
-      C=SJ_RC4A|SJ_RC4E; F=EF45;
-    TX=SJ RC5;												\
-      C=SJ_RC5~ARN|SJ_RC5C|SJ_RC5Z,S4F; F=EF45;
-    TX=SJ RC6;												\
-      C=SJ_RC6O~ARN,(3*SJ_SHIMMNS~ARN,SJ_OB,SJ_SHIMMNS~DEJ,SJ_SDGMS); F=EF45;
-    TX=SJ RM mit Güterzug;										\
-      C=SJ_RM~ARN,S4F; F=EF45;
-    TX=SJ UA;												\
-      C=SJ_U|SJ_UA_0,SJ_D28A,SJ_D39; F=EF34;
-    TX=SJ UB;												\
-      C=SJ_UB~ARN|SJ_UBA,SJ_LGJS6,SJ_LRG,SJ_GMH; F=EF34;
-    TX=SJ X5;												\
-      C=SJ_X5L|SJ_X5; F=DPU4;
-    TX=SJ X5;												\
-      C=(<SJ_X5OA,SJ_X5OB,SJ_X5OC)|SJ_XOA5L|SJ_XOA5; F=DPU45;
-    TX=SJ X7;												\
-      C=<SJ_XOA7A,SJ_COX7,SJ_XOA7; F=DPU34;
-    TX=SJ X16;												\
-      C=SJ_YBL|SJ_YB|SJ_YBOA6L|SJ_YBOA6|SJ_YBOA7L|SJ_YBOA7; F=DPU4;
+      TX=SJ BK + Güterzug;										\
+	C=SJ_BK,SJ_GE,SJ_GE3,SJ_GE1,SJ_GBS,((SJ_KBPS761|SJ_KBPS741)[OB:PIPE32,,12]),SJ_OS; F=EF34;
+      TX=SJ D + Güterzug;										\
+	D=L;												\
+	C=SJ_D101,											\
+	  (<SJ_GRH,SJ_G,SJ_GE2,SJ_OR[OB:CABLE18,70,15][OB:CABLE18,20,15],SJ_OBP,			\
+	  4*(SJ_O[OB:WOOD77,65,15][OB:WOOD77,16,15]),SJ_H1,SJ_HR,SJ_GSH,SJ_GSU,SJ_GS,SJ_GS1,SJ_H|SJ_HZ,	\
+	  SJ_L[OB:WOOD138,,35],SJ_L1[OB:WOOD137,,35]);							\
+	F=EF34;
+      TX=SJ DA + Personenzug;										\
+	C=SJ_DA~ARN,(< SJ_F6|SJ_F5B|SJ_F7,SJ_RB1Y,SJ_B1Z,SJ_AB3Y,SJ_B5~ARN); F=EP34;
+      TX=SJ DK + Personenzug;										\
+	C=SJ_DK,(<SJ_C3AA,SJ_C3A1,SJ_C3C,SJ_CF4A); F=EP34;
+      TX=SJ Dg + Personenzug;										\
+	C=SJ_DG~ARN,(<SJ_CO5A2,SJ_3C,SJ_3BC|SJ_3BCL,SJ_3A|SJ_3B,SJ_3C); F=EP34;
+      TX=SJ Dg + Personenzug;										\
+	C=SJ_DG2,(<SJ_CO13,SJ_CO1B,SJ_BCO1B,SJ_BO3B,SJ_CO7,SJ_DFO29); F=EP3;
+      TX=SJ DU + Personenzug;										\
+	C=SJ_DUA,(<SJ_F5BY|SJ_F6Y,2*SJ_B1Y,SJ_A2Y,SJ_AB2Y); F=EP34;
+      TX=SJ DM + Güterzug;										\
+	C=SJ_DM~ARN|SJ_DMZ~ARN,										\
+	  (<SJ_DV30F,SJ_GBS_T,4*(SJ_GBS1[OB:FR_CP,22,16]),						\
+	  4*(SJ_OMS[OB:COIL5,14,15][OB:COIL5,38,16][OB:COIL5,62,16][OB:COIL5,86,16][OB:COIL5,109,16]),	\
+	  SJ_OS1,4*((SJ_ELOS[O:COAL19])|(SJ_ELOS[O:#COAL19])),						\
+	  5*((SJ_EKLOS_T[O:COAL19])|(SJ_EKLOS_T[O:#COAL19])),2*SJ_L);					\
+	F=EF34;
+      TX=SJ DM3;											\
+	C=SJ_DM3~ARN|SJ_DM3B,20-30*SJ_ERZ(4|5|6); F=EF34;
+      TX=SJ F + Schnellzug;										\
+	C=SJ_F1|SJ_F~ARN,										\
+	  (<,2*SJ_B5Y,SJ_R1Y|SJ_RB1|SJ_R2Z|SJ_R2,SJ_AB2|SJ_AB3,2*SJ_B1~ARN,SJ_DF28AZ|SJ_DF28A|SJ_DF28Z); \
+	F=EP4;
+      TX=SJ OF + Schnellzug;										\
+	C=SJ_OF2|SJ_OF2A,(<(2*SJ_B15),SJ_AB7,SJ_A5A|SJ_A3,SJ_B3S,2*SJ_B15B,2*SJ_B3,SJ_F4|SJ_F4A); F=EP4;
+      TX=SJ Ma + Güterzug;										\
+	C=SJ_MA~ARN|SJ_MAA[PFU],(2*SJ_Q12,12*SJ_ZACS); F=EF34;
+      TX=SJ RA;												\
+	C=SJ_RA|SJ_RAB,(<2*SJ_B5~ARN,SJ_AB3L,SJ_A2Z,SJ_R1~ARN,2*SJ_B1~ARN,SJ_F5B); F=EP4;
+      TX=SJ RC1;											\
+	C=SJ_RC1~ARN; F=EF45;
+      TX=SJ RC2;											\
+	C=SJ_RC2~ARN; F=EF45;
+      TX=SJ RC3;											\
+	C=SJ_RC3~ARN; F=EF45;
+      TX=SJ RC4;											\
+	C=SJ_RC4A|SJ_RC4E; F=EF45;
+      TX=SJ RC5;											\
+	C=SJ_RC5~ARN|SJ_RC5C|SJ_RC5Z,S4F; F=EF45;
+      TX=SJ RC6;											\
+	C=SJ_RC6K2|SJ_RC6O~ARN,(3*SJ_SHIMMNS~ARN,SJ_OB,SJ_SHIMMNS~DEJ,SJ_SDGMS); F=EF45;
+      TX=SJ RM + Güterzug;										\
+	C=SJ_RM~ARN,S4F; F=EF45;
+      TX=SJ UA;												\
+	C=SJ_U|SJ_UA_0,SJ_D28A,SJ_D39; F=EF34;
+      TX=SJ UB;												\
+	C=SJ_UB~ARN|SJ_UBA,SJ_LGJS6,SJ_LRG,SJ_GMH; F=EF34;
+      TX=SJ X5;												\
+	C=SJ_X5L|SJ_X5; F=DPU4;
+      TX=SJ X5;												\
+	C=(<SJ_X5OA,SJ_X5OB,SJ_X5OC)|SJ_XOA5L|SJ_XOA5; F=DPU45;
+      TX=SJ X7;												\
+	C=<SJ_XOA7A,SJ_COX7,SJ_XOA7; F=DPU34;
+      TX=SJ X16;											\
+	C=SJ_YBL|SJ_YB|SJ_YBOA6L|SJ_YBOA6|SJ_YBOA7L|SJ_YBOA7; F=DPU4;
 
 # privat
-    TX=Schweden TGOJ MA;										\
-      C=TGOJ_MA_O|TGOJ_MA|TGOJ_MA2,S4F; F=EF4;
-  }
-  {E5?
-    TX=SJ T44;												\
-      C=SJ_T44C|SJ_T44E; F=DF56;
-    TX=SJ Y1;												\
-      C=SJ_Y1B|SJ_Y1B2|SJ_Y1B3; F=DPU56;
-    TX=SJ Y2;												\
-      C=2*SJ_Y2~LIP; F=DPU56;
+      TX=Schweden TGOJ MA;										\
+	C=TGOJ_MA_O|TGOJ_MA|TGOJ_MA2,S4F; F=EF4;
+    }
+    {E5?
+      TX=SJ T44;											\
+	C=SJ_T44C|SJ_T44E; F=DF56;
+      TX=SJ Y1;												\
+	C=SJ_Y1B|SJ_Y1B2|SJ_Y1B3; F=DPU56;
+      TX=SJ Y2;												\
+	C=2*SJ_Y2~LIP; F=DPU56;
 
 # Schweden E
-    TX=SJ DM3;												\
-      C=SJ_DM3G|SJ_DM3_6~ARN,20-30*SJ_ERZ(4|5|6); F=EF56;
-    TX=SJ RC4;												\
-      C=SJ_RC4C~ARN; F=EF56;
-    TX=SJ RC1;												\
-      C=SJ_RC1B; F=EF56;
-    TX=SJ RC2;												\
-      C=SJ_RC2A~ARN|SJ_RC2B|SJ_RC2C~ARN|SJ_RC2D~ARN|SJ_RC2E~ARN; F=EF56;
-    TX=SJ RC3;												\
-      C=SJ_RC3A|SJ_RC3C~ARN,(<(3*SJ_B5B),SJ_AB3A|SJ_AS4KT,SJ_A2A,2*SJ_B7A,SJ_S17); F=EP56;
-    TX=SJ RC5;												\
-      C=SJ_RC5A,SJ_HABBINS941,SJ_HBBILLNS1,SJ_HBBILLNS2,SJ_HBBILLNS4,SZ_HBBILLNS,SJ_LGJS,SJ_LGJS1,	\
-	SJ_LGNS2,SJ_DV30B,SJ_DV30A,SJ_DV30,SJ_HBBINSZ;							\
-      F=EF56;
-    TX=SJ RC5;												\
-      C=SJ_RC5D,S6F1; F=EF56;
-    TX=SJ RC7;												\
-      C=SJ_RC7|SJ_RC7A; F=EF56;
-    TX=SJ RC6 mit Lapplandexpress;									\
-      C=SJ_RC6~ARN,(<(2*SJ_WL6A),SJ_BC4A,SJ_B8R,TKAB_AFS2~ARN,SJ_BC4A,2*SJ_WL6A); F=EP56;
-    TX=SJ RC6 mit Schnellzug;										\
-      C=SJ_RC6C,(<SJ_A2AZ,SJ_AB2AZ,SJ_B1K~ARN,SJ_B1KZ,2*SJ_B7AZ,SJ_AF7); F=EP5;
-    TX=SJ RC6 mit Articaexpress;									\
-      C=SJ_RC6~ARN,(<SJ_B2B,SJ_BS5,TKAB_AFS2~ARN,SJ_B2B,SJ_BC4A,2*SJ_WL6A); F=EP56;
-    TX=SJ RC6 mit Schnellzug;										\
-      C=SJ_RC6B~ARN,(<SJ_A7AZ,SJ_A7A|SJ_A8A,SJ_AB2A,2*SJ_B7A,2*SJ_BC2A,SJ_S1TZ|SJ_S1T); F=EP56;
-    TX=SJ UB;												\
-      C=SJ_UEB,SJ_GBS_ASG|SJ_GBS_EDET; F=EF56;
-    TX=SJ UB;												\
-      C=SJ_UEA,SJ_HBIS,SJ_HBBINS,SJ_HBBINS3~ARN; F=EF5;
-    TX=SJ X31;												\
-      C=<SJ_X31K_FL,SJ_X31K_ML,SJ_X31K_M,SJ_X31K_F; F=DPU5;
-    TX=SJ X50;												\
-      C=VL_X50; F=DPU56;
+      TX=SJ DM3;											\
+	C=SJ_DM3G|SJ_DM3_6~ARN,20-30*SJ_ERZ(4|5|6); F=EF56;
+      TX=SJ RC4;											\
+	C=SJ_RC4C~ARN; F=EF56;
+      TX=SJ RC1;											\
+	C=SJ_RC1B; F=EF56;
+      TX=SJ RC2;											\
+	C=SJ_RC2A~ARN|SJ_RC2B|SJ_RC2C~ARN|SJ_RC2D~ARN|SJ_RC2E~ARN; F=EF56;
+      TX=SJ RC3;											\
+	C=SJ_RC3A|SJ_RC3C~ARN,(<(3*SJ_B5B),SJ_AB3A|SJ_AS4KT,SJ_A2A,2*SJ_B7A,SJ_S17); F=EP56;
+      TX=SJ RC5;											\
+	C=SJ_RC5A,SJ_HABBINS941,SJ_HBBILLNS1,SJ_HBBILLNS2,SJ_HBBILLNS4,SZ_HBBILLNS,SJ_LGJS,SJ_LGJS1,	\
+	  SJ_LGNS2,SJ_DV30B,SJ_DV30A,SJ_DV30,SJ_HBBINSZ;						\
+	F=EF56;
+      TX=SJ RC5;											\
+	C=SJ_RC5D,S6F1; F=EF56;
+      TX=SJ RC7;											\
+	C=SJ_RC7|SJ_RC7A; F=EF56;
+      TX=SJ RC6 + Lapplandexpress;									\
+	C=SJ_RC6~ARN,(<(2*SJ_WL6A),SJ_BC4A,SJ_B8R,TKAB_AFS2~ARN,SJ_BC4A,2*SJ_WL6A); F=EP56;
+      TX=SJ RC6 + Schnellzug;										\
+	C=SJ_RC6C,(<SJ_A2AZ,SJ_AB2AZ,SJ_B1K~ARN,SJ_B1KZ,2*SJ_B7AZ,SJ_AF7); F=EP5;
+      TX=SJ RC6 + Articaexpress;									\
+	C=SJ_RC6~ARN,(<SJ_B2B,SJ_BS5,TKAB_AFS2~ARN,SJ_B2B,SJ_BC4A,2*SJ_WL6A); F=EP56;
+      TX=SJ RC6 + Schnellzug;										\
+	C=SJ_RC6B~ARN,(<SJ_A7AZ,SJ_A7A|SJ_A8A,SJ_AB2A,2*SJ_B7A,2*SJ_BC2A,SJ_S1TZ|SJ_S1T); F=EP56;
+      TX=SJ UB;												\
+	C=SJ_UEB,SJ_GBS_ASG|SJ_GBS_EDET; F=EF56;
+      TX=SJ UB;												\
+	C=SJ_UEA,SJ_HBIS,SJ_HBBINS,SJ_HBBINS3~ARN; F=EF5;
+      TX=SJ X31;											\
+	C=<SJ_X31K_FL,SJ_X31K_ML,SJ_X31K_M,SJ_X31K_F; F=DPU5;
+      TX=SJ X50;											\
+	C=VL_X50; F=DPU56;
 
 # privat
-    TX=Schweden LKAB DM3;										\
-      C=MTAB_DM3,20-30*SJ_ERZ(4|5|6); F=EF56;
-    TX=Schweden LKAB IORE;										\
-      C=LKAB_IORE~CHK,20-30*SJ_ERZ(4|5|6); F=EF56;
-  }
-  {E6?
-    TX=SJ Y31;												\
-      C=SJ_Y31; F=DPU6;
+      TX=Schweden LKAB DM3;										\
+	C=MTAB_DM3,20-30*SJ_ERZ(4|5|6); F=EF56;
+      TX=Schweden LKAB IORE;										\
+	C=LKAB_IORE~CHK,20-30*SJ_ERZ(4|5|6); F=EF56;
+    }
+    {E6?
+      TX=SJ Y31;											\
+	C=SJ_Y31; F=DPU6;
 
 # Schweden E
-    TX=SJ RM mit Güterzug;										\
-      C=SJ_RMA,S6F1; F=EF6;
-    TX=SJ X10;												\
-      C=SJ_X10A|SJ_X10~V3; F=DPU6;
-    TX=SJ X12;												\
-      C=SJ_X12; F=DPU6;
-    TX=SJ X420;												\
-      C=<SJ_X420FL~LIP,SJ_X420M~LIP,SJ_X420F~LIP; F=DPU6;
-    TX=SJ X40;												\
-      C=<SJ_X40EL,SJ_X40F; F=DPU6;
-    TX=SJ X2000;											\
-      C=<SJ_X2000_LI~ARN,3*SJ_X2000_M1~ARN,SJ_X2000_WRL~ARN,SJ_X2000_M2~ARN,SJ_X2000_RE~ARN; F=DPU6;
+      TX=SJ RM + Güterzug;										\
+	C=SJ_RMA,S6F1; F=EF6;
+      TX=SJ X10;											\
+	C=SJ_X10A|SJ_X10~V3; F=DPU6;
+      TX=SJ X12;											\
+	C=SJ_X12; F=DPU6;
+      TX=SJ X420;											\
+	C=<SJ_X420FL~LIP,SJ_X420M~LIP,SJ_X420F~LIP; F=DPU6;
+      TX=SJ X40;											\
+	C=<SJ_X40EL,SJ_X40F; F=DPU6;
+      TX=SJ X2000;											\
+	C=<SJ_X2000_LI~ARN,3*SJ_X2000_M1~ARN,SJ_X2000_WRL~ARN,SJ_X2000_M2~ARN,SJ_X2000_RE~ARN; F=DPU6;
+      TX=SJ X450;											\
+	C=<SJ_VL_X50AL,SJ_VL_X50B; F=DPU6;
 
 # privat
-    TX=Schweden Banverket T43 mit Prüfzug;								\
-      C=BV_T43L~ARN,BV_MATVAGN,BV_QIM; F=DF6;
-    TX=Schweden Dalatrafik Y1;										\
-      C=DALA_Y1; F=DPU6;
-    TX=Schweden Green Cargo T44 mit Postwagen;								\
-      C=GC_T44|GC_T44C|GC_T44B|GC_T44A,GC_DBK,GC_DBKA; F=DF6;
-    TX=Schweden VIDA 1406;										\
-      C=VIDA_1406L|VIDA_1406,S6F2; F=DF6;
-    TX=Schweden TGOJ 1400;										\
-      C=TGOJ_1410L|TGOJ_1410,S6F2; F=DF6;
-    TX=Schweden TGOJ T66;										\
-      C=TGOJ_T66L~SOP|TGOJ_T66~SOP,S6F1; F=DF6;
-    TX=Schweden MLT Y1;											\
-      C=MLT_Y1~LIP; F=DPU6;
+      TX=Schweden Banverket T43 + Prüfzug;								\
+	C=BV_T43L~ARN,BV_MATVAGN,BV_QIM; F=DF6;
+      TX=Schweden Dalatrafik Y1;									\
+	C=DALA_Y1; F=DPU6;
+      TX=Schweden Green Cargo T44 + Postwagen;								\
+	C=GC_T44|GC_T44C|GC_T44B|GC_T44A,GC_DBK,GC_DBKA; F=DF6;
+      TX=Schweden VIDA 1406;										\
+	C=VIDA_1406L|VIDA_1406,S6F2; F=DF6;
+      TX=Schweden TGOJ 1400;										\
+	C=TGOJ_1410L|TGOJ_1410,S6F2; F=DF6;
+      TX=Schweden TGOJ T66;										\
+	C=TGOJ_T66L~SOP|TGOJ_T66~SOP,S6F1; F=DF6;
+      TX=Schweden MLT Y1;										\
+	C=MLT_Y1~LIP; F=DPU6;
+      TX=Schweden Railcare 4000;									\
+	C=RACA_4000(|L),S6F(1|2); F=DF6;
+      TX=Schweden Reaxcer TMZ;										\
+	C=REAX_TMZ,S6F(1|2); F=DF6;
+      TX=Schweden Stena TMZ;										\
+	C=STENA_TMZ,S6F(1|2); F=DF6;
+      TX=Schweden Svensk Tågteknik TMZ;									\
+	C=STT_TMZ,S6F(1|2); F=DF6;
+      TX=Schweden Svensk Tågteknik 1421;								\
+	C=STT_1421(|L),S6F(1|2); F=DF6;
+      TX=Schweden Svensk Tågteknik 1421;								\
+	C=STT_1421(|L),S6F(1|2); F=DF6;
+      TX=Schweden Tagakeriet i Bergsagen MY;								\
+	C=TAGAB_TMY103|TAGAB_MY_C(|L)~ZS|TAGAB_MY_(A|B|D)(|L),S6F(1|2); F=DF6;
+      TX=Schweden Tagakeriet i Bergsagen 1423;								\
+	C=TAGAB_1423(|L),S6F(1|2); F=DF6;
+      TX=Schweden Tagakeriet i Bergsagen T43;								\
+	C=TAGAB_MY_(A|B)(|L),S6FS; F=DF6;
 
 # privat E
-    TX=Schweden Connex RC5 mit Nachtzug;								\
-      C=CNX_RC5METRO,3*CNX_WL4,3*CNX_WL6; F=EP6;
-    TX=Schweden Green Cargo RC2;									\
-      C=GC_RC2~ARN|GC_RC2A,S6F1; F=EF6;
-    TX=Schweden Green Cargo RC4;									\
-      C=GC_RC4|GC_RC4C|GC_RC4G,S6F1; F=EF6;
-    TX=Schweden Hectorrail 112, 141;									\
-      C=HECT_141|HECT_112,S6F2; F=EF6;
-    TX=Schweden Hectorrail 112, 141;									\
-      C=HECT_141|HECT_112,S6F2; F=EF6;
-    TX=Schweden Hectorrail 142;										\
-      C=OBB_1142_551|HECT_1142_551U|HECT_1142_551M|HECT_142|HECTOR_142MAT,S6F2; F=EF6;
-    TX=Schweden Hectorrail 242;										\
-      C=HECT_242_001L|HECT_242_001,S6F2; F=EF6;
-    TX=Schweden Hectorrail 441;										\
-      C=HECT_441,S6F2; F=EF6;
-    TX=Schweden Hectorrail 161;										\
-      C=HECT_161,S6F1; F=EF6;
-    TX=Schweden Hectorrail 241;										\
-      C=HECT_241,S6F2; F=EF6;
-    TX=Schweden TGOJ UB;										\
-      C=TGOJ_UB2|TGOJ_UB,TGOJ_S62; F=EF6;
-    TX=Schweden TGOJ RC2;										\
-      C=TGOJ_RC2,S6F1; F=EF6;
-    TX=Schweden TGOJ MA;										\
-      C=TGOJ_MA1~ARN|TGOJ_MA3,S6F2; F=EF6;
-    TX=Schweden TKAB RC2;										\
-      C=TKAB_RC2~ARN|TKAB_RC2~KAR|TKAB_RC2B~ARN|TKAB_RC2B~KAR,						\
-	(<2*TKAB_BC2,TKAB_S12,(TKAB_WL33AL|TKAB_WL33A|TKAB_WL33BL|TKAB_WL33B),2*TKAB_B9,2*TKAB_BFS9);	\
-      F=EP6;
-    TX=Schweden TKAB RC5;										\
-      C=TKAB_RC5,											\
-	(<2*TKAB_BC2,TKAB_S12,(TKAB_WL33AL|TKAB_WL33A|TKAB_WL33BL|TKAB_WL33B),2*TKAB_B9,2*TKAB_BFS9);	\
-      F=EP6;
-    TX=Schweden TKAB RC6;										\
-      C=TKAB_RC6|TKAB_RC6A,										\
-	(<2*TKAB_BC2,TKAB_S12,(TKAB_WL33AL|TKAB_WL33A|TKAB_WL33BL|TKAB_WL33B),2*TKAB_B9,2*TKAB_BFS9);	\
-      F=EP6;
-    TX=Schweden TKAB EL16;										\
-      C=TKAB_EL16~ARN,											\
-	(<2*TKAB_BC2,TKAB_S12,(TKAB_WL33AL|TKAB_WL33A|TKAB_WL33BL|TKAB_WL33B),2*TKAB_B9,2*TKAB_BFS9);	\
-      F=EP6;
-    TX=Schweden Veolia RC6;										\
-      C=VEO_RC6_1324,S6F1; F=EF6;
-  }
-  %ENDPOOL;												\
-    
+      TX=Schweden Connex RC5 + Nachtzug;								\
+	C=CNX_RC5METRO,3*CNX_WL4,3*CNX_WL6; F=EP6;
+      TX=Schweden Green Cargo RC2;									\
+	C=GC_RC2~ARN|GC_RC2A,S6F1; F=EF6;
+      TX=Schweden Green Cargo RC4;									\
+	C=GC_RC4|GC_RC4C|GC_RC4G,S6F1; F=EF6;
+      TX=Schweden Hectorrail 161;									\
+	C=HECT_161B,S6F(1|2); F=EF6;
+      TX=Schweden Hectorrail 112, 141;									\
+	C=HECT_141|HECT_112,S6F2; F=EF6;
+      TX=Schweden Hectorrail 112, 141;									\
+	C=HECT_141|HECT_112,S6F2; F=EF6;
+      TX=Schweden Hectorrail 142;									\
+	C=OBB_1142_551|HECT_1142_551U|HECT_1142_551M|HECT_142|HECTOR_142MAT,S6F2; F=EF6;
+      TX=Schweden Hectorrail 242;									\
+	C=HECT_242_001L|HECT_242_001,S6F2; F=EF6;
+      TX=Schweden Hectorrail 441;									\
+	C=HECT_441,S6F2; F=EF6;
+      TX=Schweden Hectorrail 161;									\
+	C=HECT_161,S6F1; F=EF6;
+      TX=Schweden Hectorrail 241;									\
+	C=HECT_241,S6F2; F=EF6;
+      TX=Schweden TGOJ UB;										\
+	C=TGOJ_UB2|TGOJ_UB,TGOJ_S62; F=EF6;
+      TX=Schweden TGOJ RC2;										\
+	C=TGOJ_RC2,S6F1; F=EF6;
+      TX=Schweden TGOJ MA;										\
+	C=TGOJ_MA1~ARN|TGOJ_MA3,S6F2; F=EF6;
+      TX=Schweden TKAB RC2;										\
+	C=TKAB_RC2~ARN|TKAB_RC2~KAR|TKAB_RC2B~ARN|TKAB_RC2B~KAR,					\
+	  (<2*TKAB_BC2,TKAB_S12,(TKAB_WL33AL|TKAB_WL33A|TKAB_WL33BL|TKAB_WL33B),2*TKAB_B9,2*TKAB_BFS9);	\
+	F=EP6;
+      TX=Schweden TKAB RC5;										\
+	C=TKAB_RC5,											\
+	  (<2*TKAB_BC2,TKAB_S12,(TKAB_WL33AL|TKAB_WL33A|TKAB_WL33BL|TKAB_WL33B),2*TKAB_B9,2*TKAB_BFS9);	\
+	F=EP6;
+      TX=Schweden TKAB RC6;										\
+	C=TKAB_RC6|TKAB_RC6A,										\
+	  (<2*TKAB_BC2,TKAB_S12,(TKAB_WL33AL|TKAB_WL33A|TKAB_WL33BL|TKAB_WL33B),2*TKAB_B9,2*TKAB_BFS9);	\
+	F=EP6;
+      TX=Schweden Tagakeriet i Bergsagen RC2;								\
+	C=TAGAB_RC2,S6FS; F=EF6;
+      TX=Schweden Tagakeriet i Bergsagen X50;								\
+	C=TAGAB_X50; F=DPU6;
+      TX=Schweden TKAB EL16;										\
+	C=TKAB_EL16~ARN,										\
+	  (<2*TKAB_BC2,TKAB_S12,(TKAB_WL33AL|TKAB_WL33A|TKAB_WL33BL|TKAB_WL33B),2*TKAB_B9,2*TKAB_BFS9);	\
+	F=EP6;
+      TX=Schweden Veolia RC6;										\
+	C=VEO_RC6_1324,S6F1; F=EF6;
+    }
+  %ENDPOOL;
 }
+
 ###############################################################################
 ##                                                                           ##
-##                                   Finland                                 ##
+##                                  Finland                                  ##
 ##                                                                           ##
 ###############################################################################
 {SF?
   %ADDPOOL(POOL_SF,FI_ENV);
-    
-  {E4?
-    TX=VR SR2A;												\
-      C=VR_SR2A~OLE; F=EF4;
+
+    {E4?
+# Finnland D
+      TX=VR DR 13;											\
+	C=VR_DR13,VR_134_19,3*VR_EI22348; F=DP4;
+      TX=VR DR 14;											\
+	C=VR_DR14,N4FS1; F=DF4;
 
 # Finnland E
-    TX=VR SR 3101;											\
-      C=VR_3101L|VR_3101,										\
-	(<VR_FOTL,VR_FOT|VR_CI|VR_CHTL,VR_CIL|VR_CHT,VR_CEI|VR_CEIL,VR_RKL, VR_RK|VR_EIN|VR_EINU,	\
-	VR_EINL|VR_EINUL,VR_EIT);									\
-      F=EF4;
-    TX=VR SM2;												\
-      C=(<VR_SM2_1FL,VR_SM2_1E)|(<VR_SM2_2FL,VR_SM2_2E); F=DPU4;
-  }
-  {E5?
-    TX=VR V12;												\
-      C=VR_5DV12_2529L|VR_5DV12_2529|VR_5DV12_2555L|VR_5DV12_2555|VR_5DV12_2622L|VR_5DV12_2622|		\
-	VR_5DV12_2721L| VR_5DV12_2721|VR_5DV12_2724L|VR_5DV12_2724|VR_5DV12_2748L|VR_5DV12_2748|	\
-	VR_5DV12_2753L|VR_5DV12_2753, VR_ELO4,VR_GBLK3,VR_ELOT4,VR_ELO5,VR_RN,VR_KBP,VR_GBLK4;		\
-      F=DF5;
-    TX=VR DR16;												\
-      C=VR_DR16,VR_HKBBL,VR_ELO6,VR_GBLK2,VR_HKBB2L,VR_SHMMN,VR_SHMMN2; F=DF56;
+      TX=VR SR 3101;											\
+	C=VR_3101L|VR_3101,N4FS1; F=EF4;
+      TX=VR SM2;											\
+	C=(<VR_SM2_1FL,VR_SM2_1E)|(<VR_SM2_2FL,VR_SM2_2E); F=DPU4;
+    }
+    {E5?
+      TX=VR DM7;											\
+	C=VR_DM7; F=DPU5;
+      TX=VR V12;											\
+	C=VR_5DV12_2529L|VR_5DV12_2529|VR_5DV12_2555L|VR_5DV12_2555|VR_5DV12_2622L|VR_5DV12_2622|	\
+	  VR_5DV12_2721L|VR_5DV12_2721|VR_5DV12_2724L|VR_5DV12_2724|VR_5DV12_2748L|VR_5DV12_2748|	\
+	  VR_5DV12_2753L|VR_5DV12_2753,VR_ELO4,VR_GBLK3,VR_ELOT4,VR_ELO5,VR_RN,VR_KBP,VR_GBLK4;		\
+	F=DF5;
+      TX=VR DR16;											\
+	C=VR_DR16,VR_HKBBL,VR_ELO6,VR_GBLK2,VR_HKBB2L,VR_SHMMN,VR_SHMMN2; F=DF56;
 
 # Finnland E
-    TX=SR 1;												\
-      C=VR_SR1N~HAG,(<VR_ICWR2L|VR_ICWR2,VR_ICA2,VR_ICA1,3*VR_ICB2,VR_ICB1); F=EP56;
-    TX=SR 2;												\
-      C=VR_SR2A~HEN,VR_HAI3,VR_HAIT,VR_HAIT2,VR_HAIT3,2*VR_GBLNT2,VR_GBLNT,VR_GBLN,VR_HAI,VR_HBIKK,	\
-	VR_HBIKK2,VR_HIO2, VR_HIO3,VR_SONK,VR_SIMN3,VR_HBI3,VR_HBIKK3,VR_HBIKK2,VR_HBIKK;		\
-      F=EF56;
-    TX=VR SM1;												\
-      C=(<VR_SM1_2FL,VR_SM1_2E)|(<VR_SM1_3FL,VR_SM1_3E)|(<VR_SM1_1EL,VR_SM1_1E); F=DPU456;
-  }
-  %ENDPOOL;												\
+      TX=SR 1;												\
+	C=VR_SR1~HAG,(<VR_ICWR2L|VR_ICWR2,VR_ICA2,VR_ICA1,3*VR_ICB2,VR_ICB1); F=EP56;
+      TX=SR 2;												\
+	C=VR_SR2A~HEN,VR_HAI3,VR_HAIT,VR_HAIT2,VR_HAIT3,2*VR_GBLNT2,VR_GBLNT,VR_GBLN,VR_HAI,VR_HBIKK,	\
+	  VR_HBIKK2,VR_HIO2,VR_HIO3,VR_SONK,VR_SIMN3,VR_HBI3,VR_HBIKK3,VR_HBIKK2,VR_HBIKK;		\
+	F=EF56;
+      TX=VR SM1;											\
+	C=(<VR_SM1_2FL,VR_SM1_2E)|(<VR_SM1_3FL,VR_SM1_3E)|(<VR_SM1_1EL,VR_SM1_1E); F=DPU456;
+    }
+    {E6?
+      TX=VR DM 12;											\
+	C=VR_DM12; F=DPU6;
+      TX=SR 1;												\
+	C=VR_SR1N~HAG|VR_SR1_3071,4*VR_EIL; F=EP56;
+      TX=VR SM3;											\
+	C=<VR_SM3GF[!L],VR_SM3GB,#VR_SM3GE,VR_SM3GB,VR_SM3GE,VR_SM3GF; F=EPU6;
+      TX=VR SM5 Suburban Trains Helsinki;								\
+	C=(<VR_JKOY_SM5AL,VR_JKOY_SM5BL,VR_JKOY_SM5C,VR_JKOY_SM5D)|					\
+	  (<VR_JKOY_SM5DL,VR_JKOY_SM5CL,VR_JKOY_SM5B,VR_JKOY_SM5A);					\
+	F=EPU6;
+    }
+  %ENDPOOL;
 }

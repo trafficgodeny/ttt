@@ -1,10 +1,17 @@
 $REQUIRE POOLDEF.TTT
+{1?
+  $REQUIRE ZSZ_TB.TTT
+}
 %*DEF(SEC=$SECTION LC=14; %SECFIN; AB=30; BL=20; SEQ=D;)
 %*DEF(PSEC(A)=
   %SEC;
      POOL=%A;;
   $ENDSECTION
 )
+
+{FILELEVEL=1?
+  $ENV TRACK
+}
 
 {D?
   $SECTION LC=1;
@@ -19,6 +26,9 @@ $REQUIRE POOLDEF.TTT
     }
     {E3|E4|E5|E6?
       %PSEC(POOL_BRD);
+    }
+    {E4|E5|E6?
+      %PSEC(MLG_D);
     }
   $ENDSECTION 
 }
@@ -233,4 +243,55 @@ $ENDSECTION
   $ENDSECTION 
 }
 
+{HAS|T30|TB|MR|NSME?
+  $SECTION LC=1;
+    {TB?
+      $SECTION IMGY=33; AB=2; BL=3; V=4-9; ST=0.4; WR=a#888; WL=al*#888/#555; DIS=10; %SECFIN;
+	POOL=TB_J;
+      $ENDSECTION 
+    }
+    {HAS?
+      $SECTION IMGY=18; AB=2; BL=3; V=3-7; ST=0.4; WR=a#777; WL=al*#777/#444; DIS=10; %SECFIN;
+	$DEF2C 1
+	$INCLUDE HASHIRU_FIXTRAIN.TTT
+	$DEF2C 0
+      $ENDSECTION 
+    }
+    {TB?
+      $SECTION IMGY=33; AB=2; BL=3; V=4-9; ST=0.4; WR=a#888; WL=al*#888/#555; DIS=10; %SECFIN;
+	POOL=TB_J;
+      $ENDSECTION 
+    }
+    {T30?
+      $SECTION IMGY=28; AB=2; BL=3; V=4-8; ST=0.4; WR=a#888; WL=al*#888/#555; DIS=10; %SECFIN;
+	$DEF2C 1
+	$INCLUDE T30_FIXTRAIN.TTT
+	$DEF2C 0
+      $ENDSECTION 
+    }
+    {TB?
+      $SECTION IMGY=33; AB=2; BL=3; V=4-9; ST=0.4; WR=a#888; WL=al*#888/#555; DIS=10; %SECFIN;
+	POOL=TB_EU;
+      $ENDSECTION 
 
+      $SECTION IMGY=33; AB=2; BL=3; V=4-9; ST=0.4; WR=a#888; WL=al*#888/#555; DIS=10; %SECFIN;
+	POOL=TB_J;
+      $ENDSECTION 
+    }
+    {MR?
+      $SECTION IMGY=39; AB=2; BL=3; V=5-12; ST=0.4; WR=a#888; WL=al*#888/#555; DIS=10; %SECFIN;
+	$INCLUDE ZSZ_MR.TTT
+      $ENDSECTION 
+    }
+    {TB?
+      $SECTION IMGY=33; AB=2; BL=3; V=3-12; ST=0.4; WR=a#888; WL=al*#888/#555; DIS=10; %SECFIN;
+	POOL=TB_J;
+      $ENDSECTION 
+    }
+    {NSME?
+      $SECTION IMGY=95; AB=30; BL=15; V=5-28; ST=1.5; %SECFIN;
+	$INCLUDE ZSZ_NSME.TTT
+      $ENDSECTION 
+    }
+  $ENDSECTION 
+}
