@@ -167,7 +167,7 @@ $REQUIRE JMD_EU_DEF.TTT
       F=SF3;
 #41 Reko
     TX=DR 41;												\
-      C=DR_4_411144(|L)    ,										\
+      C=DR_4_411144(|L)   ,										\
 	5*(DR_GAGSV1992|DR_GAGSV1992BL|DR_GAGSV1992B|DR_GAGSV1993L|DR_GAGSV1993BL|DR_GAGSV1993B|	\
 	DR_GAGSV1994L|DR_GAGSV1994|DR_GAGSV1994BL|DR_GAGSV1994B);					\
       F=SF4;
@@ -233,10 +233,10 @@ $REQUIRE JMD_EU_DEF.TTT
 	(2*DR_(3B503523|3B503540|3B503559|3B503600|3B503616|50_3576)),DR3FL;				\
       F=SF3;
     TX=DR 50 + Personenzug;										\
-      C=DR_3B503559(|L),DR_B4ITRPL_CI35AL,DR_B4I_BCI35AL|DR_B4I_BCI35A,DR_B4ITRPL_CI35A; F=SPR3;
+      C=DR_3B503559(|L),DR_3B_B4ITRPL35A(|L),DR_3B_B4I35A(|L),DR_3B_B4ITRPL35A(|L); F=SPR3;
 #50-40
     TX=DR 50.40 + Güterzug;										\
-      C=DR_3A504002(|L)|DR_3B5040(33|82|01|67)(|L),DR3FL; F=SF3;
+      C=DR_3A504002(|L)|DR_3B5040(33|82|01|67)(|L),15*DR_3OOTZ47(5|4L); F=SF3;
     TX=DR 50.40;											\
       D=R; C=DR_50_40,DR3FL; F=SF3;
 #50-50
@@ -264,9 +264,6 @@ $REQUIRE JMD_EU_DEF.TTT
       F=SPR3;
     TX=DR 52.80 + Güterzug;										\
       C=DR_3_528(002|014|020|034|040|154|142|186)(|L),DR3FL; F=SF3;
-#52-90
-    TX=DR 52.90;											\
-      C=DR_4_529426L|DR_4_529426,DR3FL; F=SF3;
 #54.15
     TX=DR 54.15-17 + Güterzug;										\
       C=DR_3A541554(|L),DR3FS; F=SF3;
@@ -276,8 +273,7 @@ $REQUIRE JMD_EU_DEF.TTT
       C=DR_55_669L|DR_55_669,DR3FS; F=SF3;
 #55-25
     TX=DR 55.25;											\
-      D=R; C=DR_553644L|DR_552784L|DR_553644L|DR_553644|DR_554154L|DR_554154|DR_552784,DR3FS,DR_GG;	\
-      F=SF3;
+      C=DR_3_55(5606|4315|4467|4315|4154|3784)(|L),DR3FS,DR_GG; F=SF3;
 #55-58
     TX=DR 55.58;											\
       D=R;												\
@@ -881,7 +877,7 @@ $REQUIRE JMD_EU_DEF.TTT
       C=DR_4_5000(72|32|49)(|L),DR4FL2|Z_DR_E4_Kessel; F=SF4;
 #52-10;
     TX=DR 52.10 + Güterzug;										\
-      C=DR_4_52(1360|1413|3233|5410|5137)(|L),DR4FL2|Z_DR_E4_Kessel; F=SF4;
+      C=DR_4_52(1360|1413|3233|5410|5137)(|L),15*DR_4A_FAL6554(|L); F=SF4;
     TX=DR 52.80 + Güterzug;										\
       C=DR_4_52(8002|8014|8020|8034|8142|8154|8199|8186)(|L),DR4FL2|Z_DR_E4_Kessel; F=SF4;
     TX=DR 52.80 + Güterzug;										\
@@ -893,6 +889,7 @@ $REQUIRE JMD_EU_DEF.TTT
       F=SF4;
     TX=DR 52.80 + Personenzug;										\
       C=DR_4_528176(|L),DR_4A_DBVE52GZ2,DR_4B_DAA1(|L),3*DR_4B_BAAGE(|L); F=SPR4;
+#52-90
     TX=DR 52.90 + Güterzug;										\
       C=DR_4_529426(|L),DR4FL2|Z_DR_E4_Kessel; F=SF4;
     TX=DR 58.10 + Güterzug;										\
@@ -1220,8 +1217,13 @@ $REQUIRE JMD_EU_DEF.TTT
     TX=DR 131;												\
       C=DR_131_(052|060|062),Z_DR_E4_FAL|Z_DR_E4_Kessel; F=DF4;
 #132
-    TX=DR 132 + Schnellzug Leipzig-Cottbus;								\
+
+    TX=TX=DR 132 + Schnellzug DR 132 + Schnellzug;							\
       C=DR_132(051|_105)(|L),DR4PL3; F=DP4;
+    TX=DR 132 + Schnellzug Leipzig-Cottbus;								\
+      C=DR_132_105(|L),DR_4C_BGHWE,DR_4BMH2111L,2*DR_4BMH2140,DR_44ABGE,DR_45AGE1L,DR_44BGRE,		\
+	DR_44DGE1,DR_4BMH2140L,DR_4BMH2111,2*DR_4BMH2111L;						\
+      F=DP4;
     TX=DR 132 + Stadtexpress;										\
       C=DR_132(_105|051)(|L),DR_4AME1043SXGL,DR_4AME1085SXBL,OSSHD_SEAEL~HEN,OSSHD_SEAL~HEN,		\
 	DR_4WRME8870GL,											\
@@ -1416,7 +1418,7 @@ $REQUIRE JMD_EU_DEF.TTT
     TX=DDR Braunkohenbahn EL 2;										\
       C=EL2_(1301S|1139),DR_FAL6556BL,DR_FAL6556B,DR_FAL6556CL,DR_FAL6556C,DR_FAL6556DL,DR_FAL6556D,	\
 	DR_FAL6556AHL,DR_FAL6556AH,DR_FAL6556BHL,DR_FAL6556BH,DR_FAL6556CHL,DR_FAL6556CH;		\
-      F=DF45; AP2=[FG=10[B:0,0,10,15,#585038]:..,^0; TRBED25:..,^0;FL_FS3:..,#-62,#;];
+      F=DF45; AP2=[W=X][FG=10[B:0,0,10,15,#585038]:..,^0; TRBED25:..,^0;FL_FS3:..,#-62,#;];
 
 # Schmalspur
     TX=DR 99 321 + Personenzug Bad Doberan - Kühlungsborn 1990;						\

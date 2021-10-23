@@ -1,0 +1,74 @@
+$REQUIRE POOLDEF.TTT
+$REQUIRE BG_DEF.TTT
+$REQUIRE ZSZ_DEF.TTT
+
+
+  $SECTION LC=1;
+#
+# Ulrich Fleischer - Sheldon Crane
+#
+#..........................................................................
+
+ 
+    $SCENE DY=400; SEQ=F;										\
+	IMGY=320;
+#---Trasse Gleis
+      $PATH Y=20;											\
+	  FG=(TRBED25:..,^0;EMB15[BC:-30;-60]:..,^0;);
+	M=0;
+      $ENDPATH 
+#-----WAGEN-ARBEITER-Trasse
+      $PATH Y=20;											\
+	  BG=WAG_ARBEIT:50+265;
+	M=0;
+      $ENDPATH 
+#-----FEA-ARBEITER-Trasse
+      $PATH Y=20;											\
+	  BG=FEA_ARBEIT:50+217,2;
+	M=0;
+      $ENDPATH 
+#----FEA Transport----
+      $PATH Y=20;
+	M=BACK; D=L; C=GBRF_FEA_S,GBRF_20905; V=6; P=50+60; TB=40;					\
+	  T=10,w,STEG_TR_DA,w,STEG_WEG,w,FEA_VOR,w,FEA_WEIT,w,FEA_FEST,w,FEA_BACK,w,FEA_WINKEN,w,	\
+	    FEA_ABG,w,12;
+      $ENDPATH 
+
+#-----STEG-ARBEITER-Trasse
+      $PATH Y=20;											\
+	  BG=STEG_ARBEIT:50+170,0;									\
+	  FG=GBRF_STEG_HG:50+170;
+	M=0;
+      $ENDPATH 
+
+#---Kran----
+      $PATH Y=20;
+	M=BACK; D=R; C=SHELDON_CRANE,BR_20189; V=6; P=50+225; TB=2,w,2;					\
+	  T=4,KR_H,w,HA_DA,w,2,w,HA_AB,2,VOR,w,FEST,w,BACK,w,WINKEN,w,3,w,HA_H,STEG_H,w,8,HA_ABTR,	\
+	    STEG_AB,w,8,w,VOR,WEG,w,FEST,w,BACK,8,HA_HENDE,18,w,KR_AB,w,8,FEA_WEG,WA_VOR,w,BACK,	\
+	    WA_WEG,ZU;
+      $ENDPATH 
+#---MK1 CCT_ZUG--
+ #     $PATH Y=20;
+#	M=BACK; D=R; C=BR_MK1_CCT,BR_20227|BR_20132; V=5; P=50+390; TB=60,w,50,w;	\
+#	  T=W,2,KUPP_H,W,2,ZU_H,W,6,w,4,CCT_DA,CCT_BG_WEG,w,4,w;
+#     $ENDPATH 
+#---MK1 CCT_Hintergrund--
+      $PATH Y=20;											\
+	  BG=BR_MK1_CCT_HG_ANI:50+325;
+	M=0;
+      $ENDPATH 
+#---Hintergrund-Trasse
+# $PATH Y=20;BG=(BUSH20:5-30+,-1;1*GREEN3:60-85+,-1);
+      $PATH Y=20;											\
+	  BG=(WALL_UF5,WALL_UF7,WALL_UF2,WALL_UF8,WALL_UF4,WALL_UF1,15,D_BAIERSBRONN3,30,F_POSTE2:..,	\
+	  0,#; BUSH20:10-45+,-8; GREEN3,:65-80+,-8;							\
+	  D_SILO02,200,US_TIMS2,300,J_FACT02,350,J_FACT01,US_PLANT43_1,US_PLANT42C,250,STORE03,		\
+	  INDUSTRY01,300,3*STORAGESHED,350,J_FACT03,250,D_STERNQUELL3,D_STERNQUELL2,D_STERNQUELL1,150,	\
+	  STORE02,280:..,-10,#;BgSky/CLOUD59.JPG:..,0,#);
+	M=0;
+      $ENDPATH 
+    $ENDSCENE 
+#..........................................................................
+  $ENDSECTION 
+

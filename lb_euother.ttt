@@ -76,6 +76,8 @@ $REQUIRE TRAINDEF.TTT
 	C=CFR_CL40AL|CFR_CL40A,										\
 	  (<CFR_1976ALEEL,CFR_1976ALEE,CFR_8976WRLEEL|CFR_8976WRLEE,3*CFR_2076BLEE,CFR_2076BLEEL);	\
 	F=EF45;
+      TX=CFR 43 + Regionalzug;										\
+	C=CFR_43SO03(|L),RO4PR1; F=EP4;
       TX=CFR 44 + Schnellzug;										\
 	C=CFR_CL44(A|B)(|L),										\
 	  (<2*CFR_5941CL,2*CFR_2051CL,CFR_1951CL,CFR_3941CL,3*CFR_2051CL,CFR_5941CL)|			\
@@ -113,6 +115,8 @@ $REQUIRE TRAINDEF.TTT
       TX=CFR 60 + P 2181, Simeria - Lugoj 1980;								\
 	C=CFR_CL60SO16(|L),(<CFR_WITG,CFR_FAFMD9060G,3*CFR_BAFLD2921,CFR_AAFLD1722,3*CFR_BAFLD2921);	\
 	F=EP4;
+      TX=CFR 70 + Schnellzug;										\
+	C=CFR_LDE4000A(|L),RO4PL1; F=DP4;
       TX=CFR 77;											\
 	C=(1-2*CFR_77(|L))|(1-2*CFR_77G1); F=DPU4;
       TX=CFR 7807;											\
@@ -125,10 +129,18 @@ $REQUIRE TRAINDEF.TTT
 	C=CFR_781A; F=DPU4;
     }
     {E5?
+      TX=CFR 69;											\
+	C=CFR_LDE125DL~SOP|CFR_LDE125D~SOP|CFR_LDE125EL|CFR_LDE125E|CFR_LDE125GL|CFR_LDE125G|		\
+	  CFR_CL69SO01L|CFR_CL69SO01|CFR_CL69SO02L|CFR_CL69SO02|CFR_CL69SO03L|CFR_CL69SO03,4*RO5FS;	\
+	F=DF5;
       TX=CFR 78;											\
 	C=CFR_78_7(64|57); F=DPU5;
+      TX=CFR 80 + C 2837 Calimanesti - Alunu 1993;							\
+	C=CFR_LDH125A(|L),6*CFR_BAFLD2920(|L); F=DPR5;
       TX=CFR 40;											\
 	C=CFR_CL40(H|G),RO5FL; F=DF5;
+      TX=CFR 43;											\
+	C=CFR_43SO05(|L),RO5FS; F=DP5;
       TX=CFR 44 + Schnellzug;										\
 	C=CFR_CL44(A|B)(|L),RO5PL1; F=EP5;
       TX=CFR 44;											\
@@ -149,7 +161,7 @@ $REQUIRE TRAINDEF.TTT
 	F=EP6;
       TX=CFR 40 + IR 1527 - Bucuresti Nord - Brasov 2015;						\
 	C=CFR_CL40SO(14|13)(|L),									\
-	  (<2*CFR_2170BMEEL,CFR_1980AMEE,CFR_2090,3*CFR_6B2176,2*)|					\
+	  (<2*CFR_2170BMEEL,CFR_1980AMEE,CFR_2090,3*CFR_6B2176)|					\
 	  (<2*CFR_2090,CFR_1980AMEEL,2*CFR_2170BMEE);							\
 	F=EP6;
       TX=CFR 40 + IR 346 Dacia - Bucuresti Nord - Wien Westbf 2015;					\
@@ -166,14 +178,16 @@ $REQUIRE TRAINDEF.TTT
 	C=CFR_CL40SO14(|L),2*CFR_BEE2083,CFR_AEE1983,2*CFR_BEE2083; F=EP6;
       TX=CFR 40 + IRN 1821 Bucuresti Nord - Arad 2021;							\
 	C=CFR_CL40SO14(|L),										\
-	  (<CFR_WLABMEE7191A,CFR_ACBCMEE4431,2*CFR_BEEM2296,CFR_AEEM3076,CFR_BEEM2296)|			\
-	  (>CFR_WLABMEE7191A,CFR_ACBCMEE4431L,2*CFR_BEEM2296L,CFR_AEEM3076L,CFR_BEEM2296L);		\
+	  (<CFR_WLABMEE7091,CFR_ACBCMEE4431,2*CFR_BEEM2296,CFR_AEEM3076,CFR_BEEM2296)|			\
+	  (>CFR_WLABMEE7091L,CFR_ACBCMEE4431L,2*CFR_BEEM2296L,CFR_AEEM3076L,CFR_BEEM2296L);		\
 	F=EP6;
       TX=CFR 40 + IR 1656 Suceava - Bucuresti Nord - Buzau 2021;					\
 	C=CFR_CL40SO14(|L),										\
 	  (<CFR_BMEET2176_95,CFR_6A1090,CFR_BMEET2176_95,CFR_BDEEM8496,3*CFR_6B2176)|			\
 	  (>CFR_BMEET2176_95,CFR_6A1090,CFR_BMEET2176_95,CFR_BDEEM8496L,3*CFR_6B2176);			\
 	F=EP6;
+      TX=CFR 40;											\
+	C=CFR_40SO1(2|3|4|5)(|L),RO6P1|RO6PD; F=EP6;
       TX=CFR 40 + IRN 1766 Timisoara Nord - Iasi 2021;							\
 	C=CFR_CL40SO14(|L),										\
 	  (<CFR_ACBCEE4431M,CFR_WLABMEE_7131_2019,4*CFR_BEEM2276)|					\
@@ -194,6 +208,8 @@ $REQUIRE TRAINDEF.TTT
 	C=CFR_410_148H,2*CFR_BMEET2176_95,CFR_AMEET197695,2*CFR_BMEET2176_95; F=EP6;
       TX=CFR 41 148 + IR 1682 Constanta - Bucuresti Nord 2021;						\
 	C=CFR_410_148H,2*CFR_BMEET2176_95,CFR_AMEET197695,2*CFR_BMEET2176_95; F=EP6;
+      TX=CFR 43;											\
+	C=CFR_43SO0(8|7)(|L),RO6FT; F=DF6;
       TX=CFR 44 + Schnellzug;										\
 	C=CFR_CL44SO05(|L),										\
 	  (<CFR_6AM1950,CFR_6ABM3950L,CFR_ACBCMEE2|CFR_ACBCMEE4431|CFR_ACBCMEE3|CFR_6BCM5950L,		\
@@ -205,7 +221,7 @@ $REQUIRE TRAINDEF.TTT
       TX=CFR 44;											\
 	C=CFR_CL44C(|L),(<CFR_2626_1,2*CFR_2626_2)|(<CFR_2626_1L,2*CFR_2626_2L); F=EP6;
       TX=CFR 46;											\
-	C=CFR_CL46A(|L),										\
+	C=CFR_CL46A(|L)|CFR_46SO03(|L),									\
 	  (<CFR_3616001,CFR_3616016,CFR_2616020)|(<CFR_3616001L,CFR_3616016L,CFR_2616020L)|		\
 	  (<CFR_8416001,CFR_2654001,CFR_2616020)|(<CFR_8416001L,CFR_2654001L,CFR_2616020L);		\
 	F=EP6;
@@ -221,7 +237,7 @@ $REQUIRE TRAINDEF.TTT
       TX=CFR 47 + IC-IR 75 Transsylvania: Budapest-Keleti - Brasov 2015;				\
 	C=CFR_CL47SO0(1|3)(|L),(<(3*CFR_B2186),CFR_A1090,MAVS_AMXZ_A,3*MAVS_B2080,MAVS_A1980); F=EP6;
       TX=CFR 48 + Rangierzug;										\
-	C=CFR_48TRANSM,CFR_WRMZ8896M,CFR_BMEET2176_9; F=EF6;
+	C=CFR_48SO01(|L),CFR_WRMZ8896M,CFR_BMEET2176_9; F=EF6;
       TX=CFR 60;											\
 	C=(CFR_CL60SO18L|CFR_CL60SO18),									\
 	  10*(CFR_UAGPS1L|CFR_UAGPS1|CFR_UAGPS2L|CFR_UAGPS2|CFR_UAGPS3L|CFR_UAGPS3|CFR_UAGPS4L|		\
@@ -261,6 +277,8 @@ $REQUIRE TRAINDEF.TTT
 	C=CFR_CL63SO02(|L),2*CFR_B2049_201; F=DPR6;
       TX=CFR 63 + IR 1795 Bucuresti Nord - Pitesti 2021;						\
 	C=CFR_CL63SO02(|L),CFR_6B2176,CFR_B2187M,CFR_6B2186,CFR_1976ALEE(|L); F=DP6;
+      TX=CFR 65;											\
+	C=CFR_CL65SO0(3|4)(|L),14*(CFR_FALS05|CFR_FALSSO01|CFR_FALSSO02|CFR_FALSSO03)(|L); F=DF6;
       TX=CFR 65 + IC/IR 363 Bihar/Bihor: Budapest-Keleti Cluj Napoca 2013;				\
 	C=CFR_CL65(|L),											\
 	  (<MAVS_BVMZ2191L,MAVS_61_2191_1L,MAVS_WRR1,MAVS_1991L)|					\
@@ -273,12 +291,11 @@ $REQUIRE TRAINDEF.TTT
 	  CFR_UCS1_5,CFR_UCS1_4,CFR_UCS1_3,CFR_UCS1_2,CFR_UCS1_1);					\
 	F=DF56;
       TX=CFR 69;											\
-	C=CFR_LDE125DL~SOP|CFR_LDE125D~SOP|CFR_LDE125EL|CFR_LDE125E|CFR_LDE125GL|CFR_LDE125G|		\
-	  CFR_CL69SO01L|CFR_CL69SO01|CFR_CL69SO02L|CFR_CL69SO02|CFR_CL69SO03L|CFR_CL69SO03;		\
-	F=DF56;
+	C=CFR_CL69SO04|CFR_CL69SO05|CFR_CL69SO08|CFR_CL69SO09|CFR_CL69SO10,				\
+	  10*(CFR_ZAS73SO0(1|2|3|4)(|L)([BC:-15,-40,9,12,115]|[BC:-8,-20,9,12,115]));			\
+	F=DF6;
       TX=CFR 70/71;											\
-	C=CFR_LDE4000AL|CFR_LDE4000A|CFR_700AL|CFR_700A|CFR_700BL|CFR_700B|CFR_700CL|CFR_700C|		\
-	  CFR_LDE4000BL|CFR_LDE4000B|CFR_LDE4000SO03L|CFR_LDE4000SO03,					\
+	C=CFR_700A|CFR_700B(|L)|CFR_700C(|L)|CFR_LDE4000B(|L)|CFR_LDE4000SO03(|L),CFR_CL70SO02(|L),	\
 	  (5*(CFR_GAGS01L|CFR_GAGS01|CFR_GAGS02L|CFR_GAGS02|CFR_GAGS03L|CFR_GAGS03|CFR_GAGS04L|		\
 	  CFR_GAGS04));											\
 	F=DF56;
@@ -289,9 +306,8 @@ $REQUIRE TRAINDEF.TTT
       TX=CFR 79;											\
 	C=CFR_79R; F=DP6;
       TX=CFR 80/81;											\
-	C=CFR_80MM|CFR_LDH125AL|CFR_LDH125A|CFR_LDH125BL|CFR_LDH125B|CFR_LDH125CL|CFR_LDH125C|		\
-	  CFR_LDH125DL|CFR_LDH125D|CFR_CL80SO02L|CFR_CL80SO02|CFR_CL80SO03L|CFR_CL80SO03|		\
-	  CFR_CL80SO04L|CFR_CL80SO04;									\
+	C=CFR_80MM|CFR_LDH125A(|L)|CFR_LDH125B(|L)|CFR_LDH125C(|L)|CFR_LDH125D(|L)|CFR_CL80SO02(|L)|	\
+	  CFR_CL80SO03(|L)|CFR_CL80SO04(|L)|CFR_80_09(|L)|CFR_80_10(|L),2*RO5FS;			\
 	F=DF56;
       TX=CFR 70;											\
 	C=CFR_70,CFRM_WG200; F=DF6;
@@ -300,15 +316,16 @@ $REQUIRE TRAINDEF.TTT
 	  (<CFR_EAOS5,CFR_EAOS2,CFR_EAOS6,CFR_RGS1|CFR_RGS2);						\
 	F=DF56;
       TX=CFR 82-84;											\
-	C=CFR_CL82A|CFR_CL83A|CFR_CL84A|CFR_CL82RSO01L|CFR_CL82RSO01|CFR_CL84RSO01L|CFR_CL84RSO01;	\
-	F=DF56;
+	C=CFR_CL82A|CFR_CL83A|CFR_CL84A|CFR_CL82RSO01(|L)|CFR_CL84RSO01(|L)|CFR_CL82SO02(|L)|		\
+	  CFR_CL84SO01(|L),7*(CFR_ZAES67SO0(1|2|3|4|5)(|L)([BC:-15,-40,9,12,115]|[BC:-8,-20,9,12,115])); \
+	F=DF6;
       TX=CFR 85/86;											\
 	C=CFR_LDH45AL|CFR_LDH45A|CFR_LDH45BL|CFR_LDH45B|CFR_LDH45RL|CFR_LDH45R|CFR_LDH45SO1L|		\
 	  CFR_LDH45SO1|CFR_LDH70AL|CFR_LDH70A|CFR_LDH70BL|CFR_LDH70B|CFR_LDH70CL|CFR_LDH70C|		\
 	  CFR_LDH70SO4L|CFR_LDH70SO4,CFR_UACS;								\
 	F=DF56;
       TX=CFR 89;											\
-	C=CFR_CL89SO01L|CFR_CL89SO01|CFR_CL89SO02L|CFR_CL89SO02; F=DPU56;
+	C=CFR_CL89SO01(|L)|CFR_CL89SO02(|L),CFR_CL89SO03(|L),RO6P1; F=DP6;
       TX=CFR 914/92;											\
 	C=(<CFR_5_628_680A,CFR_5_628_680B)|(<CFR_6_628_679A,CFR_6_628_679B); F=DPU56;
       TX=CFR 96;											\
@@ -319,6 +336,8 @@ $REQUIRE TRAINDEF.TTT
 	C=CFR_DESIROL~ZS|CFR_DESIRO~ZS; F=DPU6;
       TX=Rumänien Astra TransCarpatic (ATC) IC2: IR 15533 Bucuresti Nord - Brasov 2019;			\
 	C=<ACTA_IC2AL,ACTA_IC2B; F=DPU6;
+      TX=Rumänien Captrain Romania 80 + Güterzug;							\
+	C=CPTRO_80_01(|L),RO6FRS; F=DF6;
       TX=Rumänien Classfer S.R.L. LDE 2100 + Güterzug;							\
 	C=CLSF_CL80SO01L|CLSF_CL80SO01,RO6F2; F=DF6;
       TX=Rumänien CFI: Calea Ferata Ingusta 2143 + Güterzug;						\
@@ -333,24 +352,47 @@ $REQUIRE TRAINDEF.TTT
 	C=CTF_CL40AL|CTF_CL40A,RO6F1; F=EF6;
       TX=Rumänien Constantin Grup LDE 2100 + Güterzug;							\
 	C=CTIN_LDE2100AL|CTIN_LDE2100A|CTIN_LDE2100BL|CTIN_LDE2100B,RO6F3; F=DF6;
+      TX=Rumänien Constantin Grup 69 + Güterzug;							\
+	C=CTIN_CL69SO01(|L),RO6FGS; F=DF6;
       TX=Rumänien Constantin Grup LDH 45 + Güterzug;							\
 	C=CTIN_LDH45L|CTIN_LDH45,RO6F2; F=DF6;
       TX=Rumänien Constantin Grup LDH 125 + Güterzug;							\
 	C=CTIN_LDH125L|CTIN_LDH125,RO6F3; F=DF6;
       TX=Rumänien CargoTransVagon 69 + Güterzug;							\
-	C=CTV_CL69SO01L|CTV_CL69SO01|CTV_CL69SO02L|CTV_CL69SO02,RO6F1; F=DF6;
+	C=CTV_CL69SO01(|L)|CTV_CL69SO02(|L)|CTV_CL69SO03(|L),RO6F1; F=DF6;
       TX=Rumänien CargoTransVagon 60 + Güterzug;							\
-	C=CTV_CL60BL|CTV_CL60B|CTV_CL60SO02L|CTV_CL60SO02,RO6F3; F=DF6;
+	C=CTV_CL60B(|L)|CTV_CL60SO02(|L)|CTV_60_03(|L),RO6F3; F=DF6;
+      TX=Rumänien DB Schenker Rail Romania SRL 60 + Güterzug;						\
+	C=DSRR_60_01(|L),RO6FRL; F=EF6;
       TX=Rumänien Dori Trans SRL Roman 60 + Güterzug;							\
 	C=DORI_CL60SO01L|DORI_CL60SO01,RO6F2; F=DF6;
+      TX=Rumänien Dori Trans SRL Roman 85 + Bauzug;							\
+	C=EEST_CL85SO01(|L),RO6FB; F=DF6;
       TX=Rumänien EuroEst S.A. Romania 69 + Güterzug;							\
 	C=EEST_CL69SO01L|EEST_CL69SO01|EEST_CL69SO02L|EEST_CL69SO02,RO6F3; F=DF6;
       TX=Rumänien EuroEst S.A. Romania 80 + Güterzug;							\
 	C=EEST_CL80SO01L|EEST_CL80SO01,RO6F3; F=DF6;
       TX=Rumänien ICIM Arad 80 + Güterzug;								\
 	C=ICIMA_CL80SO01L|ICIMA_CL80SO01,RO6F2; F=DF6;
+      TX=Rumänien GRIRO S.A. 86 + Bauzug;								\
+	C=GRIRO_CL86SO01(|L),RO6FB; F=DF6;
+      TX=Rumänien Grivita Workshop 86 + Bauzug;								\
+	C=GRIV_CL86SO01(|L),RO6FB; F=DF6;
+      TX=Rumänien ICIM S. A. Arad 80 + Bauzug;								\
+	C=GRIV_CL86SO01(|L),RO6FB; F=DF6;
+      TX=Rumänien ISAF S. A. 85 + Bauzug;								\
+	C=ISAF_CL85SO01(|L),RO6FB; F=DF6;
+      TX=Rumänien ISAF S. A. 80 + Bauzug;								\
+	C=ISAF_80_01(|L),RO6FB; F=DF6;
+      TX=Rumänien European Rail Transport Feroviar 60 + Güterzug;					\
+	C=IRTT_60_01(|L),RO6F3; F=DF6;
+      TX=Rumänien European Rail Transport Feroviar 80 + Güterzug;					\
+	C=IRTT_80_01(|L),RO6FRS; F=DF6;
       TX=Rumänien Grup Feroviar Roman 69 + Güterzug;							\
 	C=GFR_CL69SO01L|GFR_CL69SO01,RO6F3; F=DF6;
+      TX=Rumänien Grup Feroviar Roman 85 + Güterzug;							\
+	C=GFR_CL85SO01,GFR_ZAES60SO03(|L),GFR_ZAES67SO01(|L),GFR_ZAES60SO01(|L),GFR_ZAES67SO02(|L);	\
+	F=DF6;
       TX=Rumänien Grup Feroviar Roman LDH 125 + Güterzug;						\
 	C=GFR_LDH125L|GFR_LDH125,RO6F2; F=DF6;
       TX=Grup Feroviar Roman LDE 2100 + Güterzug;							\
@@ -362,6 +404,8 @@ $REQUIRE TRAINDEF.TTT
 	C=OTCT_CL80SO01L|OILT_CL80SO01,Z_D_E6_G_KK2; F=DF6;
       TX=Rumänien Kronospan Sebes 80 + Güterzug;							\
 	C=KRSP_CL80SO01L|KRSP_CL80SO01,RO6F2; F=DF6;
+      TX=Rumänien Rail Cargo Romania 80 + Güterzug;							\
+	C=RCR_60_01(|L),RO6F2; F=DF6;
       TX=Rumänien Regiotrans Brasov 80 + Güterzug;							\
 	C=RGTR_CL80SO01L|RGTR_CL80SO01,RO6F2; F=DF6;
       TX=Rumänien Regiotrans Brasov 60 + Güterzug;							\
@@ -370,50 +414,84 @@ $REQUIRE TRAINDEF.TTT
 	C=RSTK_CL60SO01L|RSTK_CL60SO01,RO6F1; F=DF6;
       TX=Rumänien Rompetrol Logistics 60 + Güterzug;							\
 	C=RP_CL60L|RP_CL60,Z_D_E6_G_KK2; F=DF6;
+      TX=Rumänien Rompetrol Logistics 86 + Güterzug;							\
+	C=RP_CL86SO01(|L),RO6FRS; F=DF6;
       TX=Rumänien Rompetrol Logistics LDH 125 + Güterzug;						\
 	C=RP_LDH125AL|RP_LDH125A,RO6F2; F=DF6;
+      TX=Rumänien Sudarec 70 + Güterzug;								\
+	C=SDR_LDH70L|SDR_LDH70,RO6F2; F=DF6;
+      TX=Rumänien Sudarec 69 + Güterzug;								\
+	C=SDR_CL69SO01L|SDR_CL69SO01,RO6F3; F=DF6;
+      TX=Servtrans 80 + Güterzug;									\
+	C=SVT_LDH125(|L)|SVT_CL80SO02(|L)|SVT_80_03(|L),RO6FT; F=DF6;
+      TX=Servtrans 60 + Güterzug;									\
+	C=SVT_LDE2100(|L)|SVT_CL60SO02(|L)|SVT_CL60SO03(|L),RO6F1; F=DF6;
+      TX=Rumänien Trans Blue LDE 2100 + Güterzug;							\
+	C=TBLU_LDE2100L,TBLU_LDE2100,RO6F1; F=DF6;
       TX=Rumänien Transferoviar 80 + Güterzug;								\
-	C=TFG_CL80SO01L|TFG_CL80SO01,RO6F2; F=DF6;
+	C=TFG_CL80SO01(|L)|TFG_80_01(|L)|TFG_80_02(|L),RO6F2; F=DF6;
       TX=Rumänien Transferoviar LDE 2100 + Güterzug;							\
 	C=TFG_LDE2100L|TFG_LDE2100,RO6F1; F=DF6;
       TX=Rumänien Transferoviar 76-1400;								\
 	C=<TFC_76_1400UAL,TFC_76_1400UM,TFC_76_1400UA; F=DPRU6;
       TX=Rumänien Transferoviar 76-2400: IR 15061 Bucuresti Nord - Ploiesti Sud 2017;			\
-	C=2*(<TFG_76_2400AL,TFG_76_2400M,TFG_76_2400A); F=DPRU6;
-      TX=Rumänien UniferTrans LDE 2100 + Güterzug;							\
-	C=UFT_LDE2100L|UFT_LDE2100,RO6F3; F=DF6;
+	C=2*(<TFC_76_2400AL,TFC_76_2400M,TFC_76_2400A); F=DPRU6;
       TX=Rumänien Transcombi S.A. Galati LDH 125;							\
 	C=TCOMBI_LDH125L|TCOMBI_LDH125,CFR_2ROLA,CFR_BCROLA1; F=DF6;
-      TX=Rumänien Trans Blue LDE 2100 + Güterzug;							\
-	C=TBLU_LDE2100L,TBLU_LDE2100,RO6F1; F=DF6;
-      TX=Rumänien Sudarec 70 + Güterzug;								\
-	C=SDR_LDH70L|SDR_LDH70,RO6F2; F=DF6;
-      TX=Rumänien Sudarec 69 + Güterzug;								\
-	C=SDR_CL69SO01L|SDR_CL69SO01,RO6F3; F=DF6;
-      TX=Servtrans Güterzug + LDH 125;									\
-	C=SVT_LDH125L|SVT_LDH125|SVT_CL80SO02L|SVT_CL80SO02|SVT_LDE2100L|SVT_LDE2100|SVT_CL60SO02L|	\
-	  SVT_CL60SO02|SVT_CL60SO03L|SVT_CL60SO03|SVT_CL43AL|SVT_CL43A|SVT_CL40L|SVT_CL40,		\
-	  9*(SVT_FALS01L|SVT_FALS01|SVT_TALS01L|SVT_TALS01);						\
+      TX=Rumänien Transferoviar Grup 86 + Güterzug;							\
+	C=TFG_CL86SO01(|L),RO6FGS; F=DF6;
+      TX=Rumänien Techno Trans Feroviar 80 + Güterzug;							\
+	C=THF_80_01(|L),RO6FRS; F=DF6;
+      TX=Rumänien Techno Trans Feroviar 69 + Güterzug;							\
+	C=THF_CL69SO01(|L),RO6F1; F=DF6;
+      TX=Rumänien Unicom Tranzit 69 + Güterzug;								\
+	C=THF_CL69SO01(|L),RO6FGL; F=DF6;
+      TX=Rumänien Unicom Tranzit 80 + Güterzug;								\
+	C=UTZ_80_01(|L),RO6F2; F=DF6;
+      TX=Rumänien Unicom Tranzit 60 + Güterzug;								\
+	C=UTZ_60_0(1|2)(|L),RO6FR; F=DF6;
+      TX=Rumänien UniferTrans LDE 2100 + Güterzug;							\
+	C=UFT_LDE2100L|UFT_LDE2100,RO6F3; F=DF6;
+      TX=Rumänien Vest Trans Rail 69 + Güterzug;							\
+	C=VETR_CL69SO01(|L),RO6FGL; F=DF6;
+      TX=Rumänien Vest Trans Rail 80 + Güterzug;							\
+	C=VETR_80_01(|L),RO6FGS; F=DF6;
+      TX=Rumänien Vest Trans Rail 60 + Güterzug;							\
+	C=VETR_60_0(1|2)(|L),RO6FR; F=DF6;
+      TX=Rumänien Via Terra 60 + Güterzug;								\
+	C=VTS_60_01(|L),RO6FT; F=DF6;
+      TX=Rumänien Wiebe Romania 80 + Bauzug;								\
+	C=WIEBE_80_01(|L),RO6FB; F=DF6;
+      TX=Rumänien Wiebe Romania 86 + Bauzug;								\
+	C=WIEBE_CL86SO01(|L),RO6FB; F=DF6;
+      TX=Rumänien LDH + Bauzug;										\
+	C=IND_LDH25SO0(1|2|3|4|5)(|L),									\
+	  6*CFR_ZAES60SO0(1|2|3|4|5|6|7|8)(|L)(|[BC:-15,-40,10,12,102]|[BC:-8,-20,10,12,102]);		\
 	F=DF6;
-      TX=Rumänien Servtrans 040 + Astra TransCarpatic (ATC) IR 15531 Bucuresti Nord - Arad 2017;	\
-	C=2*SVT_040,(<ATCA_BPMZ,2*ATCA_BCMZ,ATCA_WLABMZ); F=EP6;
-
 
 # E
+      TX=Rumänien Central European Railway AG 40 + Güterzug;						\
+	C=CER_48SO01(|L),RO6FR; F=EF6;
       TX=Rumänien Compania Transport Feroviar 40 + Güterzug;						\
 	C=CTF_CL40AL|CTF_CL40A,RO6F1; F=EF6;
       TX=Rumänien Constantin Grup 40 + Güterzug;							\
-	C=CTIN_CL40SO01L|CTIN_CL40SO01,RO6F3; F=EF6;
+	C=CTIN_CL40SO01(|L)|CTIN_40_02(|L),RO6F3; F=EF6;
       TX=Rumänien Constantin Grup 43 + Güterzug;							\
 	C=CTIN_CL43SO01(|L),RO6F3; F=EF6;
-      TX=Rumänien Servtrans Güterzug;									\
-	C=UFT_CL40AL|UFT_CL40A|UFT_CL40BL|UFT_CL40B|UFT_CL47SO01L|UFT_CL47SO01,UFT_FALS01L; F=EF6;
       TX=Rumänien CargoTransVagon 40 + Güterzug;							\
-	C=CTV_CL40(|SO02|SO03)(|L),RO6F1; F=EF6;
+	C=CTV_CL40(|SO02|SO03|SO04)(|L),RO6F1; F=EF6;
+      TX=Rumänien CargoTransVagon 47 + Güterzug;							\
+	C=CTV_47_01(|L),RO6FRL; F=EF6;
+      TX=Rumänien CargoTransVagon 48 + Güterzug;							\
+	C=CTV_48SO01(|L),RO6FR; F=EF6;
       TX=Rumänien CargoTransVagon 46 + Güterzug;							\
 	C=CTV_CL46SO01L|CTV_CL46SO01,RO6F1; F=EF6;
       TX=Rumänien DB Schenker Rail Romania SRL 40/47 + Güterzug;					\
 	C=DSRR_478_001(|L)|DSRR_471_002SRL(|L)|DSRR_CL40SO01(|L)|DSRR_CL47SO01(|L),RO6F3; F=EF6;
+      TX=Rumänien DB Schenker Rail Romania SRL 48 + Güterzug;						\
+	C=DSRR_48SO0(1|2|3|4)(|L),RO6FR|RO6FGL; F=EF6;
+      TX=Rumänien E-P Rail Romania 48 + Güterzug;							\
+	C=DSRR_48SO0(1|2|3|4)(|L),RO6FT; F=EF6;
       TX=Rumänien Grup Feroviar Roman 43 + Güterzug;							\
 	C=GFR_CL43(SO02|A)(|L),RO6F3; F=EF6;
       TX=Rumänien Grup Feroviar Roman 425 + Güterzug;							\
@@ -422,6 +500,12 @@ $REQUIRE TRAINDEF.TTT
 	C=GFR_CL40(A|SO03|SO04|B)(|L),RO6F1; F=EF6;
       TX=Rumänien Grup Transport Feroviar 40 + Güterzug;						\
 	C=GTF_CL40SO01(|L),RO6F1; F=EF6;
+      TX=Rumänien GP Rail Cargo 40 + Güterzug;								\
+	C=[PFU]GPR_40SO01(|L),RO6FT; F=EF6;
+      TX=Rumänien European Rail Transport Feroviar 40 + Güterzug;					\
+	C=IRTT_40_01(|L),RO6F3; F=EF6;
+      TX=Rumänien Logistik und Transport GmbH 40 + Güterzug;						\
+	C=LTE_48SO0(1|2|3|4)(|L),RO6FGL; F=EF6;
       TX=Rumänien Rolling Stock Company 40 + Güterzug;							\
 	C=RSTK_CL40SO01L|RSTK_CL40SO01,RO6F3; F=EF6;
       TX=Rumänien Rompetrol Logistics 40 + Güterzug;							\
@@ -434,20 +518,39 @@ $REQUIRE TRAINDEF.TTT
 	C=SFT_CL47L|SFT_CL47,RO6F1; F=EF6;
       TX=Rumänien Softronic 47 + Güterzug;								\
 	C=SFTC_CL47PHSO02(|L),RO6F(3|1); F=EF6;
-      TX=Rumänien Servtrans 46 + Güterzug;								\
-	C=SVT_CL46SO01(|L),RO6F1|(15*(SVT_FALS01L|SVT_FALS01|SVT_TALS01L|SVT_TALS01)); F=EF6;
+      TX=Rumänien Softrans 44 + Astra TransCarpatic (ATC) IR 15531 Bucuresti Nord - Arad 2017;		\
+	C=2*SFT_44SO01(|L),(<ATCA_BPMZ,2*ATCA_BCMZ,ATCA_WLABMZ); F=EP6;
+      TX=Rumänien Softrans 48 + Güterzug;								\
+	C=SFT_48SO0(1|2),RO6F2; F=EF6;
+      TX=Rumänien Astra TransCarpatic (ATC) 40;								\
+	C=ATCA_40SO01(|L),(<ATCA_BPMZ,2*ATCA_BCMZ,ATCA_WLABMZ); F=EP6;
+      TX=Rumänien Servtrans 43/46 + Güterzug;								\
+	C=SVT_CL46SO01(|L)|SVT_CL43A(|L),RO6F1|(15*(SVT_FALS01L|SVT_FALS01|SVT_TALS01L|SVT_TALS01));	\
+	F=EF6;
+      TX=Servtrans 40 + Güterzug;									\
+	C=SVT_CL40(|L),15*(SVT_FALS01L|SVT_FALS01|SVT_TALS01L|SVT_TALS01); F=EF6;
+      TX=Servtrans 40 + Güterzug;									\
+	C=SVT_CL40(|L),15*(SVT_FALS01L|SVT_FALS01|SVT_TALS01L|SVT_TALS01); F=EF6;
       TX=Rumänien Softrans S.A. 40 + Astra TransCarpatic IR 15592 Arad - Bucuresti Nord 2019;		\
 	C=SVT_040,(<2*ATCA_WLABMZ,2*ATCA_BCMZ,ATCA_BPMZ); F=EP6;
       TX=Rumänien Transferoviar Grup 40 + Güterzug;							\
-	C=TFG_CL40SO01L|TFG_CL40SO01,RO6F3; F=EF6;
+	C=TFG_CL40SO01(|L)|TFG_40_02(|L),RO6F3; F=EF6;
       TX=Rumänien Transferoviar Grup 43 + Güterzug;							\
 	C=TFG_CL43SO0(1|2)(|L),RO6F(3|1)|(2*RO6F2); F=EF6;
+      TX=Rumänien Transferoviar Grup 40 + Güterzug;							\
+	C=TFG_CL40SO01(|L)|TFG_40_02(|L),RO6F3; F=EF6;
+      TX=Rumänien Techno Trans Feroviar 40 + Güterzug;							\
+	C=THF_40SO01(|L),RO6F(3|1)|(2*RO6F2); F=EF6;
+      TX=Rumänien Unicom Tranzit 47 + Güterzug;								\
+	C=UTZ_47_01(|L)|UFT_CL47SO01(|L),RO6F(3|1)|(2*RO6F2); F=EF6;
       TX=Rumänien Unicom Tranzit 40 + Güterzug;								\
-	C=UTZ_CL40SO0(1|2)(|L),RO6F(3|1)|(2*RO6F2); F=EF6;
+	C=[PFU]UFT_CL40A(|L)|UFT_CL40B(|L),RO6FT; F=EF6;
+      TX=Rumänien Tim Rail Cargo 40 + Güterzug;								\
+	C=TRCR_40SO01(|L),RO6FR; F=EF6;
       TX=Rumänien Vest Trans Rail 40 + Güterzug;							\
-	C=VETR_CL40SO01(|L),RO6F(3|1)|(2*RO6F2); F=EF6;
+	C=VETR_CL40SO01(|L)|VETR_40_02(|L),RO6F(3|1)|(2*RO6F2); F=EF6;
       TX=Rumänien Vest Trans Rail 43 + Güterzug;							\
-	C=VETR_CL43SO01(|L),RO6F(3|1)|(2*RO6F2); F=EF6;
+	C=VETR_CL43SO01(|L),RO6FGL; F=EF6;
     }
   %ENDPOOL;
 }
@@ -566,6 +669,8 @@ $REQUIRE TRAINDEF.TTT
   %ADDPOOL(POOL_HR,HR_ENV[TX#=Croatia])
     {E5?
       TX=HZ 7021;											\
+	C=HZ_2041A(|L),HR5F1; F=DF5;
+      TX=HZ 610/617;											\
 	C=<JZ_610L,3*JZ_617,JZ_610; F=DPU5;
     }
 
@@ -1040,9 +1145,9 @@ $REQUIRE TRAINDEF.TTT
       TX=Kosovo 007 + B  892;										\
 	C=KZ_NO007,(<MZ_BLM,KZ_BPZ); F=DPR6;
       TX=Kosovo 007 + B;										\
-	C=KZ_6_(005|006,007,008)(|L),(<JZ_ZTOP_BLM,JZ_ZTOP_ABLM,JZ_ZTOP_BLM); F=DPR6;
+	C=KZ_6_(005|006|007|008)(|L),(<JZ_ZTOP_BLM,JZ_ZTOP_ABLM,JZ_ZTOP_BLM); F=DPR6;
       TX=Kosovo 007 + P;										\
-	C=KZ_6_(005|006,007,008)(|L),(<KZ_BPZ,KZ_BSJCB|KZ_DSC0317,KZ_BDPZ); F=DP6;
+	C=KZ_6_(005|006|007|008)(|L),(<KZ_BPZ,KZ_BSJCB|KZ_DSC0317,KZ_BDPZ); F=DP6;
       TX=Kosovo 003 + Schnellzug;									\
 	C=KZ_DI3,(<(2*KZ_UICXB),KZ_UICXA,KZ_UICXB);
       TX=Kosovo HK 01;											\
@@ -1157,6 +1262,8 @@ $REQUIRE TRAINDEF.TTT
 	C=<BDZ_32AL,BDZ_32B,BDZ_32C,BDZ_32A; F=EPRU6;
       TX=BDZ 44 + KPV 10202 + Sofija - Dragoman 2019;							\
 	C=BDZ_44_001,BDZ_BMPZ2044,BDZ_6BYZ(|L),BDZ_6AMP1A(|L),BDZ_6BYZ(|L); F=EPR6;
+      TX=BDZ 44 + KPV 10237 Septemvri - Plovdiv 2021;							\
+	C=BDZ_44R,BDZ_6BYZ(|L),2*BDZ_6ABY_M(|L),BDZ_6BYZ(|L); F=EPR6;
       TX=BDZ 44 + Schnellzug;										\
 	C=BDZ_44R,BDZ_6BM2040(|L),BDZ_WRMEO(|L),BDZ_6AM1950(|L),3*BDZ_6BM2040(|L); F=EPR6;
       TX=BDZ 44 + MBV 463: Ruse razpredelitelna - Sofia 2018;						\
@@ -1171,6 +1278,8 @@ $REQUIRE TRAINDEF.TTT
 	F=EP6;
       TX=Bulmarket 86003 + 86004 + Ölzug, Ruse 2008;							\
 	C=2*BULM_86003(|L),16*G_Z1BUL(1|2)(|L); F=EF6;
+      TX=DB Cargo Bulgaria 86;										\
+	C=DB_BG86A,D6FCM; F=EF6;
     }
   %ENDPOOL;
 }
@@ -1184,9 +1293,13 @@ $REQUIRE TRAINDEF.TTT
 {HSH?
   %ADDPOOL(POOL_HSH,[TX#=Albania])
 
+    {E4?
+      TX=Albanien HSH T435 + Rangierzug;								\
+	C=HSH_T4350589(|L),3*HSH_4_ZAES4532(|L); F=DF4;
+    }
     {E6?
-      TX=Albanien HSH T435 + Schnellzug;								\
-	C=HSH_T4350589L|HSH_T4350589,HSH_FS264AL|HSH_FS264A,HSH_FS264BL,HSH_FS264B; F=DP56;
+      TX=Albanien HSH T669 + Schnellzug;								\
+	C=HSH_T669,HSH_FS264AL|HSH_FS264A,HSH_FS264BL,HSH_FS264B; F=DP56;
     }
   %ENDPOOL;
 }

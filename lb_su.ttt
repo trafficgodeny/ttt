@@ -94,7 +94,11 @@ $REQUIRE JMD_DEF.TTT
 	C=(<SZD_ER10AFL,(SZD_ER10AETL,2*SZD_ER10AB,SZD_ER10AET),SZD_ER10AF)|				\
 	  (<SZD_ER10CFL,(SZD_ER10CETL,2*SZD_ER10CB,SZD_ER10CET),SZD_ER10CF)|				\
 	  (<SZD_ER10BFL,(SZD_ER10BETL,2*SZD_ER10BB,SZD_ER10BET),SZD_ER10BF);				\
-	F=EPU4;
+	F=EPU4; 
+      TX=SZD A1600;											\
+	C=SZD_A160(1|2|3|4|5),SZD_N1A,RZD_FIRE2,RZD_4824341,RZD_FIRE3,RZD_FIRE1,SZD_N1B;				\
+	F=EF4; 
+	
     }
   }
 #-----------------------------------------------------------------------------
@@ -579,10 +583,21 @@ $REQUIRE JMD_DEF.TTT
 	C=(GR_E13_0(1|2|3|4)|GR_E13_002),GEO6FL1; F=EF5;
     }
     {E6?
+      TX=Georgia CHME3;											\
+	C=GR_CHME3_(4105|5301),15*(GR_75104612|GR_57220618|GR_58356897|KTZ_50464130); F=DF6;
       TX=Georgia E10;											\
 	C=GR_4E10_689,6*(GR_KRK(|L)); F=EP6;
+      TX=Georgia E10 446;											\
+	C=GR_5E10_446,6*GR_057_13599; F=EP6;
+      TX=Georgia E11 779;											\
+	C=GR_11_779,20*GR_6(3602304|8665041|5099715)[OB:KOKS0(3|1|4)(|[M])]; F=EF6;
+      TX=Georgia A 1600;											\
+	C=GR_A160(7|8),18*GR_95(010427|064846|064986|348256); F=EF6;
       TX=Georgia VMK003;										\
 	C=<GR_VMK003M1L,GR_VMK003R1,GR_VMK003M2,GR_VMK003R1,GR_VMK003M1; F=EPUX6;
+
+
+
     }
   }
 #-----------------------------------------------------------------------------
@@ -621,6 +636,22 @@ $REQUIRE JMD_DEF.TTT
 	C=UZB_TEP70BSSO01(|L),(<8@UZB_P(1|2)|UZB_2FJ); F=DP6;
       TX=Uzbekistan VL60K;										\
 	C=UZB_VL60K_1417|UZB_VL60K_1791,RUS6FL1; F=EF6;
+    }
+#-----------------------------------------------------------------------------
+#
+# Armenian
+#
+
+  {UZB?
+    {E5?
+      TX=Armenian Railway VL 8;										\
+	C=ARM_VL8|ARM_VL8_1642,15*(GR_63602304|GR_68665041|GR_65099715); F=EF5;
+      TX=Armenian Railway A 1600;										\
+	C=ARM_A160(6|9),15*(GR_75104612|GR_57220618|GR_58356897|KTZ_50464130); F=EF5;
+    {E6?
+    }
+      TX=Armenien UKZD - Südkaukasischer Eisenbahn VL 10 + Nachtzug ;										\
+	C=ARM_VL10_(148|825|1646),4*(ARM_056_20562|ARM_056_16834); F=EP6;
     }
   }
 %ENDPOOL;

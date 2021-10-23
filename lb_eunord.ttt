@@ -355,7 +355,11 @@ $REQUIRE TRAINDEF.TTT
 
     {E3?
       TX=NSB Di 2800 + Rangierzug;									\
-	C=(NSB_3A_DI28(01|05|33)|NSB_3B_DI28(02|04|11))(|L),N3FS1; F=DF3;
+	C=NSB_3A_DI28(01|05|33)(|L),3*NSB_3A_G5T1(|L); F=DF3;
+      TX=NSB Di 2800 + Rangierzug;									\
+	C=NSB_3A_DI28(01|05|33),2*NSB_3B_G5T(1|2|2E|3)(|L),2*NSB_3B_G5T4(|D|V2|V2D)(|L),		\
+	  NSB_3B_G5T(2E|3)(|L);										\
+	F=DF3;
       TX=NSB 63A;											\
 	C=NSB_SKD206,N3FS1; F=SF3;
       TX=NSB DI3;											\
@@ -408,6 +412,9 @@ $REQUIRE TRAINDEF.TTT
 	C=NSB_EL16_A|NSB_EL16_C,(<NSB_BD3_A,2*NSB_BC3_AL,2*NSB_WLAB3_A,2*NSB_BC3_A,NSB_WR3_B); F=EP3;
     }
     {E4?
+      TX=NSB Di 2800 + Rangierzug;									\
+	C=NSB_4DI28(06|12|05)(|L),3*NSB_4A_GS(1201|1201E|1202)(|L),3*NSB_4A_HIS2102T(2D|2|1D|1|3)(|L);	\
+	F=DF4;
       TX=NSB Di 2800 + Rangierzug;									\
 	C=NSB_4DI28(06|12|05)(|L),N4FS; F=DF4;
       TX=NSB Di3;											\
@@ -568,7 +575,7 @@ $REQUIRE TRAINDEF.TTT
 	F=EP6;
       TX=NSB El 18;											\
 	C=NSB_6_EL182(243|246|247NT|248NT|253L|253),N6P1; F=EP6;
-      TX=NSB El 18 + Schnellzug ;											\
+      TX=NSB El 18 + Schnellzug;									\
 	C=NSB_6_EL18B,5*NSB_B7VY,2@NSB_WLAB2VY(|L); F=EP6;
       TX=NSB Di3 602;											\
 	C=NSB_6DI3602(|L),(<NSB_6FR521722(|L),3*NSB_6B526002(|L)); F=DP6;
@@ -635,6 +642,8 @@ $REQUIRE TRAINDEF.TTT
 	C=CGN_185,N5F; F=E56;
       TX=Jernbaneverket DI3;										\
 	C=JBV_6DI3628(|L),N6FL; F=EF6;
+      TX=GO Ahed Nordic EL 18 + Nachtzug;								\
+	C=GANO_EL18(|L),2*GANO_WLAB2(|L),2*GANO_B53(|L),GANO_FR51(|L),3*GANO_B53(|L); F=EP6;
       TX=Go Ahead Nordic - ST - Sørtoget BM 73 Regiontog 711: Oslo - Stavanger 2020;			\
 	C=(<GANO_BM73DL,GANO_BM73C,GANO_BM73B,GANO_BM73A)|						\
 	  (>GANO_BM73D,GANO_BM73CL,GANO_BM73BL,GANO_BM73AL);						\
@@ -857,7 +866,7 @@ $REQUIRE TRAINDEF.TTT
       TX=SJ X31;											\
 	C=<SJ_X31K_FL,SJ_X31K_ML,SJ_X31K_M,SJ_X31K_F; F=EPU5;
       TX=SJ X50;											\
-	C=VL_X50; F=EPU56;
+	C=VLT_X50; F=EPU56;
 
 # privat
       TX=Schweden Inlandsbanen MX;									\
@@ -1070,6 +1079,8 @@ $REQUIRE TRAINDEF.TTT
     {E5?
       TX=VR DM7;											\
 	C=VR_DM7; F=DPRU5;
+      TX=VR DM10;											\
+	C=Z_VR_DM10[SM:0.25]; F=DPRU5;
       TX=VR V12;											\
 	C=VR_5DV12_2529L|VR_5DV12_2529|VR_5DV12_2555L|VR_5DV12_2555|VR_5DV12_2622L|VR_5DV12_2622|	\
 	  VR_5DV12_2721L|VR_5DV12_2721|VR_5DV12_2724L|VR_5DV12_2724|VR_5DV12_2748L|VR_5DV12_2748|	\
@@ -1131,6 +1142,8 @@ $REQUIRE TRAINDEF.TTT
 	C=VR_6_SR1G(|L),(2@VR_6_EDBG); F=EP6;
       TX=VR 3;												\
 	C=VR_SR3(|L),FI6FS; F=EF6;
+      TX=HRTA SM5;											\
+	C=Z_HRTA_SM5[SM:0.25]; F=EPRU5;
 
 
 
