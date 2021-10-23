@@ -1349,7 +1349,7 @@ $REQUIRE TRAINDEF.TTT
 	TX=USA Rock Island Railroad E9;									\
 	  C=(RI_E9L[#D:L]|RI_E9[#D:R]),USA3PRI; F=DP3;
 	TX=USA Rock Island Railroad GP7;								\
-	  C=RI_GP7SO0(5|6)(|L),USA3FRI; F=DF3;
+	  C=RI_GP7SO05(|L),USA3FRI; F=DF3;
 	TX=USA Rock Island Railroad FT;									\
 	  C=RI_70_FT(|L)|RI_88_FT[#D:R]|RI_88_FTL[#D:L],USA3FRI; F=DF3;
 	TX=USA Rock Island Railroad E7;									\
@@ -1357,8 +1357,6 @@ $REQUIRE TRAINDEF.TTT
 	    (<RI_E7ASO03L,0-1*RI_E7BSO03(|L),RI_E7ASO03)|(<RI_E7ASO04L,0-1*RI_E7BSO04(|L),RI_E7ASO04),	\
 	    USA3FRI;											\
 	  F=DF3;
-	TX=USA Rock Island Railroad U25;								\
-	  C=((RI_U25BSO3|RI_U25B)(|L)),USA3FRI; F=DF3;
 	TX=USA Rock Island Railroad GP18;								\
 	  C=RI_GP18~NEK2,USA3FRI; F=DF3;
 	TX=USA Richmond Pacific Railroad Corporation GP15;						\
@@ -2992,9 +2990,9 @@ $REQUIRE TRAINDEF.TTT
 	TX=USA Maryland & Pennsylvania R.R. Co. NW2;							\
 	  C=MPA_81_NW2_1970,USA4FMPA; F=DF4;
 	TX=USA McCloud Ry. Co. SD38-2;									\
-	  C=MR_SD382SO1(|L),USA4FMIX|USA4FTANK,WEYT_3CAB; F=DF4;
+	  C=MCR_SD382SO1(|L),USA4FMIX|USA4FTANK,WEYT_3CAB; F=DF4;
 	TX=USA McCloud Ry. Co. SD38;									\
-	  C=MR_SD38SO(1|2)(|L),USA4FMIX|USA4FTANK,WEYT_3CAB; F=DF4;
+	  C=MCR_SD38SO(1|2)(|L),USA4FMIX|USA4FTANK,WEYT_3CAB; F=DF4;
 	TX=USA Montana Raillink Inc. SD9;								\
 	  C=MRL_SD9(|SO02)(|L),USA4FMIX|USA4FTANK,WEYT_3CAB; F=DF4;
 	TX=USA Norfolk Southern Railway Company GP35;							\
@@ -3458,16 +3456,12 @@ $REQUIRE TRAINDEF.TTT
 	  C=(<RI_F7AL,RI_F7B(|L),RI_F7A),USA4FRI|((USA4FMIX|USA4FTANK),RI_CAB1); F=DF4;
 	TX=USA Rock Island Railroad FP7;								\
 	  C=(<RI_FP7ASO01L,RI_FP7ASO01),USA4FRI|((USA4FMIX|USA4FTANK),RI_CAB1); F=DF4;
-	TX=USA Rock Island Railroad GP38-2;								\
-	  C=RI_GP382SO01(|L),USA4FRI; F=DF4;
-	TX=USA Rock Island Railroad U28B;								\
-	  C=((RI_U28BSO2)(|L)),USA4FRI; F=DF4;
-	TX=USA Rock Island Railroad U30C;								\
-	  C=((RI_U30C)(|L)),USA4FRI; F=DF4;
-	TX=USA Rock Island Railroad U30C;								\
-	  C=((RI_U33BSO1|RI_U33BSO3)(|L)),USA4FRI; F=DF4;
+	TX=USA Rock Island Railroad U30C + U25;								\
+	  C=(RI_U30C[#D:R],RI_U25BSO3)|(RI_U30CL[#D:L],RI_U25BSO3L),USA4FRI; F=DF4;
+ 	TX=USA Rock Island Railroad U33;								\
+	  C=RI_U33BSO3(|L),USA4FRI; F=DF4;
 	TX=USA Rock Island Railroad E8;									\
-	  C=(<RI_E8ASO04L,RI_E8ASO04)|(<RI_E8ASO05L,RI_E8ASO05),USA4FRI; F=DF4;
+	  C=(<RI_E8ASO04L,RI_E8ASO04),USA4FRI; F=DF4;
 	TX=USA Rock Island Railroad F7;									\
 	  C=(<RI_F7ASO03L,RI_F7BSO03(|L),RI_F7ASO03),USA4FRI; F=DF4;
 	TX=USA R.J. Corman Railroad Corp. FP7;								\
@@ -3482,6 +3476,14 @@ $REQUIRE TRAINDEF.TTT
 	  C=(<RL_1201,RL_1202L)|(<RL_1202,RL_1201L),USA4FMIX|USA4FTANK,WEYT_3CAB; F=DF4;
 	TX=USA Rail Link FP9;										\
 	  C=(<RLIX_FP9ASO01L,RLIX_FP9ASO01),USA4FMIX|USA4FTANK; F=DF4;
+	TX=USA Chicago, Rock Island and Pacific Ry. Co GP7 + U25;								\
+	  C=(ROCK_U25BL[#D:L],ROCK_GP7SO06L)|(ROCK_GP7SO06[#D:R],ROCK_U25B),USA4FROCK; F=DF4; 
+	TX=USA Chicago, Rock Island and Pacific Ry. Co  GP38-2 + U33;								\
+	  C=(ROCK_GP382SO01[#D:R],ROCK_U33BSO1)|(ROCK_GP382SO01L[#D:L],ROCK_U33BSO1L),USA4FROCK; F=DF4;
+	TX=USA Chicago, Rock Island and Pacific Ry. Co E8;									\
+	  C=(<ROCK_E8ASO05L,ROCK_E8ASO05),USA4FROCK; F=DF4;
+	TX=USA Chicago, Rock Island and Pacific Ry. Co  U28B + GP40;								\
+	  C=(ROCK_U28BSO2[#D:R],ROCK_GP40_373)|(ROCK_U28BSO2L[#D:L],ROCK_GP40_373L),USA4FROCK; F=DF4;
 	TX=USA Respondek Railroad Corporation SD9;							\
 	  C=RRC_SD9SO01(|L),USA4FMIX|USA4FTANK,WEYT_3CAB; F=DF4;
 	TX=USA Respondek Railroad Corporation SD38;							\
@@ -4664,7 +4666,7 @@ $REQUIRE TRAINDEF.TTT
 	TX=USA Reading Company C30;									\
 	  C=RDG_GP30(|L),USA6FRDG; F=DF6;
 	TX=USA Rock Island Railroad SW1;								\
-	  C=((RI_542_SW1)(|L)),5*(RI_XP_A302_300573(|L)|RI_156294_XM_USRADS(|L)); F=DF6;
+	  C=((RI_542_SW1)(|L)),5*(RI_156294_XM_USRADS(|L)); F=DF6;
 	TX=USA Rail Link B39-8;										\
 	  C=RLCX_B398SO01(|L),USA6FREIGT; F=DF6;
 	TX=USA Harsco Track Technologies F40-M;								\

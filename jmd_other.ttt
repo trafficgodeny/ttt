@@ -3,7 +3,52 @@
 }
 
 $REQUIRE JMD_DEF.TTT
+$SECTION
+{CN?
+#  %ADDPOOL(POOL_CN,CN_ENV)
+#
+# CHINA
+#
+    {E5?
+     TX=Jing Peng Pass (01.2001);									\
+      C=CR_QJ~HEN,6*CR_COAL,CR_BOX1,CR_BOX2,CR_C63,CR_FLAT,2*CR_COAL,CR_CAB; F=SF5;
+     TX=Jing Peng Pass (01.2001);									\
+      C=2*CR_QJ~HEN,CR_C63,3*CR_COKE,20*CR_C63,8*CR_BOX1,CR_FLAT,2*CR_C63,CR_BOX2,CR_CAB; F=SF5;
+     TX=Gantang;											\
+       C=2*CR_QJ~HEN,32*CR_C63,CR_CAB;F=SF5;
+     TX=Nanpio (02.2004);										\
+       C=CR_SY,14*CR_C63;F=SF5;
+     TX=Nanpio (02.2004);										\
+       C=CR_SY,CR_UZ22,3*CR_YZ22;F=SF5;
+     TX=Chengde;											\
+       C=CR_SY,CR_COKE,2*CR_COAL,8*CR_COKE,2*CR_JSN;F=SF5;
+     TX=Simingyi (16.11.2004);										\
+      C=2*CR_QJ~HEN,50*CR_COAL;F=SF5;
+     TX=Simingyi (16.11.2004);										\
+      C=CR_DF4,CR_QJ~HEN,50*CR_COAL;F=SF5;
+     TX=Shangdian (18.11.2004);										\
+      C=CR_DF4,5*CR_C63,CR_C63T,CR_C60,CR_FLAT[O:C4R09,,12],CR_C63T,4*CR_C60,CR_HOP,5*CR_COAL,5*CR_BOX1,\
+      CR_T17Y,4*CR_BOX1,15*CR_C63,5*CR_T17E; F=SF5;       
+     }
+     {E6?
+     TX=Baiyin (14.05.2011);										\
+       C=CR_SY,CR_YW22,4*CR_YZ22,CR_YW22; F=SP6:
+     TX=Beijing (27.10.2012);										\
+       C=CR_SS3,CR_XL22,7*CR_YZ22,CR_CA23,3*CR_RZ22;  F=SP6:
+     TX=Beijing (20.04.2013);										\
+       C=CR_8K014,27*CR_C60|CR_C63,2*CR_BOX1|CR_BOX2,2*CR_C60|CR_C63,CR_BOX1|CR_BOX2,18*CR_C60|CR_C63; F=EF6;
+     TX=Ma Liu Shui (10.09.2014);									\
+       C=(<KCR_SP1L,KCR_SP2L,KCR_SP3L,KCR_SP2L,4*KCR_SP3,KCR_SP2,KCR_SP4L,KCR_SP3,KCR_SP2,KCR_SP1);
+     TX=Guangzhou (05.10.2014);										\
+       C=CR_DF4~TKH,33*CR_T17E;
+     TX=Hong Kong <-> Guangzhou (05.10.2014);								\
+       C=(<KCR_KTT2L,4*KCR_KTTT(1|2)(|L),2*KCR_KTTT(3|4)(|L),2@(KCR_KTTT1,KCR_KTTT2),KCR_KTT2);
+     }
+#  %ENDPOOL;
+}
+$ENDSECTION
 
+$SECTION
 {J?
   %ADDPOOL(POOL_JP,J_ENV)
     {E4?
@@ -284,38 +329,114 @@ $REQUIRE JMD_DEF.TTT
     }
   %ENDPOOL;
 }
-{CN?
-  %ADDPOOL(POOL_CN,CN_ENV)
-#
-# CHINA
-#
-    {E4?
-      C=CR_QJ~HEN,6*CR_COAL,CR_BOX1,CR_BOX2,CR_C63,CR_FLAT,2*CR_COAL,CR_CAB;
-# Jingpeng Pass 01.2001
-      C=2*CR_QJ~HEN,CR_C63,3*CR_COKE,20*CR_C63,8*CR_BOX1,CR_FLAT,2*CR_C63,CR_BOX2,CR_CAB;
-# Jingpeng Pass 01.2001
-      C=2*CR_QJ~HEN,32*CR_C63,CR_CAB;
-# Gantang
-      C=CR_SY,CR_COKE,2*CR_COAL,8*CR_COKE,2*CR_JSN;
-# Chengde
-    }
-  %ENDPOOL;
-}
+$ENDSECTION
+
+$SECTION
 {AUS?
-  %ADDPOOL(POOL_AUS,AUS_ENV)
+#  %ADDPOOL(POOL_AUS,AUS_ENV)
 #
 # AUSTRALIA
 #
+    {E5?
+      TX=Huddleston, SA (January 12, 1996);								\
+        C=$DIR(ANR_CL14L,ANR_CL14),$DIR(ANR_865L,ANR_865),34*FA_VHGF(|L);F=DF5;
+# ^^ 1st loco should be GM class in AN green. Cars all in ANR livery not FA.    
+      TX=Train 3MPS in Parkeston, NSW. (January 9, 1998);						\
+        C=(<NR_30L,STA_NR),28*AUSCOFC;F=DF5;
+    }
     {E6?
       TX=Willow Tree, NSW;										\
 	C=FRC_81L,FRC_81,PN_48112,PN_48132,64*NSW_NGTY(|L)|FA_VHGF(|L)|PN_VHGF(|L),3*FRC_81L|FRC_81;
-      TX=Tallarook (January 25, 2012);									\
-	C=PN_ASO01(|L),$DIR(FA_T5,FA_T5L),PN_ASO01(|L),45*AUSCOFC;
+      TX=Tallarook (January 25, 2012);F=DF6;									\
+	C=PN_ASO01(|L),$DIR(FA_T5,FA_T5L),PN_ASO01(|L),45*AUSCOFC;F=DF6;
       TX=Train 9306 Wandong-Kiilmore East (January 30, 2012);						\
-	C=3*PN_ASO01(|L),36*AUSCOFC;
+	C=3*PN_ASO01(|L),36*AUSCOFC;F=DF6;
     }
-  %ENDPOOL;
+#  %ENDPOOL;
 }
+$ENDSECTION
+
+$SECTION
+{AS?
+#  %ADDPOOL(POOL_IND,IND_ENV)
+#
+# INDIA
+#
+#    {E5?
+#      
+#    }
+    {E6?
+      TX="SBC Jaipur 9775 Express" (anno 2003);										\
+        C=INR_WDMP,INR_LR1,2*INR_GS1,2*INR_C33,INR_C34,INR_LR1,10*INR_SL1,INR_LR1;
+# ^ middle LR should be a diner
+      TX="Karnataka Express" (anno 2003);										\
+        C=$DIR(INR_CR_WDM2_17904L,INR_CR_WDM2_17904),$DIR(INR_TKD_WDM2_16004,INR_TKD_WDM2_16004L),INR_LR1,2*INR_GS1,	\
+          19*INR_SL1,INR_GS1,2*INR_LR1;
+# ^ lead loco should have all green front, not stripes. Last car full baggage, not RPO.          
+      TX="Kerala Express" New Delhi <-> Trivandrum Central (04.01.2007);						\
+        C=INR_WAP1,INR_LR1,INR_GS1,2*INR_SL1,INR_C34,INR_C33,3*INR_CS2;
+      TX="Rajkot-Verval Express" in Virpur (07.01.2008);								\
+        C=INR_WDM2R,INR_LR1,5*INR_GS1,INR_CS2;
+      TX="Andhra Pradesh Express" in Ghatkesar (09.03.2008);								\
+        C=INR_WAP4,INR_LR1,INR_GS1,13*INR_SL1,2*INR_C34,INR_CS2;
+      TX=Train 2124 "Deccan Queen" Pune <-> Mumbai (01.06.2009);							\
+        C=INR_WCAM3,INR_LR3,INR_GS2,13*INR_CC3,4*INR_CC4;
+      TX=Tindharia (26.11.2009);											\
+        C=DARJ_SL2,DARJ_P5,DARJ_P1,DARJ_P6; V=1-2;
+      TX=Dehar Ka Balaji (15.01.2010);											\
+        C=INR_YM41,INR_MG2,10*INR_MG1;
+      TX=Ernakulam (18.01.2015);											\
+        C=INR_WAP4,INR_GS1,INR_LR1,11*INR_GS1,INR_LR1;
+      TX=Alappuzha <-> Ernakulam (18.01.2015);											\
+        C=INR_WAP4,11*INR_GS1,2*INR_CS2,INR_LR1;
+      TX="Mangalore Chennai Superfast Express" Mangalore Central <-> Chennai Central (27.03.2016);			\
+        C=INR_WAP4,INR_LH4,16*INR_LH3;
+# ^Generator should be silver with red & blue stripes. First 2 coaches have middle door. Coaches 6-9 have raised roof.         
+      TX=Chennai (16.04.2016);												\
+       C=INR_WG71,3*INR_BCNA(|L),2*INR_ER_BCN(|L),INR_BCNA(|L),3*INR_ER_BCN(|L),8*INR_BCNA(|L),INR_ER_BCN(|L),		\
+         6*INR_BCNA(|L),INR_ER_BCN(|L),5*INR_BCNA(|L),INR_BVZI(|L);
+# ^Should be blue WAG-7 with yellow stripe
+      TX="Shatabdi Express" in Chennai (16.04.2016);									\
+        C=INR_WAP4,INR_LH2,15*INR_LH1;
+      TX="Alappuzha Ernakulam Express" in Aroor (19.09.2016);								\
+        C=INR_WAP4,INR_LR1,12*INR_GS1,INR_LR1;
+      TX=Pune <-> Lonavla (01.2017);											\
+        C=(<INR_SR_WDM2_18332,INR_ED_WDM2_17714L),30*INR_ER_BCN(|L)|INR_BCNA(|L),INR_BVZI(|L);
+      TX=Chittoor (19.03.2017);												\
+        C=2*INR_WG71,INR_ER_BCN(|L),INR_BCNA(|L),3*INR_ER_BCN(|L),18*INR_BCNA(|L),3*INR_ER_BCN(|L),4*INR_BCNA(|L),	\
+        INR_BVZI(|L);
+# ^ WAG-7s should be maroon with yellow stripe  
+      TX="Trivandrum-Mumbai CST Express" in Aroor (10.09.2017); 							\
+        C=INR_WAP4,INR_LR1,7*INR_GS1,INR_SL1,INR_LR1,3*INR_SL1,3*INR_C34,3*INR_CS2,INR_LR1;	
+      TX="Kannur-Coimbatore Fast" in Shoranur (16.12.2017);								\
+        C=INR_WAP5,INR_LR1,12*INR_GS1,INR_C34,INR_CS2;
+      TX=Shindawane (23.06.2018);											\
+        C=(<INR_MS_WDM2_16256L,INR_MS_WDM2_16256),12*(<INR_BLCAML[O:C2I_CONCOR(5|6),<18,10][O:C2I_CONCOR(5|6),<79,10],							\
+               3*INR_BLCBM(|L)[O:C2I_CONCOR(5|6),3,10][O:C2I_CONCOR(5|6),64,10],						\
+               INR_BLCAM[O:C2I_CONCOR(5|6),<4,10][O:C2I_CONCOR(5|6),<65,10]);
+# ^ Should be modernized WDG-3A in similar color but simple stripe. not heffalumps        
+      TX="Chennai Egmore-Karaikudi Paliavan SF Express" in Chennai (27.09.2018);					\
+        C=INR_WAP5,INR_LR1,14*INR_GS1,INR_CS2,2*INR_C34,INR_CS2;
+# ^ should be a WAP-7 in this livery       
+      TX="Chandigarh-Kochuveli Express" in Mararikulam (28.09.2018);							\
+        C=$DIR(INR_GSC_WDM2_18597L,INR_GSC_WDM2_18597),$DIR(INR_WDM2_18712,INR_WDM2_18712L),INR_LR1,12*INR_GS1,		\
+          2*INR_C34,INR_SL1,INR_LR1;
+      C=INR_BWN_WDM2_16402(|L),5*IR_DOUBLE,INR_BVZI(|L); VH=74;
+      C=INR_WDMP,5*(<INR_BCMCBAAEL,6@INR_BCMCBAAM(|L),INR_BCMCBAAE),INR_BVZI(|L);
+      #(<INR_BCMCBAAETL,6@INR_BCMCBAAMT(|L),INR_BCMCBAAET)
+      C=INR_WCAM3,24*10:INR_BCNA(|L)|3:INR_BCNAHS(|L)|10:INR_ER_BCN(|L)|INR_SR_BCN(|L),INR_BVZI(|L);
+      C=INR_WDMP|INR_WCAM3,10*(<INR_BLCAML[O:C2I_CONCOR(20:1|20:2|3|4|5|6),<18,10][O:C2I_CONCOR(20:1|20:2|3|4|5|6),<79,10],\
+               3*INR_BLCBM(|L)[O:C2I_CONCOR(20:1|20:2|3|4|5|6),3,10][O:C2I_CONCOR(20:1|20:2|3|4|5|6),64,10],		\
+               INR_BLCAM[O:C2I_CONCOR(20:1|20:2|3|4|5|6),<4,10][O:C2I_CONCOR(20:1|20:2|3|4|5|6),<65,10]),INR_BVZI(|L);
+      C=INR_WM41,(52-58*INR_ACC_BCCM_BC95081(|L))|(52-58*INR_ACC_BCCM_BC09137(|L))|(52-58*INR_BCCW_V(|L)|4:INR_BCCW_V200(|L))|				\
+        (52-58*INR_UTC_BCCWC_RCU445(|L)|INR_UTC_BCCWC_RCU446(|L)),	\
+        INR_BVZI(|L),2*INR_WCAM3;
+        #|INR_UTC_BCCWC_RCU445P(|L)|INR_UTC_BCCWC_RCU446P(|L)|	\
+        #INR_UTC_BCCWC_RCU445AB(|L)|INR_UTC_BCCWC_RCU446AB(|L)|INR_UTC_BCCWC_RCU445ABP(|L)|INR_UTC_BCCWC_RCU446ABP(|L)
+    }
+#  %ENDPOOL;
+}
+$ENDSECTION
 
 {SA?
   %ADDPOOL(POOL_SA,SA_ENV)
