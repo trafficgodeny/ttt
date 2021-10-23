@@ -1,323 +1,350 @@
 {FILELEVEL=1?
   $BGCOLOR #000000
   $OPTGDEF 1
-  $VAR BGTYPE=0
+  $VAR BGTYPE=0;
 }
 
 $REQUIRE ZSZ_DEF.TTT
+$REQUIRE BG_DEF.TTT
 
-
-$SECTION LC=1;
+{D|BRD?
+  $SECTION LC=1;
 #------------------------------------------------------------------------------
 #
 # Wuppertal Schwebebahn 1900-1950
 #               (Lars Boﬂhammer)
-  $SCENE DX=5850; DY=250; YDIR=U; SEQ=2;								\
-      BG=(70,D_MONSCHAU06A,D_MONSCHAU07A,510,D_H035,AU_CLUNES_RSLB,210,D_BWG004:,-7;			\
-      320,NL_H050_1,269,NL_SPOORZICHT_1:,-7;10,CS_H001,D_MUNCHEN01A,D_MUNCHEN02B:,-7;			\
-      D_BONN_POST1,90,FOREST24,150,D_MUNCHEN08,D_BONN03A,D_H033,D_MUNCHEN07,230,SHRUBBERY7,1800,	\
-      D_BONN_POST1,77,FOREST24,250,D_MUNCHEN08,D_BONN03A,D_H033,D_BONN_POST1,D_MUNCHEN07,230,		\
-      SHRUBBERY7:,-7; TREE83,10,TREE38,85:,-7;TREE80:,+6;TREE65,1839,TREE65;3*BGPIC\WUPPERTAL2.JPG);	\
-      FG=(70*FENCE8:,-4;STREET01:..,-4; LAMP10,300:..,-14; (WUP_PILLAR4,297):..,-10;			\
-      5*(WUP_PILLAR4,297):,1500,-10;5*(WUP_PILLAR4,297):,-10);						\
-      LC=5;
-    $PATH Y=31; LC=3;
-      POOL=POOL_WUP1900R; D=R;
-    $ENDPATH 
-    $PATH Y=31; LC=3;											\
-	FG=308,18*WUP_TRACK3:,43;
-      TX=Wuppertal Schwebebahn 1900-1950;								\
-	POOL=POOL_WUP1900L; D=L;
-    $ENDPATH 
-  $ENDSCENE 
+    $SCENE DX=5850; DY=250; YDIR=U; SEQ=2; VM=HEAD;							\
+	BG=(BGCITYDWU1:,-7;BGCITYDWU2:,-7;BGCITYDWU3:,-7; TREES_SUMMER:..,+6,#;				\
+	BGCITYDR2,BGCITYDR1:..,+6,#;TREE83,10,TREE38,85:,-7;TREE80:,+6; TREE65,1839,TREE65;		\
+	BgPic/WUPPERTAL2.jpg:..,0,<=>;);								\
+	FG=(STREET01:..,-6;25*FENCE8,140,75*FENCE8,140,3*FENCE8,30,70*FENCE8,140,63*FENCE8,11:,-4;	\
+	STREET01:..,-4;											\
+	D_FABRIK01A,80,D_FABRIK01A,2075,D_FABRIK01A,80,D_FABRIK01A,2045,D_FABRIK01A,80,D_FABRIK01A,	\
+	1035:,-40; LAMP10,300:..,-14;598,5*Schwebpillar2:,-10;);					\
+	NAME=D_WUP1;											\
+	V=5-7;												\
+	LC=5;
+      $PATH Y=31; LC=3;
+	POOL=POOL_WUP1900R; D=R;
+      $ENDPATH 
+      $PATH Y=31; LC=3;											\
+	  FG=5*WSCHWEB3TR8:,43;
+	TX=Wuppertal Schwebebahn 1900-1950;								\
+	  POOL=POOL_WUP1900L; D=L;
+      $ENDPATH 
+    $ENDSCENE 
 #------------------------------------------------------------------------------
 #
 # Wuppertal Schwebebahn 1950-1956
 #               (Lars Boﬂhammer)
-  $SCENE DX=5850; DY=250; YDIR=U; SEQ=2;								\
-      BG=(70,D_MONSCHAU06A,D_MONSCHAU07A,510,D_H035,AU_CLUNES_RSLB,210,D_BWG004:,-7;			\
-      320,NL_H050_1,269,NL_SPOORZICHT_1:,-7;10,CS_H001,D_MUNCHEN01A,D_MUNCHEN02B:,-7;			\
-      D_BONN_POST1,90,FOREST24,150,D_MUNCHEN08,D_BONN03A,D_H033,D_MUNCHEN07,230,SHRUBBERY7,1800,	\
-      D_BONN_POST1,77,FOREST24,250,D_MUNCHEN08,,D_BONN03A,D_H033,D_BONN_POST1,D_MUNCHEN07,230,		\
-      SHRUBBERY7:,-7; TREE83,10,TREE38,85:,-7;TREE80:,+6;TREE65,1839,TREE65;3*BGPIC\WUPPERTAL2.JPG);	\
-      FG=(10,28*FENCE8,120,3*FENCE8,40,50*FENCE8:,-4;STREET01:..,-4;					\
-      D_FABRIK01A,80,D_FABRIK01A,700:,-40; LAMP10,300:..,-14;WUP_ST_WERTHERBRB:,-4;			\
-      WUP_PILLAR5,929,WUP_PILLAR5,10:,-10;Schwebpillar1,1536,Schwebpillar1,9:,-10;);			\
-      LC=5;
-    $PATH Y=31; LC=3;
-      M=STOP; POOL=POOL_WUP1958R; D=R; P=*50;
-    $ENDPATH 
-    $PATH Y=31; LC=3;											\
-	FG=9*WUP_TRACK3,331,9*WUP_TRACK3,9:,43;
-      TX=Wuppertal Schwebebahn 1950-1956;								\
-	M=STOP; POOL=POOL_WUP1958L; D=L; P=*50;
-    $ENDPATH 
-  $ENDSCENE 
+    $SCENE DX=5850; DY=250; YDIR=U; SEQ=2; VM=HEAD;							\
+	BG=(BGCITYDR1:..,+6,#; 1-40*1,TREES_SUMMER:..,+6,#;BGCITYDR2:..,+6,#;TREE83,10,TREE38,85:,-7;	\
+	TREE80:,+6; TREE65,1839,TREE65;BgPic/WUPPERTAL2.jpg:..,0,<=>;);					\
+	FG=(STREET01:..,-6;25*FENCE8,140,75*FENCE8,140,3*FENCE8,30,70*FENCE8,140,63*FENCE8,11:,-4;	\
+	STREET01:..,-4;											\
+	D_FABRIK01A,80,D_FABRIK01A,2075,D_FABRIK01A,80,D_FABRIK01A,2045,D_FABRIK01A,80,D_FABRIK01A,	\
+	1035:,-40; LAMP10,300:..,-14;WUP_ST_WERTHERBRB,304,:,-4;					\
+	598,(Schwebpillar2,Schwebpillar1,Schwebpillar2):,-10;);						\
+	NAME=D_WUP2;											\
+	LC=5;												\
+	V=5-7;
+      $PATH Y=31; LC=3;
+	M=STOP; POOL=POOL_WUP1950R; D=R; P=*-140;
+      $ENDPATH 
+      $PATH Y=31; LC=3;											\
+	  FG=2*WSCHWEB3TR8,20,2*WSCHWEB3TR8:,43;
+	TX=Wuppertal Schwebebahn 1950-1957;								\
+	  M=STOP; POOL=POOL_WUP1950L; D=L; P=*-140;
+      $ENDPATH 
+    $ENDSCENE 
 #------------------------------------------------------------------------------
 #
 # Wuppertal Schwebebahn 1957-1962
 #               (Lars Boﬂhammer)
-  $SCENE DX=5850; DY=250; YDIR=U; SEQ=2; VM=HEAD;								\
-      BG=(70,D_MONSCHAU06A,D_MONSCHAU07A,510,D_H035,AU_CLUNES_RSLB,210,D_BWG004:,-7;			\
-      320,NL_H050_1,269,NL_SPOORZICHT_1:,-7;10,CS_H001,D_MUNCHEN01A,D_MUNCHEN02B:,-7;			\
-      D_BONN_POST1,90,FOREST24,150,D_MUNCHEN08,D_BONN03A,D_H033,D_MUNCHEN07,230,SHRUBBERY7,1800,	\
-      D_BONN_POST1,77,FOREST24,250,D_MUNCHEN08,,D_BONN03A,D_H033,D_BONN_POST1,D_MUNCHEN07,230,		\
-      SHRUBBERY7:,-7; TREE83,10,TREE38,85:,-7;TREE80:,+6;TREE65,1839,TREE65;3*BGPIC\WUPPERTAL2.JPG);	\
-      FG=(10,28*FENCE8,120,3*FENCE8,40,50*FENCE8:,-4;STREET01:..,-4;					\
-      D_FABRIK01A,80,D_FABRIK01A,700:,-40; LAMP10,300:..,-14;WUP_ST_WERTHERBRB:,-4;			\
-      WUP_PILLAR5,929,WUP_PILLAR5,10:,-10;Schwebpillar1,1536,Schwebpillar1,9:,-10;);			\
-      LC=5;
-    $PATH Y=31; LC=3;
-      M=STOP; POOL=POOL_WUP1958R; D=R; P=*50;
-    $ENDPATH 
-    $PATH Y=31; LC=3;											\
-	FG=9*WUP_TRACK3,331,9*WUP_TRACK3,9:,43;
-      TX=Wuppertal Schwebebahn 1957-1962;								\
-	M=STOP; POOL=POOL_WUP1958L; D=L; P=*50;
-    $ENDPATH 
-  $ENDSCENE 
+    $SCENE DX=5850; DY=250; YDIR=U; SEQ=2; VM=HEAD;							\
+	BG=(BGCITYDR3:..,+6,#;1-40*1,TREES_SUMMER:..,0,#;BGCITYDR4:..,+6,#;TREE83,10,TREE38,85:,-7;	\
+	TREE80:,+6; TREE65,1839,TREE65;BgPic/WUPPERTAL2.jpg:..,0,<=>;);					\
+	FG=(25*FENCE8,140,75*FENCE8,140,3*FENCE8,30,70*FENCE8,140,63*FENCE8,11:,-4;STREET01:..,-4;	\
+	D_FABRIK01A,80,D_FABRIK01A,2075,D_FABRIK01A,80,D_FABRIK01A,2045,D_FABRIK01A,80,D_FABRIK01A,	\
+	1035:,-40; LAMP10,300:..,-14;WUP_ST_WERTHERBRB,304,:,-4;					\
+	598,(Schwebpillar2,Schwebpillar1,Schwebpillar2):,-10;);						\
+	NAME=D_WUP3;											\
+	LC=5;												\
+	V=5-7;
+      $PATH Y=31; LC=3;
+	M=STOP; POOL=POOL_WUP1958R; D=R; P=*-140;
+      $ENDPATH 
+      $PATH Y=31; LC=3;											\
+	  FG=2*WSCHWEB3TR8,20,2*WSCHWEB3TR8:,43;
+	TX=Wuppertal Schwebebahn 1957-1962;								\
+	  M=STOP; POOL=POOL_WUP1958L; D=L; P=*-140;
+      $ENDPATH 
+    $ENDSCENE 
 #------------------------------------------------------------------------------
 #
 # Wuppertal Schwebebahn 1960-71
 #               (Lars Boﬂhammer)
-  $SCENE DX=1949; DY=250; YDIR=U; SEQ=2;								\
-      BG=((LAMP10,200):..; (40,D_MONSCHAU06A,D_MONSCHAU07A,510,D_H035,AU_CLUNES_RSLB,210,D_BWG004):,+6;	\
-      280,NL_H050_1,269,NL_SPOORZICHT_1:,+6; CS_H001,D_MUNCHEN01A,D_MUNCHEN02B:15;			\
-      TREE83,10,TREE38,85:,+6; TREE80:,+6;BGPIC\WUPPERTAL2.JPG);					\
-      LC=5;												\
-      TXY=-200;
-    $PATH Y=6; LC=3;											\
-	FG=(STREET01:..,-6;FL_SP_F:..,-4;W_STOP3R:20);
-      M=STOP; POOL=POOL_WUPSTRAB3R; D=R; P=20; TB=6-10;
-    $ENDPATH 
-    $PATH Y=6; LC=3;											\
-	BG=(W_STOP3L:49;20,13*FENCE8,120,3*FENCE8,34,35*FENCE8,12;					\
-	(D_FABRIK01A,80,D_FABRIK01A,700):,-34;								\
-	3*(WUP_PILLAR4,298),WUP_PILLAR5,928,WUP_PILLAR5,3*(298,WUP_PILLAR4),8:,-7);
-      M=STOP; POOL=POOL_WUPSTRAB3L; D=L; P=40;
-    $ENDPATH 
-    $PATH Y=40; LC=3;											\
-	FG=(3*(WUP_PILLAR4,298),WUP_PILLAR5,928,WUP_PILLAR5,3*(298,WUP_PILLAR4),8:,-41;			\
-	WUP_ST_WERTHERBRB:,-34);
-      M=STOP; POOL=POOL_WUP(1950|1958|1964|1966|1972)R; D=R; P=*50;
-    $ENDPATH 
-    $PATH Y=40; LC=3;											\
-	FG=4*WUP_TRACK3,330,4*WUP_TRACK3,8:,43;
-      TX=Wuppertal Schwebebahn + Straﬂenbahn 1960-1971;							\
-	M=STOP; POOL=POOL_WUP(1950|1958|1964|1966|1972)L; D=L; P=*50; TB=6-10;
-    $ENDPATH 
-  $ENDSCENE 
+    $SCENE DX=5850; DY=250; YDIR=U; SEQ=2; VM=HEAD;							\
+	BG=(LAMP10,300:..; BGCITYDR3:..,+6,#; 1-40*1,TREES_SUMMER:..,0,; BGCITYDR4:..,+6,#;		\
+	TREE83,10,TREE38,85:,-7; TREE80:,+6; TREE65,1839,TREE65; BgPic/WUPPERTAL2.jpg:..,0,<=>;);	\
+	NAME=D_WUP4;											\
+	V=5-7;												\
+	LC=5;												\
+	TXY=-200;
+      $PATH Y=6; LC=3;											\
+	  FG=(STREET01:..,-6; FL_SP_F:..,-4; W_STOP3R:30;);
+	M=STOP; POOL=POOL_WUPSTRAB3R; D=R; P=*-240;
+      $ENDPATH 
+      $PATH Y=6; LC=3;											\
+	  BG=(W_STOP3L:49; 25*FENCE8,140,75*FENCE8,140,3*FENCE8,30,70*FENCE8,140,63*FENCE8,11:,;	\
+	  D_FABRIK01A,80,D_FABRIK01A,2075,D_FABRIK01A,80,D_FABRIK01A,2045,D_FABRIK01A,80,D_FABRIK01A,	\
+	  1035:,-34; 598,SCHWEBPILLAR2,SCHWEBPILLAR1,SCHWEBPILLAR2:,-7;);
+	M=STOP; POOL=POOL_WUPSTRAB3L; D=L; P=*-260;
+      $ENDPATH 
+      $PATH Y=40; LC=3;											\
+	  FG=(WUP_ST_WERTHERBRB,304:,-34;);
+	M=STOP; POOL=POOL_WUP(1950|1958|1964|1966|1972)R; D=R; P=*-140;
+      $ENDPATH 
+      $PATH Y=40; LC=3;											\
+	  FG=(2*WSCHWEB3TR8,20,2*WSCHWEB3TR8:,43;);
+	TX=Wuppertal Schwebebahn + Straﬂenbahn 1960-1971;						\
+	  M=STOP; POOL=POOL_WUP(1950|1958|1964|1966|1972)L; D=L; P=*-140;
+      $ENDPATH 
+    $ENDSCENE 
 #------------------------------------------------------------------------------
 #
 # Wuppertal Schwebebahn 1963-1965
 #               (Lars Boﬂhammer)
-  $SCENE DX=5850; DY=250; YDIR=U; SEQ=2; \
-    BG=(70,D_MONSCHAU06A,D_MONSCHAU07A,510,D_H035,AU_CLUNES_RSLB,210,D_BWG004:,-7;			\
-    320,NL_H050_1,269,NL_SPOORZICHT_1:,-7;10,CS_H001,D_MUNCHEN01A,D_MUNCHEN02B:,-7;\
-    D_BONN_POST1,90,FOREST24,150,D_MUNCHEN08,D_BONN03A,D_H033,D_MUNCHEN07,230,SHRUBBERY7,\
-    1800,D_BONN_POST1,77,FOREST24,250,D_MUNCHEN08,,D_BONN03A,D_H033,D_BONN_POST1,D_MUNCHEN07,\
-    230,SHRUBBERY7:,-7;			\
-    TREE83,10,TREE38,85:,-7;TREE80:,+6;TREE65,1839,TREE65;3*BGPIC\WUPPERTAL2.JPG);   \
-    FG=(10,28*FENCE8,120,3*FENCE8,40,50*FENCE8:,-4;STREET01:..,-4;  ;			\
-    D_FABRIK01A,80,D_FABRIK01A,700:,-40; LAMP10,300:..,-14;WUP_ST_WERTHERBRB:,-4;\
-    WUP_PILLAR5,929,WUP_PILLAR5,10:,-10;Schwebpillar1,1536,Schwebpillar1,9:,-10;);											\
-    LC=5;
-    $PATH Y=30; LC=3;											\
-    M=STOP; POOL=POOL_WUP1964R; D=R; P=*50;
-    $ENDPATH 
-    $PATH Y=30; LC=3;											\
-      FG=9*WUP_TRACK3,331,9*WUP_TRACK3,9:,43;
-    M=STOP; POOL=POOL_WUP1964L; D=L; P=*50;TX=Wuppertal Schwebebahn 1963-1965; 
-    $ENDPATH 
+    $SCENE DX=5850; DY=250; YDIR=U; SEQ=2; VM=HEAD;							\
+	BG=(BGCITYDR3:..,+6,#; 1-40*1,TREES_SUMMER:..,0,#;BGCITYDR4:..,+6,#; TREE83,10,TREE38,85:,-7;	\
+	TREE80:,+6; TREE65,1839,TREE65; BgPic/WUPPERTAL2.jpg:..,0,<=>;);				\
+	FG=(25*FENCE8,140,75*FENCE8,140,3*FENCE8,30,70*FENCE8,140,63*FENCE8,11:,-4;STREET01:..,-4;	\
+	D_FABRIK01A,80,D_FABRIK01A,2075,D_FABRIK01A,80,D_FABRIK01A,2045,D_FABRIK01A,80,D_FABRIK01A,	\
+	1035:,-40; LAMP10,300:..,-14;WUP_ST_WERTHERBRB,304,:,-4;					\
+	598,(Schwebpillar2,Schwebpillar1,Schwebpillar2):,-10;);						\
+	NAME=D_WUP5;											\
+	V=5-7;												\
+	LC=5;
+      $PATH Y=31; LC=3;
+	M=STOP; POOL=POOL_WUP1964R; D=R; P=*-140;
+      $ENDPATH 
+      $PATH Y=31; LC=3;											\
+	  FG=2*WSCHWEB3TR8,20,2*WSCHWEB3TR8:,43;
+	TX=TX=Wuppertal Schwebebahn 1963-1965;								\
+	  M=STOP; POOL=POOL_WUP1964L; D=L; P=*-140;
+      $ENDPATH 
     $ENDSCENE 
 #------------------------------------------------------------------------------
 #
 # Wuppertal Schwebebahn 1980-84
 #               (Lars Boﬂhammer)
-  $SCENE DX=1949; DY=250; YDIR=U; SEQ=2;								\
-      BG=((LAMP10,200):..; (40,D_MONSCHAU06A,D_MONSCHAU07A,510,D_H035,AU_CLUNES_RSLB,210,D_BWG004):,+6;	\
-      280,NL_H050_1,269,NL_SPOORZICHT_1:,+6; CS_H001,D_MUNCHEN01A,D_MUNCHEN02B:15;			\
-      TREE83,10,TREE38,85:,+6; TREE80:,+6;BGPIC\WUPPERTAL2.JPG);					\
-      LC=5;												\
-      TXY=-200;
-    $PATH Y=6; LC=3;											\
-	FG=(STREET01:..,-6;FL_SP_F:..,-4;;#DU_STOP1:15;B_SHELTER:15,3);
-      M=STOP; POOL=POOL_WUPSTRAB4R; D=R; P=20; TB=6-10;
-    $ENDPATH 
-    $PATH Y=6; LC=3;											\
-	BG=(B_SHELTER:49,3;DU_STOP1:49;20,13*FENCE8,120,3*FENCE8,34,35*FENCE8,12;			\
-	(D_FABRIK01A,80,D_FABRIK01A,700):,-34;								\
-	3*(WUP_PILLAR4,298),WUP_PILLAR5,928,WUP_PILLAR5,3*(298,WUP_PILLAR4),8:,-7);
-      M=STOP; POOL=POOL_WUPSTRAB4L; D=L; P=40;
-    $ENDPATH 
-    $PATH Y=40; LC=3;											\
-	FG=(3*(WUP_PILLAR4,298),WUP_PILLAR5,928,WUP_PILLAR5,3*(298,WUP_PILLAR4),8:,-41;			\
-	WUP_ST_WERTHERBRB:,-34);
-      M=STOP; POOL=POOL_WUP1985R; D=R; P=*50;
-    $ENDPATH 
-    $PATH Y=40; LC=3;											\
-	FG=4*WUP_TRACK3,330,4*WUP_TRACK3,8:,43;
-      TX=Wuppertal Schwebebahn + Straﬂenbahn 1980-1984;							\
-	M=STOP; POOL=POOL_WUP1985L; D=L; P=*50; TB=6-10;
-    $ENDPATH 
-  $ENDSCENE 
+    $SCENE DX=5850; DY=250; YDIR=U; SEQ=2; VM=HEAD;							\
+	BG=(LAMP10,300:..; BGCITYDR3:..,+6,#; 1-40*1,TREES_SUMMER:..,0,; BGCITYDR4:..,+6,#;		\
+	TREE83,10,TREE38,85:,-7; TREE80:,+6; TREE65,1839,TREE65; BgPic/WUPPERTAL2.jpg:..,0,<=>;);	\
+	NAME=D_WUP6;											\
+	LC=5;												\
+	V=5-7;												\
+	TXY=-200;
+      $PATH Y=6; LC=3;											\
+	  FG=(STREET01:..,-6; FL_SP_F:..,-4;#DU_STOP1:45;B_SHELTER:45,3);
+	M=STOP; POOL=POOL_WUPSTRAB4R; D=R; P=*-240;
+      $ENDPATH 
+      $PATH Y=6; LC=3;											\
+	  BG=(B_SHELTER:49,3;DU_STOP1:49;								\
+	  25*FENCE8,140,75*FENCE8,140,3*FENCE8,30,70*FENCE8,140,63*FENCE8,11:,;				\
+	  D_FABRIK01A,80,D_FABRIK01A,2075,D_FABRIK01A,80,D_FABRIK01A,2045,D_FABRIK01A,80,D_FABRIK01A,	\
+	  1035:,-34; 598,SCHWEBPILLAR2,SCHWEBPILLAR1,SCHWEBPILLAR2:,-7;);
+	M=STOP; POOL=POOL_WUPSTRAB4L; D=L; P=*-260;
+      $ENDPATH 
+      $PATH Y=40; LC=3;											\
+	  FG=(WUP_ST_WERTHERBRB,304:,-34;);
+	M=STOP; POOL=POOL_WUP1985R; D=R; P=*-140;
+      $ENDPATH 
+      $PATH Y=40; LC=3;											\
+	  FG=(2*WSCHWEB3TR8,20,2*WSCHWEB3TR8:,43;);
+	TX=Wuppertal Schwebebahn + Straﬂenbahn 1980-84;							\
+	  M=STOP; POOL=POOL_WUP1985L; D=L; P=*-140;
+      $ENDPATH 
+    $ENDSCENE 
 #------------------------------------------------------------------------------
 #
 # Wuppertal Schwebebahn 1984-85
 #               (Lars Boﬂhammer)
-  $SCENE DX=1949; DY=250; YDIR=U; SEQ=2;								\
-      BG=((LAMP10,200):..; (40,D_MONSCHAU06A,D_MONSCHAU07A,510,D_H035,AU_CLUNES_RSLB,210,D_BWG004):,+6;	\
-      280,NL_H050_1,269,NL_SPOORZICHT_1:,+6; CS_H001,D_MUNCHEN01A,D_MUNCHEN02B:15;			\
-      TREE83,10,TREE38,85:,+6; TREE80:,+6;BGPIC\WUPPERTAL2.JPG);					\
-      LC=5;												\
-      TXY=-200;
-    $PATH Y=6; LC=3;											\
-	FG=(STREET01:..,-6;FL_SP_F:..,-4;;#DU_STOP1:15;B_SHELTER:15,3);
-      M=STOP; POOL=POOL_WUPSTRAB5R; D=R; P=20; TB=6-10;
-    $ENDPATH 
-    $PATH Y=6; LC=3;											\
-	BG=(B_SHELTER:49,3;DU_STOP1:49;20,13*FENCE8,120,3*FENCE8,34,35*FENCE8,12;			\
-	(D_FABRIK01A,80,D_FABRIK01A,700):,-34;								\
-	3*(WUP_PILLAR4,298),WUP_PILLAR5,928,WUP_PILLAR5,3*(298,WUP_PILLAR4),8:,-7);
-      M=STOP; POOL=POOL_WUPSTRAB5L; D=L; P=40;
-    $ENDPATH 
-    $PATH Y=40; LC=3;											\
-	FG=(3*(WUP_PILLAR4,298),WUP_PILLAR5,928,WUP_PILLAR5,3*(298,WUP_PILLAR4),8:,-41;			\
-	WUP_ST_WERTHERBR4:,-34);
-      M=STOP; POOL=POOL_WUP1985R; D=R; P=*50;
-    $ENDPATH 
-    $PATH Y=40; LC=3;											\
-	FG=4*WUP_TRACK3,330,4*WUP_TRACK3,8:,43;
-      TX=Wuppertal Schwebebahn + Straﬂenbahn 1984-1985;							\
-	M=STOP; POOL=POOL_WUP1985L; D=L; P=*50; TB=6-10;
-    $ENDPATH 
-  $ENDSCENE 
+    $SCENE DX=5850; DY=280; YDIR=U; SEQ=2; VM=HEAD;							\
+	BG=(LAMP10,300:..; BGCITYDR3:..,+6,#; 1-40*1,TREES_SUMMER:..,+6,#; BGCITYDR4:..,+6,#;		\
+	TREE83,10,TREE38,85:,-7; TREE80:,+6; TREE65,1839,TREE65; BgPic/WUPPERTAL2.jpg:..,0,<=>;);	\
+	NAME=D_WUP7;											\
+	LC=5;												\
+	TXY=-200;
+      $PATH Y=6; LC=3;											\
+	  FG=(STREET01:..,-6; FL_SP_F:..,-4;#DU_STOP1:45;B_SHELTER:45,3);
+	M=STOP; POOL=POOL_WUPSTRAB5R; D=R; P=*-240;
+      $ENDPATH 
+      $PATH Y=6; LC=3;											\
+	  BG=(B_SHELTER:49,3;DU_STOP1:49;								\
+	  25*FENCE8,140,75*FENCE8,140,3*FENCE8,30,70*FENCE8,140,63*FENCE8,11:,;				\
+	  D_FABRIK01A,80,D_FABRIK01A,2075,D_FABRIK01A,80,D_FABRIK01A,2045,D_FABRIK01A,80,D_FABRIK01A,	\
+	  1035:,-34; 598,SCHWEBPILLAR2,SCHWEBPILLAR1,SCHWEBPILLAR2:,-7;);
+	M=STOP; POOL=POOL_WUPSTRAB5L; D=L; P=*-260;
+      $ENDPATH 
+      $PATH Y=40; LC=3;											\
+	  FG=(WUP_ST_WERTHERBR4,304:,-34;);
+	M=STOP; POOL=POOL_WUP1985R; D=R; P=*-140;
+      $ENDPATH 
+      $PATH Y=40; LC=3;											\
+	  FG=(2*WSCHWEB3TR8,20,2*WSCHWEB3TR8:,43;);
+	TX=Wuppertal Schwebebahn + Straﬂenbahn 1984-85;							\
+	  M=STOP; POOL=POOL_WUP1985L; D=L; P=*-140;
+      $ENDPATH 
+    $ENDSCENE 
 #------------------------------------------------------------------------------
 #
-# Wuppertal Schwebebahn 2000-2010
+# Wuppertal Schwebebahn 2000
 #               (Lars Boﬂhammer)
-  $SCENE DX=1949; DY=250; YDIR=U; SEQ=2;								\
-      BG=((LAMP10,200):..; (40,D_MONSCHAU06A,D_MONSCHAU07A,510,D_H035,AU_CLUNES_RSLB,210,D_BWG004):,+6;	\
-      280,NL_H050_1,269,NL_SPOORZICHT_1:,+6; CS_H001,D_MUNCHEN01A,D_MUNCHEN02B:15;			\
-      TREE83,10,TREE38,85:,+6; TREE80:,+6;BGPIC\WUPPERTAL2.JPG);					\
-      LC=5;												\
-      TXY=-200;
-    $PATH Y=6; LC=3;											\
-	FG=(STREET01:..,-6;FL_SP_F:..,-4;;#DU_STOP1:15,-3;B_SHELTER:15,0);
-      M=STOP; D=R; C=WUP_IK417A; P=20; TB=6-10;
-    $ENDPATH 
-    $PATH Y=6; LC=3;											\
-	BG=(B_SHELTER:49,0;DU_STOP1:49;17,13*FENCE8,120,3*FENCE8,34,35*FENCE8,12;			\
-	(D_FABRIK01A,80,D_FABRIK01A,700):,-34;								\
-	3*(WUP_PILLAR4,298),WUP_PILLAR5,928,WUP_PILLAR5,3*(298,WUP_PILLAR4),8:,-7);
-      M=STOP; D=L; C=WUP_SG221UL_STINNESL; P=40;
-    $ENDPATH 
-    $PATH Y=40; LC=3;											\
-	FG=(3*(WUP_PILLAR4,298),WUP_PILLAR5,928,WUP_PILLAR5,3*(298,WUP_PILLAR4),8:,-41;			\
-	WUP_ST_WERTHERBR:,-34);
-      M=STOP; POOL=POOL_WUP2000R; D=R; P=*50;
-    $ENDPATH 
-    $PATH Y=40; LC=3;											\
-	FG=4*WUP_TRACK3,330,4*WUP_TRACK3,8:,43;
-      TX=Wuppertal Schwebebahn 2000-2010;								\
-	M=STOP; POOL=POOL_WUP2000L; D=L; P=*50; TB=6-10;
-    $ENDPATH 
-  $ENDSCENE 
+    $SCENE DX=5850; DY=250; YDIR=U; SEQ=2;								\
+	BG=(LAMP10,300:..; BGCITYDR5:..,+6,#; 1-40*1,TREES_SUMMER:..,0,; BGCITYDR6:..,+6,#;		\
+	TREE83,10,TREE38,85:,-7; TREE80:,+6; TREE65,1839,TREE65; BgPic/WUPPERTAL2.jpg:..,0,<=>;);	\
+	NAME=D_WUP8;											\
+	LC=5;												\
+	TXY=-200;
+      $PATH Y=6; LC=3;											\
+	  FG=(STREET01:..,-6;#DU_STOP1:35;B_SHELTER:35,3);
+	M=STOP; D=R; C=WUP_IK417A; P=*-240;
+      $ENDPATH 
+      $PATH Y=6; LC=3;											\
+	  BG=(B_SHELTER:49,3;DU_STOP1:49;								\
+	  25*FENCE8,140,75*FENCE8,140,3*FENCE8,30,70*FENCE8,140,63*FENCE8,11:,;				\
+	  D_FABRIK01A,80,D_FABRIK01A,2075,D_FABRIK01A,80,D_FABRIK01A,2045,D_FABRIK01A,80,D_FABRIK01A,	\
+	  1035:,-34; 598,SCHWEBPILLAR2,SCHWEBPILLAR1,SCHWEBPILLAR2:,-7;);
+	M=STOP; D=L; C=WUP_SG221UL_STINNESL; P=*-260;
+      $ENDPATH 
+      $PATH Y=40; LC=3;											\
+	  FG=(WUP_ST_WERTHERBR,304:,-34;);
+	M=STOP; POOL=POOL_WUP2000R; D=R; P=*-140;
+      $ENDPATH 
+      $PATH Y=40; LC=3;											\
+	  FG=(2*WSCHWEB3TR8,20,2*WSCHWEB3TR8:,43;);
+	TX=Wuppertal Schwebebahn 2000;									\
+	  M=STOP; POOL=POOL_WUP2000L; D=L; P=*-140;
+      $ENDPATH 
+    $ENDSCENE 
 #------------------------------------------------------------------------------
 #
 # Wuppertal Schwebebahn 2016
 #        (Lars Boﬂhammer)
-  $SCENE DX=1949; DY=250; YDIR=U; SEQ=2;								\
-      BG=((40,D_MONSCHAU06A,D_MONSCHAU07A,510,D_H035,AU_CLUNES_RSLB,210,D_BWG004):,+6;			\
-      280,NL_H050_1,269,NL_SPOORZICHT_1:,+6; CS_H001,D_MUNCHEN01A,D_MUNCHEN02B:15;			\
-      TREE83,10,TREE38,85:,+6; TREE80:,+6;BGPIC\WUPPERTAL2.JPG);					\
-      FG=(STREET01:..,-3;										\
-      (WUP_PILLAR6,278,WUP_PILLAR6,278,WUP_PILLAR6,278,WUP_PILLAR7,278,WUP_PILLAR6,278,WUP_PILLAR6,278,	\
-      WUP_PILLAR6):,3);											\
-      TXY=-200;												\
-      LC=5;
-    $PATH Y=37; LC=3;											\
-	FG=8*WUP_TRACK4,WUP_TRACK5,8*WUP_TRACK4,3:,43;
-      POOL=POOL_WUP2016R; D=L;
-    $ENDPATH 
-    $PATH Y=37; LC=3;											\
-	FG=(WUP_PILLAR6,278,WUP_PILLAR6,278,WUP_PILLAR6,278,WUP_PILLAR7,278,WUP_PILLAR6,278,WUP_PILLAR6, \
-	278,WUP_PILLAR6:,-34);
-      TX=Wuppertal Schwebebahn 2016 Landstrecke;							\
-	POOL=POOL_WUP2016L; D=R;
-    $ENDPATH 
-  $ENDSCENE 
+    $SCENE DX=5850; DY=250; YDIR=U; SEQ=2; VM=HEAD;							\
+	BG=(BGCITYDR5:..,0,#; 1-40*1,TREES_SUMMER:..,0,#;BGCITYDR6:..,0,#;TREE83,10,TREE38,85:,-7;	\
+	TREE80:,+6;TREE65,1839,TREE65;BgPic/WUPPERTAL2.jpg:..,0,<=>;);					\
+	FG=(STREET01:..,-4; LAMP10,300:..,-14; (Schwebpillar5,Schwebpillar6):..,0,-1026);		\
+	NAME=D_WUP9;											\
+	LC=5;
+      $PATH Y=34; LC=3;
+	POOL=POOL_WUP20(16|00)R; D=R; $ENDPATH;
+      $ENDPATH 
+      $PATH Y=34; LC=3;											\
+	  FG=WSCHWEB6TR8:..,43,-734;
+	TX=Wuppertal Schwebebahn 2000-2016 Landstrecke;							\
+	  POOL=POOL_WUP20(16|00)L; D=L;
+      $ENDPATH 
+    $ENDSCENE 
+  $ENDSECTION 
+}
 #------------------------------------------------------------------------------
-$ENDSECTION 
-$SECTION LC=1;
+{I|USA|J?
+  {I?
+# Torino GHIA
+#------------------------------------------------------------------------------
+    $SECTION LC=1; NAME=GHIA; %TITLE(Torino);
+      $GROUP LC=2; AB=130; BL=60;									\
+	  BG=(GREEN1:..,^-39,#; GREEN1:..,-39,#; GREEN2:..,14,<=>,88,1120; ATMT_GHIAW:..,^14);		\
+	  AP=$SKYM(-100);
+	C=ATMT_GHIA; V=8-11;
+      $ENDGROUP 
+    $ENDSECTION 
+  }
+#------------------------------------------------------------------------------
+  {USA?
 #
 # Disney monorail (Brian Clough)
 #
-  $SECTION LC=1;
-    $GROUP LC=2; AB=130; BL=61;										\
-	BG=(GREEN1:..,^-39,#; GREEN1:..,-39,#; GREEN2:..,14,<=>,88,1120; DMR_BEAMWAY:..,^14,0;		\
-	310[OMV:,DMR_COLUMN,,13,,50]:..,^-11,0);							\
-	AP=$SKYM(-100);
-      D=L; C=<DMR_(RED|BLK|BLU|GLD|ORG|PUR|SIL|YEL|GRN|PIN|LIM|COR)(L,4*T,); V=6-9;
-    $ENDGROUP 
-  $ENDSECTION 
+#------------------------------------------------------------------------------
+    $SECTION LC=1;
+      $GROUP LC=2; AB=130; BL=61;									\
+	  BG=(GREEN1:..,^-39,#; GREEN1:..,-39,#; GREEN2:..,14,<=>,88,1120; DMR_BEAMWAY:..,^14,0;	\
+	  310[OMV:,DMR_COLUMN,,13,,50]:..,^-11,0);							\
+	  NAME=DISNEY1;											\
+	  AP=$SKYM(-100);
+	D=L; C=<DMR_(RED|BLK|BLU|GLD|ORG|PUR|SIL|YEL|GRN|PIN|LIM|COR)(L,4*T,); V=6-9;
+      $ENDGROUP 
+    $ENDSECTION 
+  }
+  {J?
 #------------------------------------------------------------------------------
 #
 # Yurikamome
 #               (Hayato)
-  $SCENE DY=130; YDIR=U;										\
-      BG=(FIELD01:..,6; RAIL_YURIKAMOME:..,6,0; SEE03:..,9,0; STREET01:..);				\
-      FG=RAIL_YURIKAMOME2:..,70;
-    $PATH Y=70; LC=2;											\
-	BG=ST_YURIKAMOME:<0,-64;
-      M=STOP; D=L; C=<YURI_CL,3*YURI_M,YURI_01,YURI_C; P=>0+286;
-    $ENDPATH 
-    $PATH Y=70; LC=2;
-      M=OPEN; D=R; C=<YURI_CL,3*YURI_M,YURI_01,YURI_C; P=>0+286;
-    $ENDPATH 
-  $ENDSCENE 
+    $SECTION LC=1;
+      $SCENE DY=130; YDIR=U;										\
+	  BG=(FIELD01:..,6; RAIL_YURIKAMOME:..,6,0; SEE03:..,9,0; STREET01:..);				\
+	  FG=RAIL_YURIKAMOME2:..,70;									\
+	  NAME=YURIKAMOME;
+	$PATH Y=70; LC=2;										\
+	    BG=ST_YURIKAMOME:<0,-64;
+	  M=STOP; D=L; C=<YURI_CL,3*YURI_M,YURI_01,YURI_C; P=>0+286;
+	$ENDPATH 
+	$PATH Y=70; LC=2;
+	  M=OPEN; D=R; C=<YURI_CL,3*YURI_M,YURI_01,YURI_C; P=>0+286;
+	$ENDPATH 
+      $ENDSCENE 
+    $ENDSECTION 
 #------------------------------------------------------------------------------
 #
 # Tokyo Monorail
 #              (Hayato)
-  $SPOOL N=POOL_TOKM;
-    C=<TOKM_700TC1L,TOKM_700M1,TOKM_700M2,TOKM_700M3,TOKM_700M4,TOKM_700TC2;
-    C=<TOKM_1000TCL,TOKM_1000M1,TOKM_1000M2,TOKM_1000M1,TOKM_1000M2,TOKM_1000TC;
-    C=<TOKM_1000NTCL,TOKM_1000NM1,TOKM_1000NM2,TOKM_1000NM1,TOKM_1000NM2,TOKM_1000NTC;
-    C=<TOKM_2000TCL,4*TOKM_2000M1,TOKM_2000TC;
-  $ENDPOOL 
+    $SECTION LC=1;
+      $SPOOL N=POOL_TOKM;
+	C=<TOKM_700TC1L,TOKM_700M1,TOKM_700M2,TOKM_700M3,TOKM_700M4,TOKM_700TC2;
+	C=<TOKM_1000TCL,TOKM_1000M1,TOKM_1000M2,TOKM_1000M1,TOKM_1000M2,TOKM_1000TC;
+	C=<TOKM_1000NTCL,TOKM_1000NM1,TOKM_1000NM2,TOKM_1000NM1,TOKM_1000NM2,TOKM_1000NTC;
+	C=<TOKM_2000TCL,4*TOKM_2000M1,TOKM_2000TC;
+      $ENDPOOL 
 
-  $SCENE DY=130; YDIR=U;										\
-      BG=(FIELD01:..,6; SEE03:..,9,0; STREET01:..);							\
-      FG=ST_TOKYOMONO:<0,6;
-    $PATH Y=67; LC=2;											\
-	BG=RAIL_TOKYOMONO:..,-61,0;
-      M=OPEN; POOL=POOL_TOKM; D=L; P=>0+286;
-    $ENDPATH 
-    $PATH Y=67; LC=2;
-      M=STOP; POOL=POOL_TOKM; D=R; P=>0+286;
-    $ENDPATH 
-  $ENDSCENE 
+      $SCENE DY=130; YDIR=U;										\
+	  BG=(FIELD01:..,6; SEE03:..,9,0; STREET01:..);							\
+	  FG=ST_TOKYOMONO:<0,6;										\
+	  NAME=TOKYOMONO;
+	$PATH Y=67; LC=2;										\
+	    BG=RAIL_TOKYOMONO:..,-61,0;
+	  M=OPEN; POOL=POOL_TOKM; D=L; P=>0+286;
+	$ENDPATH 
+	$PATH Y=67; LC=2;
+	  M=STOP; POOL=POOL_TOKM; D=R; P=>0+286;
+	$ENDPATH 
+      $ENDSCENE 
+    $ENDSECTION 
 #------------------------------------------------------------------------------
 #
 # Ueno Zoo Monorail
 #               (ZSz)
-  $SECTION LC=1;
-    $GROUP LC=2; DX=1600; IMGY=50; AB=200; BL=70;					\
-	BG=(FOREST05[SM:0.4]:..,-(55-95),<=>; FOREST09[SM:0.4]:..,-(25-65),<=>; @@EMB(3|4|5|6):..,^-25;	\
-	SCENE_UENOZOOB1:..,-28;);									\
-	AP=$SKYM(-30),$EVAL($W/14)*[BG<=TREE_AUTUMN[SM:0.3-0.6]:1-99+,-25;],					\
-	5-8*[FG+=BUSH(10|12)|SHRUBBERY(6|7):1-99+,^-5--15;];
-      D=L; C=UENO_H; V=2;
-      D=L; C=UENO_M; V=2;
-      D=L; C=UENO_30; V=2;
-    $ENDGROUP 
-    $GROUP LC=2; DX=1600; IMGY=50; AB=400; BL=28;							\
-	BG=(BGPIC\SXC1226606.JPG:,-28;SCENE_UENOZOOB1:..,-28;);
-      D=L; C=UENO_H; V=2;
-      D=L; C=UENO_M; V=2;
-      D=L; C=UENO_30; V=2;
-    $ENDGROUP 
-  $ENDSECTION 
+    $SECTION LC=1;
+      $GROUP LC=2; DX=1600; IMGY=50; AB=200; BL=70;							\
+	  BG=(FOREST05[SM:0.4]:..,-(55-95),<=>; FOREST09[SM:0.4]:..,-(25-65),<=>;			\
+	  @@EMB(3|4|5|6):..,^-25; SCENE_UENOZOOB1:..,-28;);						\
+	  NAME=UENO1;											\
+	  AP=$SKYM(-30),$EVAL($W/14)*[BG<=TREE_AUTUMN[SM:0.3-0.6]:1-99+,-25;],				\
+	  5-8*[FG+=BUSH(10|12)|SHRUBBERY(6|7):1-99+,^-5--15;];
+	D=L; C=UENO_H; V=2;
+	D=L; C=UENO_M; V=2;
+	D=L; C=UENO_30; V=2;
+      $ENDGROUP 
+      $GROUP LC=2; DX=1600; IMGY=50; AB=400; BL=28;							\
+	  BG=(BgPic/SXC1226606.JPG:,-28;SCENE_UENOZOOB1:..,-28;);					\
+	  NAME=UENO2;
+	D=L; C=UENO_H; V=2;
+	D=L; C=UENO_M; V=2;
+	D=L; C=UENO_30; V=2;
+      $ENDGROUP 
+    $ENDSECTION 
+  }
 #------------------------------------------------------------------------------
-$ENDSECTION 
+}

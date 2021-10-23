@@ -1,8 +1,8 @@
 {FILELEVEL=1?
   $INCLUDE SINGLE.TTT
+  $ENV TRACK,DE_ENV
 }
 $REQUIRE TRAINDEF.TTT
-
 
 {H?
 # Ungarn - Hungary
@@ -38,7 +38,6 @@ $REQUIRE TRAINDEF.TTT
     }
     {E2?
 #
-
     }
   %ENDPOOL;
 }
@@ -47,11 +46,10 @@ $REQUIRE TRAINDEF.TTT
 {BRD&(E3|E4)?
   %ADDPOOL(POOL_BRD,DB_ENV)
     {E3?
-      TX=Example_Beispiel;										\
-	C=DB_3A01(042|058|075|081|091|067|091|096|097|192|209|229)(|L),D3PDA; F=SP3;
+
     }
     {E4?
-#
+
     }
   %ENDPOOL;
 }
@@ -70,10 +68,10 @@ $REQUIRE TRAINDEF.TTT
 {BRD&(E5|E6)?
   %ADDPOOL(POOL_BRD,DB_ENV)
     {E5?
-#
+ #
     }
     {E6?
-#
+
     }
   %ENDPOOL;
 }
@@ -126,10 +124,10 @@ $REQUIRE TRAINDEF.TTT
 #
     }
   %ENDPOOL;
-
 }
+
 {GB?
-# United Kingdom - Großbritannien
+# United Kingdom - Grossbritannien
   %ADDPOOL(POOL_GB,GB_ENV)
 # Epoche
     {E1?
@@ -139,22 +137,23 @@ $REQUIRE TRAINDEF.TTT
 #
     }
     {E3?
-#
+    
     }
     {E4?
 #
     }
     {E5?
-#
+    
     }
     {E6?
-#
+    
     }
   %ENDPOOL;
 }
+
 {IE?
-# Ireland/Éire
-  %ADDPOOL(POOL_IR,IR_ENV)
+# Ireland/Eire
+  %ADDPOOL(POOL_IR,GB_ENV)
 # Epoche
     {E1?
 #
@@ -200,6 +199,7 @@ $REQUIRE TRAINDEF.TTT
     }
   %ENDPOOL;
 }
+
 {B?
 # Belgium - Belgien
   %ADDPOOL(POOL_B,B_ENV)
@@ -224,6 +224,7 @@ $REQUIRE TRAINDEF.TTT
     }
   %ENDPOOL;
 }
+
 {L?
 # Luxembourg
   %ADDPOOL(POOL_L,L_ENV)
@@ -248,6 +249,7 @@ $REQUIRE TRAINDEF.TTT
     }
   %ENDPOOL;
 }
+
 {NL?
 # Netherlands - Niederlande
   %ADDPOOL(POOL_NL,NL_ENV)
@@ -273,7 +275,7 @@ $REQUIRE TRAINDEF.TTT
   %ENDPOOL;
 }
 {DK?
-# Denmark - Dänemark
+# Denmark - Daenemark
   %ADDPOOL(POOL_DK,DK_ENV)
 # Epoche
     {E1?
@@ -296,6 +298,7 @@ $REQUIRE TRAINDEF.TTT
     }
   %ENDPOOL;
 }
+
 {N?
 # Norway - Norwegen
   %ADDPOOL(POOL_N,N_ENV)
@@ -316,10 +319,11 @@ $REQUIRE TRAINDEF.TTT
 #
     }
     {E6?
-#
+
     }
   %ENDPOOL;
 }
+
 {S?
 # Sweden - Schweden
   %ADDPOOL(POOL_S,S_ENV)
@@ -344,6 +348,7 @@ $REQUIRE TRAINDEF.TTT
     }
   %ENDPOOL;
 }
+
 {SF?
 # Finland
   %ADDPOOL(POOL_SF,FI_ENV)
@@ -433,13 +438,14 @@ $REQUIRE TRAINDEF.TTT
 #
     }
     {E5?
-#
+
     }
     {E6?
 #
     }
   %ENDPOOL;
 }
+
 {CS|CSD?
 # Tschech - Tschechien (former Tschechoslowaky / Tschechoslowakei)
   %ADDPOOL(POOL_CS,CS_ENV)
@@ -464,9 +470,10 @@ $REQUIRE TRAINDEF.TTT
     }
   %ENDPOOL;
 }
+
 {SK?
 # Slowakia - Slowakei
-  %ADDPOOL(POOL_SK,SK_ENV)
+  %ADDPOOL(POOL_SK,CS_ENV)
 # Epoche
     {E5?
 #
@@ -476,6 +483,7 @@ $REQUIRE TRAINDEF.TTT
     }
   %ENDPOOL;
 }
+
 {P?
 # Poland - Polen
   %ADDPOOL(POOL_PL,PL_ENV)
@@ -500,8 +508,9 @@ $REQUIRE TRAINDEF.TTT
     }
   %ENDPOOL;
 }
+
 {RO?
-# Romania - Rumänien
+# Romania - Rumaenien
   %ADDPOOL(POOL_RO,RO_ENV)
 # Epoche
     {E1?
@@ -524,6 +533,7 @@ $REQUIRE TRAINDEF.TTT
     }
   %ENDPOOL;
 }
+
 {SLO?
 # Slovenia - Slowenien
   %ADDPOOL(POOL_SLO,SLO_ENV)
@@ -536,6 +546,7 @@ $REQUIRE TRAINDEF.TTT
     }
   %ENDPOOL;
 }
+
 {HR?
 # Croatia - Kroatien
   %ADDPOOL(POOL_HR,HR_ENV)
@@ -548,6 +559,7 @@ $REQUIRE TRAINDEF.TTT
     }
   %ENDPOOL;
 }
+
 {YU?
 # Serbia - Serbien (former Yugoslavia - Jugoslawien)
   %ADDPOOL(POOL_YU,YU_ENV)
@@ -572,6 +584,7 @@ $REQUIRE TRAINDEF.TTT
     }
   %ENDPOOL;
 }
+
 {ASSD?
 # Bosnia-Hercegovina - Bosnien-Herzegowina, Kosovo, Macedonia,  Montenegro
   %ADDPOOL(POOL_HSH,YU_ENV)
@@ -584,33 +597,33 @@ $REQUIRE TRAINDEF.TTT
     }
   %ENDPOOL;
 }
-{BG?
-  {HSH?
+
+{HSH?
 # Albania - Albanien
-    %ADDPOOL(POOL_HSH,YU_ENV)
+  %ADDPOOL(POOL_HSH,YU_ENV)
 # Epoche
-      {E5?
+    {E5?
 #
-      }
-      {E6?
+    }
+    {E6?
 #
-      }
-    %ENDPOOL;
-  }
-  {BG?
+    }
+  %ENDPOOL;
+}
+{BG?
 # Bulgaria - Bulgarien
-    %ADDPOOL(POOL_BG,BG_ENV)
+  %ADDPOOL(POOL_BG,BG_ENV)
 # Epoche
-      {E1?
+    {E1?
 #
-      }
-      {E2?
+    }
+    {E2?
 #
-      }
-      {E3?
+    }
+    {E3?
 #
-      }
-      {E4?
+    }
+    {E4?
 #
       }
       {E5?
@@ -646,7 +659,7 @@ $REQUIRE TRAINDEF.TTT
     %ENDPOOL;
   }
   {TR?
-# Turkey - Türkei
+# Turkey - Tuerkei
     %ADDPOOL(POOL_TR,TR_ENV)
 # Epoche
       {E1?
@@ -671,7 +684,7 @@ $REQUIRE TRAINDEF.TTT
   }
   {SU|RZD|UZ|BCH|EVR|LDZ|LG|GEO|AZ|KAZ|MD|UZB?
 # Russia - Russland, (former Sovietunion)
-#Ukraine-Ukraine, #Uzbekistan, Byelorus-Weißrussland-Fehéroroszország
+#Ukraine-Ukraine, #Uzbekistan, Byelorus-Weissrussland-Fehéroroszország
 #Estonia-Estland-Észtország, Latvia-Lettland-Lettország, Lithuania-Litauen-Litvánia;
 #Moldovia-Moldau, Azerbaijan-Azerbaidschan
 #Kazakhstan-Kasachstan-Kazahsztán, Georgia-Georgien
@@ -694,6 +707,7 @@ $REQUIRE TRAINDEF.TTT
       }
       {E6?
 #
+
       }
     %ENDPOOL;
   }
@@ -795,7 +809,7 @@ $REQUIRE TRAINDEF.TTT
   }
   {AS?
 # Asia
-    %ADDPOOL(POOL_AS,AS_ENV)
+    %ADDPOOL(POOL_AS,OTH_ENV)
 # Epoche
       {E1?
 #
@@ -819,7 +833,7 @@ $REQUIRE TRAINDEF.TTT
   }
   {AF?
 # Africa
-    %ADDPOOL(POOL_AF,AF_ENV)
+    %ADDPOOL(POOL_AF,OTH_ENV)
 # Epoche
       {E1?
 #
@@ -843,7 +857,7 @@ $REQUIRE TRAINDEF.TTT
   }
   {NE?
 # Near East
-    %ADDPOOL(POOL_NE,NE_ENV)
+    %ADDPOOL(POOL_NE,OTH_ENV)
 # Epoche
       {E1?
 #
@@ -867,7 +881,7 @@ $REQUIRE TRAINDEF.TTT
   }
   {AUS?
 # Australia
-    %ADDPOOL(POOL_AUS,AUS_ENV)
+    %ADDPOOL(POOL_AUS,OTH_ENV)
 # Epoche
       {E1?
 #

@@ -81,15 +81,16 @@ $SPOOL N=VASUT_2006_H; SEQ=R;
 	[TX=Vasut 739 "Dacia Express" Bucuresti Nord <- Lõkösháza - Budapest Kel. -> Wien Westbf. (anno 2006)]| \
 	[TX=Vasut 738 "Dacia Express" Bucuresti Nord <- Lõkösháza - Budapest Kel. -> Wien Westbf. (anno 2006)]; \
       F=EP6;
-    C=M_V43(A|B0|C0),M_9247B(|L),CFR_1980AMEE(|L),CFR_2180BMEE(|L),M_8871(|L),CFR_WLABMEE,CFR_BLEE(|L),	\
-	CD_B65B(1|1L|2|2L|3|3L)|CD_5B_B(|L),CD_B65B(1|1L|2|2L|3|3L)|CD_5B_B(|L),			\
+    C=M_V43(A|B0|C0),M_9247B(|L),CFR_1980AMEE(|L),CFR_2180BMEE(|L),M_8871(|L),CFR_WLABMEE,		\
+	CFR_BLEE(|L),CD_B65B(1|1L|2|2L|3|3L)|CD_5B_B(|L),CD_B65B(1|1L|2|2L|3|3L)|CD_5B_B(|L),		\
 	M_2057A(|L)|M_2047A(|L)|M_4B2041(|L)|M_4BKO2037A(|L)|M_2037A(|L)|M_4B2080A(|L),			\
 	M_1957A(|L)|M_1947A(|L)|M_4A1941(|L)|M_1937(A|AL|I|IL|K|KL)|M_4A1980A(|L);			\
       V=8-20;												\
       AP=[TX=Vasut 374 "Pannonia" Bucuresti Nord <- Lõkösháza - Budapest Kel. - Rajka - Bratislava hl.st. - Kúty - Breclav - Havlíckuv Brod -> Praha hl.n. (anno 2004)]| \
 	[TX=Vasut 375 "Pannonia" Praha hl.n. <- Havlíckuv Brod - Kúty - Bratislava hl.st. - Rajka - Breclav - Budapest Kel. - Lõkösháza -> Bucuresti Nord (anno 2004)]; \
       F=EP6;
-    C=M_V63(|A),CDWLAB6,CDBC6,M_1957A(|L)|M_1947A(|L)|M_4A1941(|L)|M_1937(A|AL|I|IL|K|KL)|M_4A1980A(|L), \
+    C=M_V63(|A),CDWLAB6,CDBC6,										\
+	M_1957A(|L)|M_1947A(|L)|M_4A1941(|L)|M_1937(A|AL|I|IL|K|KL)|M_4A1980A(|L),			\
 	M_2057A(|L)|M_2047A(|L)|M_4B2041(|L)|M_4BKO2037A(|L)|M_2037A(|L)|M_4B2080A(|L),			\
 	2*CD_B65B(1|1L|2|2L|3|3L)|CD_5B_B(|L),CFR_BLEE(|L),CFR_WLABMEE;					\
       V=8-20;												\
@@ -102,7 +103,8 @@ $SPOOL N=VASUT_2006_H; SEQ=R;
       AP=[TX=Vasut 460 "Transbalkan" Budapest <- Bucuresti - Sofia -> Thessaloniki (anno 2006)]|	\
 	[TX=Vasut 461 "Transbalkan" Thessaloniki <- Sofia - Bucuresti -> Budapest (anno 2006)];		\
       F=EP6;
-    C=M_V43(A|B0|C0),3*M_2057A(|L)|M_2047A(|L)|M_4B2041(|L),M_1957A(|L)|M_1947A(|L)|M_4A1941(|L); V=8-20; \
+    C=M_V43(A|B0|C0),3*M_2057A(|L)|M_2047A(|L)|M_4B2041(|L),M_1957A(|L)|M_1947A(|L)|M_4A1941(|L);	\
+      V=8-20;												\
       AP=[TX=Vasut 586 "Urpin" Budapest <-> Zvolen (anno 2006)]|					\
 	[TX=Vasut 587 "Urpin" Zvolen <-> Budapest (anno 2006)]|						\
 	[TX=Vasut 394 "Urpin" Budapest <-> Zvolen (anno 2006)]|						\
@@ -201,7 +203,7 @@ $ENDPOOL
 # Location unknown, circa 1932
   }
   {E3?
-    M=M1|M3;												\
+    M=SIMPLE|STOP;												\
       C=(M_BCMOT3A(|L),1-2*M_BCXA(|L),0-1*(M_BCXA(|L),M_BCMOTA(|L)))|(M_BCMOTA(|L),M_BCXA(|L))|		\
 	(M_BCMOT3A(|L));										\
       P=*; F=DPO3;
@@ -214,9 +216,9 @@ $ENDPOOL
 	(0-1*M_BA3000(|L),M_AA1000(|L),M_BA3000(|L)));							\
       F=SP3;
     C=$DIR(M_3_3751029L,M_3_3751029),M_DNZ64000(|L),8-12*M_G(1|2|3)H(|L)|3:M_G(1|2|3); F=SF3;
-    M=M5; D=B; C1=(7:M_BCMOTA(|L)|3:M_BCMOT3A(|L)),1-2*M_BCXA(|L);					\
+    M=CUT; D=B; C1=(7:M_BCMOTA(|L)|3:M_BCMOT3A(|L)),1-2*M_BCXA(|L);					\
       C2=1-2*M_BCXA(|L),(7:M_BCMOTA(|L)|3:M_BCMOT3A(|L)); D1=B; D2=J; P=*;				\
-      T=OPEN,2,PD,10,PBU,W,2,CLOSE,W,1; F=DPUO3;
+      T=OPEN,2,PD,10,PBU,W,2,CLOSE,W,1; F=DPUTO3;
     C=M_ABBMOTA(|L)|M_BBMOTA(|L); F=DPU3;
     C=M_V40_004,M_1701(|L),5*M_15(65|65L|74|74L); F=EP3;
     C=<M_HARL~SZ,M_HARABL~SZ,M_HARAB~SZ,M_HAR~SZ; F=DPU3;
@@ -254,22 +256,22 @@ $ENDPOOL
       V=5|7; F=EF3;
     C=$DIR(M_3_424009L,M_3_424009),6*M_BAH4700(|L),M_3B_AA1000(|L);
     C=(M_M41(F|G|I)(|L))|(M_M40_(0A|0B|0C|1A|2A|9A)(|L))|M_275|$DIR(M_3_342006L,M_3_342006)|		\
-	$DIR(M_3_424247KL,M_3_424247K),									\
+	$DIR(M_3_4242(47)KL,M_3_424247K),									\
 	(<4-7*10:(M_2026(A|B)(|L)|M_2027(A|B|F|G)(|L))|(M_2027(E|H)(|L)),M_DNZ64000(|L));		\
       F=EP3;
     C=M_V43R,2*M_4A_B2041(|L),M_4A_A1941(|L),$DIR(M_4A_AB3941L,M_4A_AB3941),3*M_4A_B2041(|L); F=EP3;
     C=(M_V40_004)|(1-2*M_V41_523L~SA|M_V41_523~SA),							\
 	(8-12*M_GONIII)|(MAVESFORCONT,12-15*MAV_EAO,MAVESFORCONT)|					\
-	5:((1-2*(8:MAVGGS|OPWEPIIIG),1-3*M_GONIII,(8:(MAVG|MAVGGS|MAVGBGS)|(CSD_G3|PKP_G3|DR_G3|DRGBS)), \
-	3-4*MAVGGS,0-3*MAVZ));										\
+	5:((1-2*(8:MAVGGS|OPWEPIIIG),1-3*M_GONIII,							\
+	(8:(MAVG|MAVGGS|MAVGBGS)|(CSD_G3|PKP_G3|DR_G3|DRGBS)),3-4*MAVGGS,0-3*MAVZ));			\
       F=EF3;
-    C=MAV520,M_9420(|L),3-5*MAVG|M_GZK|M_GZKK(|L),3-4*M_RA0(|L)|M_RA(0|1)(|L),M_GONIII,M_554ES(2|3|4|5), \
-	1-3*MAVG,M_GONIII,1-2*DR_OOR(|L);								\
+    C=MAV520,M_9420(|L),3-5*MAVG|M_GZK|M_GZKK(|L),3-4*M_RA0(|L)|M_RA(0|1)(|L),M_GONIII,			\
+	M_554ES(2|3|4|5),1-3*MAVG,M_GONIII,1-2*DR_OOR(|L);						\
       F=SF3;
     M=M1|2:M4; D=J;											\
       C=(M_ABBMOTA(|L),4-6*M_CAK5(200|300|400|600)(|L)|M_2126A(|L),M_ABBMOTA(|L))|			\
 	(M_ABBMOTB(|L),4-6*M_CAK5(200|300|400|600)(|L)|M_2126A(|L),M_ABBMOTB(|L));			\
-      P=<5; T=OPEN,2,PD,10,PBU,W,2,CLOSE,W,1; F=DPO3;
+      P=<5; T=OPEN,2,PD,10,PBU,W,2,CLOSE,W,1; F=DPOT3;
     C=M_V550(01|03|07|10|11),6*M_BAH4(600L|600|700L|700|800L|800|900L|900|801L|801|901L|901); V=5|7|10;	\
       F=EP3;
     C=MAV520,3-8*M_KZM,1-7*MAVG,2*PKP_G3,1-3*M_HAFHKRS(|L),M_JZ,M_GONIII; F=SF3;
@@ -281,13 +283,13 @@ $ENDPOOL
 	(M_BDT1B,((4-7*M_2027(A|B)(|L))|(4-7*M_2027(F|G)(|L))),M_V43R)|					\
 	(M_V41_523L~SA|M_V41_523~SA,4-5*M_2026(A|B)(|L),M_BHT0CL)|					\
 	(M_BHT0C,4-5*M_2026(A|B)(|L),M_V41_523L~SA|M_V41_523~SA));					\
-      P=>95; T=OPEN,2,PD,10,PBU,W,2,CLOSE,W,1; F=EPO3;
+      P=>95; T=OPEN,2,PD,10,PBU,W,2,CLOSE,W,1; F=EPTO3;
     C=(2:(M_M41(F|G|I)(|L))|(M_M40_0(A|B|C)(|L))|2:MAVM41|(M_M40_0D(|L))),4-7*M_2027(C|D)(|L);		\
       FG=8*TRBED12,TRBED12ROAD|BRIDGE2,8*TRBED12:..,-20; F=DP3;
     D=J;												\
       C=>(($DIR(M_3_424005L,M_3_424005)|(M_M40_(0A|0B|0C|1A|2A|9A)),					\
-	4-5*M_2027(A|B)(|L)|4-5*M_2027(F|G)(|L),M_BDT1BL)|						\
-	(M_BDT1B,4-5*M_2027(A|B)(|L)|4-5*M_2027(F|G)(|L),						\
+	(4-5*M_2027(A|B)(|L))|(4-5*M_2027(F|G)(|L)),M_BDT1BL)|						\
+	(M_BDT1B,(4-5*M_2027(A|B)(|L))|(4-5*M_2027(F|G)(|L)),						\
 	($DIR(M_3_424262,M_3_424262L)|M_M40_(0A|0B|0C|1A|2A|9A)))|					\
 	(($DIR(M_3_424005L,M_3_424005)|(M_M40_(0A|0B|0C|1A|2A|9A))|(M_M41(F|G|I)(|L))),			\
 	4-5*M_2026(A|B)(|L),M_BHT0CL)|									\
@@ -328,12 +330,12 @@ $ENDPOOL
     D=J;												\
       C=>(((M_M41(F|G|I)(|L))|(MAVM41)|$DIR(M_3_424005L,M_3_424005)|					\
 	(M_M40_(0A|0B|0C|1A|2A|9A)|M_M40_0(E|F)(|L)),							\
-	4-5*M_BHV_(F|H)(|L)|4-5*(M_2027(C|D|F|G)(|L)|M_BHV_(F|H)(|L)),M_BHT0AL|M_BDT1AL)|		\
-	(M_BHT0A|M_BDT1A,4-5*M_BHV_(F|H)(|L)|4-5*(M_2027(C|D|F|G)(|L)|M_BHV_(F|H)(|L)),			\
+	(4-5*M_BHV_(F|H)(|L))|(4-5*(M_2027(C|D|F|G)(|L))|M_BHV_(F|H)(|L)),M_BHT0AL|M_BDT1AL)|		\
+	(M_BHT0A|M_BDT1A,(4-5*M_BHV_(F|H)(|L))|(4-5*(M_2027(C|D|F|G)(|L))|M_BHV_(F|H)(|L)),			\
 	(M_M41(F|G|I)(|L))|(MAVM41)|$DIR(M_3_424005L,M_3_424005)|					\
 	(M_M40_(0A|0B|0C|1A|2A|9A)|M_M40_0(E|F)(|L)))|							\
 	(($DIR(M_3_424005L,M_3_424005)|(M_M40_(0A|0B|0C|1A|2A|9A))|(M_M41(F|G|I)(|L)|MAVM41)),		\
-	4-5*M_2027(C|D)(|L)|5:(M_BHV_(F|H)(|L)),M_BHT0CL|3:M_BHT0AL)|					\
+	(4-5*M_2027(C|D)(|L))|5:(M_BHV_(F|H)(|L)),M_BHT0CL|3:M_BHT0AL)|					\
 	(3:M_BDT1A|M_BDT1C,4-5*M_2027(C|D)(|L)|5:(M_BHV_(F|H)(|L)),					\
 	($DIR(M_3_424282L,M_3_424282)|(M_M40_(0A|0B|0C|1A|2A|9A))|MAVM41|(M_M41(F|G|I)(|L)))));		\
       V=8; F=P4;
@@ -341,7 +343,7 @@ $ENDPOOL
     C=M_M62A(|L),M_806ICHQRS,4*M_148GGS(1|2|3|4|5),8-10*M_157GBGS(1|2|3|4|5)|M_148GGS(1|2|3|4|5); F=DF4;
     POOL=GYSEV_EP4A; F=O4;
     C=M_V43R,CSD_PAO,2*SZD_MK442477A,SZD_ZB5651DM4A,2*SZD_MK442477A,CSD_PAO;
-# Budapest? 1975. Seen in Ha az ir, Var a MAV film
+# Budapest "?" 1975. Seen in Ha az ir, Var a MAV film
     C=M_M41(A|B|C|D|H)(|L),M_148GGS(1|2|3|4|5),M_330KS(1|2|3|4|5),M_806ICHQRS,CD_ZAZ,			\
 	M_148GGS(1|2|3|4|5),2*M_595EAS(1|2|3|4|5),DR_EL5565(|B|C|D|E),M_788ZAES_(1|2|3|4|5|7)(|L),	\
 	2*M_GAGSV(1|2|3|4)(|L),2*M_788ZAES_(1|2|3|4|5|7)(|L);						\
@@ -368,7 +370,7 @@ $ENDPOOL
 	4-7*M_4A_B2041(|L)|M_2047B(|L),0-1*M_9541A(|L));						\
       F=EP4;
     C=(5:(M_V43(A|C0|R))|(M_V63(|A))),6-8*MAVGBGS,1|2|4@OPWEPIVGBS,8-10*H_EWGN; F=EF4;
-    M=M1|2:M3; D=J; C=<M_MDMOTB,2*M_2005B(|L),M_1005B(|L),M_2705B; P=>90; T=OPEN,10,CLOSE,W,1; F=O4;
+    M=M1|2:M3; D=J; C=<M_MDMOTB,2*M_2005B(|L),M_1005B(|L),M_2705B; P=>90; T=OPEN,10,CLOSE,W,1; F=OPRT4;
     C=M_M62E,3*MAVGAGS,1-3*H_EWGN,(2-12*MAVZAS)|(2-12*MAVOPEN); F=DF4;
     C=MAVM44,6-8*M_633FCCPP(1|2|3|4|5)(|L); F=DF4;
     C=MAVM41,M_1027A(|L)|M_1905(A|AL|B),3*M_BY_(A|B|C)(|L); F=DP4;
@@ -396,15 +398,15 @@ $ENDPOOL
     C=M_V43(A|B0|C0),M_4WRM8881(|L),7:0|3:1*M_8970A(|L),7:0|3:1*M_4WRM8881(|L),				\
 	(2:(OBB_5A19701(|L))|4:(OBB_5(A|C|D)3070(|L))|(OBB_4A1971(|L))|2:(OBB_4A3070(|L))|		\
 	4:(M_3991A(|L))|(M_4A1980A(|L))),								\
-	3-4*(3:(OBB_5(A|B|C)21700(|L))|2:(OBB_4A21705(|L))|5:(OBB_5(A|B|C)21700(|L))|(OBB_4A21705(|L))|	\
-	4:(2:(M_BMZ61)|3:(M_BPMZ61)|M_4B2080A(|L)));							\
+	3-4*(3:(OBB_5(A|B|C)21700(|L))|2:(OBB_4A21705(|L))|5:(OBB_5(A|B|C)21700(|L))|			\
+	(OBB_4A21705(|L))|4:(2:(M_BMZ61)|3:(M_BPMZ61)|M_4B2080A(|L)));					\
       F=EP4;
     M=M1|2:M4; D=J;											\
       C=(<M_V43F,4-7*M_BHV_F0(|L),M_BDT3A)|(<M_BDT3AL,4-7*M_BHV_F0(|L),M_V43F)|				\
 	(<M_V43F,4-7*M_BHV_F1(|L),M_BDT4A)|(<M_BDT4AL,4-7*M_BHV_F1(|L),M_V43F)|				\
 	(<M_V43F,(4-7*M_BHV_S(|L))|(4-7*M_BHV_F2(|L)),M_BDT3B)|						\
 	(<M_BDT3BL,(4-7*M_BHV_S(|L))|(4-7*M_BHV_F2(|L)),M_V43F);					\
-      P=<5; T=OPEN,2,PD,10,PBU,W,2,CLOSE,W,1; F=O4;
+      P=<5; T=OPEN,2,PD,10,PBU,W,2,CLOSE,W,1; F=OPRT4;
     TX=Bátaszék <-> Sárbogárd (anno 1984);								\
       C=$DIR(M_3_424247KL,M_3_424247K),M_9420(|L),H_EWGN,						\
 	MAVKS[OB:C1011,<9,11][OB:C1011,*,11][OB:C1011,>128,11],G_EAS1D,DRGBS,MAVGGS,DRGAGMSV,DR_2OPEN,	\
@@ -419,11 +421,11 @@ $ENDPOOL
     C=M_V43K,M_BHV_(E|EL|H|HL),3*M_2067(A|B|C|D)(|L),M_2057A(|L),3*M_2067(A|B|C|D)(|L); F=EP4;
     M=M8; C1=(<M_2105BL,2*M_2205B(|L),M_6805BDVMOTB)|(<M_6805BDVMOTBL,2*M_2205B(|L),M_2105B);		\
       C2=(<M_2105BL,2*M_2205B(|L),M_6805BDVMOTB)|(<M_6805BDVMOTBL,2*M_2205B(|L),M_2105B); P=*;		\
-      T1=OPEN,2,PD,10,PBU,W,2,CLOSE,W,1; F=EPUO4;
+      T1=OPEN,2,PD,10,PBU,W,2,CLOSE,W,1; F=EPUTO4;
     TX=D 370 "Pannonia Express" Sofia <- Ruse - Bucuresti Nord - Brasov - Budapest Keleti pu - Komárom - Bratislava hl.st. - Brno hl.n - Praha hl.n. - Dresden -> Berlin-Lichtenberg (anno 1985); \
       C=M_V43(A|B0|C0),BDZ_BC(|L),M_4B2041(|L),DR_4BMH2111(|L)|DR_4BMH2140(|L),				\
-	(BDZ_4WLABM1A(|L))|(BDZ_BC(|L))|(BDZ_4A_BM(1|2)A(|L)),BDZ_BC(|L),BDZ_4WLABM1A(|L),2*BDZ_BC(|L),	\
-	(DR_B516D(|L)|DR_B518D(|L)),(CSD_ABM65(A|B)(|L)|CSD_ABM84),					\
+	(BDZ_4WLABM1A(|L))|(BDZ_BC(|L))|(BDZ_4A_BM(1|2)A(|L)),BDZ_BC(|L),BDZ_4WLABM1A(|L),		\
+	2*BDZ_BC(|L),(DR_B516D(|L)|DR_B518D(|L)),(CSD_ABM65(A|B)(|L)|CSD_ABM84),			\
 	(CSD_WLABM68(B|C)(|L)|CSD_WLABM78(B|C)(|L)|CSD_WLABM85(|L)),CFR_5941B(|L),CFR_2041CL,		\
 	0|1*CFR_2041CL,											\
 	((M_1957A(|L)|M_1947A(|L))|(M_2057A(|L)|M_2047A(|L)|M_4B2041(|L)))|				\
@@ -453,13 +455,15 @@ $ENDPOOL
       C=M_V43(A|B0|C0),0|1*DR_B516D(|L)|DR_B518D(|L),							\
 	0|1*((BDZ_4WLABM1A(|L))|(BDZ_BC(|L))|(BDZ_4A_BM(1|2)A(|L))),(BDZ_BC(|L))|(JZ_5970L|JZ_5970),	\
 	(DR_B516D(|L)|DR_B518D(|L))|(CSD_B65(|L)|CSD_B77(|L)),DR_4BMH2111(|L)|DR_4BMH2140(|L),		\
-	DR_A504D(|L)|DR_A505D(|L),DR_AB508B(|L)|DR_AB511B(|L)|DR_AB512B(|L)|DR_AB508D(|L)|DR_AB511D(|L), \
+	DR_A504D(|L)|DR_A505D(|L),									\
+	DR_AB508B(|L)|DR_AB511B(|L)|DR_AB512B(|L)|DR_AB508D(|L)|DR_AB511D(|L),				\
 	DR_B516D(|L)|DR_B518D(|L),									\
 	(DR_WLAB1771D(|L)|DR_WLAB177Y2D(|L)|DR_WLABGED(|L))|(M_4_WLABM7041(|L)),			\
 	0|1*(DR_A504D(|L)|DR_A505D(|L))|((BDZ_4WLABM1A(|L))|(BDZ_BC(|L))|(BDZ_4A_BM(1|2)A(|L))),	\
 	(DR_WLAB1771D(|L)|DR_WLAB177Y2D(|L)|DR_WLABGED(|L))|(BDZ_4WLABM1A(|L)),				\
 	(CSD_ABM65(A|B)(|L)|CSD_ABM84),(CSD_WLABM68(B|C)(|L)|CSD_WLABM78(B|C)(|L)|CSD_WLABM85(|L)),	\
-	CFR_5941B(|L),CFR_2041C(|L),0|1*(DR_B516D(|L)|DR_B518D(|L))|(CFR_WLB|CFR_5941B(|L)|CFR_1941C(|L)); \
+	CFR_5941B(|L),CFR_2041C(|L),									\
+	0|1*(DR_B516D(|L)|DR_B518D(|L))|(CFR_WLB|CFR_5941B(|L)|CFR_1941C(|L));				\
       F=EP4;
     C=M_V43(A|B0|C0),DR_DGE4(C|D|E|F|G|H)(|L),2*DR_B51(6D|8D|9D)(|L)|DR_BCME1D(|L),			\
 	2*DR_A4GE64(|L)|DR_A504D(|L)|DR_A505D(|L)|DR_A506D(|L)|DR_A507D(|L)|DR_BCME2D(|L),		\
@@ -591,14 +595,16 @@ $ENDPOOL
 	(<(<M_2105L,2*M_BMX2105|M_2205(|L),M_6805BDVMOT001),FS_E492)|4:(FS_E492[PFU]),M_V43A,		\
 	14-20*M_227HBILS(|2)|M_245HBBILLNS(|1)|M_246HBBILLNNS(1|2|3|4)|M_293HILLMRRS(|2)|M_277HABIS(|2); \
       F=EU6;
-    M=SIMPLE|OPEN; C=M_BZMOT(D|E|F)(|L),1-2*M_BZX(CL|C);						\
-      FG=M_MHELY1:,-6; F=O6;
+    M=OPEN; C=M_BZMOT(D|E|F)(|L),1-2*M_BZX(CL|C);							\
+      FG=M_MHELY1:,-6; F=OPTR6;
     C=10:(M_1047L~ZS|M_1047~HEN)|(M_1047_010(|L)),GY_1067C,2*GY_2067C,M_1937I(|L),4*M_2037I(|L); F=EP6;
     C=M_M40_(0E|0EL|2C|2CL|9C|9CL),MAVEASWOOD,2*M_246HBBILLNNS(1|2|3|4),M_227HBILS(|2),M_910UCS(|L),	\
 	5*MAVKS,5*M_910UCS(|L);										\
       F=DF6;
     TX=Komárom (27.07.2002);										\
-      M=5:SIMPLE|OPEN; C=2*M_BZMOTIPB(|L); F=O6;
+      C=2*M_BZMOTIPB(|L); F=P6R;
+    TX=Komárom (27.07.2002);										\
+      M=OPEN; C=2*M_BZMOTIPB(|L); F=OPTR6;
     TX=Budapest Nyug. (27.07.2002);									\
       C=MAVM62,M_246HBBILLNNS(1|2|3|4),HABISNORM,MAVKS,2*MAVZAES1|VTG_1|VTG_5,14*MAVRGS,		\
 	4*M_533EAOS(1|2|3|4|5);										\
@@ -613,7 +619,8 @@ $ENDPOOL
       F=F6;
     C=GY_V43Z,2*OBB_ICB; F=EP6;
     POOL=GYSEV_EP6; F=U6;
-    M=SIMPLE|OPEN; C=<M_BZMOTIP(A|B|C)(|L); F=O6;
+    C=<M_BZMOTIP(A|B|C)(|L); F=PRD6;
+    M=OPEN; C=<M_BZMOTIP(A|B|C)(|L); F=PRDT6;
     TX=IC 246 "Citadella" Budapest-Déli <-> Ljubljana  (anno 2003);					\
       C=M_V43(B0|C0),SZ_6BEELMT(|L),SZ_B3(|L),SZ_AB3(|L),M_9580A(|L); F=EP6;
     C=M_V43(A|B0|C0),M_1067(A|C)(|L),2*M_BY_(A|B|C)(|L); F=EP6;
@@ -654,7 +661,7 @@ $ENDPOOL
 	6*(OBB_6A2171|OBB_6B2190|OBB_6A2191|OBB_6A21911A_MD)(|L);					\
       F=EP6;
     TX=Budapest <-> Miskolc Tiszai (26.06.2004);							\
-      C=M_V43(B0|C0),(<M_9047AL,M_9047A); F=EP6;
+      C=M_V43(B0|C0),(<M_POST4L,M_POST4); F=EP6;
 # ^^ Letzter Postzug Budapest -> Miskolc
     C=M_M43(|L),M_554ES(1|2|3|4|5|6|7|8|9),M_246HBBILLNNS(1|2|3|4); F=DF6;
     C=OBB_1116(|L)[P3U]|OBB_1116NL~ZS[P3U]|OBB_1116N~ZS[P3U],13*AUTOLOADEDFIAT2; F=EF6;
@@ -677,9 +684,9 @@ $ENDPOOL
 	M_593EAMS(1|11|12|13|14|15|2|3|4|5)[O:FR_UH(1|3)],3*M_595EAS(1|2|3|4|5)[O:FR_UH(1|2|3|4)];	\
       F=EF6;
     TX=Dunakeszi (18.11.2004);										\
-      C=GY_M40(|L),DBAG_BYU438_GP200(|L)[O:GR_0(1|2|3|4|5|6),>52-253,8],				\
+      C=GY_M40(|L),DBAG_BYU438_GP200(|L)[O:GR_0(1|2|3|4|5|6),>65-253,8],				\
 	DBAG_5ABY407(|L)|DBAG_5ABY407_1(|L),DBAG_ABY407(|L)|DBAG_ABY407_1(|L),2*DBAG_BN433HH(|L),	\
-	DBAG_BN433HH(|L)[O:GR_0(1|2|3|4|5|6),>52-253,8];						\
+	DBAG_BN433HH(|L)[O:GR_0(1|2|3|4|5|6),>65-253,8];						\
       F=P6;
     C=M_V43(A|B0|C0),CSD_RA_LOUH,MAVGBGS,7*H_EWGN,MAVGAGS,M_910UCSL,7*H_EWGN,M_393RES3; F=EF6;
     TX=Szolnok <-> Budapest (anno 2005);								\
@@ -785,8 +792,8 @@ $ENDPOOL
 	M_V43_1B[PD];											\
       F=P6;
     TX="Avala" Budapest-Kl. (17.11.2006);								\
-      C=M_V43_1B,UZ_WLABM2,RZD_WL1~HEN[B:120,25,5,6],JZ_1090(|L),3*JZ_2090(|L),OBB_6BMZL~MB|OBB_6BMZ~MB, \
-	OBB_5D2191(|L);											\
+      C=M_V43_1B,UZ_WLABM2,RZD_WL1~HEN[B:120,25,5,6],JZ_1090(|L),3*JZ_2090(|L),				\
+	OBB_6BMZL~MB|OBB_6BMZ~MB,OBB_5D2191(|L);							\
       F=EP6;
     TX=Pécs <-> Mohacs (17.11.2006);									\
       C=$DIR(M_M47_1200,M_M47_1200L),4*MAVEAS,MAVEAMS,2*MAVEAS,4*MAVEAMS,MAVEAS,MAVEAMS,MAVEAS,		\
@@ -865,8 +872,8 @@ $ENDPOOL
 	GB15(C|D),3*M_246HBBILLNNS(1|2|3|4),SJ_LAAIS921,2*M_246HBBILLNNS(1|2|3|4),GB15(C|D);		\
       F=EF6;
     TX=Györszabadhegy (15.01.2008);									\
-      C=$DIR(M_M62_306,M_M62_307),M_354RILS,2*M_393RES1(1|2|3),G_RGS2,11*M_393RES1(1|2|3),2*KVG_7852541, \
-	G_RES2,G_RILS_L,DBAG_RILS652,2*CFR_RILS,3*CFR_RGS1,2*M_393RES1(1|2|3),4*CFR_RGS1;		\
+      C=$DIR(M_M62_306,M_M62_307),M_354RILS,2*M_393RES1(1|2|3),G_RGS2,11*M_393RES1(1|2|3),		\
+	2*KVG_7852541,G_RES2,G_RILS_L,DBAG_RILS652,2*CFR_RILS,3*CFR_RGS1,2*M_393RES1(1|2|3),4*CFR_RGS1;	\
       F=DF6;
     TX=Vonat 19801 Szõny <-> Déli (30.03.2008);								\
       C=$DIR(M_M41AL,M_M41A),M_3155R,DBAG_5BYU438_0L[B:47,12,8,4]; F=DP6;

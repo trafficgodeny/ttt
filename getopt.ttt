@@ -1,3 +1,4 @@
+# { [ (
 #==========================================================================
 #
 #                            Traffic Timetable File
@@ -11,20 +12,35 @@
 #==========================================================================
 $OPTSUB N=Multi-line on black screen; G=Mehrere Zeilen vor schwarzem Hintergrund; H=Több pálya fekete háttéren;
 $OPT K=MM; N=MM-Scale (1px=10cm); G=MM-Maßstab (1px=10cm); H=MM méretarány (1px=10cm);
+{%FILEX(19x1.tvl)?
 $OPT K=HAS; N=Hasiru scale (18px); G=Hasiru-Maßstab (18px); H=Hasiru méretarány (18px);
 $OPT K=T30; N=TrainSideView 30 (1px=20cm);
 $OPT K=TB; N=TrainBanner (32px);
-$OPT K=MR; N=Mission Railroad (39px);
-$OPT K=NSME; N=NSME (95px);
-$OPT K=DUP; N=Double scale (110-120px); H=Dupla méretarány (110-120px);
-$OPT K=LTCMM; N=LTC - triple scale; H=LTC - háromszoros méretarány;
+$OPT K=MR; N=Mission Railroad (39px);?
+$SET HAS=0
+$SET T30=0
+$SET TB=0
+$SET MR=0
+}
+{%FILEX(19x2.tvl)?
+$OPT K=NSME; N=NSME (95px);?
+$SET NSME=0;
+}
+{%FILEX(19x2.tvl)?
+$OPT K=DUP; N=Double scale (110-120px); H=Dupla méretarány (110-120px);?
+$SET DUP=0;
+}
+{%FILEX(19x3.tvl)?
+$OPT K=LTCMM; N=LTC - triple scale; H=LTC - háromszoros méretarány;?
+$SET LTCMM=0;
+}
 $OPT N=-;
 $OPTCMD N=All scales; G=Alle Maßstäbe; H=Mindegyik méretarány; \
   CMD=MM+,HAS+,T30+,TB+,MR+,NSME+,DUP+;
 $OPTCMD N=No multi-line; G=Keine Mehrfach-Zeilen; H=Egyik sem; \
   CMD=MM-,HAS-,T30-,TB-,MR-,NSME-,DUP-;
 $OPTEND
-
+        
 $OPTSUB N=Full screen backgrounds; G=Große Hintergrundbilder; H=Nagyméretü háttérképek;
 $OPT K=BGD; N=German photos; G=Deutsch Fotos; H=Német fényképek;
 $OPT K=BGCH; N=Swiss photos; G=Schweizer Fotos; H=Svájci fényképek;
@@ -74,11 +90,13 @@ $OPT K=PHA; N=Objects from films, games etc.; G=Objekten aus Filmen, Spiele usw.
 $OPT N=-;
 $OPT K=OPM; N=Opaku's mini scenes; G=Kleine Szene von Opaku; H=Opaku mini jelenetei;
 $OPT K=TK; N=TrainKit japanese scenes; G=TrainKit japanische Szenen; H=TrainKit japán jelenetek;
-{%FILEX(BGPIC\TGIF_SPRINGGREENB.GIF)?
-$OPT K=TGIF; N=TrainGif scenes; G=TrainGif Szenen; H=TrainGif jelenetek;
+{%FILEX(BgTgif/TGIF_SPRINGGREENB.GIF)?
+$OPT K=TGIF; N=TrainGif scenes; G=TrainGif Szenen; H=TrainGif jelenetek;?
+$SET TGIF=0;
 }
-{%FILEX(BGPIC\LTC_FREIGHT.JPG)?
-$OPT K=LTC; N=LTC scenes; G=LTC Szenen; H=LTC jelenetek;
+{%FILEX(BGLTC/LTC_FREIGHT.JPG)&%FILEX(19x3.tvl)?
+$OPT K=LTC; N=LTC scenes; G=LTC Szenen; H=LTC jelenetek;?
+$SET LTC=0;
 }  
 $OPT K=LARGE; N=Large scales; G=Große Maßstäbe; H=Nagy méretarányú rajzok;
 $OPT N=-
@@ -217,17 +235,23 @@ $OPT K=CY5; N=High full background; G=Hohe volle Hintergrund; H=Magas teljes hát
 $OPT N=-;
 $OPTCMD N=All styles; D=Alle Stile; H=Az összes stílus; \
   CMD=CY0+,CY2+,CY3+,CY4+,CY5+;
-$OPTEND
-$OPTSUB N=Other;G=Andere;H=Egyéb;
-$OPT K=V3;N=MM&MM v3.0;V=0;
-$OPT K=NEK;N=NiMo Extension Kit;V=0;
-$OPT K=NEU; N=replace older versions; G=Neueste Bildversion verwenden;
-$OPT K=MLG; N=MLG-Style;
-$OPT K=MMS; N=MM-Style;  
+$OPTEND 
+
+$OPTSUB N=Configuration MM-Scale (1px=10cm); G=Kofiguration MM-Maßstab (1px=10cm);
+$OPT K=MMCT; N=MM-Lines with Citytraffic
+$OPT K=V3; V=0; N=MM&MM v3.0;
+$OPT K=NEK; V=0; N=NiMo Extension Kit;
+$OPT K=NEU; N=replace older versions; G=Neueste Bildversion verwenden;   
+$OPT K=MLGT; V=0; N=Only MLG timetables;
+$OPT K=MLGS; N=MLG-Style (light); G=MLG-Styl: hell; H=MLG-Stílus: világos;   
 {%FILEX(MM_OWN.ttt)?
-$OPT K=OWN; N=Own timetable MM; G=Eigener Fahrplan MM-Maßstab;
-} 
+$OPT K=OWN; V=0; N=Only Own timetable MM; G=Nur Eigener Fahrplan MM-Maßstab;
+?
+$CSET OWN=0;
+}
+$OPT N=-;
 $OPTEND
+
 $OPTSUB N=Splash screen;G=Begrüßungsbildschirm;H=Induló kép;
 $OPT K=SP0;N=None; G=Keine; H=Nincs; CMD=SP1-,SP2-; V=0;
 $OPT K=SP1;N=Traffic crane; G=Traffic Kran;H=Traffic daru;CMD=SP0-,SP2-; V=1;
@@ -235,7 +259,7 @@ $OPT K=SP2;N=German sign; G=Vorsicht vor durchfahrenden Zügen; H=Német tábla; CM
 $OPTEND
 
 $INFO +Traffic Screensaver {N=timetable example;G=Fahrplandatei-Beispiel;H=Minta menetrend fájl}
-$INFO {N=Created by;G=Hergestellt von;H=Készítette: } {N=Zoltán Szabó, Zoltán Iván;H=Szabó Zoltán, Iván Zoltán}, James McDonald, Marc Le Gad, Jindrich Kalous, Brian Clough 
+$INFO {N=Created by;G=Hergestellt von;H=Készítette: } {N=Zoltán Szabó, Zoltán Iván;H=Szabó Zoltán, Iván Zoltán}, Lars Bosshammer, James McDonald, Marc Le Gad, Jindrich Kalous, Brian Clough 
 $INFO {N=Background pictures from;G=Hintergrundbilder von;H=Háttérképek: } Jindrich Kalous, Hans-Martin Hebsaker, 
 $INFO Backdrop Warehouse website (http://www.backdropwarehouse.com), 
 $INFO stock.xchng website (http://sxc.hu),
@@ -244,36 +268,61 @@ $INFO
 $CSET TGIF 0
 $CSET LTC 0
 {D?
-$SET BRD
-$SET DDR
+  $SET BRD
+  $SET DDR
 }
-$CSET CITY=0
-{TRAM|BUS|CRAIL|MONO?
-$SET CITY
-}
+
+$CSET CITY=0;
+{MMCT??
+  {TRAM|BUS|CRAIL?
+    $SET CITY
+  }
+} 
+
 {HSH|A|AZ|B|BG|BCH|HR|CS|CSD|DK|EVR|SF|F|D|GEO|DDR|BRD|GR|GB|H|IE|I|J|KAZ|LDZ|LG|L|MD|NL|N|PL|P|RO|RZD|SK|SLO|E|CH|S|TR|UZ|SU|AUS|USA|CAN|MEX|SA|CN|YU|ASSD|AS|NE|AF|FAN|BGD|BGCH|JKA|LEO|MIX1|BDWH|IMAG|CYSC|CZA|BGDRW|CITY|AVIA|SHIP|STREET|TOY|ADV|PRG|SPACE|PHA|TGIF|LARGE??
-  $ERROR N=Please select some countries or other themes;G=Bitte wählen Sie einige Länder bzw. Themen aus;H=Kérem, válasszon ki néhány országot vagy témát;}
-{HSH|A|AZ|B|BG|BCH|HR|CS|CSD|DK|EVR|SF|F|D|GEO|DDR|BRD|GR|GB|H|IE|I|J|KAZ|LDZ|LG|L|MD|NL|N|PL|P|RO|RZD|SK|SLO|E|CH|S|TR|UZ|SU|AUS|USA|CAN|MEX|SA|CN|YU|ASSD|AS|NE|AF|FAN?{E1|E2|E3|E4|E5|E6|E7??
-  $ERROR N=Please select some era; G=Bitte wählen Sie einige Epochen aus; H=Kérem válasszon ki néhány korszakot;}}
+  $ERROR N=Please select some countries or other themes;						\
+    G=Bitte wählen Sie einige Länder bzw. Themen aus; H=Kérem,válasszon ki néhány országot vagy témát;
+}
+
+{HSH|A|AZ|B|BG|BCH|HR|CS|CSD|DK|EVR|SF|F|D|GEO|DDR|BRD|GR|GB|H|IE|I|J|KAZ|LDZ|LG|L|MD|NL|N|PL|P|RO|RZD|SK|SLO|E|CH|S|TR|UZ|SU|AUS|USA|CAN|MEX|SA|CN|YU|ASSD|AS|NE|AF|FAN?
+  {E1|E2|E3|E4|E5|E6|E7??
+    $ERROR N=Please select some era; G=Bitte wählen Sie einige Epochen aus;				\
+      H=Kérem válasszon ki néhány korszakot;
+  }
+}
+
 {MM?
   {RW0|RW2|RW3|RW4|RW5??
-    $ERROR N=Please select some multi-line railway styles; 
+    $ERROR N=Please select some multi-line railway styles;
   }
-}  
+}
 {TRAM|BUS|CRAIL?
   {CY0|CY2|CY3|CY4|CY5??
     $ERROR N=Please select some multi-line city traffic styles;
   }
 }
-$MINVER PRG=4,16,0;DLL=4,16,0;
-    
+{MMCT?
+  {TRAM|BUS|CRAIL??
+    $ERROR N=Please select one type of city-traffic (tram,bus or cityrail);
+  }
+}    
+
+$CSET WTR=0;
+$CSET WTRAFFIC=0;
+
+$MINVER PRG=4,16,0; DLL=4,16,0;
+
 $BGCOLOR #000000
 $ABOVE 30
 $BELOW 15
 $DEFSPEED 5-9
 
 {SP1?
-$SPLASH C=BGPIC\DARU_TR.GIF; F;
-?{SP2?
-$SPLASH C=BGPIC\START2.JPG; F;
-}}
+  $SPLASH C=BGPIC/DARU_TR.GIF; F;
+?
+  {SP2?												\
+    $SPLASH C=BGPIC/START2.JPG; F;
+  }
+}
+
+# ) ] }

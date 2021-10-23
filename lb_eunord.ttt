@@ -56,11 +56,15 @@ $REQUIRE TRAINDEF.TTT
 	C=NFJ_M3; F=DP2;
       TX=Stubbekobing - Nykobing - Nysted Banen M5;							\
 	C=SNNB_M5; F=DP2;
+      TX=Gjedser Jernaben DK 1;										\
+	C=GJDK_1; F=DPR2;
 
     }
     {E3?
       TX=DSB F 654 + Rangierzug;									\
 	C=DSB_F654(|L),DK3FS; F=SF3;
+      TX=DSB Q + Rangierzug;										\
+	C=DSB_Q3(46|37)(|L),2*DK3FS; F=SF3;
       TX=DSB T 297-299 + Personenzug;									\
 	C=DSB_3T29(7|8|9)(|L),DK3PA1; F=SP3;
       TX=DSB T 297-299 + Schnellzug;									\
@@ -70,7 +74,7 @@ $REQUIRE TRAINDEF.TTT
       TX=DSB MO 1800;											\
 	C=DSB_MO_1800; F=DP3;
       TX=DSB N200;											\
-	C=DSB_N20(1|2|9|4|5)(|L),DK3PA1; F=SF3;
+	C=DSB_N20(1|2|9|4|5)(|L),DK3PA1; F=SPR3;
       TX=DSB MH + Rangierzug;										\
 	C=DSB_3MH(203|301)(|L),3*DK3FS; F=DF3;
       TX=DSB MX Nohab;											\
@@ -115,11 +119,22 @@ $REQUIRE TRAINDEF.TTT
 	  (<DSB_3B_MS402L,DSB_3A_AAL,DSB_3A_MS404)|(<DSB_3A_MSL,DSB_3A_AA(|L),DSB_3A_MS)|		\
 	  (<DSB_3B_MSL,DSB_3B_AA(|L),DSB_3B_MS);							\
 	F=DPU3;
+      TX=DSB MK;											\
+	C=(<DSB_3_MK675L,DSB_3_MK675)|(<DSB_3_MF676L,DSB_3_MF676)|(<DSB_3_MK677L,DSB_3_MK677)|		\
+	  (<DSB_3_MF678L,DSB_3_MF678);									\
+	F=DPRU3;
+      TX=DSB MY + Personenzug;										\
+	C=DSB_3_MY_H(|L),										\
+	  (<DSB_3B_CMR2119,DSB_3A_COR,DSB_3B_AV249,DSB_3B_CR3614,DSB_3B_CP2872,DSB_3B_CP2835,		\
+	  DSB_3B_CPE2987|DSB_3B_CPE2993)|								\
+	  (>DSB_3B_CMR2119L,DSB_3A_CORL,DSB_3B_AV249L,DSB_3B_CR3614L,DSB_3B_CP2872L,DSB_3B_CP2835L,	\
+	  DSB_3B_CPE2987L|DSB_3B_CPE2993L);								\
+	\ F=DP3;
       TX=DSB MY Nohab + Skandinavien-Italien-Express 1954;						\
 	C=DSB_3_MY_H(|L),										\
-	  (<CIWL_3WLUHL,DSB_3_BC4UL,FS_3DZ80000BH,DSB_3_B4UL,FS_BZ23010B,FS_AZ13010B,2*CIWL_3WLUH,	\
+	  (<CIWL_3WLUHL,DSB_3_BC4UL,FS_3DZ80000BH,DSB_3_B4UL,FS_BZ23010B,FS_AZ13010B2,2*CIWL_3WLUH,	\
 	  CIWL_3WLUHL,SBB_3A_AB42800)|									\
-	  (<SBB_3A_AB42800L,2*CIWL_3WLUHL,CIWL_3WLUH,FS_AZ13010BL,FS_BZ23010BL,DSB_3_B4U,		\
+	  (<SBB_3A_AB42800L,2*CIWL_3WLUHL,CIWL_3WLUH,FS_AZ13010B2L,FS_BZ23010BL,DSB_3_B4U,		\
 	  FS_3DZ80000BHL,DSB_3_BC4U,CIWL_3WLUH);							\
 	F=DP3;
       TX=VLTJ: Lemvigbanen M12;										\
@@ -140,7 +155,7 @@ $REQUIRE TRAINDEF.TTT
 	F=DF4;
       TX=DSB MY Nohab + Personenzug;									\
 	C=DSB_MY_C|DSB_MY_CL|DSB_MY_F|DSB_MY_FL,(<DSB_4BN,DSB_4BNL,DSB_79AN,DSB_4BN,DSB_4BD); F=DP4;
-      TX=DSB MX Nohab+ Personenzug;									\
+      TX=DSB MX Nohab + Personenzug;									\
 	C=DSB_MX_A(|L),(<DSB_4AB,DSB_BAB,DSB_4BK,DSB_5BD); F=DP4;
       TX=DSB MY Nohab;											\
 	C=DSB_MY_AL|DSB_MY_A|DSB_MY_BL|DSB_MY_B|DSB_MY_EL|DSB_MY_E|DSB_MY_DL|DSB_MY_D|DSB_MY_GL|	\
@@ -155,6 +170,20 @@ $REQUIRE TRAINDEF.TTT
 	C=(<DSB_1435L,2*DSB_4BN(|L),DSB_4BKD(|L),DSB_4BDANL,DSB_4ABNS)|					\
 	  (<DSB_4ABNSL,DSB_4BDAN,DSB_4BKD(|L),2*DSB_4BN(|L),DSB_1435);					\
 	F=DPU45;
+      TX=DSB MZ + Personenzug;										\
+	C=(<DSB_1401L|DSB_1401|DSB_4BDL|DSB_1420L|DSB_1420|DSB_1431L|DSB_1431|DSB_1435,2*DSB_BN1M,	\
+	  DSB_AN1M(|L),DSB_BNS1)|									\
+	  (<DSB_BNS1,DSB_AN1M(|L),2*DSB_BN1M,								\
+	  DSB_1401L|DSB_1401|DSB_4BDL|DSB_1420L|DSB_1420|DSB_1431L|DSB_1431|DSB_1435)|			\
+	  (<DSB_1401L|DSB_1401|DSB_4BDL|DSB_1420L|DSB_1420|DSB_1431L|DSB_1431|DSB_1435,			\
+	  3*DSB_BN1BM(|L),DSB_ADNS1ABM)|								\
+	  (<DSB_ADNS1ABML,3*DSB_BN1BM(|L),								\
+	  DSB_1401L|DSB_1401|DSB_4BDL|DSB_1420L|DSB_1420|DSB_1431L|DSB_1431|DSB_1435)|			\
+	  (<DSB_1401L|DSB_1401|DSB_4BDL|DSB_1420L|DSB_1420|DSB_1431L|DSB_1431|DSB_1435,3*DSB_5BN(|L),	\
+	  DSB_ABNS1BM)|											\
+	  (<DSB_ABNS1BML,3*DSB_5BN(|L),									\
+	  DSB_1401L|DSB_1401|DSB_4BDL|DSB_1420L|DSB_1420|DSB_1431L|DSB_1431|DSB_1435);			\
+	F=DPUR4;
       TX=DSB MZ + Schnellzug;										\
 	C=<DSB_1401L|DSB_1401|DSB_4BDL|DSB_1420L|DSB_1420|DSB_1431L|DSB_1431|DSB_1435,DK4PL1; F=DP4;
       TX=DSB MZ + Expresszug Nordpilen (Nordpfeil) HHAltona-Fredrikshavn 1971;				\
@@ -216,6 +245,8 @@ $REQUIRE TRAINDEF.TTT
 	C=DSB_MY_J(|L),DSB_SV785,DSB_SV791,DSB_SV792; F=DF5;
       TX=DSB IC3 zwischen Hamburg und Københaven, 1995 bis 1998;					\
 	C=(2:3|1:2)*DSB_IC3A[MX:504,32,59,3]; F=DPU5;
+      TX=Lyngby-Nærum Jernbane (LNJ) Regiosprinter;							\
+	C=LNJ_RS_GEN_A2(|L); F=DPRU5;
       TX=VLTJ: Lemvigbanen YM;										\
 	C=VLTJ_YM15; F=DP5;
       TX=Vestbanen YS + YM;										\
@@ -227,9 +258,9 @@ $REQUIRE TRAINDEF.TTT
       TX=DSB EA 3002 + Wendezug Kopenhagen-Helsingör um 1990;						\
 	C=(<DSB_3002(|L),4*DSB_4BN(|L),DSB_4BDANL,DSB_4ABNS)|						\
 	  (<DSB_4ABNSL,DSB_4BDAN,4*DSB_4BN(|L),DSB_3002(|L));						\
-	F=EP6;
+	F=EP5;
       TX=DSB ET;											\
-	C=DSB_ET~CG; F=EF56;
+	C=DSB_ET~CG; F=EF5;
     }
     {E6?
       TX=DSB ME + Nachtzug;										\
@@ -257,8 +288,8 @@ $REQUIRE TRAINDEF.TTT
       TX=DSB EA 3002 + IC Fredericia-Hannover 2002;							\
 	C=DSB_3002(|L),											\
 	  (<(2*DBAG_AVMZ109WL),DBAG_APMZ121W,DBAG_WRMZ134W,2*DBAG_BOMZ236W,DBAG_BPMZ292_0TL,		\
-	  2*DBAG_BM235WL)|										\
-	  (<(2*DBAG_BM235W),DBAG_BPMZ292_0T,2*DBAG_BOMZ236WL,DBAG_WRMZ134WL,DBAG_APMZ121_0WL,		\
+	  2*DBAG_BM235WL~HEN)|										\
+	  (<(2*DBAG_BM235W~HEN),DBAG_BPMZ292_0T,2*DBAG_BOMZ236WL,DBAG_WRMZ134WL,DBAG_APMZ121_0WL,	\
 	  2*DBAG_AVMZ109W);										\
 	F=EP6;
       TX=DSB EA 3004 + CNL 473 Kopenhagen-Basel 2011;							\
@@ -270,6 +301,12 @@ $REQUIRE TRAINDEF.TTT
 	F=EP6;
       TX=DSB EA 3005 + Regionalzug 2007;								\
 	C=(<DSB_3005(|L),6*DSB_5BN,DSB_5ADNS)|(<DSB_5ADNSL,6*DSB_5BN(|L),DSB_3020(|L)); F=EP6;
+      TX=DSB EA + Regionalzug;										\
+	C=(<DSB_30(02|05|20)(|L),3*DSB_DOSTO_B4M(|L),DSB_DOSTO_ABS4M)|					\
+	  (<DSB_DOSTO_ABS4ML,3*DSB_DOSTO_B4M(|L),DSB_30(02|05|20)(|L))|					\
+	  (<DSB_30(02|05|20)(|L),3*DSB_DOSTO_B3M(|L),DSB_DOSTO_ABS3M)|					\
+	  (<DSB_DOSTO_ABS3ML,3*DSB_DOSTO_B3M(|L),DSB_30(02|05|20)(|L));					\
+	F=EPRU6;
       TX=DSB EA 3010 + Containerzug um 1999;								\
 	C=DSB_3020(|L),G_SGNNS4(|L)[O:BOX7_EVALS1,107,11][O:C3_EWALS10,11,11],				\
 	  6*(G_SGGMRSS2(|L)[O:BOX7_R1,14,12][O:BOX7_R1,86,12][O:BOX7_R1,177,12][O:BOX7_R1,249,12]);	\
@@ -278,12 +315,14 @@ $REQUIRE TRAINDEF.TTT
 	C=DSB_3020(|L),8@DSB_5BC(|L); F=EP6;
       TX=DSB ER;											\
 	C=DSB_6IR4; F=EF6;
-      TX=DBSC 185;											\
-	C=DBSC_185_2A1L|DBSC_185_2A1|DBSC_185_2A2L|DBSC_185_2A2|DBSC_185_2B1L|DBSC_185_2B1|		\
-	  DBSC_185_2B2L|DBSC_185_2B2|DBSC_185_325L|DBSC_185_325,(5*(RAI_EAOS1|RAI_EAS1L|RAI_EAS1));	\
-	F=EF6;
 
 #Daenemark privat
+      TX=DB Cargo Danmark MK 2;										\
+	C=DB_MK2M(|L),2*DK6FS; F=DF6;
+      TX=DBSC 185;											\
+	C=DBSC_185_2A1L|DBSC_185_2A1|DBSC_185_2A2L|DBSC_185_2A2|DBSC_185_2B1L|DBSC_185_2B1|		\
+	  DBSC_185_2B2L|DBSC_185_2B2|DBSC_185_325L|DBSC_185_325|DB_185_2DSRSM,Z_D_E6_G1|D6FCM;		\
+	F=EF6;
       TX=Daenemark Aabenraa Veteranbane M3;								\
 	C=AVJ_M3(|L); F=DPU6;
       TX=Daenemark Arriva 41;										\
@@ -315,10 +354,19 @@ $REQUIRE TRAINDEF.TTT
   %ADDPOOL(POOL_N,N_ENV);
 
     {E3?
+      TX=NSB Di 2800 + Rangierzug;									\
+	C=(NSB_3A_DI28(01|05|33)|NSB_3B_DI28(02|04|11))(|L),N3FS1; F=DF3;
       TX=NSB 63A;											\
 	C=NSB_SKD206,N3FS1; F=SF3;
       TX=NSB DI3;											\
 	C=NSB_3A_DI36(23|08|19|02)(|L),N3FL1; F=DF3;
+      TX=NSB DI3 + Schnellzug 1963;									\
+	C=NSB_3A_DI36(23|08|19|02)(|L),									\
+	  (<NSB_3WLAB21017L,NSB_3B10_25006L,NSB_3B2_25510AL,NSB_3B10_25006,NSB_3B2_25510A,		\
+	  NSB_3BF11_21507L,NSB_3DF21307,)|								\
+	  (<NSB_3DF21307L,NSB_3BF11_21507,NSB_3B2_25510AL,NSB_3B10_25006L,NSB_3B2_25510A,		\
+	  NSB_3B10_25006,NSB_3WLAB21017);								\
+	F=DF3;
       TX=NSB DI3 3605 + Schnellzug;									\
 	C=NSB_3(DI3B|B_DI3603|B_DI3609|B_DI3605)(|L),N3PB1; F=DP3;
       TX=NSB DI3 3605 + Schnellzug Oslo-Bergen um 1965;							\
@@ -331,7 +379,7 @@ $REQUIRE TRAINDEF.TTT
       TX=NSB 49A;											\
 	C=NSB_49A_463,N3PB1; F=SP3;
       TX=NSB 27;											\
-	C=NSB_2770~NEK2,N3PB1; F=SP3;
+	C=NSB_2770~NEK2,N3PB1; F=SPZ3;
       TX=NSB Di3;											\
 	C=NSB_DI3_DL|NSB_DI3_D|NSB_DI3_H|NSB_DI3_HL|NSB_DI3_ML|NSB_DI3_M,				\
 	  (<(2*NSB_B3_BL),NSB_AB3_B,NSB_AB3_BL,2*NSB_B3_B,NSB_BD3_BL);					\
@@ -341,14 +389,27 @@ $REQUIRE TRAINDEF.TTT
 
 
 # Norwegen E
+      TX=NSB EL10;											\
+	C=NSB_3EL102506(|L),N3FS1; F=EF3;
       TX=NSB EL11;											\
-	C=NSB_EL11V,4*N3FS1; F=EF3;
+	C=NSB_3EL112104(|L),4*N3FS1; F=EF3;
+      TX=NSB EL11 + Personenzug;									\
+	C=NSB_3EL112(078|104)(|L),									\
+	  (<NSB_3BF10_21503L,NSB_3B1_19925L,NSB_3C1_19930L,NSB_3AB10_21101L,NSB_34C1_19930L,		\
+	  NSB_34B1_19925L,NSB_34B1_19922L)|								\
+	  (<NSB_3BF10_21503,NSB_3B1_19925,NSB_3C1_19930,NSB_3AB10_21101,NSB_34C1_19930,NSB_34B1_19925,	\
+	  NSB_34B1_19922);										\
+	F=EPR3;
       TX=NSB EL11;											\
-	C=NSB_EL11V,N3PB1; F=EP3;
+	C=NSB_3EL112078(|L),N3PB1; F=EP3;
+      TX=NSB EL13;											\
+	C=NSB_3EL132121(|L),N3PB1; F=EP3;
       TX=NSB EL16;											\
 	C=NSB_EL16_A|NSB_EL16_C,(<NSB_BD3_A,2*NSB_BC3_AL,2*NSB_WLAB3_A,2*NSB_BC3_A,NSB_WR3_B); F=EP3;
     }
     {E4?
+      TX=NSB Di 2800 + Rangierzug;									\
+	C=NSB_4DI28(06|12|05)(|L),N4FS; F=DF4;
       TX=NSB Di3;											\
 	C=NSB_4DI3604,N4P; F=DP4;
       TX=NSB Di3;											\
@@ -359,12 +420,21 @@ $REQUIRE TRAINDEF.TTT
 	C=NSB_BM89; F=DPU4;
 
 # Norwegen E
+      TX=NSB EL10;											\
+	C=(NSB_34EL102512|NSB_4EL102510)(|L),N4FS; F=EF4;
       TX=NSB EL11;											\
-	C=NSB_4EL112(083_P2|092),N4P; F=EP4;
+	C=NSB_4EL112(110|089|083_P2)(|L),N4P; F=EP4;
       TX=NSB EL11;											\
-	C=NSB_4EL112(083_P2|092),N4F; F=EF34;
+	C=NSB_4EL112(083_P2|092)(|L),N4F; F=EF34;
       TX=NSB EL12;											\
 	C=NSB_EL12~ARN,N4F; F=EF34;
+      TX=NSB EL13;											\
+	C=NSB_4EL132(122|128|158)(|L),N4P; F=EP4;
+      TX=NSB EL13 + Expresszug Geilo (Bergenbahn) 1974;							\
+	C=NSB_4EL132158(|L),										\
+	  (<NSB_4B4HA,NSB_3B3F3_21406L,NSB_3B2_25510L,NSB_3B3BR_21202,3*NSB_3B3B3,NSB_3B3A2L)|		\
+	  (<NSB_3B3A2,3*NSB_3B3B3L,NSB_3B3BR_21202L,NSB_3B2_25510,NSB_3B3F3_21406,NSB_4B4HAL);		\
+	F=EP4;
       TX=NSB EL15;											\
 	C=NSB_EL15L~NR|NSB_EL15~NR,N4F; F=EF4;
       TX=NSB EL15;											\
@@ -375,36 +445,58 @@ $REQUIRE TRAINDEF.TTT
 	  (<NSB_F1_3|NSB_F3,3*NSB_B3_AL,NSB_WR3_B,NSB_AB3_AL,NSB_BD3_CL);				\
 	F=EP4;
       TX=NSB EL16;											\
-	C=NSB_4EL16220(8|6(|L)),N4F; F=EF4;
+	C=NSB_4EL16220(8|6)(|L),N4F; F=EF4;
+      TX=NSB 69;											\
+	C=(<NSB_4_6910ML,NSB_4_6910S)|(<NSB_4_69007L,NSB_4_69607)|(<NSB_4_69607L,NSB_4_69007)|		\
+	  (<NSB_4_6910SL,NSB_4_6910M)|(<NSB_4_69008L,NSB_4_69608)|(<NSB_4_69608L,NSB_4_69008)|		\
+	  (<NSB_4_69014L,NSB_4_69614)|(<NSB_4_69614L,NSB_4_69014)|(<NSB_4_69018L,NSB_4_69618)|		\
+	  (<NSB_4_69618L,NSB_4_69018)|(<NSB_4_69027L,NSB_4_69627)|(<NSB_4_69627L,NSB_4_69027)|		\
+	  (<NSB_4_69036L,NSB_4_69636)|(<NSB_4_69636L,NSB_4_69036);					\
+	F=EPRU4;
     }
     {E5?
+      TX=NSB Di 5 + Salonwagen Königsfamilie;								\
+	C=NSB_DI5L,NSB_5A4K24010(|L); F=DF5;
+      TX=NSB Di 2800 + Rangierzug;									\
+	C=NSB_5DI28(32|54|35)(|L),N5FS; F=DF5;
       TX=NSB Di3;											\
 	C=NSB_5DI36(17|20|15)(|L),N5P(A|B)1; F=DP5;
       TX=NSB Di3 620 + Regionalzug Andalsnes 1991;							\
 	C=NSB_5DI3620(|L),(<NSB_4BF14L,NSB_3B3B3L,NSB_4B5)|(<NSB_4B5L,NSB_3B3B3,NSB_4BF14); F=DP5;
       TX=NSB Di3 615 + Regionalzug 1999;								\
 	C=NSB_5DI3615(|L),(<NSB_5BF12L,NSB_5B3L,NSB_5B3)|(<NSB_5BF12,NSB_5B3L,NSB_5B3); F=DP5;
-      TX=NSB BM92;											\
-	C=NSB_BM92L~ZS|NSB_BM92~ZS; F=DPU56;
-      TX=Jernbaneverket DI3;										\
-	C=JBV_DI3,N5F; F=E56;
+      TX=NSB Di 8000 + Rangierzug;									\
+	C=NSB_5DI8703(|L),3*N5FS; F=DF5;
       TX=Jernbaneverket 1000;										\
 	C=JBV_ROGER1000,N5F; F=E56;
       TX=Jernbaneverket DI3;										\
-	C=JBV_DI3_PLOG; F=E56;
+	C=JBV_DI3_PLOG; F=EFW56;
       TX=Jernbaneverket 1415;										\
-	C=JBV_1415_PLOG; F=E56;
+	C=JBV_1415_PLOG; F=EFW56;
       TX=Jernbaneverket 1415;										\
-	C=JBV_1415(|L)~HW|JBV_1415~OLE,N5F; F=E56;
+	C=JBV_1415(|L)~HW|JBV_1415~OLE,N5F; F=EF56;
 
 # Norwegen E
 
+      TX=NSB EL10;											\
+	C=(NSB_5EL102505|NSB_5EL102516)(|L),N5FS; F=EF5;
+      TX=NSB EL11 + Personenzug;									\
+	C=NSB_5EL112085(|L),(<NSB_5BF12L,NSB_5B1_19925(|L),NSB_5B3(|L)); F=EPR5;
       TX=NSB EL11;											\
-	C=NSB_5_EL112(110|098)(|L),N5PA1; F=EP5;
+	C=NSB_5EL112085(|L),N5PA1; F=EP5;
       TX=NSB EL11.2098 mit Kurswagen (B3 + B2) für die Nachtzüge nach Bergen und Oslo, 1994;		\
 	C=NSB_5_EL112098(|L),(<NSB_5_WLAB4L,NSB_5_WLAB5)|(<NSB_5_WLAB5L,NSB_5_WLAB4); F=EP5;
       TX=NSB EL11.2110 mit Touristenzug aus B23-Wagen und einem Mittelwagen der Triebzugreihe Bm67, um 1992; \
-	C=NSB_5_EL112098(|L),(<NSB_5_B1L,2*NSB_5_B2L,NSB_5_BD1)|(<NSB_5_BD1L,2*NSB_5_B2,NSB_5_B1);	\
+	C=NSB_5_EL112110(|L),(<NSB_5_B1L,2*NSB_5_B2L,NSB_5_BD1)|(<NSB_5_BD1L,2*NSB_5_B2,NSB_5_B1);	\
+	F=EP5;
+      TX=NSB EL13;											\
+	C=NSB_5EL132(130|139|140|157|156|162)(|L),N5PA1; F=EP5;
+      TX=NSB EL16 + Schnellzug mit B7-Wagen;								\
+	C=NSB_5A_EL16220(5|7)(|L),									\
+	  (<NSB_5F(7_21771|R7_21772|R7_21776),2*NSB_5AB7_247(01|12),2*NSB_5B7,2*NSB_5BC7_27043,		\
+	  2*NSB_5WLAB21092)|										\
+	  (<2*NSB_5WLAB21092L,2*NSB_5BC7_27043L,2*NSB_5B7L,2*NSB_5AB7_247(01|12)L,			\
+	  NSB_5F(7_21771|R7_21772|R7_21776)L);								\
 	F=EP5;
       TX=NSB EL16;											\
 	C=NSB_5A_EL16220(5|7)(|L),N5PA1; F=EP5;
@@ -424,6 +516,26 @@ $REQUIRE TRAINDEF.TTT
 	F=EF5;
       TX=NSB EL18;											\
 	C=NSB_EL18~ARN,(NSB_B5A,NSB_A3A)|(NSB_A3,4*NSB_B5); F=EP5;
+      TX=NSB 69;											\
+	C=(<NSB_5BM69059L,NSB_5BM69659)|(<NSB_5BM69659L,NSB_5BM69059)|					\
+	  (<NSB_5BM69051L,NSB_5BM69851,NSB_5BM69651)|(<NSB_5BM69651L,NSB_5BM69851L,NSB_5BM69051)|	\
+	  (<NSB_5BM69650L,NSB_5BM69050)|(<NSB_5BM69050L,NSB_5BM69650)|					\
+	  (<NSB_5BM69048L,NSB_5BM69848,NSB_5BM69648)|(<NSB_5BM69648L,NSB_5BM69848L,NSB_5BM69048)|	\
+	  (<NSB_5BM69024L,NSB_5BM69824,NSB_5BM69624)|(<NSB_5BM69624L,NSB_5BM69824L,NSB_5BM69024)|	\
+	  (<NSB_5BM69021L,NSB_5BM69621)|(<NSB_5BM69621L,NSB_5BM69021)|					\
+	  (<NSB_5BM69017L|NSB_5BM69004L,NSB_5BM69604)|(<NSB_5BM69604L,NSB_5BM69017|NSB_5BM69004);	\
+	F=EPRU5;
+      TX=NSB BM73 2010;											\
+	C=(<NSB_5BM73042AL,NSB_5BM73042M,NSB_5BM73042ME,NSB_5BM73042C)|					\
+	  (<NSB_5BM73042CL,NSB_5BM73042MEL,NSB_5BM73042ML,NSB_5BM73042A)|				\
+	  (<NSB_5BM73002CL,NSB_5BM73002MEL,NSB_5BM73002ML,NSB_5BM73002A)|				\
+	  (<NSB_5BM73002AL,NSB_5BM73002M,NSB_5BM73002ME,NSB_5BM73002C);					\
+	F=EPRU5;
+      TX=NSB BM71 Oslo - Airport 1998;									\
+	C=(<NSB_5BM71001CL,NSB_5BM71001ML,NSB_5BM71001C)|(<NSB_5BM71001AL,NSB_5BM71001M,NSB_5BM71001A);	\
+	F=EPRU5;
+      TX=NSB BM92;											\
+	C=NSB_BM92L~ZS|NSB_BM92~ZS; F=DPRU56;
       TX=MTAS T44;											\
 	C=MTAS_T44A|MTAS_T44,N5FS; F=EF5;
       TX=MTAS EL 15;											\
@@ -435,20 +547,29 @@ $REQUIRE TRAINDEF.TTT
     }
 
     {E6?
+      TX=NSB Di 8 + Salonwagen Königsfamilie;								\
+	C=NSB_5DI8703(|L),NSB_6A4K24010(|L); F=DF6;
       TX=NSB Flambahn Sandwichzug El 17 2229 +5 B3-Wagen + 1 BF3-Wagen + El17 2232, 2011;		\
 	C=(<NSB_6EL172229L,NSB_6_B3BF11L,NSB_6_B3B11CL,NSB_6_B3B11AL,NSB_6_B3B11BL,NSB_6_B3B11AL,	\
 	  NSB_6_B3B11A,NSB_6EL172229)|									\
 	  (<NSB_6EL172229L,NSB_6_B3B11A,NSB_6_B3B11A,NSB_6_B3B11B,NSB_6_B3B11A,NSB_6_B3B11AL,		\
 	  NSB_6_B3BF11,NSB_6EL172229);									\
 	F=EPU6;
-      TX=NSB Flambahn Sandwichzug El18 2259 +5 B3-Wagen + 1 BF3-Wagen + El18 2245;			\
-	C=(<NSB_6_EL18L,NSB_6_B3B16C,NSB_6_B3B16D,NSB_6_B3B16C,NSB_6_B3B16B,NSB_6_B3B16C,NSB_6_B3BF16,	\
-	  NSB_6_EL18BL)|										\
-	  (<NSB_6_EL18B,NSB_6_B3BF16L,NSB_6_B3B16B,NSB_6_B3B16C,NSB_6_B3B16B,NSB_6_B3B16DL,		\
-	  NSB_6_B3B16B,NSB_6_EL18);									\
+      TX=NSB Flambahn Sandwichzug El18 +5 B3-Wagen + 1 BF3-Wagen + El18;				\
+	C=(<NSB_6_EL18L|FLAM_6_EL182242,NSB_6_B3B16C,NSB_6_B3B16D,NSB_6_B3B16C,NSB_6_B3B16B,		\
+	  NSB_6_B3B16C,NSB_6_B3BF16,NSB_6_EL18BL)|							\
+	  (<NSB_6_EL18B,NSB_6_B3BF16L,NSB_6_B3B16B,NSB_6_B3B16CL,NSB_6_B3B16B,NSB_6_B3B16DL,		\
+	  NSB_6_B3B16BL,NSB_6_EL18|FLAM_6_EL182242);							\
 	F=EPU6;
+      TX=NSB El 18 + Schnellzug mit B7-Wagen;								\
+	C=NSB_6_EL18224(7|8)(|L),									\
+	  (<NSB_6F7_21770|NSB_6FR7_21772,3*NSB_6B7,NSB_6A7,2*NSB_6BC7,2*NSB_6WLAB21086)|		\
+	  (<2*NSB_6WLAB21086L,2*NSB_6BC7L,NSB_6A7L,3*NSB_6B7L,NSB_6F7_21770L|NSB_6FR7_21772L);		\
+	F=EP6;
       TX=NSB El 18;											\
-	C=NSB_6_EL18224(7|8)(|L),N6P1; F=EP6;
+	C=NSB_6_EL182(243|246|247NT|248NT|253L|253),N6P1; F=EP6;
+      TX=NSB El 18 + Schnellzug ;											\
+	C=NSB_6_EL18B,5*NSB_B7VY,2@NSB_WLAB2VY(|L); F=EP6;
       TX=NSB Di3 602;											\
 	C=NSB_6DI3602(|L),(<NSB_6FR521722(|L),3*NSB_6B526002(|L)); F=DP6;
       TX=NSB Di4 651 + Zug nach Andalsnes 2014;								\
@@ -456,6 +577,28 @@ $REQUIRE TRAINDEF.TTT
 	  (<NSB_6FR521722,2*NSB_6B526002L,2*NSB_6B526002)|						\
 	  (<2*NSB_6B526002L,2*NSB_6B526002,NSB_6FR521722L);						\
 	F=DP6;
+      TX=NSB Di6 662 + Güterzug 2014;									\
+	C=NSB_6DI6662(|L),N6FL; F=DF6;
+      TX=NSB BM 69;											\
+	C=(<NSB_6_BM69011L,NSB_6_BM69611)|(<NSB_6_BM69611L,NSB_6_BM69011)|				\
+	  (<NSB_6_BM69025L,NSB_6_BM69825,NSB_6_BM69625)|						\
+	  (<NSB_6_BM69625L,NSB_6_BM69825L,NSB_6_BM69025)|(<NSB_6_BM69031L,NSB_6_BM69631)|		\
+	  (<NSB_6_BM69631L,NSB_6_BM69031)|(<NSB_6_BM69037L,NSB_6_BM69837,NSB_6_BM69637)|		\
+	  (<NSB_6_BM69637L,NSB_6_BM69837L,NSB_6_BM69037)|						\
+	  (<NSB_6_BM69041L,NSB_6_BM69841,NSB_6_BM69641)|						\
+	  (<NSB_6_BM69641L,NSB_6_BM69841L,NSB_6_BM69041)|						\
+	  (<NSB_6_BM69050L,NSB_6_BM69850,NSB_6_BM69650)|						\
+	  (<NSB_6_BM69650L,NSB_6_BM69850L,NSB_6_BM69050)|						\
+	  (<NSB_6_BM69051L,NSB_6_BM69851,NSB_6_BM69651)|						\
+	  (<NSB_6_BM69651L,NSB_6_BM69851L,NSB_6_BM69051)|						\
+	  (<NSB_6_BM69073L,NSB_6_BM69873,NSB_6_BM69673)|(<NSB_6_BM69673L,NSB_6_BM69873L,NSB_6_BM69073);	\
+	F=EPRU6;
+      TX=NSB BM 73 2015;										\
+	C=(<NSB_6BM73009AL,NSB_6BM73009M,NSB_6BM73009ME,NSB_6BM73009C)|					\
+	  (<NSB_6BM73009CL,NSB_6BM73009MEL,NSB_6BM73009ML,NSB_6BM73009A)|				\
+	  (<NSB_6BM73007CL,NSB_6BM73007MEL,NSB_6BM73007ML,NSB_6BM73007A)|				\
+	  (<NSB_6BM73007AL,NSB_6BM73007M,NSB_6BM73007ME,NSB_6BM73007C);					\
+	F=EPRU6;
       TX=NSB BM 92;											\
 	C=NSB_BM92A; F=DPU6;
       TX=NSB BM 93;											\
@@ -470,12 +613,46 @@ $REQUIRE TRAINDEF.TTT
 	C=BSERV_1411(|L)|BSERV_MZ,N5F; F=E56;
       TX=CargoNet AS JT42;										\
 	C=CGN_JT42CWR(|L),N5F; F=DF6;
-      TX=CargoNet 193 923;										\
-	C=CGN_193923(|L),N5F; F=DF6;
       TX=CargoNet AS 4000;										\
 	C=CGN_4000(|L),N5F; F=DF6;
+      TX=Cargonet SKD225 + Rangierzug;									\
+	C=CGN_6SKD225236(|L),N6FS; F=DF6;
+      TX=Cargonet Di 8000 + Rangierzug;									\
+	C=CGN_6DI8707(|L),3*N6FS; F=DF6;
+      TX=Cargolink DE 27000 + Güterzug;									\
+	C=CGLI_6DE270006(|L),N6FL; F=DF6;
+      TX=Flytoget AS BM71 Oslo - Airport 2009;								\
+	C=(<FLY_6BM71007AL,FLY_6BM71007ML,FLY_6BM71007ME,FLY_6BM71007C)|				\
+	  (<FLY_6BM71007CL,FLY_6BM71007MEL,FLY_6BM71007M,FLY_6BM71007A);				\
+	F=EPUR6;
+      TX=Flytoget AS BM71 Oslo - Airport 2012;								\
+	C=(<FLY_6BM71010AL,FLY_6BM71010ML,FLY_6BM71010ME,FLY_6BM71010C)|				\
+	  (<FLY_6BM71010CL,FLY_6BM71010MEL,FLY_6BM71010M,FLY_6BM71010A);				\
+	F=EPUR6;
+      TX=CargoNet AS EL 16;										\
+	C=CGN_6_1622(08|09|11|17)(|L),N6FL; F=EF6;
       TX=CargoNet AS 185;										\
 	C=CGN_185,N5F; F=E56;
+      TX=Jernbaneverket DI3;										\
+	C=JBV_6DI3628(|L),N6FL; F=EF6;
+      TX=Go Ahead Nordic - ST - Sørtoget BM 73 Regiontog 711: Oslo - Stavanger 2020;			\
+	C=(<GANO_BM73DL,GANO_BM73C,GANO_BM73B,GANO_BM73A)|						\
+	  (>GANO_BM73D,GANO_BM73CL,GANO_BM73BL,GANO_BM73AL);						\
+	F=DPU6;
+      TX=MTAS DI3;											\
+	C=MTAS_6DI3629(|L),N6FL; F=EF6;
+      TX=Ofotenbahn EL 13 + Schlafwagenzug;								\
+	C=OBA_EL1321(61|25)(|L),									\
+	  (<OBA_B3BDL,OBA_B3WL1L,OBA_B3BL,2*OBA_B3WL2L)|(<2*OBA_B3WL2,OBA_B3B,OBA_B3WL1,OBA_B3BD);	\
+	F=EP6;
+      TX=Norwegen SJ Norge AS EL 18;									\
+	C=SJNO_EL182253,5*SJNO_B5; F=EPR6;
+      TX=Norwegen Peterson MZ 1409 + Holztransport 2012;						\
+	C=PET_MZ1409(|L),										\
+	  11*NSB_6_ROOS(1|2|3)[OB:WOOD(182|183|185|238|239|237|236|235|234|233|184|228)(|[M]),13,13]	\
+	  [OB:WOOD(182|183|185|238|239|237|236|235|234|233|184|228)(|[M]),82,13]			\
+	  [OB:WOOD(182|183|185|238|239|237|236|235|234|233|184|228)(|[M]),151,13];			\
+	F=DF6;
     }
   %ENDPOOL;
 }
@@ -511,6 +688,8 @@ $REQUIRE TRAINDEF.TTT
 	C=SJ_GA3~ARN,S3P; F=SP23;
       TX=SJ GA4;											\
 	C=SJ_GA4~ARN,S3F; F=SF23;
+      TX=SJ 1931;											\
+	C=SJ_1931(|L),S3F; F=SF3;
       TX=SJ GB;												\
 	C=SJ_GB~ARN,S3F; F=SF23;
       TX=SJ GB2;											\
@@ -638,7 +817,11 @@ $REQUIRE TRAINDEF.TTT
       TX=SJ Y1;												\
 	C=SJ_Y1B|SJ_Y1B2|SJ_Y1B3; F=DPU56;
       TX=SJ Y2;												\
-	C=2*SJ_Y2~LIP; F=DPU56;
+	C=2*SJ_Y2~LIP; F=DPRU56;
+
+
+
+
 
 # Schweden E
       TX=SJ DM3;											\
@@ -677,10 +860,40 @@ $REQUIRE TRAINDEF.TTT
 	C=VL_X50; F=EPU56;
 
 # privat
+      TX=Schweden Inlandsbanen MX;									\
+	C=IBAB_MX_B(|L),IBAB_B3,IBAB_B3A,IBAB_BC3; F=DPR5;
+      TX=Schweden Inlandsbanen MX Grand Nordic;								\
+	C=IBAB_TMX101(6|3)GN,IBAB_B5,IBAB_A2K(|L),IBAB_S2K,IBAB_B5; F=DP5;
+      TX=Schweden Inlandsbanen T44;									\
+	C=IBAB_T44,3*S5FS; F=DF5;
+      TX=Schweden ASEA RZ;										\
+	C=ASEA_RZ,S5F1; F=EF5;
+      TX=Schweden RPE T43;										\
+	C=RPE_T43,2*S5FS; F=DF5;
+      TX=Schweden UF;											\
+	C=TM_UF,S5F1; F=EF5;
       TX=Schweden LKAB DM3;										\
 	C=MTAB_DM3,20-30*SJ_ERZ(4|5|6); F=EF56;
       TX=Schweden LKAB IORE;										\
 	C=LKAB_IORE~CHK,20-30*SJ_ERZ(4|5|6); F=EF56;
+      TX=Stockholm S-Bahn (StörStockholm Lokaltrafiken) SX 10;						\
+	C=1-3*(<SL_5X10_3119AL,SL_5X10_3119B)|(<SL_5X10_3119BL,SL_5X10_3119A)|				\
+	  (<SL_5X10_3120_1989AL,SL_5X10_3120_1989B)|(<SL_5X10_3120_1989BL,SL_5X10_3120_1989A);		\
+	F=EPRU5;
+      TX=Stockholm S-Bahn (StörStockholm Lokaltrafiken) SX 10;						\
+	C=1-2*(<SL_5X10_3165AL,SL_5X10_3165B)|(<SL_5X10_3165BL,SL_5X10_3165A); F=EPRU5;
+      TX=Göteborgsregionens Lokaltrafik X10;								\
+	C=1-2*((<GLT_5X10_3144AL,GLT_5X10_3144B)|(<GLT_5X10_3144BL,GLT_5X10_3144A)); F=EPRU5;
+      TX=Malmöhus Länstrafik X10;									\
+	C=1-2*((<MLT_5X10_3113AL,MLT_5X10_3113B)|(<MLT_5X10_3113BL,MLT_5X10_3113A)|			\
+	  (<MLT_5X10A3167AL,MLT_5X10A3167B)|(<MLT_5X10A3167BL,MLT_5X10A3167A));				\
+	F=EPRU5;
+      TX=Upplands Läns Trafik AB X10;									\
+	C=(<ULT_5X10_3188AL,ULT_5X10_3188B)|(<ULT_5X10_3188BL,ULT_5X10_3188A); F=EPRU5;
+      TX=Västmanlands Lokaltrafik X10;									\
+	C=(<VLT_5X10_3174AL,VLT_5X10_3174B)|(<VLT_5X10_3174BL,VLT_5X10_3174A); F=EPRU5;
+      TX=X-Taget X10;											\
+	C=1-2*((<XT_5X10_3182AL,XT_5X10_3182B)|(<XT_5X10_3182BL,XT_5X10_3182A)); F=EPRU5;
     }
     {E6?
       TX=SJ Y31;											\
@@ -689,8 +902,14 @@ $REQUIRE TRAINDEF.TTT
 # Schweden E
       TX=SJ RC5;											\
 	C=SJ_RC5D,S6F1; F=EF56;
+      TX=SJ RC6 + Schnellzug;										\
+	C=SJ_RC6CB,(<SJ_BFS9C,SJ_B7CB,SJ_AB7C,SJ_A7C,SJ_S12C,3*SJ_BC4C,2*SJ_WL6C); F=EP6;
       TX=SJ RM + Güterzug;										\
 	C=SJ_RMA,S6F1; F=EF6;
+      TX=SJ X2;												\
+	C=(<SJ_X2L,3*SJ_X2_UA2L,SJ_X2_URB2,2*SJ_X2_UA2,SJ_X2_UA2X)|					\
+	  (>SJ_X2,3*SJ_X2_UA2,SJ_X2_URB2L,2*SJ_X2_UA2L,SJ_X2_UA2XL);					\
+	F=EPU6;
       TX=SJ X10;											\
 	C=SJ_X10A|SJ_X10~V3; F=EPU6;
       TX=SJ X11;											\
@@ -700,7 +919,7 @@ $REQUIRE TRAINDEF.TTT
       TX=SJ X420;											\
 	C=<SJ_X420FL~LIP,SJ_X420M~LIP,SJ_X420F~LIP; F=EPU6;
       TX=SJ X40;											\
-	C=<SJ_X40EL,SJ_X40M,SJ_X40F; F=EPU6;
+	C=(<SJ_X40_1L,SJ_X40_2,SJ_X40_3)|(>SJ_X40_1,SJ_X40_2,SJ_X40_3L); F=EPU6;
       TX=SJ X2000;											\
 	C=(<SJ_X2000ML,3*SJ_X2000M1L,SJ_X2000MRL,SJ_X2000M1L,SJ_X2000S)|				\
 	  (<SJ_X2000SL,SJ_X2000M1,SJ_X2000MR,3*SJ_X2000M1,SJ_X2000M);					\
@@ -715,6 +934,12 @@ $REQUIRE TRAINDEF.TTT
 	C=DALA_Y1; F=DPU6;
       TX=Schweden Green Cargo T44 + Postwagen;								\
 	C=GC_T44|GC_T44C|GC_T44B|GC_T44A,GC_DBK,GC_DBKA; F=DF6;
+      TX=Schweden Jönköping Länstrafik Y1;								\
+	C=JLT_Y1A; F=DPR6;
+      TX=Schweden Jönköping Länstrafik Y32;								\
+	C=JLT_Y32; F=DPR6;
+      TX=Schweden Hectorrail 921;									\
+	C=HECT_921,S6FS; F=DF6;
       TX=Schweden VIDA 1406;										\
 	C=VIDA_1406L|VIDA_1406,S6F2; F=DF6;
       TX=Schweden TGOJ 1400;										\
@@ -741,6 +966,12 @@ $REQUIRE TRAINDEF.TTT
 	C=TAGAB_1423(|L),S6F(1|2); F=DF6;
       TX=Schweden Tagakeriet i Bergsagen T43;								\
 	C=TAGAB_MY_(A|B)(|L),S6FS; F=DF6;
+      TX=Schweden Osterlenaren;										\
+	C=OSTERLENAREN; F=DPRU6;
+      TX=Schweden Östra Södermansland Järnväg 1;							\
+	C=OSLJ_1,WEM_04HOA; F=SFN5;
+      TX=Schweden Östra Södermansland Järnväg 8;							\
+	C=OSLJ_8,WEM_05A; F=SFN5;
 
 # privat E
       TX=Schweden Connex RC5 + Nachtzug;								\
@@ -761,6 +992,8 @@ $REQUIRE TRAINDEF.TTT
 	C=OBB_1142_551|HECT_1142_551U|HECT_1142_551M|HECT_142|HECTOR_142MAT,S6F2; F=EF6;
       TX=Schweden Hectorrail 242;									\
 	C=HECT_242_001L|HECT_242_001,S6F2; F=EF6;
+      TX=Schweden Hectorrail 243;									\
+	C=HECT_243M(|L),S6F(1|2); F=EF6;
       TX=Schweden Hectorrail 441;									\
 	C=HECT_441,S6F2; F=EF6;
       TX=Schweden Hectorrail 161;									\
@@ -769,6 +1002,10 @@ $REQUIRE TRAINDEF.TTT
 	C=HECT_241,S6F2; F=EF6;
       TX=Schweden Skandinaviska Jernbanor AB 193 922;							\
 	C=SKJB_193922(|L),S6F1; F=EF6;
+      TX=Schweden Skandinaviska Jernbanor EL 13;							\
+	C=SKJB_6EL132(131|124)(|L),S6F1; F=EF6;
+      TX=Stockholm S-Bahn (StörStockholm Lokaltrafiken) SX 10;						\
+	C=1-2*(<SL_6X10_3180AL,SL_6X10_3180B)|(<SL_6X10_3180BL,SL_6X10_3180A); F=EPRU6;
       TX=Schweden TGOJ UB;										\
 	C=TGOJ_UB2|TGOJ_UB,TGOJ_S62; F=EF6;
       TX=Schweden TGOJ RC2;										\
@@ -815,6 +1052,14 @@ $REQUIRE TRAINDEF.TTT
 	C=VR_DR13,VR_134_19,3*VR_EI22348; F=DP4;
       TX=VR DR 14;											\
 	C=VR_DR14,FI4PS1; F=DP4;
+      TX=VR Sr3015 + P20 Kerava um 1978;								\
+	C=VR_4_SR13015(|L),VR_4_EFI(|L),VR_4_EITS(|L),VR_4_EI(|L); F=EPR4;
+      TX=VR Sr3024 + Expresszug um 1982;								\
+	C=VR_4_SR13015(|L),										\
+	  (<VR_4_EIN,VR_4_EIT,VR_4_EINL,VR_4_CEIL,VR_4_EFIT)|						\
+	  (<VR_4_EFITL,VR_4_CEI,VR_4_EIN,VR_4_EITL,VR_4_EINL);						\
+	F=EP4;
+
 
 # Finnland E
       TX=VR SR 3101;											\
@@ -824,7 +1069,7 @@ $REQUIRE TRAINDEF.TTT
     }
     {E5?
       TX=VR DM7;											\
-	C=VR_DM7; F=DPU5;
+	C=VR_DM7; F=DPRU5;
       TX=VR V12;											\
 	C=VR_5DV12_2529L|VR_5DV12_2529|VR_5DV12_2555L|VR_5DV12_2555|VR_5DV12_2622L|VR_5DV12_2622|	\
 	  VR_5DV12_2721L|VR_5DV12_2721|VR_5DV12_2724L|VR_5DV12_2724|VR_5DV12_2748L|VR_5DV12_2748|	\
@@ -842,6 +1087,17 @@ $REQUIRE TRAINDEF.TTT
 	F=EF56;
       TX=VR SM1;											\
 	C=(<VR_SM1_2FL,VR_SM1_2E)|(<VR_SM1_3FL,VR_SM1_3E)|(<VR_SM1_1EL,VR_SM1_1E); F=DPU456;
+      TX=VR Sr 1 + IC Helsinki-Joensuu 2004;								\
+	C=VR_5_SR1R(|L),										\
+	  (<VR_6_IC1R,3*VR_6_EDRL,VR_6_EDR,VR_6_IC1RL,VR_6_IC1RXR,VR_6_IC1CXR)|				\
+	  (<VR_6_IC1CXRL,VR_6_IC1RXRL,VR_6_IC1R,VR_6_EDRL,3*VR_6_EDR,VR_6_IC1RL);			\
+	F=EP5;
+      TX=VR Sr3074 + Vorortzug Helsinki 2005;								\
+	C=VR_5_SR1R(|L),										\
+	  (<VR_5_EILFR,VR_5_EILFRL,VR_5_EILF,VR_5_EILFL,VR_5_EILF,VR_5_EILFL)|				\
+	  (<VR_5_EILF,VR_5_EILFL,VR_5_EILF,VR_5_EILFL,VR_5_EILFR,VR_5_EILFRL);				\
+	F=EPR5;
+
     }
     {E6?
 
@@ -849,16 +1105,40 @@ $REQUIRE TRAINDEF.TTT
       TX=VR DR16;											\
 	C=VR_DR16|VR_DR16_2819,FI6FS1; F=DF6;
       TX=VR DM 12;											\
-	C=VR_DM12; F=DPU6;
+	C=VR_DM12; F=DPRU6;
       TX=SR 1;												\
-	C=VR_SR1N~HAG|VR_SR1_3071,4*VR_EIL; F=EP56;
+	C=VR_SR1N~HAG|VR_SR1_3071,4*VR_EIL; F=EPR56;
       TX=VR SM3;											\
 	C=<VR_SM3GF[!L],VR_SM3GB,#VR_SM3GE,VR_SM3GB,VR_SM3GE,VR_SM3GF; F=EPU6;
       TX=VR SM5 Suburban Trains Helsinki;								\
 	C=(<VR_JKOY_SM5AL,VR_JKOY_SM5BL,VR_JKOY_SM5C,VR_JKOY_SM5D)|					\
 	  (<VR_JKOY_SM5DL,VR_JKOY_SM5CL,VR_JKOY_SM5B,VR_JKOY_SM5A);					\
+	F=EPRU6;
+      TX=VR Sr2 + IC171 Hyvinkää 2010;									\
+	C=VR_6_SR2R(|L),										\
+	  (<VR_6_EIPTL,VR_6_EIPT,VR_6_IC1RL,VR_6_EFITG,3*VR_6_EDML,VR_6_EDM,VR_6_EDML,VR_6_EDM)|	\
+	  (<VR_6_EDM,VR_6_EDML,VR_6_EDM,VR_6_EDML,3*VR_6_EDM,VR_6_EFITGL,VR_6_IC1R,VR_6_EIPTL,		\
+	  VR_6_EIPT);											\
+	F=EP6;
+      TX=VR Sr 3045 + P441 bei Välillä 2017;								\
+	C=VR_6_SR1G(|L),(<VR_5_EFIT,VR_6_IC1EXG,VR_6_IC1EXGL)|(<VR_6_IC1EXG,VR_6_IC1EXGL,VR_5_EFITL);	\
+	F=EPR6;
+      TX=VR Sr2+Wende-Doppelstock-IC 2016;								\
+	C=(<VR_6_SR2G(|L),VR_6_EDBG,VR_6_EDRG,VR_6_EDBGL,VR_6_EDOG)|					\
+	  (<VR_6_EDOGL,VR_6_EDBG,VR_6_EDRGL,VR_6_EDBGL,VR_6_SR2G(|L));					\
 	F=EPU6;
+      TX=VR Sr1 + IC2-Wagen um 2015;									\
+	C=VR_6_SR1G(|L),(2@VR_6_EDBG); F=EP6;
+      TX=VR 3;												\
+	C=VR_SR3(|L),FI6FS; F=EF6;
+
+
+
     }
   %ENDPOOL;
 }
+
+
+
+
 

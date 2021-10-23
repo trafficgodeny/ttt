@@ -266,9 +266,9 @@ $SPOOL N=CD_RYCHLIKY_2004; SEQ=R;
 	2*CD_BHEE96(|L),CD_BEEL96(|L),CD_BRM(1|1L|2|2L),CD_AEEL96(|L);					\
       F=EP6;
     TX=R 265 Praha hl.n. <- Plzen hl.n. - Domazlice - Furth im Wald - Schwandorf - Regensburg Hbf. -> München Hbf. (anno 2004); \
-      C=CD_GOGGLES,DBAG_AIMZ2617W(|L),DBAG_BDMS273VR(|L),3*DBAG_BIMZ2647W(|L); F=DP6;
+      C=CD_GOGGLES,DBAG_AIMZ2617W(|L),DB_BDMS273_VR1M      (|L),3*DBAG_BIMZ2647W(|L); F=DP6;
     TX=R 266 Praha hl.n. <- Plzen hl.n. - Domazlice - Furth im Wald - Schwandorf - Regensburg Hbf. -> München Hbf. (anno 2004); \
-      C=CD_363_(001|009|023|025|037|073|087|160|162),3*DBAG_BIMZ2647W(|L),DBAG_BDMS273VR(|L),		\
+      C=CD_363_(001|009|023|025|037|073|087|160|162),3*DBAG_BIMZ2647W(|L),DB_BDMS273_VR1M      (|L),		\
 	DBAG_AIMZ2617W(|L);										\
       F=EP6;
     TX=R 264 Praha hl.n. <- Plzen hl.n. - Domazlice - Furth im Wald - Schwandorf - Regensburg Hbf. -> München Hbf. (anno 2004); \
@@ -343,12 +343,12 @@ $SPOOL N=CD_RYCHLIKY_2004; SEQ=R;
 	CD_BDS74B(|L)|CD_BDS81B(|L),3*CD_B65B(1|1L|2|2L|3|3L)|CD_B77B(|L),CDWLAB6;			\
       F=EP6;
     TX=R 378 "Kopernikus" Praha hl.n. <- Decín - Dresden Hbf. -> Berlin-Lichtenberg (anno 2004);	\
-      C=CD_371_00(2|12:3)(|L),4*DB_5BOMDZL|DB_5BOMDZ,DB_5BVCMZ248_5(|L)|DB_5BVCMBZ249_1(|L),		\
+      C=CD_371_00(2|12:3)(|L),4*DBAG_BOMZ236_3VRL|DB_5BOMDZ,DB_5BVCMZ248_5(|L)|DB_5BVCMBZ249_1(|L),		\
 	DB_WLABMZ173A(|L);										\
       F=EP6;
     TX=R 379 "Kopernikus" Praha hl.n. <- Decín - Dresden Hbf. -> Berlin-Lichtenberg (anno 2004);	\
       C=CD_371_00(2|12:3)(|L),DB_WLABMZ173A(|L),DB_5BVCMZ248_5(|L)|DB_5BVCMBZ249_1(|L),			\
-	4*DB_5BOMDZL|DB_5BOMDZ;										\
+	4*DBAG_BOMZ236_3VRL|DB_5BOMDZ;										\
       F=EP6;
     TX=R 420 "Excelsior" Zilina <- Cadca - Bohumín - Prerov - Ceská Trebová - Praha hl.n. - Ústí nad Labem hl.n. - Kadan - Karlovy Vary -> Cheb (anno 2004); \
       C=CD_163_0(05|11|21),ZS_WLAB_6,ZS_BC_6,CD_AB65B(|L)|CD_AB84B(|L),CD_BDS74B(|L)|CD_BDS81B(|L),	\
@@ -991,7 +991,8 @@ $ENDPOOL
 	C=CSD_T238_0(C|M)|CSD_T239_1|CD_720_(016|016L|055|121|121L),10-12**CSD_ST; F=DF5;
 	TX=D 250 Praha <- Schirnding -> Frankfurt (anno 1991);						\
 	  C=CD_753_060(|L),										\
-	    (<SNCF_6UIC_B10(|L),SNCF_UIC_A4CB5C_1985,CSD_WRRM1L,2*CSD_Y4ABL,DB_4DMS902_1,CSD_Y4BL);	\
+	    (<SNCF_6UIC_B10,SNCF_UIC_A4CB5C_1985,CSD_WRRM1L,2*CSD_Y4ABL,DB_4B_DMS902BBU   ,CSD_Y4BL)|\
+            (>SNCF_6UIC_B10L,SNCF_UIC_A4CB5C_1985L,CSD_WRRM1,2*CSD_Y4AB,DB_4B_DMS902BBUL   ,CSD_Y4B);	\
 	  F=DP5;
 	C=CSD_T466_0A|CSD_T466_0B|CSD_T466_0C,CSD_1D~VST,3*OPWEPIVGAS; F=D5;
 	TX=Secovské Poliance (11.08.1991);								\
@@ -1290,7 +1291,7 @@ $ENDPOOL
 	TX=Dolních Loucek (23.04.2000);									\
 	  C=2*CSD_S489_0,20*CD_WAP~CD,CSD_S489_0; F=EF6;
 	TX=OS 17208 Frantiskovy Lazne <-> Hranice (anno 2000);						\
-	  M=OPEN; C=CD_810_5D(|L); P=40-60; F=DPUO6;
+	  M=OPEN; C=CD_810_5D(|L); P=40-60; F=DPUTO6;
 	TX=Turnovo (06.05.2000);									\
 	  C=CSD_T466_0C,CSD_DS(|L),2*CD_ZTS,PKP_GAGST; V=2-3; F=D6;
 	TX=Kadani (09.05.2000);										\
@@ -1544,8 +1545,8 @@ $ENDPOOL
 	TX=Becvu v Prerove (18.04.2003);								\
 	  C=$DIR(CD_742_409L,CD_742_409),2*CD_ZTS; F=DF6;
 	TX=Prerov (24.04.2003);										\
-	  C=<CSD_EM488_0BL~CD[O:GR_0(1|2|3|4|5|6),>40-228,9][O:GR_0(1|2|3|4|5|6),>40-228,9]		\
-	    [O:GR_0(1|2|3|4|5|6),>40-228,9],								\
+	  C=<CSD_EM488_0BL~CD[O:GR_0(1|2|3|4|5|6),>65-228,9][O:GR_0(1|2|3|4|5|6),>65-228,9]		\
+	    [O:GR_0(1|2|3|4|5|6),>65-228,9],								\
 	    3*CSD_EM488_0BB1~CD[O:GR_0(1|2|3|4|5|6),<17-66,9][O:GR_0(1|2|3|4|5|6),<133-175,9]		\
 	    [O:GR_0(1|2|3|4|5|6),<17-66,9][O:GR_0(1|2|3|4|5|6),<133-175,9],				\
 	    CSD_EM488_0B~CD[O:GR_0(1|2|3|4|5|6),<17-66,9][O:GR_0(1|2|3|4|5|6),<133-175,9]		\
@@ -1893,14 +1894,14 @@ $ENDPOOL
       TX=ER 2503 Bratislava <-> Wien Südbhf. (anno 2005);						\
 	C=OBB2143R,3*ZSB6; F=D6;
       TX=ER 2504 Wien Südbhf. <-> Bratislava hl.st. (anno 2005);					\
-	C=OBB_5047L~ZS|OBB_5047~ZS|OBB_5047BL~ZS|OBB_5047B~ZS|OBB_5047_90; F=DPU6;
+	C=OBB_5047AML|OBB_5047AM|OBB_5047BL~ZS|OBB_5047B~ZS|OBB_5047_90; F=DPU6;
       TX=ER 2507 Bratislava <-> Wien Südbhf. (anno 2005);						\
 	C=OBB2143R,$DIR(OBB_5A1_BDP8235,OBB_5A1_BDP8235),						\
 	  3*OBB_2735S1L|OBB_5A2_BP2935L|								\
 	  8:(OBB_5A2_BP2935L|OBB_5A2_BP2935|OBB_5B2_BP2935L|OBB_5B2_BP2935);				\
 	F=DP6;
       TX=ER 2508 Wien Südbhf. <-> Bratislava (anno 2005);						\
-	C=2*OBB_5047L~ZS|OBB_5047~ZS|OBB_5047BL~ZS|OBB_5047B~ZS|OBB_5047_90,OBB5147B|OBB5147~ZS; F=DPU6;
+	C=2*OBB_5047AML|OBB_5047AM|OBB_5047BL~ZS|OBB_5047B~ZS|OBB_5047_90,OBB5147B|OBB5147~ZS; F=DPU6;
       TX=ER 2511 Bratislava <-> Wien Südbhf. (anno 2005);						\
 	C=ZSR_754,OBB2143R,4*ZSB6; F=D6;
       TX=ER 2519 "Nitran" Nitra <-> Wien Südbhf. (anno 2005);						\

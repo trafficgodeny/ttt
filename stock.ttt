@@ -1,3 +1,4 @@
+# 0_INDIR.TTT
 $REQUIRE POOLDEF.TTT
 $REQUIRE POOLDEF2.TTT
 $REQUIRE ZSZ_DEF.TTT
@@ -5,260 +6,268 @@ $REQUIRE ZSZ_SPEC_DEF.TTT
 $REQUIRE CZ_DEF.TTT
 {TB?
   $REQUIRE ZSZ_TB.TTT
-}
+}                   
+$SECTION NAME=ROOTC; UNLIMITED;
 #
 #       1. Multi-line with/without background
 #
-{MM?
+{MM?    
   $REQUIRE POOLSEC.TTT
-}
+}                       
+{JKA|LEO|MIX1|BGD|BGCH|BDWH|IMAG|AVIA|SHIP|STREET|LT|TOY|ADV|SPACE|OPM|TGIF|LTC|LARGE|PC|LBUS|HAS|T30|TB|MR|NSME|DUP|LTCMM|TBB|CZA|BGDRW|TK|H|CITY|CYSC|MONO|MMCT?
+  $SECTION LC=1;
 #
 #       2. Full-screen background
 #
-{JKA|LEO|MIX1|BGD|BGCH|BDWH|IMAG?
-  $SECTION NAME=FullScreenBackground; LC=1;
-    {JKA?
-      $SECTION LC=1;
-	$INCLUDE JKA_BGFULL.TTT
+    {JKA|LEO|MIX1|BGD|BGCH|BDWH|IMAG?
+      $SECTION NAME=FullScreenBackground; LC=1;
+        {JKA?
+          $SECTION LC=1;
+	    $INCLUDE JKA_BGFULL.TTT
+          $ENDSECTION 
+        }
+        {IMAG?
+          $SECTION LC=1;
+	    $INCLUDE ZSZ_SXC.TTT
+          $ENDSECTION 
+        }
+        {MIX1?
+          $INCLUDE ZSZ_BG1.TTT
+        }
+        {LEO?
+          $SECTION NAME=Szolnok; LC=1;
+	    $INCLUDE LEO_SZOLNOK.TTT
+          $ENDSECTION 
+        }
+        {IMAG?
+          $SECTION LC=1; VAR=BGTYPE=1;
+	    $INCLUDE ZSZ_BG2.TTT
+          $ENDSECTION 
+        }
+        {BGD|BGCH?
+          $SECTION LC=1; VAR=BGTYPE=0;
+	    $INCLUDE HMH_BGFULL.TTT
+          $ENDSECTION 
+        }
+        {BDWH?
+          $SECTION NAME=BDWH; LC=1; VAR=BGTYPE=1;
+	    $INCLUDE ZSZ_BDWH.TTT
+          $ENDSECTION 
+        }
       $ENDSECTION 
     }
-    {IMAG?
-      $SECTION LC=1; VAR=BGTYPE=1;
-	$INCLUDE ZSZ_SXC.TTT
-      $ENDSECTION 
-    }
-    {MIX1?
-      $SECTION LC=1;
-	$INCLUDE ZSZ_BG1.TTT
-      $ENDSECTION 
-    }
-    {LEO?
-      $SECTION NAME=Szolnok; LC=1;
-	$INCLUDE LEO_SZOLNOK.TTT
-      $ENDSECTION 
-    }
-    {IMAG?
-      $SECTION LC=1; VAR=BGTYPE=1;
-	$INCLUDE ZSZ_BG2.TTT
-      $ENDSECTION 
-    }
-    {BGD|BGCH?
-      $SECTION LC=1; VAR=BGTYPE=0;
-	$INCLUDE HMH_BGFULL.TTT
-      $ENDSECTION 
-    }
-    {BDWH?
-      $SECTION NAME=BDWH; LC=1; VAR=BGTYPE=1;
-	$INCLUDE ZSZ_BDWH.TTT
-      $ENDSECTION 
-    }
-  $ENDSECTION 
-}
 #
 #       3. Others / Other scales
 #
-{AVIA|SHIP|STREET|LT|TOY|ADV|SPACE|MIX1|OPM|TGIF|LTC|LARGE|PC|LBUS|HAS|T30|TB|MR|NSME|DUP|LTCMM|TBB?
-  $SECTION LC=1;
-    {AVIA|SHIP|STREET|LT|TOY|ADV|SPACE|MIX1|OPM|TGIF|LTC|LARGE|PC|LBUS?
+    {AVIA|SHIP|STREET|LT|TOY|ADV|SPACE|MIX1|OPM|TGIF|LTC|LARGE|PC|LBUS|HAS|T30|TB|MR|NSME|DUP|LTCMM|TBB?
       $SECTION LC=1;
-	$INCLUDE ZSZ_OTHER.TTT
-      $ENDSECTION 
-    }
-    {HAS|T30|TB|MR|NSME|DUP|LTCMM|TBB?
-      $SECTION LC=1;
-	{TB?
-	  $SECTION NAME=TB_Japan; IMGY=33; AB=2; BL=3; V=4-9; ST=0.3; WR=a#888; WL=al*#888/#555; DIS=10; %SECFIN;
-	    POOL=TB_J;
-	  $ENDSECTION 
-	}
-	{HAS?
-	  $SECTION NAME=NanDemoHashiru; IMGY=18; AB=2; BL=3; V=3-7; ST=0.3; WR=a#777; WL=al*#777/#444; DIS=10; %SECFIN;
-	    $DEF2C 1
-	    $INCLUDE HASHIRU_FIXTRAIN.TTT
-	    $DEF2C 0
-	  $ENDSECTION 
-	}
-        {LTCMM?
-          {%FILEX(15x3.tvl)?
-            $SECTION NAME=LTC; LC=1; IMGY=153; V=12-30;
-              $INCLUDE ZSZ_LTC.TTT
-            $ENDSECTION 
-          }
+        {AVIA|SHIP|STREET|LT|TOY|ADV|SPACE|MIX1|OPM|TGIF|LTC|LARGE|PC|LBUS?
+          $SECTION LC=1;
+	    $INCLUDE ZSZ_OTHER.TTT
+          $ENDSECTION 
         }
-	{T30?
-	  $SECTION NAME=TSV30; IMGY=28; AB=2; BL=3; V=4-8; ST=0.3; WR=a#888; WL=al*#888/#555; DIS=10; %SECFIN;
-	    $DEF2C 1
-	    $INCLUDE T30_FIXTRAIN.TTT
-	    $DEF2C 0
-	  $ENDSECTION 
-	}
-	{TB?
-	  $SECTION NAME=TB_EU; IMGY=33; AB=2; BL=3; V=4-9; ST=0.3; WR=a#888; WL=al*#888/#555; DIS=10; %SECFIN;
-	    POOL=TB_EU;
-	  $ENDSECTION 
-	}
-	{MR?
-	  $SECTION IMGY=39; AB=2; BL=3; V=5-12; ST=0.4; WR=a#888; WL=al*#888/#555; DIS=10; %SECFIN;
-	    $INCLUDE ZSZ_MR.TTT
-	  $ENDSECTION 
-	}
-	{TB?
-	  $SECTION IMGY=33; AB=2; BL=3; V=3-12; ST=0.3; WR=a#888; WL=al*#888/#555; DIS=10; %SECFIN;
-	    POOL=TB_J;
-	  $ENDSECTION 
-	}
-	{NSME?
-	  $SECTION IMGY=95; AB=30; BL=15; V=5-28; ST=0.6; %SECFIN;
-	    $INCLUDE ZSZ_NSME.TTT
-	  $ENDSECTION 
-	}
-	{TBB?
-	  $SECTION IMGY=33; ST=0.3; WR=a#888; DIS=10; %SECFIN;
-	    $INCLUDE ZSZ_TBBUS.TTT
-	  $ENDSECTION 
-	}
-	{DUP?
-	  $SECTION IMGY=122; AB=30; BL=15; V=8-28; ST=0.6; %SECFIN;
-	    $INCLUDE ZSZ_DUP.TTT
-	  $ENDSECTION 
-	}
+        {HAS|T30|TB|MR|NSME|DUP|LTCMM|TBB?
+          $SECTION LC=1;
+	    {TB?
+	      $SECTION NAME=TB_J; IMGY=33; AB=2; BL=3; V=4-9; ST=0.3; WR=a#888; WL=al*#888/#555; DIS=10; %SECFIN;
+	        POOL=TB_J;
+	      $ENDSECTION 
+	    }
+	    {HAS?
+	      $SECTION NAME=HASHIRU; IMGY=18; AB=2; BL=3; V=3-7; ST=0.3; WR=a#777; WL=al*#777/#444; DIS=10; %SECFIN;
+	        $DEF2C 1
+	        $INCLUDE HASHIRU_FIXTRAIN.TTT
+	        $DEF2C 0
+	      $ENDSECTION 
+	    }
+            {LTCMM?
+              $SECTION NAME=LTC; LC=1; IMGY=153; V=12-30;
+                $INCLUDE ZSZ_LTC.TTT
+              $ENDSECTION 
+            }
+	    {T30?
+	      $SECTION NAME=TSV30; IMGY=28; AB=2; BL=3; V=4-8; ST=0.3; WR=a#888; WL=al*#888/#555; DIS=10; %SECFIN;
+	        $DEF2C 1
+	        $INCLUDE T30_FIXTRAIN.TTT
+	        $DEF2C 0
+	      $ENDSECTION
+	    }
+	    {TB?
+	      $SECTION NAME=TB_EU; IMGY=33; AB=2; BL=3; V=4-9; ST=0.3; WR=a#888; WL=al*#888/#555; DIS=10; %SECFIN;
+	        POOL=TB_EU;
+	      $ENDSECTION 
+	    }
+	    {MR?
+	      $SECTION NAME=MR_ALL; IMGY=39; AB=2; BL=3; V=5-12; ST=0.4; WR=a#888; WL=al*#888/#555; DIS=10; %SECFIN;
+	        $INCLUDE ZSZ_MR.TTT
+	      $ENDSECTION 
+	    }
+	    {TB?
+	      $SECTION IMGY=33; AB=2; BL=3; V=3-12; ST=0.3; WR=a#888; WL=al*#888/#555; DIS=10; %SECFIN;
+	        POOL=TB_J;
+	      $ENDSECTION 
+	    }
+	    {NSME?
+	      $SECTION NAME=NSME; IMGY=95; AB=30; BL=15; V=5-28; ST=0.6; %SECFIN;
+	        $INCLUDE ZSZ_NSME.TTT
+	      $ENDSECTION 
+	    }
+	    {TBB?
+	      $SECTION NAME=TBBUS; IMGY=33; ST=0.3; WR=a#888; DIS=10; %SECFIN;
+	        $INCLUDE ZSZ_TBBUS.TTT
+	      $ENDSECTION 
+	    }
+	    {DUP?
+	      $SECTION NAME=DUP; IMGY=122; AB=30; BL=15; V=8-28; ST=0.6; %SECFIN;
+	        $INCLUDE ZSZ_DUP.TTT
+	      $ENDSECTION 
+	    }
+          $ENDSECTION 
+        }
       $ENDSECTION 
     }
-  $ENDSECTION 
-}
 #
 #       4. Background stripes / City traffic
 #
-{CZA|BGDRW|TK|H|CITY|CYSC|STREET|MONO?
-  $SECTION LC=1;
-    {CZA|BGDRW|TK|H?
+    {CZA|BGDRW|TK|H|CITY|CYSC|STREET|MONO|MMCT?
       $SECTION LC=1;
-	{CZA?
-	  $SECTION LC=1;
-	    $INCLUDE CZ_ALL.TTT
-	  $ENDSECTION 
-	}
-	{BGDRW?
-	  $SECTION LC=1;
-	    $INCLUDE ZSZ_BG4.TTT
-	  $ENDSECTION 
-	}
-	{TK?
-	  $SECTION LC=1;
-	    $INCLUDE ZSZ_TK.TTT
-	  $ENDSECTION 
-	}
-	{BGDRW?
-	  {H?
-	    $SECTION LC=8; ML=4; AB=70; BL=20; WE=M_CAT;
-	      												\
-		BG=@@;											\
-		AP=BG1,											\
-		  ([POOL=POOL_HUN]|									\
-		  [M#=STOP][POOL=POOL_HUN:#S&P]								\
-		  [BG<=(M_BFA|M_CSOPAK1A|M_CSOPAK1B|M_GARDONY|SASD|GODISA|OCSA|M_RAKOSPALOTA|M_VAC|	\
-		  M_STATION1|KERTA|BALATONBERENY|KISKORPAD|CS_STATION1|LIBEN_DOLNY|NEMILKOV|OBRATAN|	\
-		  KACOV|LITEN|GUMPENRIEDASBACH):(20-80)+0=STATION;][P#=*STATION]);
-	    $ENDSECTION 
-	  }
-	}
-	{IMAG?
-	  $DEF IPD1=FS_ABZ64500D,3-7*(FS_4A_B2100TDL|FS_4B_AB3100DL|FS_4B_BR8550L|FS_4B_BR8550TL|FS_BMD)
-	  $DEF IPD2=2-6*FS_PRSD(|L)
-	  $DEF IPD3=2-4*FS_NB2PD,|FS_NB2P_PD($DIR(,[!L]))
+        {CZA|BGDRW|TK|H?
+          $SECTION LC=1;
+	    {CZA?
+	      $SECTION LC=1;
+	        $INCLUDE CZ_ALL.TTT
+	      $ENDSECTION 
+	    }
+	    {BGDRW?
+	      $SECTION LC=1;
+	        $INCLUDE ZSZ_BG4.TTT
+	      $ENDSECTION 
+	    }
+	    {TK?
+	      $SECTION LC=1;
+	        $INCLUDE ZSZ_TK.TTT
+	      $ENDSECTION 
+	    }
+	    {BGDRW?
+	      {H?
+	        $SECTION NAME=IM_H1; LC=8; ML=4; AB=70; BL=20; WE=M_CAT;
+		    BG=@@;											\
+		    AP=BG1,											\
+		      ([POOL=POOL_HUN::NOAP2]|									\
+		      [M#=STOP][POOL=POOL_HUN:#S&P:NOAP2]								\
+		      [BG<=(M_BFA|M_CSOPAK1A|M_CSOPAK1B|M_GARDONY|SASD|GODISA|OCSA|M_RAKOSPALOTA|M_VAC|	\
+		      M_STATION1|KERTA|BALATONBERENY|KISKORPAD|CS_STATION1|LIBEN_DOLNY|NEMILKOV|OBRATAN|	\
+		      KACOV|LITEN|GUMPENRIEDASBACH):(20-80)+0=STATION;][P#=*STATION]);
+	        $ENDSECTION 
+	      }
+	    }
+	    {IMAG?
+	      $DEF IPD1=FS_ABZ64500D,3-7*(FS_4A_B2100TDL|FS_4B_AB3100DL|FS_4B_BR8550L|FS_4B_BR8550TL|FS_BMD)
+	      $DEF IPD2=2-6*FS_PRSD(|L)
+	      $DEF IPD3=2-4*FS_NB2PD,|FS_NB2P_PD($DIR(,[!L]))
 
-	  $POOL N=NIGHTTRAIN1;
-	    C=LIGHT_16,FS_E646D,IPD(1|2|3);
-	    C=FS_E656DLI,IPD(1|2|3);
-	    C=FS_A668_1500N;
-	    C=FS_ETR250N;
-	    TX=FS ETR.250 »Arlecchino« Ansicht bei Nacht;						\
-	      C=FS_ETR250N; F=EPU34;
-	  $ENDPOOL 
+	      $POOL N=NIGHTTRAIN1;
+	        C=LIGHT_16,FS_E646D,IPD(1|2|3);
+	        C=FS_E656DLI,IPD(1|2|3);
+	        C=FS_A668_1500N;
+	        C=FS_ETR250N;
+	        TX=FS ETR.250 »Arlecchino« Ansicht bei Nacht;						\
+	          C=FS_ETR250N; F=EPU34;
+	      $ENDPOOL 
 
-	  $SECTION LC=1;
-	    $GROUP LC=2; DX=1600; AB=525; BL=20;							\
-		BG=(BGPIC\SXC1242604.JPG; FL_SNCF_MIDI5:..,-5,#; TRBED25:..,^0);
-	      POOL=NIGHTTRAIN1;
-	    $ENDGROUP 
+	      $SECTION LC=1;
+	        $GROUP LC=2; DX=1600; AB=525; BL=20;							\
+		    BG=(BgPic/SXC1242604.JPG; FL_SNCF_MIDI5:..,-5,#; TRBED25:..,^0);
+	          POOL=NIGHTTRAIN1;
+	        $ENDGROUP 
 
-	    $GROUP LC=2; DX=1600; AB=276; BL=20;							\
-		BG=(BGPIC\SXC1233769.JPG; FL_SNCF_MIDI5:..,-5,#; TRBED25:..,^0);
-	      POOL=NIGHTTRAIN1;
-	    $ENDGROUP 
+	        $GROUP LC=2; DX=1600; AB=276; BL=20;							\
+		    BG=(BgPic/SXC1233769.JPG; FL_SNCF_MIDI5:..,-5,#; TRBED25:..,^0);
+	          POOL=NIGHTTRAIN1;
+	        $ENDGROUP 
 
-#
 #       New York Subway at night
-#
-	    $GROUP LC=2; DX=2512; AB=700; BL=90; VM=HEAD;						\
-		BG=(BGPIC\SXC1362701.JPG; BRIDGE4H[BC:-90]:..,^-8; TRBED10[BC:-50]:..,^0;		\
-		SNCF_3ERAIL_BG:..);
-	      C=3*IND_R1_(1|2)00(L,);
-	    $ENDGROUP 
+	        $GROUP LC=2; DX=2512; AB=700; BL=90; VM=HEAD;						\
+		    BG=(BgPic/SXC1362701.JPG; BRIDGE4H[BC:-90]:..,^-8; TRBED10[BC:-50]:..,^0;		\
+		    SNCF_3ERAIL_BG:..);
+	          C=3*IND_R1_(1|2)00(L,);
+	        $ENDGROUP 
 
-	    $GROUP LC=2; DX=2922; AB=438; BL=20; VM=HEAD;						\
-		BG=(BGPIC\SXC923817.JPG; FL_SNCF_MIDI5:..,-5,#; TRBED25:..,^0);
-	      POOL=NIGHTTRAIN1;
-	    $ENDGROUP 
-	  $ENDSECTION 
-	}
-      $ENDSECTION 
-    }
-    {CITY|CYSC|STREET|MONO?
-      $SPOOL N=CITMODE; SEQ=C;
-	{CY0?
-	  AB=5;												\
-	    BL=20; VAR=BGTYPE=0; DIS=5; ST=0.4;
-	}
-	{CY2?
-	  AB=25;											\
-	    BL=20; VAR=BGTYPE=2; DIS=10; ST=0.5;
-	}
-	{CY3?
-	  AB=25;											\
-	    BL=20; VAR=BGTYPE=3,BGUP=83; DIS=20; ST=1;
-	}
-	{CY4?
-	  AB=100;											\
-	    BL=20; VAR=BGTYPE=4,BGUP=158; DIS=20;
-	}
-	{CY5?
-	  AB=340;											\
-	    BL=20; VM=HEAD,JUMP; DX=5000; VAR=BGTYPE=5,BGUP=398; DIS=50;
-	}
-      $ENDPOOL 
+	        $GROUP LC=2; DX=2922; AB=438; BL=20; VM=HEAD;						\
+		    BG=(BgPic/SXC923817.JPG; FL_SNCF_MIDI5:..,-5,#; TRBED25:..,^0);
+	          POOL=NIGHTTRAIN1;
+	        $ENDGROUP 
+	      $ENDSECTION 
+	    }
+          $ENDSECTION 
+        }
+        {CITY|CYSC|STREET|MONO|MMCT?
+          $SPOOL N=CITMODE; SEQ=C;
+	    {CY0?
+	      AB=5;												\
+	        BL=20; VAR=BGTYPE=0; DIS=5; ST=0.4;
+	    }
+	    {CY2?
+	      AB=25;											\
+	        BL=20; VAR=BGTYPE=2; DIS=10; ST=0.5;
+	    }
+	    {CY3?
+	      AB=25;											\
+	        BL=20; VAR=BGTYPE=3,BGUP=83; DIS=20; ST=1;
+	    }
+	    {CY4?
+	      AB=100;											\
+	        BL=20; VAR=BGTYPE=4,BGUP=158; DIS=20;
+	    }
+	    {CY5?
+	      AB=340;											\
+	        BL=20; VM=HEAD,JUMP; DX=5000; VAR=BGTYPE=5,BGUP=398; DIS=50;
+	    }
+          $ENDPOOL 
     
-      $SECTION LC=1; POOL=CITMODE;
-	{CITY?
-	  $SECTION LC=1; WT=ENV_WAYT1; WM=ENV_WAYM;
-	    $INCLUDE ZSZ_CITYS.TTT
-	  $ENDSECTION 
-	}
-	{STREET?
-	  $SECTION SEQ=D; AB=30; %SECFIN;
-	    $INCLUDE ZSZ_STREET.TTT
-	  $ENDSECTION 
-	}
-	{CITY?
-          $INCLUDE ZSZ_CITYG.TTT
-	}
-	{MONO|CYSC?
-	  $SECTION LC=1;
-
-	    {CYSC?
-	      $SECTION LC=1;
-		$INCLUDE ZSZ_BGDRW.TTT
+          $SECTION LC=1; POOL=CITMODE;
+	    {CITY?
+	    {MMCT??
+	      $SECTION NAME=CITYS; LC=1; WT=ENV_WAYT1; WM=ENV_WAYM;
+	        $INCLUDE ZSZ_CITYS.TTT
 	      $ENDSECTION 
 	    }
-
-	    {MONO?
-	      $SECTION LC=1;
-		$INCLUDE ZSZ_MONO.TTT
+	    }
+	    {STREET?
+	      $SECTION SEQ=D; AB=30; %SECFIN;
+	        $INCLUDE ZSZ_STREET.TTT
 	      $ENDSECTION 
 	    }
-	  $ENDSECTION 
-	}
+	    {CITY?
+	    {MMCT??
+              $INCLUDE ZSZ_CITYG.TTT
+	    }
+	    }
+	    {MONO|CYSC?
+	      $SECTION LC=1;
+
+	        {CYSC?
+	          $SECTION LC=1;
+		    $INCLUDE ZSZ_BGDRW.TTT
+	          $ENDSECTION 
+	        }
+
+	        {MONO?
+	          $SECTION LC=1;
+		    $INCLUDE ZSZ_MONO.TTT
+	          $ENDSECTION 
+	        }
+	      $ENDSECTION 
+	    }
+          $ENDSECTION 
+        }
       $ENDSECTION 
     }
-  $ENDSECTION 
+  $ENDSECTION
+} 
+$ENDSECTION 
+ 
+{WTR?
+  $REQUIRE WTR.TTT
+  $REQUIRE ZSZ_LARGE.TTT
 }

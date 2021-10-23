@@ -19,6 +19,7 @@ TX= SNCF Z 600 StGervais-Vallorcine;F=MNPRU5;V=7;C=1-2*SNCF_Z600O(|L);
 TX= SNCF Z 600 StGervais-Vallorcine;F=MNPR4;V=7;C=SNCF_Z600O(|L),SNCF_ZR20600O(|L),SNCF_Z600O(|L),|(SNCF_ZR20600O(|L),SNCF_Z600O(|L));
 {E5?
 TX= SNCF Z 600 StGervais-Vallorcine;F=MNPR5;V=7;C=1-2@(SNCF_Z600ON(|L)|SNCF_Z600OC(|L)|SNCF_Z600T1(|L));
+TX= SNCF Z 600 StGervais-Vallorcine;F=MNPRU6;V=7;C=SNCF_Z600ON(|L)|SNCF_Z600OC(|L)|SNCF_Z600T1(|L),SNCF_Z600ON(|L)|SNCF_Z600OC(|L)|SNCF_Z600T1(|L),SNCF_Z600ON(|L)|SNCF_Z600OC(|L)|SNCF_Z600T1(|L),|(SNCF_Z600ON(|L)|SNCF_Z600OC(|L)|SNCF_Z600T1(|L),SNCF_Z600ON(|L)|SNCF_Z600OC(|L)|SNCF_Z600T1(|L));
 }
 {E6?
 TX= SNCF Z 800 StGervais-Vallorcine;F=MNPRU6;V=8;C=1-2*SNCF_Z800I;
@@ -159,22 +160,31 @@ TX= Chemins de Fer de Provence CFD ;F=DNPR5;V=8;C=PROV_CFD1B(|L),PROV_CFD1T(|L);
 TX= Chemins de Fer de Provence CFD ;F=DNPR6;V=8;C=PROV_6CFD1(|L);
 TX= Chemins de Fer de Provence CFD ;F=DNPR6;V=8;C=PROV_CFD2B(|L)|PROV_6CFD2(|L);
 TX= Chemins de Fer de Provence CFD ;F=DNPR6;V=8;C=PROV_6CFD2(|L),PROV_6CFD1(|L);
+TX= Chemins de Fer de Provence X307 ;F=DNPR6; V=8;C=PROV_6CFD_X307(|L);
 TX= Chemins de Fer de Provence AMP ;F=DNPRU6;V=10;C=1-2*CP_AMP;
+TX= Chemins de Fer de Provence AMP ;F=DNPRU6;V=10;C=1-2*CP_AMP_ZOU;
+
 }
 ;CFC : Chemins de Fer de la Corse
 ;================================
 {E3?
+TX= Chemins de Fer de la Corse X113 + XR210 ;F=DNPR3;V=8;C=CFC_X113_RC(|L),0-1*CFC_XR210_RC(|L);
 TX= Chemins de Fer de la Corse ABH8 ;F=DNPR3;V=8;C=CFC_ABH8_RG(|L),0-1*CFC_R210_RG(|L);
+TX= Chemins de Fer de la Corse ABH8 ;F=DNPR4;V=8;C=CFC_ABH8_RC(|L),0-1*CFC_R210_RC(|L);
+TX= Chemins de Fer de la Corse X500 ;F=DNPR4;V=7;C=CFC_X500_RC(|L),0-1*CFC_XR211_RC(|L);
 }
 {E4?
-TX= Chemins de Fer de la Corse ABH8 ;F=DNPR4;V=8;C=CFC_ABH8_RC(|L),0-1*CFC_R210_RC(|L);
+
 TX= Chemins de Fer de la Corse ABH8 ;F=DNPR4;V=8;C=CFC_ABH8_RCTR(|L),0-1*(CFC_R210_RCTR(|L)|CFC_XR212_RCTR(|L)|CFC_XR210_RCTR(|L));
-TX= Chemins de Fer de la Corse X500 ;F=DNPR4;V=7;C=CFC_X500_RC(|L),0-1*CFC_R210_RC(|L);
-TX= Chemins de Fer de la Corse X500 ;F=DNPR4;V=7;C=CFC_X500_RCTR(|L);
-TX= Chemins de Fer de la Corse X510 ;F=DNPR4;V=8;C=CFC_X510_RC(|L);
+
+TX= Chemins de Fer de la Corse X113 + XR210 ;F=DNPR4;V=8;C=CFC_X113_RCTR(|L),0-1*CFC_XR210_TEE(|L);
+TX= Chemins de Fer de la Corse X500 ;F=DNPR4; V=7;C=CFC_X500_RC,0-1*CFC_R210_RC;
+TX= Chemins de Fer de la Corse X500 ;F=DNPR4;V=7;C=CFC_X500_RCTR(|L),0-1*CFC_XR211_RCTR(|L);
+TX= Chemins de Fer de la Corse X510 ;F=DNPR4;V=8;C=CFC_X510_RC(|L)|CFC_X510_TEE(|L),0-1*CFC_XR211_TEE(|L)|CFC_XR211_RCTR(|L);
 TX= Chemins de Fer de la Corse A150D ;F=DNPR4;V=8;C=CFC_A150D_RC(|L)|CFC_A150D_RCTR(|L),CFC_R210_RC(|L);
 }
 {E5?
+TX= Chemins de Fer de la Corse ABH8 ;F=DNPR4; V=8;C=CFC_ABH8_TEE(|L);
 TX= Chemins de Fer de la Corse X2000 ;F=DNPR5;V=8;C=CFC_X2000_W(|L)|CFC_X2000_B(|L); 
 TX= Chemins de Fer de la Corse X2000 ;F=DNPR5;V=8;C=CFC_X2000_W(|L),CFC_X2000_B(|L); 
 }
@@ -185,6 +195,7 @@ TX= Chemins de Fer de la Corse X2000 ;F=DNPR4; V=8;C=2*CFC_X2000_TEE2(|L),CFC_XR
 }
 {E5?
 TX= Chemins de Fer de la Corse X2000 ;F=DNPR5;V=8;C=CFC_X2000_W(|L),CFC_R210_W(|L),CFC_X2000_W(|L); 
+TX= Chemins de Fer de la Corse X2000 ;F=DNPR5;V=8;C=(>CFC_X2000_WL,CFC_R210_WL,CFC_X2000_WL)|(<CFC_X2000_W,CFC_R210_W,CFC_X2000_W);
 }
 {E4?
 TX= Chemins de Fer de la Corse X5000 ;F=DNPR4;V=8;C=CFC_X5000(|L);
