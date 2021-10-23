@@ -12,6 +12,7 @@ $REQUIRE MLG_DEF.TTT
   ;-------------
 
 TX= DB 141  ; F=EP4; V=12;C=DB_141_4FPR_BB(|L),SNCF_OR_B4D(|L),SNCF_UIC_A4CB5C(|L),SNCF_4A_UIC_B10(|L);     
+
   ;FREIBURG - MULHOUSE
 TX= DB 218  ; F=DP4; V=14;C=DB_218BB1(|L),SNCF_VU_B6D(|L),3*SNCF_VTU_B(|L),SNCF_VSE_A9(|L);
 
@@ -64,6 +65,7 @@ TX= DB 103.1 + IC; F=EP4; V=20;C=DB_103_1SPUT(|L),DB_AVMZ111T(|L),2*DB_AVMZ111_S
 TX= DB 111 + IC; F=EP4; V=16;C=DB_111PU_S(|L),3*DB_AM202B(|L),DB_AVMZ111_SDT2(|L),3*DB_AM202B(|L);
 TX= DB 221 + IC; F=DP4; V=14;C=DB_221_PR(|L),DB_AVMZ111T(|L)|DB_AVMZ111_SDT(|L),DB_APMZ121T(|L)|DB_APMZ121_SDT(|L);
 TX= DB 221 + IC; F=DP4; V=14;C=DB_221_BB(|L),DB_AVMZ111T(|L),DB_APMZ121T(|L);
+TX=ET 403 IC; F=EPU4 ;V=20;C=DB_ET403_IC;
   ;IC79
 TX= DB 103.1 + IC; F=EP4; V=16;C=DB_103_1SPUT(|L),DB_AVMZ111_SDT(|L),DB_APMZ121_SDT(|L),DB_AVMZ111_SDT(|L),DB_ARMZ217T2B(|L)|DB_ARMZ211T2(|L),7*DB_BM234BB2(|L);
 TX= DB 111 + IC; F=EP4; V=16;C=DB_111_PU_BB(|L),DB_BM234BB2(|L),DB_BPMZ291BB(|L)~MLG,3*DB_BM234BB2(|L),DB_WRMH135T(|L),DB_AVMZ207TEE2(|L),DB_APMZ121T2(|L);
@@ -351,7 +353,7 @@ TX= DB 601  + Touristikzug; F=DPU4; V=14;C=<1-2*(DB_601ML,(DB_901_2,2*DB_901_1,D
 ;ET / VT;
 ;-------
 
-TX= DB 426  ; F=EPRU4; V=12;C=1-2*DB_ET26(|L);
+TX= DB 426  ; F=EPRU4; V=12;C=2:DB_426_001(|L)|1:DB_426_002(|L)|1:DB_426_003(|L)|2:(<DB_426_001L|DB_426_002L,DB_426_001|DB_426_003);
 TX= DB 425  ; F=EPRU4; V=10;C=1-2*DB_425_1;
 TX= DB 432  ; F=EPRU4; V=10;C=(XDB_432_10|XDB_432_12|DB_432_2_RG),3:|1:(XDB_432_10|XDB_432_12|DB_432_2_RG);    
 TX= DB 465  ; F=EPRU4; V=9;C=<1-3@(4:(DB_465_0L,DB_865_6)|4:(DB_865_6L,DB_465_0)|1:(DB_465BL,DB_865_6B)|1:(DB_865_6BL,DB_465B));
@@ -559,10 +561,24 @@ TX= Regentalbahn G1202  ; F=DPRU4; V=8;C=<RBG_G1202A1(|L),2*RBG_BYE;
 
   ;SWEG  
   ;----
-TX= Südwestdeutsche Verkehrs-Aktiengesellschaft D75  ; F=DPR4; V=8;C=SWEG_D75(|L),DB_FC090(|L),2*DB_HBIS299,DB_GS210;
+TX= Südwestdeutsche Verkehrs-Aktiengesellschaft MAK G1203  ; F=DF4; V=8;C=SWEG_G1203(|L),6*DB_FSZ120,3*DB_FC090(|L);
+TX= Südwestdeutsche Verkehrs-Aktiengesellschaft MAK G1203  ; F=DF4; V=8;C=SWEG_G1203(|L),SNCF_G4BOIS,DB_FC090(|L),FS_GBS4,8-9*(DB_GLS203C|DB_GS211|DB_GS216C);
+TX= Südwestdeutsche Verkehrs-Aktiengesellschaft Gmeinder D75  ; F=DPR4; V=8;C=SWEG_D75(|L),DB_FC090(|L),2*DB_HBIS299,DB_GS210;
 
-TX= Südwestdeutsche Verkehrs-Aktiengesellschaft VT MAN  ; F=DPRU4; V=9;C=(<SWEG_VTMAN,SWEG_VSMAN|SWEG_VSMAN_TW)|(>SWEG_VTMAN,SWEG_VSMANL|SWEG_VSMAN_TWL)|SWEG_VTMAN|SWEG_VTMAN(|W);
-TX= Südwestdeutsche Verkehrs-Aktiengesellschaft NE81 VT1 ; F=DPR4; V=9;C=SWEG_NE81VT1(|L),0-1*SWEG_VBMAN;
+TX= Südwestdeutsche Verkehrs-Aktiengesellschaft MAK G1203 + VB MAN ; F=DPR4; V=8;C=SWEG_G1203(|L),SWEG_VBMAN;
+TX= Südwestdeutsche Verkehrs-Aktiengesellschaft MAK G1203 + VB ; F=DPR4; V=8;C=SWEG_G1203(|L),SWEG_VB181O(|L),2*SWEG_VB169(|L);
+
+TX= Südwestdeutsche Verkehrs-Aktiengesellschaft VT MAN ; F=DPR4;V=9;C=(<SWEG_VTMAN,|SWEG_VS225(|L),SWEG_VSMAN|SWEG_VSMAN_TW)|(>SWEG_VTMAN,|SWEG_VS225(|L),SWEG_VSMANL|SWEG_VSMAN_TWL)|SWEG_VTMAN|SWEG_VTMAN_W_R;
+TX= Südwestdeutsche Verkehrs-Aktiengesellschaft VT MAN ; F=DPR4; V=9;C=(<SWEG_VTMAN,SWEG_VSMAN)|(>SWEG_VTMAN,SWEG_VSMANL),DB_GLS205C;
+TX= Südwestdeutsche Verkehrs-Aktiengesellschaft VT Esslingen 102; F=DPR4;V=8;C=SWEG_VT102(|L)|SWEG_VT104(|L);
+TX= Südwestdeutsche Verkehrs-Aktiengesellschaft VT Esslingen 110; F=DPR4; V=8;C=SWEG_VT110(|L),|DB_GLMS207;
+TX= Südwestdeutsche Verkehrs-Aktiengesellschaft VT Esslingen 110; F=DPR4; V=8;C=SWEG_VT110(|L),SWEG_VB169(|L);
+TX= Südwestdeutsche Verkehrs-Aktiengesellschaft VT Esslingen 102+ VT MAK GDT ; F=DPR4; V=8;C=SWEG_VT102(|L),SWEG_VTMAK(|L);
+TX= Südwestdeutsche Verkehrs-Aktiengesellschaft NE81 VT1 ; F=DPR4; V=9;C=SWEG_NE81VT1(|L),|((1-2*SWEG_VBMAN)|SWEG_VB181O(|L));
+TX= Südwestdeutsche Verkehrs-Aktiengesellschaft NE81 VT1 ; F=DPR4; V=9;C=SWEG_NE81VT1(|L),SWEG_VB169(|L),SWEG_NE81VT1(|L);
+TX= Südwestdeutsche Verkehrs-Aktiengesellschaft NE81 VT1 ; F=DPR4; V=9;C=SWEG_NE81VT1(|L),SWEG_VB181A(|L),|SWEG_NE81VB2(|L)|SWEG_VB169(|L);
+TX= Südwestdeutsche Verkehrs-Aktiengesellschaft VT MAK GDT ; F=DPR4; V=8;C=SWEG_VTMAK(|L),0-1*SWEG_VB181O(|L);
+TX=Südwestdeutsche Verkehrs-Aktiengesellschaft VT 521 EX OHE + MAN VB; F=DPR4;V=8;C=OHE_GDT0500(|L),1-2*SWEG_VBMAN;
 
   ;TEGERNSEEBAHN 
   ;-------------
@@ -570,10 +586,10 @@ TX= Tegernseebahn  G1203  ; F=DPR4; V=7;C=TEG_G1203(|L),DB_BN719SL2,DB_ABN703SL2
 
   ;WEG
   ;---
+TX= Würtembergische Eisenbahn-Gesellschaft VT Esslingen  ; F=DPR4; V=9;C=WEG_VT402O(|L);
 TX= Würtembergische Eisenbahn-Gesellschaft NE81  ; F=DPR4; V=12;C=WEG_NE81A(|L),0-1*WEG_VS220(|L);
 
 TX= Teutoburger Wald-Eisenbahn G1300  ; F=DF4; V=9;C=TWE_G1300BBO(|L),(DB_GS204,SNCF_G4)|DB_GS204W|DB_GLMS207;
-
 
 
 
