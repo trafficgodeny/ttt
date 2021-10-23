@@ -16,7 +16,7 @@ $REQUIRE ZSZ_DEF.TTT
 # UK:       London
 # Netherlands: Rotterdam
 # Denmark:  Kopenhagen
-# Italy:    Milano, Torino
+# Italy:    Milano, Roma, Torino
 # Poland:   Bydgoszcz
 # Russia:   St. Petersburg
 # USA:      New York
@@ -102,8 +102,8 @@ $SECTION SEQ=D; AB=20; WT=$FLG(T,ENV_WAYO,ENV_WAYT1); %SECFIN;%TITLE(Budapest);
 	C=<2*(BKV_EVL,BKV_EV); AP=ENV_WAYM;
       TX=Metro M2/M3;											\
 	C=<BKV_81714EL,3*BKV_81717E; AP=ENV_WAYM;
-      TX=Milleneumi Földalatti Vasút M1;									\
-	C=FAVP|FAVS|(<FAVSZ,FAVPOT|MFAVDR); W=F; FG=CTRT;
+      TX=Milleneumi Földalatti Vasút M1;								\
+	C=FAVP|FAVS|(<FAVSZ,FAVPOT|MFAVDR); W=F;
       TX=[N=Rack railway;G=Zahnradbahn;H=Fogaskerek‡0171;P=Kolej z‡0119bata;F=Chemin de fer ‡0155 cr‡00E9maill‡010Dre;NL=Tandradbaan;]; \
 	D=R; C=(<F_01,FTP1)|(<F_14,FPS1); V=2; AP=ENV_WAY;
       TX=[N=Rack railway;G=Zahnradbahn;H=Fogaskerek‡0171;P=Kolej z‡0119bata;F=Chemin de fer ‡0155 cr‡00E9maill‡010Dre;NL=Tandradbaan;]; \
@@ -239,7 +239,8 @@ $SECTION SEQ=D; AB=30; WT=ENV_WAYT1; WM=ENV_WAYM; %SECFIN;%TITLE(Berlin);
     POOL=POOL_BLN_T3;
 
 # Tram EP 2
-    $GROUP LC=3; ENV=[TX-=1930-1940:[SP]];
+    $GROUP LC=3;											\
+	ENV=[TX-=1930-1940:[SP]];
       TX=TD08 + B24;											\
 	C=BVG_TD08,BVG_2B24;
       TX=TF21s + B21;											\
@@ -267,7 +268,8 @@ $SECTION SEQ=D; AB=30; WT=ENV_WAYT1; WM=ENV_WAYM; %SECFIN;%TITLE(Berlin);
     $ENDGROUP 
 
 # Tram EP 3W
-    $GROUP LC=3; ENV=[TX-=[N=West Berlin; D=West-Berlin; H=Nyugat-Berlin;]1949-1967:[SP]];
+    $GROUP LC=3;											\
+	ENV=[TX-=[N=West Berlin ; D=West-Berlin ; H=Nyugat-Berlin ;]1949-1967:[SP]];
       TX=TD08 + B24;											\
 	C=BVG_3TD08,BVG_3B24;
       TX=TF21s + B21;											\
@@ -281,7 +283,7 @@ $SECTION SEQ=D; AB=30; WT=ENV_WAYT1; WM=ENV_WAYM; %SECFIN;%TITLE(Berlin);
       TX=T33u + B25;											\
 	C=BVG_3T33U,BVG_3B25;
       TX=TM34 + BM28;											\
-	C=BVG_3TM34,BVG_3BM28; AP=3; AB=15;
+	C=BVG_3TM34,BVG_3BM28; AB=15;
       TX=TM36 + TM36;											\
 	C=[PHU]BVG_3TM36,BVG_3TM36[PD];
       TX=TM36 + TM33;											\
@@ -289,8 +291,8 @@ $SECTION SEQ=D; AB=30; WT=ENV_WAYT1; WM=ENV_WAYM; %SECFIN;%TITLE(Berlin);
     $ENDGROUP 
 
 # Tram EP 34O
-    $GROUP LC=3; ENV=[TX-=[N=East Berlin; D=Ost-Berlin; H=Kelet-Berlin;](DDR)1949-1970:[SP]];
-
+    $GROUP LC=3;											\
+	ENV=[TX-=[N=East Berlin ; D=Ost-Berlin ; H=Kelet-Berlin ;](DDR)1949-1970:[SP]];
       TX=T25 + B24 + B24;										\
 	C=BVG_3T25,BVG_3B24;
       TX=TE 59 + BE 59;											\
@@ -306,8 +308,8 @@ $SECTION SEQ=D; AB=30; WT=ENV_WAYT1; WM=ENV_WAYM; %SECFIN;%TITLE(Berlin);
     $ENDGROUP 
 
 # Tram E45
-    $GROUP LC=3; ENV=[TX-=[N=East Berlin; D=Ost-Berlin; H=Kelet-Berlin;](DDR)1970-1989:[SP]];
-
+    $GROUP LC=3;											\
+	ENV=[TX-=[N=East Berlin ; D=Ost-Berlin ; H=Kelet-Berli n;](DDR)1970-1989:[SP]];
       TX=TE 59 + BE 59;											\
 	C=(BVG_TE59AL,2*BVG_BE59AL)|(BVG_TE59A,2*BVG_BE59A);
       TX=TE 59 + BE 59;											\
@@ -332,8 +334,8 @@ $SECTION SEQ=D; AB=30; WT=ENV_WAYT1; WM=ENV_WAYM; %SECFIN;%TITLE(Berlin);
     $ENDGROUP 
 
 # Tram E6
-    $GROUP LC=3; ENV=[TX-=after 1995:[SP]];
-
+    $GROUP LC=3;											\
+	ENV=[TX-=after 1995 ;[SP]];
       TX=Kt4D;												\
 	C=(BVG_KT4D3L,BVG_KT4D3L[PD])|(BVG_KT4D3,BVG_KT4D3[PD]);
       TX=Kt4D;												\
@@ -343,7 +345,7 @@ $SECTION SEQ=D; AB=30; WT=ENV_WAYT1; WM=ENV_WAYM; %SECFIN;%TITLE(Berlin);
       TX=T6A2;												\
 	C=(BVG_T6ML,BVG_B6ML)|(BVG_T6M,BVG_B6M);
       TX=T6A2;												\
-	C=(BVG_T6ML,BVG_T6ML[PD])|(BVG_T6M,BVG_T6M[PD]); AP=:; AB=15;
+	C=(BVG_T6ML,BVG_T6ML[PD])|(BVG_T6M,BVG_T6M[PD]); AB=15;
       TX=T6A2 + B6A2;											\
 	C=((BVG_5T6A2MSL|BVG_5T6A2MEL),BVG_5B6A2ML)|((BVG_5T6A2MS|BVG_5T6A2ME),BVG_5B6A2M); AP=ENV_WAYT1; \
 	AB=15;
@@ -365,7 +367,8 @@ $SECTION SEQ=D; AB=30; WT=ENV_WAYT1; WM=ENV_WAYM; %SECFIN;%TITLE(Berlin);
 # U-Bahn
 #
   {CRAIL?
-    $GROUP LC=3; AP=ENV_WAYM;
+    $GROUP LC=3;											\
+	AP=ENV_WAYM;
       TX=BVG A1;											\
 	C=<BVG_A1_7_1908YL,										\
 	  (|BVG_A1_7_1908MY|BVG_A1_7_1908MR|(BVG_A1_7_1908MY,BVG_A1_7_1908MR)|				\
@@ -447,15 +450,18 @@ $SECTION SEQ=D; AB=30; WT=ENV_WAYT1; WM=ENV_WAYM; %SECFIN;%TITLE(Berlin);
 # S-Bahn
 #
   {CRAIL?
-    D=R; V=2;
+
     $SCENE DY=110;
-      $PATH Y=10; LC=2; FG=(PALE1E,30*PALE1,PALE1E:*50,-3;TRBED25:..,^0;SNCF_3eRail_FG:..,-2,#);
+      $PATH Y=10; LC=2;											\
+	  FG=(PALE1E,30*PALE1,PALE1E:*50,-3;TRBED25:..,^0;SNCF_3eRail_FG:..,-2,#);
 	M=STOP; POOL=POOL_BLN_S; D=R; V=10; A=.25; P=*50+10; TE=3-9;
       $ENDPATH 
-      $PATH Y=10; W=X; LC=2; BG=MR_SBOX5:<4;								\
-	FG=PLF1EL,6*PLF1O,PLF1L,8*PLF1O,PLF1L,5*PLF1O,20*PLF11,						\
+      $PATH Y=10; LC=2;											\
+	  BG=MR_SBOX5:<4;										\
+	  FG=PLF1EL,6*PLF1O,PLF1L,8*PLF1O,PLF1L,5*PLF1O,20*PLF11,					\
 	  9*(PLF1C,5*PLF11,PLF1V1,5*PLF11,PLF1T,5*PLF11,PLF1V1,5*PLF11),PLF1C,20*PLF11,5*PLF1O,PLF1L,	\
-	  8*PLF1O,PLF1L,6*PLF1O,PLF1E:*50,-3;
+	  8*PLF1O,PLF1L,6*PLF1O,PLF1E:*50,-3;								\
+	  W=X;
 	M=STOP; POOL=POOL_BLN_S; D=L; V=10; A=.25; P=*50-10; TB=3-9;
       $ENDPATH 
     $ENDSCENE 
@@ -541,7 +547,7 @@ $ENDSECTION
     }
     {BUS?
       $GROUP LC=1;
-	M=FOLLOW; C=5-8*(VBD_IK66|VBD_YK8503|VBD_RP9253|VBD_RP9253Z|DVB_IK66C|DVB_IK66M)|(DVB_IK66CL);
+	M=FOLLOW; C=5-8*(VBD_IK66|VBD_YK8503|VBD_RP9253|VBD_RP9253Z|DVB_IK66C|DVB_IK66M);
       $ENDGROUP 
       $GROUP LC=1;
 	M=FOLLOW;											\
@@ -569,13 +575,13 @@ $ENDSECTION
 	TX=T4D + B4D Wendezug;										\
 	  C=<DVB_T4DZ~PAB,DVB_B4DZ~PAB,DVB_T4DZL~PAB;
 	TX=T4D + B4D neu;										\
-	  C=(DVB_T4D~JP,DVB_B4D~JP)|(DVB_T4DL~JP,DVB_B4DL~JP); AP=6; AB=15;
+	  C=(DVB_T4D~JP,DVB_B4D~JP)|(DVB_T4DL~JP,DVB_B4DL~JP); AB=15;
 	TX=T4D + T4D alt;										\
 	  C=[PU](2*DVB_T4DA~JP)|(2*DVB_T4DAL~JP);
 	TX=T4D + T4D neu;										\
 	  C=[PU](2*DVB_T4D~JP)|(2*DVB_T4DL~JP);
 	TX=T4D + T4D + B4D;										\
-	  C=[PU]|(2*DVB_T4D~JP,DVB_B4D~JP)|(2*DVB_T4DL~JP,DVB_B4DL~JP);
+	  C=[PU](2*DVB_T4D~JP,DVB_B4D~JP)|(2*DVB_T4DL~JP,DVB_B4DL~JP);
 	TX=T4DM + T4DM + B4DM neu;									\
 	  M=FOLLOW; D=R; C=[PU](2*DVB_T4DM~JP,DVB_B4DM~JP)|(2*DVB_T4DML~JP,DVB_B4DML~JP);
 	C=DVB_T6A2L~JPD,|DVB_B6A2L~JPD;
@@ -689,8 +695,8 @@ $ENDSECTION
 	TX=4xZRGrTw 1251 - 1258 + 4xZRGrBw 1201 - 1204, Typ K53Bj. 1953;				\
 	  C=((D_3K53GT|D_3K53GT[!L]),D_3K53GB,((D_3K53GT|D_3K53GT[!L])[PD]))|				\
 	    ((D_3K53SGT|D_3K53SGT[!L]),D_3K53SGB,([PD](D_3K53SGT|D_3K53SGT[!L])));
-	C=D_3K53CT,D_3K53CB|D_3K53SB,D_3K53CT[PD];							\
-	  AP=ENV_WAYT4 TX=4xZRGrTw 1251 - 1258 + 4xZRGrBw 1201 - 1204,Typ K53 Bj. 1953;
+	TX=4xZRGrTw 1251 - 1258 + 4xZRGrBw 1201 - 1204,Typ K53 Bj. 1953;				\
+	  C=D_3K53CT,D_3K53CB|D_3K53SB,D_3K53CT[PD]; AP=ENV_WAYT4;
 	TX=2xZRTw 9 - 11 + 2xZRBw 22, ex Gummersbach Bj. 1915;						\
 	  C=D_3GUT,D_3GUB;
 	TX=2xZRTw 1 - 8, ex Mettmann, Bj. 1924;								\
@@ -873,14 +879,16 @@ $ENDSECTION
 #
 {TRAM|BUS?
   $SECTION  %SECFIN;%TITLE(Essen);
-    {BUS?      
-      $GROUP LC=1; WT=ENV_WAYO;
+    {BUS?
+      $GROUP LC=1;											\
+	  WT=ENV_WAYO;
 	TX=O-Bus;											\
 	  C=(E_O421|E_O21)(|L);
       $ENDGROUP 
     }
     {TRAM?
-      $GROUP LC=2; AP=ENV_WAYT1;
+      $GROUP LC=2;											\
+	  AP=ENV_WAYT1;
 	TX=Tw 1 + Bw 271;										\
 	  C=E_1|E_1A,E_271|E_271A;
 	TX=501 + 506;											\
@@ -916,7 +924,8 @@ $ENDSECTION
 	TX=Tw 1951;											\
 	  C=E_1951;
       $ENDGROUP 
-      $GROUP LC=2; AP=ENV_WAYT1;
+      $GROUP LC=2;											\
+	  AP=ENV_WAYT1;
 	TX=Großraumwagen Tw 513ff;									\
 	  C=E_514|E_513|E_514L;
 	TX=Großraumzug Tw 1501ff + Bw 2901ff;								\
@@ -940,7 +949,8 @@ $ENDSECTION
       $ENDGROUP 
     }
     {TRAM?
-      $GROUP LC=2; AP=ENV_WAYT1;
+      $GROUP LC=2;											\
+	  AP=ENV_WAYT1;
 	C=E_GT6,|E_B2;
 	C=E_GT6COKE;
 	C=E_GT8;
@@ -971,7 +981,8 @@ $ENDSECTION
       $ENDGROUP 
     }
     {TRAM?
-      $GROUP LC=2; AP=ENV_WAYT3;
+      $GROUP LC=2;											\
+	  AP=ENV_WAYT3;
 	TX=Typ 5200 ex London/Docklands;								\
 	  C=E_6DOCKLAND;
 	TX=Typ 5200 ex London/Docklands P89;								\
@@ -992,7 +1003,8 @@ $ENDSECTION
       $ENDGROUP 
     }
     {BUS?
-      $GROUP LC=2; WT=ENV_WAYO;
+      $GROUP LC=2;											\
+	  WT=ENV_WAYO;
 	TX=Duobus O405;											\
 	  C=E_O405GTD(|L)|E_O405GTD1(|L)|EVAG_O405GTD(|L);
 	M=FOLLOW; D=R; C=3-5*(E_NL222Y|E_NG262|E_O405N3|E_O405GN2|E_0530_4|E_O530_6|E_O530G4|E_0530G6);
@@ -1007,7 +1019,9 @@ $ENDSECTION
 #
 $SECTION AB=30; %SECFIN;%TITLE(Frankfurt am Main);
   {CRAIL?
-    $GROUP LC=1; WT=ENV_WAYT1; WR=ENV_WAY;
+    $GROUP LC=1;											\
+	WT=ENV_WAYT1;											\
+	WR=ENV_WAY;
       TX=Frankfurter Lokalbahn T2;									\
 	C=FLAG_T2G|FLAG_T2S|VGF_T2M;
       TX=Frankfurter Lokalbahn 19=2019;									\
@@ -1015,7 +1029,8 @@ $SECTION AB=30; %SECFIN;%TITLE(Frankfurt am Main);
     $ENDGROUP 
   }
   {TRAM?
-    $GROUP LC=1; WT=ENV_WAYT1;
+    $GROUP LC=1;											\
+	WT=ENV_WAYT1;
       TX=Pferdebahn/Horsetram;										\
 	M=FOLLOW; C=(FTG_HT;VGF_HT); V=1;
       TX=Milano 1500 Test;										\
@@ -1028,9 +1043,9 @@ $SECTION AB=30; %SECFIN;%TITLE(Frankfurt am Main);
       TX=Typ A mit a;											\
 	C=(VGF_A4,VGF_AB1)|(VGF_A3,VGF_AB3);
       TX=Typ C + c;											\
-	C=VGF_C(1|2),2*(VGF_CB|);
+	C=VGF_C(1|2),2@(VGF_CB|VGF_CUB);
       TX=Typ D + d;											\
-	C=VGF_D(1|2|3),2*(VGF_DB|VGF_DUB);
+	C=VGF_D(1|2|3),2@(VGF_DB|VGF_DUB);
       TX=Typ DD;											\
 	C=VGF_DD1L|VGF_DD1|VGF_DD2;
       TX=Typ E + e;											\
@@ -1038,7 +1053,7 @@ $SECTION AB=30; %SECFIN;%TITLE(Frankfurt am Main);
       TX=Typ E + cu;											\
 	C=VGF_E,VGF_CUB;
       TX=Typ F + f;											\
-	C=VGF_F(1|2|3),1-2*(VGF_FB(1|2));
+	C=VGF_F(1|2|3),1-2@(VGF_FB(1|2));
       TX=Typ G + g 1946;										\
 	C=VGF_G_US,1-2*VGF_GB_US;
       TX=Typ H + h;											\
@@ -1064,7 +1079,8 @@ $SECTION AB=30; %SECFIN;%TITLE(Frankfurt am Main);
       TX=Typ K 101-125 + k + k;										\
 	C=SSF_34K,2*(SSF_34K|SSF_34KB1|SSF_34KB2|SSF_34KB3);
     $ENDGROUP 
-    $GROUP LC=1; WT=ENV_WAYT1;
+    $GROUP LC=1;											\
+	WT=ENV_WAYT1;
       TX=Typ L + l;											\
 	C=(SSF_3LL,SSF_3LBL)|(SSF_3L,SSF_3LB);
       TX=Typ L + l;											\
@@ -1107,7 +1123,8 @@ $SECTION AB=30; %SECFIN;%TITLE(Frankfurt am Main);
 	C=VGF_6O902|VGF_O901BBOCK|VGF_O902COLA|VGF_O904_HR3~PHG|SWF_O905_1985|VGF_O908_CARLSBERG|	\
 	  SWF_O905_1985|VGF_O907ABELE97|VGF_O907ABELE02;
     $ENDGROUP 
-    $GROUP LC=1; WT=ENV_WAYT1;
+    $GROUP LC=1;											\
+	WT=ENV_WAYT1;
       TX=Typ P;												\
 	C=VGF_P_1A|VGF_P_1B|VGF_P_2;
       TX=Typ R;												\
@@ -1115,7 +1132,8 @@ $SECTION AB=30; %SECFIN;%TITLE(Frankfurt am Main);
       TX=Typ S;												\
 	C=VGF_S1|VGF_SA;
     $ENDGROUP 
-    $GROUP LC=1; WT=ENV_WAYT3;
+    $GROUP LC=1;											\
+	WT=ENV_WAYT3;
       TX=Typ Pt;											\
 	C=2@VGF_PT_1A|VGF_PT_1A|VGF_PT_1B|VGF_PT_1B|VGF_PT_2A|VGF_PT_2A|VGF_PT_2B|VGF_PT_2B;
       TX=Typ Ptb;											\
@@ -1136,7 +1154,8 @@ $SECTION AB=30; %SECFIN;%TITLE(Frankfurt am Main);
 	C=3*VGF_U4~FLE;
     $ENDGROUP 
 # maintenance
-    $GROUP LC=1; WT=ENV_WAYT1;
+    $GROUP LC=1;											\
+	WT=ENV_WAYT1;
       C=VGF_6K2000; TYP K 2000;
       C=VGF_K2001; TYP K 2001;
       C=VGF_2020,VGF_TRANSPORT; GÜTERLOK 2020;
@@ -1484,7 +1503,9 @@ $SECTION SEQ=D; AB=30; WT=ENV_WAYT1; WM=ENV_WAYM; %SECFIN;%TITLE(Hamburg);
 #
 # S-Bahn Hamburg
 #
-    $GROUP LC=1; ENV=[TX-=[S-Bahn ]]; AP=ENV_WAYT6;
+    $GROUP LC=1;											\
+	ENV=[TX-=[S-Bahn ]];										\
+	AP=ENV_WAYT6;
       TX=DRG ET 831/832;										\
 	C=1-2@DRG_ET831_832_1924(|L);
       TX=DRG ET 1631/1632;										\
@@ -1492,14 +1513,17 @@ $SECTION SEQ=D; AB=30; WT=ENV_WAYT1; WM=ENV_WAYM; %SECFIN;%TITLE(Hamburg);
       TX=DB 38.10 + Vorortzug;										\
 	C=DB_3B38(1763L|2161L|2185L|3019L|3579L),1-3*DB_HH192(4|7|7F)(|L);
     $ENDGROUP 
-    $GROUP LC=1; ENV=[TX-=[S-Bahn ]]; AP=ENV_WAYM;
+    $GROUP LC=1;											\
+	ENV=[TX-=[S-Bahn ]];										\
+	AP=ENV_WAYM;
       TX=DRG ET 171;											\
 	C=(<DRG_ET171AL,DRG_ET171BL,DRG_ET171C)|(<DRG_ET171CL,DRG_ET171B,DRG_ET171A); AP=ENV_WAYM;
       TX=DB ET170;											\
 	C=<DB_ET170((AL,B,C)|(CL,BL,A));
       TX=DB 470;											\
-	
-      M=OPEN; C=<1-2@BR470B(1|2|2SHH|AZ)(FL,M,F); P=*50; FG=140*PLF1O:50,-2;
+	M=OPEN; C=<1-2@BR470B(1|2|2SHH|AZ)(FL,M,F); P=*50;						\
+	FG=140*PLF1O:50,-2;
+
       TX=DB 470;											\
 	C=ET470B(|A);
       TX=DB 471;											\
@@ -1509,16 +1533,19 @@ $SECTION SEQ=D; AB=30; WT=ENV_WAYT1; WM=ENV_WAYM; %SECFIN;%TITLE(Hamburg);
       TX=ET 174 001;											\
 	C=DB_ET174001(|L);
     $ENDGROUP 
-    $GROUP LC=1; ENV=[TX-=[S-Bahn ]];
+    $GROUP LC=1;											\
+	ENV=[TX-=[S-Bahn ]];
       TX=DB 470;											\
 	C=<DB_470((AL,B,C)|(CL,BL,A));
       TX=DB 470;											\
 	M=OPEN; C=<1-2@BR470BB((1FL,1M,1F)|(2FL,1M,2F)|(1AZFL,1AZM,1AZF)); V=8; P=*50;			\
 	FG=140*PLF1O:50,-2;
       TX=DB 470;											\
-	M=OPEN; C=<1-2@DB_470_128(|SHH1|AZ)(FL,M,F); V=8; P=*50; FG=140*PLF1O:50,-2;
+	M=OPEN; C=<1-2@DB_470_128(|SHH1|AZ)(FL,M,F); V=8; P=*50;					\
+	FG=140*PLF1O:50,-2;
       TX=DB 470;											\
-	M=OPEN; C=<1-2@DB_470_142SHH2(FL,M,F); V=8; P=*50; FG=140*PLF1O:50,-2;
+	M=OPEN; C=<1-2@DB_470_142SHH2(FL,M,F); V=8; P=*50;						\
+	FG=140*PLF1O:50,-2;
       TX=DB 470;											\
 	C=ET470EXPO;
       TX=DB 471;											\
@@ -1540,7 +1567,8 @@ $SECTION SEQ=D; AB=30; WT=ENV_WAYT1; WM=ENV_WAYM; %SECFIN;%TITLE(Hamburg);
       TX=DB Schienenreinigungszug 732 001 + 333;							\
 	C=DB_333_028,DB_732_001H,DB_333_104; AP=ENV_WAYM;
     $ENDGROUP 
-    $GROUP LC=1; ENV=[TX-=[S-Bahn ]];
+    $GROUP LC=1;											\
+	ENV=[TX-=[S-Bahn ]];
       TX=DB 472;											\
 	C=DB_6_472036;
       TX=DB 472;											\
@@ -1560,35 +1588,51 @@ $SECTION SEQ=D; AB=30; WT=ENV_WAYT1; WM=ENV_WAYM; %SECFIN;%TITLE(Hamburg);
 # Hamburger Hochbahn
 #
 
-    $GROUP LC=1; ENV=[TX-=[Hamburger Hochbahn (Metro)]];
+    $GROUP LC=1;											\
+	ENV=[TX-=[Hamburger Hochbahn (Metro)]];
       C=<HH_TUH1,HH_TUH2; F=RM3; TU1;
-      C=<1-2@(HH_T1L~KK,HH_T1~KK)|(HH_T1L~WSI|HH_T1~WSI); T1; AP=ENV_WAYM3;
+      C=<1-2@(HH_T1L~KK,HH_T1~KK)|(HH_T1L~WSI|HH_T1~WSI); T1; AP=ENV_WAYM;
       C=<1-3@(HH_TU2L,HH_TU2); TU2;
       C=<1-3*HH_TU1L,HH_TU1; TU1;
     $ENDGROUP 
-    $GROUP LC=1; ENV=[TX-=[Hamburger Hochbahn (Metro)]];
+    $GROUP LC=1;											\
+	ENV=[TX-=[Hamburger Hochbahn (Metro)]];
+      C=2-3*(<HHA_DT1505L,HHA_DT1505);
       C=1-3*HH_DT1A~FA|HH_516;
       C=1-3*HH_DT1B~FA; F=RM4;
       C=1-3*HH_DT1B~KK; F=RM4;
       C=1-3*HH_DT1A~KK|HHA_HANSEAT;
     $ENDGROUP 
-    $GROUP LC=1; ENV=[TX-=[Hamburger Hochbahn (Metro)]];
+    $GROUP LC=1;											\
+	ENV=[TX-=[Hamburger Hochbahn (Metro)]];
       C=1:1|3:2|5:3*HHA_DT2_2;
       C=1:1|3:2|5:3*HHA_DT2_3;
       C=1:1|3:2|5:3*HHA_DT2_4;
       C=1:1|3:2|5:3*DT2E_1;
       C=1:1|3:2|5:3*DT2E_2;
     $ENDGROUP 
-    $GROUP LC=1; ENV=[TX-=[Hamburger Hochbahn (Metro)]];
+    $GROUP LC=1;											\
+	ENV=[TX-=[Hamburger Hochbahn (Metro)]];
       C=2*HHA_DT3; AP=ENV_WAYM; DT3;
       C=1-2*DT4_101~FA|DT4_101~HS|DT4_114|DT4_411; DT4;
     $ENDGROUP 
-    $GROUP LC=1; ENV=[TX-=[Hamburger Hochbahn (Metro)]];
+    $GROUP LC=1;											\
+	ENV=[TX-=[Hamburger Hochbahn (Metro)]];
       C=1-3*HHA_AT;
-      TX=DL1 + Arbeitszug;										\
+      TX=Arbeitszug;											\
 	C=HHA_DL2(|L),0-2*HHA_(8160KB1|8160LB3|8161KB1|LORE_LB2|LORE_LB3|LORE_LB4|SB3);
+      C=HHA_AL015,HHA_ABW4[O:FRMATHHA,,15];
+      C=HHA_AL010,HHA_ABW4K[O:RAIL7,,15]|HHA_ABW4K2[O:BALLAST(10|22),,15];
+
     $ENDGROUP 
-    $GROUP LC=1; ENV=[TX-=[Hamburger Hochbahn (Metro)]];
+    $GROUP LC=1;											\
+	ENV=[TX-=[Hamburger Hochbahn (Metro)]];
+      TX=DT1 - Arbeitszug;										\
+	C=(<HHA_AT4_026AL,HHA_AT4_026B)|(<HHA_AT5_027AL,HHA_AT5_027B)|					\
+	  (<HHA_AT6_028AL,HHA_ASB3_061,HHA_AT6_028B);
+    $ENDGROUP 
+    $GROUP LC=1;											\
+	ENV=[TX-=[Hamburger Hochbahn (Metro)]];
       TX=DT5;												\
 	C=1-2*HHA_DT5;
     $ENDGROUP 
@@ -1653,10 +1697,12 @@ $ENDSECTION
     }
     {TRAM?
       $SCENE DY=100; YDIR=U;
-	$PATH Y=10; LC=2; FG=65*PLF1O:50,-3;
+	$PATH Y=10; LC=2;										\
+	    FG=65*PLF1O:50,-3;
 	  M=OPEN; D=R; C=1-2*UES_60(01|09|10|12|16|22); P=>50+300;
 	$ENDPATH 
-	$PATH Y=10; LC=2; FG=(TRBED25:..,^0;FL_DRG_B:..,-4,#);
+	$PATH Y=10; LC=2;										\
+	    FG=(TRBED25:..,^0;FL_DRG_B:..,-4,#);
 	  M=STOP; D=L; C=1-2*UES_60(00|01|03|04|05|06|07|09|10|12|13|14|15|16|17|18|22|23); P=<50-300;
 	$ENDPATH 
       $ENDSCENE 
@@ -1700,20 +1746,24 @@ $ENDSECTION
       $ENDGROUP 
     }
     {TRAM?
-      $SCENE DY=100; YDIR=U; FG=65*PLF1O:50,7;
+      $SCENE DY=100; YDIR=U;										\
+	  FG=65*PLF1O:50,7;
 	$PATH Y=10; LC=2;
 	  M=OPEN; D=R; C=1-2*UES_60(01|09|10|12|16|22); P=>50+300;
 	$ENDPATH 
-	$PATH Y=10; LC=2; W=T;
+	$PATH Y=10; LC=2;										\
+	    W=T;
 	  M=STOP; D=L; C=1-2*UES_60(00|01|03|04|05|06|07|09|10|12|13|14|15|16|17|18|22|23); P=<50-300;
 	$ENDPATH 
       $ENDSCENE 
-      $GROUP TX=6000; LC=2; AB=25; AP=ENV_WAYT3;
+      $GROUP TX=6000; LC=2; AB=25;									\
+	  AP=ENV_WAYT3;
 	C=UES_TW6000(B|M|R);
 	C=UES_TW6000(A|C|D|Y);
 	C=2*UES_6001;
       $ENDGROUP 
-      $GROUP LC=2; AB=25; AP=ENV_WAYT3;
+      $GROUP LC=2; AB=25;										\
+	  AP=ENV_WAYT3;
 	TX=Tw Serie 2000 + 2500;									\
 	  C=UES_TW2000~HDR,USE_TW2500~HDR;
 	C=UES_TW2500EXPO;
@@ -1790,9 +1840,10 @@ $SECTION AB=30; WT=ENV_WAYT1; %SECFIN;%TITLE(Karlsruhe);
     C=OLDBUS2L~KVV|OLDBUS2~KVV;
   }
   {TRAM?
-    $GROUP LC=2; AB=15; AP=ENV_WAYT1;
+    $GROUP LC=2; AB=15;											\
+	AP=ENV_WAYT1;
       TX=Großraumzug, Tw 134-141 + Bw 309-315 = 434-441;						\
-	C=(TW134GE~KVV,BW439GE~KVV)|(TW134GEL~KVV,BW439GEL~KVV);
+	C=(VBK_6_139L,VBK_6_439L)|(VBK_6_139,VBK_6_439);
       C=TW144GEL~KVV;
       C=TW144GE~KVV;
       C=TW108AVL~KVV;
@@ -1809,14 +1860,16 @@ $SECTION AB=30; WT=ENV_WAYT1; %SECFIN;%TITLE(Karlsruhe);
       C=VBK_GT6B;
     $ENDGROUP 
     $GROUP TX=GT8 173-215; LC=2;
-      C=VBK_209(|L);
-      C=VBK_214SPARKASSE(|L);
+      C=VBK_214SPARKASSE(|L)|VBK_209(|L);
+      C=VBK_(199K|202R|203B|204R|206R|207B|208B|208O)(|L);
+      C=VBK_(209G|210B|211G|212R|213B|214S|215S)(|L);
       C=AVG_GT8BL~TIS;
       C=AVG_GT8B~TIS;
       C=AVG_GT8W1L;
       C=AVG_GT8W1;
     $ENDGROUP 
-    $GROUP TX=Albtalbahn 1-21 =101-121; LC=1; AB=25; AP=ENV_WAYT3;
+    $GROUP TX=Albtalbahn 1-21 =101-121; LC=1; AB=25;							\
+	AP=ENV_WAYT3;
       TX=AVG 1-21;											\
 	C=AVG_GT8B~FLE|AVG_GT8BL~FLE;
       C=VBK_GT8A(|L);
@@ -1834,12 +1887,15 @@ $SECTION AB=30; WT=ENV_WAYT1; %SECFIN;%TITLE(Karlsruhe);
       C=VBK_248;
       C=VBK_229(|L);
     $ENDGROUP 
-    $GROUP TX=301-325; LC=1;
-      TX=Tw Serie 301-320;										\
+    $GROUP TX=Niederflur lang; LC=1;
+      TX=Tw Serie 301-325;										\
 	C=VBK_GT8_70DNL|VBK_GT8_70DN;
+      TX=Tw Serie 326-350;										\
+	C=VBK_326(|L);
       C=VBK_309L;
     $ENDGROUP 
-    $GROUP TX=GT6-80 (501-540); LC=1; AB=25; AP=ENV_WAYT3;
+    $GROUP TX=GT6-80 (501-540); LC=1; AB=25;								\
+	AP=ENV_WAYT3;
       C=AVG_GT6_80C1L;
       C=AVG_GT6_80C1;
       C=AVG_GT6_80C2L;
@@ -1855,7 +1911,8 @@ $SECTION AB=30; WT=ENV_WAYT1; %SECFIN;%TITLE(Karlsruhe);
     $ENDGROUP 
   }
   {BUS?
-    $GROUP C=OLDBUS2L~KVV|OLDBUS2~KVV;
+    $GROUP 												\
+	C=OLDBUS2L~KVV|OLDBUS2~KVV;
       M=FOLLOW; D=R;											\
 	C=3-6*(N4016BA|N4021BA|O405GA|O405GNB|O405GNV|O405SWA|O405VBK|O408AVG|O408VBK|S315)~KVV;
       M=FOLLOW; D=L;											\
@@ -1863,7 +1920,8 @@ $SECTION AB=30; WT=ENV_WAYT1; %SECFIN;%TITLE(Karlsruhe);
     $ENDGROUP 
   }
   {TRAM?
-    $GROUP TX=GT8 80C 551-590; LC=2; AB=25; AP=ENV_WAYT3;
+    $GROUP TX=GT8 80C 551-590; LC=2; AB=25;								\
+	AP=ENV_WAYT3;
       C=AVG_GT8_80CL;
       C=AVG_GT8_80C;
       TX=Tw 563;											\
@@ -1879,7 +1937,8 @@ $SECTION AB=30; WT=ENV_WAYT1; %SECFIN;%TITLE(Karlsruhe);
       C=AVG_579L;
       C=AVG_579;
     $ENDGROUP 
-    $GROUP TX=Tramtrain 801-922; LC=2; AB=25; AP=ENV_WAYT3;
+    $GROUP TX=Tramtrain 801-922; LC=2; AB=25;								\
+	AP=ENV_WAYT3;
       C=AVG_837;
       C=AVG_GT8_100PA1;
       C=AVG_GT8_100PA2;
@@ -1900,6 +1959,7 @@ $SECTION AB=30; WT=ENV_WAYT1; %SECFIN;%TITLE(Karlsruhe);
       C=AVG_871;
       C=AVG_882;
       C=AVG_898;
+      C=AVG_925;
     $ENDGROUP 
     $GROUP LC=1;
       TX=AT 490;											\
@@ -1942,7 +2002,7 @@ $SECTION TX=$(LABEL); TXC=#AAAAAA; TXB=#000000; TXX=*; TXY=19; SEQ=D; AB=10; BL=
     TX=407;												\
       M=1:STOP|2:SIMPLE; D=R; C=KVB_407|KVB_1T2;
     $SECTION TX=$(SIGN)Finchen (KFBE)P. Herbrand & Co    1911; LC=1; SEQ=RSEQ; DY=105; AB=15;		\
-      AP=ENV_WAYT1;
+	AP=ENV_WAYT1;
       M=1:STOP|2:SIMPLE; C=KFBE_1286(|[!L]);
       M=CUT; C1=<KFBE_1286[!L],KFBE_MID; C2=KFBE_1286; D1=L;
       M=1:STOP|2:SIMPLE; C=<KFBE_1286[!L],KFBE_MID,KFBE_1286;
@@ -1977,7 +2037,8 @@ $SECTION TX=$(LABEL); TXC=#AAAAAA; TXB=#000000; TXX=*; TXY=19; SEQ=D; AB=10; BL=
     $ENDSECTION 
   }
   {BUS?
-    $GROUP TLC=1;
+    $GROUP 												\
+	TLC=1;
       C=BUS1_5DECL;
       C=BUS1_5DEC;
       C=BUS1_5DEC1L;
@@ -1995,8 +2056,8 @@ $SECTION TX=$(LABEL); TXC=#AAAAAA; TXB=#000000; TXX=*; TXY=19; SEQ=D; AB=10; BL=
     $SECTION TX=1100; LC=1; DY=105; AB=15; AP=ENV_WAYT1;
       M=1:OPEN|1:SIMPLE; D=R; C=KVB_1100,0-1*KVB_1100L;
       M=1:STOP|2:SIMPLE; D=L; C=KVB_1100L,0-1*KVB_1100;
-      M=OPEN; D=R; C=<(KVB_1100L,KVB_1100)|KVB_1019; P=*50; W=2E; FG=3*(5*PLF1O,PLF1L),5*PLF1O:50,-9;	\
-	BG_GRAS1:..,-9;
+      M=OPEN; D=R; C=<(KVB_1100L,KVB_1100)|KVB_1019; P=*50; W=2E;					\
+	FG=3*(5*PLF1O,PLF1L),5*PLF1O:50,-9; BG_GRAS1:..,-9;
       C=<KVB_1100L~WSI,KVB_1100~WSI;
     $ENDSECTION 
     $SECTION LC=1; DY=105; AB=15; AP=ENV_WAYT1;
@@ -2023,7 +2084,8 @@ $SECTION TX=$(LABEL); TXC=#AAAAAA; TXB=#000000; TXX=*; TXY=19; SEQ=D; AB=10; BL=
       M=1:STOP|2:SIMPLE; C=(A5L,A5UL)|(A5UL,A5L)|(2*A5UL);
       M=1:STOP|2:SIMPLE; C=(A5,A5U)|(A5U,A5)|(2*A5U);
     $ENDSECTION 
-    $GROUP LC=1; AB=25; AP=ENV_WAYT3;
+    $GROUP LC=1; AB=25;											\
+	AP=ENV_WAYT3;
       TX=Köln Tw B 100 2000;										\
 	C=(2*KVB_2000)|(2*KVB_2000_HR);
       TX=Köln Tw B 80 2100;										\
@@ -2036,7 +2098,8 @@ $SECTION TX=$(LABEL); TXC=#AAAAAA; TXB=#000000; TXX=*; TXY=19; SEQ=D; AB=10; BL=
     $SECTION LC=1; DY=125;
       M=CUT; C1=K2L; C2=K2R; D1=L; D2=R;
       M=1:STOP|3:SIMPLE|1:UNIT; C=K2L|K2R; C1=K2R; C2=K2L; D2=R;
-      M=OPEN; D=R; C=<K2L,K2R; P=50+280; W=2; BG=FL_SBBR_M1,FL_SBB_F2:..,-4;				\
+      M=OPEN; D=R; C=<K2L,K2R; P=50+280; W=2;								\
+	BG=FL_SBBR_M1,FL_SBB_F2:..,-4;									\
 	FG=4*PLF1O,6*(PLF1L,8*PLF1O),PLF1L,4*PLF1O:50,-4; AB=30;
       M=1:STOP|3:SIMPLE|1:UNIT; D=X; C=<K2L,K2R; C1=K2L; C2=K2R; D2=L;
     $ENDSECTION 
@@ -2049,7 +2112,8 @@ $SECTION TX=$(LABEL); TXC=#AAAAAA; TXB=#000000; TXX=*; TXY=19; SEQ=D; AB=10; BL=
       M=UNIT|CUT2; C1=KVB_4000(|[!L]); C2=(3:KVB_4000|1:KVB_4100_125)(|[!L]); T2C=1,CL.C>,W,1,CR.C<,W,1; \
 	T1C=(1,CR.C<:BW,W,1)|(1,CL.C>:BW,W,1);
     $ENDSECTION 
-    $GROUP TX=4000; LC=1; AB=25; AP=ENV_WAYT3;
+    $GROUP TX=4000; LC=1; AB=25;									\
+	AP=ENV_WAYT3;
       C=KVB_4000T;
       C=KVB_4000_1FCKOLN;
       C=KVB_4000L~FLE|KVB_4000L~FLE|KVB_4000WR2~FLE|KVB_4000WR2~FLE|KVB_4000WR~FLE|KVB_4000WR~FLE;
@@ -2067,7 +2131,8 @@ $SECTION TX=$(LABEL); TXC=#AAAAAA; TXB=#000000; TXX=*; TXY=19; SEQ=D; AB=10; BL=
       M=UNIT|CUT2; C1=KVB_5100(|[!L]); C2=(KVB_5101|KVB_5100RW)(|[!L]); T2C=1,CL.C>:FW,W,1,CR.C<:FW,W,1; \
 	T1C=1,CR.C<:BW,W,1,CL.C>:BW,W,1;
     $ENDSECTION 
-    $GROUP TX=5000; LC=1; AB=25; AP=ENV_WAYT3;
+    $GROUP TX=5000; LC=1; AB=25;									\
+	AP=ENV_WAYT3;
       C=KVB_5000~WSI;
       C=KVB_5000_HUK;
       C=KVB_5000_2010;
@@ -2081,7 +2146,8 @@ $SECTION TX=$(LABEL); TXC=#AAAAAA; TXB=#000000; TXX=*; TXY=19; SEQ=D; AB=10; BL=
       C=K3900W(|L); AP=ENV_WAYT3; AB=25;
   }
   {CRAIL?
-    $GROUP TX=Köln-Bonner Eisenbahn; LC=2; AB=25; AP=ENV_WAYT6;
+    $GROUP TX=Köln-Bonner Eisenbahn; LC=2; AB=25;							\
+	AP=ENV_WAYT6;
       C=KBE_ET201;
       C=KBE_ET210;
       C=KBE_ET56,KBE_ES152;
@@ -2132,7 +2198,8 @@ $ENDSECTION
 	TX=RTZ 70;											\
 	  C=LVB_RTZ70;
       $ENDGROUP 
-      $GROUP TX=ET50 + EB 50; LC=1; AP=ENV_WAYT1;
+      $GROUP TX=ET50 + EB 50; LC=1;									\
+	  AP=ENV_WAYT1;
 	C=LVB_ET50_1601L,0-2*LVB_EB50_803L;
 	C=LVB_ET50_1601,0-2*LVB_EB50_803;
 	C=LVB_ET50A,0-2*LVB_EB50A;
@@ -2358,7 +2425,8 @@ $ENDSECTION
       M=FOLLOW; C=2-5*MADR_(MANNG313~AXS|MANSL202~AXS|NG272|NL223|O305G|SL200);
     }
     {TRAM?
-      $GROUP TX=Stadtbahn B100; LC=1; AB=25; AP=ENV_WAYT3;
+      $GROUP TX=Stadtbahn B100; LC=1; AB=25;								\
+	  AP=ENV_WAYT3;
 	TX=B80;												\
 	  C=2@MADR_B80|MADR_B100MH;
 	C=2*MADR_B100;
@@ -2372,7 +2440,8 @@ $ENDSECTION
 #
 $SECTION AB=30; WT=ENV_WAYT1; WM=ENV_WAYM; %SECFIN;%TITLE([N=Munich; D=München; H=München]);
   {TRAM?
-    $GROUP LC=2; V=0.6;
+    $GROUP LC=2;											\
+	V=0.6;
       TX=Pferdebahn /Horse-tramway;									\
 	C=(MUN_0PFERD0BL,MUN_8A141A0RL|MUN_HTL)|(MUN_0PFERD0B,MUN_HT|MUN_8A141A0R);
       TX=Dampfstraßenbahn / Steam-tramway;								\
@@ -2488,14 +2557,15 @@ $SECTION AB=30; WT=ENV_WAYT1; WM=ENV_WAYM; %SECFIN;%TITLE([N=Munich; D=München; 
     $ENDGROUP 
     $GROUP 
       TX=Typ R;												\
-	AP=ENV_WAYT1; LC=2; AB=15;
-      C=MUN_R2_MVGL|MUN_R202L~BL2|MUN_R202~BL2|MUN_R2_SEGL|{V3?MUN_R202L~V3|MUN_R202~V3};
+	C=MUN_R2_MVGL|MUN_R202L~BL2|MUN_R202~BL2|MUN_R2_SEGL{V3?|MUN_R202L~V3|MUN_R202~V3}; AP=ENV_WAYT1; \
+	LC=2; AB=15;
       TX=Typ R 3.3 2201 - 2220;										\
 	C=MUN_R3|MUN_R3MVG|MUN_R3SWML|MUN_R3SCHL|MUN_GT8NL~TIS|MUN_GT8N~TIS|MUN_GT8NL~BL2|MUN_GT8N~BL2;
       TX=Variobahn;											\
 	C=MUN_S_VARIOBAHNL[#D:L]|MUN_S_VARIOBAHN[#D:R];
     $ENDGROUP 
-    $GROUP TX=Jubiläumsparade; LC=1; V=6;
+    $GROUP TX=Jubiläumsparade; LC=1;									\
+	V=6;
       M=FOLLOW; D=L;											\
 	C=(MUN_256L;MUN_490JUBL,MUN_1401JUBL;MUN_670JUBL,MUN_1334JUBL; MUN_721JUBL,MUN_1509JUBL;	\
 	  MUN_2412JUBL;MUN_2006JUBL;MUN_2143JUBL; MUN_2219JUBL; WIEN_ULF_MUNJUBL;POT_COMB_MUNJUBL);
@@ -2577,7 +2647,9 @@ $ENDSECTION
 	C=SWN_GT4Z1;
 	C=SWR_GT4Z2;
       $ENDGROUP 
-      $GROUP TX=GT4 72 Test; LC=2; AB=15; V=6; AP=ENV_WAYT1;
+      $GROUP TX=GT4 72 Test; LC=2; AB=15;								\
+	  V=6;												\
+	  AP=ENV_WAYT1;
 	M=STOP; D=L; C=SWN_72TWINOL|SWN_GT4_TWINOL|SWN_GT4_TWINO1L; P=*50; T=4,PD,3;
 	M=STOP; D=R; C=SWN_72TWINO|SWN_GT4_TWINO|SWN_GT4_TWINO1; P=*50; TB=PD; T=4,P1U,3;
       $ENDGROUP 
@@ -2589,7 +2661,9 @@ $ENDSECTION
 	C=SWN_COMBINOL~PH;
 	C=SWN_COMBINO~PNR;
       $ENDGROUP 
-      $GROUP TX=Combino Duo; LC=2; AB=15; V=6; AP=ENV_WAYT1;
+      $GROUP TX=Combino Duo; LC=2; AB=15;								\
+	  V=6;												\
+	  AP=ENV_WAYT1;
 	M=STOP; D=L; C=SWN_DUO(|L); P=*50; T=4,PD,3;
 	M=STOP; D=R; C=SWN_DUO(|L); P=*50; TB=PD; T=4,P1U,3;
       $ENDGROUP 
@@ -2775,7 +2849,8 @@ $ENDSECTION
       C=OEG_102,OEG_112,OEG_131;
       C=OEG_56,OEG_112,OEG_131;
     $ENDGROUP 
-    $GROUP LC=1; AB=30; AP=ENV_WAYT4;
+    $GROUP LC=1; AB=30;											\
+	AP=ENV_WAYT4;
       TX=OEG18;												\
 	C=OEG_18,1-3*OEG_134|OEG_114,|OEG_228; AP=ENV_WAYT4; AB=30;
       TX=OEG 8;												\
@@ -2793,7 +2868,8 @@ $ENDSECTION
       TX=OEG Halbzug Partywagen;									\
 	C=OEG_5T4S4;
     $ENDGROUP 
-    $GROUP LC=1; AB=30; AP=ENV_WAYT3;
+    $GROUP LC=1; AB=30;											\
+	AP=ENV_WAYT3;
       TX=OEG GT8;											\
 	C=OEG_GT8;
       TX=OEG 82ff;											\
@@ -2806,7 +2882,8 @@ $ENDSECTION
 	C=OEG_123|OEG_NGT6Z;
     $ENDGROUP 
 # Rhein-Haardt-Bahn
-    $GROUP TX=Rhein-Haardt-Bahn GT6 + GB6; LC=1; AB=25; AP=ENV_WAYT3;
+    $GROUP TX=Rhein-Haardt-Bahn GT6 + GB6; LC=1; AB=25;							\
+	AP=ENV_WAYT3;
       C=RHBA_GT6AL,RHBA_GB6AL;
       C=RHBA_GT6A,RHBA_GB6A;
       C=RHBA_GT6BL~TIS,RHBA_GB6BL~TIS;
@@ -2814,11 +2891,12 @@ $ENDSECTION
       C=RHBA_GT6BL~WSI,RHBA_GB6BL~WSI;
       C=RHBA_GT6B~WSI,RHBA_GB6B~WSI;
     $ENDGROUP 
-    $GROUP LC=1; AB=25; AP=ENV_WAYT3;
+    $GROUP LC=1; AB=25;											\
+	AP=ENV_WAYT3;
       TX=Rhein-Haardt-Bahn GT12 1019-1022;								\
-      	C=RHBA_GT12(|L)~TIS|RHBA_GT12(|L)~WSI;
+	C=RHBA_GT12(|L)~TIS|RHBA_GT12(|L)~WSI;
       TX=Rhein-Haardt-Bahn 8MGT;									\
-        C=RHBA_8MGT(|L)~TIS|RHBA_8MGT(|L)~WSI;
+	C=RHBA_8MGT(|L)~TIS|RHBA_8MGT(|L)~WSI;
     $ENDGROUP 
   $ENDSECTION 
 }
@@ -2891,7 +2969,8 @@ $ENDSECTION
       C=SOL_SG200HON~AXS; AP=ENV_WAYO;
       C=SOL_BERKHOF_AT18~AXS; AP=ENV_WAYO;
     $ENDGROUP 
-    $GROUP LC=1; AP=ENV_WAYO;
+    $GROUP LC=1;											\
+	AP=ENV_WAYO;
       C=SOL_SL172OHL;
       C=SOL_SL172OH;
       C=SOL_SL172HONL~GW;
@@ -2901,6 +2980,8 @@ $ENDSECTION
       C=SOL_SG200HONL;
       C=SOL_SG200HON~GW;
       C=SOL_BERKHOF_AT18L~GW;
+      C=SOL_HESS959;
+      C=SOL_HESS959L;
       C=SOL_BERKHOF_AT18~GW;
       C=SOL_AG300TL~GW;
       C=SOL_AG300T~GW;
@@ -2996,7 +3077,8 @@ $ENDSECTION
 	  C=SSB_ZT4(|A|B),|SSB_BIKE;
       $ENDGROUP 
 # Stadtbahn
-      $GROUP LC=3; AP=ENV_WAYT3;
+      $GROUP LC=3;											\
+	  AP=ENV_WAYT3;
 	TX=Stadtbahn DT8;										\
 	  C=SSB_DT8(D|U);
 	TX=Stadtbahn DT8;										\
@@ -3102,10 +3184,11 @@ $SECTION AB=30; WT=$FLG(T,ENV_WAYO,ENV_WAYT1); %SECFIN;%TITLE(Wuppertal);
 	C=4-6*WUP_(0405C|L811D|N4015|NG272|NL202C1|NL202C2|O305G|O305|O405GC|O405GNC|SG192B1|SG192B2|	\
 	  SG292C1|SL200B|SL202C);
       M=FOLLOW;												\
-	C=3-5*WUP_(NG312|NG313|NL202D|NL263|NM222|NM223|O405D|O405GD|O405GN2_SPARKASSE|O405GND|O405GNE|	\
-	  O405ND|SG292D1|SL202D);
+	C=3-5*WUP_(O530GC2BL|NG312|NG313|NL202D|NL263|NM222|NM223|O405D|O405GD|O405GN2_SPARKASSE|	\
+	  O405GND|O405GNE|O405ND|SG292D1|SL202D);
       M=FOLLOW;												\
-	C=3-5*WUP_(IK405|IK417|IK417A|NG313CE|NL263CE|O405GCE|O530G|O530GCE|SG221UL_STINNES|SG292CE);
+	C=3-5*WUP_(O530GC2B|IK405|IK417|IK417A|NG313CE|NL263CE|O405GCE|O530G|O530GCE|SG221UL_STINNES|	\
+	  SG292CE);
       TX=Schwebebahntransport;										\
 	M=FOLLOW; C=(WUP_TRAS1;WUP_TRAS2;WUP_TRAS3);
       C=WIRZIUS_MAN41603;
@@ -3140,7 +3223,7 @@ $ENDSECTION
       $ENDGROUP 
       $GROUP LC=3;
 	C=BVB_25(1|2)(|L);
-	C=(BVB_15,BVB_B4B1|BVB_B4B2|BVB_B4S|0-2*BVB_1241)(|L);
+	C=(BVB_15,BVB_B4B1|BVB_B4B2|BVB_B4S|(0-2*BVB_1241))(|L);
 	C=(BVB_409,BVB_1471)(|L);
 	C=(BVB_426,BVB_1408)(|L);
 	TX=BVB BE 4/4;											\
@@ -3155,7 +3238,8 @@ $ENDSECTION
       $ENDGROUP 
     }
     {BUS?
-      $GROUP LC=3; F=T;
+      $GROUP LC=3;											\
+	  F=T;
 	C=BVB_FBW_350(|L);
 	C=BVB_SAURER_352(|L);
 	C=BVB_SAURER_354(|L);
@@ -3273,6 +3357,8 @@ $ENDSECTION
 	  C=VBZ_COBRA(1|V|V_NOCHNIE|V_WBG)(|L)|VBZ_COBRA2(|L)|VBZ_3087(|L);
 	TX=Typ Cobra;											\
 	  C=VBZ_(BE442,B4)(|O)(|L);
+	TX=Typ Cobra Glattal;										\
+	  C=VBZ_3072L[#D:L]|VBZ_3072[#D:R];
 	C=4:VBZ_BE24(|N)(|L)|VBZ_BE24_KUNSTHAUS;
 
 	C=VBZ_BE46(|L)~PNR,|VBZ_BE46BK($DIR(L,));
@@ -3341,7 +3427,8 @@ $SECTION SEQ=D; AB=30; V=4; WM=ENV_WAYM; %SECFIN;%TITLE(Wien);
 # Wien U-Bahn
     $GROUP LC=2;
       TX=U-Bahn U;											\
-	M=STOP; C=3*WIEN_U; P=*50; T=1,OPEN,5,CLOSE,W; FG=116*PLF1O:50,-3;
+	M=STOP; C=3*WIEN_U; P=*50; T=1,OPEN,5,CLOSE,W;							\
+	FG=116*PLF1O:50,-3;
       TX=U-Bahn Wien U;											\
 	C=3*(<WIEN_UAL,WIEN_UA);
       TX=U-Bahn Wien V;											\
@@ -3461,14 +3548,16 @@ $SECTION SEQ=D; AB=30; V=4; WM=ENV_WAYM; %SECFIN;%TITLE(Wien);
 	C=WIEN_T1,2*WIEN_K6; AP=ENV_WAYT1;
     $ENDGROUP 
 # Wien Z, T2, L
-    $GROUP LC=3; AP=ENV_WAYT1;
+    $GROUP LC=3;											\
+	AP=ENV_WAYT1;
       TX=Z;												\
 	C=WIEN_Z4208;
       TX=L + l;												\
 	C=(WIEN_LNEUT[#D:R],WIEN_LNEUB)|(WIEN_LNEUTL[#D:L],WIEN_LNEUBL);
     $ENDGROUP 
 # Wien C, D, F
-    $GROUP LC=3; AP=ENV_WAYT1;
+    $GROUP LC=3;											\
+	AP=ENV_WAYT1;
       TX=C + c;												\
 	C=(WVB_C101[#D:R],WVB_C1201)|(WVB_C101L[#D:L],WVB_C1201L); AP=ENV_WAYT1;
       TX=C1 + c1;											\
@@ -3488,7 +3577,8 @@ $SECTION SEQ=D; AB=30; V=4; WM=ENV_WAYM; %SECFIN;%TITLE(Wien);
 	  ((WIEN_F_1L|WIEN_F_2AL|(WIEN_F_2BL,WIEN_I3_1L)|WIEN_F_3L|WIEN_F_4L));
     $ENDGROUP 
 # Wien E, E2
-    $GROUP LC=3; AP=ENV_WAYT1;
+    $GROUP LC=3;											\
+	AP=ENV_WAYT1;
       TX=E;												\
 	C=WIEN_E_1970|WIEN_E4401L|WIEN_E4401|WIEN_E_1970L;
       TX=E1 + c;											\
@@ -3538,7 +3628,8 @@ $SECTION SEQ=D; AB=30; V=4; WM=ENV_WAYM; %SECFIN;%TITLE(Wien);
       C=WIEN_MANN,WIEN_MANNB;
     $ENDGROUP 
 # Wien Follow
-    $GROUP LC=3; AP=ENV_WAYT1;
+    $GROUP LC=3;											\
+	AP=ENV_WAYT1;
       M=FOLLOW; D=L;											\
 	C=5*(WIEN_D1BL|WIEN_FL|WIEN_FAL|WIEN_EL|WIEN_E1L|WIEN_E1AL|WIEN_E2L|WIEN_E2WL|WVB_AL|WVB_BL|	\
 	  (WIEN_L4L,0-1*WIEN_L3L)|(WIEN_C1L,0-1*WIEN_C1BL)|(WIEN_C3AL,0-1*WIEN_C2BL));
@@ -3600,7 +3691,8 @@ $SECTION SEQ=D; AB=30; V=4; WM=ENV_WAYM; %SECFIN;%TITLE(Wien);
 	C=WLB_1001; AP=ENV_WAYT1;
     $ENDGROUP 
 # EP IV neu
-    $GROUP LC=3; AP=ENV_WAYT3;
+    $GROUP LC=3;											\
+	AP=ENV_WAYT3;
       TX=Wiener Lokalbahn 11 + 91;									\
 	C=2*(WLB_20,WLB_40SGPSA);
       TX=WLB 11 + 91;											\
@@ -3611,7 +3703,8 @@ $SECTION SEQ=D; AB=30; V=4; WM=ENV_WAYM; %SECFIN;%TITLE(Wien);
 	C=(<WLB_90NL,WLB_10N,WLB_10NL,WLB_10N)|(<WLB_10NL,WLB_10N,WLB_10NL,WLB_90N);
     $ENDGROUP 
 # EP V/VI
-    $GROUP LC=3; AP=ENV_WAYT3;
+    $GROUP LC=3;											\
+	AP=ENV_WAYT3;
       TX=Wiener Lokalbahn 100;										\
 	M=UNIT|CUT; C1=WLB_100; C2=WLB_100;
       TX=Wiener Lokalbahn 100;										\
@@ -3840,7 +3933,7 @@ $ENDSECTION
 	TX=437 + 1460;											\
 	  C=(KS_437L,KS_1460GL)|(KS_437,KS_1460G);
 	TX=701 + 1502;											\
-	  C=(KS_701L,KS_1502ME)|(KS_701,KS_1502M)|();
+	  C=(KS_701L,KS_1502ME)|(KS_701,KS_1502M);
 	TX=470 + 1065;											\
 	  C=(KS_470L,KS_1065L)|(KS_470,KS_1065);
 	TX=502 + 1502;											\
@@ -3996,15 +4089,16 @@ $SECTION SEQ=D; BL=16; WT=$FLG(T,ENV_WAYO,ENV_WAYT1); %SECFIN;%TITLE(Milano);
 	C=ATM_SOCIMI1989(|L);
     $ENDGROUP 
 # interurban
-    $GROUP LC=3; AP=ENV_WAYT8;
+    $GROUP LC=3;											\
+	AP=ENV_WAYT8;
       TX=Stel 110;											\
 	C=STEL_110,STEL_110B;
       TX=40 + 180...;											\
 	D=R; C=ATM_LITTORINAOMS_2000,ATM_R5;
       TX=49 + Zug Milano - Limbiate;									\
 	C=ATM_49B,2*ATM_R4;
-      TX=44-49 »Desio«;											\
-	C=ATM_49A|ATM_49,2*ATM_R1|2*ATM_R2;
+      TX=44-49 Desio;											\
+	C=ATM_49A|ATM_49,2@ATM_R(1|2);
       TX=44-49 »Desio«;											\
 	C=ATM_49B;
       TX=Desio + Carovana;										\
@@ -4016,7 +4110,8 @@ $SECTION SEQ=D; BL=16; WT=$FLG(T,ENV_WAYO,ENV_WAYT1); %SECFIN;%TITLE(Milano);
       TX=92;												\
 	C=ATM_92;
     $ENDGROUP 
-    $GROUP LC=3; AP=ENV_WAYT8;
+    $GROUP LC=3;											\
+	AP=ENV_WAYT8;
       TX=116-123 »Littorina OEFT« + Costamasnaga trailer;						\
 	D=L; C=ATM_122,ATM_R3;
       TX=116-123 »Littorina OEFT« + Costamasnaga trailer;						\
@@ -4034,7 +4129,8 @@ $SECTION SEQ=D; BL=16; WT=$FLG(T,ENV_WAYO,ENV_WAYT1); %SECFIN;%TITLE(Milano);
       TX=135 + BW Costamano;										\
 	C=ATM_COSTAMB,2*ATM_R1;
     $ENDGROUP 
-    $GROUP LC=3; AP=ENV_WAYT8;
+    $GROUP LC=3;											\
+	AP=ENV_WAYT8;
       TX=401;												\
 	C=STEL_401O[PFU];
       TX=401 experimental 'blocked' train;								\
@@ -4104,20 +4200,203 @@ $SECTION SEQ=D; BL=16; WT=$FLG(T,ENV_WAYO,ENV_WAYT1); %SECFIN;%TITLE(Milano);
 $ENDSECTION 
 #--------------------------------------------------------------------------
 #
+# Roma
+#
+$SECTION SEQ=D; BL=16; WT=$FLG(T,ENV_WAYO,ENV_WAYT1); %SECFIN;%TITLE(Torino);
+  {CRAIL?
+    $GROUP 												\
+	TX=Società Romana Ferrovie del Nord (Roma-Viterbo)1913-1921 STFE,1921-1970:SRFN,		\
+	1970-1976 STEFER,1976-1993 ACOTRAL,1993-2000 COTRAL,2000-2001 Metroferro,2001 MetRo;		\
+	LC=3; AB=25;											\
+	WE=ENV_WAYT8;											\
+	WT=ENV_WAYT8;											\
+	WL=ENV_WAYT8;
+      TX=Merci Viterbo - Roma, locomotiva 01-04 + carri 1960;						\
+	C=SRFN_01AL,DB_3B_GMHS53EL,KPEV_W4BL,NS_GTMKHE;
+      TX=Locale Roma - Viterbo, classica M.R.R.RP con elettromotrici ECD 21-30 e rimorchi C 71-78, C 79-82 (pilota) 1960; \
+	C=<SRFN_ECD21,SRFN_C71L,SRFN_ECD21L,SRFN_C79;
+      TX=Locale Roma - Viterbo, locomotiva 01-04 + rimorchio AC 51-58 + due rimorchi C 71-78 1960;	\
+	C=SRFN_01B,SRFN_AC51L,2*SRFN_C71L;
+      TX=Locale Roma - Viterbo, complesso elettromotrice 102-112 (solo pari) + rimorchio 201-210 + pilota 101-119 (solo dispari) 2000; \
+	C=<SRFN_102L,SRFN_101,SRFN_201;
+    $ENDGROUP 
+    $GROUP TX=Roma,Line to Lido; LC=3; AB=25;								\
+	WE=ENV_WAYT8;											\
+	WT=ENV_WAYT8;											\
+	WL=ENV_WAYT8;
+      TX=Stefer Rom MR;											\
+	C=2-3*(<ATAC_LIDO_MR302BL,ATAC_LIDO_MR302A);
+      TX=Stefer Rom MM;											\
+	C=2-3*(<ATAC_MMBL,ATAC_MMA);
+      TX=Stefer Rom MR 101;										\
+	C=<STEFER_MR101_001,2*STEFER_LM4,STEFER_MR101_001;
+      TX=Metro Rom;											\
+	C=<ATAC_CAF1AL,3*ATAC_CAF1B,ATAC_CAF1A;
+      TX=Metro Rom C;											\
+	C=<ATAC_CAF1AL,4*ATAC_CAF1B,ATAC_CAF1A;
+      TX=Metro Rom C;											\
+	C=<ATAC_C_AL,4*ATAC_C_B,ATAC_C_A;
+      TX=Metro Rom MA 100;										\
+	C=2*(<ATAC_LIDO_MA100L,ATAC_LIDO_MA100);
+    $ENDGROUP 
+    $GROUP TX=Ferrovia Roma-Fiuggi-Alatri-Frosinone; LC=3; AB=25;					\
+	WE=ENV_WAYT8;											\
+	WT=ENV_WAYT8;											\
+	WL=ENV_WAYT8;
+      TX=Stefer E1;											\
+	C=STEFER_E1(B|C|M|SRV);
+      TX=Stefer 462 mit 114;										\
+	C=<STEFER_462,STEFER_114;
+      TX=Stefer 422;											\
+	C=(<STEFER_ET421A,STEFER_ET421B,STEFER_ET421A)|							\
+	  (<STEFER_TRENO_422A,STEFER_TRENO_422B,STEFER_TRENO_422C);
+      TX=Stefer 083 mit 103 mit 084;									\
+	C=STEFER_083,STEFER_103,STEFER_084;
+      TX=Stefer 462 und 114;										\
+	C=<STEFER_462,STEFER_114;
+      TX=Stefer 422-424 mit 052, 064;									\
+	C=<STEFER_064,STEFER_42(2|4),STEFER_052;
+      TX=Stefer 101 mit Bw104;										\
+	C=STEFER_101,STEFER_104;
+      TX=Stefer 470 mit Bw;										\
+	C=STEFER_470,STEFER_1(04|07|21|23);
+      TX=Stefer 801;											\
+	C=STEFER_801;
+      TX=Stefer 802,812;										\
+	C=STEFER_(80|81|E81)2;
+      TX=Stefer 820;											\
+	C=ATAC_DL820;
+      TX=Stefer 830;											\
+	C=ATAC_83(0|2);
+    $ENDGROUP 
+    $GROUP TX=SFV:Ferrovia Roma-Fiuggi-Alatri-Frosinone EP1-2; LC=3; AB=25;				\
+	WE=ENV_WAYT8;											\
+	WT=ENV_WAYT8;											\
+	WL=ENV_WAYT8;
+      TX=SFV 1915: elettromotrice 200-209 allo stato di origine;					\
+	C=SFV_200A(|L);
+	TX=SFV elettromotrice 420 + carrozze 050;							\
+	  C=SFV_420A(|L),SFV_050A;
+	TX=SFV elettromotrice 420 + carrozze 11 + 21;							\
+	  C=SFV_420B(|L),SFV_011C,SFV_021C;
+      TX=SFV Merci con locomotiva 1-4 + carri P 100-198 + carri L 301-350 + carro F 201-265 1930;	\
+	  D=R;												\
+	  C=SFV_1A,2*SFV_P100BL,SFV_L301(A|B|C|D)(|L),SFV_P100B,SFV_F201BL,SFV_L301(A|B|C|D)(|L),	\
+	    SFV_P100AL;
+      TX=SFV Rapido Roma-Fiuggi - locomotiva 11-13 + le tre carrozze 01-03 (carrozze con tre porte, 01-02 -I- con un vestibolo con buvette, 03 -III- con vestibolo con ritirata) 1930; \
+	D=L; C=SFV_11AL,SFV_001AL,SFV_001A,SFV_003AL;
+      TX=SFV Locale Roma-Frosinone - locomotiva 1-4 + carrozza 011-016 (con porte) + carrozza 021-026 (con cancelletti) + carrozza 011-016 modificata con carrelli 1930; \
+	C=SFV_1A,SFV_011A,SFV_021A,SFV_011B;
+      TX=SFV Locale Fiuggi Città-Fiuggi Fonte;								\
+	C=SFV_400AL,SFV_032A; ELETTROMOTRICE 401-410+CARROZZA 032-042NUMERI SOLO PARI,TERZA CLASSE1930;
+      TX=SFV Locale misto Alatri-Frosinone;								\
+	C=SFV_430AL,SFV_021B,SFV_F201B;									\
+	ELETTROMOTRICE 431-436+CARROZZA 021-026 CON CARRELLI+F 201-265 1930;
+    $ENDGROUP 
+    $GROUP TX=Stefer Roma-Fiuggi-Alatri-Frosinone,950 mm E3; LC=3; AB=25;				\
+	WE=ENV_WAYT8;											\
+	WT=ENV_WAYT8;											\
+	WL=ENV_WAYT8;
+	TX=Italien STEFER: Ferrovia Roma-Fiuggi-Alatri-Frosinone E 460;					\
+	  C=SFV_E460_1; F=ENP3;
+      TX=STEFER 1945 - primi cinque treni bloccati extra-urbani 200 modificata + 080 attrezzata + 200 modificata; \
+	C=(<STEFER_200EL,STEFER_080B,STEFER_200)|(<<STEFER_200L,STEFER_080B,STEFER_200E);
+      TX=ACOTRAL Locale Roma-Frosinone - elettromotrice 01 + semipilota 121 1965;			\
+	C=(<STEFER_01CL,STEFER_121C)|(STEFER_121CL,STEFER_01C);
+      TX=STEFER Locale Roma-Frosinone - bloccato 100 sp + 100 m + 080 p 1960;				\
+	C=(<STEFER_100L,STEFER_100E,STEFER_080)|(STEFER_080,STEFER_100EL,STEFER_100);
+      TX=STEFER Locale Roma-Zagarolo con locomotiva 1-4 + 2 carrozze 011-016 + carrozza 031-041 (numeri solo dispari, mista I-III) + carrozza 050-073 1960; \
+	C=STEFER_E1B,2*SFV_F201A,2*SFV_F201B,SFV_F201A;
+      TX=STEFER Merci con locomotiva 1-4 + carri F 201-265 con e senza garritta 1960;			\
+	C=STEFER_1A(|L),2*SFV_011C,SFV_031BL,SFV_050B;
+      TX=STEFER Merci con locomotiva 1-4 + carri F 201-265 con e senza garritta 1960;			\
+	C=STEFER_E1B,2*SFV_F201A(|L),2*SFV_F201B,SFV_F201A;
+      TX=STEFER Locale Fiuggi-Roma con elettromotrice 451-456 (attrezzata aperture porte pneumatiche) + carrozze 101-110; \
+	C=(STEFER_451A,STEFER_101A,3*STEFER_101AL)|(STEFER_451AL,STEFER_101AL,3*STEFER_101A);
+      TX=STEFER 1955, primo bloccato urbano: elettromotrice 421 + rimorchio 051 semi-pilota + rimorchio 057 pilota; \
+	C=(<STEFER_420ML,STEFER_051A,STEFER_057A)|(<STEFER_057AL,STEFER_051AL,STEFER_420M);
+      TX=STEFER Locale Roma-Fiuggi 1955;								\
+	C=(<STEFER_460AL,STEFER_470A)|(<STEFER_470BL,STEFER_460B)|(<STEFER_470AL,STEFER_460A)|		\
+	  (<STEFER_460BL,STEFER_470B);
+      TX=STEFER 1952 - entrano in servizio gli elettrotreni 801-803;					\
+	C=(2*STEFER_801AL)|(2*STEFER_801A); DOPPIA COMPOSIZIONE ROMA-FIUGGI;
+      TX=STEFER elettromotrice 451-458 ricostruita + pilota 081-086 1965;				\
+	C=<STEFER_451B,STEFER_080;
+      TX=STEFER 1965, primo bloccato urbano: elettromotrice 421 + rimorchio 051 semi-pilota + rimorchio 057 pilota; \
+	C=(<STEFER_420CML,STEFER_051C,STEFER_057C)|(<STEFER_057CL,STEFER_051CL,STEFER_420CM);
+      TX=STEFER Locale Roma-Fiuggi 1965;								\
+	C=(<STEFER_460CL,STEFER_470C)|(<STEFER_470CL,STEFER_460C);
+      TX=ACOTRAL Merci con locomotiva 1-4 1965;								\
+	C=STEFER_1B(|L),2*SFV_F201A,2*SFV_F201B,SFV_F201A;
+      TX=ACOTRAL Locale Roma-Pantano - elettrotreno 801-803, 810 1965;					\
+	C=STEFER_8(01B|10)(|L);
+      TX=ACOTRAL Locale Roma-Pantano - elettromotrice 431-436 ricostruita 1965;				\
+	C=STEFER_430B(|L);
+    $ENDGROUP 
+    $GROUP TX=ACOTRAL Roma-Pantano,950 mm E4; LC=3; AB=25;						\
+	WE=ENV_WAYT8;											\
+	WT=ENV_WAYT8;											\
+	WL=ENV_WAYT8;
+      TX=ACOTRAL Merci con locomotiva 1-4 1975;								\
+	C=ACOTRAL_1A(|L),3*SFV_P100(B|A|BL),2*SFV_F201(A|B);
+      TX=ACOTRAL Merci con locomotiva 1-4 1980;								\
+	C=ACOTRAL_1B(|L),STEFER_1B,2*SFV_F201A,2*SFV_F201B,SFV_F201A;
+      TX=ACOTRAL Locale Roma-Pantano - elettromotrice 01 + semipilota 121 1990;				\
+	C=(<ACOTRAL_121L,ACOTRAL_01)|(<ACOTRAL_01L,ACOTRAL_121);
+      TX=ACOTRAL Locale Roma-Pantano - bloccato 100 sp + 100 m + 080 p 1990;				\
+	C=(<ACOTRAL_100L,ACOTRAL_100E,ACOTRAL_080)|(<ACOTRAL_080,ACOTRAL_100EL,ACOTRAL_100);
+      TX=ACOTRAL Locale Roma-Pantano - - elettromotrice 100 + semipilota 100 1980;			\
+	C=(<ACOTRAL_100L,ACOTRAL_100E)|(<ACOTRAL_100EL,ACOTRAL_100);
+      TX=ACOTRAL Locale Roma-Pantano - complesso bloccato 420+051+057 ricolorato 1990;			\
+	C=(<ACOTRAL_420L,ACOTRAL_051,ACOTRAL_057)|(<ACOTRAL_057L,ACOTRAL_051L,ACOTRAL_420);
+      TX=ACOTRAL Locale Roma-Pantano - elettromotrice 460-462 + semipilota 111-116 1990;		\
+	C=(<ACOTRAL_460EL,ACOTRAL_100)|(<ACOTRAL_100L,ACOTRAL_460E);
+      TX=ACOTRAL Locale Roma-Pantano - elettromotrice 470 + semipilota 460 1990;			\
+	C=(<ACOTRAL_460L,ACOTRAL_470E)|(<ACOTRAL_470EL,ACOTRAL_100);
+      TX=ACOTRAL Locale Roma-Pantano - elettrotreno 801-803, 810 1990;					\
+	C=ACOTRAL_8(01|10)(|L); F=EPNU4;
+    $ENDGROUP 
+    $GROUP TX=ACOTRAL-Met.Ro Roma-Pantano,950 mm E5-6; LC=3; AB=25;					\
+	WE=ENV_WAYT8;											\
+	WT=ENV_WAYT8;											\
+	WL=ENV_WAYT8;
+      TX=Met.Ro. Locale Roma-Giardinetti -  bloccato 100 sp + 100 m + 080 p 2005;			\
+	C=<(ATAC_080L,ATAC_100_100L)|(ATAC_100_100,ATAC_80);
+      TX=Met.Ro.Locale Roma-Giardinetti- elettrotreno 831-836 2005;					\
+	C=ATAC_830C(|L); F=EPNU6;
+      TX=ACOTRAL Locale Roma-Pantano - elettrotreno 820-822-823-824-825 2000;				\
+	C=ACOTRAL_820(|L); F=EPNU5;
+    $ENDGROUP 
+  }
+  {TRAM?
+    TX=Roma MSR 2x;											\
+      C=MUN_4X100A20(|L),MUN_8X100A00(|L); AP=ENV_WAYT1;
+    TX=Roma MSR 2001;											\
+      C=ATAC_MRS(|L); AP=ENV_WAYT1;
+    TX=Roma Stefer 301;											\
+      C=STEFER_312(|L); AP=ENV_WAYT1;
+    TX=Roma Stefer 401;											\
+      C=STEFER_401(|L); AP=ENV_WAYT1;
+  }
+$ENDSECTION 
+#--------------------------------------------------------------------------
+#
 # Torino
 #
 $SECTION SEQ=D; BL=16; WT=$FLG(T,ENV_WAYO,ENV_WAYT1); %SECFIN;%TITLE(Torino);
   {CRAIL?
     $GROUP LC=3;
       TX=GHIA;												\
-	C=ATMT_GHIA; V=8-11; BG=ATMT_GHIAW:..,^14; BL=60;
+	C=ATMT_GHIA; V=8-11;										\
+	BG=ATMT_GHIAW:..,^14; BL=60;
       TX=VAL-Metro;											\
 	C=GTT_VAL; AP=ENV_WAYM;
     $ENDGROUP 
   }
   {TRAM?
 # Sassi-Superga
-    $GROUP LC=3; AP=ENV_WAYM;
+    $GROUP LC=3;											\
+	AP=ENV_WAYM;
       TX=Sassi-Superga D1;										\
 	C=ATMT_D1A|ATMT_D1A|ATMT_D1B|ATMT_D1B;
       TX=Sassi-Superga D2;										\
@@ -4155,9 +4434,9 @@ $SECTION SEQ=D; BL=16; WT=$FLG(T,ENV_WAYO,ENV_WAYT1); %SECFIN;%TITLE(Torino);
       TX=2593;												\
 	C=ATMT_2593(|L);
       TX=2700;												\
-	C=|ATMT_2700A(|L);
+	C=ATMT_2700A(|L);
       TX=2700;												\
-	C=|ATMT_2759(|L);
+	C=ATMT_2759(|L);
       TX=2700;												\
 	C=ATMT_2700B(|L);
       TX=2801;												\
@@ -4423,7 +4702,7 @@ $DEF BUS_BYD=4:BYD_IK260_(01|02|03|04|05|06|07|08|09|92)|						\
       TX=R38;												\
 	TXY=15; C=<NYC_R38A1,7*NYC_R38A2|NYC_R38A3|NYC_R38A4|NYC_R38A5;
       TX=R 40;												\
-	C=(4*(<NYCS_R40M1,NYCS_R40M2))|4*(<NYCS_R40M_GOH1,NYCS_R40M_GOH2)|				\
+	C=(4*(<NYCS_R40M1,NYCS_R40M2))|(4*(<NYCS_R40M_GOH1,NYCS_R40M_GOH2))|				\
 	  (<NYCS_R40A,6*(<NYCS_R40GOH2,NYCS_R40GOH1),NYCS_R40B);
       TX=R 40;												\
 	C=4*(<NYCS_R40M1,NYCS_R40M2)|(4*(<NYCS_R40M_GOH1,NYCS_R40M_GOH2));

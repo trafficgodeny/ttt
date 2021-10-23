@@ -1,4 +1,7 @@
-$OPTGDEF 1
+{FILELEVEL=1?
+  $OPTGDEF 1
+  $VAR BGTYPE=1
+}
 $REQUIRE POOLDEF.TTT
 $REQUIRE POOLDEF2.TTT
 $REQUIRE FIXTRAIN.TTT
@@ -49,7 +52,7 @@ $ENDGROUP
 #-------------------------------------------------------------------------------	
 # (LB)
 $GROUP BL=166; AB=500; DX=1923; LC=2; \
-  BG=(  BGPIC\FLUSS.JPG:,-300; \  	
+  BG=(  BGPIC\FLUSS.JPG:,-300; \
   	FL_BRIDGE37(8*_30,A,12*_30,_29,A,_29,12*_30,A,8*_30); \
   	TRBED24:..,^0; \
   	BRIDGE37(3*H,B,4*H,C,4*H,B,3*H):,^-3; \
@@ -146,6 +149,43 @@ $SECTION ML=1;
 $ENDSECTION 
 #==============================================================================
 #
+# France
+#
+#==============================================================================
+$GROUP LC=2; DX=2560; AB=767; BL=20; VM=HEAD,JUMP; \
+	BG=(BGWP/F_PROV1.JPG;EMB3:..,^0;);	\
+	AP=TRKLO;
+  POOL=POOL_F:#E#O#Z; AP=[TX=];
+$ENDGROUP
+#==============================================================================
+#
+# Netherlands
+#
+#==============================================================================
+$GROUP LC=2; DX=1920; AB=600; BL=420;									\
+    BG=(BGWP/NL02.JPG:,-420; TRBED(7|11|12|17|25M|27|28|42|47|51):..,^0;);				\
+    Y=*;
+  POOL=POOL_NL:#E#O#Z;
+$ENDGROUP 
+#------------------------------------------------------------------------------
+$GROUP LC=2; DX=1920; AB=355; BL=687;									\
+    BG=(BGWP/NL03.JPG:,-687; TRBED12:..,^0;); AP=NL_CAT;								\
+    Y=*;
+  POOL=POOL_NL:(5|6)&#O#Z;
+$ENDGROUP 
+#==============================================================================
+#
+#	Nordlandsbanen
+#
+$SCENE DX=1024; DY=768;											\
+    BG=(BGPIC\NORDLANDSBANEN.JPG):,-200;
+  $PATH Y=535; LC=2;											\
+      FG=(TRBED48:..,-12;FL_SJ_M1,FL_SBB_F:..,-4);
+    POOL=POOL_(N|S):#O#Z#L;
+  $ENDPATH 
+$ENDSCENE 
+#==============================================================================
+#
 # Italy
 #
 #==============================================================================
@@ -163,13 +203,13 @@ $GROUP LC=3; AB=283; BL=300; DX=1680; D=X; TE=2;				\
 $ENDGROUP 
 #------------------------------------------------------------------------------
 $DEF ISTRIPS= \
-	[DX=1800][DY=480][BG+=BGPIC\BGI1.JPG:,10;] | \
-	[DX=1800][DY=400][BG+=BGPIC\BGI2.JPG:,10;] | \
-    	[DX=1544][DY=460][BG+=BGPIC\BGI3.JPG:,10;] | \
-    	[DX=1500][DY=600][BG+=BGPIC\BGI4.JPG:,10;] | \
-    	[DX=1500][DY=560][BG+=BGPIC\BGI5.JPG;]     | \
-    	[DX=1700][DY=460][BG+=BGPIC\BGI6.JPG:,10;] | \
-    	[DX=2199][DY=760][BG+=BGPIC\BGI8.JPG:,10;]
+	[DX=1800][DY=480][BG+=;BGPIC\BGI1.JPG:,10;] | \
+	[DX=1800][DY=400][BG+=;BGPIC\BGI2.JPG:,10;] | \
+    	[DX=1544][DY=460][BG+=;BGPIC\BGI3.JPG:,10;] | \
+    	[DX=1500][DY=600][BG+=;BGPIC\BGI4.JPG:,10;] | \
+    	[DX=1500][DY=560][BG+=;BGPIC\BGI5.JPG;]     | \
+    	[DX=1700][DY=460][BG+=;BGPIC\BGI6.JPG:,10;] | \
+    	[DX=2199][DY=760][BG+=;BGPIC\BGI8.JPG:,10;]
 #------------------------------------------------------------------------------
 #
 # Dubrovnik (used as an italian city)
@@ -191,7 +231,7 @@ $GROUP LC=3; AB=746; BL=40; DX=1600; \
     SIG_FS_3AL:30+880; \
     STACCION:..,-6; \
   );
-  M=STOP; POOL=POOL_I:P&#S&#E&#O&#C&#X&#M&#Z; P=*50;
+  M=STOP; POOL=POOL_I:P&#S&#E&#L&#O&#C&#X&#M&#Z; P=*50;
 $ENDGROUP
 #------------------------------------------------------------------------------
 # INCROCIO CON SOSTA/SOSTA TD   
@@ -240,13 +280,32 @@ $ENDSCENE
 # Italien E 3000 V 2
 # (LB)
 $GROUP LC=2; AB=330;											\
-  BG=(BGPIC\BGI7.JPG:,-10;SHRUBBERY7:90;4*I_SANSEPOLCRO1,I_SAN_SEPOLCRO,3*I_SANSEPOLCRO2:>50-50,+7;	\
+  BG=(BGPIC\BGI7.JPG:,-10;SHRUBBERY7:90;4*I_SANSEPOLCRO1,I_SAN_SEPOLCRO,3*I_SAN_SEPOLCRO2:>50-50,+7;	\
     I_MAGAZ1A,I_MAGAZ1B,I_MAGAZ1C,I_MAGAZ1D,I_MAGAZ1E,I_MAGAZ1F:70);					\
   FG=(TRBED11:..,^0;(120*I_MARCIAP):30;									\
     (<FL_FS5C,FL_FS5B),2*(<FL_FS5A,FL_FS5B),4*(<FL_FS4A,FL_FS4B):..,-4,#;E_DONOSTIA:>50-50;		\
     14*WALL04:>50-50,-14; WALL04:..,-30);								\
   DX=1600;
   M=$FLG(P,STOP,SIMPLE); POOL=POOL_I:#Z&#O&#C&#X&#N&(#S|F); P=>50+100;
+$ENDGROUP 
+#==============================================================================
+#
+#  Romania
+#
+#==============================================================================
+$GROUP LC=2; DX=1600; AB=600; BL=200;									\
+    WE=RO_CAT;
+  POOL=POOL_RO;												\
+    BG=(BGWP/RO01.JPG:,-160; TRBED31:..,^0); AP2=[TX=];
+$ENDGROUP 
+#==============================================================================
+#
+# 	Bulgaria
+#
+#==============================================================================
+$GROUP LC=1; DX=1600; AB=537; BL=515;
+  POOL=POOL_BG:#O#E#Z; W=X;										\
+    BG=(BGWP/BG01.JPG:,-515; TRBED51:..,^0); WE=BG_CAT;
 $ENDGROUP 
 #==============================================================================
 #
@@ -297,7 +356,7 @@ $ENDGROUP
 # San Diego
 #									(ZSZ)
 $GROUP LC=2; AB=808; BL=110; BG=(BGPIC\SXC1313570.JPG; TRBED13:..,^0; EMB4,EMB3:..,^-9,<=>); DX=1920;
-  POOL=POOL_USA:#E&#Z&#O(4|5|6);
+  POOL=POOL_USA:#E&#Z&#O&(4|5|6);
 $ENDGROUP 
 #------------------------------------------------------------------------------
 #
@@ -325,7 +384,7 @@ $ENDGROUP
 # Pittsburgh
 #									(ZSZ)
 $GROUP LC=2; AB=682; BL=70; BG=(BGPIC\SXC1356631.JPG; EMB01:..,^-9; TRBED13:..,^0); DX=1630;
-  POOL=POOL_USA:#E&#Z&#O(4|5|6);
+  POOL=POOL_USA:#E&#Z&#O&(4|5|6);
 $ENDGROUP 
 #------------------------------------------------------------------------------
 #
@@ -358,9 +417,9 @@ $ENDGROUP
 #
 #									(ZSZ)
 $GROUP LC=2; AB=1330; BL=68; BG=(BGPIC\SXC1259251.JPG; TRBED13:..,^0);					\
-  FG=WALL01(B,8*C,B[M]):..,-68,#,WALL01A; DX=1920;
+  FG=<WALL01(2*A,B,8*C,B[M]):,^6; DX=1920;
   POOL=POOL_USA:#E#Z#O(4|5|6);
-#ENDGROUP
+$ENDGROUP
 #==============================================================================
 #
 # China
@@ -374,16 +433,21 @@ $POOL F=PFDES; NAME=POOL_CR;
       CR_DF8B_9000|CR_DF11|CR_NY7,CR_25TTZ|CR_25K(1|2)|CR_25ZGZ;					\
     F=DP;
   C=(<CR_DF324L,CR_DF324),15-25*(CR_FLATS|CR_FLATW|CR_C60|CR_C62C|CR_C63T|CR_C63|CR_BOX2|CR_BOX1); F=DF;
-$ENDPOOL 
+$ENDPOOL
 
 $SECTION LC=1;
-  $GROUP AB=698; BL=50; BG=BGPIC/SXC1381887.JPG[BC:-30]:,-50;					\
+  $GROUP AB=698; BL=50; BG-=BGPIC/SXC1381887.JPG[BC:-30]:,-50;					\
     FG=(2*(#BRIDGE42A,BRIDGE42A):,-14;BRIDGE42B,469,BRIDGE42B,469,BRIDGE42B:,^-14); DX=1680; D=X;
     POOL=POOL_CR;
-  $ENDGROUP 
+  $ENDGROUP
 
   $GROUP AB=678; BL=70; BG=BGPIC/SXC1381887.JPG:,-70;						\
     FG=(#BRIDGE12A,2*BRIDGE13,BRIDGE12A:,-15;BRIDGE42B,732,BRIDGE42B,732,BRIDGE42B,:,^-15); DX=1680; D=X;
     POOL=POOL_CR;
-  $ENDGROUP 
-$ENDSECTION 
+  $ENDGROUP
+$ENDSECTION
+
+$GROUP LC=2; DX=1920; AB=920; BL=230;								
+  POOL=POOL_CN;												\
+    BG-=(BGWP\CHINA_MUZTAGH.JPG:,-230; TRBED7:..,^0); W=X;
+$ENDGROUP 

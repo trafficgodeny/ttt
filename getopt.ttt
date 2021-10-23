@@ -16,11 +16,13 @@ $OPT K=T30; N=TrainSideView 30 (1px=20cm);
 $OPT K=TB; N=TrainBanner (32px);
 $OPT K=MR; N=Mission Railroad (39px);
 $OPT K=NSME; N=NSME (95px);
+$OPT K=DUP; N=Double scale (110-120px); H=Dupla méretarány (110-120px);
+$OPT K=LTCMM; N=LTC - triple scale; H=LTC - háromszoros méretarány;
 $OPT N=-;
 $OPTCMD N=All scales; G=Alle Maßstäbe; H=Mindegyik méretarány; \
-  CMD=MM+,HAS+,T30+,TB+,MR+,NSME+;
+  CMD=MM+,HAS+,T30+,TB+,MR+,NSME+,DUP+;
 $OPTCMD N=No multi-line; G=Keine Mehrfach-Zeilen; H=Egyik sem; \
-  CMD=MM-,HAS-,T30-,TB-,MR-,NSME-;
+  CMD=MM-,HAS-,T30-,TB-,MR-,NSME-,DUP-;
 $OPTEND
 
 $OPTSUB N=Full screen backgrounds; G=Große Hintergrundbilder; H=Nagyméretü háttérképek;
@@ -49,17 +51,19 @@ $OPT K=BUS; N=Bus; G=Bus; H=Autóbusz;
 $OPT K=CRAIL; N=Subway, City Rail; G=S-Bahn, U-Bahn; H=Városi gyorsvasút;
 $OPT K=TBB; N=TrainBanner scale buses; G=TrainBanne-Maßstab Busse; H=TrainBanner méretarányú buszok;
 $OPT K=MONO; N=Special (monorail, suspension railway); G=Spezial (Schwebebahn, Einschienenbahn); H=Különleges (függõvasút, egysínû vasút);
+$OPT K=INCL; N=Inclination system (cable car); G=Neigungssystem (Drahtseilbahn); H=Ferde pálya (kötélvasút);
 $OPT N=-
 $OPTCMD N=All city traffic vehicles; G=Alle Stadtverkehsmittel; H=Az összes városi közlekedés; \
-  CMD=TRAM+,BUS+,CRAIL+,TBB+,MONO+;
+  CMD=TRAM+,BUS+,CRAIL+,TBB+,MONO+,INCL+;
 $OPTCMD N=No city traffic vehicles; G=Keine Stadtverkehrsmittel; H=Egyik városi közlekedési eszköz sem; \
-  CMD=TRAM-,BUS-,CRAIL-,TBB-,MONO-;
+  CMD=TRAM-,BUS-,CRAIL-,TBB-,MONO-,INCL-;
 $OPTEND 
 
 $OPTSUB N=Other themes; G=Andere Themen; H=Egyéb témák; 
 $OPT K=STREET; N=Road traffic; G=Straßenverkehr; H=Közúti jármûvek;
-$OPT K=LT; N=London busses - large size; G=Londoner Busverkehr - großes Maßstab; H=Londoni buszok - nagy méretarány;
+$OPT K=LT; N=London busses - large scale; G=Londoner Busverkehr - großes Maßstab; H=Londoni buszok - nagy méretarány;
 $OPT K=PC; N=Pixel cars; 
+$OPT K=LBUS; N=Buses - large scale; G=Omnibusse - großes Maßstab; H=Távolsági és városi buszok - nagy méretarány;
 $OPT K=AVIA; N=Aviation; G=Flugzeuge; H=Repülõgépek;
 $OPT K=SHIP; N=Ships; G=Schiffe; H=Hajók;  
 $OPT K=TOY; N=Models, toys; G=Modelle, Spielzeuge; H=Modellek, játékok;
@@ -79,9 +83,9 @@ $OPT K=LTC; N=LTC scenes; G=LTC Szenen; H=LTC jelenetek;
 $OPT K=LARGE; N=Large scales; G=Große Maßstäbe; H=Nagy méretarányú rajzok;
 $OPT N=-
 $OPTCMD N=All other themes; G=Alle andere Themen; H=Az összes egyéb témájú kép; \
-  CMD=STREET+,LT+,AVIA+,SHIP+,TOY+,ADV+,PRG+,SPACE+,PHA+,TGIF+,LARGE+;
+  CMD=STREET+,LT+,AVIA+,SHIP+,TOY+,ADV+,PRG+,SPACE+,PHA+,TGIF+,LARGE+,LTC+,TK+,OPM+,PC+,LBUS+;
 $OPTCMD N=No other themes; G=Keine andere Themen; H=Semelyik egyéb témájú kép; \
-  CMD=STREET-,LT-,AVIA-,SHIP-,TOY-,ADV-,PRG-,SPACE-,PHA-,TGIF-,LARGE-;
+  CMD=STREET-,LT-,AVIA-,SHIP-,TOY-,ADV-,PRG-,SPACE-,PHA-,TGIF-,LARGE-,LTC-,TK-,OPM-,PC-,LBUS-;
 $OPTEND  
 
 $OPTSUB N=Countries;G=Länder;H=Országok; 
@@ -107,7 +111,7 @@ $OPT K=I;N=Italy;G=Italien;H=Olaszország;
 $OPT K=E;N=Spain;G=Spanien;H=Spanyol Vasutak;
 $OPT K=CS;N=Czech Rebublic;G=Tschechien;H=Cseh Vasutak;
 $OPT K=CSD;N=Czechoslovakia;G=Tschechoslowakei;H=Csehszlovákia;
-$OPT K=SK;N=Slovakia;G=Slowakien;H=Szlovák Vasutak;
+$OPT K=SK;N=Slovakia;G=Slowakei;H=Szlovák Vasutak;
 $OPT K=PL;N=Poland;G=Polen;H=Lengyel Vasutak;
 $OPT K=RO;N=Romania;G=Rumänien;H=Román Vasutak;
 $OPT K=BG;N=Bulgaria;G=Bulgarien;H=Bulgár Vasutak;
@@ -115,13 +119,20 @@ $OPT K=GR;N=Greece;G=Griechenland;H=Görög Vasutak;
 $OPT K=SLO;N=Slovenia;G=Slowenien;H=Szlovén Vasutak;
 $OPT K=HR;N=Croatia;G=Kroatien;H=Horvát Vasutak;
 $OPT K=YU;N=Yugoslavia/Serbia;G=Jugoslawien/Serbien;H=Jugoszlávia/Szerbia; 
-$OPT K=ASSD;N=Others;G=Sonstige;H=Egyéb országok;
+$OPT K=ASSD;N=Europe others;G=Europa Sonstige;H=Egyéb európai országok;
 $OPT K=HSH;N=Albania;G=Albanien;H=Albánia;
 $OPT K=TR;N=Turkey;G=Turkei;H=TCDD;
+$OPT N=-;
+$OPTCMD N=All european countries; G=Alle europäische Länder; H=Minden európai ország; \
+  CMD=H+,BRD+,DDR+,D+,CH+,A+,GB+,IE+,F+,B+,L+,NL+,DK+,N+,S+,SF+,P+,I+,E+,CS+,CSD+,SK+,  \
+  	PL+,RO+,BG+,GR+,SLO+,HR+,YU+,ASSD+,HSH+,TR+;
+$OPTCMD N=No european countries; G=Keine europäische Länder; H=Egyik európai ország sem; \
+  CMD=H-,BRD-,DDR-,D-,CH-,A-,GB-,IE-,F-,B-,L-,NL-,DK-,N-,S-,SF-,P-,I-,E-,CS-,CSD-,SK-,  \
+  	PL-,RO-,BG-,GR-,SLO-,HR-,YU-,ASSD-,HSH-,TR-;
 $OPTEND
 $OPTSUB N=Former USSR (broad gauge);D=Ehemalige Sowieunion (Breitspur);H=A volt Szovjetúnió (széles nyomtáv);
 $OPT K=SU;N=USSR;G=UdSSR;H=Szovjet Vasutak;
-$OPT K=RZD;N=Russia;G=Rußland;H=RZhD;
+$OPT K=RZD;N=Russia;G=Russland;H=RZhD;
 $OPT K=UZ;N=Ukraine;G=Ukrainien;H=UZ;
 $OPT K=UZB;N=Uzbekistan;
 $OPT K=BCH;N=Byelorus;G=Weißrussland;H=Fehéroroszország;
@@ -131,29 +142,49 @@ $OPT K=LG;N=Lithuania;G=Litauen;H=Litvánia;
 $OPT K=MD;N=Moldovia;G=Moldawien;H=MD;
 $OPT K=AZ;N=Azerbaijan;G=Azerbaidschan;H=AZ;
 $OPT K=KAZ;N=Kazakhstan;G=Kasachstan;H=Kazahsztán;
-$OPT K=GEO;N=Georgia;G=Georgien;H=GR; 
+$OPT K=GEO;N=Georgia;G=Georgien;H=GR;
+$OPT N=-;
+$OPTCMD N=All former USSR countries; D=Alle Länder der ehemalige Sovietunion; H=A volt Szovjetúnió összes országa; \
+  CMD=SU+,RZD+,UZ+,UZB+,BCH+,EVR+,LDZ+,LG+,MD+,AZ+,KAZ+,GEO+;
+$OPTCMD N=No former USSR countries; D=Keine Länder der ehemalige Sovietunion; H=A volt Szovjetúnió egyik országa sem; \
+  CMD=SU-,RZD-,UZ-,UZB-,BCH-,EVR-,LDZ-,LG-,MD-,AZ-,KAZ-,GEO-;
 $OPTEND
-$OPT K=CN;N=China;G=China;H=Kína;
-$OPT K=J;N=Japan;G=Japan;H=Japán;
-$OPTSUB N=North-America;G=Nordamerika;H=Észak-Amerika;
+$OPTSUB N=America;G=Amerika;H=Amerika;
 $OPT K=USA;N=United States of Amerika;G=Vereinigte Staaten von Amerika;
 $OPT K=MEX;N=Mexico;G=Mexiko;H=Mexikó;
 $OPT K=CAN;N=Canada;G=Kanada;H=Kanada;
-$OPTEND
+$OPT K=PAN;N=Panama;G=Panama;H=Panama;
 $OPT K=SA;N=South-America;G=Südamerika;H=Dél-Amerika;
-$OPT K=AF;N=Africa, Near-East; H=Afrika, Közel-Kelet; 
-$OPT K=AS;N=Asia, Australia;D=Asien, Autralien;H=Ázsia, Ausztrália;
 $OPT N=-;
-$OPTCMD N=All countries;G=Alle Länder;H=Minden ország;	  \
-  CMD=HSH+,A+,AZ+,B+,BG+,BCH+,HR+,CAN+,CS+,CSD+,DK+,EVR+,SF+,F+,D+,GEO+,DDR+,BRD+,	\
-	GR+,GB+,H+,IE+,I+,J+,KAZ+,LDZ+,LG+,L+,MD+,MEX+,NL+,N+,PL+,P+,RO+,RZD+,SK+,	\
-	SLO+,E+,CH+,S+,TR+,UZ+,SU+,USA+,UZB+,SA+,CN+,YU+,ASSD+,AF+; 
-$OPTCMD N=Clear all countries;G=Alle Länder abwählen;H=Egyik ország sem;	  \
-  CMD=HSH-,A-,AZ-,B-,BG-,BCH-,HR-,CAN-,CS-,CSD-,DK-,EVR-,SF-,F-,D-,GEO-,DDR-,BRD-,	\
-	GR-,GB-,H-,IE-,I-,J-,KAZ-,LDZ-,LG-,L-,MD-,MEX-,NL-,N-,PL-,P-,RO-,RZD-,SK-,	\
-	SLO-,E-,CH-,S-,TR-,UZ-,UZB-,SU-,USA-,SA-,CN-,YU-,ASSD-,AF-; 	
-$OPTEND                                             
-
+$OPTCMD N=All American countries; D=Alle amerikanischen Länder; H=Minden amerikai ország; \
+  CMD=USA+,MEX+,CAN+,PAN+,SA+;
+$OPTCMD N=No American countries; D=Keine amerikanischen Länder; H=Egyik amerikai ország sem; \
+  CMD=USA-,MEX-,CAN-,PAN-,SA-;
+$OPTEND
+$OPTSUB N=Others;G=Sonstige;H=Egyéb országok;
+$OPT K=CN; N=China; G=China; H=Kína;
+$OPT K=J; N=Japan; G=Japan; H=Japán;
+$OPT K=AS; N=Asia; D=Asien; H=Ázsia;
+$OPT K=AUS;N=Australia; D=Autralien; H=Auszträlia;
+$OPT K=AF; N=Africa; H=Afrika; G=Afrika;
+$OPT K=NE; N=Near-East; H=Közel-Kelet; G=Naher Osten;
+$OPT N=-;
+$OPTCMD N=All other countries; G=Alle sonstigen Länder; H=Minden egyéb ország;				\
+  CMD=CN+,J+,AS+,AUS+,AF+,NE+,FAN+;
+$OPTCMD N=No other countries; G=Keine sonstigen Länder; H=Egyik egyéb ország sem;				\
+  CMD=CN-,J-,AS-,AUS-,AF-,NE-,FAN-;
+$OPTEND 
+$OPT K=FAN; N=Fantasy; G=Phantasie;
+$OPT N=-;
+$OPTCMD N=All countries; G=Alle Länder; H=Minden ország;						\
+  CMD=H+,BRD+,DDR+,D+,CH+,A+,GB+,IE+,F+,B+,L+,NL+,DK+,N+,S+,SF+,P+,I+,E+,CS+,CSD+,SK+,PL+,RO+,BG+,GR+,	\
+    SLO+,HR+,YU+,ASSD+,HSH+,TR+,SU+,RZD+,UZ+,UZB+,BCH+,EVR+,LDZ+,LG+,MD+,AZ+,KAZ+,GEO+,CN+,J+,USA+,MEX+, \
+    CAN+,SA+,AF+,AS+,AUS+,PAN+,NE+,FAN+;
+$OPTCMD N=Clear all countries; G=Alle Länder abwählen; H=Egyik ország sem;				\
+  CMD=H-,BRD-,DDR-,D-,CH-,A-,GB-,IE-,F-,B-,L-,NL-,DK-,N-,S-,SF-,P-,I-,E-,CS-,CSD-,SK-,PL-,RO-,BG-,GR-,	\
+    SLO-,HR-,YU-,ASSD-,HSH-,TR-,SU-,RZD-,UZ-,UZB-,BCH-,EVR-,LDZ-,LG-,MD-,AZ-,KAZ-,GEO-,CN-,J-,USA-,MEX-, \
+    CAN-,SA-,AF-,AS-,AUS-,PAN-,NE-,FAN-;
+$OPTEND 
 $OPTSUB N=Era;G=Epochen;H=Korszakok;
 $OPT K=E1;H=1850-1920 (1. korszak);G=Epoche 1 (1850-1920);N=Era 1 (1850-1920);
 $OPT K=E2;H=1920-1945 (2. korszak);G=Epoche 2 (1920-1945);N=Era 2 (1920-1945);
@@ -162,11 +193,47 @@ $OPT K=E4;H=1975-1990 (4. korszak);G=Epoche 4 (1975-1990);N=Era 4 (1975-1990);
 $OPT K=E5;H=1990-2000 (5. korszak);G=Epoche 5 (1990-2000);N=Era 5 (1990-2000);
 $OPT K=E6;H=2000-     (6. korszak);G=Epoche 6 (2000-    );N=Era 6 (2000-    );
 $OPT K=E7;H=Jövõ      (7. korszak);G=Epoche 7 (Zukunft  );N=Era 7 (Future   );
+$OPT N=-;
 $OPTCMD N=All eras;G=Alle Epochen;H=Minden korszak;CMD=E1+,E2+,E3+,E4+,E5+,E6+,E7+;
+$OPTCMD N=Clear all eras;G=Keine Epoche;H=Egyik korszak sem; CMD=E1-,E2-,E3-,E4-,E5-,E6-,E7-;
 $OPTEND
 $OPT N=-;
+$OPTSUB N=Multi-line railway styles;G=Hintergrundstil für Zeilen Eisenbahn;
+$OPT K=RW0; N=Symbolic rail and catenary; G=Symbolische Schiene und Oberleitung; H=Szimbolikus sín és felsövezeték;
+$OPT K=RW2; N=Drawn embankment, rail and catenary; G=Gezeichnete Bahndamm, Schiene und Oberleitung; H=Rajzolt töltés, sín és felsövezeték;
+$OPT K=RW3; N=Low full background; G=Niedrige volle Hintergrund; H=Alacsony teljes háttérkép;
+$OPT K=RW4; N=Middle height full background; G=Mittelhohe volle Hintergrund; H=Közepesen magas teljes háttérkép;
+$OPT K=RW5; N=High full background; G=Hohe volle Hintergrund; H=Magas teljes háttérkép;
+$OPT N=-;
+$OPTCMD N=All styles; G=Alle Stile; H=Az összes stílus; \
+  CMD=RW0+,RW2+,RW3+,RW4+,RW5+;
+$OPTEND
+$OPTSUB N=Multi-line city traffic styles;G=Hintergrundstil für Zeilen City-Traffic;
+$OPT K=CY0; N=Symbolic rail and catenary; G=Symbolische Schiene und Oberleitung; H=Szimbolikus sín és felsövezeték;
+$OPT K=CY2; N=Drawn embankment, rail and catenary; G=Gezeichnete Bahndamm, Schiene und Oberleitung; H=Rajzolt töltés, sín és felsövezeték;
+$OPT K=CY3; N=Low full background; G=Niedrige volle Hintergrund; H=Alacsony teljes háttérkép;
+$OPT K=CY4; N=Middle height full background; G=Mittelhohe volle Hintergrund; H=Közepesen magas teljes háttérkép;
+$OPT K=CY5; N=High full background; G=Hohe volle Hintergrund; H=Magas teljes háttérkép;
+$OPT N=-;
+$OPTCMD N=All styles; D=Alle Stile; H=Az összes stílus; \
+  CMD=CY0+,CY2+,CY3+,CY4+,CY5+;
+$OPTEND
+$OPTSUB N=Other;G=Andere;H=Egyéb;
 $OPT K=V3;N=MM&MM v3.0;V=0;
 $OPT K=NEK;N=NiMo Extension Kit;V=0;
+$OPT K=NEU; N=replace older versions; G=Neueste Bildversion verwenden;
+$OPT K=MLG; N=MLG-Style;
+$OPT K=MMS; N=MM-Style;  
+{%FILEX(MM_OWN.ttt)?
+$OPT K=OWN; N=Own timetable MM; G=Eigener Fahrplan MM-Maßstab;
+} 
+$OPTEND
+$OPTSUB N=Splash screen;G=Begrüßungsbildschirm;H=Induló kép;
+$OPT K=SP0;N=None; G=Keine; H=Nincs; CMD=SP1-,SP2-; V=0;
+$OPT K=SP1;N=Traffic crane; G=Traffic Kran;H=Traffic daru;CMD=SP0-,SP2-; V=1;
+$OPT K=SP2;N=German sign; G=Vorsicht vor durchfahrenden Zügen; H=Német tábla; CMD=SP0-,SP1-; V=0;
+$OPTEND
+
 $INFO +Traffic Screensaver {N=timetable example;G=Fahrplandatei-Beispiel;H=Minta menetrend fájl}
 $INFO {N=Created by;G=Hergestellt von;H=Készítette: } {N=Zoltán Szabó, Zoltán Iván;H=Szabó Zoltán, Iván Zoltán}, James McDonald, Marc Le Gad, Jindrich Kalous, Brian Clough 
 $INFO {N=Background pictures from;G=Hintergrundbilder von;H=Háttérképek: } Jindrich Kalous, Hans-Martin Hebsaker, 
@@ -184,13 +251,29 @@ $CSET CITY=0
 {TRAM|BUS|CRAIL|MONO?
 $SET CITY
 }
-{HSH|A|AZ|B|BG|BCH|HR|CS|CSD|DK|EVR|SF|F|D|GEO|DDR|BRD|GR|GB|H|IE|I|J|KAZ|LDZ|LG|L|MD|NL|N|PL|P|RO|RZD|SK|SLO|E|CH|S|TR|UZ|SU|USA|SA|CN|YU|ASSD|BGD|BGCH|JKA|LEO|MIX1|BDWH|IMAG|CYSC|CZA|BGDRW|CITY|AVIA|SHIP|STREET|TOY|ADV|PRG|SPACE|PHA|TGIF|LARGE? ?
-$ERROR N=Please select some countries or other themes;G=Bitte wählen Sie einige Länder bzw. Themen aus;H=Kérem, válasszon ki nehány országot vagy témát;}
-{HSH|A|AZ|B|BG|BCH|HR|CS|CSD|DK|EVR|SF|F|D|GEO|DDR|BRD|GR|GB|H|IE|I|J|KAZ|LDZ|LG|L|MD|NL|N|PL|P|RO|RZD|SK|SLO|E|CH|S|TR|UZ|SU|USA|SA|CN|YU|ASSD?{E1|E2|E3|E4|E5|E6|E7??
-$ERROR N=Please select some era; G=Bitte wählen Sie einige Epochen aus; H=Kérem válasszon ki néhány korszakot;}}
-$MINVER PRG=4,11,0;DLL=4,11,0;
+{HSH|A|AZ|B|BG|BCH|HR|CS|CSD|DK|EVR|SF|F|D|GEO|DDR|BRD|GR|GB|H|IE|I|J|KAZ|LDZ|LG|L|MD|NL|N|PL|P|RO|RZD|SK|SLO|E|CH|S|TR|UZ|SU|AUS|USA|CAN|MEX|SA|CN|YU|ASSD|AS|NE|AF|FAN|BGD|BGCH|JKA|LEO|MIX1|BDWH|IMAG|CYSC|CZA|BGDRW|CITY|AVIA|SHIP|STREET|TOY|ADV|PRG|SPACE|PHA|TGIF|LARGE??
+  $ERROR N=Please select some countries or other themes;G=Bitte wählen Sie einige Länder bzw. Themen aus;H=Kérem, válasszon ki néhány országot vagy témát;}
+{HSH|A|AZ|B|BG|BCH|HR|CS|CSD|DK|EVR|SF|F|D|GEO|DDR|BRD|GR|GB|H|IE|I|J|KAZ|LDZ|LG|L|MD|NL|N|PL|P|RO|RZD|SK|SLO|E|CH|S|TR|UZ|SU|AUS|USA|CAN|MEX|SA|CN|YU|ASSD|AS|NE|AF|FAN?{E1|E2|E3|E4|E5|E6|E7??
+  $ERROR N=Please select some era; G=Bitte wählen Sie einige Epochen aus; H=Kérem válasszon ki néhány korszakot;}}
+{MM?
+  {RW0|RW2|RW3|RW4|RW5??
+    $ERROR N=Please select some multi-line railway styles; 
+  }
+}  
+{TRAM|BUS|CRAIL?
+  {CY0|CY2|CY3|CY4|CY5??
+    $ERROR N=Please select some multi-line city traffic styles;
+  }
+}
+$MINVER PRG=4,16,0;DLL=4,16,0;
     
 $BGCOLOR #000000
 $ABOVE 30
 $BELOW 15
 $DEFSPEED 5-9
+
+{SP1?
+$SPLASH C=BGPIC\DARU_TR.GIF; F;
+?{SP2?
+$SPLASH C=BGPIC\START2.JPG; F;
+}}

@@ -1,5 +1,6 @@
 $REQUIRE POOLDEF.TTT
 $REQUIRE BG_DEF.TTT
+$REQUIRE ZSZ_DEF.TTT
 
 $DEF D_HM=BERLIN_H001|BERLIN_H002|BERLIN_H003|BERLIN_H004|BERLIN_H005|BERLIN_H006|D_BONN01A|		\
     D_BONN02A|D_BONN03A[VI:,60,,30]|D_BONN04A|D_BONN04B|D_BONN_POST1|D_MUNCHEN02A|D_MUNCHEN02B|		\
@@ -40,9 +41,7 @@ $DEF NL_H2L=NL_HAARLEM14B
 $DEF NL_H2S=NL_DELFZIJL01A|NL_DELFZIJL01B|NL_HAARLEM12|NL_HAARLEM14B|NL_WARFFUM02A|NL_WARFFUM01A|	\
 	NL_WARFFUM03A
 
-$DEF STAZ=I_STAZ(1|2|3|4|5)
-
-$DEF IST2=$MIX(15, \	
+$DEF IST2=$MIX(15, \
 	I_H051, \
 	I_H054, \
 	I_H011, \
@@ -131,8 +130,8 @@ $SECTION LC=1;
 	D_LITTENWEILERB|D_KIRCHZARTEN|D_GERNSBACH|D_FORBACH|D_BAIERSBRONN2|D_BUXTEHUDE_SUED;],		\
 	[BG-=#STACCION:0..50-150; STACCION:50+150..100;],						\
 	(3:2|4:3|6:4|4:5|3:6|2:7|1:8*[BG-=TREES_SUMMER:*+0-400;]),					\
-	[BG-=6*D_HM,D_HR:>50-240;D_HL,6*D_HM:<50+240;],SKYC,[TX=];					\
-      AB=380; BL=20;
+	[BG-=6*D_HM,D_HR:>50-240;D_HL,6*D_HM:<50+240;],$SKYM(200),[TX=];					\
+      AB=500; BL=20;
   $ENDSECTION 
   #............................................................................
   #
@@ -148,8 +147,8 @@ $SECTION LC=1;
 	[BG-=#STACCION:0..50-150; STACCION:50+150..100;],						\
 	(3:2|4:3|6:4|4:5|3:6|2:7|1:8*[BG-=TREES_SUMMER:*+0-400;]),					\
 	[BG-=10*NL_H1M,NL_H1R:>50-240;NL_H1L,10*NL_H1M:<50+240;]|					\
-	[BG-=10*NL_H2M,NL_H2R:>50-240;NL_H2L,10*NL_H2M:<50+240;],SKYC,[TX=],[C-=[!C]];			\
-      AB=380; BL=20;
+	[BG-=10*NL_H2M,NL_H2R:>50-240;NL_H2L,10*NL_H2M:<50+240;],$SKYM(200),[TX=],[C-=[!C]];			\
+      AB=500; BL=20;
   $ENDSECTION 
   #............................................................................
   #
@@ -172,15 +171,15 @@ $SECTION LC=1;
       STAZ:,3; \
       SIG_FS_3A:50-680,-4; \
       SIG_FS_3A:50-700,-4; \
-      SIG_FS_3AL:50+680,-4; \      
-      TRBED7:..,^0; \ 
+      SIG_FS_3AL:50+680,-4; \
+      TRBED7:..,^0; \
     ); \
     AP=STRIPEBG; \
     FG=( \
       SIG_FS_3AL:50+700,-4; \
     );
 #    POOL=POOL_I:M; TB=EDIT; M=STOP;
-    M=$FLG(P,STOP,SIMPLE); POOL=POOL_I:#S&#E&#O&#C&#X&#M; P=@+50+640;
+    M=$FLG(P,STOP,SIMPLE); POOL=POOL_I:#S&#E&#L&#O&#C&#X&#M; P=@+50+640;
   $ENDGROUP 
 $ENDSECTION 
 #------------------------------------------------------------------------------
@@ -194,8 +193,8 @@ $SECTION LC=1;
   #
   $SECTION LC=1;
     POOL=POOL_BRD:#Z&#O; TE=2;										\
-      BG=(FOREST02:..,-(30-70),<=>; BUSH01,BUSH16:..,-(0-10),<=>; @@EMB(3|4|5|6):..,^0; TRBED13:..,^0);	\
-      AP=SKYW,80-120*[BG<=PINE:1-99+;]; AB=300; BL=20;
+      BG=(FOREST02:..,-(30-70),<=>; BUSH01,BUSH16:..,-(0-10),<=>; @@EMB(3|4|5|6):..,^0; TRBED13:..,^0;);	\
+      AP=$SKYM(100),$EVAL($W/14)*[BG<=PINE:1-99+;]; AB=500; BL=20;
   $ENDSECTION 
   #............................................................................
   #
@@ -203,8 +202,8 @@ $SECTION LC=1;
   #
   $SECTION LC=1;
     POOL=POOL_BRD:#Z&#O;										\
-      BG=(FOREST05:..,-(30-70),<=>; FOREST09:..,-(0-40),<=>; @@ EMB(3|4|5|6):..,^0; TRBED13:..,^0);	\
-      AP=SKYW,80-120*[BG<=TREE_SUMMER:1-99+;],0-8*[FG+=BUSH(10|12)|SHRUBBERY(6|7):1-99+,^20--1;]; AB=300;	\
+      BG=(FOREST05:..,-(30-70),<=>; FOREST09:..,-(0-40),<=>; @@ EMB(3|4|5|6):..,^0; TRBED13:..,^0;);	\
+      AP=$SKYM(100),$EVAL($W/14)*[BG<=TREE_SUMMER:1-99+;],0-8*[FG+=;BUSH(10|12)|SHRUBBERY(6|7):1-99+,^20--1;]; AB=500;	\
       BL=20;
   $ENDSECTION 
   #............................................................................
@@ -213,9 +212,9 @@ $SECTION LC=1;
   #
   $SECTION LC=1;
     POOL=POOL_BRD:#Z&#O;										\
-      BG=(FOREST05:..,-(30-70),<=>; FOREST09:..,-(0-40),<=>; @@ EMB(3|4|5|6):..,^0; TRBED13:..,^0);	\
-      AP=SKYW,80-120*[BG<=TREE_AUTUMN:1-99+;],0-8*[FG+=BUSH(10|12)|SHRUBBERY(6|7):1-99+,^20--1;]; 	\
-      AB=300; BL=20;
+      BG=(FOREST05:..,-(30-70),<=>; FOREST09:..,-(0-40),<=>; @@ EMB(3|4|5|6):..,^0; TRBED13:..,^0;);	\
+      AP=$SKYM(100),$EVAL($W/14)*[BG<=TREE_AUTUMN:1-99+;],0-8*[FG+=;BUSH(10|12)|SHRUBBERY(6|7):1-99+,^20--1;]; 	\
+      AB=500; BL=20;
   $ENDSECTION 
   #............................................................................
   #
@@ -223,7 +222,7 @@ $SECTION LC=1;
   #
   $SCENE DY=250; DX=1800; BG=(FOREST0(4|5|6):..;BGPIC\ag_(89a|79b).JPG);
     $PATH Y=172; FG=(CABLE15:..,-10;(50*TRBED12,BRIDGE10,5*TRBED12,BRIDGE2,50*TRBED12):,-20); TXY=-200;
-      POOL=POOL_B:#E&#Z&#O&(3|4|5|6);
+      POOL=POOL_B:#E&#L&#Z&#O&(3|4|5|6);
     $ENDPATH 
   $ENDSCENE 
   #............................................................................
@@ -234,9 +233,9 @@ $SECTION LC=1;
   #GURK
     $GROUP LC=2; AB=250;										\
       BG=(FOREST02:..,-(30-70),<=>; BUSH01,BUSH16:..,-(0-10),<=>; @@GURK:25;A_H006:5;A_H005:45;		\
-	BUSH15,BUSH14,BUSH07:80;A_H001:60);								\
-      FG=(TRBED11:..,^0;FL_OBB_ASPMA,FL_OBB_MA1,4*(FL_OBB_MA2,FL_OBB_MA1):..,-7,0);			\
-      AP=SKYW,80-120*[BG<=PINE:1-99+;];
+	BUSH15,BUSH14,BUSH07:80;A_H001:60;);								\
+      FG=(TRBED11:..,^0;FL_OBB_ASPMA,FL_OBB_MA1,4*(FL_OBB_MA2,FL_OBB_MA1):..,-7,0;);			\
+      AP=$SKYM(100),$EVAL($W/14)*[BG<=PINE:1-99+;];
       TX=ÖBB Schmalspur Mariazell;									\
 	M=STOP; D=L; C=OBB_399A,OBB_S_WG_BSCH,OBB_S_WG_BSCH1,OBB_S_WG_BSCH,OBB_S_WG_BDSCH1; V=5; P=1;	\
 	W=4;
@@ -256,7 +255,7 @@ $SECTION LC=1;
     $GROUP LC=2; AB=250;										\
       BG=(FOREST02:..,-(30-70),<=>; BUSH01,BUSH16:..,-(0-10),<=>; @@DEPOT1_1:1,-4;BLD_002A:30;		\
 	ZWEINITZ:50); FG=(TRBED11:..,^0;FL_OBB_ASPMA,FL_OBB_MA1,4*(FL_OBB_MA2,FL_OBB_MA1):..,-7,0);	\
-	AP=SKYW,80-120*[BG<=PINE:1-99+;];;
+	AP=$SKYM(100),$EVAL($W/14)*[BG<=PINE:1-99+;];;
       TX=ÖBB Schmalspur Mariazell;									\
 	M=TURN; D=L; C=OBB_KWG_BBM,OBB_KWG_BDML3; C1=OBB_399A; P=20; W=4; P1=8; P2=60;
       TX=ÖBB Schmalspur Mariazell;									\
@@ -274,8 +273,8 @@ $ENDSECTION
 #
 $SECTION LC=1;
   #............................................................................
-  $SCENE DY=300; DX=1800; YDIR=U; AP=SKYS; BG=10[B:0,0,10,20,#000]:..;
-    $PATH Y=20; FG=(WATERCOLUMNDB:7,-3;<FL_DB3F,FL_DB3B,FL_DB3F,FL_DB3M,FL_DB3B:..,,#);
+ $SCENE DY=300; DX=1800; YDIR=U; AP=$SKYM(20); BG=10[B:0,0,10,20,#000]:..;
+    $PATH Y=20; FG=(WATERCOLUMNDB:7,-3;<2*FL_DBQT,FL_DBQB,2*FL_DBQT,FL_DBQA,2*FL_DBQT:..,-4;);
       M=$FLG(P,STOP,SIMPLE); POOL=POOL_BRD:#C&#X&#N&(3); D=R; P=@+96; TB=15;
     $ENDPATH 
     $PATH Y=20;												\
@@ -349,7 +348,7 @@ $SECTION LC=1;
   #............................................................................
   $SCENE DY=400; DX=1852; BG=BGPIC\bdwh001.jpg:,-100;
     $PATH Y=200; FG=NL_DEVENTER:,-146; LC=4; TXY=7;
-      M=SIMPLE; POOL=POOL_NL:#E&#O&#Z&(4|5|6);
+      M=SIMPLE; POOL=POOL_NL:#E&#L&#O&#Z&(4|5|6);
     $ENDPATH 
     $PATH Y=290; LC=1;
       C=FISHER_GRE5[#D:L]; V=0.75;
@@ -439,7 +438,7 @@ $SECTION LC=1;
 	    G_ROGESA(11|14|14D|16|16L|17|18D|1L|21|23L|25OL|26|27|27L|28|28L|29|30|31D|32O|32OL|33|35| \
 	    36|37L|38|38D);										\
 	  V=3;
-      $ENDPATH; 
+      $ENDPATH
       $PATH Y=225;
 	D=L; V=5; C=DB_4_212BL, \
 	       20*DR_4EL(1|10|11|12|13|14|15|16|17|18|19|2|3|4|5|6|7|8|9) \
@@ -478,7 +477,7 @@ $SECTION LC=1;
 	FG=( \
 	    STREET3:..,13,157; \
 	);
-      $PATH Y=23; D=R;
+      $PATH Y=23;
         M=FOLLOW; D=R; \
   	    C=(IFA_W50_PLANE_BAU2,IFA_W50_TRAIL4;IK_55_2;BARKAS_B1000OG[O:BOX35,6,14];TRABANT_601_02;	\
 	        WARTBURG_353Y1);
@@ -492,12 +491,83 @@ $SECTION LC=1;
         M=BACK; D=L; P=<50+400; C=DR_110K,DR_ICHQSSZ5,DR_RGS3920L[O:TARP20,,12]; TB=12; T=15;
       $ENDPATH
       $PATH Y=117; LC=3;
-        POOL=POOL_BRD:E&4&#O&#Z; AP2=[TX=]; D=R;
+        POOL=POOL_BRD:E&4&#O&#Z; AP2=[TX=]; TXY=500; D=R;
       $ENDPATH
       $PATH Y=117; LC=3;
-        POOL=POOL_BRD:E&4&#O&#Z; A2P=[TX=]; D=L;
+        POOL=POOL_BRD:E&4&#O&#Z; A2P=[TX=]; TXY=500;  D=L;
       $ENDPATH
     $ENDSCENE  
+    #..........................................................................
+  $ENDSECTION
+  $SECTION LC=1;    
+    #
+    # Klaus D. Schneider: ModernScene
+    #
+    #..........................................................................
+    $SCENE YDIR=U; DX=1660; DY=720; \
+	BGC=(203,215,237); \
+	BG=( \
+	  PALLETS(1,2),20,URAL_AZ4320NNL:<50+620,75; \
+	  FOREST14(A,B):<50+600,75; \
+	  D_HALLE2_1:<50+528,75; \
+	  EMB12(A,B,B):<0,75; \
+	  TRBED51:,174; \
+	  WALL23:..,17,0; \
+	  TRBED51; \
+	  FL_DB4(A,M,M,A,M)[CO:7]:*50+168,606; \
+	  15*BRIDGE51A:*50-2,538; \
+	  BRIDGE51B:50+619,419; \
+	  BRIDGE51C:50+167,419; \
+	  BRIDGE51C:50-281,419; \
+	  BRIDGE51B:50-725,419; \
+	  SCENE_MODERN2:,191; \
+	  BGPIC\CLOUD59.JPG:,330; \
+	);
+      $PATH Y=17; UNLIMITED; TB=10;
+	C=RAI_266_107L,DB_HBIS293A,DB_HBIS293B,DB_HBBINS309A,DB_HBIS293J,DB_HBINS292A,DB_HBIS293D,DB_HBIS293E,	\
+	  DB_HBIS293F,DB_HBBINS309B,DB_HBIS293G,DB_HBINS292B,DB_HBIS293H,DB_HBIS293I,DB_HBIS293J,DB_HBIS293K,	\
+	  DB_HBIS293A,DB_HBIS293F,DB_HBBINS309C,DB_HBBINS309D,DB_HBINS292C,DB_HBIS293A1,DB_HBINS292D,		\
+	  DB_HBINS292E,DB_HBBINS309E,DB_HBIS293E,DB_HBIS293P,DB_HBIS293R,DB_HBIS293R,DB_HBIS293S,DB_HBIS293I;	\
+	  ORIGNAME=CLASS66_MIT_OPELZUG;
+	C=DB_4_211B(|L),DB_UAAI806_KOEF; ORIGNAME=DB211OB_UAAI806_KOEF;
+	C=RVM_(28|28A|28B|28C|28D|28E|45)(|L),3*DB_SAHMMS710BR(|[BT:135,23,11,3,19,23,11,3]|[BT:135,20,11,6,19,20,11,6]);
+      $ENDPATH
+      $PATH Y=75; SEQ=BEG; UNLIMITED; \
+	  FG=CONT1:>50-630;
+	M=BACK; D=R; C=LINDESTAPLER1; P=>50-632; TB=FLM,OFF; T=FLD,W,1,ON,FEBO,1,FEBM; TE=10,AWAY,5; V=1;
+      $ENDPATH
+      $PATH Y=75; SEQ=BEG; TERMINATESCENE; \
+	  FG=( \
+	      EMB12A[MSK:BLACK200,#000]:>50-142,0; \
+	      CONT3:>50-65,0; \
+	      2*C122_26[O:C122_26],C122_26[O:C122_26][O:C122_26]:>50-264; \
+	      C122_26[AR:C91_26][O:(<C138_29,CT09|CT11|CT10|CT08|CT_BERTSCHI|CT_BERTSCHI4|CT_CONSERT1|CT_LUGMAIRW|CT_ITC2|CT_ITC3)]:<50-64; \
+	     );
+	M=BACK; D=R; P=>50-65; TB=FLM,C1; T=FLT,1,C2,1,FET,1; WP=(50-215,>TB:FLU;50-135,<TE:FED;); C=FORKLIFT4; V=0.5;
+	M=BACK; D=R; P=>50-91; TB=FLM,C2; T=FLD,1,C3,1,FEB,1; WP=(50-92,<TE:FEBM;); C=FORKLIFT4; V=0.5;
+      $ENDPATH
+      $PATH Y=87; UNLIMITED; \
+	  FG=( \
+	      D_HALLE2_1:<50+528,-12; \
+	      <TRUCK_OTHER,STRAIL_OTH5:>50+528,-12; \
+	     );
+	M=BACK; D=L; P=>50+510; C=FORKLIFT3[!L]; TB=FLM; T=3,FEM; V=1;
+      $ENDPATH
+      $PATH Y=191; UNLIMITED;
+	C=MRCE_653_08R4CL,18-22*GATX_DHL(1|2)(|L);
+	C=MRCE_8653_01VEOLIA_OKL,14-16*WASC_(1|2|3|4|5|6|7)(|L);
+	C=DB_5_290OB,6-8*(DB_BA269(A|B)|DB_FACNS141(|A|B))(|L)($DIR(,[O:BALLAST(36|37|38|39|40|41|42)])),DB_BA780;
+	C=MWB_V1253(|L),8-10*(G_SHIMMNST_Y25_(1|2|3|4)(|L)|G_SHIMMNSP_Y25(A|B|C|D)(|L));
+	C=DB_4_212B(|L),18-24*DB_4_E040_(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20)[O:FR_RUEB(1|10|11|12|2|3|4|5|6|7|8|9),,27];
+      $ENDPATH
+      $PATH Y=606; TE=10; UNLIMITED;
+	C=SBB_AM843CL~KDS,OBB_LAAPS430B,OBB_LAAPS430C,OBB_LAAPS430C; ORIGNAME=AM843_OEBBLAAPS430_LI;
+	C=BEHALA_G1700_2,6-8*DEC_KVG_1(|L),DEC_KVG_1($DIR(,L)); ORIGNAME=BEAHALAMITKVGDEC_BETA_RE;
+	C=RAI_294NL,DB_BAU1,DB_BAU2,DB_BAU3; ORIGNAME=BR294_BAUZUG_RE;
+	C=MRCE_8653_01VEOLIA_OKL,12-14*WASC_(1|2|3|4|5|6|7)(|L),WASC_(1|2|3|4|5|6|7)($DIR(,L)); \
+	   ORIGNAME=CLASS66_8653-01_MRCE_VEOLIA_MIT_WASCOSA_LI;
+      $ENDPATH
+    $ENDSCENE
     #..........................................................................
   $ENDSECTION
 $ENDSECTION

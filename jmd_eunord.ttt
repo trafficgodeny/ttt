@@ -1,1491 +1,1667 @@
 {FILELEVEL=1?
   $INCLUDE SINGLE.TTT
-  $ENV TRACK
 }
 $REQUIRE JMD_DEF.TTT
 $REQUIRE JMD_EU_DEF.TTT
 
 ###############################################################################
-##									     ##
-##                               Denmark				     ##
-##									     ##
+##                                                                           ##
+##                                  Denmark                                  ##
+##                                                                           ##
 ###############################################################################
 {DK?
-$SPOOL N=DK_INTL_2003; SEQ=R;
-  {E6?
-    C=<2*DSB_IC3; V=8-14;										\
-      AP=[TX=EC 30 København H. <-> Hamburg Hbf. (anno 2003)]|						\
-	[TX=EC 31 Hamburg Hbf. <-> København H. (anno 2003)]| [TX=EC 32 København H. <-> Hamburg Hbf. (anno 2003)]|[TX=EC 33 Hamburg Hbf. <-> København H. (anno 2003)]| [TX=EC 36 København H. <-> Hamburg Hbf. (anno 2003)]|[TX=EC 35 Hamburg Hbf. <-> København H. (anno 2003)]| [TX=EC 38 København H. <-> Hamburg Hbf. (anno 2003)]|[TX=EC 37 Hamburg Hbf. <-> København H. (anno 2003)]| [TX=EC 274 Hamburg Hbf. <-> Århus H. (anno 2003)]|[TX=EC 37 Århus H. <-> Hamburg Hbf. (anno 2003)];
-    C=DSB_IC3; V=8-14;											\
-      AP=[TX=EC 34 København H. <-> Hamburg Hbf. (anno 2003)]|						\
-	[TX=EC 39 Hamburg Hbf. <-> København H. (anno 2003)];
-  }
-$ENDPOOL 
+  $SPOOL N=DK_INTL_2003; SEQ=R;
+    {E6?
+      C=<2*DSB_IC3; V=8-14;										\
+	AP=[TX=EC 30 København H. <-> Hamburg Hbf. (anno 2003)]|					\
+	  [TX=EC 31 Hamburg Hbf. <-> København H. (anno 2003)]|						\
+	  [TX=EC 32 København H. <-> Hamburg Hbf. (anno 2003)]|						\
+	  [TX=EC 33 Hamburg Hbf. <-> København H. (anno 2003)]|						\
+	  [TX=EC 36 København H. <-> Hamburg Hbf. (anno 2003)]|						\
+	  [TX=EC 35 Hamburg Hbf. <-> København H. (anno 2003)]|						\
+	  [TX=EC 38 København H. <-> Hamburg Hbf. (anno 2003)]|						\
+	  [TX=EC 37 Hamburg Hbf. <-> København H. (anno 2003)]|						\
+	  [TX=EC 274 Hamburg Hbf. <-> Århus H. (anno 2003)]|						\
+	  [TX=EC 37 Århus H. <-> Hamburg Hbf. (anno 2003)];						\
+	F=PU6;
+      C=DSB_IC3; V=8-14;										\
+	AP=[TX=EC 34 København H. <-> Hamburg Hbf. (anno 2003)]|					\
+	  [TX=EC 39 Hamburg Hbf. <-> København H. (anno 2003)];						\
+	F=PU6;
+    }
+  $ENDPOOL 
 #------------------------------------------------------------------------------
-%ADDPOOL(POOL_DK,DK_ENV)  
-{E3?
-  C=DSB_P|DSB_R2,3*DSB_DB_5101_04;
-  C=1|2*DSB_MO_1801;											\
-    AP=[TX="Sønderjyden" København <- Sønderborg -> Tønder (anno 1949)]|				\
-      [TX="Sønderjyden" København <- Sønderborg -> Tinglev (anno 1949)];
-  TX="Sønderjyden" København <- Sønderborg -> Tinglev (anno 1949);					\
-    M=CUT; C1=DSB_MO_1801; C2=DSB_MO_1801;
-  TX="Sønderjyden" København <- Sønderborg -> Tinglev (anno 1949);					\
-    C=2*DSB_MO_1801;
-  TX="Sønderjyden" København <- Sønderborg -> Tinglev (anno 1952);					\
-    C=DSB_MO_1801,2*DSB_AU[B:117,33,100,1],DSB_MO_1801;
+  %ADDPOOL(POOL_DK,DK_ENV)
+    {E3?
+      C=DSB_P|DSB_R2,3*DSB_DB_5101_04; F=SP3;
+      C=1|2*DSB_MO_1800;										\
+	AP=[TX="Sønderjyden" København <- Sønderborg -> Tønder (anno 1949)]|				\
+	  [TX="Sønderjyden" København <- Sønderborg -> Tinglev (anno 1949)];				\
+	F=PU3;
+      TX="Sønderjyden" København <- Sønderborg -> Tinglev (anno 1949);					\
+	M=CUT; C1=DSB_MO_1800; C2=DSB_MO_1800; P=50; F=PUO3;
+      TX="Sønderjyden" København <- Sønderborg -> Tinglev (anno 1949);					\
+	C=2*DSB_MO_1800; F=PU3;
+      TX="Sønderjyden" København <- Sønderborg -> Tinglev (anno 1952);					\
+	C=DSB_MO_1800,2*DSB_AU[B:117,33,100,1],DSB_MO_1800; F=PU3;
 # should be Avm coaches
-  TX="Nordpilen" Frederikshavn <-> Hamburg (anno 1955);							\
-    C=2*DSB_MO_1801,DSB_CC,DSB_AU;
-  C=<DSB_MO_1801,DSB_AU,DSB_CP(|L),DSB_CPS;								\
-    AP=[TX=Ålborg <-> Glyngøre (anno 1957)]|[TX=Ålborg <-> Djursland (anno 1957)]|			\
-      [TX=Ålborg <-> Sønderjylland (anno 1957)];
-  C=DSB_MB_LYNTOG;
+      TX="Nordpilen" Frederikshavn <-> Hamburg (anno 1955);						\
+	C=2*DSB_MO_1800,DSB_CC,DSB_AU; F=PU3;
+      C=<DSB_MO_1800,DSB_AU,DSB_CP1,DSB_CPS;								\
+	AP=[TX=Ålborg <-> Glyngøre (anno 1957)]|[TX=Ålborg <-> Djursland (anno 1957)]|			\
+	  [TX=Ålborg <-> Sønderjylland (anno 1957)];							\
+	F=PU3;
+      C=DSB_MB_LYNTOG; F=PU3;
 # Sorø 1957
-  C=AHB_ML_2302,DSB_CXM,2*DB_RMS31;
+      C=AHB_ML_2302,DSB_CXM1,2*DB_RMS31; F=3;
 #1959
-  C=OHJ_SM_15;
+      C=OHJ_SM_15; F=3;
 # Høng (25.10.1959)
-  C=<HFHJ_SML,HFHJ_SP;
+      C=<HFHJ_SML,HFHJ_SP; F=3;
 # Gøløse 08.1960
-  TX=Tinglev <-> Sønderborg H (20.09.1960);								\
-    C=DSB_MO_1801,2*DSB_CXM,DSB_DA;
-  D=R; C=DSB_LITRA_D,DSB_AC,2*DSB_AD_AY,DSB_CL_CLLL,DSB_CL_CLL,DSB_CLE,DSB_DB_5101_04;
-  C=HFHJ_M10,4*HFHJ_51;
-  C=DSB_MO_1(801|900),DSB_CL_CLL(|L);
-  C=DSB_MC_612,DSB_DR_5860_63,DSB_MC_612;
-  C=DSB_MB_LYNTOG; V=8-10;
-  D=R; C=OHJ_SM_15,OHJ_SB_241;
-  C=MFVJ_M_4,DSB_CLEL,2*DSB_CB;
-  D=R;													\
-    C=DSB_P|DSB_R2,DSB_DB_510(1_04|6_10)|DSB_DJ_GL,DSB_AU,2*DSB_CM_(2001_50|T),DSB_CP(|L),		\
-      DSB_CM_2120_30,2*DSB_CM_(2001_50|T),DSB_CB;
-  M=GET; C=DSB_MX_D(|L),2-4*SJ_G(|E|E3|RH|SU); C1=(1-2*SJ_O)|D_EPIIIA_G|EUROPPOOLG3;			\
-    C2=DSB_BREUER|DSB_PEDRSHAB;
-  C=LNJ_SM_11;
+      TX=Tinglev <-> Sønderborg H (20.09.1960);								\
+	C=DSB_MO_1800,2*DSB_CXM1,DSB_DA; F=PU3;
+      D=R; C=DSB_LITRA_D,DSB_AC,2*DSB_AD_AY1,DSB_CL_CLLL,DSB_CL_CLL,DSB_CLE1,DSB_DB_5101_04; F=SP3;
+      C=HFHJ_M10,4*HFHJ_51; F=3;
+      C=DSB_MO_1800|DSB_MO_1900,DSB_CL_CLL(|L); F=PU3;
+      C=DSB_MC_612,DSB_DR_5860_63,DSB_MC_612; F=PU3;
+      C=DSB_MB_LYNTOG; V=8-10; F=PU3;
+      D=R; C=OHJ_SM_15,OHJ_SB_241; F=3;
+      C=MFVJ_M_4,DSB_CLEL,2*DSB_CB1; F=P3;
+      D=R;												\
+	C=DSB_P|DSB_R2,DSB_DB|DSB_PBH|DSB_DJ1,DSB_AU,2*DSB_CM_(2001_50|T),DSB_CP1,DSB_CM_2120_30,	\
+	  2*DSB_CM_(2001_50|T),DSB_CB1;									\
+	F=SP3;
+      M=GET; C=DSB_MX_D(|L),2-4*SJ_G(|E|E3|RH|SU); C1=(1-2*SJ_O)|D_EPIIIA_G|EUROPPOOLG3;		\
+	C2=DSB_BREUER|DSB_PEDRSHAB; F=DFO3;
+      C=LNJ_SM_11; F=3;
 # Jægersborg 01.01.1963
-  C=DSB_MY_(M|ML|N|NL),1-3*DSB_(DA|DB_5101_04|DB_5106_10|DD|PB);
-  C=DSB_MY_1201,DSB_CP(|L),3*GB14,3*DB_OM31U;
-  C=DSB_MB_LYNTOG;
+      C=DSB_3_MY_H(|L),1-3*DSB_DB|DSB_DJ1|DSB_DD2|DSB_P1; F=DP3;
+      C=DSB_MY_1201,DSB_CP1,3*GB14,3*DSB_3_PB10116E(|L)|DSB_3_PB10872(|L); F=D3;
+      C=DSB_MB_LYNTOG; F=PU3;
 # Snekkersten 23.03.1963
-  C=DSB_MX_(D|E)(|L),DSB_AC,DSB_CC,$DIR(DSB_CLEL,DSB_CLE);
-  C=HFHJ_M10,HFHJ_53,SJ_GSH;
-  TX="Nordpilen" Frederikshavn <-> Hamburg (anno 1963);							\
-    C=DSB_MY_M(|L),DSB_AC,2*DSB_CC;
-  D=R; C=DSB_S,DSB_AC,(4:0|1:1)*DSB_AC,(5:2|3:3)*DSB_CL_CLLL|DSB_CL_CLL,DSB_CLE;
-  C=VNJ_MB,VNJ_B(DS|S);
-  TX="Limfjorden" København H. <- Langå -> Struer (anno 1964);						\
-    C=$DIR(DSB_MAR,DSB_MARL),$DIR(DSB_AMR,DSB_AMRL),$DIR(DSB_BMR,DSB_BMRL),			\
-      $DIR(DSB_BMSR,DSB_BMSRL);
-  C=DSB_MQ_521|DSB_MO_1801|DSB_MO_1900|DSB_MK_FK;
-  C=DSB_MY_O(|L),3-4*DSB_4B(|L);
-  C=DSB_MK_FK;
-  C=<DSB_MO_1900,DSB_CL_CLL(|L),DSB_CLS;
-  C=HHJ_YBM25;
-  C=<(DSB_MAR,DSB_AMR,DSB_BMR,DSB_BMSR)|								\
-      (DSB_MAR,DSB_AMR,DSB_BMR,DSB_BMSR,DSB_BMSRL,DSB_BMRL,DSB_AMRL,DSB_MARL);				\
-    V=8-10;
-  M=BACK|SIMPLE|STOP;											\
-    C=HTJ_KOF64,NW_CEMENT|SBB_ZEM2(|L)|DR_UCS(9020A|9020D|V)|SBB_ZEM(2H|3|3L)|M_911UCS(|L); V=3-5;
-  C=2*DSB_MO_1801,2*DSB_CB|DSB_CC,DSB_DB_5101_04|DSB_DB_5106_10;
+      C=DSB_MX_(D|E)(|L),DSB_AC,DSB_CC,$DIR(DSB_CLEL,DSB_CLE1); F=DP3;
+      C=HFHJ_M10,HFHJ_53,SJ_GSH; F=F3;
+      TX="Nordpilen" Frederikshavn <-> Hamburg (anno 1963);						\
+	C=DSB_3_MY_H(|L),DSB_AC,2*DSB_CC; F=DP3;
+      D=R; C=DSB_S,DSB_AC,(4:0|1:1)*DSB_AC,(5:2|3:3)*DSB_CL_CLLL|DSB_CL_CLL,DSB_CLE1; F=SP3;
+      C=VNJ_MB,VNJ_B(DS|S); F=3;
+      TX="Limfjorden" København H. <- Langå -> Struer (anno 1964);					\
+	C=$DIR(DSB_MA1L,DSB_MA1),$DIR(DSB_AM1L,DSB_AM1),$DIR(DSB_BM1,DSB_BM1L),$DIR(DSB_BMS1,DSB_BMS1L); \
+	F=PU3;
+      C=DSB_MQ_521|DSB_MO_1800|DSB_MO_1900|DSB_MK_FK; F=PU3;
+      C=DSB_MY_O(|L),3-4*DSB_4B(|L); F=DP3;
+      C=DSB_MK_FK; F=PU3;
+      C=<DSB_MO_1900,DSB_CL_CLL(|L),DSB_CLS1; F=PU3;
+      C=HHJ_YBM25; F=3;
+      C=<(DSB_MA1L,DSB_AM1L,DSB_BM1,DSB_BMS1)|								\
+	  (DSB_MA1L,DSB_AM1L,DSB_BM1,DSB_BMS1,DSB_BMS1L,DSB_BM1L,DSB_AM1,DSB_MA1);			\
+	V=8-10; F=PU3;
+      M=BACK|SIMPLE|STOP;										\
+	C=HTJ_KOF64,NW_CEMENT|SBB_ZEM2(|L)|DR_UCS(9020A|9020D|V)|SBB_ZEM(2H|3|3L)|M_911UCS(|L); V=3-5;	\
+	F=O3;
+      C=2*DSB_MO_1800,2*DSB_CB1|DSB_CC,DSB_DB_5101_04|DSB_DB; F=PU3;
 # Carlsbergbroen 11.07.1967
-  C=DSB_MB_LYNTOG;
+      C=DSB_MB_LYNTOG; F=PU3;
 # Carlsbergbroen 11.07.1967
-  TX=Maaløv <-> Værebro A (02.1968);									\
-    C=DSB_MO_1801,DSB_CB|DSB_CC,DSB_MO_1801;
-  C=LNJ_SM_11;
+      TX=Maaløv <-> Værebro A (02.1968);								\
+	C=DSB_MO_1800,DSB_CB1|DSB_CC,DSB_MO_1800; F=PU3;
+      C=LNJ_SM_11; F=3;
 # Jægersborg 28.05.1968
-  C=OHJ_SM_15;
+      C=OHJ_SM_15; F=3;
 # Tølløse 21.09.1969
 
-}
-{E4?
-  C=DSB_R2,(<DSB_CLE,DSB_CL_CLL(|L),DSB_CB);
+    }
+    {E4?
+      C=DSB_R2,(<DSB_CLE1,DSB_CL_CLL(|L),DSB_CB1); F=SP4;
 #1970
-  C=DSB_R2,DSB_CL_CLL(|L),DSB_BU,DSB_CL_CLL(|L);
+      C=DSB_R2,DSB_CL_CLL(|L),DSB_BU1,DSB_CL_CLL(|L); F=SP4;
 #1970
-  C=DSB_R2,DSB_4B(|L),DSB_CB,2*DSB_CL_CLL(|L);
-  C=DSB_LITRA_N,DR_LAAEK4357,G_RES2,2*DB_OTMM70(A|B|C|D|VA|VB|VC|VD|VE|VF),G_KS2,SJ_GBS,DRFCS,		\
-      9*NS_IBES|SBB_O70202|CD_LP|CD_LP02,DRFCS,8*NS_IBES|SBB_O70202|CD_LP|CD_LP02;
-  C=DSB_LITRA_N,DB_4A_GRS(204|2:212)E(|L),SNCF_GS41(B|C|D|E|F),DSB_CXM_TR,GF01~NIE,DB_TNHS31N,		\
-      DB_XXO49L|DB_XXO49,DR_Z7004(A|AL|B|BL),3*DB_3B_UAHS_VTG(1|1L|2|2L),G_KS2,DB_4A_GRS(204|2:212)E(|L);
-  C=DSB_LITRA_N,2*SNCF_G4BOIS,DB_PWGHS54BL;
+      C=DSB_R2,DSB_4B(|L),DSB_CB1,2*DSB_CL_CLL(|L); F=SP4;
+      C=$DIR(DSB_N202L|DSB_N209L,DSB_N202|DSB_N209),DR_LAAEK4357,G_RES2,				\
+	  2*DB_OTMM70(A|B|C|D|VA|VB|VC|VD|VE|VF),G_KS2,SJ_GBS,DRFCS,9*NS_IBES|SBB_O70202|CD_LP|CD_LP02,	\
+	  DRFCS,8*NS_IBES|SBB_O70202|CD_LP|CD_LP02;							\
+	F=SF4;
+      C=$DIR(DSB_N202L|DSB_N209L,DSB_N202|DSB_N209),DB_4A_GRS(204|2:212)E(|L),SNCF_GS41(B|C|D|E|F),	\
+	  DSB_CXM1,GF01~NIE,DB_TNHS31N,DB_XXO49L|DB_XXO49,DR_Z7004(A|AL|B|BL),				\
+	  3*DB_3B_UAHS_VTG(1|1L|2|2L),G_KS2,DB_4A_GRS(204|2:212)E(|L);					\
+	F=S4;
+      C=$DIR(DSB_N202L|DSB_N209L,DSB_N202|DSB_N209),2*SNCF_G4BOIS,DB_PWGHS54BL; F=SF4;
 #soll DSB Gattung E sein, nicht N. Soll DSB Pwg sein
-  C=DSB_LITRA_H,DSB_4B(|L),2*DSB_CL_CLL(|L),DSB_B_O,DSB_CL_CLL(|L);
+      C=DSB_LITRA_H,DSB_4B(|L),2*DSB_CL_CLL(|L),DSB_B_O,DSB_CL_CLL(|L); F=SP4;
 #soll DSB Gattung E sein
-  C=DSB_LITRA_H,GF01~NIE,2*DB_E36(A|B|C|D),DB_HBIS299D,DB_4A_GRS(204|2:212)E(|L),DB_E36(A|B|C|D),	\
-      DB_3B_UAHS_VTG(1|1L|2|2L),3*DB_RMS31,DB_3B_UAHS_VTG(1|1L|2|2L),4*DB_4A_GRS(204|2:212)E(|L),DRFCS,	\
-      2*SNCF_G4BOIS,GF01~NIE;
-#soll DSB Gattung E sein
-  C=DSB_LITRA_H,DB_4A_GLM200(|L),DSB_DB_5101_04,DSB_CL_CLLL|DSB_CL_CLL,2*DSB_CC;
+      C=DSB_LITRA_H,GF01~NIE,2*DSB_4A_ELO5110(|L|M|ML)|DSB_4A_E5020EU|DSB_4A_E5000EB(|L),DB_HBIS299D,	\
+	  DB_4A_GRS(204|2:212)E(|L),DSB_4A_ELO5110(|L|M|ML)|DSB_4A_E5020EU|DSB_4A_E5000EB(|L),		\
+	  DB_3B_UAHS_VTG(1|1L|2|2L),3*DB_RMS31,DB_3B_UAHS_VTG(1|1L|2|2L),4*DB_4A_GRS(204|2:212)E(|L),	\
+	  DRFCS,2*SNCF_G4BOIS,GF01~NIE;									\
+	F=SF4;
+      C=DSB_LITRA_H,DB_4A_GLM200(|L),DSB_DB_5101_04,DSB_CL_CLLL|DSB_CL_CLL,2*DSB_CC; F=S4;
 #soll DSB Gattung E, Q anstatt Oppeln
-  TX="Neptun" København H. <-> Berlin (anno 1973);							\
-    C=DSB_MB_LYNTOG;
+      TX="Neptun" København H. <-> Berlin (anno 1973);							\
+	C=DSB_MB_LYNTOG; F=PU4;
 # Should be 3-unit DMU class MS, not an MB.
-  C=DSB_MY_M(|L),DSB_DB_5106_10,DSB_AC,2*DSB_CL_CLL(|L),DSB_4B(|L),DSB_CL_CLL(|L);
+      C=DSB_3_MY_H(|L),DSB_DB,DSB_AC,2*DSB_CL_CLL(|L),DSB_4B(|L),DSB_CL_CLL(|L); F=DP4;
 
 ###
 # 1974 - Weinrote "designrød" Farbgebung eingeführt (Reisezugwagen, Loks)
 ###
-  C=DSB_MY_M(|L),2*DSB_4B(|L),DSB_CL_CLL(|L),$DIR(DSB_4BDL,DSB_4BD),DSB_4B(|L);
-  C=(<DSB_MO_1801|DSB_MO_1900,DSB_CPS),DSB_DB_5101_04;
-  C=DSB_LITRA_D,2*DB_E36(A|B|C|D);
+      C=DSB_MY_M(|L),2*DSB_4B(|L),DSB_CL_CLL(|L),$DIR(DSB_4BDL,DSB_4BD),DSB_4B(|L); F=DP4;
+      C=(<DSB_MO_1800|DSB_MO_1900,DSB_CPS),DSB_DB_5101_04; F=PU4;
+      C=DSB_LITRA_D,2*DSB_4A_E5000EB(|L); F=SF4;
 # Dalmose 09.08.1975
-  C=<DSB_MO_1900,DSB_CP(|L),DSB_CPS;
-  C=<DSB_MAR,DSB_AM,DSB_BMRL,DSB_BMS,DSB_BMSRL,DSB_BMRL,DSB_BMR,DSB_MARL;
-  C=<DSB_MAR,DSB_AMR,DSB_BMRL,DSB_BMSR,DSB_BMSRL,DSB_BMR,DSB_BMRL,DSB_MARL;
-  C=DSB_MY_M(|L),DSB_DA,DSB_DB_5106_10,DSB_AC,DSB_CL_CLL(|L),DSB_4A(|L)|DSB_AC,DSB_4B(|L);
-  C=DSB_MY_M(|L),DB_4A_GRS(204|2:212)E(|L),GF01~NIE,DB_E040(5:|BL|B|P),NS_KBKS1,T858_BR0,		\
-      DB_4A_GRS(204|2:212)E(|L),SJ_OMS,T858_BR0,DB_4A_GRS(204|2:212)E(|L),DB_E36(A|B|C|D),2*GF01~NIE,	\
-      2*DB_4A_GRS(204|2:212)E(|L),GF01~NIE,3*DB_4A_GRS(204|2:212)E(|L);
+      C=<DSB_MO_1900,DSB_CP1,DSB_CPS; F=PU4;
+      C=<DSB_MA1L,DSB_AM3L,DSB_BM1L,DSB_BMS3,DSB_BMS1L,DSB_BM1L,DSB_BM1,DSB_MA1; F=PU4;
+      C=<DSB_MA1L,DSB_AM1L,DSB_BM1L,DSB_BMS1,DSB_BMS1L,DSB_BM1,DSB_BM1L,DSB_MA1; F=PU4;
+      C=DSB_MY_M(|L),DSB_DA,DSB_DB,DSB_AC,DSB_CL_CLL(|L),DSB_4A(|L)|DSB_AC,DSB_4B(|L); F=DP4;
+      C=DSB_MY_M(|L),DB_4A_GRS(204|2:212)E(|L),GF01~NIE,DSB_4A_E5000EB(|L),NS_KBKS1,T858_BR0,		\
+	  DB_4A_GRS(204|2:212)E(|L),SJ_OMS,T858_BR0,DB_4A_GRS(204|2:212)E(|L),DSB_4A_E5000EB(|L),	\
+	  2*GF01~NIE,2*DB_4A_GRS(204|2:212)E(|L),GF01~NIE,3*DB_4A_GRS(204|2:212)E(|L);			\
+	F=DF4;
 #All DB should be DSB
-  C=DSB_MY_M(|L),3*DSB_4B(|L);
-  D=L; C=DSB_1401(|L)|DSB_1411(|L),DSB_AC,DSB_CLEL;
+      C=DSB_MY_M(|L),3*DSB_4B(|L); F=DP4;
+      D=L; C=DSB_1401(|L)|DSB_1411(|L),DSB_AC,DSB_CLEL; F=DP4;
 # Kolding 1980
-  C=DSB_1431(|L),2*DSB_HBIKKS4[CP:41,13,24,20,105,13][CP:43,25,23,6,11,25],2*SJ_HBIS,2*SJ_GBS,		\
-      DB_SFNPS3(A|B),DR_IBHQSSZ5;
+      C=DSB_1431(|L),2*DSB_HBIKKS4[CP:41,13,24,20,105,13][CP:43,25,23,6,11,25],2*SJ_HBIS,2*SJ_GBS,	\
+	  DB_SFNPS3(A|B),DR_IBHQSSZ5;									\
+	F=DF4;
 # Kokkedal (sommer 1980)
 #zweiter Wagen sollte BD mit D Abteil zu den Loks sein;
-  TX=P 3718 Jelling <-> Grejsdal (17.08.1981);								\
-    C=DB_220~MHO,BR220BB~JD,2*DSB_CB;
-  TX=Lr 1596 Flensburg <-> Dänemark (31.08.1981);							\
-    C=2*DB_220~MHO,DSB_4BL[<OT:DSB_4B,0,0],DSB_4B;
-  C=DSB_1431(|L),(<DSB_4BDL,DSB_4B(|L));
+      TX=P 3718 Jelling <-> Grejsdal (17.08.1981);							\
+	C=(DB_4_220_27|DB_4_220_39|DB_4_220RL),DB_4_220OB(|L),2*DSB_CB1; F=DP4;
+      TX=Lr 1596 Flensburg <-> Dänemark (31.08.1981);							\
+	C=2*(DB_4_220_27|DB_4_220_39|DB_4_220RL),$DIR(DSB_4B,DSB_4BL),DSB_4B; F=DP4;
+      C=DSB_1431(|L),(<DSB_4BDL,DSB_4B(|L)); F=DP4;
 #1981
-  TX=København <-> Helslingor (anno 1981);								\
-    C=DSB_1431(|L),FS_IBEFHS|FS_IBEFHS2|FS_IBEFHS3,GF12,SJ_HBIS,5*GF12,2*DSB_EAOS1,DR_4RES3936L,	\
-      3*DB_GBS25(2|4|4K|4BL|4B|4PP|6|7),DR_Z7004AL,SBB_GS_K4LOGO;
+      TX=København <-> Helslingor (anno 1981);								\
+	C=DSB_1431(|L),FS_IBEFHS|FS_IBEFHS2|FS_IBEFHS3,GF12,SJ_HBIS,5*GF12,2*DSB_EAOS1,DR_4RES3936L,	\
+	  3*DB_GBS25(2|4|4K|4BL|4B|4PP|6|7),DR_Z7004AL,SBB_GS_K4LOGO;					\
+	F=DF4;
 #=#=#=
 # 1982 Brown livery on diesels disappears
 #=#=#=
 
-  TX=L 123 x <- Lunderskov -> Struer (12.07.1983);							\
-    C=$DIR(DSB_MAR,DSB_MARL),$DIR(DSB_AMR,DSB_AMRL),$DIR(DSB_BMR,DSB_BMRL),			\
-      $DIR(DSB_BMSR,DSB_BMSRL);
-  C=DSB_ME1,5*DSB_MO_1801;
+      TX=L 123 x <- Lunderskov -> Struer (12.07.1983);							\
+	C=$DIR(DSB_MA1L,DSB_MA1),$DIR(DSB_AM1L,DSB_AM1),$DIR(DSB_BM1,DSB_BM1L),$DIR(DSB_BMS1,DSB_BMS1L); \
+	F=PU4;
+      C=DSB_ME1,5*DSB_MO_1800; F=DPU4;
 # Helgoland 02.10.1984
-  C=2*DSB_MX_(A|AL|B|BL|C|CL),3*DRTDS,									\
-      17*((SGS[OB:C2054,7,11][OB:C2054,,11][OB:C2054, 131,11])|(SGS[OB:C2054,7,11][OB:C2054,131,11])|	\
-      (SGS[OB:C4R_KLINE,,11])|(SGS[OB:C4R_KLINE,7,11]));
-  TX=Zug 657 Esbjerg <- Vemb -> Holstebro (10.09.1986);							\
-    C=DSB_MR_4053_MRD_4253[>M];
-  TX=L 188 "Kongeaen" Struer <- Esbjerg - Fredericia -> København H.  (10.09.1986);			\
-    C=>(DSB_BMS,DSB_BMK,DSB_AM,DSB_MA){V3?|999:DSB_MA_LYN5L~V3[<OT:DSB_MA_LYN5~V3,0,0]};
-  TX=P 5051 x <- Lolland -> Rødby Færge (25.05.1988);							\
-    C=DSB_MY_(A|E|F)(|L),$DIR(DSB_4BDL,DSB_4BD),4*DSB_4BNL|DSB_4BN;
-  TX=P 321 "Neptun" København H <- Gedser - Warnemünde -> Berlin Zoo. (23.06.1988);			\
-    C=DSB_ME1|DSB_ME2,5*DSB_4BN(|L),$DIR(DSB_4BDL,DSB_4BD),2*DR_4BME2150(|L)|DR_4BME2185(|L);
-  TX=L 815 "Limfjorden" Tange <-> Struer (04.06.1988);							\
-    C=<DSB_MA2FL,DSB_MA2P,DSB_MA2A,DSB_MA2E;
-  TX=L 924 "Syd-Vestjyden" Sønderborg <-> København H (13.07.1988);					\
-    C=<DSB_MA2FL,DSB_MA2P,DSB_MA2A,DSB_MA2E;
-  TX=P 1036 "Copenhagen Express" Nakskov <-> København H (05.08.1988);					\
-    C=DSB_1435(|L),7*DSB_4BN(|L);
-  C=VLTJ_ML_12,4*DRTDS,3*DB_HBIS299D;
+      C=2*DSB_MX_(A|AL|B|BL|C|CL),3*DRTDS,								\
+	  17*((SGS[OB:C2054,7,11][OB:C2054,,11][OB:C2054,131,11])|(SGS[OB:C2054,7,11][OB:C2054,131,11])| \
+	  (SGS[OB:C4R_KLINE,,11])|(SGS[OB:C4R_KLINE,7,11]));						\
+	F=DF4;
+      TX=Zug 657 Esbjerg <- Vemb -> Holstebro (10.09.1986);						\
+	C=DSB_MR_4053_MRD_4253[>M]; F=PU4;
+      TX=L 188 "Kongeaen" Struer <- Esbjerg - Fredericia -> København H.  (10.09.1986);			\
+	C=>(DSB_BMS3,DSB_BMK3,DSB_AM3L,DSB_MA3L); F=PU4;
+      TX=P 5051 x <- Lolland -> Rødby Færge (25.05.1988);						\
+	C=DSB_MY_(A|E|F)(|L),$DIR(DSB_4BDL,DSB_4BD),4*DSB_4BNL|DSB_4BN; F=DP4;
+      TX=P 321 "Neptun" København H <- Gedser - Warnemünde -> Berlin Zoo. (23.06.1988);			\
+	C=DSB_ME1|DSB_ME2,5*DSB_4BN(|L),$DIR(DSB_4BDL,DSB_4BD),2*DR_4BME2150(|L)|DR_4BME2185(|L); F=DP4;
+      TX=L 815 "Limfjorden" Tange <-> Struer (04.06.1988);						\
+	C=(<DSB_MA3L,DSB_AM3,DSB_BMK3,DSB_BMS3)|(<DSB_MA3,DSB_AM3L,DSB_BMK3L,DSB_BMS3L); F=PU4;
+      TX=L 924 "Syd-Vestjyden" Sønderborg <-> København H (13.07.1988);					\
+	C=(<DSB_MA3L,DSB_AM3,DSB_BMK3,DSB_BMS3)|(<DSB_MA3,DSB_AM3L,DSB_BMK3L,DSB_BMS3L); F=PU4;
+      TX=P 1036 "Copenhagen Express" Nakskov <-> København H (05.08.1988);				\
+	C=DSB_1435(|L),7*DSB_4BN(|L); F=DP4;
+      C=VLTJ_ML_12,4*DRTDS,3*DB_HBIS299D; F=F4;
 #1989
-  TX=G 9564 Nykøbing F. <-> Ringsted (08.02.1989);							\
-    C=DSB_ME(1|2),$DIR(DSB_4BD,DSB_4BDL),4*DB_HBIS299D;
-  C=2*DSB_MY_(A|B|C|D|E|F)(|L),DB_GBS258,G_HBBILLNS;
-  TX="Skandia Express" Helsingør <- København - Frankfurt/M -> München (21.03.1989);			\
-    C=DSB_1431L|DSB_1431,DSB_4B(|L),DBBM4,DB_WLABMH175ACL|DB_WLABMH175BCL,$DIR(DSB_4ABL,DSB_4AB),	\
-      DSB_4B(|L),DBBM4;
-  C=DSB_MY_(G|GL|H|HL),20*DSB_FALS[O:FR_COAL1];
-  C=DSB_1447(|L),2*GF04~AM,SNCF_IFRIG_BB(|L),DB_GBS25(2|4|4K|4BL|4B|4PP|6|7),				\
-      DSB_HBIKKS4[CP:41,13,24,20,105,13][CP:43,25,23,6,11,25],SJ_OMS|SJ_OS1,				\
-      3*DB_GBS25(2|4|4K|4BL|4B|4PP|6|7),G_ES1|G_ESBL|G_ESB,2*HABISNORM,G_KS1,				\
-      10*DSB_HBIKKS4[CP:41,13,24,20,105,13][CP:43,25,23,6,11,25],VTG_2SAEURE,DSB_EAOS1,7*HABISTW;
+      TX=G 9564 Nykøbing F. <-> Ringsted (08.02.1989);							\
+	C=DSB_ME(1|2),$DIR(DSB_4BD,DSB_4BDL),4*DB_HBIS299D; F=D4;
+      C=2*DSB_MY_(A|B|C|D|E|F)(|L),DB_GBS258,G_HBBILLNS; F=DF4;
+      TX="Skandia Express" Helsingør <- København - Frankfurt/M -> München (21.03.1989);		\
+	C=DSB_1431L|DSB_1431,DSB_4B(|L),DBBM4,DB_WLABMH175ACL|DB_WLABMH175BCL,$DIR(DSB_4ABL,DSB_4AB),	\
+	  DSB_4B(|L),DBBM4;										\
+	F=DP4;
+      C=DSB_MY_(G|GL|H|HL),20*DSB_FALS[O:FR_COAL1]; F=DF4;
+      C=DSB_1447(|L),2*GF04~AM,SNCF_IFRIG_BB(|L),DB_GBS25(2|4|4K|4BL|4B|4PP|6|7),			\
+	  DSB_HBIKKS4[CP:41,13,24,20,105,13][CP:43,25,23,6,11,25],SJ_OMS|SJ_OS1,			\
+	  3*DB_GBS25(2|4|4K|4BL|4B|4PP|6|7),G_ES1|G_ESBL|G_ESB,2*HABISNORM,G_KS1,			\
+	  10*DSB_HBIKKS4[CP:41,13,24,20,105,13][CP:43,25,23,6,11,25],VTG_2SAEURE,DSB_EAOS1,7*HABISTW;	\
+	F=DF4;
 # Storstrømsbroen 07.08.1989
-  C=3*DSB_MY_(A|B|C|D|E|F)(|L),4*DSB_4B(|L),DSB_4A(|L),4*DSB_4B(|L);
-  C=<DSB_MY_(G|GL|H|HL),HABISNORM,SJ_TIMMER; V=3-5;
-  C=DSB_MY_LL|DSB_MY_L,$DIR(DSB_4BDL,DSB_4BD),DSB_4B(|L);
-  C=DSB_MK~SIE,2*NS_GS; V=5;
+      C=3*DSB_MY_(A|B|C|D|E|F)(|L),4*DSB_4B(|L),DSB_4A(|L),4*DSB_4B(|L); F=DP4;
+      C=<DSB_MY_(G|GL|H|HL),HABISNORM,SJ_TIMMER; V=3-5; F=DF4;
+      C=DSB_MY_LL|DSB_MY_L,$DIR(DSB_4BDL,DSB_4BD),DSB_4B(|L); F=DP4;
+      C=DSB_MK~SIE,2*NS_GS; V=5; F=DFZ4;
 #sollen DSB Gs sein
-  C=DSB_MY_(A|B|C|D|E|F|G|H)(|L),SNCB_TMS(|L)|SNCF_TS5705(|L),G_GGS|DB_GMMS44,				\
-      SJ_HR|SJ_H| SJ_HZ|(FS_IBBEHKS(|2|2L|L)),RIVEPIVGBS,2*SJ_HR|SJ_H|SJ_HZ|(FS_IBBEHKS(|2|2L|L)),	\
-      DB_HBIS299(A|B|C|D)|DSB_HBIS225(ALBANI|PIANO|SCISSORS)|5:DSB_HBIKKS(1|2|3|4)|SJ_HBIS|SJ_HBBINS,	\
-      5*RIVEPIVGBS;
-  C=AHB_ML_2302|AHB_ML_2302_GAS|AHJ_ML_5203|AHJ_ML_5206|GDS_L_1|HFHJ_M_8|HFHJ_M_8A|HP_14A|HVJ_23|	\
-      LJ_M_31|OHJ_21|OHJ_40|OHJ_24|SB_M_5|VLTJ_ML_12|VNJ_DL_11|VNJ_DL_12,3-5*G_ES1|G_ESBL|G_ESB;
-  C=DSB_1404(|L)|DSB_1420(|L)|DSB_1431(|L),5*DSB_4BN(|L);
-  C=DSB_MX_(A|AL|B|BL|C|CL),DSB_4A(|L),4*DSB_4B(|L);
-  C=<DSB_MM,DSB_FS;
-  C=OHJ_S,OHJ_D246L;
-  C=<(DSB_MA,DSB_AM,DSB_BMK,DSB_BMS); V=8-10;
-  C=OHJ_MX_(A|AL|B|BL),OHJ_BN_A(|L),2*OHJ_BN_B(|L);
-  C=DSB_1404(|L)|DSB_1420(|L)|DSB_1431(|L),2*DSB_4B(|L),DSB_4A(|L),4*DSB_4B(|L);
-  C=DSB_1404(|L)|DSB_1420(|L)|DSB_1431(|L),DSB_4A(|L),1-2*DSB_4B(|L),DSB_4BK(|L),1-2*DSB_4B(|L);
-  C=DSB_EA~ME,DRUCS,DR_ZCE7176(|L),OBB_HIRRS292FT;
-}
-{E5?
-  TX=IC 119 København H. <-> Thisted (22.04.1990);							\
-    C=2*DSB_MY_(A|E|F)(|L),DSB_4B(|L),DSB_4A(|L),4*DSB_4B(|L);
-  TX=P 8610 Odense <-> Korsør (15.07.1990);								\
-    C=DSB_MY_(A|E|F)(|L),DSB_CD[O:GR_02,<72-140,9];
-  TX=M 6107 Nyborg Færge <-> Fredericia (29.07.1990);							\
-    C=DSB_MY_(A|E|F)(|L),3*DSB_4B(|L);
-  TX=M 34627 Padborg <-> Flensborg (05.08.1990);							\
-    C=DSB_MY_(A|E|F)(|L),5*DSB_4B(|L);
-  TX=IC 431 Flensborg <- Lunderskov -> Frederikshavn (05.08.1990);					\
-    C=DSB_MY_(A|E|F)(|L),2*DSB_4A(|L),4*DSB_4B(|L);
-  TX=G 9925 København Godsbanegård <-> Ålborg (11.08.1990);						\
-    C=3*DSB_MY_(A|E|F)(|L),6*SJ_HBIS,SJ_TBIS,DSB_CEMENT,4*CONT90,2*SNCF_S53|SNCF_S58,2*G_HBBILLNS;
-  TX=G 9539 København Godsbanegård <- Roskilde -> Køge (27.09.1990);					\
-    C=DSB_MX_(A|B|C)(|L),DB_RLMMS58R[OB:FR_WOOD9,,11],							\
-      DSB_HBIKKS4[CP:41,13,24,20,105,13][CP:43,25,23,6,11,25],G_HBBILLNS,2*G_RILS_L,SJ_HBIS,		\
-      G_RGS2[OB:WOOD_T1,,12],G_ES1,3*G_ES1[O:FR_T3,,11]|SBB_3E505P1|SBB_3E505P2|SBB_G26;
+      C=DSB_MY_(A|B|C|D|E|F|G|H)(|L),SNCB_TMS(|L)|SNCF_TS5705(|L),G_GGS|DB_GMMS44,			\
+	  SJ_HR|SJ_H|SJ_HZ|(FS_IBBEHKS(|2|2L|L)),RIVEPIVGBS,2*SJ_HR|SJ_H|SJ_HZ|(FS_IBBEHKS(|2|2L|L)),	\
+	  DB_HBIS299(A|B|C|D)|DSB_HBIS225(ALBANI|PIANO|SCISSORS)|5:DSB_HBIKKS(1|2|3|4)|SJ_HBIS|		\
+	  SJ_HBBINS,5*RIVEPIVGBS;									\
+	F=DF4;
+      C=AHB_ML_2302|AHB_ML_2302_GAS|AHJ_ML_5203|AHJ_ML_5206|GDS_L_1|HFHJ_M_8|HFHJ_M_8A|HP_14A|HVJ_23|	\
+	  LJ_M_31|OHJ_21|OHJ_40|OHJ_24|SB_M_5|VLTJ_ML_12|VNJ_DL_11|VNJ_DL_12,				\
+	  3-5*DSB_4A_E5020EU|DSB_4A_E5000EB(|L);							\
+	F=F4;
+      C=DSB_1404(|L)|DSB_1420(|L)|DSB_1431(|L),5*DSB_4BN(|L); F=DP4;
+      C=DSB_MX_(A|AL|B|BL|C|CL),DSB_4A(|L),4*DSB_4B(|L); F=DP4;
+      C=<DSB_MM,DSB_FS; F=EC4;
+      C=OHJ_S,OHJ_D246L; F=4;
+      C=<(DSB_MA3L,DSB_AM3L,DSB_BMK3,DSB_BMS3); V=8-10; F=PU4;
+      C=OHJ_MX_(A|AL|B|BL),OHJ_BN_A(|L),2*OHJ_BN_B(|L); F=4;
+      C=DSB_1404(|L)|DSB_1420(|L)|DSB_1431(|L),2*DSB_4B(|L),DSB_4A(|L),4*DSB_4B(|L); F=DP4;
+      C=DSB_1404(|L)|DSB_1420(|L)|DSB_1431(|L),DSB_4A(|L),1-2*DSB_4B(|L),DSB_4BK(|L),1-2*DSB_4B(|L);	\
+	F=DP4;
+      C=(DSB_3002|DSB_3005)(|L),DRUCS,DR_ZCE7176(|L),OBB_HIRRS292FT; F=EF4;
+    }
+    {E5?
+      TX=IC 119 København H. <-> Thisted (22.04.1990);							\
+	C=2*DSB_MY_(A|E|F)(|L),DSB_4B(|L),DSB_4A(|L),4*DSB_4B(|L); F=DP5;
+      TX=P 8610 Odense <-> Korsør (15.07.1990);								\
+	C=DSB_MY_(A|E|F)(|L),DSB_CD[O:GR_02,<72-140,9]; F=DP5;
+      TX=M 6107 Nyborg Færge <-> Fredericia (29.07.1990);						\
+	C=DSB_MY_(A|E|F)(|L),3*DSB_4B(|L); F=DP5;
+      TX=M 34627 Padborg <-> Flensborg (05.08.1990);							\
+	C=DSB_MY_(A|E|F)(|L),5*DSB_4B(|L); F=DP5;
+      TX=IC 431 Flensborg <- Lunderskov -> Frederikshavn (05.08.1990);					\
+	C=DSB_MY_(A|E|F)(|L),2*DSB_4A(|L),4*DSB_4B(|L); F=DP5;
+      TX=G 9925 København Godsbanegård <-> Ålborg (11.08.1990);						\
+	C=3*DSB_MY_(A|E|F)(|L),6*SJ_HBIS,SJ_TBIS,DSB_CEMENT,4*CONT90,2*SNCF_S53|SNCF_S58,2*G_HBBILLNS;	\
+	F=F5;
+      TX=G 9539 København Godsbanegård <- Roskilde -> Køge (27.09.1990);				\
+	C=DSB_MX_(A|B|C)(|L),DB_RLMMS58R[OB:FR_WOOD9,,11],						\
+	  DSB_HBIKKS4[CP:41,13,24,20,105,13][CP:43,25,23,6,11,25],G_HBBILLNS,2*G_RILS_L,SJ_HBIS,	\
+	  G_RGS2[OB:WOOD_T1,,12],DSB_4A_E5020EU|DSB_4A_E5000EB(|L),					\
+	  3*(DSB_4A_E5020EU|DSB_4A_E5000EB(|L))[O:FR_T3,,11]|SBB_3E505P1|SBB_3E505P2|SBB_G26;		\
+	F=DF5;
 # should be SeaRail Hbbillns
-  POOL=DB_DK_1990;
-  TX=M 6121 Fredericia <-> Århus (21.09.1990);								\
-    C=<DSB_MRL|DSB_MR1L|DSB_MR2L,DSB_MR|DSB_MR1|DSB_MR2;
-  TX=M 8530 Fredericia <-> Odense (29.09.1990);								\
-    C=DSB_1404(|L),6*DSB_BCM;
-  TX=Nykøbing F. <-> Vordingborg (29.01.1991);								\
-    C=DSB_MY_(A|E|F)(|L),GT28,										\
-      12*CSD_NPP[OB:SKODA,<10,11][OB:SKODA,*,11][OB:SKODA,>150,11][OB:SKODA,<10,28][OB:SKODA,*,28]	\
-      [OB:SKODA,>150,28];
-  C=DSB_1447(|L),HABISTW,G_SGNS10[O:C2031,<6,12][O:C2031,*,12][O:C2031,<130,12],HUPAC_5,		\
-      DSB_HBIKKS4[CP:41,13,24,20,105,13][CP:43,25,23,6,11,25],						\
-      2*G_RGS1[O:PIPE23,<9,11][O:PIPE23,>190,11],DR_4RGS3920L[O:BOILER1,<15,12][O:BOILER1,>184,12],	\
-      SJ_HBBINS,3*EVA_7855631|VTG_859823|MINOL_7967200|VTG_7956816,7*DSB_EAOS1;
+      POOL=DB_DK_1990; F=DP5;
+      TX=M 6121 Fredericia <-> Århus (21.09.1990);							\
+	C=<DSB_MRL|DSB_MR1L|DSB_MR2L,DSB_MR|DSB_MR1|DSB_MR2; F=PU5;
+      TX=M 8530 Fredericia <-> Odense (29.09.1990);							\
+	C=DSB_1404(|L),6*DSB_BCM_MOON; F=DP5;
+      TX=Nykøbing F. <-> Vordingborg (29.01.1991);							\
+	C=DSB_MY_(A|E|F)(|L),GT28,									\
+	  12*CSD_NPP[OB:SKODA,<10,11][OB:SKODA,*,11][OB:SKODA,>150,11][OB:SKODA,<10,28][OB:SKODA,*,28]	\
+	  [OB:SKODA,>150,28];										\
+	F=DF5;
+      C=DSB_1447(|L),HABISTW,G_SGNS10[O:C2031,<6,12][O:C2031,*,12][O:C2031,<130,12],HUPAC_5,		\
+	  DSB_HBIKKS4[CP:41,13,24,20,105,13][CP:43,25,23,6,11,25],					\
+	  2*G_RGS1[O:PIPE23,<9,11][O:PIPE23,>190,11],DR_4RGS3920L[O:BOILER1,<15,12][O:BOILER1,>184,12],	\
+	  SJ_HBBINS,3*EVA_7855631|VTG_859823|MINOL_7967200|VTG_7956816,7*DSB_EAOS1;			\
+	F=DF5;
 # Nørre Alslev 17.05.1991
-  TX=Korsør <- Ringsted -> København Godsbanegård (31.08.1991);						\
-    C=DSB_MX_(A|B|C)(|L),2*G_RGS2[OB:CB_JFE,<12,12][OB:CB_JFE,>187,12],2*G_ES1,6*DRTDS,DB_HBIS299D;
-  TX=Korsør <- Ringsted -> København Godsbanegård (31.08.1991);						\
-    C=2*DSB_MX_(A|B|C)(|L),										\
-      SJ_LGJS1[O:C2R19|C2R13|C2R20|C2_EZ1|C2_EZ2|C2_EZ3|C2_EZ4,<12,12]					\
-      [O:C2R19|C2R13|C2R20|C2_EZ1|C2_EZ2|C2_EZ3|C2_EZ4,>136,12],2*SJ_GBS,				\
-      SJ_LGJS1[O:C2R19|C2R13|C2R20|C2_EZ1|C2_EZ2|C2_EZ3|C2_EZ4,<12,12]					\
-      [O:C2R19|C2R13|C2R20|C2_EZ1|C2_EZ2|C2_EZ3|C2_EZ4,>136,12],15*G_ES1,HABISNORM,G_ES1,8*G_GBGS;
-  C=DSB_MY_(A|E|F)(|L),7*DB_HBIS299D,G_RGS1,2*DB_HBIS299D,SJ_LAAIS831,					\
-      8*DSB_HBIKKS4[CP:41,13,24,20,105,13][CP:43,25,23,6,11,25];
+      TX=Korsør <- Ringsted -> København Godsbanegård (31.08.1991);					\
+	C=DSB_MX_(A|B|C)(|L),2*G_RGS2[OB:CB_JFE,<12,12][OB:CB_JFE,>187,12],				\
+	  2*DSB_4A_E5020EU|DSB_4A_E5000EB(|L),6*DRTDS,DB_HBIS299D;					\
+	F=DF5;
+      TX=Korsør <- Ringsted -> København Godsbanegård (31.08.1991);					\
+	C=2*DSB_MX_(A|B|C)(|L),										\
+	  SJ_LGJS1[O:C2R19|C2R13|C2R20|C2_EZ1|C2_EZ2|C2_EZ3|C2_EZ4,<12,12]				\
+	  [O:C2R19|C2R13|C2R20|C2_EZ1|C2_EZ2|C2_EZ3|C2_EZ4,>136,12],2*SJ_GBS,				\
+	  SJ_LGJS1[O:C2R19|C2R13|C2R20|C2_EZ1|C2_EZ2|C2_EZ3|C2_EZ4,<12,12]				\
+	  [O:C2R19|C2R13|C2R20|C2_EZ1|C2_EZ2|C2_EZ3|C2_EZ4,>136,12],					\
+	  15*DSB_4A_E5020EU|DSB_4A_E5000EB(|L),HABISNORM,DSB_4A_E5020EU|DSB_4A_E5000EB(|L),8*G_GBGS;	\
+	F=DF5;
+      C=DSB_MY_(A|E|F)(|L),7*DB_HBIS299D,G_RGS1,2*DB_HBIS299D,SJ_LAAIS831,				\
+	  8*DSB_HBIKKS4[CP:41,13,24,20,105,13][CP:43,25,23,6,11,25];					\
+	F=DF5;
 # Ringsted 31.08.1991
-  TX=G 7461 Esbjerg <-> Århus (24.06.1992);								\
-    C=DSB_MY_L(|L),2*DSB_MY_(A|E|F)(|L),2*SNCF_LGS_50_6[OB:UM12A5300A,<7,12][OB:UM12A5300A,>132,12],	\
-      SNCB_TMSL|SNCB_TMS,3*G_SGNS(3|5|6|7|8),G_RGS2[OB:SCHALE(1|2),<32,12][OB:SCHALE(1|2),>167,12],	\
-      8*DSB_HBIKKS4[CP:41,13,24,20,105,13][CP:43,25,23,6,11,25],G_RGS2,					\
-      8*DSB_HBIKKS4[CP:41,13,24,20,105,13][CP:43,25,23,6,11,25];
-  TX=Nørrebro <-> København 29.04.1993;									\
-    C=DSB_MX_(A|B|C)(|L),2*SJ_TBIS,DB_SFINS1(A|B|C|D),2*SJ_TBIS,HABISTW,3*HABISNORM,2*SNCF_ROOS516,	\
-      EVA_7855631|VTG_859823,7*HABISTW;
-  TX=Tønder <-> Tinglev (04.08.1993);									\
-    C=DSB_MY_E(|L),OBB_GBS151,2*SJ_HBBINS;
-  C=DSB_MR_4053_MRD_4253;
+      TX=G 7461 Esbjerg <-> Århus (24.06.1992);								\
+	C=DSB_MY_L(|L),2*DSB_MY_(A|E|F)(|L),2*SNCF_LGS_50_6[OB:UM12A5300A,<7,12][OB:UM12A5300A,>132,12], \
+	  SNCB_TMSL|SNCB_TMS,3*G_SGNS(3|5|6|7|8),G_RGS2[OB:SCHALE(1|2),<32,12][OB:SCHALE(1|2),>167,12],	\
+	  8*DSB_HBIKKS4[CP:41,13,24,20,105,13][CP:43,25,23,6,11,25],G_RGS2,				\
+	  8*DSB_HBIKKS4[CP:41,13,24,20,105,13][CP:43,25,23,6,11,25];					\
+	F=DF5;
+      TX=Nørrebro <-> København 29.04.1993;								\
+	C=DSB_MX_(A|B|C)(|L),2*SJ_TBIS,DB_SFINS1(A|B|C|D),2*SJ_TBIS,HABISTW,3*HABISNORM,2*SNCF_ROOS516,	\
+	  EVA_7855631|VTG_859823,7*HABISTW;								\
+	F=DF5;
+      TX=Tønder <-> Tinglev (04.08.1993);								\
+	C=DSB_MY_E(|L),OBB_GBS151,2*SJ_HBBINS; F=DF5;
+      C=DSB_MR_4053_MRD_4253; F=PU5;
 # Tinglev (06.08.1993)
-  C=LB_MX_A,2*DRTDS,G_HBBILLNS,LCONT,KSCONT,LCONT,KSCONT,2*RGSCONT;
-  C=DSB_1420(|L),2*DB_HBIS299(C|D),NSB_HBIKKS1|SJ_HBBINS,NS_HBIS1940B,3*DB_HBIS299(C|D),GT21,		\
-      SBB_EANOS1(|L),DB_4_EAOS051(|B|BL|L),2*CONT90,							\
-      7*G_007|EVA_7855631|VTG_859823|WASC_STE1|ERMEWA_7837302|MINOL_7967200|NACCO_7956673|VTG_7956816|	\
-      VTG_7957043;
+      C=LB_MX_A,2*DRTDS,G_HBBILLNS,LCONT,KSCONT,LCONT,KSCONT,2*RGSCONT; F=F5;
+      C=DSB_1420(|L),2*DB_HBIS299(C|D),NSB_HBIKKS1|SJ_HBBINS,NS_HBIS1940B,3*DB_HBIS299(C|D),GT21,	\
+	  SBB_EANOS1(|L),DB_4_EAOS051(|B|BL|L),2*CONT90,						\
+	  7*G_007|EVA_7855631|VTG_859823|WASC_STE1|ERMEWA_7837302|MINOL_7967200|NACCO_7956673|		\
+	  VTG_7956816|VTG_7957043;									\
+	F=DF5;
 # Tavlov (08.1994)
-  C=VLTJ_YM_12_YS_12;
+      C=<VLTJ_YS,VLTJ_YM; F=5;
 # Lemvig 16.08.1995
-  C=DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L),DBAGEANOS;
-  TX=Nyborg <-> Odense (06.06.1996);									\
-    C=DSB_1404(|L),DR_LAAS[O:TARP1,*68,12][O:TARP1,*203,12],2*DR_LAAS[O:TARP5,*68,12][O:TARP5,*203,12],	\
-      DR_LAAS[O:TARP1,*68,12][O:TARP1,*203,12],2*SJ_LAAIS831,G_RILS_L,4*SJ_HABINS;
-  TX=Svedborg <-> Odense (14.06.1996);									\
-    C=DSB_MY_(G|H)(|L),4*HENKEL02,G_ES1;
-  TX=Nærum <-> Jægersborg (20.08.1996);									\
-    C=LNJ_RS~LIP;
-  C=DSB_1435(|L),GT27,G_KS2,G_RILS_L,2*G_KS2;
+      C=DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L),DBAGEANOS; F=DF5;
+      TX=Nyborg <-> Odense (06.06.1996);								\
+	C=DSB_1404(|L),DR_LAAS[O:TARP1,*68,12][O:TARP1,*203,12],					\
+	  2*DR_LAAS[O:TARP5,*68,12][O:TARP5,*203,12],DR_LAAS[O:TARP1,*68,12][O:TARP1,*203,12],		\
+	  2*SJ_LAAIS831,G_RILS_L,4*SJ_HABINS;								\
+	F=DF5;
+      TX=Svedborg <-> Odense (14.06.1996);								\
+	C=DSB_MY_(G|H)(|L),4*HENKEL02,G_ES1; F=DF5;
+      TX=Nærum <-> Jægersborg (20.08.1996);								\
+	C=LNJ_RS~LIP; F=5;
+      C=DSB_1435(|L),GT27,G_KS2,G_RILS_L,2*G_KS2; F=DF5;
 # Odense 1997
-  C=DSB_EA~ME,GT26,HABISTW;
+      C=(DSB_3002|DSB_3005)(|L),GT26,HABISTW; F=EF5;
 # Odense 20.06.1997
 #Should be Superfos Z and SeaRail 4-door Habis
-  TX=Århus <-> Odense (01.09.1997);									\
-    C=2*DSB_MR_4066_MRD_4266;
-  TX=G 7465 Padborg <-> Århus H. (anno 1998);								\
-    C=DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L),								\
-      46*(G_LGS1[O:C4_MAERSK(|1|2|3),*,11]|SJ_LGJS[O:C4_MAERSK(|1|2|3),*,12]|				\
-      SJ_LGJS1[O:C4_MAERSK(|1|2|3),*,12]);
-  C=DSB_MX_(A|AL|B|BL|C|CL),VTG_CHLOR(1|E),BASF_ACID2,BASF_ISOH|VTG_V2A|KVG_TOX1|SIM_STE|EVA_ST,	\
-      M_277HABIS(|2)|DSB_HBIKKS(1|2|3|4),SJ_HABINS;
-  C=<VLTJ_YBM17,VNJ_MB51L|VNJ_MB51;
+      TX=Århus <-> Odense (01.09.1997);									\
+	C=2*DSB_MR_4066_MRD_4266; F=PU5;
+      TX=G 7465 Padborg <-> Århus H. (anno 1998);							\
+	C=DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L),							\
+	  46*(G_LGS1[O:C4_MAERSK(|1|2|3),*,11]|SJ_LGJS[O:C4_MAERSK(|1|2|3),*,12]|			\
+	  SJ_LGJS1[O:C4_MAERSK(|1|2|3),*,12]);								\
+	F=DF5;
+      C=DSB_MX_(A|AL|B|BL|C|CL),VTG_CHLOR(1|E),BASF_ACID2,BASF_ISOH|VTG_V2A|KVG_TOX1|SIM_STE|EVA_ST,	\
+	  M_277HABIS(|2)|DSB_HBIKKS(1|2|3|4),SJ_HABINS;							\
+	F=DF5;
+      C=<VLTJ_YBM17,VNJ_MB51L|VNJ_MB51; F=5;
 # Silkeborg (anno 1998)
-  C=DSB_MY_(G|H)(|L),VTG_2,VTG_5,GT26,VTG_5,EVA_STE,VTG_2,VTG_5,VTG_6,BOXFLAT,HABISTW;
+      C=DSB_MY_(G|H)(|L),VTG_2,VTG_5,GT26,VTG_5,EVA_STE,VTG_2,VTG_5,VTG_6,BOXFLAT,HABISTW; F=DF5;
 # Grenå 02.03.1998
-  C=DSB_(IC3|IC3A);
-  C=DSB_MX_(A|B|C)(|L),(<DSB_5BDL,2*DSB_4B(|L));
-  C=DSB_MY_(A|B|C|D|E|F)(|L),DSB_MX_(A|B|C)(|L),4*DB_HBIS299D,FRET_MECA2E,DB_HBIS299D,HABISNORM,G_KS2,	\
-      3*HABISNORM;
+      C=DSB_(IC3|IC3A); F=PU5;
+      C=DSB_MX_(A|B|C)(|L),(<DSB_5BDL,2*DSB_4B(|L)); F=DP5;
+      C=DSB_MY_(A|B|C|D|E|F)(|L),DSB_MX_(A|B|C)(|L),4*DB_HBIS299D,FRET_MECA2E,DB_HBIS299D,HABISNORM,	\
+	  G_KS2,3*HABISNORM;										\
+	F=DF5;
 #Soll DSB Hbis und DSB Hios Wagen sein
-  C=VLTJ_MX_A(|L),4*HABISNORM;
+      C=VLTJ_MX_A(|L),4*HABISNORM; F=F5;
 #1999
-  TX=IP 2183 Fredericia <-> Hannover Hbf. (anno 1999);							\
-    C=DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L),DR_ARKIMBZ262_2(|L),		\
-      BM235RL~HEN|BM235R~HEN,2*DBAG_BIMZ264_7(|L);
-  C=DSB_M(E|Y_A|Y_AL|Y_BL),$DIR(DSB_5BDL,DSB_5BD),3-6*(DSB_5BC(|L))[B:186,12,19,6];
-  C=<DSB_4ABNSL,4*DSB_4BN(|L),DSB_MY_(A|AL|B|BL|C|CL|D|DL|E|EL|F|FL);
-  C=DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L),EP5CHEM,				\
-      14*G_SGS(1|2|3|4)|M_454SGS(|4)|G_SGNS(3|7|8)|G_LGS1|SJ_LGJS;
-  TX=FX 6935 Bramming <-> Tønder (anno 1999);								\
-    C=PBS_MY_F(|L),5*EP5CHEM;
-  C=PBS_M(X_A|X_AL|Y_A|Y_AL|Y_B|Y_BL|Y_C|Y_CL|Y_D|Y_DL|Y_E|Y_EL|Y_F|Y_FL),8*SJ_OMS,3*DSB_EAOS1,		\
-      16*CONT90;
+      TX=IP 2183 Fredericia <-> Hannover Hbf. (anno 1999);						\
+	C=DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L),DR_ARKIMBZ262_2(|L),		\
+	  BM235RL~HEN|BM235R~HEN,2*DBAG_BIMZ264_7(|L);							\
+	F=DP5;
+      C=DSB_M(E|Y_A|Y_AL|Y_BL),$DIR(DSB_5BDL,DSB_5BD),3-6*(DSB_5BC(|L))[B:186,12,19,6]; F=DP5;
+      C=<DSB_4ABNSL,4*DSB_4BN(|L),DSB_MY_(A|AL|B|BL|C|CL|D|DL|E|EL|F|FL); F=DP5;
+      C=DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L),EP5CHEM,			\
+	  14*G_SGS(1|2|3|4)|M_454SGS(|4)|G_SGNS(3|7|8)|G_LGS1|SJ_LGJS;					\
+	F=DF5;
+      TX=FX 6935 Bramming <-> Tønder (anno 1999);							\
+	C=PBS_MY_F(|L),5*EP5CHEM; F=F5;
+      C=PBS_M(X_A|X_AL|Y_A|Y_AL|Y_B|Y_BL|Y_C|Y_CL|Y_D|Y_DL|Y_E|Y_EL|Y_F|Y_FL),8*SJ_OMS,3*DSB_EAOS1,	\
+	  16*CONT90;											\
+	F=F5;
 
-}
-{E6?
-  TX=G 7438 Horsens <-> Vejle (anno 2000);								\
-    C=DSB_MX_(A|AL|B|BL|C|CL),HABISTW,G_RGS1|DR_4RGS3910BL|DB_SPS719,					\
-      SJ_LAAIS(831|921)|SJ_HBBINS3~ARN|SJ_HBBILLNS2|DSB_HBIKKS(1|2|3|4);
-  C=PBS_MY_(CL|D|DL|E|EL|F|FL),5*HABISNORM;
-  TX=FM 8836 Odense <-> Århus (30.05.2000);								\
-    C=DSB_EG3100~NB,4*DSB_MY_(A|E|F)(|L),DSB_MY_L(|L);							\
-    AP=[FG-=FL_SBB_F(|2),FL_DSB_M1:..,-5,#;][BG+=TRBED(1|11|12|5|7|8):..,^0][W=X;];
-  C=LJ_M_38|LB_MX_AL|LB_MX_A|OSJS_MX_A|VLTJ_MX_A,8*HABISNORM;
-  C=DSB_MY_(A|E|F)(|L),DSB_EG3100~NB[PD];
-  TX=IR 8135 "Hancock Cup" Skive <-> Struer ( -> København H.)  anno 2000;				\
-    C=<DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L),4*DSB_4BN(|L),			\
-      DSB_4ABNS|DSB_4ADNS;
-  TX=Nykøbing <- Sakskøbing -> Nakskov (23.10.2000);							\
-    C=LB_MX_A(|L),GO27,14*DRTDGS;
-  TX=Malmö <-> København Gb (29.11.2000);								\
-    C=DSB_EG3100~NB,AAE_SGGMRSS90,HABISRS,G_RES1,CONT00,2*SJ_HBBINSZ|SJ_HBBINS1Z|SJ_HBBINS3Z,		\
-      4*AAE_SGNNS|G_SGNNS2|AAE_196SC,GT26,2*DB_SFINS1(A|B|C),DB_HBIS299D,				\
-      4*G_HBBILLNS|SJ_HBBILLNS1|SJ_HBBILLNS2|G_005,							\
-      WASC_STE1|ERMEWA_7837302|GT20|ERMEWA_7956102|KVG_7957089|KVG_7957378|MINOL_7967200|NACCO_7956673|	\
-      NACCO_7965149|VTG_7956816|VTG_7848707|VTG_7848052|VTG_7957043|VTG_MINOEL|KVG_7956310,SJ_LAAIS921,	\
-      4*G_HBBILLNS|SJ_HBBILLNS1|SJ_HBBILLNS2|G_005,DBAG_RILS652|SNCF_RILS206,SJ_HBBILLNS4,		\
-      2*ZSR_245HBBILLNNS,G_007,2*G_HBBILLNS|SJ_HBBILLNS1,						\
-      BASF_ISOH|VTG_1|GT23_BASF|ONRAIL_ISO|VTG_5|GT_ISO_X,2*HABISNORM,OBB_HIRRS292A,SZ_292HIMRRSZ;
-  C=DSB_MX_(A|AL|B|BL|C|CL),CD_RT|BASF_ISO2|M_ZS2(|L)|DR_4A_ZE8006(|L)| BASF_ISO|BASF_ST_D|VTG_2SAEURE,	\
-      KVG_ISO|BASF_ISOH|KVG_TOX1|GT23_BASF,EVA_CHLOR|VTG_CHLOR(1|E)|GT25_BASF| VTG_CHLOR,		\
-      DR_Z(E8006|E8006L|H8020|H8020L)|BASF_ST_D|VTG_2SAEURE|DR_ZSW7361A(|L),4*HABISNORM, G_RGS2,	\
-      4*CSD_RA(1|1A|1B|2),EVA_GAS|VTG_(BUTAN1|GAS|GAS1);
-  TX=GF 7636 Bramming <-> Tønder (anno 2001);								\
-    C=PBS_MY_F(|L),2*ZAS5;
-  TX=G 7688 Esbjerg <-> Fredericia (anno 2001);								\
-    C=2*DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L),				\
-      2*G_RGS(1|2)|DB_RS657|DR_4RGS3910(A|AL|B|BL|RA|RAL|RB|RBL)|DR_4RGS3920(|L|R|RL)| DR_RGS3917(|L),	\
-      3*HABISNORM|M_277HABIS(|2)|SBB_HABILS|OBB_HABIS_RCA|SZ_292HIMRRSZ,G_RGS(1|2),			\
-      M_227HBILS(|2)|SJ_HBBINS2|SJ_HBBINS4|SJ_HBBILLNS(1|2|3|4)|FS_HBBILLNS| CD_HBBILLNS|SZ_HBBILLNS|	\
-      GB15(C|D)|M_246HBBILLNNS(1|2|3|4)| OBB_245HBBILLNNS|ZSR_245HBBILLNNS|CFR_245HBBILLNNS,		\
-      G_SGNS16|AAE_SGNNS1|G_SGNNS1|AAE_SGNNS,HABISNORM,2*G_RILS_L;
-  TX=G 7230 Fredericia <- Odense -> Nyborg (22.02.2001);						\
-    C=DSB_MY_(G|H)(|L),GT_ISO_X,GT29,2*GT31,5*DB_HBIS299D;
-  TX=GD 45754 Padborg <- Odense -> Malmö (22.02.2001);							\
-    C=DSB_EG3100~NB,G_RGS2,DB_HABBIS345,DB_SHIMMSU708(A|AL|BL|C),4*DB_SHIMMNS_TTU722(A|B|C),		\
-      WASC_STE1|ERMEWA_7837302|GT20|ERMEWA_7956102|KVG_7957089|KVG_7957378|MINOL_7967200|NACCO_7956673|	\
-      NACCO_7965149|VTG_7956816|VTG_7848707|VTG_7848052|VTG_7957043|VTG_MINOEL|KVG_7956310,SJ_LAAIS921,	\
-      HABISTW,3*OBB_245HBBILLNNS|KVG_KALKSILOL|KVG_KALKSILO|DB_UACS,2*SJ_LAAIS921,RBB_SILO3|RBB_SILO2;
-  TX=IC 916 Odense <-> København H. (22.02.2001);							\
-    C=2*DSB_5IR4;
-  TX=P32 Nørre Nebel <-> Varde (anno 2001);								\
-    C=<VNJ_YM_71_YS_81;
-  C=HHJ_M_3,2*HHJ_C51;
+    }
+    {E6?
+      TX=G 7438 Horsens <-> Vejle (anno 2000);								\
+	C=DSB_MX_(A|AL|B|BL|C|CL),HABISTW,G_RGS1|DR_4RGS3910BL|DB_SPS719,				\
+	  SJ_LAAIS(831|921)|SJ_HBBINS3~ARN|SJ_HBBILLNS2|DSB_HBIKKS(1|2|3|4);				\
+	F=DF6;
+      C=PBS_MY_(CL|D|DL|E|EL|F|FL),5*HABISNORM; F=F6;
+      TX=FM 8836 Odense <-> Århus (30.05.2000);								\
+	C=DSB_EG3100~NB,4*DSB_MY_(A|E|F)(|L),DSB_MY_L(|L); F=6;
+      C=LJ_M_38|LB_MX_AL|LB_MX_A|OSJS_MX_A|VLTJ_MX_A,8*HABISNORM; F=F6;
+      C=DSB_MY_(A|E|F)(|L),DSB_EG3100~NB[PD]; F=6;
+      TX=IR 8135 "Hancock Cup" Skive <-> Struer ( -> København H.)  anno 2000;				\
+	C=<DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L),4*DSB_4BN(|L),		\
+	  DSB_4ABNS|DSB_4ADNS;										\
+	F=DP6;
+      TX=Nykøbing <- Sakskøbing -> Nakskov (23.10.2000);						\
+	C=LB_MX_A(|L),GO27,14*DRTDGS; F=F6;
+      TX=Malmö <-> København Gb (29.11.2000);								\
+	C=DSB_EG3100~NB,AAE_SGGMRSS90,HABISRS,G_RES1,CONT00,2*SJ_HBBINSZ|SJ_HBBINS1Z|SJ_HBBINS3Z,	\
+	  4*AAE_SGNNS|G_SGNNS2|AAE_196SC,GT26,2*DB_SFINS1(A|B|C),DB_HBIS299D,				\
+	  4*G_HBBILLNS|SJ_HBBILLNS1|SJ_HBBILLNS2|G_005,							\
+	  WASC_STE1|ERMEWA_7837302|GT20|ERMEWA_7956102|KVG_7957089|KVG_7957378|MINOL_7967200|		\
+	  NACCO_7956673|NACCO_7965149|VTG_7956816|VTG_7848707|VTG_7848052|VTG_7957043|VTG_MINOEL|	\
+	  KVG_7956310,SJ_LAAIS921,4*G_HBBILLNS|SJ_HBBILLNS1|SJ_HBBILLNS2|G_005,				\
+	  DBAG_RILS652|SNCF_RILS206,SJ_HBBILLNS4,2*ZSR_245HBBILLNNS,G_007,2*G_HBBILLNS|SJ_HBBILLNS1,	\
+	  BASF_ISOH|VTG_1|GT23_BASF|ONRAIL_ISO|VTG_5|GT_ISO_X,2*HABISNORM,OBB_HIRRS292A,SZ_292HIMRRSZ;	\
+	F=EF6;
+      C=DSB_MX_(A|AL|B|BL|C|CL),									\
+	  CD_RT|BASF_ISO2|M_ZS2(|L)|DR_4A_ZE8006(|L)|BASF_ISO|BASF_ST_D|VTG_2SAEURE,			\
+	  KVG_ISO|BASF_ISOH|KVG_TOX1|GT23_BASF,EVA_CHLOR|VTG_CHLOR(1|E)|GT25_BASF|VTG_CHLOR,		\
+	  DR_Z(E8006|E8006L|H8020|H8020L)|BASF_ST_D|VTG_2SAEURE|DR_ZSW7361A(|L),4*HABISNORM,G_RGS2,	\
+	  4*CSD_RA(1|1A|1B|2),EVA_GAS|VTG_(BUTAN1|GAS|GAS1);						\
+	F=DF6;
+      TX=GF 7636 Bramming <-> Tønder (anno 2001);							\
+	C=PBS_MY_F(|L),2*ZAS5; F=F6;
+      TX=G 7688 Esbjerg <-> Fredericia (anno 2001);							\
+	C=2*DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L),				\
+	  2*G_RGS(1|2)|DB_RS657|DR_4RGS3910(A|AL|B|BL|RA|RAL|RB|RBL)|DR_4RGS3920(|L|R|RL)|DR_RGS3917(|L), \
+	  3*HABISNORM|M_277HABIS(|2)|SBB_HABILS|OBB_HABIS_RCA|SZ_292HIMRRSZ,G_RGS(1|2),			\
+	  M_227HBILS(|2)|SJ_HBBINS2|SJ_HBBINS4|SJ_HBBILLNS(1|2|3|4)|FS_HBBILLNS|CD_HBBILLNS|SZ_HBBILLNS| \
+	  GB15(C|D)|M_246HBBILLNNS(1|2|3|4)|OBB_245HBBILLNNS|ZSR_245HBBILLNNS|CFR_245HBBILLNNS,		\
+	  G_SGNS16|AAE_SGNNS1|G_SGNNS1|AAE_SGNNS,HABISNORM,2*G_RILS_L;					\
+	F=DF6;
+      TX=G 7230 Fredericia <- Odense -> Nyborg (22.02.2001);						\
+	C=DSB_MY_(G|H)(|L),GT_ISO_X,GT29,2*GT31,5*DB_HBIS299D; F=DF6;
+      TX=GD 45754 Padborg <- Odense -> Malmö (22.02.2001);						\
+	C=DSB_EG3100~NB,G_RGS2,DB_HABBIS345,DB_SHIMMSU708(A|AL|BL|C),4*DB_SHIMMNS_TTU722(A|B|C),	\
+	  WASC_STE1|ERMEWA_7837302|GT20|ERMEWA_7956102|KVG_7957089|KVG_7957378|MINOL_7967200|		\
+	  NACCO_7956673|NACCO_7965149|VTG_7956816|VTG_7848707|VTG_7848052|VTG_7957043|VTG_MINOEL|	\
+	  KVG_7956310,SJ_LAAIS921,HABISTW,3*OBB_245HBBILLNNS|KVG_KALKSILOL|KVG_KALKSILO|DB_UACS,	\
+	  2*SJ_LAAIS921,RBB_SILO3|RBB_SILO2;								\
+	F=EF6;
+      TX=IC 916 Odense <-> København H. (22.02.2001);							\
+	C=2*DSB_5IR4; F=EPU6;
+      TX=P32 Nørre Nebel <-> Varde (anno 2001);								\
+	C=<<VNJ_YS,VNJ_YM; F=6;
+      C=HHJ_M_3,2*HHJ_C51; F=6;
 # 2001
-  TX=Tønder <-> Grinsted (18.04.2001);									\
-    C=NVAG_DL2L~HEN|NVAG_DL2~HEN,MINOL_7845444,EVA_STE;
-  TX=IP 2183 Fredericia <-> Hildesheim Hbf. (anno 2001);						\
-    C=2*DSB_EA~ME,2*DBAG_BIMZ259(|L);
-  TX=G 7230 Fredericia <-> Nyborg (21.05.2001);								\
-    C=DSB_1404(|L),EVA_7855631,VTG_1,VTG_6,3*DB_HBIS299D,2*SJ_HBIS|SJ_HBBINSZ;
-  TX=Odense <-> Fredericia (04.07.2001);								\
-    C=2*DSB_IC3A,DSB_5IR4;										\
-    AP=[FG-=FL_SBB_F(|2),FL_DSB_M1:..,-5,#;][BG+=TRBED(1|11|12|5|7|8):..,^0][W=X;];
-  TX=Ringe <-> Odense (04.07.2001);									\
-    C=2*DSB_MQ;
-  TX=M 7360 Fredericia <-> Padborg (anno 2001);								\
-    C=DSB_EA~ME,2*DBBM4|3:(BM235RL~HEN|BM235R~HEN)|2:(DBAG_BM235VRL~HEN|DBAG_BM235VR~HEN),		\
-      2*DB_4WLABSM166(|L),DBAG_APMZ117VRH(|L)|DBAG_APMZ121VR(|L)|APMZ122_VR,				\
-      4*DBBM4|3:(BM235RL~HEN|BM235R~HEN)|2:(DBAG_BM235VRL~HEN|DBAG_BM235VR~HEN),2*DB_4WLABSM166(|L);
-  TX=M 8129 Fredericia <-> Skjern (anno 2001);								\
-    C=<DSB_MER~OLE,BV_QIM,DSB_4ADNSL,DSB_ME1;
-  TX=Holbæk <-> Nykøbing Sj. (07.08.2001);								\
-    C=OHJ_MX_B(|L),OHJ_BM283,OHJ_BN_B(|L),OHJ_BN_A(|L),OHJ_BN_B(|L);
-  TX=Holbæk <-> Høng (07.08.2001);									\
-    C=OHJ_MX_B(|L),17*DRTDS;
-  TX=GD 40749 Malmö <-> Padborg (anno 2001);								\
-    C=DSB_EG3100~ECK,ACTSCONTFLAT,DB_HBIS299D,2*G_HBBILLNS,SJ_OS1,4*DB_HBIS299D,			\
-      3*G_HBBILLNS|SJ_HBBILLNS1,DR_4RGS3920L|DR_4RGS3920,2*HABISNORM,3*G_RGS2[OB:STEEL(1|2),,12],	\
-      3*SJ_LAAIS921,2*HABISNORM;
-  C=<SB_YS_12L,SB_MW_5,SB_YM_1;
+      TX=Tønder <-> Grinsted (18.04.2001);								\
+	C=NVAG_DL2L~HEN|NVAG_DL2~HEN,MINOL_7845444,EVA_STE; F=F6;
+      TX=IP 2183 Fredericia <-> Hildesheim Hbf. (anno 2001);						\
+	C=2*(DSB_3002|DSB_3005)(|L),2*DBAG_BIMZ259(|L); F=EP6;
+      TX=G 7230 Fredericia <-> Nyborg (21.05.2001);							\
+	C=DSB_1404(|L),EVA_7855631,VTG_1,VTG_6,3*DB_HBIS299D,2*SJ_HBIS|SJ_HBBINSZ; F=DF6;
+      TX=Odense <-> Fredericia (04.07.2001);								\
+	C=2*DSB_IC3A,DSB_5IR4; F=EPU6;
+      TX=Ringe <-> Odense (04.07.2001);									\
+	C=2*DSB_MQ; F=PU6;
+      TX=M 7360 Fredericia <-> Padborg (anno 2001);							\
+	C=(DSB_3002|DSB_3005)(|L),									\
+	  2*DBBM4|3:(BM235RL~HEN|BM235R~HEN)|2:(DBAG_BM235VRL~HEN|DBAG_BM235VR~HEN),2*DB_4WLABSM166(|L), \
+	  DBAG_APMZ117VRH(|L)|DBAG_APMZ121VR(|L)|APMZ122_VR,						\
+	  4*DBBM4|3:(BM235RL~HEN|BM235R~HEN)|2:(DBAG_BM235VRL~HEN|DBAG_BM235VR~HEN),2*DB_4WLABSM166(|L); \
+	F=EP6;
+      TX=M 8129 Fredericia <-> Skjern (anno 2001);							\
+	C=<DSB_MER~OLE,BV_QIM,DSB_4ADNSL,DSB_ME1; F=DP6;
+      TX=Holbæk <-> Nykøbing Sj. (07.08.2001);								\
+	C=OHJ_MX_B(|L),OHJ_BM283,OHJ_BN_B(|L),OHJ_BN_A(|L),OHJ_BN_B(|L); F=6;
+      TX=Holbæk <-> Høng (07.08.2001);									\
+	C=OHJ_MX_B(|L),17*DRTDS; F=F6;
+      TX=GD 40749 Malmö <-> Padborg (anno 2001);							\
+	C=DSB_EG3100~ECK,ACTSCONTFLAT,DB_HBIS299D,2*G_HBBILLNS,SJ_OS1,4*DB_HBIS299D,			\
+	  3*G_HBBILLNS|SJ_HBBILLNS1,DR_4RGS3920L|DR_4RGS3920,2*HABISNORM,3*G_RGS2[OB:STEEL(1|2),,12],	\
+	  3*SJ_LAAIS921,2*HABISNORM;									\
+	F=EF6;
+      C=<SB_YS,SB_YP,SB_YM; F=6;
 # Skagen 11.08.2001
-  TX=Grindsted <-> Bramming (anno 2001);								\
-    C=NVAG_DL2L~HEN|NVAG_DL2~HEN,2*ZAS5; V=5;
-  TX=IP 2185 "Nordpilen" Fredericia <-> Hannover Hbf. (anno 2001);					\
-    C=DSB_EA~ME,DBAG_BIMZ259(|L),DBAG_APMZ117VRH(|L),DBAG_BIMZ259(|L);
-  TX=Hallsberg <- Padborg -> Hamburg (07.04.2002);							\
-    C=DSB_EG3100~NB[B:45,15,21,13][B:63,14,45,12],HABISTW,ZSR_245HBBILLNNS,				\
-      DB_HABIS6RS2[CP:155,17,70,15,79,17,70,15],3*HABISTW,VTG_6,2*GB15D|GB15C,3*SJ_LAAIS921,		\
-      SJ_HBBINS3~ARN,GB15D|GB15C,HABISTW;
-  TX=IR 1673 København H. <-> Odense (21.06.2002);							\
-    C=<DSB_EA~NIL,7*DSB_4BN(|L),DSB_4ADNS|DSB_4ABNS;
-  TX=M 8262 Odense <-> Svendborg (30.07.2002);								\
-    C=DSB_MQB~LIP;
-  TX=G 7643 Fredericia <-> Esbjerg (anno 2002);								\
-    C=DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L),2*G_HBBILLNS,SGNS,		\
-      G_SGNS13[O:CT_HOYER1,,12]|G_SGNS14[O:CT_HOYER1,,12],SGNS,2*CD_HABBILLNS,HABISNORM,		\
-      DBC_AUTOTEILE(1|2|3)|RAI_AUTOTEILE(1|2),OBB_245HBBILLNNS|ZSR_245HBBILLNNS,			\
-      8*G_RGS2[OB:STEEL(1|2),,12];
-  TX=Varde <-> Nørre-Nebel (22.08.2002);								\
-    C=VNJ_YM_71_YS_81;
-  TX=RV 2838 Odense <-> Svendborg (24.08.2002);								\
-    C=DSB_MQ;
-  TX=IP 2185 Fredericia <-> Hannover (10.09.2002);							\
-    C=DSB_EA~ME,$DIR(DBAG_ARKIMBZ2622W,DBAG_ARKIMBZ2622WL),DBAG_BOMZ236W(|L),DBAG_BIMZ259(|L);
-  TX=RV 2854 Odense <-> Svendborg (11.09.2002);								\
-    C=DSB_MR_4066_MRD_4266;
-  TX=RV 5055 Ringe <-> Odense (11.09.2002);								\
-    C=DSB_MQ;
-  TX=IC 845 Zugtrennung in Odense (08.12.2002);								\
-    M=CUT; C1=DSB_IC3; C2=2*DSB_5IR4;									\
-    AP=[FG-=FL_SBB_F(|2),FL_DSB_M1:..,-5,#;][BG+=TRBED(1|11|12|5|7|8):..,^0][W=X;];
-  TX=IC 145 Frederikshavn <-> København (11.01.2003);							\
-    C=<2*DSB_IC3A;
-  C=<SB_YS_12L,SB_MW_5,SB_YM_1;
-  TX=GD 45761 København Gb <-> Padborg (06.02.2003);							\
-    C=DSB_EA~ME[PFU],DSB_EA~ME,30*BOXFLAT;
-  TX=G 7230 Fredericia <-> Nyborg (06.02.2003);								\
-    C=DSB_1404L|DSB_1404,4*NACCO_7966567,GT27,SJ_GBS,G_SHIMNS_L,G_KS2[OB:CABLE10,,12],7*DB_HBIS299D;	\
-    AP=[FG-=FL_SBB_F(|2),FL_DSB_M1:..,-5,#;][BG+=TRBED(1|11|12|5|7|8):..,^0][W=X;];
-  C=OHJ_MX_A(|L)|OHJ_MX_B(|L),4*OHJ_BN_B(|L);
-  TX=RØ 1229 København H. <-> Gedser (12.04.2003);							\
-    C=<DSB_ME(1|2),3*4:DSB_4BN(|L)|DSB_5BN(|L),DSB_4ADNS;
-  POOL=DK_INTL_2003;
-  C=<DSB_EA~ME,2*3:DSB_4BN(|L)|DSB_5BN(|L),DSB_4ADNS;
-  TX=IR 1661 København H. <-> Odense (25.07.2003);							\
-    C=<DSB_MEB~OLE,2*DSB_DDP,DSB_DDW,DSB_DDS;
-  TX=G 8673 Nyborg <-> Fredericia (35.07.2003);								\
-    C=DSB_1452(|L),DB_HBIS299D,VTG_1,ITG_ISO,EVA_7855631;
-  TX=G 8743 København Gb <-> Fredericia (25.07.2003);							\
-    C=DSB_EA~ME,6*CONT00,4*HABISTW;
-  TX=IP 13295 København H. <-> Padborg (25.07.2003);							\
-    C=DSB_MEB~OLE,10*DSB_5BC(|L);
-  C=DSB_ME1|DSB_ME2,5*4:DSB_4BN(|L)|DSB_5BN(|L);
-  TX=Lemvig <-> Bjergbanen (01.08.2003);								\
-    C=VLTJ_YBM17;
-  TX=Struer <-> Thyborøn (01.08.2003);									\
-    C=VLTJ_YM_12_YS_12;
-  C=<DSB_ME1|DSB_ME2|DSB_MEB~OLE,4*(4:DSB_4BN(|L)|DSB_5BN(|L)),DSB_4ADNS;
+      TX=Grindsted <-> Bramming (anno 2001);								\
+	C=NVAG_DL2L~HEN|NVAG_DL2~HEN,2*ZAS5; V=5; F=F6;
+      TX=IP 2185 "Nordpilen" Fredericia <-> Hannover Hbf. (anno 2001);					\
+	C=(DSB_3002|DSB_3005)(|L),DBAG_BIMZ259(|L),DBAG_APMZ117VRH(|L),DBAG_BIMZ259(|L); F=EP6;
+      TX=Hallsberg <- Padborg -> Hamburg (07.04.2002);							\
+	C=DSB_EG3100~NB[B:45,15,21,13][B:63,14,45,12],HABISTW,ZSR_245HBBILLNNS,				\
+	  DB_HABIS6RS2[CP:155,17,70,15,79,17,70,15],3*HABISTW,VTG_6,2*GB15D|GB15C,3*SJ_LAAIS921,	\
+	  SJ_HBBINS3~ARN,GB15D|GB15C,HABISTW;								\
+	F=EF6;
+      TX=IR 1673 København H. <-> Odense (21.06.2002);							\
+	C=<DSB_EA~NIL,7*DSB_4BN(|L),DSB_4ADNS|DSB_4ABNS; F=EP6;
+      TX=M 8262 Odense <-> Svendborg (30.07.2002);							\
+	C=DSB_MQB~LIP; F=PU6;
+      TX=G 7643 Fredericia <-> Esbjerg (anno 2002);							\
+	C=DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L),2*G_HBBILLNS,SGNS,		\
+	  G_SGNS13[O:CT_HOYER1,,12]|G_SGNS14[O:CT_HOYER1,,12],SGNS,2*CD_HABBILLNS,HABISNORM,		\
+	  DBC_AUTOTEILE(1|2|3)|RAI_AUTOTEILE(1|2),OBB_245HBBILLNNS|ZSR_245HBBILLNNS,			\
+	  8*G_RGS2[OB:STEEL(1|2),,12];									\
+	F=DF6;
+      TX=Varde <-> Nørre-Nebel (22.08.2002);								\
+	C=<VNJ_YS,VNJ_YM; F=6;
+      TX=RV 2838 Odense <-> Svendborg (24.08.2002);							\
+	C=DSB_MQ; F=PU6;
+      TX=IP 2185 Fredericia <-> Hannover (10.09.2002);							\
+	C=(DSB_3002|DSB_3005)(|L),$DIR(DBAG_ARKIMBZ2622W,DBAG_ARKIMBZ2622WL),DBAG_BOMZ236W(|L),		\
+	  DBAG_BIMZ259(|L);										\
+	F=EP6;
+      TX=RV 2854 Odense <-> Svendborg (11.09.2002);							\
+	C=DSB_MR_4066_MRD_4266; F=PU6;
+      TX=RV 5055 Ringe <-> Odense (11.09.2002);								\
+	C=DSB_MQ; F=PU6;
+      TX=IC 845 Zugtrennung in Odense (08.12.2002);							\
+	M=CUT; C1=DSB_IC3; C2=2*DSB_5IR4; P=50-500; F=EPUO6;
+      TX=IC 145 Frederikshavn <-> København (11.01.2003);						\
+	C=<2*DSB_IC3A; F=PU6;
+      C=<SB_YS,SB_YP,SB_YM; F=6;
+      TX=GD 45761 København Gb <-> Padborg (06.02.2003);						\
+	C=(DSB_3002|DSB_3005)(|L)[PFU],(DSB_3002|DSB_3005)(|L),30*BOXFLAT; F=EF6;
+      TX=G 7230 Fredericia <-> Nyborg (06.02.2003);							\
+	C=DSB_1404L|DSB_1404,4*NACCO_7966567,GT27,SJ_GBS,G_SHIMNS_L,G_KS2[OB:CABLE10,,12],7*DB_HBIS299D; \
+	F=DF6;
+      C=OHJ_MX_A(|L)|OHJ_MX_B(|L),4*OHJ_BN_B(|L); F=6;
+      TX=RØ 1229 København H. <-> Gedser (12.04.2003);							\
+	C=<DSB_ME(1|2),3*4:DSB_4BN(|L)|DSB_5BN(|L),DSB_4ADNS; F=DP6;
+      POOL=DK_INTL_2003; F=PU6;
+      C=<(DSB_3002|DSB_3005)(|L),2*3:DSB_4BN(|L)|DSB_5BN(|L),DSB_4ADNS; F=EP6;
+      TX=IR 1661 København H. <-> Odense (25.07.2003);							\
+	C=<DSB_MEB~OLE,2*DSB_DDP,DSB_DDW,DSB_DDS; F=DP6;
+      TX=G 8673 Nyborg <-> Fredericia (35.07.2003);							\
+	C=DSB_1452(|L),DB_HBIS299D,VTG_1,ITG_ISO,EVA_7855631; F=DF6;
+      TX=G 8743 København Gb <-> Fredericia (25.07.2003);						\
+	C=(DSB_3002|DSB_3005)(|L),6*CONT00,4*HABISTW; F=EF6;
+      TX=IP 13295 København H. <-> Padborg (25.07.2003);						\
+	C=DSB_MEB~OLE,10*DSB_5BC(|L); F=DP6;
+      C=DSB_ME1|DSB_ME2,5*4:DSB_4BN(|L)|DSB_5BN(|L); F=DP6;
+      TX=Lemvig <-> Bjergbanen (01.08.2003);								\
+	C=VLTJ_YBM17; F=6;
+      TX=Struer <-> Thyborøn (01.08.2003);								\
+	C=<VLTJ_YS,VLTJ_YM; F=6;
+      C=<DSB_ME1|DSB_ME2|DSB_MEB~OLE,4*(4:DSB_4BN(|L)|DSB_5BN(|L)),DSB_4ADNS; F=DP6;
 #Glumsø 2005
-  TX=København <-> Tåstrup (anno 2005);									\
-    C=<DSB_DDSL,3*DSB_DDW,DSB_MEB~OLE;
-  C=<DSB_DDSL,3*DSB_DDP,DSB_DDW,DSB_MEB~OLE;
-  C=DSB_EA~ME,8*DSB_5BC(|L),DB_DMSW,0|1*DB_BOMZ236(|L);
-  TX=EC 270 Praha <-> Århus H. (anno 2005);								\
-    C=DSB_ME(1|2),DSB_EA~ME,CD_1991(|L),CD_2191(|L),CD_WRRMZ2(|L)|CD_WRMEE(|L)|CD_WRRM(2|2L|3|3L),	\
-      CD_1991(|L);
-  C=2*DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L);
-  TX=RV 8358 Esbjerg <-> Lunderskov (anno 2005);							\
-    C=DSB_MR_4066_MRD_4266;
-  TX=G 9227 Høje Tåstrup <-> Esbjerg (anno 2005);							\
-    C=DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L),21*INTERMODAL;
-  TX=Aalborg <-> Skagen (anno 2005);									\
-    C=(DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L))|DSB_EG3100~NB,			\
-      (4@CFR_IAEGHS1,CFR_IAIIS,4@CFR_IAEGHS1);
-  TX=G 7567 Fredericia <-> Esbjerg (anno 2005);								\
-    C=DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L),15*DSB_4BN(|L)|DSB_5BN(|L);
-  TX=IP 13288 "Ferieexpressen" Hamburg Hbf. <-> København (anno 2005);					\
-    C=DSB_EA~ME,5*DSB_5BC(|L);
-  TX=IC 4757 Helgoland <-> Sønderborg (anno 2005);							\
-    C=DSB_IC3A,2*DSB_5IR4;
-  C=DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L),2*ZACGS,				\
-      2*G_HBBILLNS|SJ_HBBILLNS(1|3|4),3*AUTORACKD,3*ZACGS;
-  C=DSB_EG3105,BOXFLAT,INTERMODAL,14*BOXFLAT;
-  C=2*DSB_ET;
-  C=<DSB_DDSL,5*DSB_DDW,DSB_MEB~OLE;
-  C=DSB_EA~ME,17*CONT00;
-  C=OHJ_MX_B(|L),OHJ_BM283,2*OHJ_BN_B(|L),OHJ_BM283;
-  C=<DSB_IC4FL,DSB_IC4M2,DSB_IC4M1,DSB_IC4F;
-  C=2*HFHJ_MX_(A|B)(|L),2*G_KS1,2*SJ_OMS,5*G_RGS2,G_KS1,5*G_RGS2;
-  C=DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L),26*G_KS1,DSB_DA,DSB_CC,DSB_AC,	\
-      DSB_AU,DSB_AC,DSB_4B(|L);
-  C=VNJ_YM_71_YS_81;
+      TX=København <-> Tåstrup (anno 2005);								\
+	C=<DSB_DDSL,3*DSB_DDW,DSB_MEB~OLE; F=DP6;
+      C=<DSB_DDSL,3*DSB_DDP,DSB_DDW,DSB_MEB~OLE; F=DP6;
+      C=(DSB_3002|DSB_3005)(|L),8*DSB_5BC(|L),DB_DMSW,0|1*DB_BOMZ236(|L); F=EP6;
+      TX=EC 270 Praha <-> Århus H. (anno 2005);								\
+	C=DSB_ME(1|2),(DSB_3002|DSB_3005)(|L),CD_1991(|L),CD_2191(|L),					\
+	  CD_WRRMZ2(|L)|CD_WRMEE(|L)|CD_WRRM(2|2L|3|3L),CD_1991(|L);					\
+	F=P6;
+      C=2*DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L); F=D6;
+      TX=RV 8358 Esbjerg <-> Lunderskov (anno 2005);							\
+	C=DSB_MR_4066_MRD_4266; F=PU6;
+      TX=G 9227 Høje Tåstrup <-> Esbjerg (anno 2005);							\
+	C=DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L),21*INTERMODAL; F=DF6;
+      TX=Aalborg <-> Skagen (anno 2005);								\
+	C=(DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L))|DSB_EG3100~NB,		\
+	  (4@CFR_IAEGHS1,CFR_IAIIS,4@CFR_IAEGHS1);							\
+	F=F6;
+      TX=G 7567 Fredericia <-> Esbjerg (anno 2005);							\
+	C=DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L),15*DSB_4BN(|L)|DSB_5BN(|L);	\
+	F=DP6;
+      TX=IP 13288 "Ferieexpressen" Hamburg Hbf. <-> København (anno 2005);				\
+	C=(DSB_3002|DSB_3005)(|L),5*DSB_5BC(|L); F=EP6;
+      TX=IC 4757 Helgoland <-> Sønderborg (anno 2005);							\
+	C=DSB_IC3A,2*DSB_5IR4; F=EPU6;
+      C=DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L),2*ZACGS,			\
+	  2*G_HBBILLNS|SJ_HBBILLNS(1|3|4),3*AUTORACKD,3*ZACGS;						\
+	F=DF6;
+      C=DSB_EG3103(|L),BOXFLAT,INTERMODAL,14*BOXFLAT; F=EF6;
+      C=2*DSB_ET; F=EPU6;
+      C=<DSB_DDSL,5*DSB_DDW,DSB_MEB~OLE; F=DP6;
+      C=(DSB_3002|DSB_3005)(|L),17*CONT00; F=EF6;
+      C=OHJ_MX_B(|L),OHJ_BM283,2*OHJ_BN_B(|L),OHJ_BM283; F=6;
+      C=DSB_IC4(|L); F=PU6;
+      C=2*HFHJ_MX_(A|B)(|L),2*G_KS1,2*SJ_OMS,5*G_RGS2,G_KS1,5*G_RGS2; F=F6;
+      C=DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L),26*G_KS1,DSB_DA,DSB_CC,DSB_AC,	\
+	  DSB_AU,DSB_AC,DSB_4B(|L);									\
+	F=D6;
+      C=<VNJ_YS,VNJ_YM; F=6;
 # Varde 04.02.2006
-  C=DSB_MY_L(|L),$DIR(DSB_4BDL,DSB_4BD),2*DSB_4B(|L),DSB_4A(|L);
-  C=<DSB_MA2FL,DSB_MA2BAR,DSB_MA2A,DSB_MA2E;
+      C=DSB_MY_L(|L),$DIR(DSB_4BDL,DSB_4BD),2*DSB_4B(|L),DSB_4A(|L); F=DP6;
+      C=(<DSB_MA3L,DSB_AM3,DSB_BMK3,DSB_BMS3)|(<DSB_MA3,DSB_AM3L,DSB_BMK3L,DSB_BMS3L); F=PU6;
 # Odense 17.04.2006
-  C=DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L),16*BOXFLAT,HUPAC_196,BOXFLAT,	\
-      6*HUPAC_2|HUPAC_196;
-  C=3*DSB_IC3A;
-  C=DSB_EG3100~NB,2*HABISCW,4*DR_4RES3936R(|L),VTG_2SAEURE,13*HABISCW;
-  C=2*DSB_IC3A,DSB_IC3,DSB_IC3A;
-  TX="Vigen" Lemvig <-> Rønland Trinbræt (05.05.2006);							\
-    C=<LM_SW_1L,LM_MW_1;
-  C=DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L),7*G_RGS2;
-  TX=Bajstrup <-> Padborg (30.07.2006);									\
-    C=DSB_MR_4066_MRD_4266;
-  C=DSB_EG3100~NB[B:45,15,21,13][B:63,14,45,12],HABISTW,2*G_SGNNS3[O:CB_01,<6,11][O:CB_01,>192,11],	\
-      12*HABISTW;
+      C=DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L),16*BOXFLAT,HUPAC_196,BOXFLAT,	\
+	  6*HUPAC_2|HUPAC_196;										\
+	F=DF6;
+      C=3*DSB_IC3A; F=PU6;
+      C=DSB_EG3100~NB,2*HABISCW,4*DR_4RES3936R(|L),VTG_2SAEURE,13*HABISCW; F=EF6;
+      C=2*DSB_IC3A,DSB_IC3,DSB_IC3A; F=PU6;
+      TX="Vigen" Lemvig <-> Rønland Trinbræt (05.05.2006);						\
+	C=<LM_SW_1L,LM_MW_1; F=6;
+      C=DSB_1404(|L)|DSB_1420(|L)|DSB_1435(|L)|DSB_1447(|L)|DSB_1452(|L),7*G_RGS2; F=DF6;
+      TX=Bajstrup <-> Padborg (30.07.2006);								\
+	C=DSB_MR_4066_MRD_4266; F=PU6;
+      C=DSB_EG3100~NB[B:45,15,21,13][B:63,14,45,12],HABISTW,2*G_SGNNS3[O:CB_01,<6,11][O:CB_01,>192,11],	\
+	  12*HABISTW;											\
+	F=EF6;
 # Padborg 30.07.2006
-  TX=Bajstrup <-> Fredericia (30.07.2006);								\
-    C=DSB_MR_4066_MRD_4266;
-  C=DSB_EG3100~NB[B:45,15,21,13][B:63,14,45,12],20*BOXFLAT;
-  TX=Bajstrup <-> Tinglev (30.07.2006);									\
-    C=2*DSB_IC3;
-  TX=RV 6959 Aalborg <-> Frederikshavn (03.08.2006);							\
-    C=DSB_MR_4066_MRD_4266;
-  C=<DSB_MLL,DSB_FL,DSB_ML;
+      TX=Bajstrup <-> Fredericia (30.07.2006);								\
+	C=DSB_MR_4066_MRD_4266; F=PU6;
+      C=DSB_EG3100~NB[B:45,15,21,13][B:63,14,45,12],20*BOXFLAT; F=EF6;
+      TX=Bajstrup <-> Tinglev (30.07.2006);								\
+	C=2*DSB_IC3; F=PU6;
+      TX=RV 6959 Aalborg <-> Frederikshavn (03.08.2006);						\
+	C=DSB_MR_4066_MRD_4266; F=PU6;
+      C=<DSB_MLL,DSB_FL,DSB_ML; F=PU6;
 # Hillerød 14.08.2006
-  C=3*DSB_MR_4066_MRD_4266;
+      C=3*DSB_MR_4066_MRD_4266; F=PU6;
 # Næstved 18.08.2006
-  TX=EN 482 "Hans Christian Andersen" München Hauptbahnhof <- Fulda - Hannover Hbf. -> København H. (17.10.2006); \
-    C=DSB_EA~ME,											\
-      (CNL_WL1~KMN,2*(DBAG_BM235VRL~HEN|DBAG_BM235VR~HEN),2*DBAG_BOMZ236_6N(|L),			\
-      0|1*(DBAG_BM235VRL~HEN|DBAG_BM235VR~HEN))|							\
-      (0|1*(DBAG_BM235VRL~HEN|DBAG_BM235VR~HEN),DBAG_BOMZ236_6N(|L),					\
-      (DBAG_BM235VRL~HEN|DBAG_BM235VR~HEN),CNL_WL2~KMN|CNL_WL3~KMN),CNL_WL1~KMN,			\
-      (DB_8895002(|L))|2:(DBAG_WRMZ137VRH(|L))|4:(DBAG_WRMZ137WH(|L)),					\
-      3*(DBAG_BM235VRL~HEN|DBAG_BM235VR~HEN),DBAG_BOMZ236_6N(|L);
+      TX=EN 482 "Hans Christian Andersen" München Hauptbahnhof <- Fulda - Hannover Hbf. -> København H. (17.10.2006); \
+	C=(DSB_3002|DSB_3005)(|L),									\
+	  (CNL_WL1~KMN,2*(DBAG_BM235VRL~HEN|DBAG_BM235VR~HEN),2*DBAG_BOMZ236_6N(|L),			\
+	  0|1*(DBAG_BM235VRL~HEN|DBAG_BM235VR~HEN))|							\
+	  (0|1*(DBAG_BM235VRL~HEN|DBAG_BM235VR~HEN),DBAG_BOMZ236_6N(|L),				\
+	  (DBAG_BM235VRL~HEN|DBAG_BM235VR~HEN),CNL_WL2~KMN|CNL_WL3~KMN),CNL_WL1~KMN,			\
+	  (DB_8895002(|L))|2:(DBAG_WRMZ137VRH(|L))|4:(DBAG_WRMZ137WH(|L)),				\
+	  3*(DBAG_BM235VRL~HEN|DBAG_BM235VR~HEN),DBAG_BOMZ236_6N(|L);					\
+	F=EP6;
 # EA should be in blue livery
-  TX=L 45 København H. <-> Frederikshavn (29.12.2006);							\
-    C=DSB_IC3A,2*DSB_IC3;
-}
-%ENDPOOL;
+      TX=L 45 København H. <-> Frederikshavn (29.12.2006);						\
+	C=DSB_IC3A,2*DSB_IC3; F=PU6;
+    }
+  %ENDPOOL;
 }
 ###############################################################################
-##									     ##
-##                                   Norway                                  ##
-##									     ##
+##                                                                           ##
+##                                  Norway                                   ##
+##                                                                           ##
 ###############################################################################
 {N?
-%ADDPOOL(POOL_N,N_ENV)
-{E4?
-  C=2@(<NSB_BM65E,NSB_BM65B,NSB_BM65);
+  %ADDPOOL(POOL_N,N_ENV)
+    {E4?
+      C=2@(<NSB_BM65E,NSB_BM65B,NSB_BM65); F=EPU4;
 #1973
-  TX=Larvik <-> Tønsberg (27.05.1978);									\
-    C=<NSB_BM65E,NSB_BM65;
-  C=NSB_EL10A|NSB_DI3_J1|NSB_SKD206{NEK?|NSB_2770~NEK2},3-4*NSB_UADHS;
-  C=NSB_EL16_(A|C)|NSB_EL18~ZS,6*NSB_B_EX(|L);
-  C=FLAM_EL17~ZS,NSB_BD5_B,3*NSB_B5_BL;
-  C=NSB_BM69A;
-  C=NSB_DI4~ZS,12*NSB_HCCRRS(0|1|2|3);
-  M=BACK; C=NSB_EL10,3*SJ_SDGMS|G_SGNS(1|2|3|4|5|6|7|8|9);
-  C=<NSB_BM68E,2*NSB_BM68B,NSB_BM68;
-  C=NSB_EL16_B,2*NSB_B3_B(|L),SJ_B5Y|3:SJ_B5~ARN,SJ_B1Y|3:SJ_B1~ARN,SJ_A2Y|3:SJ_A2,SJ_B5Y|3:SJ_B5~ARN;	\
-    AP=[TX=Tog 51 "Sveridgepilen" Stockholm <- Karlstad -> Oslo (anno 1982)]|				\
-      [TX=Tog 57 "Sveridgepilen" Oslo <- Karlstad -> Stockholm (anno 1982)];
-  C=NSB_BM70(|A);
-  C=NSB_DI3_(A|AL|B|BL|C|CL|F|FL|M|ML|P|PL),4*NSBCONT;
-  C=NSB_EL16_(A|C),NSB_BD3_A(|L),4-6*NSB_(AB3_A|AB3_AL|B3_A|B3_AL);
-  C=NSB_EL13_NY,NSB_WLAB3_A,NSB_BD3_A(|L),3*G_GGS;
-  C=<NSB_BM65E,2*NSB_BM65B,NSB_BM65;
-  C=NSB_DI4~ZS;
+      TX=Larvik <-> Tønsberg (27.05.1978);								\
+	C=<NSB_BM65E,NSB_BM65; F=EPU4;
+      C=NSB_EL10A|NSB_DI3_J1|NSB_SKD206{NEK?|NSB_2770~NEK2},3-4*NSB_UADHS; F=FZ4;
+      C=NSB_EL16_(A|C)|NSB_EL18~ZS,6*NSB_B_EX(|L); F=EP4;
+      C=FLAM_EL17~ZS,NSB_BD5_B,3*NSB_B5_BL; F=EP4;
+      C=NSB_BM69A; F=EPU4;
+      C=NSB_DI4~ZS,12*NSB_HCCRRS(0|1|2|3); F=DF4;
+      M=BACK; C=NSB_EL10,3*SJ_SDGMS|G_SGNS(1|2|3|4|5|6|7|8|9); F=EFO4;
+      C=<NSB_BM68E,2*NSB_BM68B,NSB_BM68; F=EPU4;
+      C=NSB_EL16_B,2*NSB_B3_B(|L),SJ_B5Y|3:SJ_B5~ARN,SJ_B1Y|3:SJ_B1~ARN,SJ_A2Y|3:SJ_A2,			\
+	  SJ_B5Y|3:SJ_B5~ARN;										\
+	AP=[TX=Tog 51 "Sveridgepilen" Stockholm <- Karlstad -> Oslo (anno 1982)]|			\
+	  [TX=Tog 57 "Sveridgepilen" Oslo <- Karlstad -> Stockholm (anno 1982)];			\
+	F=EP4;
+      C=NSB_BM70(|A); F=EPU4;
+      C=NSB_DI3_(A|AL|B|BL|C|CL|F|FL|M|ML|P|PL),4*NSBCONT; F=DF4;
+      C=NSB_EL16_(A|C),NSB_BD3_A(|L),4-6*NSB_(AB3_A|AB3_AL|B3_A|B3_AL); F=EP4;
+      C=NSB_EL13_NY,NSB_WLAB3_A,NSB_BD3_A(|L),3*G_GGS; F=E4;
+      C=<NSB_BM65E,2*NSB_BM65B,NSB_BM65; F=EPU4;
+      C=NSB_DI4~ZS; F=D4;
 #aus EK2/89 S.64, Juni 1986, sollte El 11.2098 und ähnlicher ex Triebwagen sein;
-  TX=Gt 627 x <- Upsek -> y (anno 1986);								\
-    C=NSB_EL13_NY,$DIR(NSB_BM65L,NSB_BM65),SJ_H,SJ_KBPS761;
-  C=NSB_DI3_(A|AL|B|BL|M|ML|P),NSB_BD5_A,2*NSB_B5_A(|L);
-  C=2*NSB_DI3_(A|AL|B|BL|M|ML|P),19*G_RGS2[OB:STEEL1,10,11][OB:STEEL1,89,11];
-  C=NSB_EL13_NY,NSB_BD3_A(|L),4*NSB_B3_A(|L);
-  C=NSB_DI4~ZS|NSB_DI6~ZS,5-10*SCANCONT|NSBCONT;
-  C=NSB_EL16_D,NSB_AB3_BL,2-4*NSB_B3_B(|L);
-  C=NSB_EL18~ZS,NSB_B3_A(|L)|NSB_B3_B(|L),NSB_B3_C(|L),NSB_BD3_B(|L);
-  C=NSB_DI4~ZS,NSB_B5_BL,NSB_B3_C(|L),NSB_BD5_B,3*NSB_B3_C(|L);
+      TX=Gt 627 x <- Upsek -> y (anno 1986);								\
+	C=NSB_EL13_NY,$DIR(NSB_BM65L,NSB_BM65),SJ_H,SJ_KBPS761; F=EU4;
+      C=NSB_DI3_(A|AL|B|BL|M|ML|P),NSB_BD5_A,2*NSB_B5_A(|L); F=DP4;
+      C=2*NSB_DI3_(A|AL|B|BL|M|ML|P),19*G_RGS2[OB:STEEL1,10,11][OB:STEEL1,89,11]; F=DF4;
+      C=NSB_EL13_NY,NSB_BD3_A(|L),4*NSB_B3_A(|L); F=EP4;
+      C=NSB_DI4~ZS|NSB_DI6~ZS,5-10*SCANCONT|NSBCONT; F=DF4;
+      C=NSB_EL16_D,NSB_AB3_BL,2-4*NSB_B3_B(|L); F=EP4;
+      C=NSB_EL18~ZS,NSB_B3_A(|L)|NSB_B3_B(|L),NSB_B3_C(|L),NSB_BD3_B(|L); F=EP4;
+      C=NSB_DI4~ZS,NSB_B5_BL,NSB_B3_C(|L),NSB_BD5_B,3*NSB_B3_C(|L); F=DP4;
 #aus EK2/89 S.68, sollten BM 8613 + BM 8616 sein;
-  TX=Pt 2504 x <-> Arendal (28.07.1988);								\
-    C=2*NSB_BM89;
+      TX=Pt 2504 x <-> Arendal (28.07.1988);								\
+	C=2*NSB_BM89; F=PU4;
 #aus EK2/89 S.63;
-  TX=Pt 294 x <- Gjövik -> y (31.07.1988);								\
-    C=NSB_EL13_NY,2*NSB_B3_B(|L),NSB_BC3_B(|L),SJ_GE2;
+      TX=Pt 294 x <- Gjövik -> y (31.07.1988);								\
+	C=NSB_EL13_NY,2*NSB_B3_B(|L),NSB_BC3_B(|L),SJ_GE2; F=E4;
 #aus EK2/89 S.66;
-  TX=Ht 341 Oslo <-> Hamar (01.08.1988);								\
-    C=NSB_EL13_NY,NSB_WR3_A,NSB_BD3_B(|L),NSB_B3_B(|L),NSB_B3_A(|L);
-  C=NSB_EL17~ZS,9*NSB_B_EX(|L);
-  C=NSB_EL16_(A|B|C|D),5*NSB_B_EX(|L);
-}
-{E5?
-  C=NSB_EL17_2223,NSB_AB7,5*NSB_B_EXL|NSB_B_EX;
+      TX=Ht 341 Oslo <-> Hamar (01.08.1988);								\
+	C=NSB_EL13_NY,NSB_WR3_A,NSB_BD3_B(|L),NSB_B3_B(|L),NSB_B3_A(|L); F=EP4;
+      C=NSB_EL17~ZS,9*NSB_B_EX(|L); F=EP4;
+      C=NSB_EL16_(A|B|C|D),5*NSB_B_EX(|L); F=EP4;
+    }
+    {E5?
+      C=NSB_EL17_2223,NSB_AB7,5*NSB_B_EXL|NSB_B_EX; F=EP5;
 # Et 73 Mjøndalen 04.04.1990
-  C=SJ_RC4A,SNCF_I85,2*SJ_GBS,SJ_OMS[OB:FR_T3,,10],FS_KS[OB:TARP_KRAUSS_MAFFEI,,13],HABISTW;
+      C=SJ_RC4A,SNCF_I85,2*SJ_GBS,SJ_OMS[OB:FR_T3,,10],FS_KS[OB:TARP_KRAUSS_MAFFEI,,13],HABISTW; F=EF5;
 # Gt 40621 in Ås 04.04.1990
 # first reefer should be blue 2 door
-  TX=Beschleunigunsgversuchsfahrten mit 240 003 und Di 4 4655 Støren <-> Hovin (23.06.1990);		\
-    C=BR240,NSB_EL16_C,NSB_DI4~ZS[>M];
-  TX=Tog 709 Kristianstad <-> Stavanger (anno 1991);							\
-    C=NSB_EL13_NY,NSB_BC3_B(|L),NSB_B3_C(|L);
-  C=NSB_EL16~ARN,NSB_B3_AL|NSB_B3_A,DB_WLABMH174CDL,DBBM4,SJ_A2A,SJ_RB4A,SJ_B5B,SJ_B7A;
+      TX=Beschleunigunsgversuchsfahrten mit 240 003 und Di 4 4655 Støren <-> Hovin (23.06.1990);	\
+	C=BR240,NSB_EL16_C,NSB_DI4~ZS[>M]; F=5;
+      TX=Tog 709 Kristianstad <-> Stavanger (anno 1991);						\
+	C=NSB_EL13_NY,NSB_BC3_B(|L),NSB_B3_C(|L); F=EP5;
+      C=NSB_EL16~ARN,NSB_B3_AL|NSB_B3_A,DB_WLABMH174CDL,DBBM4,SJ_A2A,SJ_RB4A,SJ_B5B,SJ_B7A; F=EP5;
 #04.1992 Bei Fredrikstad
 
-}
-{E6?
-  C=NSB_EL18~HEN,2*NSB_B3_A(|L),NSB_AB3_A(|L),NSB_B3_A(|L),NSB_BD5_A;
+    }
+    {E6?
+      C=NSB_EL18~HEN,2*NSB_B3_A(|L),NSB_AB3_A(|L),NSB_B3_A(|L),NSB_BD5_A; F=EP6;
 #01.05.2000 Tog 212
-  C=NSB_EL16B,WASC_MECHL,MINOL_7967200,4*DBAG_5ROOS639B(|L),EVA_7855631,SJ_HBBINS3~ARN,			\
-      2*DBC_6ROOS639(|L),BASF_AMMONIAK[B:68,30,21,6],4*SNCF_MIN_CALCAIRE;
+      C=NSB_EL16B,WASC_MECHL,MINOL_7967200,4*DBAG_5ROOS639B(|L),EVA_7855631,SJ_HBBINS3~ARN,		\
+	  2*DBC_6ROOS639(|L),BASF_AMMONIAK[B:68,30,21,6],4*SNCF_MIN_CALCAIRE;				\
+	F=EF6;
 # Onsøy (N) 09.2002
-  C=<(NSB_BM73FL,NSB_BM73L,NSB_BM73B,NSB_BM73F)|(NSB_BM73AFL,NSB_BM73AL,NSB_BM73AB,NSB_BM73AF);
-  TX=Tog 1850/1852 Flåm <-> Myrdal (anno 2003);								\
-    C=FLAM_EL17~ZS,5*FLAM_B3(|L|_2|_2L),FLAM_EL17~ZS; V=4;
-  C=<NSB_BM73AFL,NSB_BM73AL,NSB_BM73AB,NSB_BM73AF; V=10-16;						\
-    AP=[TX=Tog 100/103 Halden <-> Oslo (anno 2003)]|[TX=Tog 203/204 Gjøvik <-> Oslo S. (anno 2003)];
-  TX=Tog 102/117 Halden <-> Oslo (anno 2003);								\
-    C=<2@(NSB_BM73AFL,NSB_BM73AL,NSB_BM73AB,NSB_BM73AF); V=10-16;
-  C=NSB_EL18~ZS,(<5*NSB_B5_A(|L),NSB_BD5_A,NSB_B5_A(|L),NSB_BC3_A(|L)); V=10-15;			\
-    AP=[TX=Tog 104/108 Halden <-> Oslo (anno 2003)]|[TX=Tog 808/878 Oslo S. <-> Skien (anno 2003)];
-  TX=Tog 104/127 Halden <-> Oslo (anno 2003);								\
-    C=NSB_EL18~ZS,(<3*NSB_B5_A(|L),NSB_BD5_A,NSB_B5_A(|L),NSB_BC3_A(|L)); V=10-15;
-  C=NSB_EL15L~NR|NSB_EL15~NR,2*ZACGS,1-3*G_RGS2,3-6*3:NSB_HBIKKS(|1)|SJ_HBBI(LLNS3|LLNS4|NS4),HABISALL,	\
-      3-6*NSBCONT|SCANCONT;
-  C=<NSB_BM69; V=10-13;											\
-    AP=[TX=Tog 1050/1053 Kongsvinger <-> Oslo S. (anno 2003)]|[TX=Tog 220 Gjøvik <-> Jaren (anno 2003)]| \
-      [TX=Tog 217 Oslo S. <-> Gjøvik (anno 2003)]|[TX=Tog 612/613 Bergen <-> Arna (anno 2003)]| [TX=Tog 1800 Bergen <-> Voss (anno 2003)]|[TX=Tog 2500/2501 Arendal <-> Nelaug (anno 2003)];
-  C=<NSB_BM73FL,NSB_BM73L,NSB_BM73B,NSB_BM73F; V=10-16;							\
-    AP=[TX=Tog 40/41 Trondheim S. <-> Oslo S. (anno 2003)]|						\
-      [TX=Tog 61/62 Bergen <-> Oslo S. (anno 2003)]| [TX=Tog 693 Oslo S. <-> Geilo (anno 2003)]|[TX=Tog 77 Oslo <-> Kristiansand (anno 2003)];
-  TX=Tog 42/47 Trondheim S. <-> Oslo S. (anno 2003);							\
-    C=NSB_EL18~ZS,(<3*NSB_B7,NSB_WR7,NSB_BC3_A(|L),NSB_AB7); V=10-15;
-  TX=Containertog 5505 Sundland <-> Bergen;								\
-    C=NSB_EL16B|NSB_EL17~DK|NSB_EL17_222(0|3|4|6),18-22*NSBCONT;
-  C=NSB_EL18~ZS,(<3*NSB_B7,NSB_WR7,2*NSB_B7,NSB_BC3_A(|L),NSB_AB7); V=10-15;				\
-    AP=[TX=Tog 44/45 Trondheim S. <-> Oslo S. (anno 2003)]|						\
-      [TX=Tog 601/602 Oslo S. <-> Bergen (anno 2003)];
-  C=NSB_EL18~ZS,(<NSB_B7A,2*NSB_B7,NSB_WR7,6*NSB_WL(5_A|AB3_A),0-1*NSB_WR3_A); V=10;			\
-    AP=[TX=Tog 406/405 Trondheim S. <-> Oslo S. (anno 2003)]|						\
-      [TX=Tog 605/606 Oslo S. <-> Bergen (anno 2003)];
-  C=<NSB_BM92L~ZS|NSB_BM92~ZS; V=10-14;									\
-    AP=[TX=Tog 407/408 Trondheim <-> Oppdal (anno 2003)]|						\
-      [TX=Tog 33/34/35/36 Trondheim <-> Storlien (anno 2003)];
-  C=<NSB_BM93; V=10-14;											\
-    AP=[TX=Tog 2340/2341 Åndalsnes <-> Dombås (anno 2003)]|[TX=Tog 2367 Hamar <-> Koppang (anno 2003)]|	\
-      [TX=Tog 2369 Hamar <-> Rena (anno 2003)]|[TX=Tog 460/470  Mo i Rana <-> Mosjøen (anno 2003)]| [TX=Tog 474  "Polarsirkelpendelen" Bodø <-> Mosjøen (anno 2003)];
-  C=NSB_EL16B,1-6*HABISTW|SJ_HABINS|SJ_HABINS2,6-10*SJ_SHIMMNS~ARN;
-  TX=Oslo S. <-> Lillehammer (anno 2003);								\
-    C=<1-2@NSB_BM70A; V=10-14;
-  TX=Tog 309 Oslo S. <-> Lillehammer (anno 2003);							\
-    C=NSB_EL18~ZS,(<5*NSB_B5_A(|L),NSB_BD5_A,NSB_B5_A(|L),NSB_BC3_A(|L)); V=10-15;
-  C=<NSB_BM92L~ZS|NSB_BM92~ZS; V=10-14;									\
-    AP=[TX=Tog 2384 Røros <-> Hamar (anno 2003)]|[TX=Tog 426 Steinkjer <-> Lerkendal (anno 2003)];
-  TX=Tog 202/209 Gjøvik <-> Oslo S. (anno 2003);							\
-    C=NSB_EL18~ZS,(<3*NSB_B5_A(|L),NSB_BD5_A,2*NSB_B5_A(|L)); V=10;
-  TX=Tog 604 Bergen <-> Oslo S. (anno 2003);								\
-    C=NSB_EL18~ZS,(<3*NSB_B7,NSB_WR7,NSB_B7,NSB_BC3_A(|L),NSB_AB7); V=10-15;
-  TX=Tog 210 Oslo S. <-> Gjøvik (anno 2003);								\
-    C=NSB_EL17~DK|NSB_EL17_(2220|2223|2224|2226|BETA),3*NSB_B3_A(|L),NSB_BD5_B;
-  TX=Tog 607 Bergen <-> Oslo S. (anno 2003);								\
-    C=NSB_EL18~ZS,(<3*NSB_B7,NSB_WR7,2*NSB_B7,NSB_BC3_A(|L),NSB_AB7); V=10-15;
-  TX=Tog 1853/1863 Flåm <-> Myrdal;									\
-    C=<3*NSB_BM69A; V=4;
-  TX=ARE 4001 Alnabru <- Hallsberg - Boden -> Narvik (anno 2003);					\
-    C=SJ_RC4A|SJ_RC4E|SJ_RC4C~ARN,3-6*NSB_HCCRRS(0|1|2|3),10-14*NSBCONT|CONT00;
-  TX=Tog Pt. 212 Oslo S. <-> Gjøvik (anno 2003);							\
-    C=NSB_EL18~HEN,NSB_B3_A(|L),NSB_B3_B(|L),NSB_B3_A(|L),NSB_AB3_BL|NSB_AB3_B;
-  TX=Tog 81/82 Oslo <-> Kristiansand (anno 2003);							\
-    C=<2@(NSB_BM73FL,NSB_BM73L,NSB_BM73B,NSB_BM73F); V=10-16;
-  TX=Tog 705 Oslo <- Kristiansand -> Stavanger (anno 2003);						\
-    C=NSB_EL18~ZS,(<2-3*NSB_B5_A(|L),NSB_BD5_A,5*NSB_WL(5_A|AB3_A)); V=10;
-  TX=Tog 2570/2571 Porsgrunn <-> Notodden (anno 2003);							\
-    C=SJ_Y1~LIP; V=8-10;
-  TX=Tog 475/476 Trondheim <-> Bodø (anno 2003);							\
-    C=NSB_DI4~ZS,(<NSB_B3_AL,NSB_BD3_A,NSB_B3_A,NSB_B5_A(|L),3-5*NSB_WLAB3_A); V=10;
-  TX=Tog 478 "Ole Tobias" Mo i Rana <-> Trondheim (anno 2003);						\
-    C=NSB_DI4~ZS,(<3*NSB_B3_AL,NSB_BD3_A); V=10-13;
-  C=NSB_EL18~HEN,2*NSB_B3_B(|L),NSB_B3_A(|L),NSB_B3_B(|L),NSB_BD5_A;
-  C=NSB_EL18~HEN,NSB_BD5_B,4*NSB_B3_B(|L)|NSB_B3_A(|L);
-  C=2*NSB_DI8~SIE,22*CONT00;
-  C=2*NSB_BM69;
-  TX=Stavanger <-> Kornsjø (anno 2005);									\
-    C=NSB_DI7|NSB_DI6~ZS|CGN_JT42CWR,(4@CFR_IAEGHS1,CFR_IAIIS,4@CFR_IAEGHS1);
-  TX=Tog 100 Oslo S. <-> Halden (01.01.2008);								\
-    C=<NSB_BM73AFL,NSB_BM73AL,NSB_BM73AB,NSB_BM73AF; V=10-16;
-  TX=Tog 136 Oslo S. <-> Halden (01.01.2008);								\
-    C=(<NSB_BM73FL,NSB_BM73L,NSB_BM73B,NSB_BM73F),(<NSB_BM73AFL,NSB_BM73AL,NSB_BM73AB,NSB_BM73AF);	\
-    V=10-16;
-  TX=Tog 104 Oslo S. <-> Halden (01.01.2008);								\
-    C=NSB_EL18~HEN,NSB_AB3_A(|L),2*NSB_B3_A(|L),NSB_BD5_A,4*NSB_B3_A(|L); V=10-16;
-  TX=Tog 41 Oslo S. <-> Trondheim S. (08.01.2008);							\
-    C=<NSB_BM73FL,NSB_BM73L,NSB_BM73B,NSB_BM73F;
-  C=NSB_BM93;												\
-    AP=[TX=Tog 2340 Dombås <-> Lillehammer (08.01.2008)]|						\
-      [TX=Tog 2342 Dombås <-> Åndalsnes (08.01.2008)]|[TX=Tog 2343 Lillehammer <-> Åndalsnes (08.01.2008)];
-  TX=Tog 302 Lillehammer <-> Oslo S. (08.01.2008);							\
-    C=<NSB_BM73AFL,NSB_BM73AL,NSB_BM73AB,NSB_BM73AF;
-  TX=Tog 320 Oslo S. <-> Lillehammer (08.01.2008);							\
-    C=NSB_EL18~HEN,NSB_BC3_A(|L),NSB_B5_A(|L),NSB_BD5_A,5*NSB_B5_A(|L);
-  TX=Tog 352 Hamar <- Oslo S. -> Skøyen (08.01.2008);							\
-    C=<NSB_BM73FL,NSB_BM73L,NSB_BM73B,NSB_BM73F;
+      C=<(NSB_BM73FL,NSB_BM73L,NSB_BM73B,NSB_BM73F)|(NSB_BM73AFL,NSB_BM73AL,NSB_BM73AB,NSB_BM73AF);	\
+	F=EPU6;
+      TX=Tog 1850/1852 Flåm <-> Myrdal (anno 2003);							\
+	C=FLAM_EL17~ZS,5*FLAM_B3(|L|_2|_2L),FLAM_EL17~ZS; V=4; F=E6;
+      C=<NSB_BM73AFL,NSB_BM73AL,NSB_BM73AB,NSB_BM73AF; V=10-16;						\
+	AP=[TX=Tog 100/103 Halden <-> Oslo (anno 2003)]|[TX=Tog 203/204 Gjøvik <-> Oslo S. (anno 2003)]; \
+	F=EPU6;
+      TX=Tog 102/117 Halden <-> Oslo (anno 2003);							\
+	C=<2@(NSB_BM73AFL,NSB_BM73AL,NSB_BM73AB,NSB_BM73AF); V=10-16; F=EPU6;
+      C=NSB_EL18~ZS,(<5*NSB_B5_A(|L),NSB_BD5_A,NSB_B5_A(|L),NSB_BC3_A(|L)); V=10-15;			\
+	AP=[TX=Tog 104/108 Halden <-> Oslo (anno 2003)]|[TX=Tog 808/878 Oslo S. <-> Skien (anno 2003)];	\
+	F=EP6;
+      TX=Tog 104/127 Halden <-> Oslo (anno 2003);							\
+	C=NSB_EL18~ZS,(<3*NSB_B5_A(|L),NSB_BD5_A,NSB_B5_A(|L),NSB_BC3_A(|L)); V=10-15; F=EP6;
+      C=NSB_EL15L~NR|NSB_EL15~NR,2*ZACGS,1-3*G_RGS2,3-6*3:NSB_HBIKKS(|1)|SJ_HBBI(LLNS3|LLNS4|NS4),	\
+	  HABISALL,3-6*NSBCONT|SCANCONT;								\
+	F=EF6;
+      C=<NSB_BM69; V=10-13;										\
+	AP=[TX=Tog 1050/1053 Kongsvinger <-> Oslo S. (anno 2003)]|					\
+	  [TX=Tog 220 Gjøvik <-> Jaren (anno 2003)]|[TX=Tog 217 Oslo S. <-> Gjøvik (anno 2003)]|	\
+	  [TX=Tog 612/613 Bergen <-> Arna (anno 2003)]|[TX=Tog 1800 Bergen <-> Voss (anno 2003)]|	\
+	  [TX=Tog 2500/2501 Arendal <-> Nelaug (anno 2003)];						\
+	F=EPU6;
+      C=<NSB_BM73FL,NSB_BM73L,NSB_BM73B,NSB_BM73F; V=10-16;						\
+	AP=[TX=Tog 40/41 Trondheim S. <-> Oslo S. (anno 2003)]|						\
+	  [TX=Tog 61/62 Bergen <-> Oslo S. (anno 2003)]|[TX=Tog 693 Oslo S. <-> Geilo (anno 2003)]|	\
+	  [TX=Tog 77 Oslo <-> Kristiansand (anno 2003)];						\
+	F=EPU6;
+      TX=Tog 42/47 Trondheim S. <-> Oslo S. (anno 2003);						\
+	C=NSB_EL18~ZS,(<3*NSB_B7,NSB_WR7,NSB_BC3_A(|L),NSB_AB7); V=10-15; F=EP6;
+      TX=Containertog 5505 Sundland <-> Bergen;								\
+	C=NSB_EL16B|NSB_EL17~DK|NSB_EL17_222(0|3|4|6),18-22*NSBCONT; F=EF6;
+      C=NSB_EL18~ZS,(<3*NSB_B7,NSB_WR7,2*NSB_B7,NSB_BC3_A(|L),NSB_AB7); V=10-15;			\
+	AP=[TX=Tog 44/45 Trondheim S. <-> Oslo S. (anno 2003)]|						\
+	  [TX=Tog 601/602 Oslo S. <-> Bergen (anno 2003)];						\
+	F=EP6;
+      C=NSB_EL18~ZS,(<NSB_B7A,2*NSB_B7,NSB_WR7,6*NSB_WL(5_A|AB3_A),0-1*NSB_WR3_A); V=10;		\
+	AP=[TX=Tog 406/405 Trondheim S. <-> Oslo S. (anno 2003)]|					\
+	  [TX=Tog 605/606 Oslo S. <-> Bergen (anno 2003)];						\
+	F=EP6;
+      C=<NSB_BM92L~ZS|NSB_BM92~ZS; V=10-14;								\
+	AP=[TX=Tog 407/408 Trondheim <-> Oppdal (anno 2003)]|						\
+	  [TX=Tog 33/34/35/36 Trondheim <-> Storlien (anno 2003)];					\
+	F=PU6;
+      C=<NSB_BM93; V=10-14;										\
+	AP=[TX=Tog 2340/2341 Åndalsnes <-> Dombås (anno 2003)]|						\
+	  [TX=Tog 2367 Hamar <-> Koppang (anno 2003)]|[TX=Tog 2369 Hamar <-> Rena (anno 2003)]|		\
+	  [TX=Tog 460/470  Mo i Rana <-> Mosjøen (anno 2003)]|						\
+	  [TX=Tog 474  "Polarsirkelpendelen" Bodø <-> Mosjøen (anno 2003)];				\
+	F=PU6;
+      C=NSB_EL16B,1-6*HABISTW|SJ_HABINS|SJ_HABINS2,6-10*SJ_SHIMMNS~ARN; F=EF6;
+      TX=Oslo S. <-> Lillehammer (anno 2003);								\
+	C=<1-2@NSB_BM70A; V=10-14; F=EPU6;
+      TX=Tog 309 Oslo S. <-> Lillehammer (anno 2003);							\
+	C=NSB_EL18~ZS,(<5*NSB_B5_A(|L),NSB_BD5_A,NSB_B5_A(|L),NSB_BC3_A(|L)); V=10-15; F=EP6;
+      C=<NSB_BM92L~ZS|NSB_BM92~ZS; V=10-14;								\
+	AP=[TX=Tog 2384 Røros <-> Hamar (anno 2003)]|[TX=Tog 426 Steinkjer <-> Lerkendal (anno 2003)];	\
+	F=PU6;
+      TX=Tog 202/209 Gjøvik <-> Oslo S. (anno 2003);							\
+	C=NSB_EL18~ZS,(<3*NSB_B5_A(|L),NSB_BD5_A,2*NSB_B5_A(|L)); V=10; F=EP6;
+      TX=Tog 604 Bergen <-> Oslo S. (anno 2003);							\
+	C=NSB_EL18~ZS,(<3*NSB_B7,NSB_WR7,NSB_B7,NSB_BC3_A(|L),NSB_AB7); V=10-15; F=EP6;
+      TX=Tog 210 Oslo S. <-> Gjøvik (anno 2003);							\
+	C=NSB_EL17~DK|NSB_EL17_(2220|2223|2224|2226|BETA),3*NSB_B3_A(|L),NSB_BD5_B; F=EP6;
+      TX=Tog 607 Bergen <-> Oslo S. (anno 2003);							\
+	C=NSB_EL18~ZS,(<3*NSB_B7,NSB_WR7,2*NSB_B7,NSB_BC3_A(|L),NSB_AB7); V=10-15; F=EP6;
+      TX=Tog 1853/1863 Flåm <-> Myrdal;									\
+	C=<3*NSB_BM69A; V=4; F=EPU6;
+      TX=ARE 4001 Alnabru <- Hallsberg - Boden -> Narvik (anno 2003);					\
+	C=SJ_RC4A|SJ_RC4E|SJ_RC4C~ARN,3-6*NSB_HCCRRS(0|1|2|3),10-14*NSBCONT|CONT00; F=EF6;
+      TX=Tog Pt. 212 Oslo S. <-> Gjøvik (anno 2003);							\
+	C=NSB_EL18~HEN,NSB_B3_A(|L),NSB_B3_B(|L),NSB_B3_A(|L),NSB_AB3_BL|NSB_AB3_B; F=EP6;
+      TX=Tog 81/82 Oslo <-> Kristiansand (anno 2003);							\
+	C=<2@(NSB_BM73FL,NSB_BM73L,NSB_BM73B,NSB_BM73F); V=10-16; F=EPU6;
+      TX=Tog 705 Oslo <- Kristiansand -> Stavanger (anno 2003);						\
+	C=NSB_EL18~ZS,(<2-3*NSB_B5_A(|L),NSB_BD5_A,5*NSB_WL(5_A|AB3_A)); V=10; F=EP6;
+      TX=Tog 2570/2571 Porsgrunn <-> Notodden (anno 2003);						\
+	C=SJ_Y1~LIP; V=8-10; F=PU6;
+      TX=Tog 475/476 Trondheim <-> Bodø (anno 2003);							\
+	C=NSB_DI4~ZS,(<NSB_B3_AL,NSB_BD3_A,NSB_B3_A,NSB_B5_A(|L),3-5*NSB_WLAB3_A); V=10; F=DP6;
+      TX=Tog 478 "Ole Tobias" Mo i Rana <-> Trondheim (anno 2003);					\
+	C=NSB_DI4~ZS,(<3*NSB_B3_AL,NSB_BD3_A); V=10-13; F=DP6;
+      C=NSB_EL18~HEN,2*NSB_B3_B(|L),NSB_B3_A(|L),NSB_B3_B(|L),NSB_BD5_A; F=EP6;
+      C=NSB_EL18~HEN,NSB_BD5_B,4*NSB_B3_B(|L)|NSB_B3_A(|L); F=EP6;
+      C=2*NSB_DI8~SIE,22*CONT00; F=DFZ6;
+      C=2*NSB_BM69; F=EPU6;
+      TX=Stavanger <-> Kornsjø (anno 2005);								\
+	C=NSB_DI7|NSB_DI6~ZS|CGN_JT42CWR,(4@CFR_IAEGHS1,CFR_IAIIS,4@CFR_IAEGHS1); F=DF6;
+      TX=Tog 100 Oslo S. <-> Halden (01.01.2008);							\
+	C=<NSB_BM73AFL,NSB_BM73AL,NSB_BM73AB,NSB_BM73AF; V=10-16; F=EPU6;
+      TX=Tog 136 Oslo S. <-> Halden (01.01.2008);							\
+	C=(<NSB_BM73FL,NSB_BM73L,NSB_BM73B,NSB_BM73F),(<NSB_BM73AFL,NSB_BM73AL,NSB_BM73AB,NSB_BM73AF);	\
+	V=10-16; F=EPU6;
+      TX=Tog 104 Oslo S. <-> Halden (01.01.2008);							\
+	C=NSB_EL18~HEN,NSB_AB3_A(|L),2*NSB_B3_A(|L),NSB_BD5_A,4*NSB_B3_A(|L); V=10-16; F=EP6;
+      TX=Tog 41 Oslo S. <-> Trondheim S. (08.01.2008);							\
+	C=<NSB_BM73FL,NSB_BM73L,NSB_BM73B,NSB_BM73F; F=EPU6;
+      C=NSB_BM93;											\
+	AP=[TX=Tog 2340 Dombås <-> Lillehammer (08.01.2008)]|						\
+	  [TX=Tog 2342 Dombås <-> Åndalsnes (08.01.2008)]|						\
+	  [TX=Tog 2343 Lillehammer <-> Åndalsnes (08.01.2008)];						\
+	F=PU6;
+      TX=Tog 302 Lillehammer <-> Oslo S. (08.01.2008);							\
+	C=<NSB_BM73AFL,NSB_BM73AL,NSB_BM73AB,NSB_BM73AF; F=EPU6;
+      TX=Tog 320 Oslo S. <-> Lillehammer (08.01.2008);							\
+	C=NSB_EL18~HEN,NSB_BC3_A(|L),NSB_B5_A(|L),NSB_BD5_A,5*NSB_B5_A(|L); F=EP6;
+      TX=Tog 352 Hamar <- Oslo S. -> Skøyen (08.01.2008);						\
+	C=<NSB_BM73FL,NSB_BM73L,NSB_BM73B,NSB_BM73F; F=EPU6;
 
-}
+    }
+  %ENDPOOL;
 }
 ###############################################################################
-##									     ##
-##                                   Sweden                                  ##
-##									     ##
+##                                                                           ##
+##                                  Sweden                                   ##
+##                                                                           ##
 ###############################################################################
 {S?
-%ADDPOOL(POOL_S,S_ENV)
-{E2?
-  C=SJ_S1~ARN,SJ_F5,SJ_CD3,3*SJ_C3D,0-2*SJ_G(MH|SH|SU); F=SP2;
-  D=L; C=SJ_S1~ARN|SJ_SB~ARN,SJ_CO9,2*SJ_BO4,DRG_POST4UA,KPEV_ABC4U_PR09,SJ_AO2A,SJ_CFO2A; F=SP2;
-  D=R; C=SJ_SB~ARN,SJ_DFO20,1-2*SJ_C3DC,2*SJ_CC2; F=SP2;
-  D=R; C=SJ_F_S,SJ_DFO1A,SJ_BO3A~ARN,SJ_BCO1A,2*SJ_CO(1A|5|6|7),SJ_C3DB; F=SP2;
-  D=L; C=SJ_F_S,0-1*SJ_GSH,SJ_BO3B,SJ_BCO1B,SJ_CO1B,SJ_CO5,SJ_DFO29; F=SP2;
-  C=2*SJ_E~ARN|SJ_E2~ARN,SJ_OB,SJ_L(|RG),0-1*SJ_Q1,3*SJ_G(|RH),3*(6:SJ_O|1:M_JZH2),SJ_H(R|Z),		\
-      5*SJ_G(|RH),3*SJ_O,EUROPPOOLG3|D_EPIIIA_G|SJ_GE2,SJ_GSU;						\
-    F=SF2;
-}
-{E3?
-  C=SJ_HG,3*SJ_O; F=EF3;
-  C=<SJ_UAFO6YL|SJ_UBFO6(L|YE|YL)|SJ_UAFO7YEL|SJ_UABFO7YL|SJ_UBFO7YEL,					\
-      SJ_YBO6(|L)|SJ_YBO7(|L)|SJ_YBO8(|L),SJ_UF6(|L),SJ_YBO6(|L)|SJ_YBO7(|L)|SJ_YBO8(|L);		\
-    F=DPB3;
+  %ADDPOOL(POOL_S,S_ENV)
+    {E2?
+      C=SJ_S1~ARN,SJ_F5,SJ_CD3,3*SJ_C3D,0-2*SJ_G(MH|SH|SU); F=SP2;
+      D=L; C=SJ_S1~ARN|SJ_SB~ARN,SJ_CO9,2*SJ_BO4,DRG_POST4UA,KPEV_ABC4U_PR09,SJ_AO2A,SJ_CFO2A; F=SP2;
+      D=R; C=SJ_SB~ARN,SJ_DFO20,1-2*SJ_C3DC,2*SJ_CC2; F=SP2;
+      D=R; C=SJ_F_S,SJ_DFO1A,SJ_BO3A~ARN,SJ_BCO1A,2*SJ_CO(1A|5|6|7),SJ_C3DB; F=SP2;
+      D=L; C=SJ_F_S,0-1*SJ_GSH,SJ_BO3B,SJ_BCO1B,SJ_CO1B,SJ_CO5,SJ_DFO29; F=S2;
+      C=2*SJ_E~ARN|SJ_E2~ARN,SJ_OB,SJ_L(|RG),0-1*SJ_Q1,3*SJ_G(|RH),3*(6:SJ_O|1:M_JZH2),SJ_H(R|Z),	\
+	  5*SJ_G(|RH),3*SJ_O,EUROPPOOLG3|D_EPIIIA_G|SJ_GE2,SJ_GSU;					\
+	F=SF2;
+    }
+    {E3?
+      C=SJ_HG,3*SJ_O; F=EF3;
+      C=<SJ_UAFO6YL|SJ_UBFO6(L|YE|YL)|SJ_UAFO7YEL|SJ_UABFO7YL|SJ_UBFO7YEL,				\
+	  SJ_YBO6(|L)|SJ_YBO7(|L)|SJ_YBO8(|L),SJ_UF6(|L),SJ_YBO6(|L)|SJ_YBO7(|L)|SJ_YBO8(|L);		\
+	F=PU3;
 #####
 # 1964 round logo in yellow introduced
 #####
 
-  C=SJ_DK|SJ_DA~ARN,4*SJ_B6,SJ_DK|SJ_DA~ARN; F=EPB3;
-  C=SJ_DK|SJ_DG~ARN|SJ_DUA|SJ_DA~ARN,2*SJ_AO15B,SJ_RO3A,2*SJ_B15(|B)|SJ_BC1,SJ_DF39A,SJ_F4; F=EP3;
-  C=SJ_DK|SJ_DG~ARN|SJ_DUA|SJ_DA~ARN|SJ_DUL|SJ_DU~ARN,3*5:(SJ_G(|E2|RH))|(NS_G3|D_EPIIIB_G),		\
-      2*(SNCF_G3)|6:(SJ_O(|R)),2*6:SJ_GSH|I_G3|6:SJ_GSU|6:SJ_GS,SJ_G(|RH),4*SJ_H(|1|R|Z),5*SJ_O(|R|S),	\
-      2-4*SJ_L(|RG);											\
-    F=EF3;
+      C=SJ_DK|SJ_DA~ARN,4*SJ_B6,SJ_DK|SJ_DA~ARN; F=EP3;
+      C=SJ_DK|SJ_DG~ARN|SJ_DUA|SJ_DA~ARN,2*SJ_AO15B,SJ_RO3A,2*SJ_B15(|B)|SJ_BC1,SJ_DF39A,SJ_F4; F=EP3;
+      C=SJ_DK|SJ_DG~ARN|SJ_DUA|SJ_DA~ARN|SJ_DUL|SJ_DU~ARN,3*5:(SJ_G(|E2|RH))|(NS_G3|D_EPIIIB_G),	\
+	  2*(SNCF_G3)|6:(SJ_O(|R)),2*6:SJ_GSH|I_G3|6:SJ_GSU|6:SJ_GS,SJ_G(|RH),4*SJ_H(|1|R|Z),		\
+	  5*SJ_O(|R|S),2-4*SJ_L(|RG);									\
+	F=EF3;
 #####
 # 1967 square logo introduced on Y3 motors
 # 1967.07.19 First Rc1 delivered
 #####
-  C=<SJ_Y3,SJ_UA(3|B3),2*SJ_UB3(|B),SJ_UB3Y;								\
-    AP=[TX=Stockholm <-> Mora (anno 1967)]|[TX=Malmö <-> Karlskrona (anno 1966)]|			\
-      [TX=Malmö <-> Ystad (anno 1967)];									\
-    F=DPB3;
-  C=SJ_OF2(|A),12*CSD_SAS1;
-  C=SJ_RA,SJ_FO14,SJ_AO15B,2*SJ_BO15U,SJ_BCO7B;
-  C=SJ_U(|A_0),SNCF_K_OCEM29|NS_87101N|DB_RMS31,3*SJ_O(|R),SJ_G(|BS|RH),SJ_Q12,2*SJ_O(|R); V=4-6;
+      C=<SJ_Y3,SJ_UA(3|B3),2*SJ_UB3(|B),SJ_UB3Y;							\
+	AP=[TX=Stockholm <-> Mora (anno 1967)]|[TX=Malmö <-> Karlskrona (anno 1966)]|			\
+	  [TX=Malmö <-> Ystad (anno 1967)];								\
+	F=PU3;
+      C=SJ_OF2(|A),12*CSD_SAS1; F=EF3;
+      C=SJ_RA,SJ_FO14,SJ_AO15B,2*SJ_BO15U,SJ_BCO7B; F=EP3;
+      C=SJ_U(|A_0),SNCF_K_OCEM29|NS_87101N|DB_RMS31,3*SJ_O(|R),SJ_G(|BS|RH),SJ_Q12,2*SJ_O(|R); V=4-6;	\
+	F=EF3;
 #####
 # 1968 square logo introduced on coaches in white
 #####
-  C=SJ_BK,SJ_F4,SJ_A2,SJ_AO15B|SJ_A5,SJ_RO3A,SJ_B3(|A),SJ_B1~ARN|SJ_B5;
-  C=SJ_F1|SJ_F~ARN,SJ_DF(21|39),SJ_AO15B,SJ_RO3A,2*SJ_B(CO7B|O15U);
-  C=SJ_XOA7A;
+      C=SJ_BK,SJ_F4,SJ_A2,SJ_AO15B|SJ_A5A,SJ_RO3A,SJ_B3(|A),SJ_B1~ARN|SJ_B5; F=EP3;
+      C=SJ_F1|SJ_F~ARN,SJ_DF(21|39),SJ_AO15B,SJ_RO3A,2*SJ_B(CO7B|O15U); F=EP3;
+      C=SJ_XOA7A; F=EPU3;
 # Malmö 05.07.1969
-  C=SJ_RC1~ARN,SJ_A2,SJ_B5~ARN,SJ_RB1,2*SJ_B5~ARN;
+      C=SJ_RC1~ARN,SJ_A2,SJ_B5~ARN,SJ_RB1,2*SJ_B5~ARN; F=EP3;
 # Malmö 05.07.1969
-  C=2*SJ_YBO8L,SJ_YBO8;
+      C=2*SJ_YBO8L,SJ_YBO8; F=PU3;
 # Malmö 05.07.1969
-  C=<SJ_Y3,SJ_UA(3|B3),SJ_UB3(|B),SJ_UB3Y;
+      C=<SJ_Y3,SJ_UA(3|B3),SJ_UB3(|B),SJ_UB3Y; F=PU3;
 # Malmö 05.07.1969
-  C=SJ_XOA7A,SJ_COX7;
+      C=SJ_XOA7A,SJ_COX7; F=EPU3;
 # Malmö 05.07.1969
-  C=<GSJ_YBO6H,GSJ_UBO6H;
-  D=L; C=SJ_F1|SJ_F~ARN,SJ_R1~ARN,2*SJ_A2,SJ_AB2,SJ_R1~ARN,SJ_AB2,3*SJ_B1~ARN|SJ_B5;
-}
-{E4?
-  C=SJ_F1[PFU],SJ_B15,SJ_AO14A,SJ_B1Y,SJ_B5Y,SJ_CO8CS,SJ_CFO4,2*SJ_B5Y;
+      C=<GSJ_YBO6H,GSJ_UBO6H; F=3;
+      D=L; C=SJ_F1|SJ_F~ARN,SJ_R1~ARN,2*SJ_A2,SJ_AB2,SJ_R1~ARN,SJ_AB2,3*SJ_B1~ARN|SJ_B5; F=EP3;
+    }
+    {E4?
+      C=SJ_F1[PFU],SJ_B15,SJ_AO14A,SJ_B1Y,SJ_B5Y,SJ_CO8CS,SJ_CFO4,2*SJ_B5Y; F=EP4;
 # Skottorp 08.08.1971
 # second coach smooth sided A
-  C=SJ_RC2~ARN,SJ_AB3,SJ_B1~ARN;
+      C=SJ_RC2~ARN,SJ_AB3,SJ_B1~ARN; F=EP4;
 # Tomnäs 07.05.1972
-  C=SJ_RC2~ARN,SJ_DG~ARN,SJ_GBS_ASG|SJ_GBS_EDET,SJ_GBS,G_KS2,DR_TBS,NS_RS1,SJ_GBS,4*SJ_GE(|3),8*SJ_GBS,	\
-      DR_4RGS3910RAL,											\
-      10*SNCF_LAEKS364_STVA[B:233,26,20,5][OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<10,10]		\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<51,10]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<92,10]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<135,10]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<176,10]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<217,10]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<10,28]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<51,28]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<92,28]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<135,28]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<176,28]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<217,28],3*SBB_3P539ESSOL|SBB_3P539ESSO;
+      C=SJ_RC2~ARN,SJ_DG~ARN,SJ_GBS_ASG|SJ_GBS_EDET,SJ_GBS,G_KS2,DR_TBS,NS_RS1,SJ_GBS,4*SJ_GE(|3),	\
+	  8*SJ_GBS,DR_4RGS3910RAL,									\
+	  10*SNCF_LAEKS364_STVA[B:233,26,20,5][OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<10,10]	\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<51,10]						\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<92,10]						\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<135,10]					\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<176,10]					\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<217,10]					\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<10,28]						\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<51,28]						\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<92,28]						\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<135,28]					\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<176,28]					\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<217,28],3*SBB_3P539ESSOL|SBB_3P539ESSO;	\
+	F=EF4;
 # Laxå 19.08.1972
 # rest after tanks unclear. First Gbs should be ASG
-  C=SJ_RC2~ARN,SJ_AB3,SJ_B5~ARN,SJ_B1~ARN,SJ_B15B,SJ_AB3,SJ_B15B,FLE_1415;
+      C=SJ_RC2~ARN,SJ_AB3,SJ_B5~ARN,SJ_B1~ARN,SJ_B15B,SJ_AB3,SJ_B15B,FLE_1415; F=EP4;
 # Båstad 23.08.1972
-  C=SJ_RC2~ARN,2*SJ_B15B,SJ_AB2,SJ_CFO4;
+      C=SJ_RC2~ARN,2*SJ_B15B,SJ_AB2,SJ_CFO4; F=EP4;
 # Veinge 10.09.1972
-  C=SJ_F1,SJ_B5~ARN,SJ_BO4B,SJ_AB3;
+      C=SJ_F1,SJ_B5~ARN,SJ_BO4B,SJ_AB3; F=EP4;
 # Snälltåg 539 in Klenshyttan (10.1972)
-  C=SJ_DUA,SJ_AB2Y,SJ_CFO4;
+      C=SJ_DUA,SJ_AB2Y,SJ_CFO4; F=EP4;
 # S662 in Skottorp (25.06.1973)
-  C=SJ_RC1~ARN,3*SJ_GBS,DB_HBIS299(A|B|C),3*SJ_GBS,2*NS_RS1,SJ_HBIS,2*SJ_GBS,8*CSD_NPP,SJ_GBS;
+      C=SJ_RC1~ARN,3*SJ_GBS,DB_HBIS299(A|B|C),3*SJ_GBS,2*NS_RS1,SJ_HBIS,2*SJ_GBS,8*CSD_NPP,SJ_GBS; F=EF4;
 # Skottorp (25.06.1973)
-  C=SJ_DUA,SJ_CFO4,SJ_AB2Y,SJ_B5Y,SJ_BCO7B,SJ_AB2Y;
+      C=SJ_DUA,SJ_CFO4,SJ_AB2Y,SJ_B5Y,SJ_BCO7B,SJ_AB2Y; F=EP4;
 # Båstad 25.06.1973
-  TX=Stenungsund <-> Göteborg (anno 1974);								\
-    C=2*SJ_DA~ARN,2*SJ_B15B,SJ_AB7,SJ_F7;
-  C=SJ_DU~ARN,SJ_BO15U,SJ_CO8A,SJ_GBS,SJ_GE|SJ_GE3|SJ_GE2;
+      TX=Stenungsund <-> Göteborg (anno 1974);								\
+	C=2*SJ_DA~ARN,2*SJ_B15B,SJ_AB7,SJ_F7; F=EP4;
+      C=SJ_DU~ARN,SJ_BO15U,SJ_CO8A,SJ_GBS,SJ_GE|SJ_GE3|SJ_GE2; F=E4;
 # Växjö 07.08.1974
-  TX=Göteborg <-> Stennungslund (anno 1974);								\
-    C=SJ_DK,SJ_F5B,SJ_AB7,2*SJ_B15(|B);
-  C=SJ_RC2~ARN,SJ_GBS,SJ_H,OBB_GABS1810N,2*SJ_GBS,I_G4,2*SJ_GBS,2*DB_4A_GRS204ES(|L)|DB_4A_GRS204E(|L),	\
-      SJ_GBS,3*SJ_GE(|2|3),SJ_GBS,4*I_G4,8*SJ_OMS;
+      TX=Göteborg <-> Stennungslund (anno 1974);							\
+	C=SJ_DK,SJ_F5B,SJ_AB7,2*SJ_B15(|B); F=EP4;
+      C=SJ_RC2~ARN,SJ_GBS,SJ_H,OBB_GABS1810N,2*SJ_GBS,I_G4,2*SJ_GBS,					\
+	  2*DB_4A_GRS204ES(|L)|DB_4A_GRS204E(|L),SJ_GBS,3*SJ_GE(|2|3),SJ_GBS,4*I_G4,8*SJ_OMS;		\
+	F=EF4;
 # Örabäcken 13.08.1974
-  C=SJ_F1,RZD_WL2L~HEN|RZD_WL2~HEN,SJ_AB3,2*SJ_B5~ARN;
+      C=SJ_F1,RZD_WL2L~HEN|RZD_WL2~HEN,SJ_AB3,2*SJ_B5~ARN; F=EP4;
 #bei Rygge 1975
-  C=SJ_RC1~ARN,SJ_F4,SJ_A2,SJ_B3,3*SJ_B5~ARN,SJ_B3,2*SJ_B5~ARN,SJ_B3;
+      C=SJ_RC1~ARN,SJ_F4,SJ_A2,SJ_B3,3*SJ_B5~ARN,SJ_B3,2*SJ_B5~ARN,SJ_B3; F=EP4;
 # Järna 05.05.1975
-  C=<2*SJ_GBS,SJ_HG; V=2-4;
+      C=<2*SJ_GBS,SJ_HG; V=2-4; F=EF4;
 # Södertälje 16.05.1975
-  C=SJ_RA,SJ_CFO4,2*SJ_B5~ARN,SJ_B15,2*SJ_B3A,SJ_B15B,2*SJ_B5~ARN;
+      C=SJ_RA,SJ_CFO4,2*SJ_B5~ARN,SJ_B15,2*SJ_B3A,SJ_B15B,2*SJ_B5~ARN; F=EP4;
 # Uppsala 07.05.1976
-  C=SJ_RC4A,SJ_B15,SJ_B5~ARN;
+      C=SJ_RC4A,SJ_B15,SJ_B5~ARN; F=EP4;
 # Nässjö 29.11.1976
-  C=SJ_Y7,SJ_UFV;
+      C=SJ_Y7,SJ_UFV; F=PU4;
 # Bastuträsk 19.02.1977
-  C=SJ_MG1,SJ_CO8A,SJ_BO15U,SJ_CO8CS;
+      C=SJ_MG1,SJ_CO8A,SJ_BO15U,SJ_CO8CS; F=EP4;
 # Storvik 27.03.1977
 # first coach should be AB
-  C=SJ_MAA,SNCF_LGS_50_6[OB:C2R_HAPAG1,,12],2*G_RGS2[OB:WOOD23,,12],SJ_GBS,				\
-      SJ_OB[OB:FR_T2,<10,21][OB:FR_T1,,21][OB:FR_T2,>203,21],SJ_O[OB:FR_WOOD10,,21],			\
-      2*SJ_OMS[OB:FR_WOOD9|WOOD16,,20],SJ_O[OB:FR_T1,,21],SJ_Q12,6*SJ_GBS;
+      C=SJ_MAA,SNCF_LGS_50_6[OB:C2R_HAPAG1,,12],2*G_RGS2[OB:WOOD23,,12],SJ_GBS,				\
+	  SJ_OB[OB:FR_T2,<10,21][OB:FR_T1,,21][OB:FR_T2,>203,21],SJ_O[OB:FR_WOOD10,,21],		\
+	  2*SJ_OMS[OB:FR_WOOD9|WOOD16,,20],SJ_O[OB:FR_T1,,21],SJ_Q12,6*SJ_GBS;				\
+	F=EF4;
 # Gxt 5627 in Norrfos 29.07.1977
-  C=SJ_RC1~ARN,SJ_AB2,SJ_A2,SJ_B1~ARN,SJ_RB4,SJ_B1~ARN,2*SJ_B5~ARN;
+      C=SJ_RC1~ARN,SJ_AB2,SJ_A2,SJ_B1~ARN,SJ_RB4,SJ_B1~ARN,2*SJ_B5~ARN; F=EP4;
 # Boxholm 23.05.1978
-  C=SJ_DUA|SJ_DUL|SJ_DU~ARN,SJ_F5B,SJ_B15,SJ_AB7;
+      C=SJ_DUA|SJ_DUL|SJ_DU~ARN,SJ_F5B,SJ_B15,SJ_AB7; F=EP4;
 # Huskvarna 1979
-  C=SJ_RC1~ARN,4*SJ_GBS,3*SJ_KBPS741,SJ_GBS;
+      C=SJ_RC1~ARN,4*SJ_GBS,3*SJ_KBPS741,SJ_GBS; F=EF4;
 # Järna 06.1979
-  C=SJ_RC2~KAR,2*SJ_A5,SJ_B1~ARN|SJ_B5,SJ_RO3A|SJ_B3S,2*SJ_A5,SJ_B1~ARN|SJ_B5,SJ_A2;
-  C=SJ_F1[PFU],2*SJ_B15B,SJ_AB3;
+      C=SJ_RC2~KAR,2*SJ_A5A,SJ_B1~ARN|SJ_B5,SJ_RO3A|SJ_B3S,2*SJ_A5A,SJ_B1~ARN|SJ_B5,SJ_A2; F=EP4;
+      C=SJ_F1[PFU],2*SJ_B15B,SJ_AB3; F=EP4;
 # Uttran (22.05.1980)
 # second coach should be a B without ribs
-  C=SJ_RA[PFU],SJ_A2,SJ_B5~ARN,SJ_AB7,SJ_B5~ARN,SJ_B7[CP:20,15,78,5,98,15][CP:20,15,78,5,109,15],SJ_B15, \
-      SJ_B5~ARN;
+      C=SJ_RA[PFU],SJ_A2,SJ_B5~ARN,SJ_AB7,SJ_B5~ARN,SJ_B7[CP:20,15,78,5,98,15][CP:20,15,78,5,109,15],	\
+	  SJ_B15,SJ_B5~ARN;										\
+	F=EP4;
 # Järna 22.05.1980
-  C=SJ_RC1~ARN,2*DSB_4B(|L),$DIR(DSB_4AB,DSB_4ABL);
+      C=SJ_RC1~ARN,2*DSB_4B(|L),$DIR(DSB_4AB,DSB_4ABL); F=EP4;
 # Ängelholm 28.07.1980
-  C=SJ_HG,4*SJ_B6,SJ_HG;
+      C=SJ_HG,4*SJ_B6,SJ_HG; F=EP4;
 # Göteborg 08.1980
-  C=SJ_DG~ARN,SJ_ABO7,SJ_BO15U;
-  C=SJ_DK,SJ_F7,SJ_AB3,SJ_BC1;
-  C=SJ_DM3~ARN,(32*SJ_ERZ1)|(32*SJ_ERZ2){V3?|40:(11*SJ_ERZ3~V3)},SJ_DM3~ARN;
-  C=SJ_RC1~ARN,SJ_B1~ARN,SJ_B5~ARN,SJ_R1~ARN,SJ_B1~ARN,SJ_B15,						\
-      SJ_A7[CP:18,15,78,5,81,15][CP:18,15,78,5,144,15];
+      C=SJ_DG~ARN,SJ_ABO7,SJ_BO15U; F=EP4;
+      C=SJ_DK,SJ_F7,SJ_AB3,SJ_BC1; F=EP4;
+      C=SJ_DM3~ARN,11*(3*SJ_ERZ4|SJ_ERZ5|SJ_ERZ6),SJ_DM3~ARN; F=EF4;
+      C=SJ_RC1~ARN,SJ_B1~ARN,SJ_B5~ARN,SJ_R1~ARN,SJ_B1~ARN,SJ_B15,					\
+	  SJ_A7[CP:18,15,78,5,81,15][CP:18,15,78,5,144,15];						\
+	F=EP4;
 # Glibotorp 26.05.1981
-  C=SJ_MG~ARN|SJ_MG1,20-25*SJ_SDGMS;
-  C=SJ_RC2~ARN[PFU],SJ_AB7,SJ_B1~ARN,SJ_AB3;
+      C=SJ_MG~ARN|SJ_MG1,20-25*SJ_SDGMS; F=EF4;
+      C=SJ_RC2~ARN[PFU],SJ_AB7,SJ_B1~ARN,SJ_AB3; F=EP4;
 # Stockholm C (09.06.1981)
-  C=(1-2*SJ_XOA5|SJ_XOA5L)|(1-2*SJ_X5L|SJ_X5);
-  C=<SJ_YBO6(|L)|SJ_YBO7(|L)|SJ_YBO8(|L),								\
-      SJ_UBFO6(|L)|SJ_UAFO6Y(|L)|SJ_UBFO6Y(|E|L)|SJ_UABFO7Y(|L)| SJ_UAFO7YE(|L)|SJ_UBFO7YE(|L)|		\
-      SJ_UBFO8Y(|L)|SJ_UBO6(|L)|SJ_UFO6(|L)|SJ_UDFO(15|15L|20|20L), SJ_YBO(6|6L|7|7L|8|8L);
-  C=SJ_F1|SJ_F~ARN,SJ_BCO6B,3*SJ_BCO7B|SJ_BO15U;
-  C=SJ_RC3~ARN,2*NSB_B3_B(|L),SJ_B5Y|3:SJ_B5~ARN,SJ_B1Y|3:SJ_B1~ARN,SJ_A2Y|3:SJ_A2,SJ_B5Y|3:SJ_B5~ARN,	\
-      SJ_B15,SJ_B5~ARN,SJ_A2,SJ_A5;									\
-    AP=[TX=Tåg 51 "Sveridgepilen" Stockholm <- Karlstad -> Oslo (anno 1982)]|				\
-      [TX=Tåg 57 "Sveridgepilen" Oslo <- Karlstad -> Stockholm (anno 1982)];
-  C=SJ_HG,SJ_CF4A,2*NW_CEMENT,SJ_GE(|2|3),3*SJ_O(|R);
-  TX=Gamla <-> Stockholm (06.04.1983);									\
-    C=SJ_RC4A,2*SJ_A2,SJ_RB4,2*SJ_A2;
-  C=SJ_DA~ARN[PFU],SJ_DA~ARN,SJ_HZ,SJ_GBS,5*NS_UBCS3830B[CP:56,20,15,9,24,22],SJ_HBIS,SJ_GBS,SJ_LGJS6,	\
-      SJ_GE|SJ_GE3|SJ_GE2,SJ_GBS,3*DR_4RGS3910A,SNCF_ATOFINA_CHLORL|SNCF_ATOFINA_CHLOR,			\
-      SJ_GE|SJ_GE3|SJ_GE2,9*DRUCS;
+      C=(1-2*SJ_XOA5|SJ_XOA5L)|(1-2*SJ_X5L|SJ_X5); F=EPU4;
+      C=<SJ_YBO6(|L)|SJ_YBO7(|L)|SJ_YBO8(|L),								\
+	  SJ_UBFO6(|L)|SJ_UAFO6Y(|L)|SJ_UBFO6Y(|E|L)|SJ_UABFO7Y(|L)|SJ_UAFO7YE(|L)|SJ_UBFO7YE(|L)|	\
+	  SJ_UBFO8Y(|L)|SJ_UBO6(|L)|SJ_UFO6(|L)|SJ_UDFO(15|15L|20|20L),SJ_YBO(6|6L|7|7L|8|8L);		\
+	F=PU4;
+      C=SJ_F1|SJ_F~ARN,SJ_BCO6B,3*SJ_BCO7B|SJ_BO15U; F=EP4;
+      C=SJ_RC3~ARN,2*NSB_B3_B(|L),SJ_B5Y|3:SJ_B5~ARN,SJ_B1Y|3:SJ_B1~ARN,SJ_A2Y|3:SJ_A2,			\
+	  SJ_B5Y|3:SJ_B5~ARN,SJ_B15,SJ_B5~ARN,SJ_A2,SJ_A5A;						\
+	AP=[TX=Tåg 51 "Sveridgepilen" Stockholm <- Karlstad -> Oslo (anno 1982)]|			\
+	  [TX=Tåg 57 "Sveridgepilen" Oslo <- Karlstad -> Stockholm (anno 1982)];			\
+	F=EP4;
+      C=SJ_HG,SJ_CF4A,2*NW_CEMENT,SJ_GE(|2|3),3*SJ_O(|R); F=E4;
+      TX=Gamla <-> Stockholm (06.04.1983);								\
+	C=SJ_RC4A,2*SJ_A2,SJ_RB4,2*SJ_A2; F=EP4;
+      C=SJ_DA~ARN[PFU],SJ_DA~ARN,SJ_HZ,SJ_GBS,5*NS_UBCS3830B[CP:56,20,15,9,24,22],SJ_HBIS,SJ_GBS,	\
+	  SJ_LGJS6,SJ_GE|SJ_GE3|SJ_GE2,SJ_GBS,3*DR_4RGS3910A,SNCF_ATOFINA_CHLORL|SNCF_ATOFINA_CHLOR,	\
+	  SJ_GE|SJ_GE3|SJ_GE2,9*DRUCS;									\
+	F=EF4;
 # Kymlinge (04.1983)
-  C=SJ_RC2~ARN,SJ_AB3,SJ_B1~ARN,2*SJ_B15,3*SJ_B1~ARN,SJ_A2,SJ_B1~ARN;
+      C=SJ_RC2~ARN,SJ_AB3,SJ_B1~ARN,2*SJ_B15,3*SJ_B1~ARN,SJ_A2,SJ_B1~ARN; F=EP4;
 # Enstaberga 13.05.1983
-  C=SJ_DK|SJ_D101|SJ_DU2|SJ_DA~ARN,4*SJ_B1~ARN|SJ_B5,SJ_R1~ARN,SJ_A2,SJ_DF28(|A);
-  C=SJ_Z65;
+      C=SJ_DK|SJ_D101|SJ_DU2|SJ_DA~ARN,4*SJ_B1~ARN|SJ_B5,SJ_R1~ARN,SJ_A2,SJ_DF28(|A); F=EP4;
+      C=SJ_Z65; F=D4;
 # Uppsala 06.1983
-  C=SJ_RA[PFU],SJ_B1~ARN,SJ_BC2,SJ_CFO4,SJ_B15,SJ_B7[CP:20,15,78,5,98,15][CP:20,15,78,5,109,15],	\
-      SJ_B5~ARN,SJ_A5A;
+      C=SJ_RA[PFU],SJ_B1~ARN,SJ_BC2,SJ_CFO4,SJ_B15,SJ_B7[CP:20,15,78,5,98,15][CP:20,15,78,5,109,15],	\
+	  SJ_B5~ARN,SJ_A5A;										\
+	F=EP4;
 # Norslunda 01.08.1983
-  C=SJ_DU~ARN,4*SJ_LGJS6,SJ_HBIS,2*DB_HBIS299(A|B|C|D),DR_ZCE7176L,5*SJ_OMS;
+      C=SJ_DU~ARN,4*SJ_LGJS6,SJ_HBIS,2*DB_HBIS299(A|B|C|D),DR_ZCE7176L,5*SJ_OMS; F=EF4;
 # Veinge 08.1983
-  C=SJ_RA[PFU],SJ_A2,SJ_AB7,SJ_B5~ARN,SJ_B7[CP:20,15,78,5,98,15][CP:20,15,78,5,109,15];
+      C=SJ_RA[PFU],SJ_A2,SJ_AB7,SJ_B5~ARN,SJ_B7[CP:20,15,78,5,98,15][CP:20,15,78,5,109,15]; F=EP4;
 # Märsta 08.1983
-  C=SJ_F1|SJ_F~ARN,4*SCANCONT,SJ_GBS(1|_T)|SJ_DV30B,SJ_GBS(1|_T),					\
-      SJ_GBS_EDET|DB_HBIS299(A|B|C|D)|SJ_HBIS|SJ_HBBINS,4-5*SCANCONT,SJ_HBIS|SJ_HBBINS(|1);
-  C=2*SJ_HG,DB_HABFIS1CW2,SNCF_H88,									\
-      SNCF_LAEKS370_GEFCO_B[B:15,26,16,4][B:136,25,16,5]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<10,10]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<51,10]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<92,10]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<135,10]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<176,10]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<217,10]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<10,28]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<51,28]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<92,28]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<135,28]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<176,28]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<217,28],						\
-      DR_LAADS[OB:MB_ACTROS_SKRL,<34,8][OB:MB_ACTROS_SKRL,*197,8],					\
-      2*SNCF_LAEKS370_GEFCO_B[B:15,26,16,4][B:136,25,16,5],						\
-      SNCF_LAEKS370_GEFCO_B[B:15,26,16,4][B:136,25,16,5]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<10,10]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<51,10]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<92,10]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<135,10]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<176,10]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<217,10]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<10,28]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<51,28]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<92,28]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<135,28]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<176,28]						\
-      [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<217,28],7*SCANCONT;
+      C=SJ_F1|SJ_F~ARN,4*SCANCONT,SJ_GBS(1|_T)|SJ_DV30B,SJ_GBS(1|_T),					\
+	  SJ_GBS_EDET|DB_HBIS299(A|B|C|D)|SJ_HBIS|SJ_HBBINS,4-5*SCANCONT,SJ_HBIS|SJ_HBBINS(|1);		\
+	F=EF4;
+      C=2*SJ_HG,DB_HABFIS1CW2,SNCF_H88,									\
+	  SNCF_LAEKS370_GEFCO_B[B:15,26,16,4][B:136,25,16,5]						\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<10,10]						\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<51,10]						\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<92,10]						\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<135,10]					\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<176,10]					\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<217,10]					\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<10,28]						\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<51,28]						\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<92,28]						\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<135,28]					\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<176,28]					\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<217,28],					\
+	  DR_LAADS[OB:MB_ACTROS_SKRL,<34,8][OB:MB_ACTROS_SKRL,*197,8],					\
+	  2*SNCF_LAEKS370_GEFCO_B[B:15,26,16,4][B:136,25,16,5],						\
+	  SNCF_LAEKS370_GEFCO_B[B:15,26,16,4][B:136,25,16,5]						\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<10,10]						\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<51,10]						\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<92,10]						\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<135,10]					\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<176,10]					\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<217,10]					\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<10,28]						\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<51,28]						\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<92,28]						\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<135,28]					\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<176,28]					\
+	  [OB:CIT_DYANE(4WL|4WL|70OL|BL|NL|OL|RL|WL|YL),<217,28],7*SCANCONT;				\
+	F=EF4;
 # Bränninge (01.09.1983)
-  C=SJ_RC2~ARN,SJ_A7,SJ_B1~ARN,2*SJ_B15B,3*DBBM4;
+      C=SJ_RC2~ARN,SJ_A7,SJ_B1~ARN,2*SJ_B15B,3*DBBM4; F=EP4;
 # Glibotorp 01.09.1983
-  C=SJ_DA~ARN|SJ_DU~ARN|SJ_RA|SJ_DG2|SJ_F~ARN|SJ_MG~ARN|SJ_MA~ARN|SJ_OF2,3*SJ_GBS_ASG,SJ_GBS,		\
-      4-6*SJ_H(|Z),3-5*SJ_O(R|S),SJ_GBS,3-4*G_KS2|SJ_O(MS|S1);
-  C=SJ_RC2~ARN,$DIR(DSG_WLABUMH33CC,DSG_WLABUMH33CCL),$DIR(DB_WLABMH175BC,DB_WLABMH175BCL),		\
-      {NEK?99:($DIR(DB_BCUM243BBD,DB_BCUM243BBDL))|}DB_BCM243BBL~HEN,2*DBBM4;
+      C=SJ_DA~ARN|SJ_DU~ARN|SJ_RA|SJ_DG2|SJ_F~ARN|SJ_MG~ARN|SJ_MA~ARN|SJ_OF2,3*SJ_GBS_ASG,SJ_GBS,	\
+	  4-6*SJ_H(|Z),3-5*SJ_O(R|S),SJ_GBS,3-4*G_KS2|SJ_O(MS|S1);					\
+	F=EF4;
+      C=SJ_RC2~ARN,$DIR(DSG_WLABUMH33CC,DSG_WLABUMH33CCL),$DIR(DB_WLABMH175BC,DB_WLABMH175BCL),		\
+	  {NEK?99:($DIR(DB_BCUM243BBD,DB_BCUM243BBDL))|}DB_BCM243BBL~HEN,2*DBBM4;			\
+	F=EP4;
 #Rst 1391 "Hamburgaren" in Bränninge 09.1983
-  TX=Tåg 376 Kalmar <-> Alvesta (18.04.1984);								\
-    C=SJ_DU~ARN,SJ_AB3,SJ_B5~ARN,SJ_AB3,SJ_B1~ARN|SJ_B5~ARN;
-  C=SJ_RC4A,SJ_DFO20,SJ_B7[CP:20,15,78,5,98,15][CP:20,15,78,5,109,15],SJ_B5~ARN,SJ_AB3,SJ_A2;
+      TX=Tåg 376 Kalmar <-> Alvesta (18.04.1984);							\
+	C=SJ_DU~ARN,SJ_AB3,SJ_B5~ARN,SJ_AB3,SJ_B1~ARN|SJ_B5~ARN; F=EP4;
+      C=SJ_RC4A,SJ_DFO20,SJ_B7[CP:20,15,78,5,98,15][CP:20,15,78,5,109,15],SJ_B5~ARN,SJ_AB3,SJ_A2; F=EP4;
 # Norslunda 26.04.1984
-  C=SJ_RC2~ARN,SJ_A2,SJ_B5~ARN,SJ_B7[CP:20,15,78,5,98,15][CP:20,15,78,5,109,15],SJ_B5~ARN,FLE_1415;
+      C=SJ_RC2~ARN,SJ_A2,SJ_B5~ARN,SJ_B7[CP:20,15,78,5,98,15][CP:20,15,78,5,109,15],SJ_B5~ARN,FLE_1415;	\
+	F=EP4;
 # Rst 677 Norslunda 26.04.1984
-  C=SJ_MAA,AUTO1D,DSB_KS[OB:HTS90_04,,12],G_29859_01[OB:ROPEDRUM,,13],SJ_OS1[Ob:FR_T1,,20],2*SJ_OMS,	\
-      5*SJ_HBIS,SJ_OMS,4*SJ_HBIS,SJ_OMS[OB:BOX18,,12],6*SJ_ELOS;
+      C=SJ_MAA,AUTO1D,DSB_KS[OB:HTS90_04,,12],G_29859_01[OB:ROPEDRUM,,13],SJ_OS1[Ob:FR_T1,,20],2*SJ_OMS, \
+	  5*SJ_HBIS,SJ_OMS,4*SJ_HBIS,SJ_OMS[OB:BOX18,,12],6*SJ_ELOS;					\
+	F=EF4;
 # Tåg 5104 in Norslunda 26.04.1984
-  C=SJ_RC2~ARN,2*NS_UBCS3830B[CP:56,20,15,9,24,22],3*SJ_OMS,SJ_HBIS,SJ_GBS,				\
-      4*CSD_NPP[OB:SKODA,<10,11][OB:SKODA,*,11][OB:SKODA,>150,11][OB:SKODA,<10,28][OB:SKODA,*,28]	\
-      [OB:SKODA,>150,28],3*SJ_GBS;
+      C=SJ_RC2~ARN,2*NS_UBCS3830B[CP:56,20,15,9,24,22],3*SJ_OMS,SJ_HBIS,SJ_GBS,				\
+	  4*CSD_NPP[OB:SKODA,<10,11][OB:SKODA,*,11][OB:SKODA,>150,11][OB:SKODA,<10,28][OB:SKODA,*,28]	\
+	  [OB:SKODA,>150,28],3*SJ_GBS;									\
+	F=EF4;
 # Norslunda 28.04.1984
 # NS should be SJ CEMENTA Ucs
-  C=SJ_RC2~ARN,SJ_A2,5*SJ_B15B;
+      C=SJ_RC2~ARN,SJ_A2,5*SJ_B15B; F=EP4;
 # Norslunda 28.04.1984
-  C=<SJ_YBO8L,SJ_YBO8;
-  C=SJ_RC1~ARN,SJ_A2,SJ_B1~ARN,SJ_B15,SJ_B5~ARN,2*SJ_B15,3*SJ_B1~ARN;
+      C=<SJ_YBO8L,SJ_YBO8; F=PU4;
+      C=SJ_RC1~ARN,SJ_A2,SJ_B1~ARN,SJ_B15,SJ_B5~ARN,2*SJ_B15,3*SJ_B1~ARN; F=EP4;
 # Gerstaberg 07.1984
-  C=SJ_BK|SJ_DK|SJ_F1|SJ_F~ARN,2*SJ_B15(|B),SJ_BC1,3*SJ_B1~ARN|SJ_B5;
-  C=SJ_RC1~ARN,$DIR(DSB_4ABL,DSB_4AB),2*DSB_4B(|L),SJ_B1~ARN,SJ_RB1,SJ_B5~ARN,SJ_A2;
+      C=SJ_BK|SJ_DK|SJ_F1|SJ_F~ARN,2*SJ_B15(|B),SJ_BC1,3*SJ_B1~ARN|SJ_B5; F=EP4;
+      C=SJ_RC1~ARN,$DIR(DSB_4ABL,DSB_4AB),2*DSB_4B(|L),SJ_B1~ARN,SJ_RB1,SJ_B5~ARN,SJ_A2; F=EP4;
 # Bränninge (08.1984)
 #####
 # 1985 Intercity logo introduced on coaches
 #####
-  C=SJ_RC2~ARN,SJ_A7,SJ_A8,SJ_R1~ARN,SJ_B5~ARN,SJ_B7,SJ_B2,SJ_B7;
+      C=SJ_RC2~ARN,SJ_A7,SJ_A8,SJ_R1~ARN,SJ_B5~ARN,SJ_B7,SJ_B2,SJ_B7; F=EP4;
 # Östertälje 05.1985
-  C=SJ_RC2~ARN,SJ_B1~ARN,SJ_B5~ARN,SJ_AB3,SJ_B1~ARN;
+      C=SJ_RC2~ARN,SJ_B1~ARN,SJ_B5~ARN,SJ_AB3,SJ_B1~ARN; F=EP4;
 # Tumba 07.1986
-  C=SJ_T43~ARN,SJ_GBS,2*DB_HABIS7TW(1|2|3|4);
+      C=SJ_T43~ARN,SJ_GBS,2*DB_HABIS7TW(1|2|3|4); F=DF4;
 # Tibro (anno 1987)
-  C=SJ_RC3~ARN,SJ_CFO4,SJ_B5,SJ_B15,SJ_B1~ARN;
-  C=SJ_MA~ARN|SJ_MAA,2*SJ_KBPS7(41|61),3*HABISRS,EVA_7855631,2*SJ_HBBINSZ|SJ_HBBINS,HABISNORM,		\
-      3*DSB_EAOS1;
-  C=SJ_RC4~KAR|SJ_RC5~ARN,SJ_A3,SJ_B3,SJ_B3A;
-  TX=Gävle <-> Hallsberg (27.05.1988);									\
-    C=SJ_RC4A,SJ_B15,SJ_AB7,SJ_B5~ARN,FLE_1415;
-  C=SJ_HG,(2*SJ_G(|BS|BS_ASG|BS_EDET|RH))|(2*SJ_DV30(|A|B));
-  TX=Ystad <-> Malmö (16.09.1988);									\
-    C=SJ_T44(A|B|F),2*SJ_B3(|A),SJ_B15(|B);
-  TX=Ljusdal <-> Gävle (30.09.1989);									\
-    C=SJ_DA~ARN,SJ_AB7,2*SJ_B3(|A);
-  TX=Borlange <-> Gävle (10.1988);									\
-    C=SJ_DM~ARN,25*SJ_LRG;
-  C=(1-5*SJ_Y1)|(1-3*SJ_Y1B(|2|3));
-  C=SJ_RC4A,8*SJ_LGJS6,2*DB_LGJS598[O:C2R17,>74,12][O:C2R17,<75,12],SJ_LGJS6,SJ_OS1,SJ_LGJS6,		\
-      8*SJ_KBPS761|SJ_KBPS741;
+      C=SJ_RC3~ARN,SJ_CFO4,SJ_B5,SJ_B15,SJ_B1~ARN; F=EP4;
+      C=SJ_MA~ARN|SJ_MAA,2*SJ_KBPS7(41|61),3*HABISRS,EVA_7855631,2*SJ_HBBINSZ|SJ_HBBINS,HABISNORM,	\
+	  3*DSB_EAOS1;											\
+	F=EF4;
+      C=SJ_RC4~KAR|SJ_RC5~ARN,SJ_A3,SJ_B3,SJ_B3A; F=EP4;
+      TX=Gävle <-> Hallsberg (27.05.1988);								\
+	C=SJ_RC4A,SJ_B15,SJ_AB7,SJ_B5~ARN,FLE_1415; F=EP4;
+      C=SJ_HG,(2*SJ_G(|BS|BS_ASG|BS_EDET|RH))|(2*SJ_DV30(|A|B)); F=EF4;
+      TX=Ystad <-> Malmö (16.09.1988);									\
+	C=SJ_T44(A|B|F),2*SJ_B3(|A),SJ_B15(|B); F=DP4;
+      TX=Ljusdal <-> Gävle (30.09.1989);								\
+	C=SJ_DA~ARN,SJ_AB7,2*SJ_B3(|A); F=EP4;
+      TX=Borlange <-> Gävle (10.1988);									\
+	C=SJ_DM~ARN,25*SJ_LRG; F=EF4;
+      C=(1-5*SJ_Y1)|(1-3*SJ_Y1B(|2|3)); F=PU4;
+      C=SJ_RC4A,8*SJ_LGJS6,2*DB_LGJS598[O:C2R17,>74,12][O:C2R17,<75,12],SJ_LGJS6,SJ_OS1,SJ_LGJS6,	\
+	  8*SJ_KBPS761|SJ_KBPS741;									\
+	F=EF4;
 # Jonköping (anno 1989)
-  TX=Tåg 563 Härnösand <- Sundsvall C. - Hudiksvall - Söderhamn - Gävle C. - Uppsala C. - Arlanda C. -> Stockholm C.; \
-    C=<SJ_X2000_LI~ARN,2*SJ_X2000_M1~ARN,SJ_X2000_WRL~ARN,2*SJ_X2000_M2~ARN,SJ_X2000_RE~ARN;
-  TX=Tåg 578 Hallsberg <-> Gävle (08.04.1989);								\
-    C=SJ_RC3~ARN,SJ_AB3,SJ_B5~ARN,SJ_RB1,SJ_BO15U;
-  C=SJ_T43~ARN,SJ_B15|SJ_B15B,2*SJ_B1~ARN|SJ_B5;
-  C=SJ_RC5~ARN|SJ_RC5E|SJ_RC6O~ARN|SJ_RM~ARN,SJ_TBIS2,3*SJ_SHIMMNS,HABISALL,2*SJ_HABINS(|2),HABISALL,	\
-      DB_HBIS299(A|B|C|D),1-4@SJ_GBS|SJ_HBIS|SJ_HBBINS(|1|2)|SJ_HBBINS3~ARN,3*VR_ZAGS_Y25,		\
-      3-7*DB_HABIS(6RS1|6RS2|6RS3|8RS1|8RS2|8RS3);
-  C=SJ_YBOA7L,SJ_UFO6(|L)|SJ_UF6(|L),SJ_YBOA7;
-  C=GDG_O,(23*SWB_M2)|(23*SWB_M2[OB:FR_BAUX(1|2|3|4|5|6),<14,24][OB:FR_BAUX(1|2|3|4|5|6),>80,24]);
-  TX=Gävle <-> Mjolby (22.09.1989);									\
-    C=SJ_RC2~ARN,SJ_AB3,SJ_B1~ARN,FLE_1415,SJ_B3;
-  C=<SJ_RC5~ARN,SJ_A7|SJ_A8,4*SJ_B7,SJ_UA7;
-  C=<SJ_X2IR_EL,4*SJ_X2IR_M,SJ_X2IR_F;
-  TX=Stockholm <-> Göteborg;										\
-    C=SJ_RC6O~ARN,2*SJ_A7,SJ_R4,SJ_B4,SJ_B2,SJ_B7;
-}
-{E5?
-  C=SJ_RC6O~ARN,SJ_AB2,SJ_B15,FLE_1415;
+      TX=Tåg 563 Härnösand <- Sundsvall C. - Hudiksvall - Söderhamn - Gävle C. - Uppsala C. - Arlanda C. -> Stockholm C.; \
+	C=<SJ_X2000_LI~ARN,2*SJ_X2000_M1~ARN,SJ_X2000_WRL~ARN,2*SJ_X2000_M2~ARN,SJ_X2000_RE~ARN; F=EPU4;
+      TX=Tåg 578 Hallsberg <-> Gävle (08.04.1989);							\
+	C=SJ_RC3~ARN,SJ_AB3,SJ_B5~ARN,SJ_RB1,SJ_BO15U; F=EP4;
+      C=SJ_T43~ARN,SJ_B15|SJ_B15B,2*SJ_B1~ARN|SJ_B5; F=DP4;
+      C=SJ_RC5~ARN|SJ_RC5E|SJ_RC6O~ARN|SJ_RM~ARN,SJ_TBIS2,3*SJ_SHIMMNS,HABISALL,2*SJ_HABINS(|2),	\
+	  HABISALL,DB_HBIS299(A|B|C|D),1-4@SJ_GBS|SJ_HBIS|SJ_HBBINS(|1|2)|SJ_HBBINS3~ARN,3*VR_ZAGS_Y25,	\
+	  3-7*DB_HABIS(6RS1|6RS2|6RS3|8RS1|8RS2|8RS3);							\
+	F=EF4;
+      C=SJ_YBOA7L,SJ_UFO6(|L)|SJ_UF6(|L),SJ_YBOA7; F=EPU4;
+      C=GDG_O,(23*SWB_M2)|(23*SWB_M2[OB:FR_BAUX(1|2|3|4|5|6),<14,24][OB:FR_BAUX(1|2|3|4|5|6),>80,24]);	\
+	F=EF4;
+      TX=Gävle <-> Mjolby (22.09.1989);									\
+	C=SJ_RC2~ARN,SJ_AB3,SJ_B1~ARN,FLE_1415,SJ_B3; F=EP4;
+      C=<SJ_RC5~ARN,SJ_A7|SJ_A8,4*SJ_B7,SJ_UA7; F=EP4;
+      C=<SJ_X2IR_EL,4*SJ_X2IR_M,SJ_X2IR_F; F=EPU4;
+      TX=Stockholm <-> Göteborg;									\
+	C=SJ_RC6O~ARN,2*SJ_A7,SJ_R4,SJ_B4,SJ_B2,SJ_B7; F=EP4;
+    }
+    {E5?
+      C=SJ_RC6O~ARN,SJ_AB2,SJ_B15,FLE_1415; F=EP5;
 # Torsåker anno 1990
-  C=SJ_RC5~ARN,2*SJ_A7|SJ_A8,SJ_R4,SJ_B4,2*SJ_B2,SJ_B7;
-  TX=Tåg 3590/3591 Gällivare <- Kiruna -> Narvik (anno 1990);						\
-    C=SJ_X10A{V3?|99:SJ_X10~V3};
-  C=SJ_RC5~ARN,2*SJ_A7,SJ_R4,SJ_B4,SJ_B7,SJ_B2,SJ_B7;
-  TX=Rangieren in Trelleborg (anno 1991);								\
-    M=BACK|SIMPLE;											\
-    C=(SJ_UEA,SJ_UEA[PD])|(SJ_UB1,SJ_UB1[PD]),								\
-      (3-7*G_LGS1)|(3-7*G_LGS1[O:C2_VOLVO(1|2),7,11][O:C2_VOLVO(1|2),69,11]);
-  C=SJ_RC5~ARN,SJ_F4,SJ_B15B,SJ_B7[CP:20,15,78,5,98,15][CP:20,15,78,5,109,15],SJ_AB2,SJ_B1~ARN,		\
-      2*SJ_B7[CP:20,15,78,5,98,15][CP:20,15,78,5,109,15];
+      C=SJ_RC5~ARN,2*SJ_A7|SJ_A8,SJ_R4,SJ_B4,2*SJ_B2,SJ_B7; F=EP5;
+      TX=Tåg 3590/3591 Gällivare <- Kiruna -> Narvik (anno 1990);					\
+	C=SJ_X10A{V3?|99:SJ_X10~V3}; F=EPUZ5;
+      C=SJ_RC5~ARN,2*SJ_A7,SJ_R4,SJ_B4,SJ_B7,SJ_B2,SJ_B7; F=EP5;
+      TX=Rangieren in Trelleborg (anno 1991);								\
+	M=BACK|SIMPLE;											\
+	C=(SJ_UEA,SJ_UEA[PD])|(SJ_UB1,SJ_UB1[PD]),							\
+	  (3-7*G_LGS1)|(3-7*G_LGS1[O:C2_VOLVO(1|2),7,11][O:C2_VOLVO(1|2),69,11]);			\
+	F=O5;
+      C=SJ_RC5~ARN,SJ_F4,SJ_B15B,SJ_B7[CP:20,15,78,5,98,15][CP:20,15,78,5,109,15],SJ_AB2,SJ_B1~ARN,	\
+	  2*SJ_B7[CP:20,15,78,5,98,15][CP:20,15,78,5,109,15];						\
+	F=EP5;
 # Duved 07.1991
-  C=SJ_RC5~ARN,SJ_HBIS,SJ_HBBINS,NS_HBIS1920D,SJ_GBS,SJ_HBIS,SJ_HBBINS,SNCF_TAES(|L),SJ_HBIS;
+      C=SJ_RC5~ARN,SJ_HBIS,SJ_HBBINS,NS_HBIS1920D,SJ_GBS,SJ_HBIS,SJ_HBBINS,SNCF_TAES(|L),SJ_HBIS; F=EF5;
 # Järpen 07.1991
-  C=SJ_RC4A,FLE_1415,SJ_B7,3*SJ_B5~ARN;
+      C=SJ_RC4A,FLE_1415,SJ_B7,3*SJ_B5~ARN; F=EP5;
 # Vassijaure 08.1991
 # B5's should have intercity stripes
-  TX=Falun <-> Gävle (08.1991);										\
-    C=SJ_RC4A,DB_SFINS1A;
-  C=SJ_RC6O~ARN,$DIR(DSB_4AB,DSB_4ABL),$DIR(DB_WLABMH174AD,DB_WLABMH174ADL),				\
-      $DIR(DB_WLABMH174ADL,DB_WLABMH174AD),3*DBBM4,DBDM4;
+      TX=Falun <-> Gävle (08.1991);									\
+	C=SJ_RC4A,DB_SFINS1A; F=EF5;
+      C=SJ_RC6O~ARN,$DIR(DSB_4AB,DSB_4ABL),$DIR(DB_WLABMH174AD,DB_WLABMH174ADL),			\
+	  $DIR(DB_WLABMH174ADL,DB_WLABMH174AD),3*DBBM4,DBDM4;						\
+	F=EP5;
 # Rst 289 Solviks 08.1991
-  C=SJ_RC1~ARN,SJ_AB3A,SJ_B7,SJ_A3,SJ_F33;
+      C=SJ_RC1~ARN,SJ_AB3A,SJ_B7,SJ_A3,SJ_F33; F=EP5;
 # Tåg 509 in Tenhult (04.05.1992)
-  TX=Tåg 844 Isätra <-> Sala (29.09.1992);								\
-    C=SJ_RC2~ARN[PFU],SJ_RC6O~ARN,SJ_B5~ARN,SJ_B7A,SJ_B1~ARN,SJ_B1K~ARN,SJ_A2A,SJ_F33;
-  C=SJ_RC1~ARN,SJ_AB3A,SJ_B1K~ARN,SJ_B2B,SJ_F33;
+      TX=Tåg 844 Isätra <-> Sala (29.09.1992);								\
+	C=SJ_RC2~ARN[PFU],SJ_RC6O~ARN,SJ_B5~ARN,SJ_B7A,SJ_B1~ARN,SJ_B1K~ARN,SJ_A2A,SJ_F33; F=EP5;
+      C=SJ_RC1~ARN,SJ_AB3A,SJ_B1K~ARN,SJ_B2B,SJ_F33; F=EP5;
 # Värnamo 20.03.1993
-  C=SJ_RC2~ARN,2*SJ_A(7|8),SJ_B(2|7),SJ_B15(|B)|SJ_BC1|SJ_B3,2*SJ_B1~ARN|SJ_B(2|5|7);
-  TX=Tåg 893 Storlien <-> Malmö (21.12.1993);								\
-    C=SJ_RC1~ARN,SJ_A2A,SJ_RB4A,SJ_BC4[CP:11,15,86,3,97,15,3,86][CP:187,15,7,3,180,15,5,3],2*SJ_B5~ARN,	\
-      SJ_B1~ARN,SJ_B5~ARN,SJ_F33;
-  C=SJ_RC2~ARN,FLE_1415,SJ_B5~ARN,SJ_B1K~ARN,SJ_A2A;
+      C=SJ_RC2~ARN,2*SJ_A(7|8),SJ_B(2|7),SJ_B15(|B)|SJ_BC1|SJ_B3,2*SJ_B1~ARN|SJ_B(2|5|7); F=EP5;
+      TX=Tåg 893 Storlien <-> Malmö (21.12.1993);							\
+	C=SJ_RC1~ARN,SJ_A2A,SJ_RB4A,SJ_BC4[CP:11,15,86,3,97,15,3,86][CP:187,15,7,3,180,15,5,3],		\
+	  2*SJ_B5~ARN,SJ_B1~ARN,SJ_B5~ARN,SJ_F33;							\
+	F=EP5;
+      C=SJ_RC2~ARN,FLE_1415,SJ_B5~ARN,SJ_B1K~ARN,SJ_A2A; F=EP5;
 # Sköldinge 09.1994
-  TX=Stockholm <-> Uppsala (22.10.1994);								\
-    C=<SJ_RC6~ARN,SJ_A7A,SJ_B4,SJ_B2,4*SJ_B7,SJ_AF7;
-  TX=G 55262 in Perstorp (03.03.1995);									\
-    C=BSX_MX_A(|L),DSB_1000GR(|L),SJ_HBBINS;
-  C=SJ_RC2E~ARN,2*SJ_A7A,SJ_S12,SJ_UA7,6*SJ_B2B;
+      TX=Stockholm <-> Uppsala (22.10.1994);								\
+	C=<SJ_RC6~ARN,SJ_A7A,SJ_B4,SJ_B2,4*SJ_B7,SJ_AF7; F=EP5;
+      TX=G 55262 in Perstorp (03.03.1995);								\
+	C=BSX_MX_A(|L),DSB_1000GR(|L),SJ_HBBINS; F=DF5;
+      C=SJ_RC2E~ARN,2*SJ_A7A,SJ_S12,SJ_UA7,6*SJ_B2B; F=EP5;
 # Nolinge 06.1995
-  C=<SJ_RC2B|SJ_RC2C~ARN|SJ_RC(2D|3A)|SJ_RC3B~KAR|SJ_RC(3C|4C)|SJ_RC6~ARN|SJ_RC6~KAR,SJ_A7A,4*SJ_B7A,	\
-      SJ_UA7;
-  C=SJ_RC4B,2*SJ_HBBINS,VTG_CHLOR1,VTG_CHLORE,4*SJ_HBIS,G_RES1,2*SJ_HABBINS941,SJ_HBBINS,SJ_HBBILLNS1,	\
-      4*SNCF_REMMS10_2A;
+      C=<SJ_RC2B|SJ_RC2C~ARN|SJ_RC(2D|3A)|SJ_RC3B~KAR|SJ_RC(3C|4C)|SJ_RC6~ARN|SJ_RC6~KAR,SJ_A7A,	\
+	  4*SJ_B7A,SJ_UA7;										\
+	F=EP5;
+      C=SJ_RC4B,2*SJ_HBBINS,VTG_CHLOR1,VTG_CHLORE,4*SJ_HBIS,G_RES1,2*SJ_HABBINS941,SJ_HBBINS,		\
+	  SJ_HBBILLNS1,4*SNCF_REMMS10_2A;								\
+	F=EF5;
 # Bjuv 04.1996
-  C=TAGAB_MY_D(|L),SJ_HBBINS,SJ_HABINS,SNCB_HABINS,3*SJ_LAAIS831,SJ_HBBINS,M_227HBILS(|2),SJ_LAAIS831,	\
-      3*DB_SHIMMSU708(A|AL|BL|C),HABISTW;
+      C=TAGAB_MY_D(|L),SJ_HBBINS,SJ_HABINS,SNCB_HABINS,3*SJ_LAAIS831,SJ_HBBINS,M_227HBILS(|2),		\
+	  SJ_LAAIS831,3*DB_SHIMMSU708(A|AL|BL|C),HABISTW;						\
+	F=F5;
 # Gt 6687 Mariestad 17.06.1996
-  C=<SJ_X2IR_EL,2*SJ_X2IR_M,SJ_X2IR_F;									\
-    AP=[TX=Göteborg <-> Kalmar (21.07.1996)]|[TX=Göteborg <-> Stockholm (21.07.1996)]|			\
-      [TX=Stockholm <-> Malmö (21.07.1996)];
-  M=SIMPLE|STOP|BACK; C=SJ_UEB,SJ_F33,SJ_B2B,SJ_B7,3*SJ_B7A; V=2-3;
+      C=<SJ_X2IR_EL,2*SJ_X2IR_M,SJ_X2IR_F;								\
+	AP=[TX=Göteborg <-> Kalmar (21.07.1996)]|[TX=Göteborg <-> Stockholm (21.07.1996)]|		\
+	  [TX=Stockholm <-> Malmö (21.07.1996)];							\
+	F=EPU5;
+      M=SIMPLE|STOP|BACK; C=SJ_UEB,SJ_F33,SJ_B2B,SJ_B7,3*SJ_B7A; V=2-3; F=O5;
 # Malmö 06.09.1996
-  C=TGOJ_MA1~ARN,5*DB_SHIMMSU708(A|AL|BL|C),6*SNCF_S26_6,4*DB_SHIMMSU708(A|AL|BL|C),3*SJ_OS1;
+      C=TGOJ_MA1~ARN,5*DB_SHIMMSU708(A|AL|BL|C),6*SNCF_S26_6,4*DB_SHIMMSU708(A|AL|BL|C),3*SJ_OS1; F=EF5;
 # Avesta Krylbo (12.09.1996)
-  TX=Malmö <- Berlin - Praha -> Bratislava (anno 1997);							\
-    C=SJ_RC3C~ARN,2*CDWLAB6,ZSR_5BC(67A|67AL|67B|67BL|67C|67CL|75A|75AL|75B|75BL),M_7191A(|L),		\
-      M_19(47A|47AL|57A|57AL);
-  C=<SJ_RC6~KAR,SJ_B9B,SJ_B7C,SJ_B2A,SJ_AB9A,SJ_AF7;
-  C=SJ_RC1B,2*SJ_S1T,SJ_BC2A(|K),SJ_F33,SJ_WL6;
-  TX=Tåg 49755 "Vänerexpressen" Karlstad kl. <-> Sävenäs rbg kl. (08.04.1998);				\
-    C=SHL_DA[PFU],SHL_DA,										\
-      30*5:M_443LGS[OB:2000CONT4,,11]|M_443LGS[O:3CONT,,11]|						\
-      3:M_443LGS[OB:2000CONT2,8,11][OB:2000CONT2,70,11];
-  C=SJ_RC4A|SJ_RC4C~ARN|SJ_RC4E,2*SJ_WL6,SJ_BC4A,SJ_B2B,SJ_S12,3*SJ_BC2A,SJ_B4,2*SJ_BC4|SJ_BC4A,	\
-      3*SJ_WL6;
-  C=SJ_RC6~KAR,SJ_A23,SJ_A7A,SJ_B4,SJ_RB4B|SJ_RB4|SJ_RB4A,SJ_B2,SJ_B7,SJ_B1~ARN|SJ_B1K~ARN;
-  C=BSX_MY_AL|BSX_MY_A,5*GT29;
+      TX=Malmö <- Berlin - Praha -> Bratislava (anno 1997);						\
+	C=SJ_RC3C~ARN,2*CDWLAB6,ZSR_5BC(67A|67AL|67B|67BL|67C|67CL|75A|75AL|75B|75BL),M_WLABMZ61,	\
+	  M_1947A(|L)|M_1957A(|L);									\
+	F=EP5;
+      C=<SJ_RC6~KAR,SJ_B9B,SJ_B7C,SJ_B2A,SJ_AB9A,SJ_AF7; F=EP5;
+      C=SJ_RC1B,2*SJ_S1T,SJ_BC2A(|K),SJ_F33,SJ_WL6; F=EP5;
+      TX=Tåg 49755 "Vänerexpressen" Karlstad kl. <-> Sävenäs rbg kl. (08.04.1998);			\
+	C=SHL_DA[PFU],SHL_DA,										\
+	  30*5:M_443LGS[OB:CONT4_2000,,11]|M_443LGS[O:3CONT,,11]|					\
+	  3:M_443LGS[OB:CONT2_2000,8,11][OB:CONT2_2000,70,11];						\
+	F=EF5;
+      C=SJ_RC4A|SJ_RC4C~ARN|SJ_RC4E,2*SJ_WL6,SJ_BC4A,SJ_B2B,SJ_S12,3*SJ_BC2A,SJ_B4,2*SJ_BC4|SJ_BC4A,	\
+	  3*SJ_WL6;											\
+	F=EP5;
+      C=SJ_RC6~KAR,SJ_A23,SJ_A7A,SJ_B4,SJ_RB4B|SJ_RB4|SJ_RB4A,SJ_B2,SJ_B7,SJ_B1~ARN|SJ_B1K~ARN; F=EP5;
+      C=BSX_MY_AL|BSX_MY_A,5*GT29; F=F5;
 # Karlshamn 31.03.1999
-  C=SJ_RC6~KAR[PFU],SJ_RC3~ARN|SJ_RC3A|SJ_RC3C~ARN,4*SJ_WL6,2*SJ_WL1,SJ_BC4A,SJ_F33;
-}
-{E6?
-  TX=Tåg 91 xx <-> Luleå (anno 2000);									\
-    C=SJ_RC2~ARN,SJ_F5B|SJ_F6,SJ_B2,SJ_B1~ARN,SJ_B5~ARN,SJ_BS5,SJ_BC2A;
-  TX=Tåg 79 Umeå <- Stockholm -> Göteborg (anno 2000);							\
-    C=SJ_RC6O~ARN|SJ_RC6~ARN,2*SJ_WL6,SJ_BC4(|A),SJ_B2(|B),2*SJ_WL6,SJ_BC4(|A),SJ_B2(|B),2*SJ_BC4(|A),	\
-      SJ_S12,SJ_BFS9,SJ_BC4(|A),2*SJ_WL6;
-  C=<SJ_X2000_LI~ARN,SJ_X2000_WRL~ARN,SJ_X2000_M1~ARN,SJ_X2000_M2~ARN,SJ_X2000_RE~ARN;
-  C=SJ_RC6~KAR,2*SJ_F4,2*SJ_WL6,SJ_BC4A,SJ_B2B,SJ_S1T,SJ_B4,SJ_BC4A,2*SJ_WL6,SJ_B2B,SJ_BC4A,2*SJ_WL6;
-  C=SJ_RC2B|SJ_RC2C~ARN|SJ_RC(2D|4C)|SJ_RC6~KAR,4*SJ_D39;
-  C=2*$DIR(SJ_YBO7,SJ_YBO7L),SJ_UF6,$DIR(SJ_YBO7,SJ_YBO7L);
+      C=SJ_RC6~KAR[PFU],SJ_RC3~ARN|SJ_RC3A|SJ_RC3C~ARN,4*SJ_WL6,2*SJ_WL1,SJ_BC4A,SJ_F33; F=EP5;
+    }
+    {E6?
+      TX=Tåg 91 xx <-> Luleå (anno 2000);								\
+	C=SJ_RC2~ARN,SJ_F5B|SJ_F6,SJ_B2,SJ_B1~ARN,SJ_B5~ARN,SJ_BS5,SJ_BC2A; F=EP6;
+      TX=Tåg 79 Umeå <- Stockholm -> Göteborg (anno 2000);						\
+	C=SJ_RC6O~ARN|SJ_RC6~ARN,2*SJ_WL6,SJ_BC4(|A),SJ_B2(|B),2*SJ_WL6,SJ_BC4(|A),SJ_B2(|B),		\
+	  2*SJ_BC4(|A),SJ_S12,SJ_BFS9,SJ_BC4(|A),2*SJ_WL6;						\
+	F=EP6;
+      C=<SJ_X2000_LI~ARN,SJ_X2000_WRL~ARN,SJ_X2000_M1~ARN,SJ_X2000_M2~ARN,SJ_X2000_RE~ARN; F=EPU6;
+      C=SJ_RC6~KAR,2*SJ_F4,2*SJ_WL6,SJ_BC4A,SJ_B2B,SJ_S1T,SJ_B4,SJ_BC4A,2*SJ_WL6,SJ_B2B,SJ_BC4A,	\
+	  2*SJ_WL6;											\
+	F=EP6;
+      C=SJ_RC2B|SJ_RC2C~ARN|SJ_RC(2D|4C)|SJ_RC6~KAR,4*SJ_D39; F=EP6;
+      C=2*$DIR(SJ_YBO7,SJ_YBO7L),SJ_UF6,$DIR(SJ_YBO7,SJ_YBO7L); F=PU6;
 # Brösarp (Skånska Järnvägars 30-årsjubileum 23.09.2001)
-  C=SJ_RC3~ARN|SJ_RC3A|SJ_RC3C~ARN,SJ_AB3A,SJ_B5B,SJ_B1~ARN,SJ_B1K~ARN,SJ_B5B;
-  C=2*SJ_RC4A|SJ_RC4E|SJ_RC4C~ARN,SJ_HBIX,CONT00|SCANCONT,HABISALL|SJ_HABINS(|2),SJ_HBIX,4*SCANCONT,	\
-      EP5CHEM,4*SJ_HBIX|HABISALL|SJ_HABINS(|2);
-  C=SJ_RC5~ARN|SJ_RC5D,SJ_BC2A,2*SJ_B7A;
-  TX=Tåg 3990/3991 Gällivare <- Porjus - Jokkmokk - Moskosel - Arvidsjaur - (Sorsele - Storuman -> Östersund C.); \
-    C=2*JLT_Y1,JLT_Y1|SJ_Y1~LIP;
-  TX=Lapplandsexpressen;										\
-    C=SJ_RC6~KAR,2*SJ_WL6,SJ_BC9,SJ_B9,TKAB_AFS2,SJ_B1K~KAR,SJ_B9;
-  C=SJ_RC6~ARN|SJ_RC6~KAR,3*SJ_B9A,SJ_BFS9,SJ_B5A;
-  TX=Malmö <-> Göteborg (03.07.2002);									\
-    C=SJ_RC6B~ARN,2*SJ_A11,SJ_RB11,3*SJ_B11;
-  TX=Artica;												\
-    C=SJ_RC6~KAR,2*SJ_WL6,SJ_BC9,SJ_B9,TKAB_AFS2,SJ_B9,SJ_BC9,2*SJ_WL6;
-  TX=Stockholm <-> Gamla (04.09.2002);									\
-    C=SJ_RC6~ARN,SJ_A7A,2*SJ_B7C,2*SJ_B7C,SJ_RC3C~ARN;
-  TX="Kinnekullebanan" Herrljunga <-> Laxå;								\
-    C=<SJ_Y1B(|2|3);
-  TX=(Narvik <- Kiruna) <- Boden - Morjärv - Haparanda -> (Tornio);					\
-    C=2*SJ_T44O~ARN,10-14*SCANCONT;
-  C=TKAB_RC6,TKAB_B9,TKAB_BFS9;
+      C=SJ_RC3~ARN|SJ_RC3A|SJ_RC3C~ARN,SJ_AB3A,SJ_B5B,SJ_B1~ARN,SJ_B1K~ARN,SJ_B5B; F=EP6;
+      C=2*SJ_RC4A|SJ_RC4E|SJ_RC4C~ARN,SJ_HBIX,CONT00|SCANCONT,HABISALL|SJ_HABINS(|2),SJ_HBIX,4*SCANCONT, \
+	  EP5CHEM,4*SJ_HBIX|HABISALL|SJ_HABINS(|2);							\
+	F=EF6;
+      C=SJ_RC5~ARN|SJ_RC5D,SJ_BC2A,2*SJ_B7A; F=EP6;
+      TX=Tåg 3990/3991 Gällivare <- Porjus - Jokkmokk - Moskosel - Arvidsjaur - (Sorsele - Storuman -> Östersund C.); \
+	C=2*JLT_Y1,JLT_Y1|SJ_Y1~LIP; F=PU6;
+      TX=Lapplandsexpressen;										\
+	C=SJ_RC6~KAR,2*SJ_WL6,SJ_BC9,SJ_B9,TKAB_AFS2,SJ_B1K~KAR,SJ_B9; F=EP6;
+      C=SJ_RC6~ARN|SJ_RC6~KAR,3*SJ_B9A,SJ_BFS9,SJ_B5A; F=EP6;
+      TX=Malmö <-> Göteborg (03.07.2002);								\
+	C=SJ_RC6B~ARN,2*SJ_A11,SJ_RB11,3*SJ_B11; F=EP6;
+      TX=Artica;											\
+	C=SJ_RC6~KAR,2*SJ_WL6,SJ_BC9,SJ_B9,TKAB_AFS2,SJ_B9,SJ_BC9,2*SJ_WL6; F=EP6;
+      TX=Stockholm <-> Gamla (04.09.2002);								\
+	C=SJ_RC6~ARN,SJ_A7A,2*SJ_B7C,2*SJ_B7C,SJ_RC3C~ARN; F=EP6;
+      TX="Kinnekullebanan" Herrljunga <-> Laxå;								\
+	C=<SJ_Y1B(|2|3); F=PU6;
+      TX=(Narvik <- Kiruna) <- Boden - Morjärv - Haparanda -> (Tornio);					\
+	C=2*SJ_T44O~ARN,10-14*SCANCONT; F=DF6;
+      C=TKAB_RC6,TKAB_B9,TKAB_BFS9; F=E6;
 # Sundsvall 20.01.2003
-  TX=Boden <- Morjärv -> Haparanda (anno 2003);								\
-    C=SJ_T44O~ARN,2*SJ_LAAIS(831|921),VR_ZAGS_Y25,SCANCONT,7*SJ_HBIX|HABISALL;
-  C=SJ_RC6~ARN,3*SJ_B7A,SJ_B4,SJ_R4R,2*SJ_A7A;
-  TX=Nordlunda <-> Arvidsjaur;										\
-    C=IBAB_MX_(A|AL|B|BL),11*SCANCONT;
-  M=BACK|SIMPLE|STOP; C=SJ_T44O~ARN,(2-4*SJ_HABINS)|(2-4*HABISALL)|(2-4*SJ_LAAIS921);
-  C=SJ_RC4(A|E)|SJ_RC4C~ARN,CONT00,2*HUPAC_(KEHRLI|SCHONI),2*CONT00|SCANCONT,1-3*SJ_LAAIS(831|921),	\
-      6*SJ_HBIX|SJ_HABINS(|2);
-  TX=Tåg 7628 Sundsvall C. <- Sundsvall V. - Stöde - Torpshammar - Fränsta - Ljungaverk - Erikslund -> Ånge; \
-    C=TKAB_EL16A,TKAB_B9,TKAB_BFS9,2*TKAB_B9;
-  TX=Stockholm <-> Karlsberg (11.02.2003);								\
-    C=SJ_RC6~ARN[PFU],SJ_RC6~ARN,SJ_A7A,3*SJ_B7C,SJ_B2B,SJ_B9B,SJ_B5A~ARN;
-  C=SJ_T44(A|B),2*GT30_ONRAIL,BASF_ISOH|VTG_1,SJ_HBBINS(2|2Z|4)|SJ_HBBILLNS(3|4);
-  TX=Tåg 69 Östersund C. <- Bräcke - Ånge - (Bollnäs -> Stockholm C.) (anno 2003);			\
-    C=SJ_RC6B~ARN,(<SJ_A11,SJ_RB11,3*SJ_B11);
-  TX="Kustpilen" Købnhavn <-> Hässleholm;								\
-    C=<SJ_Y2~LIP;
-  C=SJ_RC3C~ARN|SJ_RC4C~ARN,SJ_AB2A,SJ_B1K~ARN,SJ_D39;
-  C=SJ_RC3C~ARN|SJ_RC4C~ARN,SJ_B9A,SJ_BFS9,SJ_B7A,SJ_B9A;
-  C=SJ_RC4C,SJ_B7A,SJ_B1~ARN|SJ_B5,SJ_B7A,SJ_D39;
-  C=SJ_RC5~ARN|SJ_RC5D,DR_LAAS,2*NSB_HCCRRS(0|1|2|3),DR_LAAEK4357,2*NSB_HCCRRS(0|1|2|3),14*CONT00;
-  TX=Tåg 883 Storlien <- Duved - Åre - Järpen - Östersund C. - Bräcke - Ånge - (Bollnäs - Gävle C. -> Stockholm C.) (anno 2003); \
-    C=SJ_RC6~ARN,(<SJ_A7A,SJ_R4R,SJ_BFS9,3*SJ_B7A);
-  C=SJ_RC6~ARN,SJ_B7C,SJ_A7A,3*SJ_B7C,SJ_B2B,SJ_RC6~ARN;
+      TX=Boden <- Morjärv -> Haparanda (anno 2003);							\
+	C=SJ_T44O~ARN,2*SJ_LAAIS(831|921),VR_ZAGS_Y25,SCANCONT,7*SJ_HBIX|HABISALL; F=DF6;
+      C=SJ_RC6~ARN,3*SJ_B7A,SJ_B4,SJ_R4R,2*SJ_A7A; F=EP6;
+      TX=Nordlunda <-> Arvidsjaur;									\
+	C=IBAB_MX_(A|AL|B|BL),11*SCANCONT; F=F6;
+      M=BACK|SIMPLE|STOP; C=SJ_T44O~ARN,(2-4*SJ_HABINS)|(2-4*HABISALL)|(2-4*SJ_LAAIS921); F=O6;
+      C=SJ_RC4(A|E)|SJ_RC4C~ARN,CONT00,2*HUPAC_(KEHRLI|SCHONI),2*CONT00|SCANCONT,1-3*SJ_LAAIS(831|921),	\
+	  6*SJ_HBIX|SJ_HABINS(|2);									\
+	F=EF6;
+      TX=Tåg 7628 Sundsvall C. <- Sundsvall V. - Stöde - Torpshammar - Fränsta - Ljungaverk - Erikslund -> Ånge; \
+	C=TKAB_EL16A,TKAB_B9,TKAB_BFS9,2*TKAB_B9; F=E6;
+      TX=Stockholm <-> Karlsberg (11.02.2003);								\
+	C=SJ_RC6~ARN[PFU],SJ_RC6~ARN,SJ_A7A,3*SJ_B7C,SJ_B2B,SJ_B9B,SJ_B5A~ARN; F=EP6;
+      C=SJ_T44(A|B),2*GT30_ONRAIL,BASF_ISOH|VTG_1,SJ_HBBINS(2|2Z|4)|SJ_HBBILLNS(3|4); F=DF6;
+      TX=Tåg 69 Östersund C. <- Bräcke - Ånge - (Bollnäs -> Stockholm C.) (anno 2003);			\
+	C=SJ_RC6B~ARN,(<SJ_A11,SJ_RB11,3*SJ_B11); F=EP6;
+      TX="Kustpilen" Købnhavn <-> Hässleholm;								\
+	C=<SJ_Y2~LIP; F=PU6;
+      C=SJ_RC3C~ARN|SJ_RC4C~ARN,SJ_AB2A,SJ_B1K~ARN,SJ_D39; F=EP6;
+      C=SJ_RC3C~ARN|SJ_RC4C~ARN,SJ_B9A,SJ_BFS9,SJ_B7A,SJ_B9A; F=EP6;
+      C=SJ_RC4C,SJ_B7A,SJ_B1~ARN|SJ_B5,SJ_B7A,SJ_D39; F=EP6;
+      C=SJ_RC5~ARN|SJ_RC5D,DR_LAAS,2*NSB_HCCRRS(0|1|2|3),DR_LAAEK4357,2*NSB_HCCRRS(0|1|2|3),14*CONT00;	\
+	F=EF6;
+      TX=Tåg 883 Storlien <- Duved - Åre - Järpen - Östersund C. - Bräcke - Ånge - (Bollnäs - Gävle C. -> Stockholm C.) (anno 2003); \
+	C=SJ_RC6~ARN,(<SJ_A7A,SJ_R4R,SJ_BFS9,3*SJ_B7A); F=EP6;
+      C=SJ_RC6~ARN,SJ_B7C,SJ_A7A,3*SJ_B7C,SJ_B2B,SJ_RC6~ARN; F=EP6;
 # Stockholm-Tanto 05.05.2003
-  TX=Östersund <-> Ånge Godsbangård (anno 2003);							\
-    C=TGOJ_MA1~ARN,10-12*SCANCONT;
-  C=GC_RC2A,2*G_SHIMNS(|_L),5*ZSR_245HBBILLNNS,G_KS1,2*SJ_SHIMMNS~ARN,2*G_RGS2,				\
-      SJ_HBBINS2|SJ_HBBINS3~ARN;
-  TX=Tåg 7511 Gävle C. <- Sandviken - Storvik - Avesta-Krylbo - Fagersta C. - Skinnskatteberg - Frövi - Örebro C. -  Kumla -> Hallsberg (anno 2003); \
-    C=<VL_X50; V=10-16;
-  C=SJ_RC6~ARN[PFU],SJ_B7C,SJ_B7A,3*SJ_B7C,SJ_A7A,SJ_RC3C~ARN;
+      TX=Östersund <-> Ånge Godsbangård (anno 2003);							\
+	C=TGOJ_MA1~ARN,10-12*SCANCONT; F=EF6;
+      C=GC_RC2A,2*G_SHIMNS(|_L),5*ZSR_245HBBILLNNS,G_KS1,2*SJ_SHIMMNS~ARN,2*G_RGS2,			\
+	  SJ_HBBINS2|SJ_HBBINS3~ARN;									\
+	F=EF6;
+      TX=Tåg 7511 Gävle C. <- Sandviken - Storvik - Avesta-Krylbo - Fagersta C. - Skinnskatteberg - Frövi - Örebro C. -  Kumla -> Hallsberg (anno 2003); \
+	C=<VL_X50; V=10-16; F=EPU6;
+      C=SJ_RC6~ARN[PFU],SJ_B7C,SJ_B7A,3*SJ_B7C,SJ_A7A,SJ_RC3C~ARN; F=EP6;
 # Skavstaby (07.08.2003)
-  C=GC_RC2A,10*SJ_LAAIS(831|921); V=10-16;
-  C=SJ_RC2A~ARN|SJ_RC2B|SJ_RC2C~ARN|SJ_RC2D~ARN|SJ_RC2E~ARN|						\
-      (SJ_RC4A[PFU]|SJ_RC4E[PFU]|SJ_RC4C~ARN[PFU],SJ_RC4(A|E)|SJ_RC4C~ARN,3*SJ_SHIMMNS~ARN),		\
-      12*SJ_SHIMMNS~ARN;
-  TX=Posttåg Gävle C. <-> Sundsvall C. (anno 2003);							\
-    C=GC_RC2~ARN,4*SJ_D28A|SJ_D39;
-  C=GC_RC2~ARN,12*SJ_HBBINS(5:1|4)|SJ_HBBINS3~ARN;
-  TX=Tåg 854 Stockholm C - Arlanda C - Uppsala C - Sala - Avesta-Krylbo - Hedemora - Säter - Borlänge - Leksand - Rättvik - Mora (anno 2003); \
-    C=SJ_RC6~ARN|SJ_RC6B~ARN,SJ_B9B,2*SJ_B7A,SJ_B8R,SJ_BFS9,SJ_A7A; V=13-16;
-  C=TGOJ_T43L~ARN,3*G_KS2,3*SJ_HBIX;
-  C=SJ_T44O~ARN|(TGOJ_T43L~ARN|TGOJ_T44A),5*SJ_HBBINS3~ARN,3*SJ_KBPS7(41|61),2*SJ_HBBINS4,		\
-      3*SJ_HBBINS3~ARN,HABISTW;
-  TX=Tåg 81 Östersund C. <- Bräcke - Ånge - Bollnäs - Gävle C. -> Stockholm C. (anno 2004);		\
-    C=SJ_RC6B~ARN|SJ_RC7,2*SJ_A11,SJ_RB11,3*SJ_B11;
-  TX=Tåg 7621 "Mittlinjen" Östersund <- Brunflo - Pilgrimstad - Gällö - Stavre - Bräcke -> Ånge (anno 2004); \
-    C=TKAB_EL16A,SJ_B3,TKAB_B9,TKAB_BFS9;
-  C=SJ_T44O~ARN,SJ_LAAIS(831|921),2*SJ_HBBINS4|SJ_HBBINS3~ARN,6*SJ_KBPS7(41|61);
-  C=TGOJ_MA1~ARN|3:TGOJ_MA3,10*G_SGNS9;
-  C=SJ_V5O,6*SJ_KBPS7(41|61),HABISTW;
-  C=GC_RC2A,SJ_B7C,SJ_B11,GC_DBK;
+      C=GC_RC2A,10*SJ_LAAIS(831|921); V=10-16; F=EF6;
+      C=SJ_RC2A~ARN|SJ_RC2B|SJ_RC2C~ARN|SJ_RC2D~ARN|SJ_RC2E~ARN|					\
+	  (SJ_RC4A[PFU]|SJ_RC4E[PFU]|SJ_RC4C~ARN[PFU],SJ_RC4(A|E)|SJ_RC4C~ARN,3*SJ_SHIMMNS~ARN),	\
+	  12*SJ_SHIMMNS~ARN;										\
+	F=EF6;
+      TX=Posttåg Gävle C. <-> Sundsvall C. (anno 2003);							\
+	C=GC_RC2~ARN,4*SJ_D28A|SJ_D39; F=EP6;
+      C=GC_RC2~ARN,12*SJ_HBBINS(5:1|4)|SJ_HBBINS3~ARN; F=EF6;
+      TX=Tåg 854 Stockholm C - Arlanda C - Uppsala C - Sala - Avesta-Krylbo - Hedemora - Säter - Borlänge - Leksand - Rättvik - Mora (anno 2003); \
+	C=SJ_RC6~ARN|SJ_RC6B~ARN,SJ_B9B,2*SJ_B7A,SJ_B8R,SJ_BFS9,SJ_A7A; V=13-16; F=EP6;
+      C=TGOJ_T43L~ARN,3*G_KS2,3*SJ_HBIX; F=F6;
+      C=SJ_T44O~ARN|(TGOJ_T43L~ARN|TGOJ_T44A),5*SJ_HBBINS3~ARN,3*SJ_KBPS7(41|61),2*SJ_HBBINS4,		\
+	  3*SJ_HBBINS3~ARN,HABISTW;									\
+	F=DF6;
+      TX=Tåg 81 Östersund C. <- Bräcke - Ånge - Bollnäs - Gävle C. -> Stockholm C. (anno 2004);		\
+	C=SJ_RC6B~ARN|SJ_RC7,2*SJ_A11,SJ_RB11,3*SJ_B11; F=EP6;
+      TX=Tåg 7621 "Mittlinjen" Östersund <- Brunflo - Pilgrimstad - Gällö - Stavre - Bräcke -> Ånge (anno 2004); \
+	C=TKAB_EL16A,SJ_B3,TKAB_B9,TKAB_BFS9; F=EP6;
+      C=SJ_T44O~ARN,SJ_LAAIS(831|921),2*SJ_HBBINS4|SJ_HBBINS3~ARN,6*SJ_KBPS7(41|61); F=DF6;
+      C=TGOJ_MA1~ARN|3:TGOJ_MA3,10*G_SGNS9; F=EF6;
+      C=SJ_V5O,6*SJ_KBPS7(41|61),HABISTW; F=DF6;
+      C=GC_RC2A,SJ_B7C,SJ_B11,GC_DBK; F=EP6;
 # Stockholm-Karlsberg 26.03.2004
-  C=TAGAB_MY_(A|B|D)(|L),5*SJ_HBBINS4|SJ_HBBINS3~ARN,							\
-      SJ_ZANS_LKAB|WASC_GAS|VTG_BUTAN1|VTG_GAS1|GT_BASF2|KVG_HNO3|WASC_STE1,3*G_RGS2,			\
-      3*SJ_HBBINS4|SJ_HBBINS3~ARN|HABISTW|SJ_LAAIS(831|921);
-  C=TAGAB_RC2,CONT00,EP5CHEM,3*CONT00,8-10*SJ_HBBINS4|SJ_HBBINS3~ARN|HABISTW|SJ_LAAIS(831|921);
-  C=SJ_RC6~KAR,2*SJ_WL6,2*SJ_BC4,SJ_B1K~ARN,SJ_B5B,SJ_BC4A,SJ_WL1,SJ_WL6,M_4380A(|L),			\
-      ZSR_5BC(67A|67AL|67B|67BL|67C|67CL|75A|75AL|75B|75BL),SJ_F33;
-  C=SJ_RC6O~ARN|8:SJ_RC6~ARN|2:SJ_RC6B~ARN,2-4*SJ_B9B,SJ_BFS9,SJ_AB9A;
-  C=SJ_RC6~ARN,SJ_A7A,SJ_BFS9,SJ_B7C,SJ_B7A,SJ_B7C;
+      C=TAGAB_MY_(A|B|D)(|L),5*SJ_HBBINS4|SJ_HBBINS3~ARN,						\
+	  SJ_ZANS_LKAB|WASC_GAS|VTG_BUTAN1|VTG_GAS1|GT_BASF2|KVG_HNO3|WASC_STE1,3*G_RGS2,		\
+	  3*SJ_HBBINS4|SJ_HBBINS3~ARN|HABISTW|SJ_LAAIS(831|921);					\
+	F=F6;
+      C=TAGAB_RC2,CONT00,EP5CHEM,3*CONT00,8-10*SJ_HBBINS4|SJ_HBBINS3~ARN|HABISTW|SJ_LAAIS(831|921);	\
+	F=EF6;
+      C=SJ_RC6~KAR,2*SJ_WL6,2*SJ_BC4,SJ_B1K~ARN,SJ_B5B,SJ_BC4A,SJ_WL1,SJ_WL6,M_4380A(|L),		\
+	  ZSR_5BC(67A|67AL|67B|67BL|67C|67CL|75A|75AL|75B|75BL),SJ_F33;					\
+	F=EP6;
+      C=SJ_RC6O~ARN|8:SJ_RC6~ARN|2:SJ_RC6B~ARN,2-4*SJ_B9B,SJ_BFS9,SJ_AB9A; F=EP6;
+      C=SJ_RC6~ARN,SJ_A7A,SJ_BFS9,SJ_B7C,SJ_B7A,SJ_B7C; F=EP6;
 # Rst 229 Stockholm 18.04.2004
-  C=SJ_RC3C~ARN,SJ_AB9A,SJ_B7A,3*SJ_B7C;
+      C=SJ_RC3C~ARN,SJ_AB9A,SJ_B7A,3*SJ_B7C; F=EP6;
 # Norrköping 27.04.2004
-  C=JLT_Y31;
+      C=JLT_Y31; F=6;
 # Talberg 11.05.2004
-  TX=Tåg 588 Stockholm C. <- Arlanda - Uppsala -> Gävle C. (anno 2004);					\
-    C=<SJ_X2000_LI~ARN,2*SJ_X2000_M1~ARN,SJ_X2000_WRL~ARN,2*SJ_X2000_M2~ARN,SJ_X2000_RE~ARN;
-  C=SJ_RC6~ARN,SJ_B2B,3*SJ_B7C,SJ_A7A;
+      TX=Tåg 588 Stockholm C. <- Arlanda - Uppsala -> Gävle C. (anno 2004);				\
+	C=<SJ_X2000_LI~ARN,2*SJ_X2000_M1~ARN,SJ_X2000_WRL~ARN,2*SJ_X2000_M2~ARN,SJ_X2000_RE~ARN; F=EPU6;
+      C=SJ_RC6~ARN,SJ_B2B,3*SJ_B7C,SJ_A7A; F=EP6;
 # Stockholm-Tanto (15.05.2004)
-  C=SJ_DM3G|SJ_DM3_6~ARN|										\
-      (LKAB_IORE~NR{NEK?|										\
-      100:((<LKAB_101L,LKAB_101)|(<LKAB_101L,LKAB_102MAL)|(<LKAB_101L,LKAB_104GAL)|			\
-      (<LKAB_101L,LKAB_106KIRUNA)|(<LKAB_105NARVIK,LKAB_101)|(<LKAB_103LULL,LKAB_101)|			\
-      (<LKAB_101POLL,LKAB_101))}),40*SJ_ERZ2;
-  C=SJ_RC6~ARN,SJ_B7C,SJ_A2B,SJ_B7C;
+      C=SJ_DM3G|SJ_DM3_6~ARN|										\
+	  (LKAB_IORE~NR{NEK?|										\
+	  100:((<LKAB_101L,LKAB_101)|(<LKAB_101L,LKAB_102MAL)|(<LKAB_101L,LKAB_104GAL)|			\
+	  (<LKAB_101L,LKAB_106KIRUNA)|(<LKAB_105NARVIK,LKAB_101)|(<LKAB_103LULL,LKAB_101)|		\
+	  (<LKAB_101POLL,LKAB_101))}),40*SJ_ERZ2;							\
+	F=EF6;
+      C=SJ_RC6~ARN,SJ_B7C,SJ_A2B,SJ_B7C; F=EP6;
 # Stockholm-Tanto (05.06.2004)
-  TX=Tåg 2202 Stockholm C. <- Märsta - Knivsta -> Uppsala C. (anno 2004);				\
-    C=<SJ_RC6O~ARN|12:SJ_RC6~ARN|2:SJ_RC6B~ARN,SJ_A7A,3*SJ_B10,SJ_BFS9,SJ_B7C,2*SJ_B10,SJ_B7C,SJ_AF7,	\
-      SJ_RC6O~ARN|12:SJ_RC6~ARN|2:SJ_RC6B~ARN;
-  TX=Stockholm C. <- Karlberg - Solna - Helenelund - Solllentuna -  Häggvik - Norrviken - Rotebro - Upplands Väsby -> Märsta (anno 2004); \
-    C=3|4*SJ_X12;
-  TX=Tåg 2283 Uppsala C. <- Knivsta - Märsta -> Stockholm C. (anno 2004);				\
-    C=SJ_RC6~ARN,SJ_B9B,SJ_B7C|SJ_B7A,SJ_B8R,SO_R12,SJ_BFS9,SJ_AB9A;
-  TX=Tåg 61 Stockholm C. <- Katrineholm - Norrköping C. -> Linköping C. (anno 2004);			\
-    C=SJ_RC6B~ARN,3*SJ_A11,SJ_RB11,3*SJ_B11;
-  TX=Tåg 18511 "Krösatåget" Tranås <- Aneby -> Nässjö (anno 2004);					\
-    C=SJ_Y31;
-  C=SJ_RC2B|SJ_RC2(C|D)|SJ_RC3B~KAR,									\
-      8-12*SJ_HBIS|SJ_HBBINS(|1|2)|SJ_HBBINS3~ARN|SJ_HBBILLNS(1|2|3|4)|SJ_HBBINS3~KAR|SJ_HABINS|	\
-      SJ_HABBINS941,2-5*SJ_LAAIS921;
-  TX=Tåg 320 "Ö-Tåget" Alvesta <- Älmhult - Osby - Hässleholm - Eslöv - Lund -> Malmö C. (anno 2004);	\
-    C=<SJ_X31K_FL,SJ_X31K_M(|L),SJ_X31K_F;
-  TX=Karlsberg <-> Stockholm (20.09.2004);								\
-    C=SJ_RC6~ARN,SJ_B7C,SJ_A7A,SJ_BS5,SJ_B7C;
-  C=SJ_RC6~ARN,SJ_A2B,2*SJ_A2A;
+      TX=Tåg 2202 Stockholm C. <- Märsta - Knivsta -> Uppsala C. (anno 2004);				\
+	C=<SJ_RC6O~ARN|12:SJ_RC6~ARN|2:SJ_RC6B~ARN,SJ_A7A,3*SJ_B10,SJ_BFS9,SJ_B7C,2*SJ_B10,SJ_B7C,	\
+	  SJ_AF7,SJ_RC6O~ARN|12:SJ_RC6~ARN|2:SJ_RC6B~ARN;						\
+	F=EP6;
+      TX=Stockholm C. <- Karlberg - Solna - Helenelund - Solllentuna -  Häggvik - Norrviken - Rotebro - Upplands Väsby -> Märsta (anno 2004); \
+	C=3|4*SJ_X12; F=EPU6;
+      TX=Tåg 2283 Uppsala C. <- Knivsta - Märsta -> Stockholm C. (anno 2004);				\
+	C=SJ_RC6~ARN,SJ_B9B,SJ_B7C|SJ_B7A,SJ_B8R,SO_R12,SJ_BFS9,SJ_AB9A; F=EP6;
+      TX=Tåg 61 Stockholm C. <- Katrineholm - Norrköping C. -> Linköping C. (anno 2004);		\
+	C=SJ_RC6B~ARN,3*SJ_A11,SJ_RB11,3*SJ_B11; F=EP6;
+      TX=Tåg 18511 "Krösatåget" Tranås <- Aneby -> Nässjö (anno 2004);					\
+	C=SJ_Y31; F=PU6;
+      C=SJ_RC2B|SJ_RC2(C|D)|SJ_RC3B~KAR,								\
+	  8-12*SJ_HBIS|SJ_HBBINS(|1|2)|SJ_HBBINS3~ARN|SJ_HBBILLNS(1|2|3|4)|SJ_HBBINS3~KAR|SJ_HABINS|	\
+	  SJ_HABBINS941,2-5*SJ_LAAIS921;								\
+	F=EF6;
+      TX=Tåg 320 "Ö-Tåget" Alvesta <- Älmhult - Osby - Hässleholm - Eslöv - Lund -> Malmö C. (anno 2004); \
+	C=<SJ_X31K_FL,SJ_X31K_M(|L),SJ_X31K_F; F=EPU6;
+      TX=Karlsberg <-> Stockholm (20.09.2004);								\
+	C=SJ_RC6~ARN,SJ_B7C,SJ_A7A,SJ_BS5,SJ_B7C; F=EP6;
+      C=SJ_RC6~ARN,SJ_A2B,2*SJ_A2A; F=EP6;
 # Stockholm-Tanto 24.09.2004
-  C=GC_RC2~ARN[PFU],GC_RC2~ARN,25*CONT00;
-  C=TAGAB_RC2,(12*SJ_KBPS7(41|61))|(12*SJ_TIMMER);
-  C=GC_RC2~ARN,4-5*SJ_DV30B,6*SJ_D28A|SJ_D39;
-  M=CHANGE; C=8-12*SJ_HBBINS4|SJ_HBBINS3~ARN|HABISTW|SJ_LAAIS(831|921); C1=DSB_EG3100~NB;		\
-    C2=GC_RC2~ARN[PFU],GC_RC2~ARN; T1=10-20,PD,W,3-5,PBU,W,10-20; T2=10-20,PD,W,3-5,PBU,W,10-20; W=X;	\
-    BG=TRBED(1|11|12|5|7|8):..,^0; FG=SBB_CAT:..,-4,#;
-  C=VL_X50;
+      C=GC_RC2~ARN[PFU],GC_RC2~ARN,25*CONT00; F=EF6;
+      C=TAGAB_RC2,(12*SJ_KBPS7(41|61))|(12*SJ_TIMMER); F=EF6;
+      C=GC_RC2~ARN,4-5*SJ_DV30B,6*SJ_D28A|SJ_D39; F=E6;
+      M=CHANGE; C=8-12*SJ_HBBINS4|SJ_HBBINS3~ARN|HABISTW|SJ_LAAIS(831|921); C1=DSB_EG3113(|L);		\
+	C2=GC_RC2~ARN[PFU],GC_RC2~ARN; T1=10-20,PD,W,3-5,PBU,W,10-20; T2=10-20,PD,W,3-5,PBU,W,10-20; W=X; \
+	F=EFO6;
+      C=VL_X50; F=EPU6;
 # Stuvsta 11.11.2004
-  C=<SJ_LINXEL,SJ_LINXB1,SJ_LINXB2,SJ_LINXB3,SJ_LINXF;
+      C=<SJ_LINXEL,SJ_LINXB1,SJ_LINXB2,SJ_LINXB3,SJ_LINXF; F=E6;
 # Stuvsta 11.11.2004
-  C=BKTAG_MA~ARN,10*CONT00;
-  C=2*SJ_T44O~ARN,3*SJ_LAAIS(831|921),SBB_HBILLNS(|1)|SBB_HBBILLNS,12*ZANS_D,				\
-      4*SJ_HBBINS4|SJ_HBBINS3~ARN;
-  TX=Tåg 1874 Helsingborg C. <- Kattarp - Åstorp - Klippan -> Hässleholm (anno 2004);			\
-    C=<SJ_RC6~ARN,2*SJ_B7C,SJ_AF7;
-  C=SJ_T44C|SJ_T44E,2*SJ_HBBINS4|SJ_HBBINS3~ARN,3*SCANCONT,						\
-      WASC_STE1|ERMEWA_7837302|GT20|ERMEWA_7956102|KVG_7957089|KVG_7957378|MINOL_7967200|NACCO_7956673|	\
-      NACCO_7965149|VTG_7956816|VTG_7848707|VTG_7848052|VTG_7957043|VTG_MINOEL|KVG_7956310,		\
-      5*SJ_KBPS7(41|61)[OB:FR_WOOD11,<12,12][OB:#FR_WOOD11,<12,22][OB:#FR_WOOD11,>130,12]		\
-      [OB:FR_WOOD11,>130,22],2*SJ_HBBINS4|SJ_HBBINS3~ARN;
-  C=GC_RC2A,2*(<DB_SDGGMRSSL[OB:STRAIL_HANGARTNERL,,2],DB_SDGGMRSS[OB:STRAIL_HANGARTNER,,2]),		\
-      2*(<DB_SDGGMRSSL[OB:STRAIL_CRAFTRANSPORTL,,2],DB_SDGGMRSS[OB:STRAIL_CRAFTRANSPORT,,2]),		\
-      8*(<DB_SDGGMRSSL[OB:STRAIL_(DANZASL|FERCAMFL|FERCAML|HANGARTNERL|H_ESSERSL|VELFACL|VOS1L|VOS2L|	\
-      WALTERL|WILLI_BETZL),,2],										\
-      DB_SDGGMRSS[OB:STRAIL_(DANZAS|FERCAMF|FERCAM|HANGARTNER|H_ESSERS|VELFAC|VOS1|VOS2|WALTER|		\
-      WILLI_BETZ),,2]);
+      C=BKTAG_MA~ARN,10*CONT00; F=EF6;
+      C=2*SJ_T44O~ARN,3*SJ_LAAIS(831|921),SBB_HBILLNS(|1)|SBB_HBBILLNS,12*ZANS_D,			\
+	  4*SJ_HBBINS4|SJ_HBBINS3~ARN;									\
+	F=DF6;
+      TX=Tåg 1874 Helsingborg C. <- Kattarp - Åstorp - Klippan -> Hässleholm (anno 2004);		\
+	C=<SJ_RC6~ARN,2*SJ_B7C,SJ_AF7; F=EP6;
+      C=SJ_T44C|SJ_T44E,2*SJ_HBBINS4|SJ_HBBINS3~ARN,3*SCANCONT,						\
+	  WASC_STE1|ERMEWA_7837302|GT20|ERMEWA_7956102|KVG_7957089|KVG_7957378|MINOL_7967200|		\
+	  NACCO_7956673|NACCO_7965149|VTG_7956816|VTG_7848707|VTG_7848052|VTG_7957043|VTG_MINOEL|	\
+	  KVG_7956310,											\
+	  5*SJ_KBPS7(41|61)[OB:FR_WOOD11,<12,12][OB:#FR_WOOD11,<12,22][OB:#FR_WOOD11,>130,12]		\
+	  [OB:FR_WOOD11,>130,22],2*SJ_HBBINS4|SJ_HBBINS3~ARN;						\
+	F=DF6;
+      C=GC_RC2A,2*(<DB_SDGGMRSSL[OB:STRAIL_HANGARTNERL,,2],DB_SDGGMRSS[OB:STRAIL_HANGARTNER,,2]),	\
+	  2*(<DB_SDGGMRSSL[OB:STRAIL_CRAFTRANSPORTL,,2],DB_SDGGMRSS[OB:STRAIL_CRAFTRANSPORT,,2]),	\
+	  8*(<DB_SDGGMRSSL[OB:STRAIL_(DANZASL|FERCAMFL|FERCAML|HANGARTNERL|H_ESSERSL|VELFACL|VOS1L|	\
+	  VOS2L|WALTERL|WILLI_BETZL),,2],								\
+	  DB_SDGGMRSS[OB:STRAIL_(DANZAS|FERCAMF|FERCAM|HANGARTNER|H_ESSERS|VELFAC|VOS1|VOS2|WALTER|	\
+	  WILLI_BETZ),,2]);										\
+	F=EF6;
 # Skytts Vemmelöv 17.07.2005
-  C=GC_RC2A,EVA_7855631,2*CD_HABBILLNS,SBB_HBBILLNNS4,							\
-      DB_SHIMMNS_TTU722A|DB_SHIMMNS_TTU722B|DB_SHIMMNS_TTU722C,DB_HABIS7TW5,2*GB15(C|D),DB_HBIS299D,	\
-      GT_BASF2,G_RES2,VTG_1,KVG_Z2,DB_HBIS299D,RAI_HABBIINS,GB15C;
+      C=GC_RC2A,EVA_7855631,2*CD_HABBILLNS,SBB_HBBILLNNS4,						\
+	  DB_SHIMMNS_TTU722A|DB_SHIMMNS_TTU722B|DB_SHIMMNS_TTU722C,DB_HABIS7TW5,2*GB15(C|D),DB_HBIS299D, \
+	  GT_BASF2,G_RES2,VTG_1,KVG_Z2,DB_HBIS299D,RAI_HABBIINS,GB15C;					\
+	F=EF6;
 # Nässjö 29.07.2005
-  C=SJ_RC6~ARN|SJ_RC6B~ARN,SJ_WL1,3*SJ_BC2A; V=10-13;							\
-    AP=[TX=EN 210 "Berlin Night Express" Malmö <- Trelleborg - Saßnitz -> Berlin Ost. (anno 2005)]|	\
-      [TX=EN 210 "Berlin Night Express" Berlin Ost  <- Saßnitz - Trelleborg -> Malmö (anno 2005)];
-  C=SJ_RC6B~ARN,SJ_BFS9,SJ_BC2A,2*SJ_B1K~ARN,SJ_A7A,2*SJ_B7A,SJ_B7C;
+      C=SJ_RC6~ARN|SJ_RC6B~ARN,SJ_WL1,3*SJ_BC2A; V=10-13;						\
+	AP=[TX=EN 210 "Berlin Night Express" Malmö <- Trelleborg - Saßnitz -> Berlin Ost. (anno 2005)]|	\
+	  [TX=EN 210 "Berlin Night Express" Berlin Ost  <- Saßnitz - Trelleborg -> Malmö (anno 2005)];	\
+	F=EP6;
+      C=SJ_RC6B~ARN,SJ_BFS9,SJ_BC2A,2*SJ_B1K~ARN,SJ_A7A,2*SJ_B7A,SJ_B7C; F=EP6;
 # Stockholm-Tanto 25.02.2006
-  C=<SJ_X2000NAL,SJ_X2000NB,SJ_X2000NC,SJ_X2000ND,SJ_X2000NG,SJ_X2000NE,SJ_X2000NF;
+      C=<SJ_X2000NAL,SJ_X2000NB,SJ_X2000NC,SJ_X2000ND,SJ_X2000NG,SJ_X2000NE,SJ_X2000NF; F=LPU6;
 # Frinnaryd 19.03.2006
-  C=SJ_RA,BV_QIM;
+      C=SJ_RA,BV_QIM; F=E6;
 # should be STRIX measuring car
 # Ängelsberg 14.04.2006
-  C=$DIR(DSB_MY_LL,DSB_MY_L),4*SJ_HBIS;
+      C=$DIR(DSB_MY_LL,DSB_MY_L),4*SJ_HBIS; F=DF6;
 # Filipstad 12.05.2006
 # Hbis should be modern 4 door versions
-  C=SJ_RC6ROCK,SJ_A_ROCK,SJ_S1T_ROCK,SJ_WL4_ROCK;
+      C=SJ_RC6ROCK,SJ_A_ROCK,SJ_S1T_ROCK,SJ_WL4_ROCK; F=E6;
 # Östgotaslatten 07.2006
-  C=SJ_RC3C~ARN,5*(<DB_SDGGMRSSL[OB:STRAIL_CRAFTRANSPORTL,,2],DB_SDGGMRSS[OB:STRAIL_CRAFTRANSPORT,,2]),	\
-      3*(<DB_SDGGMRSSL,DB_SDGGMRSS),									\
-      4*(<DB_SDGGMRSSL[OB:STRAIL_CRAFTRANSPORTL,,2],DB_SDGGMRSS[OB:STRAIL_CRAFTRANSPORT,,2]);
+      C=SJ_RC3C~ARN,											\
+	  5*(<DB_SDGGMRSSL[OB:STRAIL_CRAFTRANSPORTL,,2],DB_SDGGMRSS[OB:STRAIL_CRAFTRANSPORT,,2]),	\
+	  3*(<DB_SDGGMRSSL,DB_SDGGMRSS),								\
+	  4*(<DB_SDGGMRSSL[OB:STRAIL_CRAFTRANSPORTL,,2],DB_SDGGMRSS[OB:STRAIL_CRAFTRANSPORT,,2]);	\
+	F=EF6;
 # Väring 24.07.2006
-  C=GC_RC2A,SJ_LGJS1[O:C4R_VAND,,12],SJ_LGJS1[O:C4R_DOLE,,12],SJ_LGJS1[O:C4R_VAND,,12],3*SNCF_CERG_CTC,	\
-      SJ_LGJS1[O:C4R_DOLE,,12],DB_UACS;
+      C=GC_RC2A,SJ_LGJS1[O:C4R_VAND,,12],SJ_LGJS1[O:C4R_DOLE,,12],SJ_LGJS1[O:C4R_VAND,,12],		\
+	  3*SNCF_CERG_CTC,SJ_LGJS1[O:C4R_DOLE,,12],DB_UACS;						\
+	F=EF6;
 # second and third containers should be vitaminer.
 # last car is EVS, not VTG.
 # Furuvik 08.09.2006
-  TX=Piteå <-> Hallsberg (21.02.2007);									\
-    C=HECT_161,12*DB_HABIS7TW1|DB_HABIS7TW2|DB_HABIS7TW3|DB_HABIS7TW4|DB_HABIS7TW5,			\
-      7*M_277HABIS2[B:22,22,7,6];
-  C=GC_RC2A,SJ_HBBINS3~ARN,4*SJ_LAAIS921,3*SJ_LGJS1[O:C4_JAPAN,,12],					\
-      AAE_SGGMRSS90[O:C3T_DITTES,<177,11][O:BOX14_GREEN_CARGO,<7,11],					\
-      3*AAE_SGGMRSS90[O:BOX14_GREEN_CARGO,>287,11][O:BOX14_GREEN_CARGO,<7,11];
+      TX=Piteå <-> Hallsberg (21.02.2007);								\
+	C=HECT_161,12*DB_HABIS7TW1|DB_HABIS7TW2|DB_HABIS7TW3|DB_HABIS7TW4|DB_HABIS7TW5,			\
+	  7*M_277HABIS2[B:22,22,7,6];									\
+	F=EF6;
+      C=GC_RC2A,SJ_HBBINS3~ARN,4*SJ_LAAIS921,3*SJ_LGJS1[O:C4_JAPAN,,12],				\
+	  AAE_SGGMRSS90[O:C3T_DITTES,<177,11][O:BOX14_GREEN_CARGO,<7,11],				\
+	  3*AAE_SGGMRSS90[O:BOX14_GREEN_CARGO,>287,11][O:BOX14_GREEN_CARGO,<7,11];			\
+	F=EF6;
 # Halmstad 20.07.2007
 # all containers should be white GreenCargo swapbody containers, save the tank container
-  M=BACK|STOP|SIMPLE; C=SJ_V5O,HABISTW,3*SJ_HBIS,4*SJ_HBBINS,SJ_HBIS,4*SJ_KBPS761|SJ_KBPS741; V=2-3;
+      M=BACK|STOP|SIMPLE; C=SJ_V5O,HABISTW,3*SJ_HBIS,4*SJ_HBBINS,SJ_HBIS,4*SJ_KBPS761|SJ_KBPS741; V=2-3; \
+	F=O6;
 # Halmstad 20.07.2007
 # Hbis should be 4 door Hbis
-}
-%ENDPOOL;
+    }
+  %ENDPOOL;
 }
 ###############################################################################
-##									     ##
-##                                   Finland                                 ##
-##									     ##
+##                                                                           ##
+##                                  Finland                                  ##
+##                                                                           ##
 ###############################################################################
 {SF?
-$SPOOL N=TOLSTOY_2003_SF; SEQ=R;
-  {E6?
-    C=VR_SR1(A|N)H(|L),4:0|1*RZD_BAG_TOLSTOY(|L),6*RZD_KRK_TOLSTOY(|L),RZD_SKK_TOLSTOY(|L),		\
-	3*RZD_KRK_TOLSTOY(|L);										\
-      AP=[TX=P 31 "Tolstoy" Helsinki <- Vainikkala - Vyborg - St. Petersburg - Tver -> Moskva (6.2003)]| \
-	[TX=P 32 "Tolstoy" Moskva <- Tver - St. Petersburg - Vyborg - Vainikkala -> Helsinki (6.2003)];	\
-      VH=62;
-    TX=P 31 "Tolstoy" Helsinki <- Vainikkala - Vyborg - St. Petersburg - Tver -> Moskva (6.2003);	\
-      M=CHANGE; D=L;											\
-      C=<4:0|1*RZD_BAG_TOLSTOY(|L),6*RZD_KRK_TOLSTOY(|L),RZD_SKK_TOLSTOY(|L),3*RZD_KRK_TOLSTOY(|L);	\
-      C1=VR_SR1(A|N)H(|L); C2=RZD_VL82M_0(1B|2B|3B); P=50; T3=10,PD,W,3,PU,W,10-20; W=4E; VH=62;	\
-      WP=10,TB:(PD,PBU);
-    TX=P 32 "Tolstoy" Moskva <- Tver - St. Petersburg - Vyborg - Vainikkala -> Helsinki (6.2003);	\
-      M=CHANGE; D=L;											\
-      C=<4:0|1*RZD_BAG_TOLSTOY(|L),6*RZD_KRK_TOLSTOY(|L),RZD_SKK_TOLSTOY(|L),3*RZD_KRK_TOLSTOY(|L);	\
-      C1=RZD_VL82M_0(1B|2B|3B); C2=VR_SR1(A|N)H(|L); P=50; W=4E; VH=62;
-  }
-$ENDPOOL 
+  $SPOOL N=TOLSTOY_2003_SF; SEQ=R;
+    {E6?
+      C=VR_SR1(A|N)H(|L),4:0|1*RZD_BAG_TOLSTOY(|L),6*RZD_KRK_TOLSTOY(|L),RZD_SKK_TOLSTOY(|L),		\
+	  3*RZD_KRK_TOLSTOY(|L);									\
+	AP=[TX=P 31 "Tolstoy" Helsinki <- Vainikkala - Vyborg - St. Petersburg - Tver -> Moskva (6.2003)]| \
+	  [TX=P 32 "Tolstoy" Moskva <- Tver - St. Petersburg - Vyborg - Vainikkala -> Helsinki (6.2003)]; \
+	F=EP6; VH=62;
+      TX=P 31 "Tolstoy" Helsinki <- Vainikkala - Vyborg - St. Petersburg - Tver -> Moskva (6.2003);	\
+	M=CHANGE; D=L;											\
+	C=<4:0|1*RZD_BAG_TOLSTOY(|L),6*RZD_KRK_TOLSTOY(|L),RZD_SKK_TOLSTOY(|L),3*RZD_KRK_TOLSTOY(|L);	\
+	C1=VR_SR1(A|N)H(|L); C2=RZD_VL82M_0(1B|2B|3B); P=50-700; T3=10,PD,W,3,PU,W,10-20; W=4E; F=EPO6;	\
+	VH=62; WP=10,TB:(PD,PBU);
+      TX=P 32 "Tolstoy" Moskva <- Tver - St. Petersburg - Vyborg - Vainikkala -> Helsinki (6.2003);	\
+	M=CHANGE; D=L;											\
+	C=<4:0|1*RZD_BAG_TOLSTOY(|L),6*RZD_KRK_TOLSTOY(|L),RZD_SKK_TOLSTOY(|L),3*RZD_KRK_TOLSTOY(|L);	\
+	C1=RZD_VL82M_0(1B|2B|3B); C2=VR_SR1(A|N)H(|L); P=50-700; W=4E; F=EPO6; VH=62;
+    }
+  $ENDPOOL 
 
-$SPOOL N=REPIN_2003_SF; SEQ=R;
-  {E6?
-    C=VR_SR1(A|N)H(|L)[PFU],VR_SR1(A|N)H(|L),2*RZD_KRK_RP(|L),RZD_SKK_RP(|L),2*RZD_KRK_RP(|L);		\
-      AP=[TX=P 33 "Repin" Helsinki <- Vainikkala - Vyborg -> St. Petersburg (6.2003)]|			\
-	[TX=P 34 "Repin" St. Petersburg <- Vyborg - Vainikkala -> Helsinki (6.2003)];			\
-      VH=62;
-    TX=P 33 "Repin" Helsinki <- Vainikkala - Vyborg -> St. Petersburg (6.2003);				\
-      M=CHANGE; D=L; C=<2*RZD_KRK_RP(|L),RZD_SKK_RP,2*RZD_KRK_RP(|L);					\
-      C1=VR_SR1(A|N)H(|L)[PFU],VR_SR1(A|N)H(|L); C2=RZD_VL82M_0(1B|2B|3B); P=50; T3=10,PD,W,3,PU,W,	\
-	10-20;												\
-      W=4E; WP=10,TB:(PD,PBU); VH=62;
-    TX=P 34 "Repin" St. Petersburg <- Vyborg - Vainikkala -> Helsinki (6.2003);				\
-      M=CHANGE; D=L; C=<2*RZD_KRK_RP(|L),RZD_SKK_RP,2*RZD_KRK_RP(|L); C1=RZD_VL82M_0(1B|2B|3B);		\
-      C2=VR_SR1(A|N)H(|L)[PFU],VR_SR1(A|N)H(|L); P=50; W=4E; VH=62;
-  }
-$ENDPOOL 
+  $SPOOL N=REPIN_2003_SF; SEQ=R;
+    {E6?
+      C=VR_SR1(A|N)H(|L)[PFU],VR_SR1(A|N)H(|L),2*RZD_KRK_RP(|L),RZD_SKK_RP(|L),2*RZD_KRK_RP(|L);	\
+	AP=[TX=P 33 "Repin" Helsinki <- Vainikkala - Vyborg -> St. Petersburg (6.2003)]|		\
+	  [TX=P 34 "Repin" St. Petersburg <- Vyborg - Vainikkala -> Helsinki (6.2003)];			\
+	F=EP6; VH=62;
+      TX=P 33 "Repin" Helsinki <- Vainikkala - Vyborg -> St. Petersburg (6.2003);			\
+	M=CHANGE; D=L; C=<2*RZD_KRK_RP(|L),RZD_SKK_RP,2*RZD_KRK_RP(|L);					\
+	C1=VR_SR1(A|N)H(|L)[PFU],VR_SR1(A|N)H(|L); C2=RZD_VL82M_0(1B|2B|3B); P=50;			\
+	T3=10,PD,W,3,PU,W,10-20; W=4E; F=EPO6; WP=10,TB:(PD,PBU); VH=62;
+      TX=P 34 "Repin" St. Petersburg <- Vyborg - Vainikkala -> Helsinki (6.2003);			\
+	M=CHANGE; D=L; C=<2*RZD_KRK_RP(|L),RZD_SKK_RP,2*RZD_KRK_RP(|L); C1=RZD_VL82M_0(1B|2B|3B);	\
+	C2=VR_SR1(A|N)H(|L)[PFU],VR_SR1(A|N)H(|L); P=50-700; W=4E; F=EPO6; VH=62;
+    }
+  $ENDPOOL 
 
-%ADDPOOL(POOL_SF,FI_ENV)
-{E5?
-  TX="Repin" Helsinki <- Vainikkala - Vyborg -> St. Petersburg (anno 1991);				\
-    C=VR_SR1H(|L),5*RZD_KRK_RP(|L),RZD_SKK_RP(|L),RZD_KRK_RP(|L),RZD_WLAB_RP(|L),RZD_POST_RP;
-  C=VR_SR2H,2*VR_ICA,4*VR_ICB;
-  D=L;													\
-    C=VR_SR1H(|L)|VR_DR16|VR_SR2(H|AH),2*VR_GBLN,2*(VR_GBLNT(|2))|VRGBLK|(VR_HBIKK(|2|3)), VR_SONK,	\
-      VR_ZAGS,3*VRGBLK,VR_HBIKK(|2|3),3-6*VR_ELO(4|5|6);
-  C=20:(VR_SR1H(|L)|VR_SR1NH(|L)|VR_SR1AH(|L))|(VR_3106H(|L)),8*SZDCONT,4*SZD_13401(|2|2B),5*SZDKRU,	\
-      1-2*SZD_11270E(|L),2-4*VR_OAV;
-  C=2*VR_DR16,12*VR_SHIMMN(|2);
-  C=VR_SR1NH(|L)|VR_SR1AH(|L)|VR_SR1H(|L),3*VRGBLK,							\
-      1-4*(VR_HKB,(1-3*SZDKRU)|(1-4*SZD_11270E(|L)),VR_HKB),3-6*VRGBLK;
-  C=VR_SR1H(|L),VR_SIMN(|3),VR_GBLN,VRGBLK,VRFLAT(|L),10*VR_SIMN(|3);
-  D=L; C=VR_SR2H,VR_ED2000B,VR_ED2000A,3*VR_ED2000B;
-  C=VR_5DV12_2622(|L),12*VR_HAI(|2|3|T|T2|T3);
-  C=2*VR_5DV12_2622(|L),13*VR_GBLK(|2|3|4);
+  %ADDPOOL(POOL_SF,FI_ENV)
+    {E5?
+      TX="Repin" Helsinki <- Vainikkala - Vyborg -> St. Petersburg (anno 1991);				\
+	C=VR_SR1H(|L),5*RZD_KRK_RP(|L),RZD_SKK_RP(|L),RZD_KRK_RP(|L),RZD_WLAB_RP(|L),RZD_POST_RP; F=EP5;
+      C=VR_SR2H,2*VR_ICA,4*VR_ICB; F=EP5;
+      D=L;												\
+	C=VR_SR1H(|L)|VR_DR16|VR_SR2(H|AH),2*VR_GBLN,2*(VR_GBLNT(|2))|VRGBLK|(VR_HBIKK(|2|3)),VR_SONK,	\
+	  VR_ZAGS,3*VRGBLK,VR_HBIKK(|2|3),3-6*VR_ELO(4|5|6);						\
+	F=F5;
+      C=20:(VR_SR1H(|L)|VR_SR1NH(|L)|VR_SR1AH(|L))|(VR_3106H(|L)),8*SZDCONT,4*SZD_13401(|2|2B),5*SZDKRU, \
+	  1-2*SZD_11270E(|L),2-4*VR_OAV;								\
+	F=EF5;
+      C=2*VR_DR16,12*VR_SHIMMN(|2); F=DF5;
+      C=VR_SR1NH(|L)|VR_SR1AH(|L)|VR_SR1H(|L),3*VRGBLK,							\
+	  1-4*(VR_HKB,(1-3*SZDKRU)|(1-4*SZD_11270E(|L)),VR_HKB),3-6*VRGBLK;				\
+	F=EF5;
+      C=VR_SR1H(|L),VR_SIMN(|3),VR_GBLN,VRGBLK,VRFLAT(|L),10*VR_SIMN(|3); F=EF5;
+      D=L; C=VR_SR2H,VR_ED2000B,VR_ED2000A,3*VR_ED2000B; F=EP5;
+      C=VR_5DV12_2622(|L),12*VR_HAI(|2|3|T|T2|T3); F=DF5;
+      C=2*VR_5DV12_2622(|L),13*VR_GBLK(|2|3|4); F=DF5;
 #13.6.1994 Paltamo
-  C=[MI:25]3*VR_DR16,2-8*VRGBLK,(3-5*VR_HBI(|2|3|4))|(3-5*VR_HBIKK(|2|3))|(3-5*VR_HIO(|2|3)),		\
-      (1-10*VRFLAT)|(1-10*VRFLATL);
-  C=VR_SR1H(|L)[PFU],VR_SR1H(|L),VR_OA,6*SZD_151443,4*SZD_13401(|2),4-8*SZDCONT;
-  C=VR_SR2H[PFU],VR_SR2H,23*VRCONT;
-  C=VR_DR16,4*VR_B;
-  C=VR_SR1H(|L),6*VR_RN(|2),VR_RN,3-5*VR_HAI(|2|3|T|T2|T3),5*VR_ELO7,2*VR_HKBB(|2|2L|L),VRGBLK;
-  C=<VR_SM1_3FL,VR_SM1_3E; W=X; BG=TRBED(1|11|12|5|7|8):..,^0;						\
-    FG=FL_SBB_F(|2),FL_SBB(1_M1|R_M1|R_M2|_M1|_M2):..,-4,#;
-  C=VR_SR2H,2*VR_ICA,6*VR_B;
-  C=VR_SR1H(|L)|VR_SR1NH(|L)|VR_SR1AH(|L),(15-20*VRORE)|(15-20*VRORELOADED);
-  C=VR_SR1NH(|L)|VR_SR1AH(|L)|VR_SR1H(|L),3*VR_EI(N|NL|NU|NUL|T);
-  C=VR_DR16,8*VR_ELO(1|3|4|5|6),VR_RN,(4*VR_HBIKK(|2|3))|(VRGBLK,2*VR_SIMN(|3)),0-5@ELOLOADED;
-  C=2*VR_5DV12_2555(|L),4*VR_HAI(|2|3)|VR_HAIT(|2|3),DB_SFINS1(A|B|C),4*VR_HAI(|2|3)|VR_HAIT(|2|3);
+      C=[MI:25]3*VR_DR16,2-8*VRGBLK,(3-5*VR_HBI(|2|3|4))|(3-5*VR_HBIKK(|2|3))|(3-5*VR_HIO(|2|3)),	\
+	  (1-10*VRFLAT)|(1-10*VRFLATL);									\
+	F=DF5;
+      C=VR_SR1H(|L)[PFU],VR_SR1H(|L),VR_OA,6*SZD_151443,4*SZD_13401(|2),4-8*SZDCONT; F=EF5;
+      C=VR_SR2H[PFU],VR_SR2H,23*VRCONT; F=EF5;
+      C=VR_DR16,4*VR_B; F=DP5;
+      C=VR_SR1H(|L),6*VR_RN(|2),VR_RN,3-5*VR_HAI(|2|3|T|T2|T3),5*VR_ELO7,2*VR_HKBB(|2|2L|L),VRGBLK;	\
+	F=EF5;
+      C=<VR_SM1_3FL,VR_SM1_3E; W=X; F=EPU5;
+      C=VR_SR2H,2*VR_ICA,6*VR_B; F=EP5;
+      C=VR_SR1H(|L)|VR_SR1NH(|L)|VR_SR1AH(|L),(15-20*VRORE)|(15-20*VRORELOADED); F=EF5;
+      C=VR_SR1NH(|L)|VR_SR1AH(|L)|VR_SR1H(|L),3*VR_EI(N|NL|NU|NUL|T); F=EP5;
+      C=VR_DR16,8*VR_ELO(1|3|4|5|6),VR_RN,(4*VR_HBIKK(|2|3))|(VRGBLK,2*VR_SIMN(|3)),0-5@ELOLOADED; F=DF5;
+      C=2*VR_5DV12_2555(|L),4*VR_HAI(|2|3)|VR_HAIT(|2|3),DB_SFINS1(A|B|C),4*VR_HAI(|2|3)|VR_HAIT(|2|3);	\
+	F=DF5;
 #Vihtari 11.7.1998
-  C=VR_SR1H(|L)|VR_SR1NH(|L)|VR_SR1AH(|L),2*VR_GBLNT,(2-5*VR_ELO(1|3|4|5|6))| (2-5@ELOLOADED),		\
-      1-5*VRGBLK,(1-3*VR_HBIKK(|2|3))|(1-3*VR_HIO(|2|3))|(1-3*VR_HBI(|2|3|4));
-  C=3*VR_DR16,26*VRFLATL;
-  C=VR_DR13,VR_C(HT|I)(|L),4*VR_EI(N|NL|NU|NUL|T),VR_EFIT(|L),VR_EI(N|NL|NU|NUL|T);
-  C=VR_SR1NH(|L)|VR_SR1AH(|L),2*VR_ICB,2*VR_ICA,4*VR_ICB;
-  C=VR_SR2H,2*VR_ICA,4*VR_ED2000B,3*VR_ICB;
-  C=VR_SR1NH(|L)|VR_SR1AH(|L),VR_5DV12_2622(|L),VR_HKB,3*CISCONT,4*SZDOPEN,SZDKRU,2*VR_HKB,VR_OBE,	\
-      2*VR_RN2,VR_GBLNT(|2),VR_OBE,VR_HAI(|2|3),VR_ZAGS|VR_SONK,2*VR_OA,2*VR_SHIMMN(|2),VR_OBE,VR_HKB,	\
-      2*VR_RN2,2*VR_HKB,VR_RN2,VR_HBI(|2|3|4),VR_HAI(|2|3);
+      C=VR_SR1H(|L)|VR_SR1NH(|L)|VR_SR1AH(|L),2*VR_GBLNT,(2-5*VR_ELO(1|3|4|5|6))|(2-5@ELOLOADED),	\
+	  1-5*VRGBLK,(1-3*VR_HBIKK(|2|3))|(1-3*VR_HIO(|2|3))|(1-3*VR_HBI(|2|3|4));			\
+	F=EF5;
+      C=3*VR_DR16,26*VRFLATL; F=DF5;
+      C=VR_DR13,VR_C(HT|I)(|L),4*VR_EI(N|NL|NU|NUL|T),VR_EFIT(|L),VR_EI(N|NL|NU|NUL|T); F=DP5;
+      C=VR_SR1NH(|L)|VR_SR1AH(|L),2*VR_ICB,2*VR_ICA,4*VR_ICB; F=EP5;
+      C=VR_SR2H,2*VR_ICA,4*VR_ED2000B,3*VR_ICB; F=EP5;
+      C=VR_SR1NH(|L)|VR_SR1AH(|L),VR_5DV12_2622(|L),VR_HKB,3*CISCONT,4*SZDOPEN,SZDKRU,2*VR_HKB,VR_OBE,	\
+	  2*VR_RN2,VR_GBLNT(|2),VR_OBE,VR_HAI(|2|3),VR_ZAGS|VR_SONK,2*VR_OA,2*VR_SHIMMN(|2),VR_OBE,	\
+	  VR_HKB,2*VR_RN2,2*VR_HKB,VR_RN2,VR_HBI(|2|3|4),VR_HAI(|2|3);					\
+	F=F5;
 #should be SR1,DV12,HKBA,3*Vof,4*Vok,Vgk,Hkba,Hkb,Bhv,BOv,Occ,Sgm,Taimn,Koev,Gbln-t,Obrk,Hai,Soea,2*Occ,Bh,2*Kasu,Kasp,2*Shmmn,Obrk,Hkb,Bxh,2*Sp,2*Hkb,Sp,Hkb,Hbi,2*Tad,Hai;
-}
-{E6?
-  TX=Riihimäeltä <-> Helsinki (14.03.2003);								\
-    C=<VR_SM1_3FL,VR_SM1_3E,VR_SM2_1FL,VR_SM2_1E; W=X; BG=TRBED(1|11|12|5|7|8):..,^0;			\
-    FG=FL_SBB_F(|2),FL_SBB(1_M1|R_M1|R_M2|_M1|_M2):..,-4,#;
-  TX=Kauklahdesta <-> Mankkia (21.03.2003);								\
-    C=2*(<VR_SM1_3FL,VR_SM1_3E);
-  TX=Pendolino 123 Helsinki <-> Turku (6.2003);								\
-    C=<VR_SM3FL,VR_SM3BL,VR_SM3EL,VR_SM3E,VR_SM3B,VR_SM3F;
-  POOL=REPIN_2003_SF;
-  D=L;													\
-    C=VR_SR2H[PFU],VR_SR2H,2*VR_EI(N|NL|NU|NUL|T),VR_EFIT(|L),2*VR_EI(N|NL|NU|NUL|T),VR_RK(|L|T|TL),	\
-      VR_EI(N|NL|NU|NUL|T),VR_CEI(|L);
-  TX=H 442 Vaasasta Jyväskylään <-> Haapamäki (24.3.2005);						\
-    C=VR_5DV12_272(1|1L|4|4L),VR_EFIT(|L),2*VR_EIN(|L);
-  C=VR_5DV12_27(21|24|48|53)(|L),2*VR_SIMN(|3),VR_KBP;
+    }
+    {E6?
+      TX=Riihimäeltä <-> Helsinki (14.03.2003);								\
+	C=<VR_SM1_3FL,VR_SM1_3E,VR_SM2_1FL,VR_SM2_1E; W=X; F=EPU6;
+      TX=Kauklahdesta <-> Mankkia (21.03.2003);								\
+	C=2*(<VR_SM1_3FL,VR_SM1_3E); F=EPU6;
+      TX=Pendolino 123 Helsinki <-> Turku (6.2003);							\
+	C=<VR_SM3FL,VR_SM3BL,VR_SM3EL,VR_SM3E,VR_SM3B,VR_SM3F; F=EPU6;
+      POOL=REPIN_2003_SF; F=EPO6;
+      D=L;												\
+	C=VR_SR2H[PFU],VR_SR2H,2*VR_EI(N|NL|NU|NUL|T),VR_EFIT(|L),2*VR_EI(N|NL|NU|NUL|T),VR_RK(|L|T|TL), \
+	  VR_EI(N|NL|NU|NUL|T),VR_CEI(|L);								\
+	F=EP6;
+      TX=H 442 Vaasasta Jyväskylään <-> Haapamäki (24.3.2005);						\
+	C=VR_5DV12_272(1|1L|4|4L),VR_EFIT(|L),2*VR_EIN(|L); F=DP6;
+      C=VR_5DV12_27(21|24|48|53)(|L),2*VR_SIMN(|3),VR_KBP; F=DF6;
 #T 3649 Hyvinkää 19.5.2005
-  C=3*VR_5DV12_27(21|24|48|53)(|L),DB_SFNPS3(A|B),DB_SFINS1(A|B|C),2*DB_SFNPS3(A|B),			\
-      VR_SHIMMN|VR_SHIMMN2,VR_KBP2,2*VR_HKB,5*SZD_151519,7*SZDKRU,VR_HKB;
+      C=3*VR_5DV12_27(21|24|48|53)(|L),DB_SFNPS3(A|B),DB_SFINS1(A|B|C),2*DB_SFNPS3(A|B),		\
+	  VR_SHIMMN|VR_SHIMMN2,VR_KBP2,2*VR_HKB,5*SZD_151519,7*SZDKRU,VR_HKB;				\
+	F=DF6;
 #T 3528 Turko-Salo 20.5.2005
-  C=VR_SR1H(|L),2*VR_HIO(|2|3),VR_HKB,3*VR_HBI(|2|3|4)|VR_HBIKK(|2|3),					\
-      13*SZD_11066A(|L)|UZ_11066|SZD_11K001(A|B|C|D|E|F|G);
+      C=VR_SR1H(|L),2*VR_HIO(|2|3),VR_HKB,3*VR_HBI(|2|3|4)|VR_HBIKK(|2|3),				\
+	  13*SZD_11066A(|L)|UZ_11066|SZD_11K001(A|B|C|D|E|F|G);						\
+	F=EF6;
 #31.5.2005
-  C=VR_SR2(AH|H),10*VR_CEMT(|L),VR_FOT(|L),VR_RK(|L),2*VR_EIN(|L);
+      C=VR_SR2(AH|H),10*VR_CEMT(|L),VR_FOT(|L),VR_RK(|L),2*VR_EIN(|L); F=EP6;
 #should have 2 GFot Autotransporters on the end
-  TX=Tampere <-> Helsinki (15.06.2005);									\
-    C=2*(<VR_SM1_3FL,VR_SM1_3E);
-  TX=Pendolino S133 Turku <-> Salo (20.06.2005);							\
-    C=<VR_SM3FL,VR_SM3BL,VR_SM3EL,VR_SM3E,VR_SM3B,VR_SM3F;
-  C=VR_5DV12_2622(|L),4*CISCONT,VR_HKB,VR_HAIT(|2|3),VR_HBI(|2|3|4),VR_HKB,				\
-      RZD_151408(|L)|SZD_151519|RZD_151597(|L),VR_HKB;
+      TX=Tampere <-> Helsinki (15.06.2005);								\
+	C=2*(<VR_SM1_3FL,VR_SM1_3E); F=EPU6;
+      TX=Pendolino S133 Turku <-> Salo (20.06.2005);							\
+	C=<VR_SM3FL,VR_SM3BL,VR_SM3EL,VR_SM3E,VR_SM3B,VR_SM3F; F=EPU6;
+      C=VR_5DV12_2622(|L),4*CISCONT,VR_HKB,VR_HAIT(|2|3),VR_HBI(|2|3|4),VR_HKB,				\
+	  RZD_151408(|L)|SZD_151519|RZD_151597(|L),VR_HKB;						\
+	F=DF6;
 #T 5020 Kauppilanmäki 7.7.2005
-  C=VR_5DV12_2529(|L),VR_5DV12_2555(|L),VR_HKB,CISCONT,SZDKRU,VR_HKB,11*VRCONT;
+      C=VR_5DV12_2529(|L),VR_5DV12_2555(|L),VR_HKB,CISCONT,SZDKRU,VR_HKB,11*VRCONT; F=DF6;
 #T 4053 x <-> Sukeva 26.7.2005
-  POOL=TOLSTOY_2003_SF;
-  C=$DIR(VR_SR1AHL,VR_SR1AH),VR_ICA1,VR_ICB1,$DIR(VR_ICWR1L,VR_ICWR1),3*VR_DDL|VR_DD;
+      POOL=TOLSTOY_2003_SF; F=EPO6;
+      C=$DIR(VR_SR1AHL,VR_SR1AH),VR_ICA1,VR_ICB1,$DIR(VR_ICWR1L,VR_ICWR1),3*VR_DDL|VR_DD; F=EP6;
 # Helsinki 19.08.2005
-  C=VR_SR1H(|L),4*VR_HBI(|2|3|4),VR_ZAGS|VR_SONK,VR_ELOT(|2|3|4|5),4*SJ_LAAIS921,			\
-      VR_HAI(|2|3)|VR_HAIT(|2|3),SJ_LAAIS921,VR_HKB,4*SZD_151424(|L),					\
-      3*RZD_132114[OB:FR_WOOD11,<14,15][OB:#FR_WOOD11,<14,26][OB:FR_WOOD11,<14,37][OB:FR_WOOD11,>132,15] \
-      [OB:#FR_WOOD11,>132,26][OB:FR_WOOD11,>132,37],7*SZD_11715(A|B|C)(|L);
-  C=2*(<VR_SM1_3FL,VR_SM1_3E);
+      C=VR_SR1H(|L),4*VR_HBI(|2|3|4),VR_ZAGS|VR_SONK,VR_ELOT(|2|3|4|5),4*SJ_LAAIS921,			\
+	  VR_HAI(|2|3)|VR_HAIT(|2|3),SJ_LAAIS921,VR_HKB,4*SZD_151424(|L),				\
+	  3*RZD_132114[OB:FR_WOOD11,<14,15][OB:#FR_WOOD11,<14,26][OB:FR_WOOD11,<14,37]			\
+	  [OB:FR_WOOD11,>132,15][OB:#FR_WOOD11,>132,26][OB:FR_WOOD11,>132,37],7*SZD_11715(A|B|C)(|L);	\
+	F=EF6;
+      C=2*(<VR_SM1_3FL,VR_SM1_3E); F=EPU6;
 #Helsinki 28.08.2005
-  TX=T 5072 Iisalmi <-> Joensuu (anno 2005);								\
-    C=VR_5DV12_2622(|L),VR_5DV12_2555(|L),VR_5DV12_2622(|L),VR_HIO(|2|3),VR_HAIT(|2|3),2*VR_HIO(|2|3),	\
-      5*VR_HBIKK(|2|3),2*VRCONT,VR_SHIMMN(|2),5*VR_HBIKK(|2|3);
-  C=(<VR_SM2_2FL,VR_SM2_2E)|(<VR_SM1_1EL,VR_SM1_1E);
+      TX=T 5072 Iisalmi <-> Joensuu (anno 2005);							\
+	C=VR_5DV12_2622(|L),VR_5DV12_2555(|L),VR_5DV12_2622(|L),VR_HIO(|2|3),VR_HAIT(|2|3),		\
+	  2*VR_HIO(|2|3),5*VR_HBIKK(|2|3),2*VRCONT,VR_SHIMMN(|2),5*VR_HBIKK(|2|3);			\
+	F=DF6;
+      C=(<VR_SM2_2FL,VR_SM2_2E)|(<VR_SM1_1EL,VR_SM1_1E); F=EPU6;
 # Kotka 12.9.2005
-  C=VR_5DV12_27(21|24|48|53)(|L),VR_GBLNT(|2),VR_HKB,							\
-      2*SZD_11066A(|L)|UZ_11066|SZD_11K001(A|B|C|D|E|F|G),SZD_11287(A|B|C|D),VR_HKB;
+      C=VR_5DV12_27(21|24|48|53)(|L),VR_GBLNT(|2),VR_HKB,						\
+	  2*SZD_11066A(|L)|UZ_11066|SZD_11K001(A|B|C|D|E|F|G),SZD_11287(A|B|C|D),VR_HKB;		\
+	F=DF6;
 #T 3046 Nummela 11.11.2005
-  TX=Helsinki <-> Turku (26.11.2005);									\
-    C=VR_SR2(AH|H),4*VR_DD(|L);
-  C=VR_DR16,VR_EIN(|L),VR_EFIT(|L),VR_EIN(|L);
-  C=VR_5DV12_2555(|L),3*VR_RN;
-  C=VR_SR2(AH|H),3*VR_DD(|L);
+      TX=Helsinki <-> Turku (26.11.2005);								\
+	C=VR_SR2(AH|H),4*VR_DD(|L); F=EP6;
+      C=VR_DR16,VR_EIN(|L),VR_EFIT(|L),VR_EIN(|L); F=DP6;
+      C=VR_5DV12_2555(|L),3*VR_RN; F=DF6;
+      C=VR_SR2(AH|H),3*VR_DD(|L); F=EP6;
 # Tikkurila 27.11.2005
-  TX=Jyväskylä <- Haapamäki -> Vaasa (5.12.2005);							\
-    C=VR_5DV12_27(21|24|48|53)(|L),3*VR_EIN(|L),VR_EFIT(|L);
-  TX=Helsinki <-> Espoo (21.12.2005);									\
-    C=<VR_SM1_3FL,VR_SM1_3E;
-  C=2*VR_5DV12_2555(|L),VR_5DV12_27(21|24|48|53)(|L),29*VR_SHIMMN(|2);
+      TX=Jyväskylä <- Haapamäki -> Vaasa (5.12.2005);							\
+	C=VR_5DV12_27(21|24|48|53)(|L),3*VR_EIN(|L),VR_EFIT(|L); F=DP6;
+      TX=Helsinki <-> Espoo (21.12.2005);								\
+	C=<VR_SM1_3FL,VR_SM1_3E; F=EPU6;
+      C=2*VR_5DV12_2555(|L),VR_5DV12_27(21|24|48|53)(|L),29*VR_SHIMMN(|2); F=DF6;
 # 22.12.2005T 3641 bei Hyvinkää
-  C=VR_SR1H(|L),VR_RN[OB:2000CONT2,,12],8*VR_SIMN(|3),4*VR_KBP,VR_HBIKK(|2|3),VR_ZAGS,VR_KBP2,8*SZDNEFT, \
-      VR_KBP2,2*VR_SIMN(|3);
+      C=VR_SR1H(|L),VR_RN[OB:CONT2_2000,,12],8*VR_SIMN(|3),4*VR_KBP,VR_HBIKK(|2|3),VR_ZAGS,VR_KBP2,	\
+	  8*SZDNEFT,VR_KBP2,2*VR_SIMN(|3);								\
+	F=EF6;
 # Nokia 30.12.2005
-  C=VR_3106H(|L),VR_HBIKK(|2|3),VR_HBI(|2|3|4),5*VR_HBIKK(|2|3),VR_RN;
+      C=VR_3106H(|L),VR_HBIKK(|2|3),VR_HBI(|2|3|4),5*VR_HBIKK(|2|3),VR_RN; F=EF6;
 #20.1.2006
-  C=VR_5DV12_2555(|L),6*VR_SIMN(|3),VR_HAIT(|2|3),DB_SFINS1(A|B|C),3*VR_SIMN(|3),3*VR_HAIT(|2|3),	\
-      VR_SIMN(|3),VR_HAIT(|2|3);
+      C=VR_5DV12_2555(|L),6*VR_SIMN(|3),VR_HAIT(|2|3),DB_SFINS1(A|B|C),3*VR_SIMN(|3),3*VR_HAIT(|2|3),	\
+	  VR_SIMN(|3),VR_HAIT(|2|3);									\
+	F=DF6;
 #Tammisaari 29.1.2006
-  C=VR_5DV12_2555(|L),VR_EFIT(|L),VR_EIN(|L);
-  C=VR_5DV12_2622(|L),SJ_LAAIS921;
+      C=VR_5DV12_2555(|L),VR_EFIT(|L),VR_EIN(|L); F=DP6;
+      C=VR_5DV12_2622(|L),SJ_LAAIS921; F=DF6;
 #T 4220 Iisalmi (8.2.2006)
-  C=VR_SR1H(|L),VR_EIN(|L),VR_EFIT(|L);
+      C=VR_SR1H(|L),VR_EIN(|L),VR_EFIT(|L); F=EP6;
 #13.2.2006
-  C=VR_5DV12_2555(|L),VR_HBI(|2|3|4),VR_HBIKK(|2|3),2*VR_HBI(|2|3|4),VR_HBIKK(|2|3);
+      C=VR_5DV12_2555(|L),VR_HBI(|2|3|4),VR_HBIKK(|2|3),2*VR_HBI(|2|3|4),VR_HBIKK(|2|3); F=DF6;
 #14.02.2006 Iisalmi
-  C=2*VR_5DV12_2622(|L),4*VR_GBLN,VR_HBIKK(|2|3),VR_KBP,VR_HBIKK(|2|3),VR_HBI(|2|3|4),VR_HBIKK(|2|3),	\
-      3*VR_HBI(|2|3|4);
+      C=2*VR_5DV12_2622(|L),4*VR_GBLN,VR_HBIKK(|2|3),VR_KBP,VR_HBIKK(|2|3),VR_HBI(|2|3|4),		\
+	  VR_HBIKK(|2|3),3*VR_HBI(|2|3|4);								\
+	F=DF6;
 #T 5020 Holopanlahti 14.2.2006
-  C=VR_5DV12_2622(|L),3*VR_SIMN(|3),4*VRCONT,6*VR_HKB,4*VR_HBIKK(|2|3);
+      C=VR_5DV12_2622(|L),3*VR_SIMN(|3),4*VRCONT,6*VR_HKB,4*VR_HBIKK(|2|3); F=DF6;
 # 17.02.2006 Sokojoki
-  C=2*VR_5DV12_2555(|L),VR_5DV12_27(21|24|48|53)(|L),SZD_19752(A|B|C|D)(|L),				\
-      SZD_15161401|(SZD_151602(A|B|C)),2*VR_HKB;
+      C=2*VR_5DV12_2555(|L),VR_5DV12_27(21|24|48|53)(|L),SZD_19752(A|B|C|D)(|L),			\
+	  SZD_15161401|(SZD_151602(A|B|C)),2*VR_HKB;							\
+	F=DF6;
 # 17.02.2006 Uusikaupunki
-  TX=Rovariemi <-> Helsinki (02.2006);									\
-    C=VR_SR2(AH|H),4*VR_CEMT(|L),2*VR_DD(|L),2*VR_EIN(|L)|VR_EINU(|L),VR_RK(|L)|VR_RKT(|L),VR_FOT(|L),	\
-      3*VR_CEMT(|L);
+      TX=Rovariemi <-> Helsinki (02.2006);								\
+	C=VR_SR2(AH|H),4*VR_CEMT(|L),2*VR_DD(|L),2*VR_EIN(|L)|VR_EINU(|L),VR_RK(|L)|VR_RKT(|L),		\
+	  VR_FOT(|L),3*VR_CEMT(|L);									\
+	F=EP6;
 #Should be Doubledeck Sleepers
-  TX=T 5401 Kivesjärvi <-> x (19.02.2006);								\
-    C=VR_5DV12_2555(|L),VR_5DV12_2622(|L),2*VRCONT,2*VR_HAIT(|2|3),VR_HBI(|2|3|4),3*VR_ELOT(|2|3|4|5),	\
-      16*VRCONT;
-  C=VR_5DV12_2555(|L),7*VR_SIMN(|3);
+      TX=T 5401 Kivesjärvi <-> x (19.02.2006);								\
+	C=VR_5DV12_2555(|L),VR_5DV12_2622(|L),2*VRCONT,2*VR_HAIT(|2|3),VR_HBI(|2|3|4),			\
+	  3*VR_ELOT(|2|3|4|5),16*VRCONT;								\
+	F=DF6;
+      C=VR_5DV12_2555(|L),7*VR_SIMN(|3); F=DF6;
 #Jyväskylä 05.03.2006
-  C=VR_5DV12_2555(|L),VR_HBI(|2|3|4);
+      C=VR_5DV12_2555(|L),VR_HBI(|2|3|4); F=DF6;
 #Iisalmi 09.03.2006
-  C=VR_5DV12_2622(|L),VR_RN[OB:2000CONT2,<11,12][OB:2000CONT2,>204,12],VR_RN[OB:2000CONT2,,12],		\
-      4*VR_HBIKK(|2|3),2*VR_HBI(|2|3|4),VR_HBIKK(|2|3),2*VRCONT,VR_GBLN,5*VRCONT;
+      C=VR_5DV12_2622(|L),VR_RN[OB:CONT2_2000,<11,12][OB:CONT2_2000,>204,12],VR_RN[OB:CONT2_2000,,12],	\
+	  4*VR_HBIKK(|2|3),2*VR_HBI(|2|3|4),VR_HBIKK(|2|3),2*VRCONT,VR_GBLN,5*VRCONT;			\
+	F=DF6;
 #Iisalmi 09.03.2006
-  TX=Helsinki <-> Tampere (16.05.2006);									\
-    C=VR_SR2H,8*VR_DDL|VR_DD; VH=62;
-  C=<VR_SM3FL,VR_SM3BL,VR_SM3EL,VR_SM3E,VR_SM3B,VR_SM3F;
+      TX=Helsinki <-> Tampere (16.05.2006);								\
+	C=VR_SR2H,8*VR_DDL|VR_DD; F=EP6; VH=62;
+      C=<VR_SM3FL,VR_SM3BL,VR_SM3EL,VR_SM3E,VR_SM3B,VR_SM3F; F=EPU6;
 # Tampere 29.06.2006
-  TX=1313 Pori <-> Tampere (26.08.2006);								\
-    C=VR_SR2(AH|H),$DIR(VR_EFITL,VR_EFIT),4*VR_EINL|VR_EIN;
-  TX=1147 Pieksamaki <-> Joensuu (27.08.2006);								\
-    C=$DIR(VR_5DV12_2622,VR_5DV12_2622L),$DIR(VR_5DV12_2622L,VR_5DV12_2622),2*VR_EIN(|L),		\
-      $DIR(VR_EFITL,VR_EFIT);
-  C=$DIR(VR_SR1AHL,VR_SR1AH),4*VR_EINL|VR_EIN;
+      TX=1313 Pori <-> Tampere (26.08.2006);								\
+	C=VR_SR2(AH|H),$DIR(VR_EFITL,VR_EFIT),4*VR_EINL|VR_EIN; F=EP6;
+      TX=1147 Pieksamaki <-> Joensuu (27.08.2006);							\
+	C=$DIR(VR_5DV12_2622,VR_5DV12_2622L),$DIR(VR_5DV12_2622L,VR_5DV12_2622),2*VR_EIN(|L),		\
+	  $DIR(VR_EFITL,VR_EFIT);									\
+	F=DP6;
+      C=$DIR(VR_SR1AHL,VR_SR1AH),4*VR_EINL|VR_EIN; F=EP6;
 # Lempaala (nach Turku) 04.05.2007
-  C=2*$DIR(VR_5DV12_2721,VR_5DV12_2721L),$DIR(VR_EFIT,VR_EFITL),2*VR_EIN(|L),$DIR(VR_EFITL,VR_EFIT),	\
-      $DIR(VR_RKT,VR_RKTL),2*VR_EIN(|L);
+      C=2*$DIR(VR_5DV12_2721,VR_5DV12_2721L),$DIR(VR_EFIT,VR_EFITL),2*VR_EIN(|L),$DIR(VR_EFITL,VR_EFIT), \
+	  $DIR(VR_RKT,VR_RKTL),2*VR_EIN(|L);								\
+	F=DP6;
 # P915 in Orivesi 13.05.2007
-  C=$DIR(VR_5DV12_2721,VR_5DV12_2721L),$DIR(VR_5DV12_2622,VR_5DV12_2622L),				\
-      $DIR(VR_5DV12_2529L,VR_5DV12_2529),20*SZD_19752(A|AL|B|BL|C|CL|D|DL),				\
-      27*SZD_151602A|SZD_151602B|SZD_151602C|SZD_151519|RZD_151597L|RZD_151597;
+      C=$DIR(VR_5DV12_2721,VR_5DV12_2721L),$DIR(VR_5DV12_2622,VR_5DV12_2622L),				\
+	  $DIR(VR_5DV12_2529L,VR_5DV12_2529),20*SZD_19752(A|AL|B|BL|C|CL|D|DL),				\
+	  27*SZD_151602A|SZD_151602B|SZD_151602C|SZD_151519|RZD_151597L|RZD_151597;			\
+	F=DF6;
 #Perniö 20.06.2007
-  C=VR_SR2(AH|H),3*$DIR(VR_DDL,VR_DD),$DIR(VR_ICWR1,VR_ICWR1L),4*VR_ICB1;
+      C=VR_SR2(AH|H),3*$DIR(VR_DDL,VR_DD),$DIR(VR_ICWR1,VR_ICWR1L),4*VR_ICB1; F=EP6;
 # Toijala (07.08.2007)
-  TX=H 764 Ristisaaren <-> Lehmossa (15.09.2007);							\
-    C=$DIR(VR_5DV12_2529,VR_5DV12_2529L),VR_EINL|VR_EIN,$DIR(VR_EFITL,VR_EFIT),VR_EINL|VR_EIN;
-  C=VR_DR16,VR_HKB,RZD_151443UT2_SFATL|RZD_151443UT2_SFAT|RZD_151443UT3_SFATL|RZD_151443UT3_SFAT,	\
-      6*SZDOPEN;
+      TX=H 764 Ristisaaren <-> Lehmossa (15.09.2007);							\
+	C=$DIR(VR_5DV12_2529,VR_5DV12_2529L),VR_EINL|VR_EIN,$DIR(VR_EFITL,VR_EFIT),VR_EINL|VR_EIN; F=DP6;
+      C=VR_DR16,VR_HKB,RZD_151443UT2_SFATL|RZD_151443UT2_SFAT|RZD_151443UT3_SFATL|RZD_151443UT3_SFAT,	\
+	  6*SZDOPEN;											\
+	F=DF6;
 # T 5309 Vaala (29.02.2008)
-  C=VR_SR2AH,VR_DDL|VR_DD,5*VR_ICB1,$DIR(VR_ICWR1,VR_ICWR1L),3*VR_DDL|VR_DD;
+      C=VR_SR2AH,VR_DDL|VR_DD,5*VR_ICB1,$DIR(VR_ICWR1,VR_ICWR1L),3*VR_DDL|VR_DD; F=EP6;
 # IC 49 in Järvenpää
-  C=$DIR(VR_5DV12_2555L,VR_5DV12_2555),2*VR_GBLN,VR_HKB,SZD_11287(A|B|C|D),3*SZD_151602(A|B|C),		\
-      SZD_112(17D|17DL|70A|70AL),3*SZD_11287(A|B|C|D),SZD_112(17D|17DL|70A|70AL),VR_HKB;
+      C=$DIR(VR_5DV12_2555L,VR_5DV12_2555),2*VR_GBLN,VR_HKB,SZD_11287(A|B|C|D),3*SZD_151602(A|B|C),	\
+	  SZD_112(17D|17DL|70A|70AL),3*SZD_11287(A|B|C|D),SZD_112(17D|17DL|70A|70AL),VR_HKB;		\
+	F=DF6;
 # T 3046 Lisätty 14.03.2008
-  C=2*VR_DR16,13*VR_HAI(|2|3|T|T2|T3);
+      C=2*VR_DR16,13*VR_HAI(|2|3|T|T2|T3); F=DF6;
 # Train T4724 in Lehmo (15.03.2008)
-  TX=P 263 Helsinki <-> Kolari (19.03.2008);								\
-    C=VR_SR2AH,9*VR_CEMT(|L),$DIR(VR_EFIT,VR_EFITL),$DIR(VR_RKTL,VR_RKT),VR_EIT;
+      TX=P 263 Helsinki <-> Kolari (19.03.2008);							\
+	C=VR_SR2AH,9*VR_CEMT(|L),$DIR(VR_EFIT,VR_EFITL),$DIR(VR_RKTL,VR_RKT),VR_EIT; F=EP6;
 # should also have 5 GFot autoracks at end
-  C=$DIR(VR_5DV12_2622L,VR_5DV12_2622),VR_HAIT(|2|3),7*VRFLATL,2*VR_HAIT(|2|3),3*VR_HBIKK(|3),		\
-      VR_HAIT(|2|3),VR_HBIKK(|3),VR_HAIT(|2|3),2*VR_HBIKK(|3),2*VR_HAIT(|2|3),				\
-      5*VR_HBI(|2|3|4)|VR_HBIKK(|2|3);
+      C=$DIR(VR_5DV12_2622L,VR_5DV12_2622),VR_HAIT(|2|3),7*VRFLATL,2*VR_HAIT(|2|3),3*VR_HBIKK(|3),	\
+	  VR_HAIT(|2|3),VR_HBIKK(|3),VR_HAIT(|2|3),2*VR_HBIKK(|3),2*VR_HAIT(|2|3),			\
+	  5*VR_HBI(|2|3|4)|VR_HBIKK(|2|3);								\
+	F=DF6;
 # T2862 Lapinjärvi (14.05.2008)
-  C=<VR_SM3FL,VR_SM3BL,VR_SM3EL,VR_SM3E,VR_SM3B,VR_SM3F;
+      C=<VR_SM3FL,VR_SM3BL,VR_SM3EL,VR_SM3E,VR_SM3B,VR_SM3F; F=EPU6;
 # S56 Kokkola 21.5.2008
-  C=VR_SR2H,3*VR_DD,VR_DDL,VR_DD,3*VR_ICB1;
+      C=VR_SR2H,3*VR_DD,VR_DDL,VR_DD,3*VR_ICB1; F=EP6;
 # IC58 Kokkola (21.5.2008)
-  C=$DIR(VR_5DV12_2529L,VR_5DV12_2529),$DIR(VR_5DV12_2622,VR_5DV12_2622L),7*VR_HAIT(|2|3);
+      C=$DIR(VR_5DV12_2529L,VR_5DV12_2529),$DIR(VR_5DV12_2622,VR_5DV12_2622L),7*VR_HAIT(|2|3); F=DF6;
 # T4085 Nokela (24.5.2008)
-  C=2*$DIR(VR_5DV12_2622L,VR_5DV12_2622),VR_SIMN(|3),VR_GBLNT(|2),2*VR_GBLN,2*VR_GBLNT(|2),2*VR_HAIT3,	\
-      VR_HBIKK(|2|3),2*VR_GBLNT(|2),2*VR_HAIT3;
+      C=2*$DIR(VR_5DV12_2622L,VR_5DV12_2622),VR_SIMN(|3),VR_GBLNT(|2),2*VR_GBLN,2*VR_GBLNT(|2),		\
+	  2*VR_HAIT3,VR_HBIKK(|2|3),2*VR_GBLNT(|2),2*VR_HAIT3;						\
+	F=DF6;
 # T3653 Viiala (24.05.2008)
-  C=VR_SR2H,4*VR_EIN(|L),VR_RK,$DIR(VR_EFITL,VR_EFIT),VR_EIN(|L);
+      C=VR_SR2H,4*VR_EIN(|L),VR_RK,$DIR(VR_EFITL,VR_EFIT),VR_EIN(|L); F=EP6;
 # P 143 Rysslimpan (30.5.08)
 # 2.6.2008 T4005 in Mäntsälä Sr1 3071 + Soek + 5 Sob + Soek + Sob + Soek + 4 Sob + Soek + Sob + Soek + 4 Sob + 2 Soek
 # 4.6.2008 T3005 in Lempäälä Dv12 2551+2562+2549+Gbln-t6*Zan-v+Sod+2*Sord+Za+Sord+4*Za.
-}
-%ENDPOOL;
+    }
+  %ENDPOOL;
 }

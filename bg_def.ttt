@@ -1,340 +1,2186 @@
+# { [ (
+###############################################################################
+#                                                                            ##
+#    Backgrounds                                  ##
+#                                                                            ##
+###############################################################################
+
+#==============================================================================
 #
-#	Backgrounds
+# Timetable modifier
 #
-$DEF SKYP =									\
-	[BG-=BGPIC/BCKGRD_01.JPG:..,,<=>,440,1410;] |				\
-	[BG-=BGPIC/BCKGRD_04.JPG:..,,<=>;] |					\
-	[BG-=BGPIC/BCKGRD_05.JPG:..,,<=>,160,470;] |				\
-	[BG-=BGPIC/BCKGRD_06.JPG:..,,<=>,732,1480;] |				\
-	[BG-=BGPIC/BCKGRD_10.JPG:..,,<=>,0,1394;] |				\
-	[BG-=BGPIC/BCKGRD_15.JPG:..,,<=>,598,1101;] |				\
-	[BG-=BGPIC/BCKGRD_18.JPG:..,,<=>,272,1086;] |				\
-	[BG-=BGPIC/BCKGRD_23.JPG:..,,<=>,843,1379;] |				\
-	[BG-=BGPIC/BCKGRD_31.JPG:..;] |						\
-	[BG-=BGPIC/BCKGRD_32.JPG:..,,<=>,200,1182;] |				\
-	[BG-=BGPIC/BCKGRD_33.JPG:..,,<=>,99,1391;] |				\
-	[BG-=BGPIC/BCKGRD_35.JPG:..,,#;] |					\
-	[BG-=BGPIC/BCKGRD_36.JPG:..,,<=>,0,765;] |				\
-	[BG-=BGPIC/BCKGRD_37.JPG:..,,<=>,569,1360;]
+#==============================================================================
 
-%*DEFINE(SKYDEF(N,Y)=
-$DEF %N;=([BGC=(180,210,234)],[BG-=BGPIC\SKY(55|114|115|122|138|154|171|176|177|179).JPG:,%Y;;]) |		\
-    ([BGC=(157,193,229)],[BG-=BGPIC\CLOUD(59|60|61|62|63|64|65|66|67|68|69|70).JPG:,%Y;;])
-)
-%SKYDEF(SKYC,200)
-%SKYDEF(SKYL,100)
-%SKYDEF(SKYS,20)
-%SKYDEF(SKYD,-100)
+$DEF STMOD=$FLG(P,($FLG(S,[C-=[!C]]),[M=STOP][P=*50]))
 
-$DEF SKYW=([BGC=(157,193,229)],[BG-=$MIX(2,\
-	BGPIC\CLOUD59.JPG, \
-	BGPIC\CLOUD60.JPG, \
-	BGPIC\CLOUD61.JPG, \
-	BGPIC\CLOUD62.JPG, \
-	BGPIC\CLOUD63.JPG, \
-	BGPIC\CLOUD64.JPG, \
-	BGPIC\CLOUD65.JPG, \
-	BGPIC\CLOUD66.JPG, \
-	BGPIC\CLOUD67.JPG, \
-	BGPIC\CLOUD68.JPG, \
-	BGPIC\CLOUD69.JPG, \
-	BGPIC\CLOUD70.JPG):..,100,0;])
+#==============================================================================
+#
+# Sky
+#
+#==============================================================================
 
-$DEF STRIPEBG= \
-	[BG-=BGPIC\AG_79A.JPG:..,-70,<=>,194,1872;][BGC=(137,180,215)] | \
-	[BG-=BGPIC\AG_79B.JPG:,-50;][BGC=(137,180,215)] | \
-	[BG-=BGPIC\AG_87A.JPG:,-50;][BGC=(143,183,219)] | \
-	[BG-=BGPIC\AG_88A.JPG:,-50;][BGC=(139,179,215)] | \
-	[BG-=BGPIC\AG_134M.JPG:,-160;][BGC=(208,216,239)] | \
-	[BG-=BGPIC\AG_144A.JPG:,-50;][BGC=(208,216,239)] | \
-	[BG-=BGPIC\AG_158M.JPG:,-40;][BGC=(140,179,218)] | \
-	[BG-=BGPIC\AG_159A.JPG:,-80;][BGC=(208,216,239)] | \
-	[BG-=BGPIC\AG_165A.JPG:,-60;][BGC=(203,215,237)] | \
-	[BG-=BGPIC\AG_165B.JPG:,-60;][BGC=(203,215,237)]
+# Drawn background - hills and sky
+$DEF SKYP =												&\
+    [BG-=BGPIC/BCKGRD_01.JPG:..,,<=>,440,1410;]|							&\
+    [BG-=BGPIC/BCKGRD_04.JPG:..,,<=>;]|									&\
+    [BG-=BGPIC/BCKGRD_05.JPG:..,,<=>,160,470;]|								&\
+    [BG-=BGPIC/BCKGRD_06.JPG:..,,<=>,732,1480;]|							&\
+    [BG-=BGPIC/BCKGRD_10.JPG:..,,<=>,0,1394;]|								&\
+    [BG-=BGPIC/BCKGRD_15.JPG:..,,<=>,598,1101;]|							&\
+    [BG-=BGPIC/BCKGRD_18.JPG:..,,<=>,272,1086;]|							&\
+    [BG-=BGPIC/BCKGRD_23.JPG:..,,<=>,843,1379;]|							&\
+    [BG-=BGPIC/BCKGRD_31.JPG:..;]|									&\
+    [BG-=BGPIC/BCKGRD_32.JPG:..,,<=>,200,1182;]|							&\
+    [BG-=BGPIC/BCKGRD_33.JPG:..,,<=>,99,1391;]|								&\
+    [BG-=BGPIC/BCKGRD_35.JPG:..,,#;]|									&\
+    [BG-=BGPIC/BCKGRD_36.JPG:..,,<=>,0,765;]|								&\
+    [BG-=BGPIC/BCKGRD_37.JPG:..,,<=>,569,1360;]
+
+# %*DEFINE(SKYDEF(N,Y)=
+# $DEF %N;=([BGC=(180,210,234)],[BG-=BGPIC\SKY(55|114|115|122|138|154|171|176|177|179).JPG:,%Y;;]) |
+#    ([BGC=(157,193,229)],[BG-=BGPIC\CLOUD(59|60|61|62|63|64|65|66|67|68|69|70).JPG:,%Y;;])
+# )
+# %SKYDEF(SKYC,200)
+# %SKYDEF(SKYS,20)
+# %SKYDEF(SKYD,-100)
+
+$DEF SKYMIX1=[WMIXF:,											&\
+    BGPIC/CLOUD59.JPG,											&\
+    BGPIC/CLOUD60.JPG,											&\
+    BGPIC/CLOUD62.JPG,											&\
+    BGPIC/CLOUD63.JPG,											&\
+    BGPIC/CLOUD64.JPG,											&\
+    BGPIC/CLOUD65.JPG,											&\
+    BGPIC/CLOUD66.JPG,											&\
+    BGPIC/CLOUD67.JPG,											&\
+    BGPIC/CLOUD68.JPG,											&\
+    BGPIC/CLOUD69.JPG,											&\
+    BGPIC/CLOUD70.JPG]
+$DEF BGC1=[BGC=(157,193,229)]
+
+$DEF SKYMIX2=[WMIXF:,											&\
+    BGPIC/SKY54.JPG[CROPR:-20],										&\
+    BGPIC/SKY55.JPG[CROPR:-20],										&\
+    BGPIC/SKY114.JPG[CROPL:-20],									&\
+    BGPIC/SKY115.JPG[CROPL:-20],									&\
+    BGPIC/SKY122.JPG[CROPR:-20],									&\
+    BGPIC/SKY138.JPG[CROPR:-20],									&\
+    BGPIC/SKY154.JPG[CROPR:-20],									&\
+    BGPIC/SKY171.JPG[CROPL:-20],									&\
+    BGPIC/SKY176.JPG[CROPR:-20],									&\
+    BGPIC/SKY177.JPG[CROPR:-20],									&\
+    BGPIC/SKY179.JPG[CROPR:-20]]
+
+$DEF BGC2=[BGC=(175,210,232)]
+
+$DEF SKYM=([BG-=SKYMIX1:..,$1,0;][BG-=100[B:0,0,,$1,(157,193,229)]:..;])|				\
+    ([BG-=SKYMIX2:..,$1,0;][BG-=100[B:0,0,,$1,(175,210,232)]:..;])
+
+$DEF SKYD=([BG-=SKY01:..,$1,0;][BG-=100[B:0,0,,$1,(132,148,181)]:..;])|					\
+    ([BG-=SKY02:..,$1,0;][BG-=100[B:0,0,,$1,(191,220,247)]:..;])
+
+$DEF SKY130=[BG-=SKYB02:..;]
+$DEF SKY300=$SKYD(0)
+$DEF SKY400=$SKYM(0)
+
+$DEF SKY=$IF($BGUP<=130,(SKY130|SKY300|SKY400),$IF($BGUP<=300,(SKY300|SKY400),SKY400))
+
+#==============================================================================
+#
+# Track
+#
+#==============================================================================
+
+$DEF BLBK=[BG<=100[B:0,0,100,20,#000]:..,^0;]
+
+# $DEF EMB_BK=[WR=X][BG<=100[B:0,0,100,20,#000]:..,^0;]
+# $DEF EMB_WD=[WR=X][BG+=EMB(3|4|5|6)|NL_BRIDGE0(2A|2G|3A|3C):..,^0;]
+
+# $DEF RAIL_GO=[BG+=TRBED(50|37|40):..,^0;]
+# $DEF RAIL_GS=[BG+=TRBED(3|26|38|24|32|49|15|25|43|22|13|1|8):..,^0;]
+
+$DEF TRACK=[BG+=EMB(3|4)|NL_BRIDGE03(A|C):..,^0,#;							\
+    TRBED(1|5|6|7|8|11|12|13|15|17|19|20|22|24|25|28|31):..,^0;][WR=[W=X]]
+
+# Bahndamm Erde-Schotter
+$DEF TRACKFGBS=EMB14|EMB13|EMB15|EMB01
+$DEF EMBS=[BG+=EMB14|EMB13|EMB15|EMB01:..,^0;]
+
+# Gleis ohne Schotter
+$DEF TRACKFGGO=TRBED(50|37|40)
+$DEF TRKGO=[BG+=TRBED(50|37|40):..,^0;]
+
+# Gleis mit Schotter ohne Damm
+$DEF TRACKFGGS=TRBED(49|15|25|43|22|13|1|8)
+$DEF TRKGS=[BG+=TRBED(49|15|25|43|22|13|1|8):..,^0;]
+
+# Gleis mit Schotter Damm Schotter
+$DEF TRACKFGDB=TRBED45|TRBED25
+$DEF TRKDB1=[BG+=TRBED(25|45):..,^0;]
+$DEF TRKDB=BLBK,TRKDB1
+$DEF TRKES=EMBS,TRKDB1
+
+# Gleis mit Schotter Damm Wiese
+$DEF TRACKFGDW=TRBED(39|11|42_BUILDPROFILE|47|7)
+$DEF TRKDW=[BG+=TRBED(39|11|42|47|7):..,^0;]
+
+# Gleis mit Schotter Damm Wiese hell
+$DEF TRACKFGDH=TRBED(51|12|31)
+$DEF TRKDH=[BG+=TRBED(51|12|31):..,^0;]
+
+# Gleis mit Schotter Damm Schnee
+$DEF TRACKFGDS=TRBED(41|48)
+$DEF TRKDS=[BG+=TRBED(41|48):..,^0;]
+
+$DEF TRKGR=[BG+=TRBED(7|28|31):..,^0;]
+$DEF TRKST=[BG+=TRBED25M:..,^0;]
+
+# Bahndamm Wiese dunkel
+$DEF TRACKFGWD=EMB(3|4|5|6)|NL_BRIDGE0(2A|2G|3A|3C)
+$DEF TRKWD=[BG+=EMB(3|4|5|6)|NL_BRIDGE0(2A|2G|3A|3C):..,^0;]
+
+# Bahndamm Wiese hell
+$DEF TRACKFGWH=EMB7
+
+# Bahndamm
+
+$DEF EMBG=[BG+=EMB(3|4|5|6|7|10|12A|12B):..,^-5;]
+
+# Gleis mit Schotter, ohne Bahndamm
+$DEF TRKND=[BG+=TRBED22|TGIF_TRBED3|TGIF_TRBED4|TRBED14|TRBED20|TRBED43|TRBED44|TRBED10|TGIF_TRBED12|	\
+    TRBED22|TGIF_TRBED11|TGIF_TRBED6|TRBED5|TRBED1|TRBED8|TGIF_TRBED13:..,^0;]
+
+# Gleis mit Schotter und Bahndamm, hoch
+$DEF TRKHI=[BG+=TRBED(7|11|12|17|25M|27|28|42|47|51):..,^0;]
+
+# Gleis mit Schotter, niedrig
+$DEF TRKLO=[BG+=(2:TRBED(1|5|8|13|14|22|38|43|44|45)|TGIF_TRBED(1|3|4|6|11|12|13)):..,^0;]
+
+#==============================================================================
+#
+# Catenary
+#
+#==============================================================================
+
+$DEF WX=[W=X]
+
+$DEF M_CAT1B=[BG<=;M_BB,M_VEZ:..,#-58,#;]
+$DEF M_CAT1F=[FG>=;M_BF,M_VEZF:..,#-64,#;]
+$DEF M_CAT2B=[BG<=;M_VB,M_VEZ:..,#-58,#;]
+$DEF M_CAT2F=[FG>=;M_VF,M_VEZF:..,#-64,#;]
+$DEF M_CAT3B=[BG<=;M_BDB,M_VEZ:..,#-58,#;]
+$DEF M_CAT3F=[FG>=;M_BDF,M_VEZF:..,#-64,#;]
+$DEF M_CAT4B=[BG<=;M_VDB,M_VEZ:..,#-58,#;]
+$DEF M_CAT4F=[FG>=;M_VDF,M_VEZF:..,#-64,#;]
+$DEF M_CAT5B=[BG<=;M_VKB[M],M_VEZ,M_VDB,M_VEZ,M_VKB:..,#-58,#,(M_VB,M_VEZ),(M_VEZ,M_VB);]
+$DEF M_CAT5F=[FG>=;M_VKF[M],M_VEZF,M_VDF,M_VEZF,M_VKF:..,#-64,#,(M_VF,M_VEZF),(M_VEZF,M_VF);]
+$DEF M_CAT6B=[BG<=;M_VKB[M],M_VEZ,M_VDB,M_VEZ,M_VDB,M_VFB:..,#-58,#,(M_VB,M_VEZ),(M_VEZ,M_VB);]
+$DEF M_CAT6F=[FG>=;M_VKF[M],M_VEZF,M_VDF,M_VEZF,M_VDF,M_VFF:..,#-64,#,(M_VF,M_VEZF),(M_VEZF,M_VF);]
+$DEF M_CAT7B=[BG<=;M_VFB[M],M_VDB,M_VEZ,M_VDB,M_VEZ,M_VKB:..,#-58,#,(M_VB,M_VEZ),(M_VEZ,M_VB);]
+$DEF M_CAT7F=[FG>=;M_VFF[M],M_VDF,M_VEZF,M_VDF,M_VEZF,M_VKF:..,#-64,#,(M_VF,M_VEZF),(M_VEZF,M_VF);]
+$DEF M_CAT=M_CAT(1|2|3|4|5|6|7)F
+$DEF M_CATB=M_CAT(1|2|3|4|5|6|7)(F|B)
+$DEF CATHU=												&\
+    [WE=M_CAT,WX]											&\
+    [WR=WX]
+
+$DEF DRG_CAT1=[FG>=;FL_INTERURB70_M1,FL_INTERURB70_F1:..,#-74,#;]
+$DEF DRG_CAT2=[FG>=;FL_DRG_F:..,#-62,#;]
+$DEF DB_3RAIL=[FG>=;SNCF_3eRail_FG:..,-2,#;]
+$DEF CATDRG=												&\
+    [WE=$FLG(G,DRG_CAT1,$FLG(1,DRG_CAT1,DRG_CAT2)),WX]							&\
+    [WM=DB_3RAIL,WX]											&\
+    [WR=WX]
+
+$DEF D_CAT=[FG>=;FL_DB_M(4:1F5|2_5),FL_DB_F5:..,#-63,#;]
+$DEF D_CATB=[BG<=;FL_DB_M(4:1|2),FL_DB_F:..,#-58,#;]
+$DEF DB_CAT=[BG<=;FL_DB_F,FL_DB_M(4:1|2):..,#-58,#;]
+$DEF DB_GCAT=[FG>=;FL_INTERURB70_M1,FL_INTERURB70_F1:..,#-74,#;]
+$DEF DR_CAT=[FG>=;FL_DR:..,#-62,#;]
+$DEF DR_CATB=[BG<=;FL_DR_B:..,#-62,#;]
+$DEF CATDB=												&\
+    [WE=$FLG(G,DB_GCAT,$FLG(3,D_CAT,1:DR_CAT|3:D_CAT)),WX]						&\
+    [WL=$FLG(G,DB_GCAT,DB_CAT),WX]									&\
+    [WM=DB_3RAIL,WX]											&\
+    [WR=WX]
+$DEF CATDE=$FLG(1,CATDRG,$FLG(2,CATDRG,CATDB))
+$DEF CATDR=												&\
+    [WE=$FLG(G,DB_GCAT,DR_CAT),WX]									&\
+    [WM=DB_3RAIL,WX]											&\
+    [WR=WX]
+
+$DEF SBB_CAT1=[FG>=;FL_SBB_M1,(3:FL_SBB_F|FL_SBB_F2):..,#-62,#;]
+$DEF SBB_CAT2=[FG>=;											\
+    FL_SBB_M2,FL_SBB_F2,2*(FL_SBB_M1,FL_SBB_F2),#FL_SBB_M2:..,#-62,#,(FL_SBB_M1,FL_SBB_F),		\
+    (FL_SBB_F,FL_SBB_M1);]
+$DEF SBB_CAT3=[FG>=;FL_SBB1_M1,FL_SBB_F2:..,#-62,#;]
+$DEF SBB_CAT4=[FG>=;FL_SBBR_M(1|2),FL_SBB_F:..,#-62,#;]
+$DEF SBB_CAT5=[FG>=;FL_SBB_F(|2),FL_SBB(1_M1|R_M1|R_M2|_M1):..,#-62,#;]
+$DEF SBB_CAT=SBB_CAT(1|2|3|4|5)
+$DEF CATCH=												&\
+    [WE=SBB_CAT,WX]											&\
+    [WL=SBB_CAT,WX]											&\
+    [WR=WX]
+
+$DEF A_CAT=[FG>=;FL_OBB:..,#-62,#;]
+$DEF A_6CAT=[FG>=;(3:FL_OBB6|1:FL_OBB):..,#-62,#;]
+$DEF A_GCAT=[FG>=;FL_INTERURB70_M1,FL_INTERURB70_F1:..,#-74,#;]
+$DEF A_NCAT=[FG>=;FL_OBB_ASPMA,FL_OBB_MA2,4*(FL_OBB_MA2,FL_OBB_MA2):..,#-62;]
+$DEF CATOS=												&\
+    [WE=$FLG(N,A_NCAT,$FLG(G,A_GCAT,$FLG(6,A_6CAT,$FLG(5,A_6CAT,A_CAT)))),WX]				&\
+    [WL=$FLG(N,A_NCAT,$FLG(G,A_GCAT,A_CAT)),WX]								&\
+    [WR=WX]
+
+$DEF GB_CAT=[FG>=;FL_BRH2,FL_BRH3,3*FL_BRH1:..,#-63,#;]
+$DEF GB_LCAT=[FG>=;FL_BRH2,FL_BRH3,3*FL_BRH1:..,#-63,#;]
+$DEF GB_3RAIL=[FG>=;PLM_3RBG_M:..,-1;]
+$DEF CATGB=[WE=GB_CAT,WX][WL=GB_LCAT,WX][WM=GB_3RAIL,WX][WR=WX]
+
+$DEF F_HCAT=[FG>=;FL_MAURIENNE_M1,FL_SBB_F2:..,-4;]
+$DEF F_GCAT1=[BG<=;FL_SNCFC_M1,FL_SNCFC_F:..,#-62;]
+$DEF F_GCAT2=[BG<=;FL_SNCFC_M1,FL_SNCFC_F:..,#-62,#,(FL_SNCFC_M1,FL_SNCFC_F);]
+$DEF F_GCAT3=[BG<=;											\
+    FL_SNCFC_M1,FL_SNCFC_F,FL_SNCFC_M1,FL_SNCFC_F,FL_SNCFC_M1:..,#-62,#,(FL_SNCFC_M1,FL_SNCFC_F),	\
+    (FL_SNCFC_F,FL_SNCFC_M1);]
+$DEF F_GCAT4=[FG>=;FL_SNCF_MIDI1,2*FL_SNCF_MIDI2:..,#-63,#;]
+$DEF F_GCAT5=[FG>=;FL_SNCF_MIDI3,2*FL_SNCF_MIDI4:..,#-63,#;]
+$DEF F_GCAT6=[FG>=;FL_SNCF_MIDI5,2*FL_SNCF_MIDI6:..,#-63,#;]
+$DEF F_GCAT=F_GCAT(1|2|3|4|5|6)
+$DEF F_CAT=[FG>=;FL_SBB_F,FL_SNCFA_M1:..,-4,#;]
+$DEF F_3RAIL=[FG>=;PLM_3RBG_M:..,-1;]
+$DEF F_N3RAIL=[FG>=;SNCF_3eRail_FG:..,-2,#;]
+$DEF CATFR=												&\
+    [WE=$FLG(2,F_HCAT,$FLG(G,F_GCAT,F_CAT)),WX]								&\
+    [WL=$FLG(G,F_GCAT,F_CAT),WX]									&\
+    [WM=$FLG(N,F_N3RAIL,F_3RAIL),WX]									&\
+    [WR=WX]
+
+$DEF B_CAT=[FG>=;FL_SNCB_F,FL_SNCFC_M1:..,-4,#;]
+$DEF CATBE=												&\
+    [WE=B_CAT,WX]											&\
+    [WR=WX]
+
+$DEF L_CAT=[FG>=;FL_SBB_F,FL_SNCFA_M1:..,-4,#;]
+$DEF CATLU=												&\
+    [WE=L_CAT,WX]											&\
+    [WR=WX]
+
+$DEF NL_CAT=[FG>=;FL_SBB_F,FL_SNCFA_M1:..,-4,#;]
+$DEF CATNL=												&\
+    [WE=NL_CAT,WX]											&\
+    [WR=WX]
+
+$DEF DK_CAT=[FG>=;FL_SBB_F(|2),FL_DSB_M1:..,-5,#;]
+$DEF CATDK=												&\
+    [WE=DK_CAT,WX]											&\
+    [WR=WX]
+
+$DEF N_CAT=[FG>=;FL_SJ_M1,FL_SBB_F:..,-4,#;]
+$DEF CATNO=												&\
+    [WE=N_CAT,WX]											&\
+    [WR=WX]
+
+$DEF S_CAT=[FG>=;FL_SJ_M1,FL_SBB_F:..,-4,#;]
+$DEF CATSE=												&\
+    [WE=S_CAT,WX]											&\
+    [WR=WX]
+
+$DEF FI_CAT=[FG>=;FL_SNCF_MIDI6[SP:460-660,111]:..,#-63,#;]
+$DEF CATFI=[VH=62]											&\
+    [WE=FI_CAT,WX]											&\
+    [WR=WX]
+
+$DEF P_CAT=[BG<=;FL_RF_UNIF:..,-25,#;]
+$DEF CATPO=												&\
+    [WE=P_CAT,WX]											&\
+    [WR=WX]
+
+$DEF E_CAT1=[FG>=;FL_RF_NORTE2:..,#-67,#;]
+$DEF E_CAT2=[FG>=;FL_RF1:..,#-67,#;]
+$DEF E_CAT3=[BG<=;FL_RF_UNIF:..,#-83,#;]
+$DEF CATES=												&\
+    [WE=$FLG(2,E_CAT2,$FLG(3,E_CAT(1|2),E_CAT3)),WX]							&\
+    [WL=$FLG(2,E_CAT2,$FLG(3,E_CAT(1|2),E_CAT3)),WX]							&\
+    [WR=WX]
+
+$DEF I_CAT1=[FG>=;FL_FS_F,FL_FS_M(1|2|3|4|5),FL_FS_F,FL_FS_M(1|3|4):..,#-62,#;]
+$DEF I_CAT2=[FG>=;FL_FS5C,FL_FS5B,2*(FL_FS5A,FL_FS5B),4*(FL_FS4A,FL_FS4B):..,#-62,#;]
+$DEF I_CAT=I_CAT(1|2)
+$DEF I_3PHCAT=[FG>=;PALO_TT:..,#-62,#;]
+$DEF I_NCAT=[FG>=;FS_FS1_A,FS_FS1_B:..,#-73,#;]
+$DEF I_3RAIL=[FG>=;SNCF_3eRail_FG:..,-2,#;]
+$DEF I_CAT3=(FL_FS3_F,FL_FS3_M(8:1|2))
+$DEF CATIT=												&\
+    [WE=$FLG(N,I_NCAT,$FLG(X,I_3PHCAT,I_CAT)),WX]							&\
+    [WL=$FLG(N,I_NCAT,$FLG(X,I_3PHCAT,I_CAT)),WX]							&\
+    [WT=I_NCAT,WX]											&\
+    [WM=I_3RAIL,WX]											&\
+    [WR=WX]
+
+$DEF CZ_CAT1=[FG>=;(8:FL_CZ1A[M]|FL_CZ1D[M]),FL_CZ1L,(8:FL_CZ1A[M]|FL_CZ1D[M]),FL_CZ1L:..,#-62,#;]
+$DEF CZ_CAT2=[FG>=;(8:FL_CZ1B[M]|FL_CZ1E[M]),FL_CZ1L,(8:FL_CZ1B[M]|FL_CZ1E[M]),FL_CZ1L:..,#-62,#;]
+$DEF CZ_CAT3=[FG>=;											\
+    (8:FL_CZ1B[M]|FL_CZ1(E|F|G)[M]),FL_CZ1L,(8:FL_CZ1B[M]|FL_CZ1(E|F|G)[M]),FL_CZ1L:..,#-62,#;]
+$DEF CZ_CAT4=[FG>=;FL_CZ1H[M],FL_CZ1L:..,#-62,#;]
+$DEF CZ_CAT5=[FG>=;FL_CZ1H[M],FL_CZ1L,(4:FL_CZ1H[M]|FL_CZ1X),FL_CZ1L:..,#-62,#;]
+$DEF CZ_CAT=CZ_CAT(1|2|3|4|5)
+$DEF CZ_NCAT=[FG>=FL_INTERURB70_M1,FL_INTERURB70_F1:..,#-74,#;]
+$DEF CATCS=												&\
+    [WE=$FLG(N,CZ_NCAT,CZ_CAT),WX]									&\
+    [WL=CZ_CAT,WX]											&\
+    [WR=WX]
+
+$DEF PL_CAT=M_CAT
+$DEF CATPL=												&\
+    [WE=PL_CAT,WX]											&\
+    [WL=PL_CAT,WX]											&\
+    [WR=WX]
+
+$DEF RO_CAT=CZ_CAT
+$DEF CATRO=												&\
+    [WE=RO_CAT,WX]											&\
+    [WR=WX]
+
+$DEF SLO_CAT=CZ_CAT
+$DEF CATSL=												&\
+    [WE=SLO_CAT,WX]											&\
+    [WR=WX]
+
+$DEF HR_CAT=CZ_CAT
+$DEF CATHR=												&\
+    [WE=HR_CAT,WX]											&\
+    [WR=WX]
+
+$DEF YU_CAT=CZ_CAT
+$DEF CATYU=												&\
+    [WE=YU_CAT,WX]											&\
+    [WL=YU_CAT,WX]											&\
+    [WR=WX]
+
+$DEF BG_CAT=CZ_CAT
+$DEF CATBG=												&\
+    [WE=BG_CAT,WX]											&\
+    [WR=WX]
+
+$DEF GR_CAT=M_CAT(1|2|3|4)F
+$DEF CATGR=												&\
+    [WE=GR_CAT,WX]											&\
+    [WR=WX]
+
+$DEF TR_CAT=M_CAT(1|2|3|4)F
+$DEF CATTR=												&\
+    [WE=TR_CAT,WX]											&\
+    [WR=WX]
+
+$DEF SU_CAT62=[FG>=;FL_DRG_F|FL_DR:..,#-62,#;]
+$DEF SU_CAT58=[FG>=;FL_DRG_F|FL_DR:..,#-58,#;]
+$DEF CATSU=												&\
+    [VH=62]												&\
+    [WE=$FLG(X,SU_CAT58,SU_CAT62),WX]									&\
+    [WR=WX]
+
+$DEF US_CAT1=[FG>=;FL_USA_1|MILW_CATENARY:..,#-67,#;]
+$DEF US_CAT2=[FG>=;FL_INTERURB70_(M2,F1,M1,F1,M2[M],F1,M1,F1):..,#-74,#;]
+$DEF US_CAT3=[FG>=;FL_DR:..,#-62,#;]
+$DEF CATUS=[VH=70]											&\
+    [WE=$FLG(6,US_CAT3,$FLG(5,US_CAT3,US_CAT1|US_CAT2)),WX]						&\
+    [WL=US_CAT2,WX]											&\
+    [WR=WX]
+
+$DEF J_CAT1B=[BG<=;FL_J7:..,,#-51;]
+$DEF J_CAT2=[FG>=;FL_J3F:..,#-56,#;]
+$DEF J_CAT2B=[BG<=;FL_J3B:..,#-56,#;]
+$DEF J_CAT3B=[BG<=;FL_J8:..,#-58,#;]
+$DEF J_CAT4=[FG>=;FL_J1F:..,#-60,#;]
+$DEF J_CAT=J_CAT(2|4)
+$DEF J_CATB=J_CAT(1|2|3)B
+$DEF J_TCAT1=[FG>=;FL_J4:..,#-55,#;]
+$DEF J_CAT58A=[FG>=;FL_J1F:..,-2,#;]
+$DEF J_CAT58B=[BG<=;FL_J8:..,0,#;]
+$DEF J_CAT58=J_CAT58A
+$DEF CATJP=												&\
+    [WE=J_CAT58,WX]											&\
+    [WL=J_CAT,WX]											&\
+    [WT=J_TCAT1,WX]											&\
+    [WR=WX]
+
+$DEF CATAU=												&\
+    [WE=GB_CAT,WX]											&\
+    [WL=GB_LCAT,WX]											&\
+    [WM=GB_3RAIL,WX]											&\
+    [WR=WX]
+
+$DEF CN_CAT1=[FG>=;FL_SBB_F,FL_SNCFA_M1:..,#-62,#;]
+$DEF CN_CAT2=[FG>=;FL_J1F:..,#-60,#;]
+$DEF CN_CAT=CN_CAT(3:1|2)
+$DEF CATCN=												&\
+    [WE=CN_CAT,WX]											&\
+    [WL=CN_CAT,WX]											&\
+    [WR=WX]
+
+$DEF CATSA=												&\
+    [VH=70]												&\
+    [WE=$FLG(X,US_CAT2,US_CAT3),WX]									&\
+    [WR=WX]
+
+$DEF CATOTH=												&\
+    [WE=M_CAT(1|2|3|4)F,WX]										&\
+    [WL=M_CAT(1|2|3|4)F,WX]										&\
+    [WR=WX]
+
+$DEF CATENARY=[BG<=;FL_DB_F,(5:FL_DB_M1|1:FL_DB_M2):..,,#;]
+
+$DEF SET_E=[SW=E]
+
+#==============================================================================
+#
+# Forest, Vegetation
+#
+#==============================================================================
+
+$DEF BG_BUSH_0_24=FOREST13A|FOREST13G|FOREST15A
+$DEF BG_BUSH_24_0=FOREST13F|FOREST13I|FOREST14R|FOREST15N
+$DEF BG_BUSH_24_24=FOREST13B|FOREST13C|FOREST13D|FOREST13E|FOREST13H|FOREST15F|FOREST15J
+$DEF BG_BUSH_0_39=FOREST14A
+$DEF BG_BUSH_39_39=FOREST14B|FOREST14C|FOREST14D|FOREST14G|FOREST14J|FOREST14N|FOREST14O|FOREST14P|	\
+    FOREST15C|FOREST15D|FOREST15H
+$DEF BG_BUSH_39_31=FOREST14E|FOREST14H|FOREST14K
+$DEF BG_BUSH_31_39=FOREST14F|FOREST14I|FOREST14M
+$DEF BG_BUSH_39_24=FOREST14Q|FOREST15E|FOREST15I|FOREST15M
+$DEF BG_BUSH_24_39=FOREST15B|FOREST15G|FOREST15K
+
+$DEF BG_FORESTB=[BG<=([WMIXF:,FOREST31(|[M]),FOREST32(|[M])]|[WMIXF:,FOREST11(|[M])]):..,0,#;]
+
+$DEF BG_FOREST1=[BG<=[WMIXF:,FOREST21,FOREST22,FOREST23]:..,0,#;]
+$DEF BG_FOREST3=[BG<=[WMIXF:,										\
+    10:BG_BUSH_39_39|(BG_BUSH_39_24,1-3*BG_BUSH_24_24,BG_BUSH_24_39)|(BG_BUSH_39_31,BG_BUSH_31_39)]:..,	\
+    0,#;]
+
+$DEF BG_GREEN1=[BG<=[WMIXF:,GREEN3,GREEN4,GREEN5]:..,0,#;]
+
+$DEF BG_FORESTP1=$HL162([BC:-0.18,.6])
 
 $DEF TREE_SUMMER=TREE1|TREE3|TREE3A|TREE3B|TREE3C|TREE3D|TREE4|TREE4A|TREE4B|TREE4C|TREE4D|TREE4E|	\
-    TREE5A|TREE5G|TREE5H
+    TREE5A|TREE5G|TREE5H|TREE21|TREE22|TREE23|TREE29|TREE111|TREE66|TREE40|TREE45A|TREE45|TREE46A|	\
+    TREE46|TREE47|TREE49|TREE79|TREE80|TREE115|TREE83|TREE86|TREE89|TREE3C|TREE55|TREE56|TREE24|	\
+    TREE57|TREE13|TREE97|TREE97A|TREE43|TREE52|TREE65|TREE11|TREE114
 $DEF TREE_AUTUMN=TREE3F|TREE3G|TREE3H|TREE3I|TREE3J|TREE4F|TREE4G|TREE4H|TREE4I|TREE4J|TREE4K|TREE5B|	\
     TREE5C|TREE5D|TREE5E|TREE5F|TREE5I
-$DEF TREE_WINTER=TREE3SN|TREE3SN2|TREE3SN3|TREE3SN4|TREE4SN|TREE4SN2|TREE4SN3|TREE4SN4|TREE4SN5|TREE5SN| \
-    TREE5SN2|TREE5SN3|TREE5SN4|TREE5SN5
-$DEF PINE=(BOROVICE|TREE12|TREE60|TREE62|TREE63|TREE64|SMRK|TREE25|TREE26|TREE28|	\
-    TREE29|TREE21|TREE22|TREE51|TREE110|TREE108|PINE1)(|[M])
+$DEF TREE_WINTER=TREE3SN|TREE3SN2|TREE3SN3|TREE3SN4|TREE4SN|TREE4SN2|TREE4SN3|TREE4SN4|TREE4SN5|	\
+    TREE5SN|TREE5SN2|TREE5SN3|TREE5SN4|TREE5SN5
+$DEF PINE=(BOROVICE|TREE12|TREE60|TREE62|TREE63|TREE64|SMRK|TREE25|TREE26|TREE28|TREE29|TREE21|TREE22|	\
+    TREE51|TREE110|TREE108|PINE1)(|[M])
 $DEF ITREE=(TREE43|TREE44|TREE52|TREE53|TREE54|TREE15|TREE11|TREE7|TREE30|TREE31|TREE32|TREE33|TREE38|	\
     TREE94|TREE93|TREE92|EUCALYPT04|EUCALYPT07)(|[M])
+$DEF TREE_COLD=(TREE8|TREE55|TREE56|TREE12|TREE60|TREE12|TREE91|TREE108|TREE109|TREE55|TREE56|BUSH17)	\
+    (|[M])
 
+$DEF TREESOUTH=TREE83|TREE98A|TREE75|PALM7T|PALM8|PALM9|PALM10|PINUS1|PALM12|PALM15|PALM7T|PALM22|	\
+    PALM23|PALM24|PALM25|PALM27|PALM28|PALM29|PALM30|PALM31|PALM32|PALM33|PALM34|PALM35|PALM36|PALM37|	\
+    TREE103W|TREE98C|TREE101W|TREE75|TREE57|TREE44|TREE54|TREE49
+
+$DEF Vegetation=5:GRASS02|5:GRASS03|3:BUSH09|2:BUSH12|2:BUSH10|2:BUSH11|TREE6|TREE3C|TREE13|TREE43|	\
+    TREE76|TREE11
 $DEF TREES_SUMMER=0-10*20,10*(TREE_SUMMER,0-10*20)
 $DEF TREES_AUTUMN=0-10*20,10*(TREE_AUTUMN,0-10*20)
 $DEF TREES_WINTER=0-10*20,10*(TREE_WINTER,0-10*20)
-
+$DEF TREES_COLD=0-10*20,10*(TREE_COLD,0-10*20)
+$DEF TREES_SOUTH=0-10*20,10*(TREESOUTH,0-10*20)
 $DEF GRAS_SUMMER=BG_GRAS1
 $DEF GRAS_AUTUMN=BG_GRAS1
 $DEF GRAS_WINTER=BG_GRAS1W
 
-$DEF BGBASE=[BG-=SKY02:..; TRBED5:..,^0;]
+$DEF BGBASE=[BG-=SKY02:..; @@TRBED5:..,^0;]
 
-$DEF BG_SUMMER=1:0|2:1|3:2|4:3|6:4|4:5|3:6|2:7|1:8*[BG-=TREES_SUMMER:*+0-400;],				\
-    [BG-=GRAS_SUMMER:..,-12;],BGBASE
-$DEF BG_AUTUMN=1:0|2:1|3:2|4:3|6:4|4:5|3:6|2:7|1:8*[BG-=TREES_AUTUMN:*+0-400;],				\
-    [BG-=GRAS_AUTUMN:..,-12;],BGBASE
-$DEF BG_WINTER=1:0|2:1|3:2|4:3|6:4|4:5|3:6|2:7|1:8*[BG-=TREES_WINTER:*+0-400;],				\
-    [BG-=GRAS_WINTER:..,-12;],BGBASE,[C-=[!W]]
+$DEF BG_SUMMER=BGBASE,1:0|2:1|3:2|4:3|6:4|4:5|3:6|2:7|1:8*[BG<=TREES_SUMMER:*+0-400;],			\
+    [BG<=GRAS_SUMMER:..,-12;]
+$DEF BG_AUTUMN=BGBASE,1:0|2:1|3:2|4:3|6:4|4:5|3:6|2:7|1:8*[BG<=TREES_AUTUMN:*+0-400;],			\
+    [BG<=GRAS_AUTUMN:..,-12;]
+$DEF BG_WINTER=BGBASE,1:0|2:1|3:2|4:3|6:4|4:5|3:6|2:7|1:8*[BG<=TREES_WINTER:*+0-400;],			\
+    [BG<=GRAS_WINTER:..,-12;],[C-=[!W]]
 
 $DEF BG1=3:BG_SUMMER|1:BG_AUTUMN|1:BG_WINTER|								\
     1:(BG_WINTER,[TB-=1,[SNOW:S=20;V=40;I=3.5;B=-5],12],[TE+=,[STOP_SNOW:TE=15],15])
 
-$DEF TRACK=[BG<= @@ EMB(3|4)|NL_BRIDGE03(A|C):..,^0,#;							\
-    TRBED(1|5|6|7|8|11|12|13|15|17|19|20|22|24|25|28|31):..,^0;][WR=[W=X]]
+%*DEFINE(FOREST39LST=FOREST14B,FOREST14C,FOREST14D,FOREST14F,FOREST14G,FOREST14J,FOREST14N,FOREST14O, \
+FOREST14P,FOREST15C,FOREST15D,FOREST15H)
+%*DEFINE(FOREST39_30LST=FOREST14E,FOREST14H,FOREST14K,FOREST14Q)
+%*DEFINE(FOREST30_30LST=FOREST14I,FOREST14M)
 
-$DEF M_CAT1B=[BG<=M_BB,M_VEZ:..,#-58,#;]
-$DEF M_CAT1F=[FG>=M_BF,M_VEZF:..,#-64,#;]
-$DEF M_CAT2B=[BG<=M_VB,M_VEZ:..,#-58,#;]
-$DEF M_CAT2F=[FG>=M_VF,M_VEZF:..,#-64,#;]
-$DEF M_CAT3B=[BG<=M_BDB,M_VEZ:..,#-58,#;]
-$DEF M_CAT3F=[FG>=M_BDF,M_VEZF:..,#-64,#;]
-$DEF M_CAT4B=[BG<=M_VDB,M_VEZ:..,#-58,#;]
-$DEF M_CAT4F=[FG>=M_VDF,M_VEZF:..,#-64,#;]
-$DEF M_CAT5B=[BG<=M_VKB[M],M_VEZ,M_VDB,M_VEZ,M_VKB:..,#-58,#,(M_VB,M_VEZ),(M_VEZ,M_VB);]
-$DEF M_CAT5F=[FG>=M_VKF[M],M_VEZF,M_VDF,M_VEZF,M_VKF:..,#-64,#,(M_VF,M_VEZF),(M_VEZF,M_VF);]
-$DEF M_CAT6B=[BG<=M_VKB[M],M_VEZ,M_VDB,M_VEZ,M_VDB,M_VFB:..,#-58,#,(M_VB,M_VEZ),(M_VEZ,M_VB);]
-$DEF M_CAT6F=[FG>=M_VKF[M],M_VEZF,M_VDF,M_VEZF,M_VDF,M_VFF:..,#-64,#,(M_VF,M_VEZF),(M_VEZF,M_VF);]
-$DEF M_CAT7B=[BG<=M_VFB[M],M_VDB,M_VEZ,M_VDB,M_VEZ,M_VKB:..,#-58,#,(M_VB,M_VEZ),(M_VEZ,M_VB);]
-$DEF M_CAT7F=[FG>=M_VFF[M],M_VDF,M_VEZF,M_VDF,M_VEZF,M_VKF:..,#-64,#,(M_VF,M_VEZF),(M_VEZF,M_VF);]
-$DEF M_CAT=M_CAT(1|2|3|4|5|6|7)(F|B)
-$DEF M_ENV= \
-  [WE=M_CAT,[W=X]]
+$DEF BG_FOREST01=[BG<=FOREST10:..,,<=>,21,1358;]
+$DEF BG_FOREST02=[BG<=FOREST02:..,,<=>;]
+$DEF BG_FOREST03=[BG<=FOREST03:..,,<=>,62,894;]
 
-$DEF DRG_CAT1=[FG=((FL_INTERURB70_M1,FL_INTERURB70_F1):..,#-74,#)]
-$DEF DRG_CAT=[BG<=FL_DRG_B:..,#-62,#;]
-$DEF DB_3RAIL=[FG=(SNCF_3eRail_FG:..,-2,#)]
-$DEF DRG_ENV= \
-  [WE=$FLG(G,DRG_CAT1,$FLG(1,DRG_CAT1,DRG_CAT)),[W=X]] \
-  [WM=DB_3RAIL,[W=X]]
+$DEF BG_FOREST04=[BG<=FOREST09:..,,<=>,144;]
+$DEF BG_FOREST05=[BG<=FOREST17:..,,<=>;]
+$DEF BG_FOREST06=[BG<=[WMIXM:..,%FOREST39LST];]
+$DEF BG_FOREST07=[BG<=FOREST31:..,,<=>,11,610;]
+$DEF BG_FOREST08=[BG<=FOREST32:..,,<=>;]
 
-$DEF D_CAT=[BG<=(4:FL_DB_M1|1:FL_DB_M2,FL_DB_F):..,#-58,#;]
-$DEF DB_CAT=[BG<=FL_DB_F,FL_DB_M(4:1|2):..,#-58,#;]
-$DEF DB_GCAT=[FG=((FL_INTERURB70_M1,FL_INTERURB70_F1):..,#-74,#)]
-$DEF DR_CAT=[BG<=FL_DR:..,#-62,#;]
-$DEF DB_ENV= \
-  [WE=$FLG(G,DB_GCAT,$FLG(3,DB_CAT,1:DR_CAT|3:DB_CAT)),[W=X]] \
-  [WL=$FLG(G,DB_GCAT,DB_CAT),[W=X]] \
-  [WM=DB_3RAIL,[W=X]]
-$DEF DR_ENV= \
-  [WE=$FLG(G,DB_GCAT,DR_CAT),[W=X]] \
-  [WM=DB_3RAIL,[W=X]]
+#==============================================================================
+#
+# Repeated pictures for wide backgrounds
+#
+#==============================================================================
 
-$DEF SBB_CAT1=[FG>=(FL_SBB_M1,(3:FL_SBB_F|FL_SBB_F2)):..,#-62,#;]
-$DEF SBB_CAT2=[FG>=FL_SBB_M2,FL_SBB_F2,2*(FL_SBB_M1,FL_SBB_F2),#FL_SBB_M2:..,#-62,#,(FL_SBB_M1,FL_SBB_F),(FL_SBB_F,FL_SBB_M1);]
-$DEF SBB_CAT3=[FG>=FL_SBB1_M1,FL_SBB_F2:..,#-62,#;]
-$DEF SBB_CAT4=[FG>=FL_SBBR_M(1|2),FL_SBB_F:..,#-62,#;] 
-$DEF SBB_CAT5=[FG>=FL_SBB_F(|2),FL_SBB(1_M1|R_M1|R_M2|_M1):..,#-62,#;]
-$DEF SBB_CAT=SBB_CAT(1|2|3|4|5)
-$DEF CH_ENV= \
-  [WE=SBB_CAT,[W=X]] \
-  [WL=SBB_CAT,[W=X]]
+$DEF AG87=[BG-=BGPIC/AG_87A.JPG[CROPL:-20][CROPB:-$1]:..,,<=>,18,1828;]
+$DEF AG134=[BG-=BGPIC/AG_134M.JPG[CROPR:-20][CROPB:-$1]:..,,<=>,58,1710;]
+$DEF AG158=[BG-=BGPIC/AG_158M.JPG[CROPR:-20][CROPB:-$1]:..,,<=>,146,1803;]
+$DEF CM183=[BG-=BGPIC/CM_183M.JPG[CROPL:-20][CROPB:-$1]:..,,<=>,84,1673;]
+$DEF HL180=[BG-=BGPIC/HL_180M.JPG[CROPR:-20][CROPB:-$1]:..,,<=>,203,1845;]
+# USA + general
+$DEF HL981014=[BG-=BGPIC/HL_981014A.JPG[CROPL:-20][CROPB:-$1],						\
+    BGPIC/HL_981014B.JPG[COL:114][CROPR:-20][CROPB:-$1]:..,,<=>,35,3722;]
+$DEF MTS980510=[BG-=BGPIC/MTS_980510.JPG[CROPR:-28][CROPB:-$1]:..,,<=>;]
 
-$DEF A_CAT=[FG>=FL_OBB:..,#-62,#;]
-$DEF A_GCAT=[FG>=FL_INTERURB70_M1,FL_INTERURB70_F1:..,#-74,#;]
-$DEF A_NCAT=[FG>=FL_OBB_ASPMA,FL_OBB_MA2,4*(FL_OBB_MA2,FL_OBB_MA2):..,#-62;]
-$DEF A_ENV= \
-  [WE=$FLG(N,A_NCAT,$FLG(G,A_GCAT,A_CAT)),[W=X]] \
-  [WL=$FLG(N,A_NCAT,$FLG(G,A_GCAT,A_CAT)),[W=X]]
-  
-$DEF GB_CAT=[FG>=((FL_BRH2,FL_BRH3,3*FL_BRH1):..,#-64,#)]
-$DEF GB_LCAT=[FG>=((FL_BRH2,FL_BRH3,3*FL_BRH1):..,#-56,#)]
-$DEF GB_3RAIL=[FG>=PLM_3RBG_M:..,-1;]
-$DEF GB_ENV= \
-  [WE=GB_CAT,[W=X]] \
-  [WL=GB_LCAT,[W=X]] \
-  [WM=GB_3RAIL,[W=X]] \
-  [D#=X]
+# USA + general
+$DEF AG79=[BG-=BGPIC/AG_79A.JPG[CROPL:-20][CROPB:-$1],BGPIC/AG_79B.JPG[COL:45][CROPB:-$1]:..,,<=>,152,	\
+    3388;]
+# USA
+$DEF AG110=[BG-=BGPIC/AG_110A.JPG[CROPL:-20][CROPB:-$1],						\
+    BGPIC/AG_110B.JPG[COL:73][CROPR:-20][CROPB:-$1]:..,,<=>,157,1391;]
+# USA
+$DEF AG159=[BG-=BGPIC/AG_159A.JPG[CROPL:-20][CROPB:-$1],						\
+    BGPIC/AG_159B.JPG[COL:80][CROPR:-20][CROPB:-$1]:..,,<=>,603,1662;]
+# USA + general
+$DEF AG165=[BG-=BGPIC/AG_165A.JPG[CROPL:-20][CROPB:-$1],						\
+    BGPIC/AG_165B.JPG[COL:71][CROPR:-20][CROPB:-$1]:..,,<=>,0,3116;]
+# USA
+$DEF AG186=[BG-=BGPIC/AG_186A.JPG[CROPL:-20][CROPB:-$1],						\
+    BGPIC/AG_186B.JPG[COL:70][CROPR:-20][CROPB:-$1]:..,,<=>;]
+# USA
+$DEF AG197=[BG-=BGPIC/AG_197A.JPG[CROPL:-20][CROPB:-$1],						\
+    BGPIC/AG_197B.JPG[COL:56][CROPR:-20][CROPB:-$1]:..,,<=>,323,3271;]
+# USA + general
+$DEF AG198=[BG-=BGPIC/AG_198A.JPG[CROPL:-20][CROPB:-$1],						\
+    BGPIC/AG_198B.JPG[COL:56][CROPR:-20][CROPB:-$1]:..,,<=>,505,3064;]
+# USA + general
+$DEF HL133=[BG-=BGPIC/HL_133A.JPG[CROPL:-20][CROPB:-$1],						\
+    BGPIC/HL_133B.JPG[COL:58][CROPR:-20][CROPB:-$1]:..,,<=>,790,3580;]
+# USA + general
+$DEF HL162=[BG-=BGPIC/HL_162A.JPG[CROPL:-20]$1,BGPIC/HL_162B.JPG[COL:72]$1,				\
+    BGPIC/HL_162C.JPG[COLF:73][CROPR:-20]$1:,-40;]
+# USA Town
+$DEF CM139=[BG-=BGPIC/CM_139A.JPG[CROPL:-20][CROPB:-$1],BGPIC/CM_139B.JPG[COL:82][CROPR:-20][CROPB:-$1];] \
+    [DX=3620]
 
-$DEF F_HCAT=[FG>=FL_MAURIENNE_M1,FL_SBB_F2:..,-4;]
-$DEF F_GCAT1=[BG<=FL_SNCFC_M1,FL_SNCFC_F:..,#-62;]
-$DEF F_GCAT2=[BG<=FL_SNCFC_M1,FL_SNCFC_F:..,#-62,#,(FL_SNCFC_M1,FL_SNCFC_F);]
-$DEF F_GCAT3=[BG<=FL_SNCFC_M1,FL_SNCFC_F,FL_SNCFC_M1,FL_SNCFC_F,FL_SNCFC_M1:..,#-62,#,(FL_SNCFC_M1,FL_SNCFC_F),(FL_SNCFC_F,FL_SNCFC_M1);]
-$DEF F_GCAT4=[FG>=FL_SNCF_MIDI1,2*FL_SNCF_MIDI2:..,#-63,#;]
-$DEF F_GCAT5=[FG>=FL_SNCF_MIDI3,2*FL_SNCF_MIDI4:..,#-63,#;]
-$DEF F_GCAT6=[FG>=FL_SNCF_MIDI5,2*FL_SNCF_MIDI6:..,#-63,#;]
-$DEF F_GCAT=F_GCAT(1|2|3|4|5|6)
-$DEF F_CAT=[FG>=FL_SBB_F,FL_SNCFA_M1:..,-4,#;]
-$DEF F_3RAIL=[FG>=PLM_3RBG_M:..,-1;]
-$DEF F_N3RAIL=[FG>=SNCF_3eRail_FG:..,-2,#;]
-$DEF F_ENV= \
-  [WE=$FLG(2,F_HCAT,$FLG(G,F_GCAT,F_CAT)),[W=X]] \
-  [WL=$FLG(G,F_GCAT,F_CAT),[W=X]] \
-  [WM=$FLG(N,F_N3RAIL,F_3RAIL),[W=X]]
-  
-$DEF B_CAT=[FG>=FL_SNCB_F,FL_SNCFC_M1:..,-4,#;]
-$DEF B_ENV= \
-  [WE=B_CAT,[W=X]]
+$DEF BGWP_01=[BG-=BGPIC/SXC1085695.JPG:..,0,<=>,14,4107;]
+$DEF BGWP_02=[BG-=BGWP/BGM01.JPG[SM:1.7]:..,,<=>,15,2640;]
+$DEF BGWP_03=[BG-=BGWP/BGM02.JPG:..,,<=>,225,2520;]
+$DEF BGWP_04=[BG-=BGWP/BGM03.JPG:..,,<=>,28,2616;]
+$DEF BGWP_05=[BG-=BGWP/BGM04.JPG:..,,<=>,,2555;]
 
-$DEF L_CAT=[FG>=FL_SBB_F,FL_SNCFA_M1:..,-4,#;]
-$DEF L_ENV= \
-  [WE=L_CAT,[W=X]]
-  
-$DEF NL_CAT=[FG>=FL_SBB_F,FL_SNCFA_M1:..,-4,#;]
-$DEF NL_ENV= \
-  [WE=NL_CAT,[W=X]]
-  
-$DEF DK_CAT=[FG>=FL_SBB_F(|2),FL_DSB_M1:..,-5,#;]
-$DEF DK_ENV= \
-  [WE=DK_CAT,[W=X]]
-  
-$DEF N_CAT=[FG>=FL_SJ_M1,FL_SBB_F:..,-4,#]
-$DEF N_ENV= \
-  [WE=N_CAT,[W=X]]
-  
-$DEF S_CAT=[FG>=FL_SJ_M1,FL_SBB_F:..,-4,#;]
-$DEF S_ENV= \
-  [WE=S_CAT,[W=X]]
-  
-$DEF FI_CAT=[FG>=FL_SNCF_MIDI6[SP:460-660,111]:..,#-63,#;]
-$DEF FI_ENV= \
-  [VH=62] \
-  [WE=FI_CAT,[W=X]] \
-  
-$DEF P_CAT=[BG<=FL_RF_UNIF:..,-25,#;]
-$DEF P_ENV= \
-  [WE=P_CAT,[W=X]]
+$DEF BGWP_06=[BG-=BGWP/BGM05.JPG:..,,<=>,59,3780;]
 
-$DEF E_CAT1=[FG>=FL_RF_NORTE2:..,#-67,#;]
-$DEF E_CAT2=[FG>=FL_RF1:..,#-67,#;]
-$DEF E_CAT3=[BG<=FL_RF_UNIF:..,#-83,#;]
-$DEF E_ENV= \
-  [WE=$FLG(2,E_CAT2,$FLG(3,E_CAT(1|2),E_CAT3)),[W=X]] \
-  [WL=$FLG(2,E_CAT2,$FLG(3,E_CAT(1|2),E_CAT3)),[W=X]]
+$DEF BGRU_01A=[BG-=BGWP/RU01.JPG:..,-60,<=>,,1950;]
+$DEF BGRU_01B=[BG-=BGWP/RU01.JPG:..,-50,<=>,,1950;]
+$DEF BGRU_01C=[BG-=BGWP/RU01.JPG:..,-10,<=>,,1950;]
+$DEF BGRU_01D=[BG-=BGWP/RU01.JPG:..,0,<=>,,1950;]
 
-$DEF I_CAT1=[FG>=FL_FS_F,FL_FS_M(1|2|3|4|5),FL_FS_F,FL_FS_M(1|3|4):..,#-62,#;]
-$DEF I_CAT2=[FG>=FL_FS5C,FL_FS5B,2*(FL_FS5A,FL_FS5B),4*(FL_FS4A,FL_FS4B):..,#-62,#;]
-$DEF I_CAT=I_CAT(1|2)
-$DEF I_3PHCAT=[FG>=PALO_TT:..,#-62,#;]
-$DEF I_NCAT=[FG=(FS_FS1_A,FS_FS1_B:..,#-73,#)]
-$DEF I_3RAIL=[FG=(SNCF_3eRail_FG:..,-2,#)]
-$DEF I_CAT3=(FL_FS3_F,FL_FS3_M(8:1|2))
-$DEF I_ENV= \
-  [WE=$FLG(N,I_NCAT,$FLG(X,I_3PHCAT,I_CAT)),[W=X]] \
-  [WL=$FLG(N,I_NCAT,$FLG(X,I_3PHCAT,I_CAT)),[W=X]] \
-  [WT=I_NCAT,[W=X]] \
-  [WM=I_3RAIL,[W=X]]
-       
-$DEF CZ_CAT1=[FG>=(8:FL_CZ1A[M]|FL_CZ1D[M]),FL_CZ1L,(8:FL_CZ1A[M]|FL_CZ1D[M]),FL_CZ1L:..,#-62,#;]
-$DEF CZ_CAT2=[FG>=(8:FL_CZ1B[M]|FL_CZ1E[M]),FL_CZ1L,(8:FL_CZ1B[M]|FL_CZ1E[M]),FL_CZ1L:..,#-62,#;] 
-$DEF CZ_CAT3=[FG>=(8:FL_CZ1B[M]|(FL_CZ1E[M]|FL_CZ1F[M]|FL_CZ1G[M])),FL_CZ1L,(8:FL_CZ1B[M]|(FL_CZ1E[M]|FL_CZ1F[M]|FL_CZ1G[M])),FL_CZ1L:..,#-62,#;]
-$DEF CZ_CAT4=[FG>=FL_CZ1H[M],FL_CZ1L:..,#-62,#;]
-$DEF CZ_CAT5=[FG>=FL_CZ1H[M],FL_CZ1L,(4:FL_CZ1H[M]|FL_CZ1X),FL_CZ1L:..,#-62,#;]
-$DEF CZ_CAT=CZ_CAT(1|2|3|4|5)
-$DEF CZ_NCAT=[FG=(FL_INTERURB70_M1,FL_INTERURB70_F1):..,#-74,#]
-$DEF CS_ENV= \
-  [WE=$FLG(N,CZ_NCAT,CZ_CAT),[W=X]] \
-  [WL=CZ_CAT,[W=X]]
+$DEF STRIPEBG=												&\
+    [BG-=BGPIC/AG_79A.JPG:..,-70,<=>,194,1872;][BGC=(137,180,215)]|					&\
+    [BG-=BGPIC/AG_79B.JPG:,-50;][BGC=(137,180,215)]|							&\
+    [BG-=BGPIC/AG_87A.JPG:,-50;][BGC=(143,183,219)]|							&\
+    [BG-=BGPIC/AG_88A.JPG:,-50;][BGC=(139,179,215)]|							&\
+    [BG-=BGPIC/AG_134M.JPG:,-160;][BGC=(208,216,239)]|							&\
+    [BG-=BGPIC/AG_144A.JPG:,-50;][BGC=(208,216,239)]|							&\
+    [BG-=BGPIC/AG_158M.JPG:,-40;][BGC=(140,179,218)]|							&\
+    [BG-=BGPIC/AG_159A.JPG:,-80;][BGC=(208,216,239)]|							&\
+    [BG-=BGPIC/AG_165A.JPG:,-60;][BGC=(203,215,237)]|							&\
+    [BG-=BGPIC/AG_165B.JPG:,-60;][BGC=(203,215,237)]
 
-$DEF PL_CAT=M_CAT
-$DEF PL_ENV= \
-  [WE=PL_CAT,[W=X]] \                                                       
-  [WL=PL_CAT,[W=X]]
+$DEF BGVIA01=[BG-=SCENE_I01:..,0,<=>,22;]
+$DEF BGVIA02=[BG-=SCENE_I02:..,0,<=>,,700;]
 
-$DEF RO_CAT=CZ_CAT
-$DEF RO_ENV= \
-  [WE=RO_CAT,[W=X]]
+$DEF BGNORD_120=BGVIA01|BGVIA02
+$DEF BGNORD_400=BGWP_01|BGWP_02|BGWP_03|BGWP_04|BGWP_05|BGRU_01(A|B|C|D)
+$DEF BGNORD1=$IF($BGUP<=120,(BGNORD_120|BGNORD_400),BGNORD_400)
 
-$DEF SLO_CAT=CZ_CAT
-$DEF SLO_ENV= \
-  [WE=SLO_CAT,[W=X]]
+# Wald Laubb‰ume Deutschland-Mitteleuropa
+$DEF STBGFO1=(SKY,BG_FOREST1,BG_GREEN1),TRKDH
+$DEF STBGFO2=$AG79(100),TRKDH
+$DEF STBGFO3=$AG165(50),TRKDH
+$DEF STBGFO4=$HL133(20),TRKDH
+$DEF STBGFO5=BGWP_06,TRKDH
 
-$DEF HR_CAT=CZ_CAT
-$DEF HR_ENV= \
-  [WE=HR_CAT,[W=X]]
-  
-$DEF YU_CAT=CZ_CAT
-$DEF YU_ENV= \
-  [WE=YU_CAT,[W=X]] \
-  [WL=YU_CAT,[W=X]]
-  
-$DEF BG_CAT=CZ_CAT
-$DEF BG_ENV= \
-  [WE=BG_CAT,[W=X]]
+$DEF STBGFO=STBGFO(3:1|2|3|4|2:5)
 
-$DEF GR_CAT=M_CAT(1|2|3|4)(F|B)
-$DEF GR_ENV= \
-  [WE=GR_CAT,[W=X]]
-  
-$DEF TR_CAT=M_CAT(1|2|3|4)(F|B)
-$DEF TR_ENV= \
-  [WE=TR_CAT,[W=X]]
-  
-$DEF SU_CAT=[BG<=FL_DRG_B|FL_DR:..,#-62,#;]                                            
-$DEF SU_ENV= \
-  [WE=SU_CAT,[W=X]]   
-                 
-$DEF US_CAT1=[FG>=FL_USA_1|MILW_CATENARY:..,#-67,#;]
-$DEF US_CAT2=[FG>=FL_INTERURB70_(M2,F1,M1,F1,M2[M],F1,M1,F1):..,#-74,#;]
-$DEF US_CAT3=[BG<=FL_DR_B:..,#-62,#;]
-$DEF US_ENV= \
-  [VH=70] \
-  [WE=$FLG(6,US_CAT3,$FLG(5,US_CAT3,US_CAT1|US_CAT2)),[W=X]] \
-  [WL=US_CAT2,[W=X]]  
-                                                        
-$DEF J_CAT1=[BG<=FL_J7:..,,#-51;]                                                        
-$DEF J_CAT2=[BG<=FL_J3B:..,#-56,#;]|[FG>=FL_J3F:..,#-56,#;]
-$DEF J_CAT3=[BG<=FL_J8:..,#-58,#;]
-$DEF J_CAT4=[FG>=FL_J1F:..,#-60,#;]
-$DEF J_CAT=J_CAT(2|3|4)            
-$DEF J_TCAT1=[FG>=FL_J4:..,#-55,#;]
-$DEF J_CAT58A=[FG>=FL_J1F:..,-2,#;]
-$DEF J_CAT58B=[BG<=FL_J8:..,0,#;]
-$DEF J_CAT58=J_CAT58(A|B)
-$DEF J_ENV= \
-  [WE=J_CAT58,[W=X]] \
-  [WL=J_CAT,[W=X]] \
-  [WT=J_TCAT1,[W=X]]
 
-$DEF CN_CAT1=[FG>=FL_SBB_F,FL_SNCFA_M1:..,#-62,#;]
-$DEF CN_CAT2=[FG>=FL_J1F:..,#-60,#;]
-$DEF CN_CAT=CN_CAT(3:1|2)
-$DEF CN_ENV= \
-  [WE=CN_CAT,[W=X]] \
-  [WL=CN_CAT,[W=X]]
-  
-$DEF SA_ENV= \
-  [WE=$FLG(X,US_CAT2,US_CAT3),[W=X]]
-    
-$DEF OTH_ENV= \    
-  [WE=M_CAT(1|2|3|4)(F|B),[W=X]] \
-  [WL=M_CAT(1|2|3|4)(F|B),[W=X]]
-  
-$DEF CATENARY=[BG<=FL_DB_F,(5:FL_DB_M1|1:FL_DB_M2):..,,#;]
-
-$DEF SET_E=[SW=E]  
-
+#==============================================================================
+#
+# Track
+#
 # Citytraffic
+# Bus
+$DEF ENV_WAYA=[FG=10[B:0,0,10,15,#585038]:..,^0; STREET01:..,^0;][W=X]
 # OBUS
-$DEF ENV_WAYO=[FG=10[B:0,0,10,15,#585038]:..,^0; STREET01:..,^0; FL_FS3,:..,#-62,#;][W=X]
+$DEF ENV_WAYO=[FG=10[B:0,0,10,15,#585038]:..,^0; STREET01:..,^0; FL_FS3:..,#-62,#;][W=X]
 # Gleis ohne Oberleitung
 $DEF ENV_WAY=[FG=10[B:0,0,10,15,#585038]:..,^0; TRBED25:..,^0;][W=X]
 # Tram alt
-$DEF ENV_WAYT1=[FG=10[B:0,0,10,15,#585038]:..,^0; TRBED25:..,^0;FL_TRAM:..,#-62,#;][W=X]
+$DEF ENV_WAYT1=[FG=10[B:0,0,10,15,#585038]:..,^0; TRBED25:..,^0;STREET01:..,^-4;FL_TRAM:..,#-62,#;][W=X]
+$DEF GRP_WAYT1=[FG=10[B:0,0,10,15,#585038]:..,^0; TRBED25:..,^0;STREET01:..,^-4;FL_TRAM:..,$EVAL($1-62),#;][W=X]
 # Tram neu
-$DEF ENV_WAYT2=[FG=10[B:0,0,10,15,#585038]:..,^0; TRBED25:..,^0;FL_FS3:..,#-62,#;][W=X]
+$DEF ENV_WAYT2=[FG=10[B:0,0,10,15,#585038]:..,^0; TRBED25:..,^0;STREET01:..,^-4;FL_FS3:..,#-62,#;][W=X]
 # Stromschiene
 $DEF ENV_WAYM=[FG=10[B:0,0,10,15,#585038]:..,^0; TRBED25:..,^0;SNCF_3eRail_FG:..,-2,#;][W=X]
+# Val-Metro
+$DEF ENV_WAYV=[FG=10[B:0,0,10,15,#585038]:..,^0; STREET01:..,^0;FL_FS3_F:..,-62,#;SNCF_3eRail_FG:..,-2,#;][W=X]
 # Stadtbahn
 $DEF ENV_WAYT3=[FG=10[B:0,0,10,15,#585038]:..,^0; TRBED25:..,^0;FL_SBB_F,FL_SNCFA_M1:..,#-62,#;][W=X]
 # Stadtbahn Wien
 $DEF ENV_WAYT4=[FG=10[B:0,0,10,15,#585038]:..,^0; TRBED25:..,^0;FL_SNCF_MIDI5:..,#-63,#;][W=X]
 # Holzmasten Hochkette
-$DEF ENV_WAYT5=[FG=10[B:0,0,10,15,#585038]:..,^0; TRBED25:..,^0;FL_INTERURB70_M1,FL_INTERURB70_F1:..,#-74,#;][W=X]
+$DEF ENV_WAYT5=[FG=10[B:0,0,10,15,#585038]:..,^0; TRBED25:..,^0;					\
+    FL_INTERURB70_M1,FL_INTERURB70_F1:..,#-74,#;][W=X]
 # Wechselstrom
 $DEF ENV_WAYT6=[FG=10[B:0,0,10,15,#585038]:..,^0; TRBED25:..,^0;FL_DRG_F:..,#-62,#;][W=X]
 # S-Bahn Kopenhagen
 $DEF ENV_WAYT7=[FG=10[B:0,0,10,15,#585038]:..,^0; TRBED25:..,^0;FL_DSB_M1,FL_SBB_F:..,#-62,#;][W=X]
 # Metro Italien
-$DEF ENV_WAYT8=[FG=10[B:0,0,10,15,#585038]:..,^0; TRBED25:..,^0;FS_FS1_A,FS_FS1_B:..,#-73,#][W=X]
+$DEF ENV_WAYT8=[FG=10[B:0,0,10,15,#585038]:..,^0; TRBED25:..,^0;FS_FS1_A,FS_FS1_B:..,#-73,#;][W=X]
 # RER Paris
 $DEF ENV_WAYT9=[FG=10[B:0,0,10,15,#585038]:..,^0; TRBED25:..,^0;FL_SBB_F,FL_SNCFA_M1:..,-4,#;][W=X]
+
+$DEF ENV_WAYTUN1=[FG=10[B:0,0,10,15,#585038]:..,^0; TRBED25:..,^0;FL_FSTTQF[CROPT:-20]:..,#-58,#;][W=X]
 
 %*DEFINE(TITLE(TX)=TITLE;
 M=NONE; AB=0; BL=30; IMGY=10; TX=%TX;; TXX=*50; TXS=20; Y=^; T=1000;)
 
 %*DEFINE(FOOTER(TX)=TITLE;
 M=NONE; AB=0; BL=15; IMGY=10; TX=%TX;; TXX=>95; TXS=12; Y=_; T=5000;)
+
+#---------------------------------------------------------------------------------------------------------------------
+#
+# Platforms
+#
+#---------------------------------------------------------------------------------------------------------------------
+# Pavements
+%*DEF(PLPDEF(N,E,M)=$DEF %N=[BG<=$1[OMH:%E,%M,#%E,,0]:,^$2;]
+)
+%PLPDEF(PLP1,PLF_NL1A,PLF_NL1B)
+%PLPDEF(PLP2,PLF_NL1A,PLF_NL2)
+%PLPDEF(PLP3,PLF_NL6A,PLF_NL3)
+%PLPDEF(PLP4,PLF_NL4A,PLF_NL4B)
+%PLPDEF(PLP5,PLF_NL1A,PLF_NL5)
+%PLPDEF(PLP6,PLF_NL6A,PLF_NL6)
+$DEF PLP7=[BG<=$1[OMH:,PLF_NL7]:,^$2;]
+%PLPDEF(PLP9,PLF_NL1A,PLF_NL9)
+
+# Roofs
+
+#---------------------------------------------------------------------------------------------------------------------
+# House in a garden with fence
+
+$DEF HG_J=0[AR:4-12*5,											\
+    J_H001|J_H002|J_H003|J_H005|J_H006|J_H044|J_H045|J_H015|J_H016|J_H017|J_H018|J_H019|J_H020,5-12*5]	\
+    ([OMH:,STACCION,,,0]|[OMH:,PALE5,,,0]|[OMH:,FENCE6,,,0]|[OMH:,FENCE8,,,0]|[OMH:,FENCE9A,,,0]|	\
+    [OMH:,FENCE10C,,,0]|[OMH:,FENCE_13,,,0]|[OMH:,FENCE14,,,0]|[OMH:,FENCE15,,,0])
+
+
+#---------------------------------------------------------------------------------------------------------------------
+# Fence in whole width
+
+$DEF BGFNC=PALE1|PALE5|STACCION|FENCE6|FENCE7|FENCE17B|FENCE8|FENCE9(A,4-6*B)|FENCE9(B,4-6*C)|		\
+    FENCE9(E,5-7*F)|FENCE10(C,4*B)|FENCE16(A,8-10*B)|FENCE_13|FENCE15|WALL27A|WALL27B|WALL28|WALL29|	\
+    WALL_UF1
+#---------------------------------------------------------------------------------------------------------------------
+# House blocks
+
+$DEF HBLK_DDR1=$MIX(5-7,DDR_H01,DDR_H02,DDR_H03,DDR_H04,DDR_H05,DDR_H06,DDR_H07)
+$DEF HBLK_M6A=$MIX(4-6,BERLIN_H001,BERLIN_H002,BERLIN_H003,BERLIN_H004,BERLIN_H005,BERLIN_H006)
+
+# -- out of focus, only for the back row
+$DEF HBLK_RU4A=$MIX(3-4,RU_H019A,RU_H020A,RU_H021,RU_H018_1)
+
+# Industrial blocks
+
+$DEF IBLK_01A=0[AR:D_FABRIK01(I,E,I,1-4*M,(I,E,I)|M,1-2*C,D,1-2*C,A,2-4@(N|B),A)]			\
+    [OB:D_FABRIK01(H,G),<-102,0]
+$DEF IBLK_01B=0[AR:D_FABRIK01(A,1-4*B,A)]
+$DEF IBLK_01F=FENCE7|FENCE17(3-8*(A,B),A)
+
+# Hintergrund Stadt
+
+# Stadt Mitteleurpa moderne H‰user
+$DEF BGCITYDM1=NL_THARDE_1,NL_OFFICE03A,NL_OFFICE01C,NL_OFFICE01_1,250,D_H062,D_H055,D_H041,D_H040,	\
+    D_H033,D_H038_2,200,D_H038_2,250,D_MUNCHEN09A,D_MUNCHEN08,D_MUNCHEN07,D_MUNCHEN05C,D_MUNCHEN06,	\
+    220,D_H038_3,280,D_H078_1,230,D_H038_1,200,S_BILTEMA,200,BLD_PEUGEOT(1|2|3),240,D_H064,200,		\
+    D_BONN01A,D_H066B,D_H067,D_H071,D_H062,D_RADISSON,OFFICE01,220,D_H052,D_H064,D_BONN03A,D_H064A,	\
+    D_H077,D_ROHBAU,200,
+$DEF BGCITYDM2=D_H078_1,230,D_H038_1,200,NL_OFFICE03A,NL_OFFICE01C,NL_THARDE_1,NL_OFFICE01_1,250,	\
+    D_H064,240,D_H038_2,250,D_H038_3,280,D_H062,D_H055,D_H038_2,200,D_H064,D_H066B,D_H067,D_H071,	\
+    D_H064A,D_H033,D_BONN03A,D_H077,D_ROHBAU,D_H041,D_H040,D_H052,200,S_BILTEMA,200,			\
+    BLD_PEUGEOT(1|2|3),220,D_RADISSON,OFFICE01,D_H062,D_BONN01A,220,D_MUNCHEN09A,D_MUNCHEN08,		\
+    D_MUNCHEN07,D_MUNCHEN05C,D_MUNCHEN06,200,
+
+# Stadt Mitteleurpa alte H‰user
+
+$DEF BGCITYDA1=D_MUNCHEN03B,D_H063,NL_HAARLEM06_1,D_MUNCHEN03A,D_MUNCHEN01A,70,70,D_MUNCHEN01C,150,	\
+    D_FABRIK01_3,D_FABRIK01_1,FENCE7,100,D_H080,NL_HAARLEM06F,HBLK_DDR1,100,RU_H019A[COFL:3],RU_H021,	\
+    RU_H020A,RU_H018_1[COFR:4],220,CHURCH01A,200,HBLK_M6A,150,
+$DEF BGCITYDA2=D_MUNCHEN03B,D_H063,D_MUNCHEN03A,D_MUNCHEN01A,70,70,D_MUNCHEN01C,100,D_H080,		\
+    NL_HAARLEM06_1,NL_HAARLEM06F,HBLK_DDR1,100,HBLK_M6A,200,CHURCH01B,220,RU_H020A,RU_H019A[COFL:3],	\
+    RU_H018_1[COFR:4],RU_H021,150,D_FABRIK01_3,D_FABRIK01_1,FENCE7,150,
+
+# Stadt Deutschland Rheinland alte H‰user EP2
+$DEF BGCITYDR1=D_MUNCHEN01A,D_MUNCHEN02B,D_MUNCHEN03A,40,NL_LIMBURG01_2,NL_LIMBURG01E,50,		\
+    D_H081[O:(6*PLF_J2A),10,34][O:(6*PLF_J2A)],D_BWG009,50,D_H013,230,SHRUBBERY7,250,D_BWG004,320,	\
+    NL_H050_1,269,NL_SPOORZICHT_1,10,CS_H001,D_BONN_POST1,90,FOREST24,150,D_FABRIK01_2,200,		\
+    D_MONSCHAU06A,D_MONSCHAU07A,D_MONSCHAU01A,D_MONSCHAU04,510,H_PECS01,D_H035,AU_CLUNES_RSLB,210,
+$DEF BGCITYDR2=D_MUNCHEN01A,D_MUNCHEN02B,D_MUNCHEN03A,40,NL_LIMBURG01_2,NL_LIMBURG01E,50,D_BWG009,50,	\
+    D_H013,230,SHRUBBERY7,										\
+    D_VOSSLOH2[COBL:126][COFR:96][O:D_VOSSLOH1,79,70][B:79,67,23,5,#CAc2A4][B:640,64,54,12,#CAc2A4]	\
+    [B:640,127,54,12,#CAc2A4],#SHRUBBERY7,200,D_MONSCHAU06A,D_MONSCHAU07A,D_MONSCHAU01A,D_MONSCHAU04,	\
+    510,H_PECS01,D_H035,AU_CLUNES_RSLB,210,
+      
+# Stadt Deutschland Rheinland alte + neue H‰user EP 3-4
+$DEF BGCITYDR3=D_MONSCHAU06A,D_MONSCHAU07A,D_MONSCHAU01A,D_MONSCHAU04,510,H_PECS01,D_H035,		\
+    AU_CLUNES_RSLB,210,D_BWG004,320,NL_H050_1,269,NL_SPOORZICHT_1,10,CS_H001,D_BONN_POST1,90,FOREST24,	\
+    150,D_FABRIK01_2,200,D_MUNCHEN01A,D_MUNCHEN02B,D_MUNCHEN03A,40,					\
+    D_H081[O:(6*PLF_J2A),10,34][O:(6*PLF_J2A),127,34],NL_LIMBURG01_2,NL_LIMBURG01E,50,D_BWG009,50,	\
+    D_H013,H_PECS06,D_MUNCHEN08,D_BONN03A,D_H033,D_MUNCHEN07,230,SHRUBBERY7,250,
+$DEF BGCITYDR4=D_MONSCHAU06A,D_MONSCHAU07A,D_MONSCHAU01A,D_MONSCHAU04,510,H_PECS01,D_H035,		\
+    AU_CLUNES_RSLB,210,D_BWG004,320,NL_H050_1,269,NL_SPOORZICHT_1,10,CS_H001,D_BONN_POST1,90,FOREST24,	\
+    150,D_FABRIK01_2,200,D_MUNCHEN01A,D_MUNCHEN02B,D_MUNCHEN03A,40,					\
+    D_H081[O:(6*PLF_J2A),10,34][O:(6*PLF_J2A)],NL_LIMBURG01_2,NL_LIMBURG01E,50,D_BWG009,50,D_H013,	\
+    H_PECS06,D_MUNCHEN08,D_BONN03A,D_H033,D_MUNCHEN07,230,SHRUBBERY7,					\
+    D_VOSSLOH2[COBL:126][COFR:96][O:D_VOSSLOH1,79,70][B:79,67,23,5,#CAc2A4][B:640,64,54,12,#CAc2A4]	\
+    [B:640,127,54,12,#CAc2A4],#SHRUBBERY7,D_MUNCHEN06,D_MUNCHEN08,D_MUNCHEN07,D_BWG006,D_H049A,		\
+    D_H048A,D_H065,300,
+
+# Stadt Deutschland Rheinland alte + neue H‰user EP 5-6
+$DEF BGCITYDR5=D_MONSCHAU06A,D_MONSCHAU07A,D_MONSCHAU01A,D_MONSCHAU04,510,H_PECS01,D_H035,		\
+    AU_CLUNES_RSLB,210,D_BWG004,320,NL_H050_1,269,NL_SPOORZICHT_1,10,CS_H001,D_BONN_POST1,90,FOREST24,	\
+    150,D_FABRIK01_2,200,D_MUNCHEN01A,D_MUNCHEN09A,D_BONN01A,D_H066B,D_H067,D_H071,220,D_H052,		\
+    D_MUNCHEN02B,D_MUNCHEN03A,40,D_H081,NL_LIMBURG01_2,NL_LIMBURG01E,50,D_BWG009,50,D_H013,H_PECS06,	\
+    D_MUNCHEN08,D_BONN03A,D_H033,D_MUNCHEN07,230,SHRUBBERY7,250,
+$DEF BGCITYDR6=D_MONSCHAU06A,D_MONSCHAU07A,D_MONSCHAU01A,D_MONSCHAU04,510,H_PECS01,D_H035,		\
+    AU_CLUNES_RSLB,210,D_BWG004,320,NL_H050_1,269,NL_SPOORZICHT_1,10,CS_H001,D_BONN_POST1,90,FOREST24,	\
+    150,D_FABRIK01_2,200,D_MUNCHEN01A,D_MUNCHEN02B,D_MUNCHEN03A,40,D_H081,NL_LIMBURG01_2,		\
+    NL_LIMBURG01E,50,D_BWG009,50,D_H013,H_PECS06,D_MUNCHEN08,D_BONN03A,D_H033,D_MUNCHEN07,230,		\
+    SHRUBBERY7,												\
+    D_VOSSLOH2[COBL:126][COFR:96][O:D_VOSSLOH1,79,70][B:79,67,23,5,#CAc2A4][B:640,64,54,12,#CAc2A4]	\
+    [B:640,127,54,12,#CAc2A4],#SHRUBBERY7,D_MUNCHEN06,D_MUNCHEN08,D_MUNCHEN07,D_BWG006,D_H049A,		\
+    D_H048A,D_H065,300,NL_THARDE_1,250,D_H062,D_H055,D_H038_2,200,250,D_MUNCHEN09A,D_H038_3,280,	\
+    D_H078_1,200,BLD_PEUGEOT(1|2|3),240,D_H064,200,D_BONN01A,D_H066B,D_H067,D_H071,D_H062,D_RADISSON,	\
+    220,D_H052,D_H064,D_BONN03A,D_H064A,D_H077,D_ROHBAU,200,
+
+# Kleinstadt Alpen
+$DEF BGCITYAUH=A_H006|A_H009|A_H004|A_H003|D_H076|A_H002B|CS_H002|A_H001|A_H002B|A_H005|A_H010|A_H008|	\
+    A_H007
+$DEF BGCITYAU3=50-100*1,BGCITYAUH,50-100*1,BGCITYAUH,50-100*1,BGCITYAUH,50-100*1,BGCITYAUH,50-100*1,	\
+    BGCITYAUH,50-100*1,BGCITYAUH,50-100*1,BGCITYAUH,50-100*1,BGCITYAUH,50-100*1,BGCITYAUH,50-100*1,	\
+    BGCITYAUH,50-100*1,BGCITYAUH,50-100*1,BGCITYAUH,50-100*1,BGCITYAUH,50-100*1,BGCITYAUH,50-100*1,	\
+    BGCITYAUH,
+
+# Stadt ÷sterreich/Ungarn
+# groﬂ
+$DEF BGCITYAU1=RU_HOTEL1,160,RU_H014[COFR:6],140,RU_H015,RU_H016A[COFL:12],170,H_PECS05,H_PECS04,	\
+    H_PECS03_1,200,A_PALACE1,200,H_BUDAPEST02C,H_PECS05F,H_BUDAPEST02B,H_BUDAPEST01A,H_BUDAPEST01C,200,
+$DEF BGCITYAU2=RU_H015,RU_H016A[COFL:12],170,H_PECS05,H_PECS04,H_PECS03_1,H_BUDAPEST02C,H_PECS05F,	\
+    H_BUDAPEST02B,H_BUDAPEST01A,H_BUDAPEST01C,200,A_PALACE1,200,MAVTIL[COFR:6],				\
+    MAVTIL[COFL:6][OT:MAVTI,178,2],180,RU_HOTEL1,160,RU_H014[COFR:6],140,
+
+# Stadt Groﬂbritannien
+$DEF BGCITYGB1=GB_H002,GB_H003,GB_H004A,GB_H004B,GB_H005_1,GB_H001A,GB_H001B,GB_H001C,GB_H007,170,	\
+    GB_H006A,190,GB_H006(C|B),200,
+$DEF BGCITYGB2=GB_H005_1,GB_H001A,GB_H002,GB_H003,GB_H004A,GB_H004B,GB_H001B,GB_H001C,GB_H007,190,	\
+    GB_H006(C|B),170,GB_H006A,200,
+
+# Stadt Niederlande
+$DEF BGCITYNL1=[WMIXF:,(100,NL_HAARLEM03,100),NL_HAARLEM08A,NL_HAARLEM07,NL_HAARLEM09,NL_HAARLEM06_1,	\
+    NL_HAARLEM05B,NL_HAARLEM06A,NL_HAARLEM06F,NL_HAARLEM04A,NL_HAARLEM10H,				\
+    (180,NL_DELFZIJL_CHURCH2,220),NL_HAARLEM13A,NL_DENHAAG04B,NL_DENHAAG04C,NL_DENHAAG05B,		\
+    NL_DENHAAG05A,NL_DENHAAG05C,NL_GOOISCHE2,NL_AMSTERDAM12,NL_DENHAAG03C,NL_DENHAAG03B,NL_DENHAAG01,	\
+    NL_AMSTERDAM11,NL_POTTERSTRAAT1,NL_AMSTERDAM05B,NL_AMSTERDAM05A,NL_AMSTERDAM13A,NL_AMSTERDAM06,	\
+    NL_GRACHTENPAND,NL_GOOISCHE1,NL_AMSTERDAM13B,170,200,200]
+
+$DEF BGCITYNL2=[WMIXF:,NL_AMSTERDAM13A,NL_AMSTERDAM06,NL_AMSTERDAM05B,NL_AMSTERDAM05A,NL_GRACHTENPAND,	\
+    NL_GOOISCHE1,NL_AMSTERDAM13B,NL_DENHAAG04B,NL_DENHAAG04C,NL_DENHAAG05B,NL_DENHAAG05A,		\
+    NL_DENHAAG05C,NL_DENHAAG03C,NL_DENHAAG03B,NL_DENHAAG01,NL_GOOISCHE2,NL_AMSTERDAM12,NL_AMSTERDAM11,	\
+    NL_POTTERSTRAAT1,NL_HAARLEM03,(150,NL_DELFZIJL_CHURCH1,220),NL_HAARLEM09,NL_HAARLEM08A,		\
+    NL_HAARLEM07,NL_HAARLEM06_1,NL_HAARLEM05B,NL_HAARLEM06A,NL_HAARLEM06F,NL_HAARLEM04A,NL_HAARLEM10H,	\
+    NL_HAARLEM13A,170,180,200,200]
+
+# Stadt Nordeuropa
+$DEF BGCITYDK1=DK_H001,DK_H009,DK_H008,170,DK_H004,DK_H005,DK_H007B,DK_H007A,DK_H006,DK_H002B,		\
+    DK_H002A,200,DK_H003A,DK_H003B,DK_H003A,200,US_STORE03B[COFR:3],US_STORE04B,US_STORE04A,		\
+    US_STORE03D[COFL:3],180,BLD_007A,30,D_CUXHAVEN01_(1|2),40,BLD_004A,30,BLD_004B,40,BLD_007A,40,	\
+    BLD_008E,35,BLD_007C,50,BLD_007B,35,BLD_004D,45,BLD_004C,40,BLD_003A,200,
+$DEF BGCITYDK2=BLD_007B,35,BLD_004D,45,D_CUXHAVEN01_(1|2),40,BLD_004A,30,BLD_004B,40,BLD_007A,30,	\
+    BLD_007A,40,BLD_008E,35,BLD_007C,50,BLD_004C,35,BLD_003A,170,US_STORE03B[COFR:3],US_STORE04A,	\
+    US_STORE04B,US_STORE03D[COFL:3],180,DK_H003A,DK_H003B,DK_H003A,DK_H001,DK_H005,DK_H007B,DK_H007A,	\
+    DK_H006,DK_H002B,DK_H009,DK_H002A,DK_H008,170,DK_H004,170,
+
+# Stadt S¸deuropa
+$DEF BGCITYIT1=I_H007A[COFL:4],I_H047B,I_H068_1,I_H068B,I_H075,I_H076,I_H071,I_H028B,I_H028C,I_H065,	\
+    185,(I_CURCH1|I_CHURCH2),220,I_H069_2[COFR:6],I_H005B,I_H024,I_H009B,I_H015B,I_H009A,180,I_H008,	\
+    I_H063,I_H064,I_H062,I_H066,I_H065,I_H061_1,200,I_H006B[COFR:8],I_H051,I_H054,I_H010,I_H017_1,	\
+    I_H029_1,I_H060B,I_H027,I_H031,I_H035,I_H006A[COFL:8],170
+$DEF BGCITYIT2=I_H008,I_H063,I_H064,I_H062,I_H066,I_H065,I_H061_1,200,(I_CURCH1|I_CHURCH2),220,		\
+    I_H069_2[COFR:6],I_H005B,I_H024,I_H009B,I_H015B,I_H009A,180,I_H006B[COFR:8],I_H051,I_H054,I_H010,	\
+    I_H017_1,I_H029_1,I_H060B,I_H027,I_H031,I_H035,I_H006A[COFL:8],170,I_H007A[COFL:4],I_H047B,		\
+    I_H068_1,I_H068B,I_H075,I_H076,I_H071,I_H028B,I_H028C,I_H065,185,
+
+# Stadt Osteuropa
+$DEF BGCITYPL1=H_RAKTAR2,100,H_OBUDA03A,50,H_OBUDA01D,H_OBUDA01C,170,H_BUDAPEST02C,H_BUDAPEST02B,	\
+    H_BUDAPEST01B,H_BUDAPEST01C,H_BUDAPEST02A,H_BUDAPEST01A,45,CS_H001,50,CS_H002,200,H_PECS01,		\
+    H_PECS02,H_PECS04,H_PECS05,H_PECS06,H_PECS05F,B_H003,170,
+$DEF BGCITYPL2=H_BUDAPEST02C,H_BUDAPEST02B,H_BUDAPEST01B,H_BUDAPEST01C,H_BUDAPEST02A,H_BUDAPEST01A,	\
+    200,H_PECS01,H_PECS02,H_PECS04,H_PECS05,H_PECS06,H_PECS05F,B_H003,170,H_RAKTAR2,100,H_OBUDA03A,50,	\
+    H_OBUDA01D,H_OBUDA01C,45,CS_H001,50,CS_H002,170,
+
+# Stadt Russland
+$DEF BGCITYRU1=RU_H019A[COFR:3],RU_H018_1,RU_H015,RU_H021,RU_H020A[COFL:3],200,RU_SHOP6,180,		\
+    RU_H013A[COFR:6],RU_H011,RU_H012,RU_H017A,RU_HOTEL1,RU_H013B[COFL:7],200,RU_H016A,35,RU_SHOP5,45,	\
+    RU_SHOP1,50,RU_H014,RU_SHOP1,55,45,RU_SHOP2,50,RU_H016B,40,RU_H004,45,RU_H006,200,RU_H022_1,	\
+    RU_H26_1,200
+$DEF BGCITYRU2=RU_H013A[COFR:6],RU_H011,RU_H012,RU_H022_1,RU_H26_1,200,RU_SHOP6,100,RU_H019A[COFR:3],	\
+    RU_H018_1,RU_H015,RU_H021,RU_H020A[COFL:3],180,RU_H016A,35,RU_H014,50,RU_H016B,40,RU_SHOP5,45,	\
+    RU_H004,45,RU_SHOP1,55,45,RU_SHOP2,50,RU_H006,200,RU_H017A,RU_HOTEL1,RU_H013B[COFL:7],200,
+
+
+# Stadt Australien
+$DEF BGCITYAUS=RU_BANK1,RU_SHOP1,200,US_DONUT1,US_STARBUCKS2,200,BARN01A,10,BARN01B,200,AU_BEALIBA_PO,	\
+    AU_CL_HOTEL,AU_CLUNES_SSBB,AU_CLUNES_RSL,AU_CLUNES_SSB,AU_CLUNES_RSLB,AU_MID_HOTEL
+#--------------------------------------------------------------------------------------------------
+# Hintergrund Streifen
+#-------------------------------------------------------------------------------------------------
+#
+# Stadtverkehr
+
+# Stadt Mitteleurpa moderne H‰user
+$DEF STBGMD=SKY,BG_FOREST1,[BG<=BGCITYDM1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#;BGCITYDM2:..,0,#;]
+
+# Stadt Mitteleurpa alte H‰user
+$DEF STBGEU=SKY,BG_FOREST1,[BG<=BGCITYDA1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#;BGCITYDA2:..,0,#;]
+
+# Stadt Deutschland Rheinland moderne H‰user
+$DEF STBGDRM=SKY,BG_FOREST1,[BG<=BGCITYDR3:..,0,#; 1-40*1,TREES_SUMMER:..,0,#;BGCITYDR4:..,0,#;]
+
+# Stadt Deutschland Rheinland alte H‰user
+$DEF STBGDRA=SKY,BG_FOREST1,[BG<=BGCITYDR1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#;BGCITYDR2:..,0,#;]
+
+# Stadt ÷sterreich/Ungarn
+$DEF STBGAU=SKY,BG_FOREST1,[BG<=BGCITYAU1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYAU2,:..,0,#;]
+
+# Stadt S¸deuropa
+$DEF STBGES=SKY,											\
+    [BG<=TREES_SOUTH,:..,0,#;(GRASS06|GREEN5):..,0; BGCITYIT1,:..,0,#;TREES_SOUTH,:..,0,#;		\
+    BGCITYIT2:..,0,#;]
+
+# Stadt Groﬂbritannien
+$DEF STBGGB=SKY,BG_FOREST1,[BG<=BGCITYGB1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#;BGCITYGB2:..,0,#;]
+
+# Stadt Niederlande
+$DEF STBGNL=SKY,[BG<=BGCITYNL1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#;BGCITYNL2:..,0,#;]
+
+# Stadt Osteuropa
+$DEF STBGEO=SKY,BG_FOREST1,[BG<=BGCITYPL1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#;BGCITYPL1:..,0,#;]
+
+# Stadt Nordeuropa
+$DEF STBGNO=SKY,BG_FOREST1,[BG<=BGCITYDK1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#;BGCITYDK2:..,0,#;]
+
+# Stadt Russland
+$DEF STBGRU=SKY,BG_FOREST1,[BG<=BGCITYRU1:..,0,#;1-40*1,TREES_SUMMER:..,0,#;BGCITYRU2:..,0,#;]
+
+# Stadt Japan
+$DEF A1006C=SCENE_A1006:..,0,<=>,102,1600;
+$DEF A1007C=SCENE_A1007:..,0,<=>;
+
+$DEF JCITY1M=[BG<=10[B:0,0,10,150,#222]:..,$1,#; [WMIXF:,CITY_J022,CITY_J023]:,$EVAL(50+$1),#;		\
+    [WMIXF:,CITY_J022,CITY_J023]:,$EVAL(110+$1),#;							\
+    [WMIX:,CITY_J001,CITY_J002,CITY_J004,CITY_J005,CITY_J006,CITY_J007,CITY_J008,CITY_J009,CITY_J011,	\
+    CITY_J012,CITY_J013,CITY_J014,CITY_J019,CITY_J020]:..,$1,#;]
+
+$DEF STBGJP05A=SKY,$JCITY1M(4),[BG<=FENCE10(3*B,C):..;],TRKND|TRKGS
+$DEF STBGJP05B=$SKYM(70),$JCITY1M(62),									\
+    [BG<=WALL09A|WALL23|WALL28A|BRIDGE36:..,^58;FENCE10(3*B,C):..,58;]|					\
+    [BG<=WALL19|WALL20|WALL22B:..,^70;],BLBK,TRKND
+
+$DEF STBGJP05C=SKY,											\
+    [BG<=[WMIXF:,CITY_J030,CITY_J035];									\
+    [WMIXF:,												\
+    (10|3|7|TREE63|TREE64|TREE14|TREE21|TREE17|TREE48|TREE83|TREE89|TREE93|TREE3C|TREE3E|TREE4C|	\
+    TREE24|TREE57|TREE43|TREE44|TREE52)];[WMIXF:,(4-6*HG_J,8-15*10)];],TRKND
+
+# Stadt USA
+$DEF STBGUS=SKY,											\
+    [BG<=(20*(10|3|7|TREE63|TREE64|TREE14|TREE21|TREE17|TREE48|TREE83|TREE89|TREE93|TREE3C|TREE3E|	\
+    TREE4C|TREE24|TREE57|TREE43|TREE44|TREE52)):..,0;							\
+    US_STORE04B,US_STORE04A,US_STORE05A,US_ALMA8,US_ALMA7,US_ROSLYN_BRICK2,US_STORE13B,US_STORE16A,	\
+    US_STORE15A,200,US_STORE06B,US_STORE05A,US_STORE07A,US_STORE07B,US_STORE10A,US_STORE09B,		\
+    US_STORE09A,US_STORE17D,190,US_STORE19C[COFR:3],US_STORE18B,US_STORE18A,US_STORE17C,210,		\
+    US_STORE01C,55,US_STORE02A,65,US_STORE03B,45,US_STORE03D,55,US_ROSLYN_CAFE2,55,US_STORE03A,45,	\
+    US_STORE03C,65,US_STORE13C,75,US_STORE14A,45,US_STORE14C,65,US_STORE18B,65,US_STORE19A,40,		\
+    US_STORE19B,40,US_STORE20B,55,US_STORE21A,65,US_STORE21C,60,US_STORE24B,55,US_STORE24C,200,:..,0,#;	\
+    1-40*1,TREES_SUMMER:..,0,#;										\
+    US_STORE19C[COFR:3],US_STORE18B,US_STORE18A,US_STORE17C,200,US_STORE06B,US_STORE05A,US_STORE07A,	\
+    US_STORE07B,US_STORE10A,US_STORE09B,US_STORE09A,US_STORE17D,190,US_STORE03C,65,US_STORE24C,55,	\
+    US_STORE13C,75,US_STORE14A,45,US_STORE14C,65,US_STORE18B,65,US_STORE19A,40,US_STORE01C,55,		\
+    US_STORE02A,65,US_STORE03B,45,US_STORE03D,55,US_ROSLYN_CAFE2,55,US_STORE03A,45,US_STORE19B,40,	\
+    US_STORE20B,55,US_STORE21A,65,US_STORE21C,60,US_STORE24B,55,200,US_STORE04B,US_STORE04A,		\
+    US_STORE05A,US_ALMA8,US_ALMA7,US_ROSLYN_BRICK2,US_STORE13B,US_STORE16A,US_STORE15A,210,200,,,:..,	\
+    0,#;]
+
+# Stadt 3. Welt
+$DEF STBGTW=SKY,											\
+    [BG<=SCENE_DESERT3:..,0;										\
+    (20*(40|60|90|20|25|50|70|80|TREE106W|AGAVE1|TREE92|EUCALYPT10|PALM12|PALM16|PALMLINE1|PINUS1|	\
+    EUCALYPT02)(|[M])):..,0;										\
+    20,CH_BARN1,40,HUT_004A,60,I_H020B,45,I_H039_1,35,SHOP_003,55,HUT_001A,25,I_H020_1,30,BLD_011,50,	\
+    I_H040_1,20,I_H031,40,H_RAKTAR2,60,SHOP_001,45,SHOP_002,35,BLD_004A,55,AU_CLUNES_RSLB,25,HUT_003A,	\
+    30,BLD_004C,:..,0,#;										\
+    (20*(40|60|90|20|25|50|70|80|TREE106W|AGAVE1|TREE92|EUCALYPT10|PALM12|PALM16|PALMLINE1|PINUS1|	\
+    EUCALYPT02)(|[M])):..,0;										\
+    50,I_H040_1,20,I_H031,20,CH_BARN1,40,HUT_004A,55,HUT_001A,40,H_RAKTAR2,35,BLD_004A,55,		\
+    AU_CLUNES_RSLB,25,I_H020_1,30,BLD_011,25,HUT_003A,30,BLD_004C,60,SHOP_001,45,SHOP_002,60,I_H020B,	\
+    45,I_H039_1,35,SHOP_003,:..,0,#;]
+
+# U-Bahn Mauer
+$DEF STBGUB=[BG<=(WALL01C|WALL19):..,0;]
+
+#--------------------------------------------------------------------------------------------------#
+#                                                                 #
+# Strecken nach Epoche und Region                                                                  #
+#                                                                                                  #
+#--------------------------------------------------------------------------------------------------#
+# allgemein
+
+# Wall
+
+$DEF BGWALLE6=(WALL_UF1|WALL_UF2[BT:0,32]|WALL_UF3[BT:0,32]|WALL_UF4[BT:0,32]|WALL_UF5[BT:0,32]|	\
+    WALL_UF7[BT:0,32]|WALL_UF8|[BT:0,32])
+
+# Plattform acessuars
+
+#Plattform Passenger
+$DEF BGPASS1=PAS(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20|21|22|23|24|25|26|27|28|	\
+    29|30|31|32|64|65)(|[M])
+
+#Plattform
+
+$DEF BG_PLF1=[BG<=B_PLF1E,$1@B_PLF(1|2),#B_PLF1E:,^8;]
+
+#length 1800 H
+$DEF BGPLATT1800H=BGPASS1,25,PASG03,5,LAMP04,5,PLF_J2D,20,PASG02,20,BANK8,30,PASG01,25,BGPASS1,		\
+    DUSTBIN1,11,PLF_J2D,25,DBAG_STAIRS,15,BANK8,20,BGPASS1,28,PAS23,20,BANK8,35,DUSTBIN1,30,PASG05,15,	\
+    BANK04,30,PLF_J2D,26,BGPASS1,35,BANK01,DUSTBIN1,15,BGPASS1,20,LAMP04,85,PERS01,15,PERS03,
+
+#length 1800 NL
+$DEF BGPLATT1800NL=BGPASS1,85,LAMP01,40,BGPASS1,20,BGPASS1,20,BGPASS1,15,PERS05,20,PLF_J2D,26,#PAS05,	\
+    25,PASG03,60,PASG02,20,B_STAIR1,30,PASG01,25,BGPASS1,DUSTBIN1,45,J_PBANK,15,J_PBANK,20,PAS05,28,	\
+    BGPASS1,20,J_PBANK,35,DUSTBIN1,20,PASG05,15,J_PBANK,30,PLF_J2D,26,BGPASS1,35,J_PBANK,DUSTBIN1,15,	\
+    PAS05,12,LAMP01,70,PERS01,20,BGPASS1
+
+#length 1800 CH5
+$DEF BGPLATT1800CH=BGPASS1,25,PASG03,25,PLF_J2D,2,LAMP14,2,PASG02,20,BANK8,30,PASG01,25,BGPASS1,	\
+    DUSTBIN1,11,PLF_J2D,15,PASG10,10,PASG09,15,BANK8,20,PAS05,28,PAS23,20,BANK8,35,DUSTBIN1,30,PASG05,	\
+    15,BANK04,30,CH_TIMTAB1,26,BGPASS1,35,BANK01,DUSTBIN1,15,BGPASS1,12,LAMP14,85,PERS01,15,PERS03,
+
+
+#length 1800 CS5
+$DEF BGPLATT1800C=BGPASS1,25,PASG03,25,CH_TIMTAB1,2,LAMP14,2,PASG02,20,BANK8,30,PASG01,25,BGPASS1,	\
+    DUSTBIN1,11,CH_TIMTAB1,25,B_STAIR1,B_STAIR1[COFL:20],15,BANK8,20,PAS05,28,PAS23,20,BANK8,35,	\
+    DUSTBIN1,30,PASG05,15,BANK04,30,PLF_J2D,26,BGPASS1,35,BANK01,DUSTBIN1,15,PAS05,12,LAMP14,85,	\
+    PERS01,15,PERS03,
+
+#length 1400 AT
+$DEF BGPLATT1400A=BGPASS1,25,PASG03,25,PLF_J2D,2,LAMP14,2,PASG02,20,BANK8,30,PASG01,11,DUSTBIN1,11,	\
+    PLF_J2D,15,PASG10,10,PASG09,15,BANK8,20,PAS05,28,PAS23,20,DUSTBIN1,30,PASG05,15,BANK04,30,PLF_J2D,	\
+    26,BGPASS1,35,BANK01,DUSTBIN1,15,BGPASS1,12,LAMP14,5,PERS01,15,PERS03
+
+#length 1400 CH
+$DEF BGPLATT1400CH=BGPASS1,25,PASG03,25,CH_TIMTAB1,2,LAMP14,2,PASG02,20,BANK8,30,PASG01,11,DUSTBIN1,	\
+    11,CH_TIMTAB1,15,PASG10,10,PASG09,15,BANK8,20,PAS05,28,PAS23,20,DUSTBIN1,30,PASG05,15,BANK04,30,	\
+    CH_TIMTAB1,26,BGPASS1,35,BANK01,DUSTBIN1,15,BGPASS1,12,LAMP14,5,PERS01,15,PERS03
+
+#--------------------------------------------------------------------------------------------------#
+# Ungarn Bahnhof E 3/4
+
+$DEF STBGHUB13=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCityAU1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCityAU2,:..,0,#;				\
+    M_KELENFOLDB|(M_ALSOORS_U[O:H_BUD_NYUG,235,60][B:241,66,31,1,#838383]),:,8;1000,WATERCOLUMN02:,-4;	\
+    (0[AR:PLF_I1(2*C,4*B,A,6*(37*B,A),4*B,2*C)]):,4; H_BUD_NYUG,480,H_BUD_NYUG,:,42;			\
+    H_BUD_NYUGS,1450,H_BUD_NYUGS,:,8; BGPLATT1800H,:,8;],$BG_PLF1(18),TRKDB
+
+
+# Ungarn Bahnhof E 5/6
+$DEF STBGHUB15=STMOD,SKYM,BG_FOREST1,									\
+    [BG<=BGCITYAU1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYAU2,:..,0,#;				\
+    M_KELENFOLDB|(M_ALSOORS_U[O:H_BUD_NYUG,235,60][B:241,66,31,1,#838383]),:,8;				\
+    J_TICKET,200,J_TICKET,:,8;(0[AR:PLF_I1(2*C,4*B,A,6*(37*B,A),4*B,2*C)]):,4;				\
+    H_BUD_NYUG,480,H_BUD_NYUG,:,42; H_BUD_NYUGS,560,J_TICKET,300,J_TICKET,560,H_BUD_NYUGS,:,8;		\
+    BGPLATT1800H,:,8;],$BG_PLF1(18),TRKDB
+
+#--------------------------------------------------------------------------------------------------#
+# Deutschland-Mitteleuropa
+
+# Wald Laubb‰ume mit Telegrafen Deutschland-Mitteleuropa EP 1-2
+$DEF STBGFT=SKY,BG_FOREST1,BG_GREEN1,[BG<=CABLE5:..,0;],TRKDH
+
+# Strecke Wiese EP 1-6
+$DEF STBGDE01=$AG165(30)|$HL180(30)|$HL981014(30),TRKDH
+
+# Industriegeb‰ude Deutschland-Mitteleuropa E2-5
+$DEF STBGDI1=SKY,BG_GREEN1,										\
+    [BG<=FACT21_1,50,FACT05_2,FACT05_1,60,STORE02,150,I_SOTSTAZELE2,NL_SPOORZICHT_1,80,FACT24_1,90,	\
+    D_FABRIK01_2,D_FABRIK01_1,100,NL_BRICKYARD2:..,-10,#;						\
+    FACT24_1,90,D_FABRIK01_2,D_FABRIK01_1,100,NL_SPOORZICHT_1,80,NL_BRICKYARD2,200,STORE02,150,		\
+    FACT05_2,FACT05_1,60,FACT21_1,50,I_SOTSTAZELE2,200:..,-10,#; (3:0|2:1|1:2)*(Vegetation):0-100+;	\
+    (2:1|1:2)*(Vegetation|Vegetation[M]):0-100+; BUSH20:10-45+,-8; 0|1*BUSH20:35-80+,-8;],EMBS,TRKDB
+
+# Industriegeb‰ude Deutschland-Mitteleuropa E4-6
+$DEF STBGDI4=SKY,BG_GREEN1,										\
+    [BG<=D_SILO02,200,US_TIMS2,300,J_FACT02,350,J_FACT01,US_PLANT43_1,US_PLANT42C,250,STORE03,		\
+    INDUSTRY01,300,3*STORAGESHED,350,J_FACT03,250,D_STERNQUELL3,D_STERNQUELL2,D_STERNQUELL1,150,	\
+    STORE02,280:..,-10,#;										\
+    INDUSTRY01,300,J_FACT03,250,3*STORAGESHED,350,D_STERNQUELL3,D_STERNQUELL2,D_STERNQUELL1,150,	\
+    STORE02,280,D_SILO02,300,J_FACT02,200,US_TIMS2,350,J_FACT01,US_PLANT43_1,US_PLANT42C,250,		\
+    STORE03:..,-10,#; (3:0|2:1|1:2)*(Vegetation):0-100+; (2:1|1:2)*(Vegetation|Vegetation[M]):0-100+;	\
+    BUSH20:10-45+,-8; 0|1*BUSH20:35-80+,-8;],EMBS,TRKDB
+
+# Landbahnhof Deutschland
+
+$DEF D_LANDH1=40,											\
+    D_H042A|D_H042B|D_H042C|D_H042D|D_H042E|D_H043A|D_H043B|D_H044A|D_H044B|D_H045A|D_H045B|D_H046A|	\
+    D_H046B|D_H047,40
+$DEF D_LANDH2=40,D_RATHAUS1|D_H013,40
+$DEF D_LANDH3=40,G_H021B|D_H022B|D_H024|D_H026|D_H027|D_H028A,40
+$DEF D_LANDH4=40,D_H00(5|8)(|[VD:,37,,29])|D_H010
+$DEF D_LANDROW=$MIX(3,(40,D_H076,40),(40,NL_LIMBURG03_1[SM:0.8],40),D_LANDH1,D_LANDH2),300,		\
+    $MIX(3,D_LANDH1,D_LANDH3,D_LANDH4)
+
+$DEF BG_LANDBHF=[BG<=D_LANDBAHNHOF[O:$1,*150,^42]|D_LANDBAHNHOF2[O:$1,*131,^38]|			\
+    D_LANDBAHNHOF3[O:$1,*131,^38]|D_WORPSWEDE[B:129,30,64,6,(203,203,203)][O:$1,*160,*35]|		\
+    GUMPENRIEDASBACH[O:$1,*96,44];]
+
+$DEF STBGDBB11G=STMOD,SKY,BG_GREEN1,BG_FOREST1,[BG<=D_LANDROW;],$BG_LANDBHF(D_BOEDERITZ3),		\
+    [BG<=D_WAREHOUSE1:50+670,0;										\
+    D_BOEDERITZ3S,10,BANK01,55,PAS18,60,PAS05,60,PLF_J2D,50,LAMP09,30,PAS16,70,PAS27,30,BANK01,30,	\
+    LAMP09,50,PAS17,40,PERS01,10,PAS30,50,D_BOEDERITZ3S:,5;PLF2EL,12*PLF2P,PLF2E:,-4;],TRKGS|TRKDW,	\
+    [FG+=WATERCOLUMN03:50+500,-4;]
+
+$DEF STBGDBB11=STBGDBB11G,TRKGS
+$DEF STBGDBB12=STBGDBB11G,TRKDW
+$DEF STBGDBB13=STBGDBB11G,TRKDW
+#E3-5 DR
+$DEF STBGDDRB1=STBGDBB11G,TRKGS
+#E4 DB
+$DEF STBGDBB14G=STMOD,SKY,BG_FOREST1,BG_GREEN1,[BG<=D_LANDROW;],$BG_LANDBHF(D_RUCK4),			\
+    [BG<=D_WAREHOUSE1:50+670,0;										\
+    D_RUCK4S,10,BANK01,55,PAS18,60,PAS05,60,PLF_J2D,50,LAMP09,30,PAS16,70,PAS27,30,BANK01,30,LAMP09,	\
+    50,PAS17,40,PERS01,10,PAS30,50,D_RUCK4S:,5;PLF2EL,12*PLF2P,PLF2E:,-4;]
+
+$DEF STBGDBB14E=STBGDBB14G,[W=X],TRKWD,									\
+    [FG=WATERCOLUMN03:50+500,-4;<FL_DB_M(4:1F5|2_5),FL_DB_F5:..,-5,#;]
+$DEF STBGDBB14D=STBGDBB14G,[FG=TRACKFGDW:..,^0;1000,WATERCOLUMN03:,-4;]
+$DEF STBGDBB14=$FLG(E,STBGDBB14E,STBGDBB14D)
+#E5
+$DEF STBGDBB15D=STMOD,SKY,,BG_FOREST1,BG_GREEN1,[BG<=D_LANDROW;],$BG_LANDBHF(D_RIEGEL6),		\
+    [BG<=D_WAREHOUSE1:50+670,0;										\
+    LAMP_DB5A,10,BANK_DB5A,55,PAS18,60,PAS05,60,PLF_J2D,50,LAMP_DB5A,30,PAS16,70,PAS27,30,BANK_DB5A,	\
+    30,LAMP_DB5A,50,PAS17,40,PERS01,10,PAS30,50,LAMP_DB5A:,9;10*PLF_5D:,0;],TRKDW
+$DEF STBGDBB15E=STBGDBB15D,[W=X],([FG>=;FL_DB_M(4:1F5|2_5),FL_DB_F5:..,-5,#;]|[FG>=;FL_DR:..,-4,#;]);
+$DEF STBGDBB15=$FLG(E,STBGDBB15E,STBGDBB15D)
+#E6
+$DEF STBGDBB16D=STMOD,SKY,BG_FOREST1,BG_GREEN1,[BG<=D_LANDROW;],$BG_LANDBHF(D_RIEGEL6),			\
+    [BG<=D_WAREHOUSE1:50+670,0;										\
+    PLF_LAMP_DB5B,10,DBAG_6BANK,55,DBAG_6STREU,60,DBAG_6DUSTBIN1,60,DBAG_6INFO1,50,PLF_LAMP_DB5B,30,	\
+    70,PAS27,30,DBAG_6TICKET,30,PLF_LAMP_DB5B,50,40,DBAG_6DUSTBIN1,10,PAS30,50,PLF_LAMP_DB5B:,9;	\
+    10*PLF_5D:,0;],TRKDW
+$DEF STBGDBB16E=STBGDBB16D,[W=X],([FG>=;FL_DB_M(4:1F5|2_5),FL_DB_F5:..,-5,#;]|[FG>=;FL_DR:..,-4,#;]);
+$DEF STBGDBB16=$FLG(E,STBGDBB16E,STBGDBB16D)
+
+# Bahnhof Deutschland E2
+$DEF STBGDBB22=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYDA1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYDA2:..,0,#;				\
+    25*WALL18(|[M]),1100,25*WALL18(|[M]),:,-12;WASSERTURM_KOETHEN,1100:,0;				\
+    (PLF2P[AR:1*PLF2P][O:NL_GENDLOOS5,10,9][O:NL_GENDLOOS4,84,9]):90;					\
+    DRG_2_G_MUE,DRG_2_G_MUE_H,12,#BOCK2:90;								\
+    (D_WORPSWEDE[B:130,30,62,5,#BDBDBD][O:D_BOEDERITZ3,143,35])|(RO_BANEASA1[O:D_BOEDERITZ3,952,31])|	\
+    (D_MUHLHEIM_STYRUM[B:380,35,88,11,#805038][O:D_BOEDERITZ3,402,37]):,8; WATERCOLUMNDB:9,3;		\
+    PAS15,16,LAMP06,47,D_BOEDERITZ3S,30,PAS13,20,PAS08,20,PAS25,154,PERS05,20,I_TIMTAB1,26,BANK04,20,	\
+    DBAG_STAIRS,BANK8,20,PAS11,40,PASG01,28,PAS23,20,BANK06,BANK05,24,I_TIMTAB1,16,PAS05,30,PAS03,30,	\
+    BANK06,24,PAS05,18,D_BOEDERITZ3S,17,LAMP06,12,PERS01,20,PERS03:,8; (2*PLF_I1_1):,8;],$BG_PLF1(13),	\
+    TRKES,[FG+=WATERCOLUMNDB:93,-4;]
+
+# Bahnhof Deutschland E3
+$DEF STBGDBB23=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYDA1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYDA2:..,0,#;				\
+    25*WALL18(|[M]),1100,25*WALL18(|[M]),:,-12;WASSERTURM_KOETHEN,1100:,0;				\
+    (PLF2P[AR:1*PLF2P][O:NL_GENDLOOS5,10,9][O:NL_GENDLOOS4,84,9]):90;					\
+    DB_3B_GMS54BL,DB_3B_GMHS35KEMB,12,#BOCK2:90;							\
+    (D_WORPSWEDE[B:130,30,62,5,#BDBDBD][O:D_BOEDERITZ3,143,35])|(RO_BANEASA1[O:D_BOEDERITZ3,952,31])|	\
+    (D_MUHLHEIM_STYRUM[B:380,35,88,11,#805038][O:D_BOEDERITZ3,402,37]):,8;3;WATERCOLUMNDB:9,3;		\
+    PAS15,16,LAMP06,47,D_BOEDERITZ3S,30,PAS13,20,PAS08,20,PAS25,154,PERS05,20,I_TIMTAB1,26,BANK04,20,	\
+    DBAG_STAIRS,BANK8,20,PAS11,40,PASG01,28,PAS23,20,BANK06,BANK05,24,I_TIMTAB1,16,PAS05,30,PAS03,30,	\
+    BANK06,24,PAS05,18,D_BOEDERITZ3S,17,LAMP06,12,PERS01,20,PERS03:,8; (2*PLF_I1_1):,8;],$BG_PLF1(13),	\
+    TRKES,[FG+=WATERCOLUMNDB:93,-4;]
+
+# Bahnhof Deutschland E4
+
+$DEF STBGDBB24=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYDA1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#;BGCITYDA2:..,0,#;					\
+    25*WALL18(|[M]),1100,25*WALL18(|[M]),:,-12; WASSERTURM_KOETHEN,1100:,0;				\
+    (PLF2P[AR:1*PLF2P][O:NL_GENDLOOS5,10,9][O:NL_GENDLOOS4,84,9]):90;					\
+    DB_4B_GS204E,DB_4B_GKLMS207M,12,#BOCK2:90;								\
+    (D_WORPSWEDE[B:130,30,62,5,#BDBDBD][O:D_KRUMBACH4,143,35])|						\
+    (RO_CARANSEBES[B:611,43,37,2,#60645C][O:D_KRUMBACH4,611,45])|(RO_BANEASA1[O:D_KRUMBACH4,952,31])|	\
+    (D_MUHLHEIM_STYRUM[B:380,35,88,11,#805038][O:D_KRUMBACH4,402,37]):,8; WATERCOLUMNDB:9,3;		\
+    PAS15,16,LAMP01,47,D_KRUMBACH4S,30,PAS13,20,PAS08,20,PAS25,154,PERS05,20,I_TIMTAB1,26,BANK04,20,	\
+    DBAG_STAIRS,BANK8,20,PAS11,40,PASG01,28,PAS23,20,BANK06,BANK05,24,I_TIMTAB1,16,PAS05,30,PAS03,30,	\
+    BANK06,24,PAS05,18,D_KRUMBACH4S,17,LAMP01,12,PERS01,20,PERS03:,8;15*PLF_5D;				\
+    #PLF_D01B,6*PLF_D01C,PLF_D01B:,8;],TRKES,[FG+=WATERCOLUMNDB:93,-4;]
+
+# Bahnhof Deutschland E5
+
+$DEF STBGDBB25=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYD(A|M)1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYD(A|M)2:..,0,#;			\
+    25*WALL18(|[M]),1100,25*WALL18(|[M]),:,-12; WASSERTURM_KOETHEN,1100:,0;				\
+    (PLF2P[AR:1*PLF2P][O:NL_GENDLOOS5,10,9][O:NL_GENDLOOS4,84,9]):90;					\
+    DBAG_5_365221S(|L),122,#BOCK2:90;									\
+    (D_WORPSWEDE[B:130,30,62,5,#BDBDBD][O:D_DUHBF5,143,35])|						\
+    (0[AR:D_BHF1(A,B,C,D,D,C)][O:D_DUHBF5,149,35])|							\
+    (RO_CARANSEBES[B:611,43,37,2,#60645C][O:D_DUHBF5,611,45])|(RO_BANEASA1[O:D_DUHBF5,952,31])|		\
+    (D_MUHLHEIM_STYRUM[B:380,35,88,11,#805038][O:D_DUHBF5,402,37]):,8;					\
+    PAS15,16,LAMP01,47,D_DUHBF5S,30,PAS13,20,PAS08,20,PAS25,154,PERS05,20,I_TIMTAB1,26,BANK04,20,	\
+    DBAG_STAIRS,BANK8,20,PAS11,40,PASG01,28,PAS23,20,BANK06,BANK05,24,I_TIMTAB1,16,PAS05,30,PAS03,30,	\
+    BANK06,24,PAS05,18,D_DUHBF5S,17,LAMP01,12,PERS01,20,PERS03:,8;15*PLF_5D;				\
+    #PLF_D01B,6*PLF_D01C,PLF_D01B:,8;],TRKES
+
+# BAHNHOF DEUTSCHLAND E6;
+
+$DEF STBGDBB26=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYD(A|M)1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYD(A|M)2:..,0,#;			\
+    25*BGWALLE6,1100,25*BGWALLE6,:,-22;									\
+    (PLF2P[AR:1*PLF2P][O:NL_GENDLOOS5,10,9][O:NL_GENDLOOS4,84,9]):90; DBAG_363141S(|L),122,#BOCK2:90;	\
+    (RO_CARANSEBES[B:611,45,37,7,#28273D][B:611,43,37,2,#60645C][O:D_OBHBF6,611,45])|			\
+    (D_WORPSWEDE[B:130,30,62,5,#BDBDBD][O:D_OBHBF6,143,35])|						\
+    (0[AR:D_BHF1(A,B,C,D,D,C)][O:D_OBHBF6,149,35])|(RO_BANEASA1[O:D_OBHBF6,952,31])|			\
+    (D_MUHLHEIM_STYRUM[B:380,35,88,11,#805038][O:D_OBHBF6,402,37]):,8;					\
+    PAS15,16,LAMP01,20,DBAG_6STREU,20,D_OBHBF6S,30,PAS13,20,PAS08,20,PAS25,154,PERS05,20,DBAG_6INFO1,	\
+    06,#PAS05,20,BANK04,20,DBAG_STAIRS,15,DBAG_6TICKET,5,BANK8,2,DBAG_6DUSTBIN1,10,PAS11,15,PASG01,28,	\
+    PAS23,20,DBAG_6BANK,5,DBAG_6DUSTBIN2,10,DBAG_6INFO3,16,PAS05,30,PAS03,15,DBAG_6BANK,6,		\
+    DBAG_6DUSTBIN2,20,PAS05,5,#DBAG_6STREU,5,D_OBHBF6S,17,LAMP01,12,PERS01,20,PERS03:,8;15@B_PLF(2|1);], \
+    TRKES
+#--------------------------------------------------------------------------------------------------#
+# Gebirge-Schweiz
+
+# Wald Nadelbaum Gebirge-Schweiz
+$DEF STBGFN=BGNORD1,[BG<=20*(10|3|7|TREE12|TREE91|TREE108|TREE109|TREE55|TREE56|BUSH17):..,0;],TRKWD,	\
+    TRKDW
+
+
+# Bahnhof Schweiz Groﬂstadt 5
+$DEF STBGCHB15=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYDA1|BGCITYAU1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYDA2|BGCITYAU2:..,0,#;		\
+    50*SWALL1B,1000,50*SWALL1B,1000,:,-2; A_LANDL|NL_AMERSFOORT_NCS[O:CH_STMORITZ6,246,40]:,8;		\
+    CH_TICKETAUTOMAT1,200,CH_TICKETAUTOMAT1,:,8;							\
+    CH_STMORITZ6S,540,CH_TICKETAUTOMAT1,500,CH_TICKETAUTOMAT1,460,CH_STMORITZ6S,:,8; BGPLATT1800CH:,8;	\
+    PLF_CZ01,PLF_CZ13A,PLF_CZ06,PLF_CZ07,PLF_CZ03,PLF_CZ05[BT:28,35,36,9][O:CH_STMORITZ6,37,39],	\
+    PLF_CZ04,PLF_CZ05[BT:28,35,36,9][O:CH_STMORITZ6,37,39],PLF_CZ03,PLF_CZ08,PLF_CZ13,PLF_CZ10,		\
+    PLF_CZ14 :,-2;],TRKDB
+# Kleinstadt 5
+$DEF STBGCHB25=STMOD,BGNORD1,										\
+    [BG<=BGCITYAU3:..,0,#; TREES_COLD,:..,0,#;BGCITYAU3:..,0,#;						\
+    (A_WEIZELSDORF1[O:A_GRIESIMPINSGAU6,103,25])|(A_FERLACH[O:A_GRIESIMPINSGAU6,31,27])|RHB_ZIZERS,:,8;	\
+    CH_TICKETAUTOMAT1,200,:,8;										\
+    CH_STMORITZ6S,340,CH_TICKETAUTOMAT1,300,CH_TICKETAUTOMAT1,360,CH_STMORITZ6S,:,5;			\
+    PLF_NORTES4,4*PLF_NORTES1,PLF_NORTES3:,-5;BGPLATT1400CH:,+5;					\
+    PLF_NL1A,12*PLF_NL(5|2),#PLF_NL1A,:,-7;],TRKDB
+
+#--------------------------------------------------------------------------------------------------#
+# Bahnhof ÷sterreich
+# Groﬂstadt 5
+$DEF STBGAT15=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYDA1|BGCITYAU1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYDA2|BGCITYAU2,:..,0,#;		\
+    A_LANDL|NL_AMERSFOORT_NCS[O:A_GRIESIMPINSGAU6,226,40],:,8; J_TICKET,200,J_TICKET,:,8;		\
+    A_GRIESIMPINSGAU6,540,J_TICKET,500,J_TICKET,460,A_GRIESIMPINSGAU6,:,8; BGPLATT1800CH,:,8;		\
+    PLF_CZ01,PLF_CZ13A,PLF_CZ06,PLF_CZ07,PLF_CZ03,PLF_CZ05[BT:28,35,36,9][O:A_GRIESIMPINSGAU6,20,39],	\
+    PLF_CZ04,PLF_CZ05[BT:28,35,36,9][O:A_GRIESIMPINSGAU6,20,39],PLF_CZ03,PLF_CZ08,PLF_CZ13,PLF_CZ10,	\
+    PLF_CZ14,:,-2;],TRKDB
+
+# Kleinstadt 3
+$DEF STBGAT23=STMOD,BGNORD1,										\
+    [BG<=BGCITYAU3:..,0,#; TREES_COLD,:..,0,#;BGCITYAU3:..,0,#;						\
+    (A_WEIZELSDORF1[O:D_AMSDORF,113,25])|(A_FERLACH[O:D_AMSDORF,41,27])|RHB_ZIZERS,:,8;			\
+    D_AMSDORFS,1000,D_AMSDORFS,:,5;1000,WATERCOLUMN02:,0; PLF_NORTES4,4*PLF_NORTES1,PLF_NORTES3:,-5;	\
+    BGPLATT1400A:,+5; PLF_NL1A,12*PLF_NL(5|2),#PLF_NL1A,:,-7;],TRKDB
+
+# Kleinstadt 5
+$DEF STBGAT25=STMOD,BGNORD1,										\
+    [BG<=BGCITYAU3:..,0,#; TREES_COLD,:..,0,#;BGCITYAU3:..,0,#;						\
+    (A_WEIZELSDORF1[O:A_GRIESIMPINSGAU6,103,25])|(A_FERLACH[O:A_GRIESIMPINSGAU6,31,27])|RHB_ZIZERS,:,8;	\
+    J_TICKET,200,:,8; A_GRIESIMPINSGAU6S,340,J_TICKET,300,J_TICKET,360,A_GRIESIMPINSGAU6S,:,5;		\
+    PLF_NORTES4,4*PLF_NORTES1,PLF_NORTES3:,-5;BGPLATT1400A:,+5; PLF_NL1A,12*PLF_NL(5|2),#PLF_NL1A,:,-7;], \
+    TRKDB
+#--------------------------------------------------------------------------------------------------#
+# Groﬂbritannien
+# Bahnhof E 3
+$DEF STBGGBB13=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYGB1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYGB2:..,0,#;				\
+    (NL_MEPPEL[O:GB_WATCHET3,230,25])|(NL_DELFZIJL[O:GB_WATCHET3,342,54]),:,8; 1000,WATERCOLUMN02:,-4;	\
+    (0[AR:PLF_I1(2*C,4*B,A,6*(37*B,A),4*B,2*C)]):,8; GB_WATCHET3S,1100,GB_WATCHET3S,:,8;		\
+    BGPLATT1800H,:,8;],$BG_PLF1(18),TRKDB
+
+# Bahnhof E 4
+$DEF STBGGBB14=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYGB1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYGB2:..,0,#;				\
+    (NL_MEPPEL[O:GB_BLENCOW3,235,27])|(NL_DELFZIJL[O:GB_BLENCOW3,342,52]),:,8;				\
+    (0[AR:PLF_I1(2*C,4*B,A,6*(37*B,A),4*B,2*C)]):,8; GB_BLENCOW3S,1100,GB_BLENCOW3S,:,8;		\
+    BGPLATT1800H,:,8;],$BG_PLF1(18),TRKDB
+
+# Bahnhof E 5/6
+$DEF STBGGBB15=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYGB1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYGB2:..,0,#;				\
+    (NL_MEPPEL[O:GB_AUBURN6,236,23])|(NL_DELFZIJL[O:CH_STMORITZ6,342,48]),:,8;				\
+    J_TICKET,200,J_TICKET,:,8;(0[AR:PLF_I1(2*C,4*B,A,6*(37*B,A),4*B,2*C)]):,8;				\
+    GB_AUBURN6S,410,J_TICKET,300,J_TICKET,410,GB_AUBURN6S,:,8; BGPLATT1800H,:,8;],$BG_PLF1(18),TRKDB
+
+#--------------------------------------------------------------------------------------------------#
+#  Frankreich
+# Strecke
+$DEF STBGFRS1=[BG-=BGWP/F_BURGUNDY1.JPG:..,-10,<=>,28,1800;],EMBG,TRKDH
+$DEF STBGFRS2=[BG-=BGWP/F_PROV1.JPG:..,,<=>,259,2295;],TRKLO
+
+# Bahnhof E3/4
+$DEF STBGFRB13=STMOD,SKY,BG_FOREST1,									\
+    [BG<=D_MUNCHEN03B,D_H063,NL_HAARLEM06_1,D_MUNCHEN03A,D_MUNCHEN01A,D_MUNCHEN01C[COFL:2],150,		\
+    D_FABRIK01_3,D_FABRIK01_1,FENCE7,100,D_H080,NL_HAARLEM06F,HBLK_DDR1,100,RU_H019A[COFL:3],RU_H021,	\
+    RU_H020A,RU_H018_1[COFR:4],220,CHURCH01A,200,HBLK_M6A,150,:..,0,#;					\
+    D_MUNCHEN03B,D_H063,D_MUNCHEN03A,D_MUNCHEN01A,D_MUNCHEN01C[COFL:2],100,D_H080,NL_HAARLEM06_1,	\
+    NL_HAARLEM06F,HBLK_DDR1,100,HBLK_M6A,200,CHURCH01B,220,RU_H020A,RU_H019A[COFL:3],			\
+    RU_H018_1[COFR:4],RU_H021,150,D_FABRIK01_3,D_FABRIK01_1,FENCE7,150,:..,0,#;				\
+    RO_CANEPISTI[OT:F_CANFRANC3,167,30],:,8;								\
+    PLF_GASTEIZ3[BT:0,0,89,65][BT:0,0,92,53],8*PLF_GASTEIZ3,PLF_GASTEIZ3[BT:6,0,89,65][BT:3,0,92,53]:,	\
+    -6;F_CANFRANC3,500,F_CANFRANC3,:,37;								\
+    PAS15,16,F_CANFRANC3S,30,LAMP01,40,PAS13,20,PAS08,5,PLF_J2D,10,PAS25,15,PERS05,20,B_SHELTER,26,	\
+    #PAS05,25,PASG03,35,PLF_J2D,20,PASG02,20,DBAG_STAIRS,30,PASG01,25,PAS11,DUSTBIN1,11,PLF_J2D,25,	\
+    BANK8,15,BANK8,20,PAS05,28,PAS23,20,BANK8,35,DUSTBIN1,20,PASG05,15,BANK04,30,B_SHELTER,26,PAS03,	\
+    35,BANK01,DUSTBIN1,15,PAS05,12,LAMP01,15,F_CANFRANC3S,12,PERS01,20,PERS03:,8;],$BG_PLF1(18),TRKDB
+
+# Bahnhof E5/6
+$DEF STBGFRB15=STMOD,SKY,BG_FOREST1,									\
+    [BG<=D_MUNCHEN03B,D_H063,NL_HAARLEM06_1,D_MUNCHEN03A,D_MUNCHEN01A,D_MUNCHEN01C[COFL:2],150,		\
+    D_FABRIK01_3,D_FABRIK01_1,FENCE7,100,D_H080,NL_HAARLEM06F,HBLK_DDR1,100,RU_H019A[COFL:3],RU_H021,	\
+    RU_H020A,RU_H018_1[COFR:4],220,CHURCH01A,200,HBLK_M6A,150,:..,0,#;					\
+    D_MUNCHEN03B,D_H063,D_MUNCHEN03A,D_MUNCHEN01A,D_MUNCHEN01C[COFL:2],100,D_H080,NL_HAARLEM06_1,	\
+    NL_HAARLEM06F,HBLK_DDR1,100,HBLK_M6A,200,CHURCH01B,220,RU_H020A,RU_H019A[COFL:3],			\
+    RU_H018_1[COFR:4],RU_H021,150,D_FABRIK01_3,D_FABRIK01_1,FENCE7,150,:..,0,#;				\
+    RO_CANEPISTI[OT:F_BOUZONVILLE6,158,30],:,8;								\
+    PLF_GASTEIZ3[BT:0,0,89,65][BT:0,0,92,53],8*PLF_GASTEIZ3,PLF_GASTEIZ3[BT:6,0,89,65][BT:3,0,92,53]:,	\
+    -6;F_BOUZONVILLE6,480,F_BOUZONVILLE6,:,38;								\
+    PAS15,16,F_BOUZONVILLE6S,30,LAMP01,40,PAS13,20,PAS08,5,PLF_J2D,10,PAS25,15,PERS05,20,B_SHELTER,26,	\
+    #PAS05,25,PASG03,10,J_TICKET,5,PLF_J2D,20,PASG02,20,DBAG_STAIRS,30,PASG01,25,PAS11,DUSTBIN1,11,	\
+    PLF_J2D,25,BANK8,15,BANK8,20,PAS05,28,PAS23,20,BANK8,35,DUSTBIN1,4,J_TICKET,16,PASG05,15,BANK04,	\
+    30,B_SHELTER,26,PAS03,35,BANK01,DUSTBIN1,15,PAS05,12,LAMP01,15,F_BOUZONVILLE6S,12,PERS01,20,	\
+    PERS03,:,8;],$BG_PLF1(18),TRKDB
+
+
+#--------------------------------------------------------------------------------------------------#
+#  Belgien
+#  Bahnhof E 3/4
+$DEF STBGBEB14=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYDA1|BGCITYNL1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYDA2|BGCITYNL2,:..,0,#;		\
+    RO_BUZAU3[B:368,28,23,2,#787080][OT:B_GENT6,361,36],:47,3;1000,WATERCOLUMN02:,0;			\
+    B_PLFCOV[COFL:28],6*B_PLFCOV,B_PLFCOV[COFR:28]:,8;B_GENT6,400,B_GENT6,:,31;				\
+    B_GENT6,480,B_GENT6,:,42; B_GENT6S,1450,B_GENT6S,:,8;BGPLATT1800H,:,8; ],$BG_PLF1(16),TRKDB
+
+#  Bahnhof E 5/6
+$DEF STBGBEB15=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYDA1|BGCITYNL1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYDA2|BGCITYNL2,:..,0,#;		\
+    RO_BUZAU3[B:368,28,23,2,#787080][OT:B_GENT6,361,36],:,8;						\
+    B_PLFCOV[COFL:28],6*B_PLFCOV,B_PLFCOV[COFR:28]:,8;B_GENT6,400,B_GENT6,:,31;				\
+    B_GENT6,480,B_GENT6,:,42; B_GENT6S,1450,B_GENT6S,:,8;J_TICKET,200,J_TICKET,:,8;			\
+    J_TICKET,500,J_TICKET,:,8;BGPLATT1800H,:,8;],$BG_PLF1(16),TRKDB
+
+#--------------------------------------------------------------------------------------------------#
+#  Luxemburg
+
+#  Bahnhof E 5/6
+$DEF STBGLUB15=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYDA1|BGCITYNL1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYDA2|BGCITYNL2,:..,0,#;		\
+    RO_CARANSEBES[B:612,44,35,7,#0F2169][OT:L_LUXEMBURG6,620,45],:,8;1000,WATERCOLUMN02:,0;		\
+    B_PLFCOV[COFL:28],6*B_PLFCOV,B_PLFCOV[COFR:28]:,8;B_GENT6,400,B_GENT6,:,31;				\
+    L_LUXEMBURG6,480,L_LUXEMBURG6,:,42; L_LUXEMBURG6S,1450,L_LUXEMBURG6S,:,8;				\
+    J_TICKET,200,J_TICKET,:,8; J_TICKET,500,J_TICKET,:,8;BGPLATT1800H,:,8;],$BG_PLF1(16),TRKDB
+
+#--------------------------------------------------------------------------------------------------#
+#  Niederlande
+
+$DEF BGNL01=[BG-=BGWP/NL01.JPG;],TRKHI
+$DEF BGNL02=[BG-=BGWP/NL02.JPG[CROPB:-420];],TRKHI
+$DEF BGNL03=[BG-=BGWP/NL03.JPG[CROPB:-687];TRBED12:..,^0;]
+
+$DEF STN_NLA=&FLG(56,NL_UTRECHT6,D_RUCK4)
+$DEF STN_NLB=&FLG(56,47[B:,0,,9,#005CBF],48[B:,0,,9,#C4C4C4])[O:STN_NLA,*,*]
+
+$DEF BHF_NL1=NL_ROOSENDAAL[O:STN_NLB,*967,^39][O:STN_NLA,*686,^39][O:STN_NLA,*1214,^39]
+$DEF BHF_NL2=NL_AMERSFOORT_NCS[O:STN_NLB,*255,^45]
+$DEF BHF_NL3=NL_APPINGEDAM1[O:STN_NLB,*,45]
+$DEF BHF_NL4=NL_DELFZIJL[O:STN_NLB,*358,37]
+$DEF BHF_NL5=NL_GRONINGEN_CS[O:STN_NLB,*659,*61]
+$DEF BHF_NL6=NL_KAMPEN[O:STN_NLB,*318,38]
+$DEF BHF_NL7=NL_MEPPEL[O:STN_NLB,*246,39]
+$DEF BHF_NL8=NL_SLAPPHUT1[O:STN_NLB,*140,30]
+
+$DEF BHF_NL=BHF_NL(1|2|3|4|5|6|7|8)
+
+#  Bahnhof E3
+$DEF STBGNLB13=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYNL1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYNL2:..,0,#; BGFNC:..;BHF_NL:,8;		\
+    &FLG(3&,WATERCOLUMN02:50+500,0;)B_PLFCOV[COFL:28],6*B_PLFCOV,B_PLFCOV[COFR:28]:,8;			\
+    D_RUCK4,550,D_RUCK4,:,31; D_RUCK4S,1450,D_RUCK4S,:,8; BGPLATT1800NL:,8;				\
+    PLF_NL1A[COFR:8],16@PLF_NL(2|5),#PLF_NL1A[COFL:8]:,-4;],TRKDB
+
+#  Bahnhof E4
+$DEF STBGNLB14=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYNL1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYNL2:..,0,#;  BGFNC:..;BHF_NL:,8;		\
+    B_PLFCOV[COFL:28],6*B_PLFCOV,B_PLFCOV[COFR:28]:,8; D_RUCK4,550,D_RUCK4,:,31;			\
+    D_RUCK4S,1450,D_RUCK4S:,8; BGPLATT1800NL:,8; PLF_NL1A[COFR:8],16@PLF_NL(2|5),#PLF_NL1A[COFL:8]:,-4;], \
+    TRKDB
+
+#  Bahnhof E5-6
+$DEF STBGNLB15=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYNL1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYNL2:..,0,#;  BGFNC:..;BHF_NL:,8;		\
+    B_PLFCOV[COFL:28],6*B_PLFCOV,B_PLFCOV[COFR:28]:,8; NL_UTRECHT6,550,NL_UTRECHT6,:,31;		\
+    NL_UTRECHT6S,1450,NL_UTRECHT6S,:,8;J_TICKET,200,J_TICKET,:,8;J_TICKET,500,J_TICKET,:,8;		\
+    BGPLATT1800NL:,8;PLF_NL1A[COFR:8],16@PLF_NL(2|5),#PLF_NL1A[COFL:8]:,-4;],TRKDB
+
+#--------------------------------------------------------------------------------------------------#
+#  D‰nemark
+# Stadt Nordeuropa
+#  Bahnhof E3
+$DEF STBGDKB13=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYDK1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYDK2:..,0,#;				\
+    DK_STATION1|NL_SLAPPHUT|NL_USQUERT_OLD,:,8;1000,WATERCOLUMN02:,0;					\
+    B_PLFCOV[COFL:28],6*B_PLFCOV,B_PLFCOV[COFR:28]:,8;D_RUCK4,550,D_RUCK4,:,31;				\
+    D_RUCK4,480,D_RUCK4,:,42; D_RUCK4S,1450,D_RUCK4S,:,8; BGPLATT1800NL:,8;				\
+    PLF_NL1A[COFR:8],16@PLF_NL(2|5),#PLF_NL1A[COFL:8]:,-4;],TRKDB
+
+#  Bahnhof E4
+$DEF STBGDKB14=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYDK1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYDK2:..,0,#;				\
+    DK_STATION1|NL_SLAPPHUT|NL_USQUERT_OLD,:,8; B_PLFCOV[COFL:28],6*B_PLFCOV,B_PLFCOV[COFR:28]:,8;	\
+    D_RUCK4,550,D_RUCK4,:,31; D_RUCK4,480,D_RUCK4,:,42; D_RUCK4S,1450,D_RUCK4S,:,8; BGPLATT1800NL:,8;	\
+    PLF_NL1A[COFR:8],16@PLF_NL(2|5),#PLF_NL1A[COFL:8]:,-4;],TRKDB
+
+#  Bahnhof E5-6
+$DEF STBGDKB15=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYDK1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYDK2:..,0,#;				\
+    DK_STATION1|NL_SLAPPHUT|NL_USQUERT_OLD,:,8; B_PLFCOV[COFL:28],6*B_PLFCOV,B_PLFCOV[COFR:28]:,8;	\
+    NL_UTRECHT6,550,NL_UTRECHT6,:,31; NL_UTRECHT6S,1450,NL_UTRECHT6S,:,8;J_TICKET,200,J_TICKET,:,8;	\
+    J_TICKET,500,J_TICKET,:,8; BGPLATT1800NL:,8;PLF_NL1A[COFR:8],16@PLF_NL(2|5),#PLF_NL1A[COFL:8]:,-4;], \
+    TRKDB
+
+#--------------------------------------------------------------------------------------------------#
+#  Nordeuropa Schweden Norwegen Finnland
+#  Bahnhof E3
+$DEF STBGNOB13=STMOD,BGNORD1,										\
+    [BG<=BGCITYDK1:..,0,#; 1-40*1,TREES_COLD:..,0,#; BGCITYDK2:..,0,#;					\
+    DK_STATION1|NL_SLAPPHUT|NL_USQUERT_OLD,:,8;1000,WATERCOLUMN02:,0;					\
+    B_PLFCOV[COFL:28],6*B_PLFCOV,B_PLFCOV[COFR:28]:,8;D_RUCK4,550,D_RUCK4,:,31;				\
+    D_RUCK4,480,D_RUCK4,:,42; D_RUCK4S,1450,D_RUCK4S,:,8; BGPLATT1800NL:,8;				\
+    PLF_NL1A[COFR:8],16@PLF_NL(2|5),#PLF_NL1A[COFL:8]:,-4;],TRKDB
+
+#  Bahnhof E4
+$DEF STBGNOB14=STMOD,BGNORD1,										\
+    [BG<=BGCITYDK1:..,0,#; 1-40*1,TREES_COLD:..,0,#; BGCITYDK2:..,0,#;					\
+    DK_STATION1|NL_SLAPPHUT|NL_USQUERT_OLD,:,8; B_PLFCOV[COFL:28],6*B_PLFCOV,B_PLFCOV[COFR:28]:,8;	\
+    D_RUCK4,550,D_RUCK4,:,31; D_RUCK4,480,D_RUCK4,:,42; D_RUCK4S,1450,D_RUCK4S,:,8; BGPLATT1800NL:,8;	\
+    PLF_NL1A[COFR:8],16@PLF_NL(2|5),#PLF_NL1A[COFL:8]:,-4;],TRKDB
+
+#  Bahnhof E5-6
+$DEF STBGNOB15=STMOD,BGNORD1,										\
+    [BG<=BGCITYDK1:..,0,#; 1-40*1,TREES_COLD:..,0,#; BGCITYDK2:..,0,#;					\
+    DK_STATION1|NL_SLAPPHUT|NL_USQUERT_OLD,:,8; B_PLFCOV[COFL:28],6*B_PLFCOV,B_PLFCOV[COFR:28]:,8;	\
+    NL_UTRECHT6,550,NL_UTRECHT6,:,31; NL_UTRECHT6S,1450,NL_UTRECHT6S,:,8;J_TICKET,200,J_TICKET,:,8;	\
+    J_TICKET,500,J_TICKET,:,8; BGPLATT1800NL:,8;PLF_NL1A[COFR:8],16@PLF_NL(2|5),#PLF_NL1A[COFL:8]:,-4;], \
+    TRKDB
+
+#--------------------------------------------------------------------------------------------------#
+# S¸deuropa-Italien
+
+# Strecke S¸deuropa S¸deuropa-Italien
+$DEF STBGITW=SKY,											\
+    [BG<=(GRASS06|GREEN5):..,0;										\
+    (20*(10|20|30|25|15|5|TREE49|TREE83|TREE57|TREE44|TREE54|TREE103W|TREE98C|TREE101W|TREE75|		\
+    EUCALYPT06|PALM12|PALM15|PALM7T)):..,0;TRACKFGDH:..,^0;]
+
+# Strecke Italien mit Bahnhof
+#E3-4 D
+$DEF STBGITS1S3=STMOD,SKY,										\
+    [BG<=TREES_SOUTH,:..,0,#;(GRASS06|GREEN5):..,0; BGCITYIT1,:..,0,#; TREES_SOUTH:..,0,#;		\
+    BGCITYIT2:..,0,#;LAMP11:80;I_FACT06:90;								\
+    I_STAZ6[O:I_VENTIMIGLIA3,53,34]|I_STAZ7[O:I_VENTIMIGLIA3,49,38]|					\
+    I_STAZIONE_C[O:I_VENTIMIGLIA3,54,38]|I_BRISIGHELLA|I_CANOSCIO[O:I_VENTIMIGLIA3,59,38]|		\
+    I_CESI[O:I_VENTIMIGLIA3,101,34]|									\
+    I_MONTECASTRILLI[O:I_VENTIMIGLIA3,116,42][B:144,43,12,5,#D09464][B:103,44,4,4,#D09464]|I_ORMEA|	\
+    I_PISCILLE[O:I_VENTIMIGLIA3,69,39][B:69,38,27,1,#786058]|I_SAN_SECONDOB[O:I_VENTIMIGLIA3,58,36]|	\
+    I_SAN_SEPOLCRO[O:I_VENTIMIGLIA3,163,53]|I_UMBERTIDE:20;E_RENTERIA1,20,STELLWERK4B:55,1;		\
+    200,8*(FS_MAR03[BT:,9]),FS_MAR01,FS_MAR03,FS_MAR02,FS_MAR04,FS_MAR02,FS_MAR03,FS_MAR01,		\
+    8*(FS_MAR03[BT:,9]),40,WATERCOLUMNFS,20,SIF_FS3_2L,700:,-3;						\
+    PAS15,16,LAMP17,27,30,PAS13,20,PAS08,10,PAS25,154,PERS05,10,I_TIMTAB1,16,BANK04,20,DBAG_STAIRS,	\
+    BANK8,20,PAS11,40,PASG01,18,PAS23,10,BANK06,BANK05,14,I_TIMTAB1,16,PAS05,20,PAS03,10,BANK06,24,	\
+    PAS05,18,17,LAMP17,12,PERS01,15,PERS03,100:,6;],TRKST
+#E3-4 DG
+$DEF STBGITS1G3=STMOD,SKY,										\
+    [BG<=TREES_SOUTH,:..,0,#;(GRASS06|GREEN5):..,0; BGCITYIT1,:..,0,#; TREES_SOUTH:..,0,#;		\
+    BGCITYIT2:..,0,#;LAMP11:80;I_FACT06:90;								\
+    I_STAZ6[O:I_VENTIMIGLIA3,53,34]|I_STAZ7[O:I_VENTIMIGLIA3,49,38]|					\
+    I_STAZIONE_C[O:I_VENTIMIGLIA3,54,38]|I_BRISIGHELLA|I_CANOSCIO[O:I_VENTIMIGLIA3,59,38]|		\
+    I_CESI[O:I_VENTIMIGLIA3,101,34]|									\
+    I_MONTECASTRILLI[O:I_VENTIMIGLIA3,116,42][B:144,43,12,5,#D09464][B:103,44,4,4,#D09464]|I_ORMEA|	\
+    I_PISCILLE[O:I_VENTIMIGLIA3,69,39][B:69,38,27,1,#786058]|I_SAN_SECONDOB[O:I_VENTIMIGLIA3,58,36]|	\
+    I_SAN_SEPOLCRO[O:I_VENTIMIGLIA3,163,53]|I_UMBERTIDE:20;E_RENTERIA1,20,STELLWERK4B:55,1; 9*FL_FS4Q;	\
+    200,8*(FS_MAR03[BT:,9]),FS_MAR01,FS_MAR03,FS_MAR02,FS_MAR04,FS_MAR02,FS_MAR03,FS_MAR01,		\
+    8*(FS_MAR03[BT:,9]),40,WATERCOLUMNFS,20,SIF_FS3_2L,700:,-3;						\
+    PAS15,16,LAMP17,27,30,PAS13,20,PAS08,10,PAS25,154,PERS05,10,I_TIMTAB1,16,BANK04,20,DBAG_STAIRS,	\
+    BANK8,20,PAS11,40,PASG01,18,PAS23,10,BANK06,BANK05,14,I_TIMTAB1,16,PAS05,20,PAS03,10,BANK06,24,	\
+    PAS05,18,17,LAMP17,12,PERS01,15,PERS03,100:,6;9*FL_FS4QF;],TRKDB|TRKST
+#E3-4 DD
+$DEF STBGITS1D3=STMOD,SKY,										\
+    [BG<=TREES_SOUTH,:..,0,#;(GRASS06|GREEN5):..,0; BGCITYIT1,:..,0,#; TREES_SOUTH:..,0,#;		\
+    BGCITYIT2:..,0,#;LAMP11:80;I_FACT06:90;								\
+    I_STAZ6[O:I_VENTIMIGLIA3,53,34]|I_STAZ7[O:I_VENTIMIGLIA3,49,38]|					\
+    I_STAZIONE_C[O:I_VENTIMIGLIA3,54,38]|I_BRISIGHELLA|I_CANOSCIO[O:I_VENTIMIGLIA3,59,38]|		\
+    I_CESI[O:I_VENTIMIGLIA3,101,34]|									\
+    I_MONTECASTRILLI[O:I_VENTIMIGLIA3,116,42][B:144,43,12,5,#D09464][B:103,44,4,4,#D09464]|I_ORMEA|	\
+    I_PISCILLE[O:I_VENTIMIGLIA3,69,39][B:69,38,27,1,#786058]|I_SAN_SECONDOB[O:I_VENTIMIGLIA3,58,36]|	\
+    I_SAN_SEPOLCRO[O:I_VENTIMIGLIA3,163,53]|I_UMBERTIDE:20;E_RENTERIA1,20,STELLWERK4B:55,1;		\
+    18*FL_FSTTQ;											\
+    200,8*(FS_MAR03[BT:,9]),FS_MAR01,FS_MAR03,FS_MAR02,FS_MAR04,FS_MAR02,FS_MAR03,FS_MAR01,		\
+    8*(FS_MAR03[BT:,9]),40,WATERCOLUMNFS,20,SIF_FS3_2L,700:,-3;						\
+    PAS15,16,LAMP17,27,30,PAS13,20,PAS08,10,PAS25,154,PERS05,10,I_TIMTAB1,16,BANK04,20,DBAG_STAIRS,	\
+    BANK8,20,PAS11,40,PASG01,18,PAS23,10,BANK06,BANK05,14,I_TIMTAB1,16,PAS05,20,PAS03,10,BANK06,24,	\
+    PAS05,18,17,LAMP17,12,PERS01,15,PERS03,100:,6;18*FL_FSTTQF;],TRKDB|TRKST
+$DEF STBGITS13=$FLG(X,STBGITS1D3,$FLG(E,STBGITS1G3,STBGITS1S3))
+
+#E5 D
+$DEF STBGITS1S5=STMOD,SKY,										\
+    [BG<=TREES_SOUTH,:..,0,#;(GRASS06|GREEN5):..,0; BGCITYIT1,:..,0,#; TREES_SOUTH,:..,0,#;		\
+    BGCITYIT2:..,0,#;LAMP11:80;I_FACT06:90;								\
+    I_STAZ6[O:I_FIRENZESM5,55,34]|I_STAZ7[O:I_FIRENZESM5,51,38]|I_STAZIONE_C[O:I_FIRENZESM5,56,38]|	\
+    I_STAZIONE_C3[O:I_FIRENZESM5,56,38]|I_BRISIGHELLA|I_CANOSCIO[O:I_FIRENZESM5,61,38]|			\
+    I_CESI[O:I_FIRENZESM5,103,34]|I_MONTECASTRILLI[B:103,42,53,6,#D09464][O:I_FIRENZESM5,118,42]|	\
+    I_ORMEA|I_PISCILLE[O:I_FIRENZESM5,71,39][B:69,38,27,3,#786058]|					\
+    I_SAN_SECONDOB[O:I_FIRENZESM5,60,36]|I_SAN_SEPOLCRO[O:I_FIRENZESM5,165,53]|I_UMBERTIDE:20;		\
+    E_RENTERIA1,20,STELLWERK4B:55,1;									\
+    200,8*(FS_MAR03[BT:,9]),FS_MAR01,FS_MAR03,FS_MAR02,FS_MAR04,FS_MAR02,FS_MAR03,FS_MAR01,		\
+    8*(FS_MAR03[BT:,9]),80,SIF_FS3_2L,700:,-3;								\
+    PAS15,16,LAMP17,27,30,PAS13,20,PAS08,10,PAS25,154,PERS05,10,I_TIMTAB1,16,BANK04,20,DBAG_STAIRS,	\
+    BANK8,20,PAS11,40,PASG01,18,PAS23,10,BANK06,BANK05,14,I_TIMTAB1,16,PAS05,20,PAS03,10,BANK06,24,	\
+    PAS05,18,17,LAMP17,12,PERS01,15,PERS03,100:,6;],TRKDB
+#E5 DG
+$DEF STBGITS1G5=STMOD,SKY,										\
+    [BG<=TREES_SOUTH,:..,0,#;(GRASS06|GREEN5):..,0; BGCITYIT1,:..,0,#; TREES_SOUTH,:..,0,#;		\
+    BGCITYIT2:..,0,#;LAMP11:80;I_FACT06:90;								\
+    I_STAZ6[O:I_FIRENZESM5,55,34]|I_STAZ7[O:I_FIRENZESM5,51,38]|I_STAZIONE_C[O:I_FIRENZESM5,56,38]|	\
+    I_STAZIONE_C3[O:I_FIRENZESM5,56,38]|I_BRISIGHELLA|I_CANOSCIO[O:I_FIRENZESM5,61,38]|			\
+    I_CESI[O:I_FIRENZESM5,103,34]|I_MONTECASTRILLI[B:103,42,53,6,#D09464][O:I_FIRENZESM5,118,42]|	\
+    I_ORMEA|I_PISCILLE[O:I_FIRENZESM5,71,39][B:69,38,27,1,#786058]|					\
+    I_SAN_SECONDOB[O:I_FIRENZESM5,60,36]|I_SAN_SEPOLCRO[O:I_FIRENZESM5,165,53]|I_UMBERTIDE:20;		\
+    E_RENTERIA1,20,STELLWERK4B:55,1; 9*FL_FS4Q;								\
+    200,8*(FS_MAR03[BT:,9]),FS_MAR01,FS_MAR03,FS_MAR02,FS_MAR04,FS_MAR02,FS_MAR03,FS_MAR01,		\
+    8*(FS_MAR03[BT:,9]),80,SIF_FS3_2L,700:,-3;								\
+    PAS15,16,LAMP17,27,30,PAS13,20,PAS08,10,PAS25,154,PERS05,10,I_TIMTAB1,16,BANK04,20,DBAG_STAIRS,	\
+    BANK8,20,PAS11,40,PASG01,18,PAS23,10,BANK06,BANK05,14,I_TIMTAB1,16,PAS05,20,PAS03,10,BANK06,24,	\
+    PAS05,18,17,LAMP17,12,PERS01,15,PERS03,100:,6;9*FL_FS4QF;],TRKDB
+$DEF STBGITS15=$FLG(E,STBGITS1G5,STBGITS1S5)
+
+#E6 D
+$DEF STBGITS1S6=STMOD,SKY,										\
+    [BG<=TREES_SOUTH,:..,0,#;(GRASS06|GREEN5):..,0; BGCITYIT1,:..,0,#; TREES_SOUTH,:..,0,#;		\
+    BGCITYIT2:..,0,#;LAMP11:80;I_FACT06:90;								\
+    I_STAZ6[O:I_SVINCENZO6,56,34]|I_STAZ7[O:I_SVINCENZO6,52,38]|I_STAZIONE_C[O:I_SVINCENZO6,57,38]|	\
+    I_STAZIONE_C3[O:I_SVINCENZO6,57,38]|I_BRISIGHELLA|I_CANOSCIO[O:I_SVINCENZO6,62,38]|			\
+    I_CESI[O:I_SVINCENZO6,104,34]|I_MONTECASTRILLI[B:103,42,53,6,#D09464][O:I_SVINCENZO6,119,43]|	\
+    I_ORMEA|I_PISCILLE[B:69,38,28,7,#786058][O:I_SVINCENZO6,72,39]|					\
+    I_SAN_SECONDOB[O:I_SVINCENZO6,61,36]|I_SAN_SEPOLCRO[O:I_SVINCENZO6,166,53]|I_UMBERTIDE:20;		\
+    E_RENTERIA1,20,STELLWERK4B:55,1;									\
+    200,8*(FS_MAR03[BT:,9]),FS_MAR01,FS_MAR03,FS_MAR02,FS_MAR04,FS_MAR02,FS_MAR03,FS_MAR01,		\
+    8*(FS_MAR03[BT:,9]),80,SIF_FS3_2L,700:,-3;								\
+    PAS15,16,LAMP17,15,I_LINEAGIALLAS,15,PAS13,20,PAS08,10,PAS25,154,PERS05,10,I_TIMTAB1,16,BANK04,20,	\
+    DBAG_STAIRS,BANK8,20,PAS11,5,I_LINEAGIALLAS,5,PASG01,18,PAS23,10,BANK06,BANK05,14,I_TIMTAB1,16,	\
+    PAS05,20,PAS03,10,BANK06,24,PAS05,18,17,LAMP17,12,PERS01,15,PERS03,100:,6;]
+#E6 DG
+$DEF STBGITS1G6=STMOD,SKY,										\
+    [BG<=TREES_SOUTH,:..,0,#;(GRASS06|GREEN5):..,0; BGCITYIT1,:..,0,#; TREES_SOUTH,:..,0,#;		\
+    BGCITYIT2:..,0,#;LAMP11:80;I_FACT06:90;								\
+    I_STAZ6[O:I_SVINCENZO6,56,34]|I_STAZ7[O:I_SVINCENZO6,52,38]|I_STAZIONE_C[O:I_SVINCENZO6,57,38]|	\
+    I_STAZIONE_C3[O:I_SVINCENZO6,57,38]|I_BRISIGHELLA|I_CANOSCIO[O:I_SVINCENZO6,62,38]|			\
+    I_CESI[O:I_SVINCENZO6,104,34]|I_MONTECASTRILLI[B:103,42,53,6,#D09464][O:I_SVINCENZO6,119,43]|	\
+    I_ORMEA|I_PISCILLE[B:69,38,28,7,#786058][O:I_SVINCENZO6,72,39]|					\
+    I_SAN_SECONDOB[O:I_SVINCENZO6,61,36]|I_SAN_SEPOLCRO[O:I_SVINCENZO6,166,53]|I_UMBERTIDE:20;		\
+    E_RENTERIA1,20,STELLWERK4B:55,1; 9*FL_FS4Q;								\
+    200,8*(FS_MAR03[BT:,9]),FS_MAR01,FS_MAR03,FS_MAR02,FS_MAR04,FS_MAR02,FS_MAR03,FS_MAR01,		\
+    8*(FS_MAR03[BT:,9]),80,SIF_FS3_2L,700:,-3;								\
+    PAS15,16,LAMP17,15,I_LINEAGIALLAS,15,PAS13,20,PAS08,10,PAS25,154,PERS05,10,I_TIMTAB1,16,BANK04,20,	\
+    DBAG_STAIRS,BANK8,20,PAS11,5,I_LINEAGIALLAS,5,PASG01,18,PAS23,10,BANK06,BANK05,14,I_TIMTAB1,16,	\
+    PAS05,20,PAS03,10,BANK06,24,PAS05,18,17,LAMP17,12,PERS01,15,PERS03,100:,6;9*FL_FS4QF;],TRKDB
+$DEF STBGITS16=$FLG(E,STBGITS1G6,STBGITS1S6)
+
+
+#--------------------------------------------------------------------------------------------------#
+# Spanien
+# Bahnhof E3 E4
+$DEF STBGESB13=STMOD,SKY,										\
+    [BG<=TREES_SOUTH,:..,0,#;(GRASS06|GREEN5):..,0; BGCITYIT1,:..,0,#; TREES_SOUTH,:..,0,#;		\
+    BGCITYIT2:..,0,#;LAMP11:80;I_FACT06:90;(E_BIURRUN1,25,E_RENTERIA1)|E_IRUN_INT3,:,8;			\
+    1000,WATERCOLUMN02:,0;I_VENTIMIGLIA3S,1450,I_VENTIMIGLIA3S,:,8; BGPLATT1800H,:,8;			\
+    I_PENSIL1,8*I_PENSIL2,I_PENSIL3,:,8;I_VENTIMIGLIA3,690,I_VENTIMIGLIA3,:,36;],$BG_PLF1(18),TRKDB
+
+# Bahnhof E5 E6
+$DEF STBGESB15=STMOD,SKY,										\
+    [BG<=TREES_SOUTH,:..,0,#;(GRASS06|GREEN5):..,0; BGCITYIT1,:..,0,#; TREES_SOUTH,:..,0,#;		\
+    BGCITYIT2:..,0,#;LAMP11:80;I_FACT06:90; (E_BIURRUN1,25,E_RENTERIA1)|E_IRUN_INT3,:,8;		\
+    E_SEVILLA6S,1450,E_SEVILLA6S,:,8;BGPLATT1800H,:,8; J_TICKET,200,J_TICKET,:,8;			\
+    J_TICKET,500,J_TICKET,:,8;I_PENSIL1,8*I_PENSIL2,I_PENSIL3,:,8; E_SEVILLA6,680,E_SEVILLA6,:,36;	\
+    PLF_CZ01,18*PLF_CZ02[BT:19,10,71],#PLF_CZ01:,-2;],TRKDB
+
+#--------------------------------------------------------------------------------------------------#
+# Tschechien Bahnhof E 3/4
+
+$DEF STBGCSB13=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYPL2|BGCITYAU2:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYPL2|BGCITYAU2,:..,0,#;		\
+    (CS_GOLCUV,25,WC1)|SUCHDOL|(LEDEC,20,STRDOMEK)|(LIBEN_DOLNY,20,ZALOV7),:,8;1000,WATERCOLUMN02:,-4;	\
+    D_BOEDERITZ3,480,D_BOEDERITZ3,:,42; D_BOEDERITZ3S,1450,D_BOEDERITZ3S,:,8;BGPLATT1800H,:,8;		\
+    (0[AR:PLF_I1(2*C,4*B,A,6*(37*B,A),4*B,2*C)]):,4;],$BG_PLF1(18),TRKDB
+
+# Tschechien Bahnhof E 5/6
+$DEF STBGCSB15=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYPL1|BGCITYAU1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYPL2|BGCITYAU2,:..,0,#;		\
+    (CS_GOLCUV,25,WC1)|SUCHDOL|(LEDEC,20,STRDOMEK)|(LIBEN_DOLNY,20,ZALOV7),:,8;				\
+    J_TICKET,200,J_TICKET,:,8;J_TICKET,500,J_TICKET,:,8; BGPLATT1800C,:,8;				\
+    PLF_CZ01,PLF_CZ13A,PLF_CZ02,PLF_CZ06,PLF_CZ07,PLF_CZ03,PLF_CZ05,PLF_CZ04,PLF_CZ05,PLF_CZ03,		\
+    PLF_CZ08,PLF_CZ13,PLF_CZ10,PLF_CZ14,:,-2;],TRKDB
+
+
+
+
+#--------------------------------------------------------------------------------------------------#
+# Polen Bahnhof E 3/4
+
+$DEF STBGPLB13=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYPL1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYPL1,:..,0,#;				\
+    (RO_CHITILA[O:D_BOEDERITZ3,438,38]),:,8;1000,WATERCOLUMN02:,-4;					\
+    (0[AR:PLF_I1(2*C,4*B,A,6*(37*B,A),4*B,2*C)]):,4; D_BOEDERITZ3,480,D_BOEDERITZ3,:,42;		\
+    D_BOEDERITZ3S,1450,D_BOEDERITZ3S,:,8; BGPLATT1800H,:,8;],$BG_PLF1(18),TRKDB
+
+
+# Polen Bahnhof E 5/6
+$DEF STBGPLB15=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYPL1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYPL2,:..,0,#;				\
+    (RO_CHITILA[O:PL_POZNAN5,438,38]),:,8; J_TICKET,200,J_TICKET,:,8;					\
+    (0[AR:PLF_I1(2*C,4*B,A,6*(37*B,A),4*B,2*C)]):,4; PL_POZNAN5,480,PL_POZNAN5,:,42;			\
+    PL_POZNAN5S,560,J_TICKET,300,J_TICKET,560,PL_POZNAN5S,:,8; BGPLATT1800H,:,8;],$BG_PLF1(18),TRKDB
+
+
+#--------------------------------------------------------------------------------------------------#
+# Landschaft Bulgarien E3-6
+$DEF STBGBGS1=[BG<=;BGLS\LS_BULGARIA1S.jpg:..,-10,#;TRACKFGWH:..,^0;TRACKFGDH:..,^0;]
+# Landschaft Bulgarien E1-6
+$DEF STBGBGS2=[BG<=;BGLS\LS_BULGARIA2S.jpg:..,-45,#;TRACKFGWH:..,^0;TRACKFGDH:..,^0;]
+
+#--------------------------------------------------------------------------------------------------#
+# Rum‰nien
+# Landschaft E1-6
+$DEF STBGROS1=[BG=BGLS\LS_Romania1.jpg:,-140;],TRKGR
+$DEF STBGROS2=[BG=BGLS\LS_Romania2.jpg:,-180;],TRKGR
+
+# Bahnhof E 3/4
+$DEF STBGROB13=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYPL2|BGCITYAU2:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYPL2|BGCITYAU2,:..,0,#;		\
+    (RO_GARA01A|RO_APAHIDA[B:399,72,27,4,#A4A8AC][B:399,66,27,6,#B0B8B8][O:RO_AUREL4,394,47]|RO_ARAD|	\
+    RO_ATEL|RO_AUREL_VLAICU|RO_AVRIG|RO_BASARAB1|RO_BOBOC|RO_BLAJ1|RO_BUDA|RO_BUZAU|RO_BUZAU2|		\
+    RO_CALARASI|RO_CAMPINA|RO_CANEPISTI|RO_CHITILA),:,8; 1000,WATERCOLUMN02:,-4;			\
+    RO_AUREL4,480,RO_AUREL4,:,42;RO_AUREL4S,1450,RO_AUREL4S,:,8; BGPLATT1800H,:,8;			\
+    (0[AR:PLF_I1(2*C,4*B,A,6*(37*B,A),4*B,2*C)]):,4;],$BG_PLF1(18),TRKDB
+
+# Bahnhof E 5/6
+$DEF STBGROB15=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYPL1|BGCITYAU1:..,0,#; 1-40*1,TREES_SUMMER:..,0,#; BGCITYPL2|BGCITYAU2,:..,0,#;		\
+    RO_CAMPULUNG_EST2|RO_CARANSEBES|RO_ADJUD|RO_APAHIDA|RO_ARAD|RO_ATEL|RO_AUREL_VLAICU|RO_BACAU|	\
+    RO_BANEASA1|RO_BARABANT|RO_BARTOLOMEU|RO_BECLEAN_PE_SOMES|RO_BLAJ1|RO_BRASOV|RO_BUSTENI|RO_BUZAU|	\
+    RO_CALARASI|RO_CAMPINA|RO_CAMPULUNG_EST2|RO_CANEPISTI|RO_CARACAL|RO_CHITILA,:,8;			\
+    J_TICKET,200,J_TICKET,:,8;J_TICKET,500,J_TICKET,:,8,;RO_ALBA6S,1450,RO_ALBA6S,:,8;			\
+    BGPLATT1800C,:,8;											\
+    PLF_CZ01,PLF_CZ13A,PLF_CZ02,PLF_CZ06,PLF_CZ07,PLF_CZ03,PLF_CZ05,PLF_CZ04,PLF_CZ05,PLF_CZ03,		\
+    PLF_CZ08,PLF_CZ13,PLF_CZ10,PLF_CZ14,:,-2;],TRKDB
+
+#--------------------------------------------------------------------------------------------------#
+# Bahnhof Griechenland
+$DEF STBGGRB13=STMOD,SKY,										\
+    [BG<=TREES_SOUTH,:..,0,#; (GRASS06|GREEN5),:..,0;							\
+    I_H007A[COFL:4],I_H047B,I_H068_1,I_H068B,I_H075,I_H076,I_H071,I_H028B,I_H028C,I_H065,185,		\
+    (I_CURCH1|I_CHURCH2),220,I_H069_2[COFR:6],I_H005B,I_H024,I_H009B,I_H015B,I_H009A,180,I_H008,	\
+    I_H063,I_H064,I_H062,I_H066,I_H065,I_H061_1,200,I_H006B[COFR:8],I_H051,I_H054,I_H010,I_H017_1,	\
+    I_H029_1,I_H060B,I_H027,I_H031,I_H035,I_H006A[COFL:8],170,:..,0,#; TREES_SOUTH,:..,0,#;		\
+    I_H008,I_H063,I_H064,I_H062,I_H066,I_H065,I_H061_1,200,(I_CURCH1|I_CHURCH2),220,I_H069_2[COFR:6],	\
+    I_H005B,I_H024,I_H009B,I_H015B,I_H009A,180,I_H006B[COFR:8],I_H051,I_H054,I_H010,I_H017_1,I_H029_1,	\
+    I_H060B,I_H027,I_H031,I_H035,I_H006A[COFL:8],170,I_H007A[COFL:4],I_H047B,I_H068_1,I_H068B,I_H075,	\
+    I_H076,I_H071,I_H028B,I_H028C,I_H065,185,:..,0,#; LAMP11:80;I_FACT06:90;				\
+    RO_CALARASI[O:GR_NAFPILO5,178,31]:20;E_RENTERIA1,20,STELLWERK4B:55,1;				\
+    200,8*(FS_MAR03[BT:,9]),FS_MAR01,FS_MAR03,FS_MAR02,FS_MAR04,FS_MAR02,FS_MAR03,FS_MAR01,		\
+    8*(FS_MAR03[BT:,9]),80,SIF_FS3_2L,700:,-3;								\
+    PAS15,16,GR_NAFPILO5S,10,LAMP17,27,30,PAS13,20,PAS08,10,PAS25,154,PERS05,10,I_TIMTAB1,16,BANK04,	\
+    20,DBAG_STAIRS,BANK8,20,PAS11,40,PASG01,18,PAS23,10,BANK06,BANK05,14,I_TIMTAB1,16,PAS05,20,PAS03,	\
+    10,BANK06,24,PAS05,18,17,LAMP17,5,GR_NAFPILO5S,12,PERS01,15,PERS03,100:,6;],TRKDB
+
+
+#--------------------------------------------------------------------------------------------------#
+# Russland
+# Landschaft Russland E1-6
+
+$DEF STBGRUS1=[BG<=;BGLS\LS_Russia1.jpg:..,-30,#;TRACKFGWD:..,^0;TRACKFGDW:..,^0]
+
+# Bahnhof E 3/4
+$DEF STBGRUB13=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYRU1:..,0,#;1-40*1,TREES_SUMMER:..,0,#;BGCITYRU2:..,0,#;					\
+    ((RU_BOIARKA1,50,RU_BOIARKA2)|RU_BRYANSK_ORLOVSKY|RU_PERM1),:,8; 1000,WATERCOLUMN02:,-4;		\
+    RO_AUREL4,480,RO_AUREL4,:,42;RO_AUREL4S,1450,RO_AUREL4S,:,8; BGPLATT1800H,:,8;			\
+    (0[AR:PLF_I1(2*C,4*B,A,6*(37*B,A),4*B,2*C)]):,4;],$BG_PLF1(18),TRKDB
+
+# Bahnhof E 5/6
+$DEF STBGRUB15=STMOD,SKY,BG_FOREST1,									\
+    [BG<=BGCITYRU1:..,0,#;1-40*1,TREES_SUMMER:..,0,#;BGCITYRU2:..,0,#;					\
+    ((RU_BOIARKA1,50,RU_BOIARKA2)|RU_BRYANSK_ORLOVSKY|RU_PERM1),:,8; J_TICKET,200,J_TICKET,:,8;		\
+    J_TICKET,500,J_TICKET,:,8,;RO_AUREL4S,1450,RO_AUREL4S,:,8; BGPLATT1800C,:,8;			\
+    PLF_CZ01,PLF_CZ13A,PLF_CZ02,PLF_CZ06,PLF_CZ07,PLF_CZ03,PLF_CZ05,PLF_CZ04,PLF_CZ05,PLF_CZ03,		\
+    PLF_CZ08,PLF_CZ13,PLF_CZ10,PLF_CZ14,:,-2;],TRKDB
+
+#--------------------------------------------------------------------------------------------------#
+# USA
+
+# Stadt modern USA E56
+$DEF STBGUS01=$CM139(20)|([BG-=BGPIC/SXC1344351.JPG:,-25;][DX=1920]),TRKGR
+# Srecke E1-6
+$DEF STBGUS02=$AG198(55),TRKGR
+$DEF STBGUS03=$AG87(22),TRKGR
+$DEF STBGUS04=$MTS980510(1),TRKGR
+$DEF STBGUS06=$AG110(30),TRKGR
+$DEF STBGUS07=$AG159(20),TRKGR
+$DEF STBGUS08=$AG186(40),TRKGR
+# Strecke USA E56
+$DEF STBGUS05=$CM183(25),TRKGR
+
+#--------------------------------------------------------------------------------------------------#
+# Australien
+
+# Strecke Australien
+$DEF STBGAUS1=SKY,											\
+    [BG<=SCENE_DESERT(2|1):..,0; (20*(10|20|30|EUCALYPT0(1|2|3|4|5|6|7)|TREE92|PALM6)):..,0;],EMBS,TRKDB
+
+# Bahnhof Australien
+$DEF STBGAUSB14=STMOD,SKY,										\
+    [BG<=SCENE_DESERT(2|1):..,0; BGCITYAUS:..,0,#;							\
+    (20*(10|20|30|EUCALYPT0(1|2|3|4|5|6|7)|TREE92|PALM6)):..,0;BGCITYAUS:..,0,#;			\
+    (AU_NSW_PC2|											\
+    (AU_NSW_PLF1[AR:3*AU_NSW_PLF2,#AU_NSW_PLF1][OB:(22*AU_NSW_A4A),,12]					\
+    [OT:AU_NSW_A(8|4)|AU_VR_CARISBROOK1,,12])):,0;							\
+    PASG06,10,PASG07,5,PLF_J2D,5,PASG02,5,PLF_J2D,20,PASG01,:,12;],EMBS,TRKDB
+
+#--------------------------------------------------------------------------------------------------#
+# Japan
+# Strecke Japan
+$DEF STBGJP=[BG-=((|#)SCENE_A1006):..,0;								\
+    (20*(10|3|7|TREE63|TREE64|TREE14|TREE21|TREE17|TREE48|TREE83|TREE89|TREE93|TREE3C|TREE3E|TREE4C|	\
+    TREE24|TREE57|TREE43|TREE44|TREE52)):..,0;]
+# Strecke Japan 2
+$DEF STBGJP02=$AG158(30),TRKGR
+# Strecke Japan 3
+$DEF STBGJP03=[BG-=BGLS\LS_Japan_Hokkaido1S.jpg:..,-20,#;TRACKFGWD:..,^0;TRACKFGDW:..,^0;]
+
+# Bahnhof Japan EP 5-6
+
+$DEF STBGJPST05=STMOD,SKY,										\
+    [BG<=[WMIXF:,CITY_J016,CITY_J017,CITY_J018,CITY_J024]:..,,#;					\
+    150,J_GERONAMES,20,PAS05,15,LAMP01,17,J_PBANK,30,#PAS05,10,PAS11,30,PAS13,12,PAS15,17,PAS11,40,	\
+    J_ZAUN,J_GERO,20,PAS03,15,PAS13,30,J_PBANK,10,PASG01,30,PAS08,12,PAS11,7,LAMP01,17,PASG01,20,	\
+    J_GERONAMES:,9; J_GEROREL,4*J_GERORM,1054,4*J_GERORM,J_GERORE,13:,9;55*PLF_GERO;],EMBS,TRKDB
+
+#--------------------------------------------------------------------------------------------------#
+# China
+# Strecke China
+$DEF STBGCN01=[BG-=BGLS\LS_china_muztaghS.jpg:..,-20,#;TRACKFGDH:..,^0]
+$DEF STBGCN02=[BG-=BGLS\LS_China_YangshuoS.jpg:..,-14;TRACKFGWH:..,^0;TRACKFGDH:..,^0;]
+
+$DEF STBGIN01=[BG-=BGLS\LS_India.jpg:..,-20,#;],TRKDB
+
+#--------------------------------------------------------------------------------------------------#
+# Afrika
+
+# Strecke Afrika
+$DEF STBGAFS1=SKY,											\
+    [BG<=SCENE_DESERT3:..,0;										\
+    (20*(40|60|90|20|25|50|70|80|TREE106W|AGAVE1|TREE92|EUCALYPT10|PALM12|PALM16|PALMLINE1|PINUS1|	\
+    EUCALYPT02)(|[M])):..,0;],EMBS,TRKDB
+
+
+#--------------------------------------------------------------------------------------------------#
+# S¸damerika
+
+# Strecke Argentinien
+$DEF STBGSAS1=[BG<=;BGLS\LS_argentina2S.jpg:..,-15,#;TRACKFGWH:..,^0;TRACKFGDH:..,^0]
+$DEF STBGSAS2=[BG<=;BGLS\LS_Argentina_PatagoniaS.jpg:..,-15,#;],EMBS,TRKDB
+
+#--------------------------------------------------------------------------------------------------
+#
+# Hintergrund Streifen f¸r Operations (Bahnsteig vorn)
+#
+#--------------------------------------------------------------------------------------------------#
+# Deutschland
+
+$DEF STBGOPD=SKY,											\
+    [BG<=TREE31,8,TREE47,10,TREE46,6,TREE16,16,TREE53,12,TREE23:..,0;					\
+    I_H079,I_H061_1,NL_THARDE_1,NL_OFFICE01_3,D_ROHBAU,D_FASHION,D_H064A,D_H055,D_H067,D_H033,		\
+    D_MUNCHEN09A:..,0; D_RAUENSTEIN1B,D_RAUENSTEIN2,3;],						\
+    [FG=PAS15,16,LAMP01,47,PAS14,30,PAS13,20,PAS08,20,PAS25,154,PERS05,20,I_TIMTAB1,26,BANK04,20,	\
+    DBAG_STAIRS,BANK8,20,PAS11,40,PASG01,28,PAS23,20,BANK06,BANK05,24,I_TIMTAB1,16,PAS05,30,PAS03,30,	\
+    BANK06,24,PAS05,18,PAS06,17,LAMP01,12,PERS01,20,PERS03:,8;15*PLF_5D;				\
+    #PLF_D01B,6*PLF_D01C,PLF_D01B:,8;TRACKFGDB:..,^0;							\
+    2*FL_DBQT,FL_DBQB,2*FL_DBQT,FL_DBQA,2*FL_DBQT:..,-4;]
+
+
+# Italien
+
+$DEF STBGOPI=SKY,											\
+    [BG<=TREE31,8,TREE47,10,TREE46,6,TREE16,16,TREE53,12,TREE23:..,0;					\
+    I_H079,I_H061_1,NL_THARDE_1,NL_OFFICE01_3,D_ROHBAU,D_FASHION,D_H064A,D_H055,D_H067,D_H033,		\
+    D_MUNCHEN09A:..,0; D_RAUENSTEIN1B,D_RAUENSTEIN2,3;FL_FS4Q:..;],					\
+    [FG=PAS15,16,LAMP01,47,PAS14,30,PAS13,20,PAS08,20,PAS25,154,PERS05,20,I_TIMTAB1,26,BANK04,20,	\
+    DBAG_STAIRS,BANK8,20,PAS11,40,PASG01,28,PAS23,20,BANK06,BANK05,24,I_TIMTAB1,16,PAS05,30,PAS03,30,	\
+    BANK06,24,PAS05,18,PAS06,17,LAMP01,12,PERS01,20,PERS03:,8;15*PLF_5D;				\
+    #PLF_D01B,6*PLF_D01C,PLF_D01B:,8;TRACKFGDB:..,^0;FL_FS4QF:..;]
+
+# Japan
+
+$DEF STBGOPJ=SKY,											\
+    [BG<=CITY_J016,CITY_J017,CITY_J018,#CITY_J024;							\
+    150,J_GERONAMES,20,PAS05,15,LAMP01,17,J_PBANK,30,#PAS05,10,PAS11,30,PAS13,12,PAS15,17,PAS11,40,	\
+    J_ZAUN,J_GERO,20,PAS03,15,PAS13,30,J_PBANK,10,PASG01,30,PAS08,12,PAS11,7,LAMP01,17,PASG01,20,	\
+    J_GERONAMES:,9; J_GEROREL,4*J_GERORM,1054,4*J_GERORM,J_GERORE,13:,9;],				\
+    [FG=PAS03,15,PAS13,30,J_PBANK,33,J_GERONAMES,38,PASG02,20,PAS11,30,PAS13,12,PAS15,30,#PAS05,10,	\
+    PAS11,17,J_PBANK,30,#PAS05,50,#PLF_GASTEIZ4,PAS05,15,LAMP01,17,J_TICKET,20,J_PBANK,10,		\
+    PLF_GASTEIZ4,40,PAS11,40,PASG01,30,PAS08,12,#PAS11,7,PAS08,28,PAS03,15,PAS13,30,J_PBANK,10,LAMP01,	\
+    17,PASG01,20,J_GERONAMES,44,J_PBANK,40,#PAS08:,9; J_GEROREL,30*J_GERORM,J_GERORE,13:,9;55*PLF_GERO; ], \
+    EMBS,TRKDB
+#--------------------------------------------------------------------------------------------------
+# Hintergrund Streifen f¸r L‰nderpools
+
+%*DEF(ENVDEF(N,B,C)=$DEF %N=[BG#=@@;],$IF($BGTYPE>=1,($IF($BGTYPE>=3,%B,$IF($BGTYPE==2,TRACK)),%C)))
+%*DEF(BGPDEF(N)=$DEF BGP%N=$FLG(O,STBGOPD,$FLG(1,BGP%N;1,$FLG(2,BGP%N;2,$FLG(3,BGP%N;3,$FLG(4,BGP%N;4,$FLG(5,BGP%N;5,BGP%N;6)))))))
+
+# Ungarn
+$DEF BGPHU1=STBGFO
+$DEF BGPHU2=STBGFO
+$DEF BGPHU3=STBGFO|STBGHUB13
+$DEF BGPHU4=STBGFO|STBGHUB13
+$DEF BGPHU5=STBGFO|STBGHUB15
+$DEF BGPHU6=STBGFO|STBGHUB15
+%BGPDEF(HU)
+%ENVDEF(M_ENV,BGPHU,CATHU)
+
+# Deutschland
+# Deutschland-Mitteleuropa
+$DEF BGPDE1=STBGFT|STBGDI1|STBGDE01|STBGDBB11
+$DEF BGPDE2=STBGFT|STBGDI1|STBGDE01|STBGDBB12|STBGDBB22
+$DEF BGPDE3=STBGFO|STBGDI1|STBGDE01|STBGDBB13|STBGDBB23
+$DEF BGPDE4=STBGFO|STBGDI1|STBGDI4|STBGDE01|STBGDBB14|STBGDBB24
+$DEF BGPDE5=STBGFO|STBGDI1|STBGDI4|STBGDE01|STBGDBB15|STBGDBB25
+$DEF BGPDE6=STBGFO|STBGDI4|STBGDE01|STBGDBB16|STBGDBB26
+$DEF BGPDRG=$FLG(O,STBGOPD,$FLG(1,BGPDE1,BGPDE2))
+$DEF BGPDB=$FLG(O,STBGOPD,$FLG(3,BGPDE3,$FLG(4,BGPDE4,$FLG(5,BGPDE5,BGPDE6))))
+%BGPDEF(DE)
+%ENVDEF(DRG_ENV,BGPDRG,CATDRG)
+%ENVDEF(DB_ENV,BGPDB,CATDB)
+%ENVDEF(DE_ENV,BGPDE,CATDE)
+
+# Deutschland-DDR
+$DEF BGPDDR=STBGDDRB1|STBGFO|STBGDI1|STBGDE01
+%ENVDEF(DR_ENV,BGPDDR,CATDR)
+
+# Schweiz
+$DEF BGPCH1=STBGFN
+$DEF BGPCH2=STBGFN|STBGAT23
+$DEF BGPCH3=STBGFN|STBGAT23
+$DEF BGPCH4=STBGFN|STBGAT23
+$DEF BGPCH5=STBGFN|STBGCHB15|STBGCHB25
+$DEF BGPCH6=STBGFN|STBGCHB15|STBGCHB25
+%BGPDEF(CH)
+%ENVDEF(CH_ENV,BGPCH,CATCH)
+
+# ÷sterreich
+$DEF BGPOS1=STBGFN
+$DEF BGPOS2=STBGFN|STBGAT23
+$DEF BGPOS3=STBGFN|STBGAT23
+$DEF BGPOS4=STBGFN|STBGAT23
+$DEF BGPOS5=STBGFN|STBGAT15|STBGAT25
+$DEF BGPOS6=STBGFN|STBGAT15|STBGAT25
+%BGPDEF(OS)
+%ENVDEF(A_ENV,BGPOS,CATOS)
+
+# Groﬂbritannien
+$DEF BGPGB1=STBGFO
+$DEF BGPGB2=STBGFO|STBGGBB13
+$DEF BGPGB3=STBGFO|STBGGBB13
+$DEF BGPGB4=STBGFO|STBGGBB14
+$DEF BGPGB5=STBGFO|STBGGBB15
+$DEF BGPGB6=STBGFO|STBGGBB15
+%BGPDEF(GB)
+%ENVDEF(GB_ENV,BGPGB,CATGB)
+
+
+# Irland
+$DEF BGPIR1=STBGFO
+$DEF BGPIR2=STBGFO|STBGGBB13
+$DEF BGPIR3=STBGFO|STBGGBB13
+$DEF BGPIR4=STBGFO|STBGGBB14
+$DEF BGPIR5=STBGFO|STBGGBB15
+$DEF BGPIR6=STBGFO|STBGGBB15
+%BGPDEF(IR)
+%ENVDEF(IR_ENV,BGPIR,CATGB)
+
+# Frankreich
+$DEF BGPFR1=STBGFO|STBGFRS1
+$DEF BGPFR2=STBGFO|STBGFRS1|STBGFRB13
+$DEF BGPFR3=STBGFO|STBGFRS1 &IF(BGUP<=200||W<=2560,|STBGFRS2)|STBGFRB13
+$DEF BGPFR4=STBGFO|STBGFRS1 &IF(BGUP<=200||W<=2560,|STBGFRS2)|STBGFRB13
+$DEF BGPFR5=STBGFO|STBGFRS1 &IF(BGUP<=200||W<=2560,|STBGFRS2)|STBGFRB15
+$DEF BGPFR6=STBGFO|STBGFRS1 &IF(BGUP<=200||W<=2560,|STBGFRS2)|STBGFRB15
+%BGPDEF(FR)
+%ENVDEF(F_ENV,BGPFR,CATFR)
+
+# Belgien
+$DEF BGPBE1=STBGFO
+$DEF BGPBE2=STBGFO
+$DEF BGPBE3=STBGFO|STBGBEB14
+$DEF BGPBE4=STBGFO|STBGBEB14
+$DEF BGPBE5=STBGFO|STBGBEB15
+$DEF BGPBE6=STBGFO|STBGBEB15
+%BGPDEF(BE)
+%ENVDEF(B_ENV,BGPBE,CATBE)
+
+# Luxemburg
+$DEF BGPLU1=STBGFO
+$DEF BGPLU2=STBGFO
+$DEF BGPLU3=STBGFO|STBGBEB14
+$DEF BGPLU4=STBGFO|STBGBEB14
+$DEF BGPLU5=STBGFO|STBGLUB15
+$DEF BGPLU6=STBGFO|STBGLUB15
+%BGPDEF(LU)
+%ENVDEF(L_ENV,BGPLU,CATLU)
+
+# Niederlande
+$DEF BGPNL1=STBGFO &IF(W<=1920,|BGNL01|BGNL02)
+$DEF BGPNL2=STBGFO &IF(W<=1920,|BGNL01|BGNL02)
+$DEF BGPNL3=STBGFO &IF(W<=1920,|BGNL01|BGNL02)|STBGNLB13
+$DEF BGPNL4=STBGFO &IF(W<=1920,|BGNL01|BGNL02)|STBGNLB14
+$DEF BGPNL5=STBGFO &IF(W<=1920,|BGNL01|BGNL02|BGNL03)|STBGNLB15
+$DEF BGPNL6=STBGFO &IF(W<=1920,|BGNL01|BGNL02|BGNL03)|STBGNLB15
+%BGPDEF(NL)
+%ENVDEF(NL_ENV,BGPNL,CATNL)
+
+# D‰nemark
+$DEF BGPDK1=STBGFO|STBGDKB13
+$DEF BGPDK2=STBGFO|STBGDKB13
+$DEF BGPDK3=STBGFO|STBGDKB13
+$DEF BGPDK4=STBGFO|STBGDKB14
+$DEF BGPDK5=STBGFO|STBGDKB15
+$DEF BGPDK6=STBGFO|STBGDKB15
+%BGPDEF(DK)
+%ENVDEF(DK_ENV,BGPDK,CATDK)
+
+# Norwegen
+$DEF BGPNO1=STBGFN|STBGNOB13
+$DEF BGPNO2=STBGFN|STBGNOB13
+$DEF BGPNO3=STBGFN|STBGNOB13
+$DEF BGPNO4=STBGFN|STBGNOB14
+$DEF BGPNO5=STBGFN|STBGNOB15
+$DEF BGPNO6=STBGFN|STBGNOB15
+%BGPDEF(NO)
+%ENVDEF(N_ENV,BGPNO,CATNO)
+
+# Schweden
+$DEF BGPSE1=STBGFN|STBGNOB13
+$DEF BGPSE2=STBGFN|STBGNOB13
+$DEF BGPSE3=STBGFN|STBGNOB13
+$DEF BGPSE4=STBGFN|STBGNOB14
+$DEF BGPSE5=STBGFN|STBGNOB15
+$DEF BGPSE6=STBGFN|STBGNOB15
+%BGPDEF(SE)
+%ENVDEF(S_ENV,BGPSE,CATSE)
+
+# Finnland
+$DEF BGPSF1=STBGFN|STBGNOB13
+$DEF BGPSF2=STBGFN|STBGNOB13
+$DEF BGPSF3=STBGFN|STBGNOB13
+$DEF BGPSF4=STBGFN|STBGNOB14
+$DEF BGPSF5=STBGFN|STBGNOB15
+$DEF BGPSF6=STBGFN|STBGNOB15
+%BGPDEF(SF)
+%ENVDEF(FI_ENV,BGPSF,CATFI)
+
+# Portugal
+$DEF BGPPO1=STBGITW|STBGESB13
+$DEF BGPPO2=STBGITW|STBGESB13
+$DEF BGPPO3=STBGITW|STBGESB13
+$DEF BGPPO4=STBGITW|STBGESB13
+$DEF BGPPO5=STBGITW|STBGESB15
+$DEF BGPPO6=STBGITW|STBGESB15
+%BGPDEF(PO)
+%ENVDEF(P_ENV,BGPPO,CATPO)
+
+# Spanien
+$DEF BGPES1=STBGITW|STBGESB13
+$DEF BGPES2=STBGITW|STBGESB13
+$DEF BGPES3=STBGITW|STBGESB13
+$DEF BGPES4=STBGITW|STBGESB13
+$DEF BGPES5=STBGITW|STBGESB15
+$DEF BGPES6=STBGITW|STBGESB15
+%BGPDEF(ES)
+%ENVDEF(E_ENV,BGPES,CATES)
+
+# Italien
+$DEF BGPIT1=STBGITW|STBGITS13
+$DEF BGPIT2=STBGITW|STBGITS13
+$DEF BGPIT3=STBGITW|STBGITS13
+$DEF BGPIT4=STBGITW|STBGITS13
+$DEF BGPIT5=STBGITW|STBGITS15
+$DEF BGPIT6=STBGITW|STBGITS16
+%BGPDEF(IT)
+%ENVDEF(I_ENV,BGPIT,CATIT)
+
+# Tschechien
+$DEF BGPCS1=STBGFO
+$DEF BGPCS2=STBGFO
+$DEF BGPCS3=STBGFO|STBGCSB13
+$DEF BGPCS4=STBGFO|STBGCSB13
+$DEF BGPCS5=STBGFO|STBGCSB15
+$DEF BGPCS6=STBGFO|STBGCSB15
+%BGPDEF(CS)
+%ENVDEF(CS_ENV,BGPCS,CATCS)
+
+# Slowakei
+$DEF BGPSK1=STBGFO
+$DEF BGPSK2=STBGFO
+$DEF BGPSK3=STBGFO|STBGCSB13
+$DEF BGPSK4=STBGFO|STBGCSB13
+$DEF BGPSK5=STBGFO|STBGCSB15
+$DEF BGPSK6=STBGFO|STBGCSB15
+%BGPDEF(SK)
+%ENVDEF(SK_ENV,BGPSK,CATCS)
+
+# Polen
+$DEF BGPPL1=STBGFT
+$DEF BGPPL2=STBGFT
+$DEF BGPPL3=STBGFT|STBGPLB13
+$DEF BGPPL4=STBGFO|STBGPLB13
+$DEF BGPPL5=STBGFO|STBGPLB15
+$DEF BGPPL6=STBGFO|STBGPLB15
+%BGPDEF(PL)
+%ENVDEF(PL_ENV,BGPPL,CATPL)
+
+# Rum‰nien
+$DEF BGPRO1=STBGFO|STBGROS1|STBGROS2|STBGROB13
+$DEF BGPRO2=STBGFO|STBGROS1|STBGROS2|STBGROB13
+$DEF BGPRO3=STBGFO|STBGROS1|STBGROS2|STBGROB13
+$DEF BGPRO4=STBGFO|STBGROS1|STBGROS2|STBGROB13
+$DEF BGPRO5=STBGFO|STBGROS1|STBGROS2|STBGROB15
+$DEF BGPRO6=STBGFO|STBGROS1|STBGROS2|STBGROB15
+%BGPDEF(RO)
+%ENVDEF(RO_ENV,BGPRO,CATRO)
+
+# Slowenien
+$DEF BGPSL1=STBGFO
+$DEF BGPSL2=STBGFO
+$DEF BGPSL3=STBGFO
+$DEF BGPSL4=STBGFO
+$DEF BGPSL5=STBGFO
+$DEF BGPSL6=STBGFO
+%BGPDEF(SL)
+%ENVDEF(SLO_ENV,BGPSL,CATSL)
+
+# Kroatien
+$DEF BGPHR1=STBGITW
+$DEF BGPHR2=STBGITW
+$DEF BGPHR3=STBGITW
+$DEF BGPHR4=STBGITW
+$DEF BGPHR5=STBGITW
+$DEF BGPHR6=STBGITW
+%BGPDEF(HR)
+%ENVDEF(HR_ENV,BGPHR,CATHR)
+
+# Serbien
+$DEF BGPSB1=STBGFO
+$DEF BGPSB2=STBGFO
+$DEF BGPSB3=STBGFO
+$DEF BGPSB4=STBGFO
+$DEF BGPSB5=STBGFO
+$DEF BGPSB6=STBGFO
+%BGPDEF(SB)
+%ENVDEF(YU_ENV,BGPSB,CATYU)
+
+# Montenegro
+$DEF BGPMO1=STBGITW
+$DEF BGPMO2=STBGITW
+$DEF BGPMO3=STBGITW
+$DEF BGPMO4=STBGITW
+$DEF BGPMO5=STBGITW
+$DEF BGPMO6=STBGITW
+%BGPDEF(MO)
+
+# Bulgarien
+$DEF BGPBG1=STBGFO|STBGBGS2
+$DEF BGPBG2=STBGFO|STBGBGS2
+$DEF BGPBG3=STBGFO|STBGBGS2
+$DEF BGPBG4=STBGFO|STBGBGS1|STBGBGS2
+$DEF BGPBG5=STBGFO|STBGBGS1|STBGBGS2
+$DEF BGPBG6=STBGFO|STBGBGS1|STBGBGS2
+%BGPDEF(BG)
+%ENVDEF(BG_ENV,BGPBG,CATBG)
+
+# Griechenland
+$DEF BGPGR1=STBGITW
+$DEF BGPGR2=STBGITW
+$DEF BGPGR3=STBGITW|STBGGRB13
+$DEF BGPGR4=STBGITW|STBGGRB13
+$DEF BGPGR5=STBGITW|STBGGRB13
+$DEF BGPGR6=STBGITW|STBGGRB13
+%BGPDEF(GR)
+%ENVDEF(GR_ENV,BGPGR,CATGR)
+
+# T¸rkei
+$DEF BGPTR1=STBGITW
+$DEF BGPTR2=STBGITW
+$DEF BGPTR3=STBGITW
+$DEF BGPTR4=STBGITW
+$DEF BGPTR5=STBGITW
+$DEF BGPTR6=STBGITW
+%BGPDEF(TR)
+%ENVDEF(TR_ENV,BGPTR,CATTR)
+
+# Russland, ex SU
+$DEF BGPSU1=STBGFN|STBGRUS1
+$DEF BGPSU2=STBGFN|STBGRUS1
+$DEF BGPSU3=STBGFN|STBGRUS1|STBGRUB13
+$DEF BGPSU4=STBGFN|STBGRUS1|STBGRUB13
+$DEF BGPSU5=STBGFN|STBGRUS1|STBGRUB15
+$DEF BGPSU6=STBGFN|STBGRUS1|STBGRUB15
+%BGPDEF(SU)
+%ENVDEF(SU_ENV,BGPSU,CATSU)
+
+# USA-Nordamerika
+$DEF BGPUS1=3:STBGFN|2:STBGUS0(2|3|4)|STBGDE01
+$DEF BGPUS2=3:STBGFN|2:STBGUS0(2|3|4|7)|STBGDE01
+$DEF BGPUS3=3:STBGFN|2:STBGUS0(2|3|4|7)|STBGDE01
+$DEF BGPUS4=3:STBGFN|3:STBGUS0(2|3|4|6|7|8)|STBGDE01
+$DEF BGPUS5=3:STBGFN|3:STBGUS0(1|2|3|4|5|6|7|8)|STBGDE01
+$DEF BGPUS6=3:STBGFN|3:STBGUS0(1|2|3|4|5|6|7|8)|STBGDE01
+%BGPDEF(US)
+%ENVDEF(US_ENV,BGPUS,CATUS)
+
+# Strecke Japan
+$DEF BGPJP1=STBGFN|STBGJP02
+$DEF BGPJP2=STBGFN|STBGJP02
+$DEF BGPJP3=STBGFN|STBGJP02
+$DEF BGPJP4=STBGFN|STBGJP02 &IF(BGUP<130,|STBGJP03)
+$DEF BGPJP5=STBGFN|STBGJP02 &IF(BGUP<130,|STBGJP03)|STBGJP05A &IF(BGUP>120,|STBGJP05B)|STBGJP05C|	\
+    STBGJPST05
+$DEF BGPJP6=STBGFN|STBGJP02 &IF(BGUP<130,|STBGJP03)|STBGJP05A|STBGJPST05
+%BGPDEF(JP)
+%ENVDEF(J_ENV,BGPJP,CATJP)
+
+# Strecke Australien
+$DEF BGPAU1=STBGAUS1
+$DEF BGPAU2=STBGAUS1
+$DEF BGPAU3=STBGAUS1
+$DEF BGPAU4=STBGAUS1|STBGAUSB14
+$DEF BGPAU5=STBGAUS1|STBGAUSB14
+$DEF BGPAU6=STBGAUS1|STBGAUSB14
+%BGPDEF(AU)
+%ENVDEF(AUS_ENV,BGPAU,CATAU)
+
+# Naher Osten
+$DEF BGPNE1=STBGAFS1
+$DEF BGPNE2=STBGAFS1
+$DEF BGPNE3=STBGAFS1
+$DEF BGPNE4=STBGAFS1
+$DEF BGPNE5=STBGAFS1
+$DEF BGPNE6=STBGAFS1
+%BGPDEF(NE)
+%ENVDEF(NE_ENV,BGPNE,CATOTH)
+
+# Strecke Afrika
+$DEF BGPAF1=STBGAFS1
+$DEF BGPAF2=STBGAFS1
+$DEF BGPAF3=STBGAFS1
+$DEF BGPAF4=STBGAFS1
+$DEF BGPAF5=STBGAFS1
+$DEF BGPAF6=STBGAFS1
+%BGPDEF(AF)
+%ENVDEF(AF_ENV,BGPAF,CATOTH)
+
+# Asien
+$DEF BGPAS1=STBGAUS1|STBGIN01
+$DEF BGPAS2=STBGAUS1|STBGIN01
+$DEF BGPAS3=STBGAUS1|STBGIN01
+$DEF BGPAS4=STBGAUS1|STBGIN01
+$DEF BGPAS5=STBGAUS1|STBGIN01
+$DEF BGPAS6=STBGAUS1|STBGIN01
+%BGPDEF(AS)
+%ENVDEF(AS_ENV,BGPAS,CATOTH)
+
+# China
+$DEF BGPCN1=STBGFN|STBGJP02|STBGCN01|STBGCN02
+$DEF BGPCN2=STBGFN|STBGJP02|STBGCN01|STBGCN02
+$DEF BGPCN3=STBGFN|STBGJP02|STBGCN01|STBGCN02
+$DEF BGPCN4=STBGFN|STBGJP02|STBGCN01|STBGCN02
+$DEF BGPCN5=STBGFN|STBGJP02|STBGCN01|STBGCN02
+$DEF BGPCN6=STBGFN|STBGJP02|STBGCN01|STBGCN02
+%BGPDEF(CN)
+%ENVDEF(CN_ENV,BGPCN,CATCN)
+
+# S¸damerika
+$DEF BGPSA1=STBGAUS1|STBGSAS1|STBGSAS2
+$DEF BGPSA2=STBGAUS1|STBGSAS1|STBGSAS2
+$DEF BGPSA3=STBGAUS1|STBGSAS1|STBGSAS2
+$DEF BGPSA4=STBGAUS1|STBGSAS1|STBGSAS2
+$DEF BGPSA5=STBGAUS1|STBGSAS1|STBGSAS2
+$DEF BGPSA6=STBGAUS1|STBGSAS1|STBGSAS2
+%BGPDEF(SA)
+%ENVDEF(SA_ENV,BGPSA,CATSA)
+
+
+#-----------------------------------------------------------------------------------------
+# Kombination Hintergrund + Weg f¸r Citytraffic
+#-----------------------------------------------------------------------------------------
+# Hintergrund in Groups
+
+# Verschiedene Verkehrsmittel, unterschiedlicher BG und Way 
+$DEF CBG=&IF(BGTYPE>=1,[$1#=&IF(BGTYPE>=3,$2),$3])
+
+# "normerle" MM-Strecke f¸r Citytraffic - Kombination mit CBG
+$DEF CWX=&IF(BGTYPE>=1,$1)
+
+# Verschiedene Verkehrsmittel, einheitlicher BG und unterschiedlicher Way 
+$DEF EWX=&IF(BGTYPE>=1,[$1#=$2])
+$DEF EBG=&IF(BGTYPE>=3,$1)
+
+# Verschiedene Verkehrsmittel, einheitlicher BG und einheitlicher Way mit Flags
+%*DEF(ETA(B,T)=ENV=&IF(BGTYPE>=3,%B),&IF(BGTYPE>=1,[WT=%T][WA=ENV_WAYA]))
+
+# Weg + Hintergrund f¸r ein Verkehrsmittel
+%*DEF(GBG(B,C)=ENV=[BG#=@@] &IF(BGTYPE>=1,(&IF(BGTYPE>=3,%B),%C));)
+
+#-------------------------------------------------------------------
+#Hintergrund in Einzelzeilen
+# Weg + Hintergrund f¸r ein Verkehrsmittel
+%*DEF(LBG(B,C)=AP=[BG=@@] &IF(BGTYPE>=1,(&IF(BGTYPE>=3,%B),%C));)
+   
+# Weg + Hintergrund BUS
+%*DEF(ABG(B)=%LBG(%B,ENV_WAYA))   
+
+# ) ] }
