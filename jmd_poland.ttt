@@ -1,156 +1,1041 @@
+{FILELEVEL=1?
+  $INCLUDE SINGLE.TTT
+  $ENV TRACK
+}
+$REQUIRE JMD_DEF.TTT
+$REQUIRE JMD_EU_DEF.TTT
 #
-#	Poland
+# Poland
 #
-  {E3|E4?
-    D=L;C=PKP_PM2,PKP_BIPAL,2*PKP_BIPAM,PKP_BIPA;
-    C=PKP_PM2,0-1*PKP_PDN1|PKP_PDN2,1-2*PKP_ADU4,4-6*PKP_BDU4;
-    C=PKP_OI2,3*PKP_BH_RYFL3;
-  }
-  {E3|E4|E5?
-    D=L;C=PKP_ST43,(PKP_BIPAL,2*PKP_BIPAM,PKP_BIPA)|(PKP_BIPL,2*PKP_BIPM,PKP_BIP);
-    C=<1-3*(PKP_EN71FL,PKP_EN71M,PKP_EN71F);
-    M=STOP|SIMPLE;                                                                                                      \
-	C=<1-2@((PKP_EN57FL,PKP_EN57M,PKP_EN57F)|(PKP_EW55FL,PKP_EW55M,PKP_EW55F)|(PKP_EN71BNFL,PKP_EN71BNM,            \
-	PKP_EN71BNF));                                                                                                  \
-	T=5,OPEN,30,CLOSE,10;
-    D=R;C=PKP_ST43,2@(PKP_BIPB,2@PKP_BIPBM,PKP_BIPBL);
-  }
-  {E3|E4|E5|E6?
-    D=L;C=PKP_ST44AL|PKP_ST44A,PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD;
-  }
-  {E4?
-    C=PKP_ST44AL|PKP_ST44A,20*PKP_UGPS;
-    C=2*PKP_SU46037|PKP_SU46049|PKP_SP47,2*PKP_ADU4,2*PKP_7041AL|PKP_7041A,2*RZD_WL2~HEN|RZD_WL2L~HEN,PKP_ADU4,         \
-	2*PKP_BDU4;
-  }
-  {E4|E5?
-    D=L;C=PKP_SU45|PKP_SU46049|PKP_SP47,PKP_BIPBL,2*PKP_BIPBM,PKP_BIPB;
-    C=PKP_SM41AL|PKP_SM41A|PKP_ST44AL|PKP_ST44A|PKP_SU45|PKP_SU46037|PKP_SU46049,10*PKP_FD1|PKP_FD1L|PKP_FD2L|PKP_FD2|  \
-	PKP_FD3|PKP_FD3L|PKP_FD4|PKP_FD4L|PKP_FD5|PKP_FD5L|PKP_FD6|PKP_FD6L,1-3*G_GGS|DR_GL1020A1|DR_GL1020A2|          \
-	DR_GL1020A3|DR_GAGSV1993L|DR_GAGSV1993,3-7*G_EAS1B|G_EAS1D|G_EAS1E|G_EAS2B|G_EAS3B|M_ZS2|M_ZS2L;
-  }
-  {E4|E5|E6|E7?
-    C=PKP_SN61B;
-    C=PKP_ET41,16*PKP_FD1L|PKP_FD1|PKP_FD2L|PKP_FD2|PKP_FD3L|PKP_FD3|PKP_FD4L|PKP_FD4|PKP_FD5L|PKP_FD5|PKP_FD6L|PKP_FD6;
-    C=PKP_ET22,3-7*G_EAS1D|G_EAS1E|G_EAS2A|G_EAS3A|G_EAS3B;
-    TX=D 1249 Berlin Lichtenberg <-> Saratow;                                                                           \
-	C=PKP_SP47|PKP_EU06{(E6|E7)?|PKP_SP47B|PKP_EP09CZA},11*RZD_WL2L~HEN|RZD_WL2~HEN{(E6|E7)?|RZD_WLABMEL|RZD_WLABME|\
-	RZD_WL1L~HEN|RZD_WL1~HEN|UZ_WLL~HEN|UZ_WL~HEN|UZ_WLABMEL|UZ_WLABME|UZ_WLABM1L|UZ_WLABM1|UZ_WLABM2|BCH_WLABMEL|  \
-	BCH_WLABME};
-    M=BACK;                                                                                                             \
-	C=PKP_SM48(|L)|PKP_SM480214(|L),1-3*PKP_BDU1L|PKP_BDU1|PKP_7041AL|PKP_7041A|PKP_8041L|  \
-	PKP_WRML|PKP_WRM;
-    C=PKP_EU06,4*PKP_DBMUE~HEN;
-  }
-  {E5?
-    TX=Os 66236/7 Wagrowiec <-> Poznan Gl. (anno 1998);                                                                 \
-	D=R;C=PKP_SU45|PKP_SU45_135,PKP_BHP2~KD,2*PKP_BHP2M~KD,PKP_BHP2L~KD;
-    C=PKP_SU46A|PKP_SU46037|PKP_SU46049,14*CONTFLAT;
-    C=PKP_ST44AL|PKP_ST44A,8*PKP_BDUNL|PKP_BDUN;
-    TX=Zbaszynek <-> Gorzów Wlkp. (anno 1999);                                                                          \
-	D=L;C=PKP_ST43,PKP_BHPL~KD,2*PKP_BHPM~KD,PKP_BHP~KD;
-    C=(PKP_ST44AL|PKP_ST44A,PKP_EU06[PD])|(PKP_EU06),PKP_ADMNUL|PKP_ADMNU,PKP_7041AL|PKP_7041A|PKP_8041L|PKP_8041,      \
-	4*PKP_B1L|PKP_B1;
-    TX=Os 5523 Torun <-> Malbork (anno 1999);                                                                           \
-	D=R;C=PKP_SU45|PKP_SU45_135,PKP_BHP2~KD,2*PKP_BHP2M~KD,PKP_BHP2L~KD;
-    TX=Os 9021 Bydgoszcz Gl. <-> Gdynia Gl. (anno 1999);                                                                \
-	D=R;C=PKP_SU45|PKP_SU45_135,PKP_BHP~KD,2*PKP_BHPM~KD,PKP_BHPL~KD;
-    TX=Luban Slaski <-> Wegliniec (anno 2000);                                                                          \
-	D=L;C=PKP_ST43,3*PKP_BDH|PKP_BHT;
-    TX=Os 33035 Wolsztyn <-> Zbaszynek (anno 2000);                                                                     \
-	D=L;C=PKP_ST43,PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD;
-  }
-  {E5|E6?
-    C=PKP_ET21,2*PKP_BHT;
-    C=PKP_SU46037|PKP_SU46049|PKP_SP47,JZ_1090L|JZ_1090,PKP_7041AL|PKP_7041A,2*PKP_B1L|PKP_B1,2*PKP_A1,2*PKP_B1L|PKP_B1,\
-	HZ_2000L|HZ_2000,2*PKP_BDUNL|PKP_BDUN;
-    C=PKP_ST44AL|PKP_ST44A,PKP_EU06,PKP_7041AL|PKP_7041A,2*PKP_CO,PKP_ADMNUL|PKP_ADMNU,PKP_BDU1L|PKP_BDU1,6*PKP_B1L|    \
-	PKP_B1|PKP_BDMNUL|PKP_BDMNU|PKP_2171L|PKP_2171,PKP_8041L|PKP_8041;
-    D=L;C=PKP_SU46037|PKP_SU46049,PKP_BIPBL,2*PKP_BIPBM,PKP_BIPB,PKP_ADMNUL|PKP_ADMNU;
-    TX=Os 2233 Chojnice <-> Koscierzyna (anno 2000);                                                                    \
-	C=PKP_SM42K,PKP_BDU_111A|PKP_BDNU_111A|PKP_BDNU,PKP_BH_RYFL|PKP_BH_RYFL2;
-    TX=Zbaszynek <-> Gorzów Wlkp. (anno 2000);                                                                          \
-	C=PKP_SP32|PKP_SP32_02,3*PKP_BDH|PKP_BHT;
-    TX=Stargard <-> Pyrzyce (anno 2000);                                                                                \
-	C=PKP_SM42K,3*PKP_BDH|PKP_BHT;
-  }
-  {E5|E6|E7?
-    C=PKP_ST44AL|PKP_ST44A,PKP_BDMNUL|PKP_BDMNU,PKP_B1L|PKP_B1,PKP_2171L|PKP_2171;
-    D=R;C=PKP_ET22B,PKP_BHT,PKP_AD,PKP_BHT,PKP_BDNU,PKP_BHP~KD,2*PKP_BHPM~KD,PKP_BHPL~KD;
-    C=PKP_SU46|PKP_SU46037|PKP_SU46049,16*CONTFLAT;
-    M=BACK;C=PKP_EM10,2*PKP_BHT|PKP_B1L|PKP_BDMNUL|PKP_BDMNU|PKP_2171L|PKP_2171;
-    C=PKP_ST44AL|PKP_ST44A,M_593EAMS1|M_593EAMS2|M_593EAMS3|M_593EAMS4|M_593EAMS5|M_593EAMS11,4*JZ_EAS|JZ_EAS_B|G_EAS1D|\
-	G_EAS1E|G_EAS2A|G_EAS3A|G_EAS3B,CD_ZAZ,10*DB_ZANS_VTG1|DB_ZANS_VTG2|NS_ZANS_VTG|NS_ZANS_VTG2|OBB_ZANS_VTG,      \
-	M_246HBBILLNNS1|M_246HBBILLNNS2|M_246HBBILLNNS3|M_246HBBILLNNS4,3*G_ES1|G_ES2|G_ESBL|G_ESB;
-    TX=D 345 Berlin Lichtenberg <- Warszawa -> Kiev;                                                                    \
-	C=PKP_SP47|PKP_SP47B|PKP_EU07|PKP_EP09CZA|PKP_EP23|PKP_EP40,PKP_7041AL|PKP_7041A,2*PKP_CO,8*UZ_WLABMEL|         \
-	UZ_WLABME|UZ_WLABM1L|UZ_WLABM1|UZ_WLABM2,PKP_CO,PKP_7041AL|PKP_7041A;
-    C=PKP_ET21,PKP_ADMNUL|PKP_ADMNU,3*PKP_2171L|PKP_2171;
-    C=PKP_SP42_1L|PKP_SP42_1,3*PKP_BHT;
-    C=PKP_SP46|PKP_SU46037|PKP_SU46049,PKP_PDN2,5-8*PKP_BDUNL|PKP_BDUN;
-    C=PKP_SP42_1L|PKP_SP42_1,8*G_EAS1A|G_EAS1B|G_EAS1C|G_EAS1D|G_EAS1E;
-    C=PKP_EP05,2*PKP_BDNU|PKP_BDU1L|PKP_BDU1,PKP_A1,PKP_8041L|PKP_8041,PKP_A1,2*PKP_BDNU|PKP_BDU1L|PKP_BDU1;
-    C=PKP_ET22B,G_EAS1A|G_EAS1B|G_EAS1C|G_EAS1D|G_EAS1E|G_EAS2A|G_EAS2B|G_EAS3A|G_EAS3B,DB_TAES891A|DB_TAES891B|        \
-	DB_TAES891C,DR_UCS9020C|DR_UCS9020D|M_930UACS|M_930UACES,(4*CSD_RA1|CSD_RA1A|CSD_RA1B|CSD_RA2)|(4*MAVZAES1);
-  }
+$SPOOL N=PKP_IC_2003; SEQ=R;
   {E6?
-    C=PKP_SU46A|PKP_SU46037|PKP_SU46049,HABISNORM,6*PKP_SHIMMS,G_EAS1C|G_EAS1D|G_EAS1E|G_EAS2A,8*CONTFLAT;
+    TX=IC 240 Kraków Gl. <-> Hamburg-Altona (anno 2003);						\
+      C=10:DBAG_232_589|DB_232_510,DBAG_BIMDZ268W(|L),3*DBAG_BPMZ291_2W(|L)|DBAG_BPMZ293WH(|L),		\
+	DBAG_BVMZ185W(|L)|DBAG_BVMZ185VRH(|L),DB_ARMZW|DB_WRMZW~TIS,					\
+	DBAG_AVMZ207WH(|L)|DBAG_AVMZ107WH(|L);								\
+      V=8-20;
+    TX=IC 241 Hamburg-Altona <-> Kraków Gl. (anno 2003);						\
+      C=(10:DBAG_232_589|DB_232_510),DBAG_AVMZ207WH(|L)|DBAG_AVMZ107WH(|L),DB_ARMZW|DB_WRMZW~TIS,	\
+	DBAG_BVMZ185W(|L)|DBAG_BVMZ185VRH(|L),3*DBAG_BPMZ291_2W(|L)|DBAG_BPMZ293WH(|L),			\
+	DBAG_BIMDZ268W(|L);										\
+      V=8-20;
   }
-  {E6|E7?
-    TX=EC 453/61006 Dresden Hbf <-> Warszawa Wsch.;                                                                     \
-	C=PKP_EU07|PKP_EU20A,PKP_2171L|PKP_2171,PKP_BDMNUL|PKP_BDMNU,PKP_WRML|PKP_WRM,PKP_7041AL|PKP_7041A,4*PKP_B1L|   \
-	PKP_B1;
-    TX=13113 "Wetlina" Warszawa Wsch. <-> Zagórz  (anno 2002);                                                          \
-	C=PKP_EP07|PKP_EU07,PKP_DBS,PKP_2171L|PKP_2171,PKP_BDMNUL|PKP_BDMNU,PKP_ADMNUL|PKP_ADMNU,2*PKP_2171L|PKP_2171;
-    C=PKP_EP09CZA,4*PKP_2171L|PKP_2171|PKP_BDUNGL|PKP_BDUNG,PKP_7041AL|PKP_7041A;
-    TX=208/14013 "Vlatava" Moskva Belorusskaja <-> Praha hl.n.  (anno 2002);                                            \
-	C=PKP_EP07,2*RZD_WLABMEL|RZD_WLABME,ZSR_WLABMEE1|ZSR_WLABMEE2,CD_WLABV_171|CD_WLABV2L|CD_WLABV2|CD_WLABVL|      \
-	CD_WLABV,CSD_WLABVL|CSD_WLABV|CD_WLL|CD_WL|CD_WLABV1L|CD_WLABV1|CD_WLABV_170;
-    TX=IC 8102 "Chroby" Szczecin Gl. <-> Warszawa Wsch.;                                                                \
-	C=PKP_EP05|PKP_EP09CZA,CD_BEER92L|CD_BEER92,3*PKP_B1L|PKP_B1,PKP_WRBD,3*CD_BEER92L|CD_BEER92;
-    TX=IC 8103 "Chroby" Warszawa Wsch. <-> Szczecin Gl.;                                                                \
-	C=6:PKP_EP08|1:PKP_EP09|1:PKP_EP09CZA,5*PKP_BDMNUL|PKP_BDMNU|PKP_2171L|PKP_2171|PKP_BDUNGL|PKP_BDUNG,PKP_ADMNUL|\
-	PKP_ADMNU|PKP_BDUNL|PKP_BDUN,PKP_WRML|PKP_WRM;
-    D=R;C=PKP_ET41_1B,PKP_ET41_1A,DB_4RMMS664L,16-20*PKP_ZAES_DEC|PKP_ZAES_DEC2,DB_4RMMS664L;
-    TX="Solina" Przemysl <-> Warszawa Wsch. (anno 2002);                                                                \
-	C=PKP_EU07,4*PKP_BDIMNU_N|PKP_BDMNU8|PKP_BDMNU9,2*PKP_ADMNU_B|PKP_ADMNU7;
+$ENDPOOL 
 
-    TX=EC 104 "Sobieski" Wien Südbhf. <-> Warszawa Wsch.  (anno 2002);                                                  \
-	C=PKP_EP09CZA,4*PKP_2171L|PKP_2171,PKP_WRBDMNU,PKP_ADMNU6|PKP_ADEMNU|PKP_ADHMNU;
-    D=L;C=PKP_SU42,PKP_BHPL~KD,2*PKP_BHPM~KD,PKP_BHP~KD;
-    TX=EC 249/71014 "Jan Kiepura" Köln Hbf <-> Warszawa Wsch.;                                                          \
-	C=5:PKP_EP09CZA|1:(PKP_EU11~JPD|PKP_EU43_001~JPD|PKP_EU43~JPD),ZSR_WLABVL|ZSR_WLABV,3*ZSR_WLABMEE1|ZSR_WLABMEE2,\
-	PKP_8041L|PKP_8041,3*PKP_CO,PKP_7041AL|PKP_7041A,2*RZD_WL1L~HEN|RZD_WL1~HEN|UZ_WLL~HEN|UZ_WL~HEN|BCH_WLABMEL|   \
-	BCH_WLABME;
-    TX=EC 41/71004 "Varsovia" Berlin Zoo <-> Warszawa Wsch.;                                                            \
-	C=PKP_EP09CZA,AVMZ111_BWE~FA,ARMZ211_BWEL,DB_BWB,3*AVMZ111_BWE~FA;
-    TX=E5311 "Stoczniowiec" Gdynia Gl. <-> Krakow Gl.;                                                                  \
-	C=PKP_EP09CZA,2*PKP_ADMNUL|PKP_ADMNU,PKP_8041L|PKP_8041,PKP_BDUNL|PKP_BDUN,3*PKP_BDMNUL|PKP_BDMNU;
-    TX=IC 2701 "Bystrzyca" Lublin <-> Poznan Gl.;                                                                       \
-	C=PKP_EP09CZA,4*PKP_2171L|PKP_2171,3*PKP_BDUNL|PKP_BDUN;
-    C=PKP_SM42K,ESLOADED,2*OPWEPIVGBS;
-    TX=220 Jelenia Gora <-> Wroclaw Glowny;                                                                             \
-	C=7:PKP_ET21|PKP_ET21_1|PKP_ET21_2|PKP_ET21_3,2@(3*12:PKP_BHT|(PKP_BH_RYFL|PKP_BH_RYFL2),PKP_AD);
-    C=PKP_ET22|PKP_ET22B|PKP_ET22_340,G_EAS1C|G_EAS1D|G_EAS1E,DB_TAES891A|DB_TAES891B|DB_TAES891C,CSD_RAJ1|CSD_RAJ2|    \
-	CSD_RAJ3,3*EP5CHEM;
-    TX=Rzeszow <-> Rozwadowa (anno 2002);                                                                               \
-	D=L;C=PKP_ET22|PKP_ET22_340,PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD,PKP_BHPL~KD,2*PKP_BHPM~KD,PKP_BHP~KD;
-    C=PKP_SM40AL|PKP_SM40A|PKP_SM41AL|PKP_SM41A,1-4*PKP_EANS|PKP_EANOS;
-    TX=Rozwadowa <-> Lublin (anno 2002);                                                                                \
-	D=R;C=PKP_SP32|PKP_SP32_02,PKP_BHP~KD,2*PKP_BHPM~KD,PKP_BHPL~KD;
-    C=PKP_EP09CZA,M_7041AL|M_7041A|M_5941AL|M_5941A|M_5980AL|M_5980A,2*PKP_7041AL|PKP_7041A,2*M_7041AL|M_7041A|M_5941AL|\
-	M_5941A|M_5980AL|M_5980A,PKP_BDNU|PKP_BDU1L|PKP_BDU1,PKP_8041L|PKP_8041;
-    TX=E1711 "Mickiewicz" Bialystok <-> Poznan Gl.;                                                                     \
-	C=PKP_EP09CZA,2*PKP_ADMNUL|PKP_ADMNU,PKP_8041L|PKP_8041,3*PKP_BDMNUL|PKP_BDMNU;
-    C=PKP_ST43,AUTO1A|AUTO1B|AUTO1C|AUTO1D,7*HABISNORM,SJ_LAAIS921|SJ_LAAIS831,2*EP5CHEM,HABISNORM,3*DR_4RGS3910AL|     \
-	DR_4RGS3910A|DR_4RGS3910RAL|DR_4RGS3910RA|DR_4RGS3910BL|DR_4RGS3910B|DR_4RGS3910RBL|DR_4RGS3910RB|DR_4RGS3920L| \
-	DR_4RGS3920|DR_4RGS3920RL|DR_4RGS3920R;
-    TX=201/41006 "Silesia" Praha hl.n. <-> Warszawa Wsch.  (anno 2003);                                                 \
-	C=PKP_EU07,CD_WLABV_171|CD_WLABV2L|CD_WLABV2|CD_WLABVL|CD_WLABV,CD_Y5WLABML|CD_Y5WLABM|CD_Y5WLABVL|CD_Y5WLABV|  \
-	CD_WLAB68BL|CD_WLAB68B|CD_WLAB78BL|CD_WLAB78B|CD_WLAB85BL|CD_WLAB85B,CD_Y5ABL|CD_Y5AB|CD_Y5ABML|CD_Y5ABM|       \
-	CD_AB65BL|CD_AB65B|CD_AB84BL|CD_AB84B,CD_B65B1L|CD_B65B1|CD_B65B2L|CD_B65B2|CD_B65B3L|CD_B65B3|CD_B77BL|CD_B77B|\
-	CD_9B67L|CD_9B67|CD_BEE96L|CD_BEE96;
-    TX="Jadwiga" Krakow Plaszowa <-> Lublin (anno 2003);                                                                \
-	C=PKP_ET22|PKP_ET22_340,PKP_DS,2*PKP_BDIMNU_N|PKP_BDMNU8,PKP_ADMNU7|PKP_ADMNUL|PKP_ADMNU,2*PKP_BDMNU5|       \
-	PKP_BDMNU_B|PKP_BDIMNU_N|PKP_BDMNU8|PKP_BDMNU9;
+$SPOOL N=PKP_IC_2005; SEQ=R;
+  {E6?
+    TX=IC 4102 "Górnik" Gliwice <-> Warszawa Wsch. (anno 2005);						\
+      C=(PKP_EP05)|(PKP_EP09_0(03|46|47)),PKP_BDMNU_144A,PKP_BDHMNU,PKP_BDMNU_HCP,PKP_4WRBD2(|L),	\
+	2*PKP_ADHMNU;
+    TX=IC 3102 "Krakus" Kraków Gl. <-> Warszawa Wsch. (anno 2005);					\
+      C=PKP_EP09_0(03|46|47),4*PKP_BDHMNU,PKP_4WRDMNU(|L),						\
+	2*PKP_ADEMNU_145AB|PKP_ADEMNU|PKP_ADMNU6|PKP_ADHMNU|PKP_ADMNU3;
+    TX=IC 73000 "Wawel" Kraków Gl. <-> Hamburg-Altona (anno 2005);					\
+      C=PKP_EP07_187|PKP_EU07_(007|113)|PKP_SP47B|PKP_SU46A,3*BVMZ185W(1|2)(|L),WRMZ133W(|L),		\
+	DBAG_AVMZ111_1W(|L);
+    TX=IC 3106 "Kaszub" Kraków Gl. <- Warszawa Wsch. -> Gdynia Gl. (anno 2005);				\
+      C=PKP_EP05,6*PKP_BDMNU(1I|2I),PKP_6WRBD(|L),2*PKP_ADHMNU1I;
+    TX=IC 3502 "Norwid" Kraków Gl. <-> Gdynia Gl. (anno 2005);						\
+      C=PKP_EP09_0(03|46|47),PKP_BDMNU(5|8|9|_B|_HCP)|PKP_BDIMNU_N,4*PKP_BDMNU_144A,PKP_4WRBD2(|L),	\
+	2*PKP_ADMNU(4|5|7|_B);
+    TX=IC 3500 "Lajkonik" Kraków Gl. <-> Gdynia Gl. (anno 2005);					\
+      C=PKP_EP09_0(03|46|47),6*PKP_BDMNU(1I|2I),PKP_6WRBD(|L),2*PKP_ADHMNU1I;
   }
+$ENDPOOL 
+
+$SPOOL N=PKP_EX_2005; SEQ=R;
+  {E6?
+    TX=Ex 13413 "Tatry" Warszawa Wsch. <-> Zakopane (anno 2005);					\
+      C=PKP_EU06,PKP_ADMNU_145A,PKP_BDMNU_144A,								\
+	2*PKP_BDMNU5|PKP_BDMNU_B|PKP_BDMNU_HCP|PKP_BDIMNU_N|PKP_BDMNU8|PKP_BDMNU9,2*PKP_BDMNU_144A,	\
+	PKP_BDMNU5|PKP_BDMNU_B|PKP_BDMNU_HCP|PKP_BDIMNU_N|PKP_BDMNU8|PKP_BDMNU9;
+    TX=Ex 83414 "Szkuner" Kolobrzeg <-> Kraków Gl. (anno 2005);						\
+      C=PKP_EP08_013,(<2*PKP_ADNU1LUX,PKP_6WRBD(|L),5*PKP_BDMNU1I);
+    TX=Ex 3810 "Barbakan" Kraków Gl. <-> Szczecin Gl. (<- Swinoujscie) (anno 2005);			\
+      C=PKP_EP07_187|PKP_EU07_(007|113),5|6*PKP_B_6,PKP_6WRBD(|L),2*PKP_A_6;
+    TX=Ex 4510 "Stanislaw Wysocki" Gliwice <-> Gdynia (anno 2005);					\
+      C=(PKP_EP05)|(PKP_EP08_013)|(PKP_EP09_0(03|46|47)),PKP_BDIMNU_N,3*PKP_BDMNU9,PKP_4WRDMNU(|L),	\
+	PKP_4WRDMNU,2*PKP_ADMNU_145A;
+    TX=Ex 37411 "Wielkopolanin" Zakopane <- Kraków Gl. -> Poznan Gl. (anno 2005);			\
+      C=(PKP_EU06_01)|(PKP_EP07_(187|335|522|544))|							\
+	(PKP_EU07(|_007|_027|_113|_113_2003|_132|_141|_169|_403|_404|_404_2003|_524)),3*PKP_B_6,	\
+	PKP_BDMNU_144A,PKP_4WRBD2(|L),PKP_A_6,PKP_A_6;
+    TX=Ex 1611 "Opolanin" Gdynia Gl. <- Warszawa Wsch. -> Opole Gl. (anno 2005);			\
+      C=(PKP_EP08_013)|(PKP_EP09_0(03|46|47)),PKP_ADMNU_145A,PKP_4WRBD2(|L),3*PKP_BDMNU_144A;
+  }
+$ENDPOOL 
+
+$SPOOL N=PKP_OS_2005; SEQ=R;
+  {E6?
+    TX=Os. 44111 "Bieszczady" Gliwice <- Stróze -> Krynica (anno 2005);					\
+      C=PKP_ET21~STO|PKP_ET21~MK,2*PKP_B_5;
+    TX=Os. 33225 Koluszki <-> Tomaszów (anno 2005);							\
+      C=<PKP_EN57FL,PKP_EN57M,PKP_EN57F;
+    TX=Os. 12023 Tomaszów <-> Skarzysko (anno 2005);							\
+      C=PKP_SM42_468,2*PKP_BDHPUMN;
+    TX=Os. R18 Czeztochowa <-> Gliwice (anno 2005);							\
+      C=PKP_EP07_(187|335|522|544)|									\
+	PKP_EU07(|_007|_027|_113|_113_2003|_132|_141|_169|_403|_404|_404_2003|_524),4*PKP_BDHPUMN,	\
+	PKP_A_6;
+    TX=Os. 3123 Kraków Gl. <-> Zakopane (anno 2005);							\
+      C=2*(<PKP_EN57_1018FL,PKP_EN57_1018M,PKP_EN57_1018F);
+    TX=Os. 60520 "Karkonosze" Szklarskiej Poreby Górnej <-> Warszawy Wsch. (09.07.2005);		\
+      C=PKP_EU07_113_2003,2*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_5_ADNU1(|L),				\
+	PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_6_BC1(|L);
+  }
+$ENDPOOL 
+
+$SPOOL N=PKP_POS_2005; SEQ=R;
+  {E6?
+    TX=POS 87107 "Slowiniec" Slupsk <-> Poznan Gl. (anno 2005);						\
+      C=PKP_EP07_187|PKP_EU07_(007|113),(<2*PKP_B_5,PKP_A_5,PKP_4WRBD2(|L),4*PKP_B_5);
+    TX=POS 81112 "Rybak" Szczecin <-> Bialystok (anno 2005);						\
+      D=L;												\
+      C=PKP_EP07_187|PKP_EU07_(007|113),PKP_BDMNU(5|_B|_HCP)|PKP_BDIMNU_N|PKP_BDMNU8|PKP_BDMNU9,	\
+	PKP_ABDNU1,PKP_A_5,PKP_4WRBD2(|L),5*PKP_B_5;
+    TX=POS 58101 "Bryza" Olsztyn <-> Szczecin (anno 2005);						\
+      C=PKP_EP07_187|PKP_EU07_(007|113),(<2*PKP_B_5,PKP_4WRBD2(|L),PKP_A_5,7*PKP_B_5);
+    TX=POS 85102 "Gryf" Szczecin <-> Olsztyn  (anno 2005);						\
+      C=PKP_EP07_187|PKP_EU07_(007|113),(<2*PKP_B_5,PKP_4WRBD2(|L),PKP_A_5,4*PKP_B_5);
+    TX=POS 58105 "Albatros" Gdynia <-> Szczecin (anno 2005);						\
+      C=PKP_EP07_187|PKP_EU07_(007|113),(<PKP_DBS,5*PKP_B_5,PKP_4WRBD2(|L),PKP_A_5);
+    TX=POS 18200 "Podlasiak" Bialystok <-> Szczecin (anno 2005);					\
+      C=PKP_EP07_187|PKP_EU07_(007|113),(<PKP_WLAB_6,2*PKP_B_5,PKP_A_5,3*PKP_B_5);
+    TX=POS 68100 (Katowice ->) Wroclaw <-> Slupsk (anno 2005);						\
+      C=PKP_EP07_187|PKP_EU07_(007|113),(<2*PKP_B_6,PKP_A_6,3*PKP_B_6);
+    TX=POS 38203 Kraków Plaszów <-> Kolobrzeg (anno 2005);						\
+      C=PKP_EP07_187|PKP_EU07_(007|113),PKP_WLAB_6,2*PKP_BC_6,						\
+	(<4*PKP_B_6,PKP_A_6,PKP_4WRBD2(|L),3*PKP_B_6);
+    TX=POS 81206 Warszawa Zach. <-> Kolobrzeg (anno 2005);						\
+      C=PKP_EP07_187|PKP_EU07_(007|113),(<3*PKP_B_6,PKP_A_6,PKP_4WRBD2(|L),PKP_A_6,2*PKP_B_6);
+    TX=POS 18505 Lódz <-> Kolobrzeg (2005);								\
+      C=PKP_EP07_187|PKP_EU07_(007|113),4*PKP_B_6,PKP_A_6,3*PKP_B_6;
+    TX=POS 28501 Lublin <-> Kolobrzeg (anno 2005);							\
+      C=PKP_EP07_187|PKP_EU07_(007|113),								\
+	(PKP_BC_6,2*PKP_B_6,PKP_A_6,6*PKP_B_6,PKP_A_6,2*PKP_B_6)|					\
+	(PKP_B_6,PKP_A_6,6*PKP_B_6,PKP_A_6,2*PKP_B_6);
+    TX=POS 38505 Kraków <-> Kolobrzeg (anno 2005);							\
+      C=PKP_EP07_187|PKP_EU07_(007|113),PKP_BC_6,(<4*PKP_B_6,2*PKP_A_6,6*PKP_B_6);
+    TX=POS 84507 Slupsk <-> Katowice (anno 2005);							\
+      C=PKP_EP07_187|PKP_EU07_(007|113),4*PKP_B_6,2*PKP_A_6,4*PKP_B_6;
+    TX=POS 65509 Wroclaw Gl. <-> Leba (anno 2005);							\
+      C=PKP_EP07_187|PKP_EU07_(007|113),PKP_DBS,PKP_B_6,PKP_A_6,4*PKP_B_6;
+    TX=POS 31110 "Jadwiga" Kraków <-> Warszawa (anno 2005);						\
+      C=PKP_EP07_187|PKP_EU07_(007|113),2*PKP_B_6,PKP_A_6,5*PKP_B_6,PKP_ABDNU1,2*PKP_B_6;
+    TX=POS 31104 "Sukiennice" Kraków Gl. <-> Lódz Fabryczna (anno 2005);				\
+      C=PKP_EP07_187|PKP_EU07_(007|113),2*PKP_B_6,PKP_A_6,4*PKP_B_6;
+    TX=POS 26101 "Hetman" Zamosc <-> Wroclaw Gl. (anno 2005);						\
+      C=PKP_EU06_01|PKP_EP07_(187|335|522|544)|								\
+	PKP_EU07(|_007|_027|_113|_113_2003|_132|_141|_169|_403|_404|_404_2003|_524),2*PKP_B_6,PKP_B_6,	\
+	PKP_4WRDMNUL,PKP_A_6,PKP_B_6,PKP_B_6;
+    TX=POS 83100 "Swiatowid" Szczecin Gl. <-> Przemysl Gl. (anno 2005);					\
+      C=(PKP_EU06_01)|(PKP_EP07_(187|335|522|544))|							\
+	(PKP_EU07(|_007|_027|_113|_113_2003|_132|_141|_169|_403|_404|_404_2003|_524)),2*PKP_A_6,	\
+	PKP_4WRDMNU(|L),7*PKP_B_6;
+    C=(PKP_EU06_01)|(PKP_EP07_(187|335|522|544))|							\
+	(PKP_EU07(|_007|_027|_113|_113_2003|_132|_141|_169|_403|_404|_404_2003|_524)),3*PKP_B_6,PKP_A_6, \
+	PKP_4WRBD2(|L),PKP_A_6,3*PKP_B_6;								\
+      AP=[TX=POS 36101 "Galicja" Wroclaw Gl. <-> Przemysl Gl. (anno 2005)]|				\
+	[TX=POS 37101 "Slazak" Przemysl Gl. <-> Zielona Góra (anno 2005)];
+    TX=POS 26103 "Bolko" Lublin <-> Wroclaw Gl. (anno 2005);						\
+      C=(PKP_EP07_(187|335|522|544))|									\
+	(PKP_EU07(|_007|_027|_113|_113_2003|_132|_141|_169|_403|_404|_404_2003|_524)),PKP_B_6,3*PKP_B_6, \
+	PKP_4WRBD2(|L),PKP_A_6,2*PKP_B_6,PKP_A_6,2*PKP_B_6;
+  }
+$ENDPOOL 
+#------------------------------------------------------------------------------
+%ADDPOOL(POOL_PL,PL_ENV)
+{E3?
+  D=L; C=PKP_PM2|5:(PKP_PM36(A|C)),PKP_BIPAL,2*PKP_BIPAM,PKP_BIPA; F=SP3;
+  C=PKP_PM2_14(|L),0-1*PKP_4_PDN101CH1(|L)|PKP_5_PDN101CH1(|L),1-2*PKP_A_4,4-6*PKP_B_4; F=SP3;
+  C=$DIR(PKP_TY2_911L,PKP_TY2_911),PKP_4_U(|L)|PKP_4_UTX(|L),1-5*PKP_G3,M_G1,M_JZ(H|KN),2-3*PKP_G3,	\
+      OBB_G3,CSD_TOPVAR|CSD_ZLATYBAZANT(1|2)|CSD_UHBROD|(1-3*CSD_R8(|A))|(1-3*CSD_R56(|A));		\
+    V=5-7; F=S3;
+  C=PKP_OKL101,3*PKP_BH_RYFL4; F=SPZ3;
+  C=<1-3*(PKP_EW90EL,PKP_EW90F); F=LU3;
+  TX=Kostrzyn <-> Pila;											\
+    C=PKP_OK1,2*PKP_BH_RYFL4; F=SP3;
+  D=L; C=PKPST43|PKP_OK1,(PKP_BIPAL,2*PKP_BIPAM,PKP_BIPA)|(PKP_BIPL,2*PKP_BIPM,PKP_BIP); F=P3;
+  M=STOP|BACK; C=<1-3*(PKP_EN57_1018FL,PKP_EN57_1018M,PKP_EN57_1018F); T=5,OPEN,30,CLOSE,10;		\
+    FG=M_MHELY1:,-6; F=O3;
+  TX=D 101 "Berolina" Berlin Ostbf. <- Frankfurt/Oder - Poznan -> Warszawa (31.08.1967);		\
+    C=$DIR((PKP_SN61_168L,PKP_SN61_527),(PKP_SN61_168,PKP_SN61_527L)),PKP_4_BDU111A1(|L),		\
+      PKP_4_BDU111A1(|L);										\
+    V=8-10; F=DPU3; #SN61 SOLLTEN BEIDE SCHIEBTÜREN AM GEPÄCKABTEIL HABEN;
+; aus EK-Themen 9"Die DR vor 25 Jahren - 1967" Seite 64, zwischen PKP_4_BDU111A1(|L) fehlt ein Wagen
+  D=R; C=PKPST43,2@(PKP_BIPB,2@PKP_BIPBM,PKP_BIPBL); F=DP3;
+}
+{E4?
+  D=L; C=PKP_ST44A(|L),PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD; FG=8*TRBED12,BRIDGE2,8*TRBED12:..,-20;	\
+    F=DP4;
+  C=PKP_ST44A(|L){NEK?|PKP_TY5_(31|46)},20*PKP_UGPS; F=4;
+  C=$DIR(PKP_TKT48L~JUH,PKP_TKT48~JUH),2*PKP_4_BDU111A1(|L); F=SP4;
+# Sczcytna 04.09.1984
+  C=2*PKP_SU460(37|49)|PKP_SP47,2*PKP_A_4,2*PKP_WLAB_4,2*RZD_WL2~HEN|RZD_WL2L~HEN,PKP_A_4,2*PKP_B_4;	\
+    V=8-10; F=DP4;
+  TX=P 6446 Glatz <-> Katowice (10.8.1985);								\
+    C=$DIR(PKP_PT47_65L,PKP_PT47_65)|$DIR(PKP_PT47_112L,PKP_PT47_112),PKP_4_PDN101CH1(|L),PKP_DBS,	\
+      (<PKP_DS4L,2*PKP_DS4M,PKP_DS4);									\
+    F=SP4;
+  C=$DIR(PKP_TY2_14L,PKP_TY2_14),14*G_EAS3B; F=S4;
+  C=PKP_SM42_468,3*CSD_RA1(|A|B),2*DR_IBHQSSZ(|2|3|4|5),3*G_GBGS; F=D4;
+  TX=Gliwice Trynek <-> Rud (anno 1987);								\
+    C=GKW_LXD2,3*GKW_1AW; V=2-4; F=4;
+  C=PKP_TKT48,GF_TRACTOR,6*G_EAS3B; F=S4;
+  C=PKPST43,5*DR_FAL6559(A|AL|B|BL|C|CL|D|DL),4*PKP_FLLS; F=D4;
+  C=$DIR(PKP_TY2_14L,PKP_TY2_14),2*PKP_BH_RYFL4; F=SP4;
+}
+{E5?
+  D=L; C=PKP_SU45|PKP_SU46049|PKP_SP47,PKP_BIPBL,2*PKP_BIPBM,PKP_BIPB; F=DP5;
+  TX=Przeworska <-> Belzca (anno 1990);									\
+    C=PKP_OL49,4*PKP_BH_RYFL4; F=SP5;
+  C=<1-2@((PKP_EN57_1018FL,PKP_EN57_1018M,PKP_EN57_1018F)|						\
+      (PKP_ED73_001FL,PKP_ED73_001B1,PKP_ED73_001F)| (PKP_EN57_1913FL,PKP_EN57_1913M,PKP_EN57_1913F));	\
+    F=EU5;
+  TX=Os. 76330 x <-> Tuplice (01.03.1991);								\
+    C=PKP_OL49[R],3*PKP_BH_RYFL4; F=SP5;
+  C=PKP_TKT48,PKP_GBS; F=S5;
+  TX=Os. 4436 Wolsztyn <-> Sulechów (01.03.1991);							\
+    C=$DIR(PKP_PT47_65L,PKP_PT47_65)|$DIR(PKP_PT47_112L,PKP_PT47_112),PKP_BHI,PKP_BH_RYFL4,PKP_BHI;	\
+    F=SP5;
+  {NEK?C=PKP_TY5_46,4*G_EAS1A,4*PKP_ES,PKP_4A_GKKM(|_V),2*PKP_GAGST; F=S5;}
+#Zug 44990 (1.3.1991
+  C=PKP_SM41A(|L)|PKP_ST44A(|L)|PKP_SU45|PKP_SU460(37|49),10*PKP_FD(1|2|3|4|5|6)(|L),			\
+      1-3*G_GGS|OPWEPIVGS|DR_GAGSV1993(|L),3-7*G_EAS(1B|1D|1E|2B|3B);					\
+    F=D5;
+  TX=Wolsztyn <-> Nowa Sol (Mai 1991);									\
+    C=$DIR(PKP_TY2_14,PKP_TY2_14L),2*PKP_BHI; F=SP5;
+  TX=Wegorzewo <-> Ketrzyn (22.06.1991);								\
+    C=$DIR(PKP_TY2_304L,PKP_TY2_304),2*PKP_BH_RYFL4; F=SP5;
+  C=PKP_SN61_168(|L); F=DU5;
+  TX=x <-> Krzyz (anno 1991);										\
+    C=PKP_SU45_135,											\
+      (<PKP_DS4L[B:6,10,34,1,#004800][B:59,10,112,1,#004800][B:190,10,8,1,#004800]			\
+      [B:59,21,112,1,#004800][B:6,31,34,1,#004800][B:59,31,112,1,#004800][B:190,31,8,1,#004800],	\
+      2*PKP_DS4M[B:2,10,8,1,#004800][B:29,10,112,1,#004800][B:160,10,8,1,#004800]			\
+      [B:29,21,112,1,#004800][B:2,31,8,1,#004800][B:29,31,112,1,#004800][B:160,31,8,1,#004800],		\
+      PKP_DS4[B:2,10,8,1,#004800][B:29,10,112,1,#004800][B:160,10,34,1,#004800] [B:29,21,112,1,#004800]	\
+      [B:2,31,8,1,#004800][B:29,31,112,1,#004800][B:160,31,34,1,#004800]);				\
+    F=DP5;
+  C=PKP_ET41,16*PKP_FD(1|2|3|4|5|6)(|L); F=E5;
+  C=PKP_ET22A,3-7*G_EAS(1D|1E|2A|3A|3B); F=E5;
+  TX=D 1249 Berlin Lichtenberg <-> Saratow;								\
+    C=PKP_SP47|PKP_EU06{(E6|E7)?|PKP_SP47B|PKPEP09},							\
+      11*RZD_WL2L~HEN|RZD_WL2~HEN{(E6|E7)?|RZD_WLABME(|L)|RZD_WL1L~HEN|RZD_WL1~HEN|UZ_WLL~HEN|		\
+      UZ_WL~HEN|UZ_WLABM(1|1L|2|E|EL)|BCH_WLABME(|L)};							\
+    F=P5;
+  M=BACK;												\
+    C=PKP_SM48L~JMD|PKP_SM48~JMD|PKP_SM480214(|L), 1-3*PKP_B_4|PKP_WLAB_4|PKP_4WRBD2L|(PKP_4WRDMNU(|L)); \
+    F=O5;
+  TX=Os. 2236 Koscierzyna <-> Chojnice (8.1994);							\
+    C=PKP_SN61_133(|L)|PKP_SN61_168(|L),2*PKP_BH_RYFL(|2); F=DPU5;
+  C=PKP_EU06,4*PKP_DBMUE~HEN; F=EP5;
+  TX=Racibórz <-> Katowice (anno 1996);									\
+    C=PKP_EP07_187|PKP_EU07_(007|113),PKP_A_4,(<PKP_BHP2L~SEN,2*PKP_BHP2M~SEN,PKP_BHP2~SEN); F=EP5;
+  TX=Runowo Pomorskie <-> Szczecin (30.08.1997);							\
+    C=2*PKP_ST44_313,(<PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD); F=DP5;
+  TX=Os 66236/7 Wagrowiec <-> Poznan Gl. (anno 1998);							\
+    D=R; C=PKP_SU45(|_135),PKP_BHP2~KD,2*PKP_BHP2M~KD,PKP_BHP2L~KD; F=DP5;
+  C=(<PKP_EW60FL,PKP_EW60M[PU],PKP_EW60F|PKP_EW60F[O:GR_05,<42,8][O:GR_05,<131,8]),			\
+      (<PKP_EW60FL,PKP_EW60M[PU],PKP_EW60F);								\
+    F=LU5;
+  TX=Os. 75226 Smigiel <-> Sniaty (01.07.1998);								\
+    C=GKW_MBXD2; V=2-4; F=5;
+  TX="Artus" Elblag <-> Gdynia Gl. (5.8.1998);								\
+    C=(<PKP_EN71WRFL,2*PKP_EN71WRM[PU],PKP_EN71WRF),(<PKP_EN71WRFL,PKP_EN71WRM[PU],PKP_EN71WRF); F=LU5;
+  C=PKP_SU46(037|049|A),14*CONT90; F=D5;
+  C=PKP_ST44A(|L),8*PKP_BDUN(|L); F=DP5;
+  TX=Zbaszynek <-> Gorzów Wlkp. (anno 1999);								\
+    D=L; C=PKPST43,PKP_BHPL~KD,2*PKP_BHPM~KD,PKP_BHP~KD; F=DP5;
+  C=(PKP_ST44A(|L),PKP_EU06[PD])|(PKP_EU06),PKP_ADMNU(|L),(PKP_WLAB_(4|5))|(PKP_4WRBD2(|L)), 4*PKP_B_5;	\
+    F=P5;
+  TX=Glucholazy Zdroj <-> Nysa (anno 1999);								\
+    C=PKP_SM42_468,4*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L); F=DP5;
+  TX=Pleszew Waskotorowy <-> Pleszew Miasto (24.10.1999);						\
+    C=LYD1,GKW_BXHPI; V=2-4; F=Z5;
+  TX=Os 5523 Torun <-> Malbork (anno 1999);								\
+    D=R; C=PKP_SU45(|_135),PKP_BHP2~KD,2*PKP_BHP2M~KD,PKP_BHP2L~KD; F=DP5;
+  TX=Os. 9021 Bydgoszcz Gl. <-> Gdynia Gl. (20.11.1999);						\
+    C=PKP_SU45,(<PKP_DS4L,2*PKP_DS4M,PKP_DS4); F=DP5;
+}
+{E6?
+  TX=Gdynia Polifarb <-> Gdansk Osowa (anno 2000);							\
+    C=PKP_SM30,G_HBBILLNS; F=D6;
+  TX=EC 41/71004 "Varsovia" Berlin Zoo <-> Warszawa Wsch. (anno 2000);					\
+    C=PKPEP09,(<PKP_BDUN(|G)(|L),4*PKP_BDMNU(5|8|9|_B),PKP_4WRDMNU(|L),PKP_ADMNU(7|_B)); F=EP6;
+  TX=Luban Slaski <-> Wegliniec (anno 2000);								\
+    D=L; C=PKPST43,3*PKP_BDH|PKP_BHT; F=DP6;
+  TX=Os 33035 Wolsztyn <-> Zbaszynek (anno 2000);							\
+    D=L; C=PKPST43,PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD; F=DP6;
+  C=PKP_ET21,2*PKP_BHT; F=EP6;
+  C=PKP_SU460(37|49)|PKP_SP47,JZ_1090(|L),PKP_WLAB_(4|5|6),2*PKP_B_(5|6),2*PKP_A_(5|6), 2*PKP_B_(5|6),	\
+      HZ_2000(|L),2*PKP_BDUN(|L);									\
+    F=DP6;
+  C=PKP_ST44A(|L),PKP_EU06,PKP_WLAB_(4|5),2*PKP_BC_4,PKP_ADMNU(|L),PKP_BDU1(|L),6*PKP_B_5,		\
+      PKP_4WRBD2(|L);											\
+    F=P6;
+  D=L; C=PKP_SU46037|PKP_SU46049,PKP_BIPBL,2*PKP_BIPBM,PKP_BIPB,PKP_ADMNUL|PKP_ADMNU; F=DP6;
+  TX=Os 2233 Chojnice <-> Koscierzyna (anno 2000);							\
+    C=PKP_SM42K,PKP_B_5,PKP_BH_RYFL(|2); F=DP6;
+  TX=Zbaszynek <-> Gorzów Wlkp. (anno 2000);								\
+    C=PKP_SP32(|_02),3*PKP_B_5; F=DP6;
+  TX=Stargard <-> Pyrzyce (anno 2000);									\
+    C=PKP_SM42K,3*PKP_BDH|PKP_BHT; F=DP6;
+  TX=Chabowka <-> Nowy Sacz (anno 2001);								\
+    C=PKP_SM42_468,2*PKP_B(DH|HT); F=DP6;
+  C=PKP_ST44A(|L),PKP_BDMNU(|L),PKP_B_5,PKP_2171(|L); F=DP6;
+  D=R; C=PKP_ET22B,PKP_BHT,PKP_A_5,PKP_BHT,PKP_B_5,PKP_BHP~KD,2*PKP_BHPM~KD,PKP_BHPL~KD; F=EP6;
+  C=PKP_SU46|PKP_SU460(37|49),16*CONT00; F=D6;
+  TX=IR 454 Wroclaw Gl. <- Görlitz -> Dresden (24.05.2001);						\
+    C=PKP_SU45,$DIR(DBAG_BIMDZ268L,DBAG_BIMDZ268),2*$DIR(DBAG_BIMZ264_7L,DBAG_BIMZ264_7),		\
+      PKP_4WRBD2(|L),$DIR(DBAG_BIMZ264_7,DBAG_BIMZ264_7L);						\
+    F=DP6;
+  C=PKP_SM42_468,(<PKP_BHPL~KD,2*PKP_BHPM~KD,PKP_BHP~KD); F=DP6;
+# Stalowa Wola Rozwadów 24.07.2001
+  TX=Os. 535 Poznan Gl. <-> Kepno (05.08.2001);								\
+    C=2*(<PKP_EN57_1018FL,PKP_EN57_1018M,PKP_EN57_1018F); F=LU6;
+  TX=Os. 827 Poznan Gl. <-> Pila Gl. (05.08.2001);							\
+    C=PKP_EU07_169[PU],3*PKP_BDHPMNU,PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L); F=EP6;
+  TX=Os. 630 Krzyz <-> Poznan Gl. (05.08.2001);								\
+    C=PKP_ET22B,(<PKP_BHPL~KD,2*PKP_BHPM~KD,PKP_BHP~KD); F=EP6;
+  C=PKP_EU07_404_2003,2*PKP_BHT,PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),PKP_BHT; F=EP6;
+# Rzepin 05.08.2001
+  C=2*(<PKP_EN57_1018FL,PKP_EN57_1018M,PKP_EN57_1018F); F=LU6;
+# Poznan Gl. 05.08.2001
+  C=PKP_SM42_468,2*PKP_BHT; F=DP6;
+# Chabówka 08.08.2001
+  M=BACK; C=PKP_EM10,2*PKP_BHT|PKP_B_5; F=O6;
+  C=<PKP_EN57_1018FL,PKP_EN57_1018M,PKP_EN57_1018F;							\
+    AP=[TX=Os. 44024 Wieliczka Rynek <-> Kraków Gl. (08.08.2001)]|					\
+      [TX=Os. 5042 Zakopane <- Chabówka -> Kraków Plaszow (08.08.2001)]| [TX=Os. 5539 Kraków Gl. <-> Zakopane (08.08.2001)]; \
+    F=LU6;
+  TX=Os. 417 Lublin <-> Krasnik (11.08.2001);								\
+    C=PKP_SU45_135,2*PKP_BHT,PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L); F=DP6;
+  TX=Gorzów <-> Pily (17.08.2001);									\
+    C=PKP_ST43_(056|228|404)(|L),(<PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD),2*PKP_BDH; F=DP6;
+  C=PKP_ST44A(|L),M_593EAMS(1|11|2|3|4|5),4*JZ_EAS(|_B)|G_EAS(1D|1E|2A|3A|3B),CD_ZAZ,			\
+      10*DB_ZANS_VTG(1|2)|NS_ZANS_VTG(|2)|OBB_ZANS_VTG,M_246HBBILLNNS(1|2|3|4),3*G_ES(1|2|B|BL);	\
+    F=D6;
+  TX=D 345 Berlin Lichtenberg <- Warszawa -> Kiev;							\
+    C=PKP_SP47(|B)|PKP_EU07|PKPEP09|PKP_EP23|PKP_EP40,PKP_WLAB_(4|5),2*PKP_BC_4,			\
+      8*UZ_WLABM(1|1L|2|E|EL),PKP_BC_4,PKP_WLAB_(4|5);							\
+    F=P6;
+  TX=Lublin <-> Debin (30.07.2001);									\
+    C=2*(<PKP_EN57_1018FL,PKP_EN57_1018M,PKP_EN57_1018F); F=LU6;
+  TX=Lublin Gl. <-> Debin (16.10.2001);									\
+    C=PKP_EU07_403,PKP_DBS,PKP_WRBD2,PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),				\
+      PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),2*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L);			\
+    F=EP6;
+  C=PKP_ET21,PKP_ADMNU(|L),3*PKP_2171(|L); F=EP6;
+  TX=Os. 5524 Malbork <-> Torun Gl. (10.11.2001);							\
+    C=PKP_SU45,(<PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD); F=DP6;
+  C=PKP_SP42_1(|L),3*PKP_BHT; F=DP6;
+  TX=32432 Rzeszów <-> Lublin (25.11.2001);								\
+    C=PKP_SU45_135,(<PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD); F=DP6;
+  C=PKP_SP46|PKP_SU460(37|49),PKP_5_PDN101CH1(|L),5-8*PKP_BDUN(|L); F=DPZ6;
+  TX=Lublin <-> Szczecin (02.12.2001);									\
+    C=PKP_EU07_403,PKP_DBS,PKP_5_DS209C1(|L); F=EP6;
+  C=PKP_ET22B,14*KVG_KALKSILO(|L); F=E6;
+# 24.12.2001 Lublin
+  C=PKP_SP42_1(|L),8*G_EAS1(A|B|C|D|E); F=D6;
+  TX=Szczecin <-> Lublin (26.12.2001);									\
+    C=PKP_ET22B,2*PKP_5_DS209C1(|L); V=10; F=EP6;
+  TX=Os. 415 Lublin <-> Stalowa Wola Razwadów (26.12.2001);						\
+    C=PKP_SU45_135,(<PKP_BHPL~KD,2*PKP_BHPM~KD,PKP_BHP~KD); F=DP6;
+  TX="Rej" Lublin <-> x (01.01.2002);									\
+    C=PKP_EU07_403,PKP_5_DS209C1(|L),2*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),				\
+      2*PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),2*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L);			\
+    F=EP6;
+  C=PKP_EP05,2*PKP_B_5,PKP_A_5,PKP_4WRBD2(|L),PKP_A_5,2*PKP_B_5; F=EP6;
+  C=PKP_ET22B,G_EAS(1A|1B|1C|1D|1E|2A|2B|3A|3B),DB_TAES891(A|B|C),DR_UCS9020(C|D)|M_930UAC(ES|S),	\
+      (4*CSD_RA(1|1A|1B|2))|(4*MAVZAES1);								\
+    F=E6;
+  C=PKP_SU46(037|049|A),HABISNORM,6*PKP_SHIMMS,G_EAS(1C|1D|1E|2A),8*CONT00; F=D6;
+  TX=Gorzów Wlkp. <-> Zbaszynek (12.03.2002);								\
+    C=PKP_SP32(|_02),(<PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD); F=DP6;
+  TX=TKPS 55880 Bialystok <-> Czeremcha (16.03.2002);							\
+    C=PKP_ST44_313,2*G_EAS3A,PKP_EAOS[O:FR_KO10],2*PKP_GAGST; F=D6;
+  TX=EC 453/61006 Dresden Hbf <-> Warszawa Wsch.;							\
+    C=PKP_EU07|PKP_EU20A,PKP_2171(|L),PKP_BDMNU(|L),PKP_4WRDMNU(|L),PKP_WLAB_(4|5),4*PKP_B_5; F=EP6;
+  TX=Os. 78125 Poznan <-> Krzyz (29.03.2002);								\
+    C=PKP_EU07_141,(<PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD); F=EP6;
+  TX=13113 "Wetlina" Warszawa Wsch. <-> Zagórz  (anno 2002);						\
+    C=PKP_EP07|PKP_EU07,PKP_DBS,PKP_2171(|L),PKP_BDMNU(|L),PKP_ADMNU(|L),2*PKP_2171(|L); F=EP6;
+  C=PKPEP09,4*PKP_2171(|L)|PKP_BDUNG(|L),PKP_WLAB_(4|5); F=EP6;
+  C=PKP_SM30,PKP_ET22_114[PD]; V=2; F=6;
+# Deblin 20.04.2002
+  TX=208/14013 "Vlatava" Moskva Belorusskaja <-> Praha hl.n. (anno 2002);				\
+    C=PKP_EP07,2*RZD_WLABME(|L),ZS_WLABMEE,CD_WLABV(|2|2L|L|_171),					\
+      CSD_WLABV(|L)|CD_WL(|ABV1|ABV1L|ABV_170|L);							\
+    F=EP6;
+  C=PKP_SU45_135|PKP_EU06_01|PKP_EP07_187|PKP_EU07_007|PKP_ET21~STO|PKP_ET22(|B|_340),			\
+      (4-6*PKP_SIKKPS,6-14*G_EAS(1A|1B|1C|1D|1E|2A|2B|3A|3B))|(6-14*CONT90);				\
+    F=6;
+  TX=IC 8102 "Chroby" Szczecin Gl. <-> Warszawa Wsch.;							\
+    C=PKP_EP05|PKPEP09,CD_BEER92(|L),3*PKP_B1(|L),PKP_4WRBD2(|L),3*CD_BEER92(|L); F=EP6;
+  TX=Os. 1033 Tarnów <-> Przemysl (30.05.2002);								\
+    C=PKP_EU07_027,4*PKP_BDHPMNU; F=EP6;
+  TX=Os. 826 Jaslo <-> Rzeszów (30.05.2002);								\
+    C=PKP_SP32_02,(<PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD); F=DP6;
+  TX=IC 8103 "Chroby" Warszawa Wsch. <-> Szczecin Gl.;							\
+    C=6:PKP_EP08|1:PKPEP09,5*PKP_BDMNU(|L)|PKP_2171(|L)|PKP_BDUNG(|L),PKP_ADMNU(|L)|PKP_BDUN(|L),	\
+      PKP_4WRDMNU(|L);											\
+    F=EPZ6;
+  D=R; C=PKP_ET41_1B,PKP_ET41_1A,PKP_SMMS,16-20*KVG_7852541|KVG_STPL,PKP_SMMS; F=E6;
+  TX="Solina" Przemysl <-> Warszawa Wsch. (anno 2002);							\
+    C=PKP_EU07,4*PKP_BDIMNU_N|PKP_BDMNU8|PKP_BDMNU9,2*PKP_ADMNU(7|_B); W=5e; F=EP6;
+  TX=Szczecinek <-> Chojnice (27.06.2002);								\
+    C=PKP_SU42,(<PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD); F=DP6;
+  POOL=DB_KBS293_RE_2002; F=6;
+  TX="Pobrzeze" Tczew <-> Kolobrzeg (28.06.2002);							\
+    C=PKP_EU07_403,2*PKP_BDH|PKP_BHT,PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),				\
+      2*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L);								\
+    F=EP6;
+  TX=Olpuch Wdzydze <-> Koscierzyna (30.06.2002);							\
+    C=<PKP_SA101L,PKP_SA102M,PKP_SA102; F=DU6;
+  TX=EC 104 "Sobieski" Wien Südbhf. <-> Warszawa Wsch. (anno 2002);					\
+    C=PKPEP09,4*PKP_2171(|L),PKP_4WRDMNU(|L),PKP_ADMNU6|PKP_ADEMNU|PKP_ADHMNU; F=EP6;
+  TX=Koscierzyna <-> Chojnice (01.07.2002);								\
+    C=PKP_SM42_468,2*PKP_BH_RYFL4; F=DP6;
+  TX=Wierzchucin <-> Koscierzyna (02.07.2002);								\
+    C=PKP_SM42_468,PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),2*PKP_BDH; F=DP6;
+  TX=Chojnice <-> Brusy (03.07.2002);									\
+    C=PKP_SU45_135,PKP_GBS; F=D6;
+  TX=Kostrzyn <-> Pila (13.07.2002);									\
+    C=PKP_SU42,(<PKP_BHPL~KD,2*PKP_BHPM~KD,PKP_BHP~KD); F=DP6;
+  C=PKP_ST43_(056|228|404)(|L),30*G_EAS3B[O:FR_KO37|FR_COAL1|COAL3|COAL4|COAL5|COAL6,,]; F=D6;
+# Kostrzyn 14.07.2002
+  TX=IC 5306 "Sawa" Gdynia <-> Kraków (19.07.2002);							\
+    C=PKP_EU07_403,2*PKP_ADMNU4,PKP_ADMNU7,PKP_4WRBD2(|L),						\
+      5*PKP_BDMNU5|PKP_BDMNU_B|PKP_BDMNU_HCP|PKP_BDIMNU_N|PKP_BDMNU8|PKP_BDMNU9;			\
+    F=EP6;
+  C=PKP_ET22B,FS_GBHS(1|2|3|4|5),PKP_SMMS,DR_4RMMS3960FSB,3*G_EAS3A,7*PKP_SMMS,3*G_EAS3A; F=E6;
+# Pruszcz Gdanski 28.07.2002
+  C=PKP_ET22_114,15*G_EAS3B[O:FR_KO37|FR_COAL1|COAL3|COAL4|COAL5|COAL6,,],2*GT29,8*G_EAS3B; F=E6;
+# Pruszcz Gdanski 28.07.2002
+  C=(<PKP_ET41_067A[PU],PKP_ET41_067B[PU]),8*PKP_EAMOS,2*PKP_ZAES_DEC2,2*G_KS2,PKP_SIKKPS,G_RILS_L,	\
+      HABISNORM,5*DR_4RES3936R(|L),G_EAS1D,HABISNORM,PKP_SIKKPS,2*HABISNORM,DR_4RGS3920(|L), 2*G_RILS_L; \
+    F=E6;
+  C=PKP_EU07_007,PKP_EU07_403[PD],PKP_EP07_187[PD]; V=3-4; F=E6;
+# 12.08.2002 Swinoujscie
+  C=PKP_ET22B,7*SJ_LAAIS921,										\
+      5*SBB_HBILS235W(|L)|SBB_HBIS225O(|L)|SBB_HBISWW225_2200(|O)|SBB_HBILSVY237(|L)|			\
+      SBB_HBILSVY237T(|L),G_EAS3A,PKP_ZAES_DEC2,G_EAS3A;						\
+    F=E6;
+# 13.08.2002 Swinoujscie Przytór
+  TX=EC 249/71014 "Jan Kiepura" Köln Hbf <- Warszawa Wsch. -> Moskva;					\
+    C=5:PKPEP09|1:(PKP_EU11~JPD|PKP_EU43_001~JPD|PKP_EU43~JPD),ZSR_WLABV(|L),3*RZD_6WLABMEE(|L),	\
+      PKP_4WRBD2(|L),3*PKP_BC_4,PKP_WLAB_(4|5),								\
+      2*RZD_WL1L~HEN|RZD_WL1~HEN|UZ_WLL~HEN|UZ_WL~HEN|BCH_WLABME(|L);					\
+    F=EPZZZ6;
+  TX=Przemysl <-> Tarnów (21.09.2002);									\
+    C=PKP_EP07_187,(<PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD); F=EP6;
+  TX=Os. 2027 Tarnów <-> Przemysl (21.09.2002);								\
+    C=PKP_EU07_113,2*(<PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD); F=EP6;
+  TX=E5311 "Stoczniowiec" Gdynia Gl. <-> Krakow Gl.;							\
+    C=PKPEP09,2*PKP_ADMNU(|L),PKP_4WRBD2(|L),PKP_BDUN(|L),3*PKP_BDMNU(|L); F=EP6;
+  C=PKP_SM42_468,11*G_EAS3B; F=D6;
+# Lukow-Skierniewice 29.09.2002
+  TX=Krasnik <-> Lublin (17.10.2002);									\
+    C=PKP_SN81_002; F=DU6;
+  C=PKP_ET22A,G_EAS3B,SZD_151602(A|B|C)|SZD_151519,G_EAS3B,5*PKP_ZAES_DEC2,12*G_EAS3B, 5*PKP_ZAES_DEC2,	\
+      5*G_EAS3B;											\
+    F=E6;
+# Lublin Tatary LTB (20.10.2002)
+  TX=IC 2701 "Bystrzyca" Lublin <-> Poznan Gl.;								\
+    C=PKPEP09,4*PKP_2171(|L),3*PKP_BDUN(|L); F=EP6;
+  C=PKP_SM42K,ESLOADED,2*OPWEPIVGBS; F=D6;
+  TX=220 Jelenia Gora <-> Wroclaw Glowny;								\
+    C=PKP_ET21(7:|_1|_2|_3),2@(3*12:PKP_BHT|(PKP_BH_RYFL(|2)),PKP_A_5); F=EPZZZ6;
+  C=PKP_ET22(|B|_340),G_EAS1(C|D|E),DB_TAES891(A|B|C),CSD_RAJ(1|2|3),3*EP5CHEM,PKP_SMMS; F=E6;
+  TX=Lublin <-> Stalowa Wola Rozwadów (23.11.2002);							\
+    C=PKP_SU45_089,(<PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD); F=DP6;
+  C=<PKP_SM480214(|L),2*SZDOPENWOOD,3*SZDKRU; F=D6;
+# Dorohusk 24.11.2002
+# Should be broad gauge SM38 w. SA3 couplers
+  TX=Rzeszow <-> Rozwadowa (anno 2002);									\
+    D=L; C=PKP_ET22(|_340),PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD,PKP_BHPL~KD,2*PKP_BHPM~KD,PKP_BHP~KD; \
+    F=EP6;
+  C=PKP_SM40A(|L)|PKP_SM41A(|L),1-4*PKP_EAN(OS|S); F=D6;
+  TX=Os. 903 "Roztocze" Warszawa Zachodnia <-> Rava Russka (08.12.2002);				\
+    C=PKP_SP32_02,PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),		\
+      PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L);								\
+    F=DP6;
+  TX=Rozwadowa <-> Lublin (anno 2002);									\
+    D=R; C=PKP_SP32(|_02),PKP_BHP~KD,2*PKP_BHPM~KD,PKP_BHPL~KD; F=DP6;
+  TX=INT 107 Warszawa Zachodnia <-> Odessa (14.12.2002);						\
+    C=PKP_SU45_135,2*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),	\
+      4*UZ_KRK(|L);											\
+    F=DP6;
+# green coaches should have ribbed roofs
+  TX=Lublin <-> Stalowa Wola Rozwadów (24.12.2002);							\
+    C=PKP_SU45_089,(<PKP_BHPL~KD,2*PKP_BHPM~KD,PKP_BHP~KD); F=DP6;
+  C=PKPEP09,M_59(41A|41AL|80A|80AL),2*PKP_WLAB_(4|5),2*M_7041A(|L),PKP_B_5,PKP_4WRBD2(|L); F=EP6;
+  TX=Ex 5212 "Nida" Gdynia <-> Kielce (29.12.2002);							\
+    C=PKP_EU07_404,2*PKP_A1,4*PKP_BDMNU3L; F=EP6;
+# coaches should have ribbed roofs and slam doors
+  TX=Gdansk Gl. <-> Wejherowo (02.01.2003);								\
+    C=2*(<PKP_EW58FL,PKP_EW58M,PKP_EW58F); F=LU6;
+  C=PKP_EU07_403,PKP_5_PDN101CH1(|L),2*PKP_5_WLABD(1|2|3)(|L),PKP_4_BC(1|2)(|L),			\
+      4*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L);			\
+    F=EP6;
+# Lublin 12.01.2003
+# last car should have ribbed roof.
+  TX=E1711 "Mickiewicz" Bialystok <-> Poznan Gl.;							\
+    C=PKPEP09,2*PKP_ADMNU(|L),PKP_4WRBD2(|L),3*PKP_BDMNU(|L); F=EP6;
+  TX="Torunianin" Torun <-> Gdynia (21.01.2003);							\
+    C=2*(<PKP_ED72BFL,PKP_ED72B1,PKP_ED72B2,PKP_ED72AF); F=EU6;
+  TX=90434 Gdynia Gl. <-> Koscierzyna (28.01.2003);							\
+    C=<PKP_SA101L,PKP_SA102M,PKP_SA102; F=DU6;
+  TX=Koscierzyna <-> Gdynia Gl. (30.01.2003);								\
+    C=PKP_SU46A,3*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_BHT; F=DP6;
+  TX=Koscierzyna <-> Gdynia Gl. (01.02.2003);								\
+    C=PKP_SU42,2*(PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_BHT); F=DP6;
+  TX=Gdynia Gl. <-> Koscierzyna (29.01.2003);								\
+    C=2*PKP_SU46A,3*PKP_BHT; F=DP6;
+  TX=Os. 97102 "Lyna" Gdynia <-> Olsztyn (05.02.2003);							\
+    C=PKP_EP07_335,2*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),	\
+      2*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L);								\
+    F=EP6;
+  TX=Gdansk Glówny <-> Gdynia Portu (05.02.2003);							\
+    C=PKPET40,4*G_EAS3B,3*PKP_GAGST,3*HABISNORM,2*DR_4RGS3910RBL; F=E6;
+  C=PKPST43,AUTO1(A|B|C|D),7*HABISNORM,SJ_LAAIS(831|921),2*EP5CHEM,HABISNORM,3*DRRGS; F=DF6;
+  TX=Ex 5412 "Skarbek" Gdynia <- Rózyny -> Gliwice (06.02.2003);					\
+    C=PKP_EP07_335,2*PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),PKP_4WRBD2(|L),				\
+      5*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L);								\
+    F=EP6;
+  TX=201/41006 "Silesia" Praha hl.n. <-> Warszawa Wsch. (anno 2003);					\
+    C=PKP_EU07,2*CDWLAB6,CD_Y5AB(|L|M|ML)|CD_AB(65B|65BL|84B|84BL),					\
+      CD_B(65B1|65B1L|65B2|65B2L|65B3|65B3L|77B|77BL)|CD_9B67(|L)|CD_BEE96(|L);				\
+    F=EP6;
+  TX=Os. 88432 Hajnówka <-> Siedlce (08.03.2003);							\
+    C=PKP_SU45,PKP_5_BDU111A1(|L)[O:GR_0(1|2|3|4|5|6),20-150,9-11],2*PKP_BHT; F=DP6;
+  TX=Os. 26100 "Bolko" (08.03.2003);									\
+    C=PKP_EU07_403,PKP_5_PDN101CH1(|L),PKP_DBS,PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_5_WLABD3(|L),	\
+      2*PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),2*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L);			\
+    F=EP6;
+  TX=Os. 127 Lublin Gl. <-> Chelm (21.03.2003);								\
+    C=PKP_EU07_113[PU],4*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L);	\
+    F=EP6;
+  C=(<PKP_ET41_067A,PKP_ET41_067B),36*G_EAS3B[O:FR_KO37|FR_COAL1|COAL3|COAL4|COAL5|COAL6,,]; F=E6;
+# Motycz 22.03.2003
+  TX=Lublin <- Kreznica Jara -> Rzeszów (23.03.2003);							\
+    C=PKP_SU45_135,PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),		\
+      2*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L);								\
+    F=DP6;
+  C=PKP_ET22B,PKP_EAMOS,M_277HABIS(|2),6*PKP_GBS; F=E6;
+# Przeworsk 29.03.2003
+  TX=Os. 2025 Rzeszów <-> Przemysl (29.03.2003);							\
+    C=PKP_EU06_01,4*PKP_BDHPMNU; F=EP6;
+  TX=Os. 1034 Przemysl <-> Tarnów (29.03.2003);								\
+    C=PKP_ET22A,(<PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD); F=EP6;
+  TX=345/30 "Kasztan" Berlin Lichtenberg <- Chelm -> Kiev Pass. (12.04.2003);				\
+    C=PKP_EU07_524,2*UZ_WLABM1(|L),2*UZ_WLABM2,UZ_KRK(|L),PKP_5_WLABD(1|1L|2|2L|3|3L); F=EP6;
+  TX=Stala Wola Rozwadow <-> Debica (anno 2003);							\
+    C=PKP_SU45(|_089|_135),PKP_B_5; F=DP6;
+  TX=Os. 416 Krasnik <-> Lublin (13.04.2003);								\
+    C=PKP_SN81_003; F=DU6;
+  TX=TKPS 77783 Elk <-> Suwalki (15.04.2003);								\
+    C=PKP_ST44_313,5*OBB_GBS151,4*PKP_SIKKPS; F=D6;
+  TX=TKMS 7791 Orzysz <-> Elk (16.04.2003);								\
+    C=PKP_ST44_313,PKP_EAOS[O:FR11],DR_4RGS3910RBL[OB:FR_WOOD10,<15,12][OB:FR_WOOD10,>188,12],		\
+      PKP_EAOS[O:FR11];											\
+    F=D6;
+  TX=Ex. 31108 "Solina" Zagórz <-> Warszawa Wschodnia (21.04.2003);					\
+    C=PKP_SP32_02,3*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),2*PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),	\
+      2*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_5_DS209C1(|L);						\
+    F=DP6;
+  TX=IC 241 "Wawel" Hamburg Altona <-> Kraków (01.05.2003);						\
+    C=PKP_EU07_404_2003,3*DBAG_BVMZ185(VRH|VRHL|W|WL),WRMZ133W(|L),DBAG_AVMZ111_1W(|L); F=EP6;
+  TX=Glucholazy <-> Nysa (02.05.2003);									\
+    C=PKP_SM42_468,DR_GAS1900,PKP_GAGST,3*DR_GAS1900,PKP_GAGST,DB_SHIMMSU708(A|AL|BL|C),PKP_GAGST,	\
+      3*G_EAS3B;											\
+    F=D6;
+  TX=Kamieniec Zabkowicki <- Nysa -> Kedzierzun Kozle (02.05.2003);					\
+    C=PKP_SU46A,(<PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD); F=DP6;
+  TX=Opole <-> Nysa (02.05.2003);									\
+    C=PKP_ST43_(056|228|404)(|L),2*SJ_HBIS,PKP_GBS,5*GT08OMV[CP:100,16,20,7,120,16,20,7],15*G_EAS3B;	\
+    F=D6;
+  TX=62104 "Hetman" Wroclaw Gl. <-> Zamosc (03.05.2003);						\
+    C=PKP_EU06_01,3*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),2*PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),	\
+      2*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L);			\
+    F=EP6;
+  TX=17103 "Starosta" Warszawa <- Skierniewice -> Poznan (24.05.2003);					\
+    C=PKP_EP08_013,2*PKP_5_BWXZD(1|1L|2|2L|3L),PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L), PKP_4WRBD2(|L),	\
+      3*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L);								\
+    F=EP6;
+  TX=Poczta Lublin Gl. <-> Szczecin (24.05.2003);							\
+    C=PKP_EU07_404_2003,2*PKP_5_DS209C1(|L); F=EP6;
+  TX=Ex. 5311 "Malopolska" Gdynia Gl. <-> Przemysl (25.05.2003);					\
+    C=PKP_EP09_003,2*PKP_A1,PKP_4WRBD2(|L),5*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L); F=EP6;
+  TX=Stalowa Wola Rozwadów <-> Lublin (29.05.2003);							\
+    C=PKP_SM42_468,(<PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD); F=DP6;
+  TX=916 Poznan Gl. <-> Moglino (01.06.2003);								\
+    C=<PKP_ED73_001FL,PKP_ED73_001B1,PKP_ED73_001B2,PKP_ED73_001F; F=EU6;
+  TX=Os. 78333 Poznan Gl <-> Pila (01.06.2003);								\
+    C=PKP_EU07_113_2003,PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),3*PKP_BDH|PKP_BHT,				\
+      PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L);								\
+    F=EP6;
+  C=PKP_SM42_468,4*G_EAS3B,2*PKP_GBS; F=D6;
+# Siedice (13.06.2003)
+  TX=Lublin <-> Rzeszów (13.06.2003);									\
+    C=PKP_SM42_468,3*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L); F=DP6;
+  TX=Kraków Plaszów <-> Czestochowa (20.06.2003);							\
+    C=PKP_EP09_003,PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),		\
+      PKP_BDH|PKP_BHT,PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L);						\
+    F=EP6;
+  TX="Wysocki" Gliwice <-> Warszawa (21.06.2003);							\
+    C=PKP_EP09_003,PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L); V=16;	\
+    F=EP6;
+  TX=Os. 43119 Czestochowa <-> Kraków Plaszów (21.06.2003);						\
+    C=PKP_EU07_132,4*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L); F=EP6;
+  TX=Os. 34 Gliwice <-> Czestochowa (21.06.2003);							\
+    C=PKP_EU07_007,4*PKP_BDH|PKP_BHT; F=EP6;
+  C=PKP_ET22B,M_277HABIS|M_277HABIS2,DR_GAS1900,G_RILS_L,3*G_EAS3A,5*PKP_ZAES_DEC2,4*G_EAS3A; F=E6;
+# Myszków Mrzyglód 21.06.2003
+  C=(<PKP_ET41_067A,PKP_ET41_174B),3*PKP_UGPS,4*G_EAS3B; F=E6;
+# Maslonskie Natalin 22.06.2003
+  TX="Bursztyn" Grudziadz <- Lebork -> Slupsk (27.06.2003);						\
+    C=PKP_EU07_403,2*PKP_BDH|PKP_BHT,PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),2*PKP_BDH|PKP_BHT; F=EP6;
+  TX=Lebork <-> Leba (27.06.2003);									\
+    C=PKP_SM42_468,(<PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD); F=DP6;
+  TX=RB 5942 Zagan <-> Forst (Lausitz) (29.06.2003);							\
+    C=PKP_SM42_468[<M],2*PKP_BDH; F=DP6;
+  TX=Os. 18401 "Posejdon" Warszawa Zachodnia <-> Kolobrzeg (29.06.2003);				\
+    C=PKP_EU07_141,5*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_4WRBD2(|L),					\
+      2*PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L);							\
+    F=EP6;
+  TX="Jadwiga" Krakow Plaszowa <-> Lublin (anno 2003);							\
+    C=PKP_ET22(|_340),PKP_5_DS209C1(|L),2*PKP_BDIMNU_N|PKP_BDMNU8,PKP_ADMNU(|7|L),			\
+      2*PKP_BD(IMNU_N|MNU5|MNU_B)|PKP_BDMNU(8|9);							\
+    F=EP6;
+  TX="Plast" Gdynia <-> Wroclaw (30.06.2003);								\
+    C=PKP_EU07_404_2003,2*PKP_A1,PKP_4WRBD2(|L),4*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L); F=EP6;
+# first two coaches should have ribbed roof and slam doors
+  TX=Gdansk Osowa <-> Koscierzyna (30.06.2003);								\
+    C=PKP_SU46A,PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),3*PKP_BDH|PKP_BHT; F=DP6;
+  TX=Tczew <-> Chojnice (03.07.2003);									\
+    C=PKP_SU45_135,(<PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD); F=DP6;
+  TX=Ex. 51402 "Szkuner" Wladyslawowo <-> Warszawa Zachodnia (06.07.2003);				\
+    C=PKP_EU07_141,2*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),2*PKP_A1,2*PKP_BDMNU3L; F=EP6;
+# Last 4 coaches should have slam doors and ribbed roofs
+  C=PKP_ET22B,25*G_EAS3B[O:FR_KO37|FR_COAL1|COAL3|COAL4|COAL5|COAL6,,]; F=E6;
+# Pszczólki 08.07.2003
+  C=PKP_ET22A[PU],16*PKP_UGPS; F=E6;
+# Gdansk Poludniowy 09.07.2003
+  C=PKP_ET40_11,3*DR_4RGS3910AL[O:C4007,,12],13*PKP_GAGST,PKP_EAMOS,8*PKP_UGPS; F=E6;
+# Gdansk Oliwa 11.07.2003
+  TX=Os. 17135 Kutno <-> Poznan (13.07.2003);								\
+    C=PKP_EU07_169,PKP_A1,3*PKP_BDHPMNU; F=EP6;
+# A should have ribbed roof and slam doors
+  TX=Os. 76937 Kolo <- Kostrzyn -> Wroclaw (13.07.2003);						\
+    C=PKP_EU07_169,4*PKP_BDHPMNU,PKP_DBS; F=EP6;
+  TX=Ex "Slowacki" Warszawa Wschodnia <-> Wroclaw (13.07.2003);						\
+    C=PKP_EP08_013,4*PKP_BDMNU3L,PKP_4WRBD2(|L),2*PKP_A1; F=EP6;
+# coaches should have ribbed roof and slam doors
+  TX=Koscierzyna <-> Chojnice (17.07.2003);								\
+    C=PKP_SM42_468,3*PKP_BDHPMNU; F=DP6;
+# Should be SP42
+  TX=Os. 3320 Kostrzyn <-> Pila (18.07.2003);								\
+    C=PKP_ST43_(056|228|404)(|L),4*PKP_BDH|PKP_BHT,PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L); F=DP6;
+  TX=Krzyz <-> Kostrzyn (19.07.2003);									\
+    C=PKP_ST43_(056|228|404)(|L),(<PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD); F=DP6;
+  TX="Czcibor" Wroclaw <- Rzepin - Szczecin -> Swinoujscie (26.07.2003);				\
+    C=PKP_EP07_335,2*PKP_BDH|PKP_BHT,2*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),				\
+      PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L);								\
+    F=EP6;
+  TX=Os. 2235 Zbaszynek <-> Rzepin (29.07.2003);							\
+    C=PKP_EU07_007,PKP_BDH|PKP_BHT,PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),					\
+      PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),2*PKP_BDH|PKP_BHT;					\
+    F=EP6;
+  TX=Ex 246 "Moskva Express" Moskva <-> Berlin (29.07.2003);						\
+    C=PKP_EU07_113,4*RZD_6WLABMEE(|L),2*RZD_WLABME(|L),3*BCH_WLABME(|L); F=EP6;
+  C=PKP_ET22B,25*G_RGS1[O:(C4R_HAPAG1|C4R_PO4|18:C4R_PONED|C4R_PONED1),,12]; F=E6;
+# Toporów 30.07.2003
+  C=PKP_ST43_(056|228|404)(|L),15*G_EAS3B; F=D6;
+# Toporów 30.07.2003
+  TX=Gdansk Refinery <-> Zajaczkowo Tczewskie (31.07.2003);						\
+    C=PKP_ST44_313,DR_4RGS3910AL,22*KVG_STPL,DR_4RGS3910A; F=D6;
+  C=PKP_ET22B,4*DB_SHIMMSU708AL|DB_SHIMMSU708A|DB_SHIMMSU708BL|DB_SHIMMSU708C,				\
+      DB_SHIMMNS_TTU722A|DB_SHIMMNS_TTU722B|DB_SHIMMNS_TTU722C,4*G_EAS3B,6*CONT00,G_EAS3B, G_29859_04,	\
+      3*G_EAS3B,2*HABISNORM,2*G_HBBILLNS;								\
+    F=E6;
+# Cieplewo 06.08.2003
+  TX=Ex. "Piast" Gdynia <-> Wroclaw (06.08.2003);							\
+    C=PKP_EU07_007,2*PKP_A1,PKP_4WRBD2(|L),5*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L); F=EP6;
+  TX=Ex. 903 "Roztocze" Warszawa Zachodnia <-> Rava Russka (09.08.2003);				\
+    C=PKP_SP32_02,PKP_BDH,PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L), PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),	\
+      PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L);								\
+    F=DP6;
+  TX=EC 44 "Berlin-Warszawa-Express" Berlin-Lichtenberg <- Frankfurt(Oder) - Rzepin - Swiebodzin - Poznan Gl. - Konin - Kutno - Warszawa Centralna -> Warszawa Wschodnia (09.08.2003); \
+    C=PKP_EP09_003,PKP_BDMNU7,PKP_BDMNU5|PKP_BDMNU_B,2*($DIR(DBAG_BVMZ185BWEL,DBAG_BVMZ185BWE)),	\
+      $DIR(DB_ARMZ_BWE~KMN,DB_ARMZ_BWEL~KMN),$DIR(DBAG_AVMZ111_1BWEL,DBAG_AVMZ111_1BWE);		\
+    F=EP6;
+  TX=Poznan <-> Grodzisk Wielkopolski (11.08.2003);							\
+    C=PKP_SA105_001; F=DU6;
+  TX=Os. 812 Golenlów <-> Kolobrzeg (21.08.2003);							\
+    C=PKP_SM42_468,3*PKP_BDH; F=DP6;
+#should be SP42
+  TX=Os. 8752 x <-> Krynica (07.09.2003);								\
+    C=PKP_EU07_113_2003,PKP_BDH; F=EP6;
+  C=<PKP_SM30,G_EAS3B[O:SCRAP7],G_EAS3B,CFR_KS2,PKP_SM42_468; V=2-3; F=D6;
+# Ostrów Wielkopolski 13.08.2003
+  TX=Os. 7027 Jaslo <-> Zagórz (28.09.2003);								\
+    C=PKP_SP32_02,(<PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD); F=DP6;
+  TX=Rzeczyca <-> Lublin (04.10.2003);									\
+    C=PKP_SA107_01; F=DU6;
+  TX=Os. 51024 Sierpc <-> Nasielsk (18.10.2003);							\
+    C=PKP_SU45_089,(<PKP_BHPL~KD,2*PKP_BHPM~KD,PKP_BHP~KD); F=DP6;
+  TX=55111 Gdynia <-> Braniewo (01.11.2003);								\
+    C=PKP_SU45_089,2*PKP_BDH|PKP_BHT,2*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),				\
+      PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),2*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L);			\
+    F=DP6;
+  C=PKP_EP09_046,3*PKP_B_5,PKP_4WRBD2(|L),PKP_A_5; F=EP6;
+  C=PKP_ET22B,27*G_EAS3A,G_RGS1,SBB_HABILS,4*SJ_LAAIS921; F=E6;
+# Pszczyna (10.11.2003)
+  C=PKP_ET22B,2*PKP_RES,CFR_KS6,2*DR_4RGS3910A(|L),2*PKP_RES,5*DR_4RGS3910A(|L),PKP_RES,2*G_EAS3B,	\
+      PKP_EAMOS,PKP_ZAES_DEC2,2*DR_4RGS3910A(|L),2*G_EAS3B,PKP_ZAES_DEC,6*PKP_ZAES_DEC2,2*G_EAS3B;	\
+    F=E6;
+# Goczalkowice Zdrój 11.11.2003
+  C=(<PKP_ET41_067A[P2U],PKP_ET41_067B[P1U]), 36*G_EAS3B[O:FR_KO37|FR_COAL1|COAL3|COAL4|COAL5|COAL6,,];	\
+    F=E6;
+# Goczalkowice Zdrój 11.11.2003
+  TX=Os. 88220 Bielsko Biala <-> Racibórz (18.12.2003);							\
+    C=PKP_EP07_522,PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),3*PKP_BDHPMNU,				\
+      PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_5_BWXZD(1|1L|2|2L|3L);					\
+    F=EP6;
+  TX="Brda" Subkowy <-> Pelplin (27.12.2003);								\
+    C=2*(<PKP_ED72BFL,PKP_ED72B1,PKP_ED72B2,PKP_ED72AF); F=EU6;
+  TX=Gdynia Gl. <-> Koscierzyna (25.01.2004);								\
+    C=2*PKP_SU46A,3*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L); F=DP6;
+  TX=Gdinia <-> Kalinigrad (anno 2004);									\
+    C=PKP_SU45(|_089|_135),3*RZD_6WLABM2(|L); F=DP6;
+  TX=Poznan Gl. <-> Wolsztyn (02.2004);									\
+    C=$DIR(PKP_PT47_65L,PKP_PT47_65),(<PKP_BHPL~KD,2*PKP_BHPM~KD,PKP_BHP~KD); F=SP6;
+  TX=Os. 55120 Zakopane <-> Kraków Gl. (anno 2004);							\
+    C=PKP_EP07~KC,3*PKP_BDH; F=EP6;
+  TX=EC 40/41 "Berlin-Warszawa-Express" Berlin Zoo. <-> Warszawa Wsch. (anno 2004);			\
+    C=PKPEP09,(<DB_AM_BWE,DB_ARMEE,PKP_BDMNU10,PKP_BDHMNU2,2*PKP_BDMNU10); V=8-16; F=E6;
+  TX=Wroclaw <-> Zamosc (anno 2004);									\
+    C=PKP_SU45(|_089|_135),3*PKP_B_5,PKP_A_5; F=DP6;
+  C=(<PKP_ET41_174A,PKP_ET41_174B),36*G_EAS3B[O:FR_KO37|FR_COAL1|COAL3|COAL4|COAL5|COAL6,,]; F=E6;
+# Lublin 19.03.2004
+  TX=Przeworska <-> Belzca (anno 2004);									\
+    C=PKP_SP32(|_02),2*PKP_BHT; F=DP6;
+  C=PKP_EU06,2*PKP_4_S9980(|L); F=EP6;
+  TX=Os. 43028 Oswiecim <-> Kraków Plasztów (anno 2004);						\
+    C=<PKP_EN57_1018FL,PKP_EN57_1018M,PKP_EN57_1018F; F=LU6;
+  TX=EC 106 "Praha" Warszawa Wschodnia <-> Praha hl.n. (03.04.2004);					\
+    C=PKP_EP09_046,PKP_BDMNU_144A,PKP_BDIMNU_N,PKP_BDMNU_144A,PKP_4WRDMNU(|L),PKP_ADMNU_145A,		\
+      PKP_ADMNU7;											\
+    F=EP6;
+  TX=Os. 66026 Nowy Sacz <-> Tymbark (anno 2004);							\
+    C=<PKP_SA101L,PKP_SA101; F=DU6;
+  TX=P382 "Presovcan" Kosice <-> Kraków Gl. (anno 2004);						\
+    C=PKP_EU07,4*ZS_B65A(|L)|ZS_B77A(|L),ZS_A67A(|L)|ZS_A72A(|L); F=E6;
+  C=PKP_ET22B,DR_4RGS3920RL[OB:TARP4,<9,12][OB:TARP4,<55,12][OB:TARP4,<101,12][OB:TARP4,>192,12],	\
+      PKP_GAGST,2*G_RES2[OB:FR_T2,12,16][OB:FR_T2,*,16][OB:FR_T2,>187,16],				\
+      2*DR_4RGS3920RL[OB:TARP8,,12],2*G_RES2[OB:FR_T2,12,16][OB:FR_T2,*,16][OB:FR_T2,>187,16],		\
+      12*G_EAS3A[O:(WOOD40|WOOD40[M])];									\
+    F=E6;
+# Lublin 01.05.2004
+  C=PKP_EP09_046,PKP_ADEMNU_145AB|PKP_ADEMNU|PKP_ADMNU6|PKP_ADHMNU|PKP_ADMNU3,				\
+      PKP_4WRDMNU(|L)|PKP_WRDUN|PKP_5WRDMNU(|L),2*PKP_BDHMNU|PKP_BDMNU7;				\
+    F=EP6;
+  TX=Sedziszów <- Rabsztyn - Olkusz -> Katowice (08.05.2004);						\
+    C=(<PKP_EN57RFL,PKP_EN57RM,PKP_EN57RF),(<PKP_EN57_1018FL,PKP_EN57_1018M,PKP_EN57_1018F); F=LU6;
+  TX=Os. 43127 "Gliewont" Czestochowa Osobowa <-> Zakopane (anno 2004);					\
+    C=<PKP_ED72BFL,PKP_ED72B1,PKP_ED72B2,PKP_ED72AF; W=5E; F=EU6;
+  C=PKP_SM31(|L),2*G_EAS3B[O:SCRAP7|SCRAP3],6*PKP_UGPS; F=DZZ6;
+# Jaroszowiec Olkuski 10.05.2004
+  TX=2433 Sedziszów <-> Katowice (11.05.2004);								\
+    C=<PKP_EN57_1609FL,PKP_EN57_1609M,PKP_EN57_1609F; F=LU6;
+  C=(<PKP_ET41_174A,PKP_ET41_174B),30*PKP_EAMOS; F=E6;
+# Olkusz 12.05.2004
+  TX=Os. 31106 "Kinga" Kraków <-> Warszawa (12.05.2004);						\
+    C=PKP_EU07_113_2003,2*PKP_BDMNU3L,PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),				\
+      2*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L);								\
+    F=EP6;
+  TX=Ex 12 Warszawa Wsch. <- Terespol -> Moskva (10.06.2004);						\
+    C=PKP_EU07_404_2003,BCH_6WLABMEE(|L),3*RZD_6WLABMEE(|L),2*PKP_5_WLABD(1|1L|2|2L|3|3L); F=EP6;
+  TX="Solia" Warszawa <-> Przemysl (11.06.2004);							\
+    C=PKP_SU45_089,4*UZ_KRK(|L),4*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),					\
+      PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L);								\
+    F=DP6;
+  TX=Ex 2601 "Bystrzycza" Lublin <-> Wroclaw (12.06.2004);						\
+    C=PKP_EP09_003,2*PKP_BDMNU1I,2*PKP_BDMNU_B|PKP_BDMNU5,PKP_4WRBD2(|L),2*PKP_ADMNU_B; F=EP6;
+  TX=IC 6102 "Fredro" Wroclaw <-> Warszawa (12.06.2004);						\
+    C=PKP_EP09_046,3*PKP_ADEMNU_145AB|PKP_ADEMNU|PKP_ADMNU6|PKP_ADHMNU|PKP_ADMNU3,PKP_4WRBD2(|L),	\
+      4*PKP_BDHMNU|PKP_BDMNU7;										\
+    F=EP6;
+  C=<PKP_SM42K,3*PKP_GAGST,PKP_SU42; F=D6;
+#Bytów 6.2004
+  TX=52100 "Wieniawski" Bydgoszcz <-> Lublin (12.06.2004);						\
+    C=PKP_EU07_113_2003,PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_BDMNU3L,					\
+      PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),PKP_4WRBD2(|L), PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),	\
+      2*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_DBS;							\
+    F=EP6;
+  C=PKP_SM42_468,7*PMPW_418V[O:FR_KO(19|24)]; V=3-4; F=D6;
+# Siedice 13.06.2004
+  C=PKP_ET22B,20*DB_RGS3910A[O:(18:C4R10|C4R_NYKL),,12]; F=E6;
+# Idzikowice 20.06.2004
+  TX=Os. 516 Zgorzelec <-> Wroclaw (24.06.2004);							\
+    C=PKP_SU46A,PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),(<PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD);	\
+    F=DP6;
+  TX=Os. 417 Lublin <-> Stalowa Rozwadów (anno 2004);							\
+    C=PKP_SU45_089,2*PKP_BDH; F=DP6;
+  C=PKP_EU06,4*PKP_WLAB_5; F=EP6;
+  TX=Os. 825 Rzeszów <-> Jaslo (anno 2004);								\
+    C=PKP_SU42,PKP_B_5,PKP_B_5; F=DP6;
+#YIKES! That SU42 needs work!
+  TX=Os. 728 Jaslo <-> Stróze (anno 2004);								\
+    C=<PKP_EN57_1018FL,PKP_EN57_1018M,PKP_EN57_1018F; F=LU6;
+  C=PKP_ET22_340,25*PKP_EAMOS; F=E6;
+  C=PKP_ET22A,3*G_HBBILLNS,2*M_245HBBILLNS,3*SJ_LAAIS831,G_EAS3B,SJ_LAAIS921,				\
+      3*G_RGS2[OB:WOOD16|FR_WOOD9|WOOD29,,12],PKP_GBS;							\
+    F=E6;
+# Inowroclaw 03.07.2004
+# M_245HBBILLNS should be PKP Hbillns reko
+  TX=Os. 138 Poznan <-> Konin (04.07.2004);								\
+    C=PKP_EU07_113_2003,3*PKP_BDHPMNU; F=EP6;
+  TX=Ex 6112 "Slowacki" Warszawa Wschodnia <-> Wroclaw (04.07.2003);					\
+    C=PKP_EP09_047,PKP_ADNU1LUX,PKP_ADMNU_B|PKP_ADMNU7,PKP_4WRBD2(|L),PKP_BDMNU_144A,			\
+      3*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L);								\
+    F=EP6;
+  TX=Os. 132 Poznan <-> Kolo (04.07.2004);								\
+    C=PKP_EU07_007,3*PKP_BDHPMNU; F=EP6;
+  TX=RegioPlus 143 Konin <-> Poznan (04.07.2004);							\
+    C=<PKP_ED72BFL,PKP_ED72B1,PKP_ED72B2,PKP_ED72AF; F=EU6;
+  C=PKP_SM03,4*PKP_UGPS; V=2; F=D6;
+# Poznan Franowo 05.07.2004
+  C=PKP_ET22A,PKP_GAGST,2*G_EAS3B,2*PKP_ZAES_DEC,KVG_STPL,G_EAS3B; F=E6;
+# Poznan 07.07.2004
+  TX="Baltyk" Gydnia <-> Poznan (11.07.2004);								\
+    C=PKP_ET22B,2*PKP_A1,PKP_4WRBD2(|L),5*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_5_PDN101CH1(|L); F=EP6;
+  C=PKP_ET22A,PKP_RES,PKP_EAOS,2*HABISTW,6*PKP_EAOS,19*PKP_EAMOS,PKP_EAOS,HABISTW,PKP_RES, 3*PKP_EAMOS,	\
+      HABISTW;												\
+    F=E6;
+#20.8.2004 x <-> Szczecin
+  TX=Ex. 7110 "Lubuszanin" Zielona Gora <-> Warszawa Gdanska (23.08.2004);				\
+    C=PKP_EP08_013,2*PKP_ADNU1LUX,PKP_4WRBD2(|L),5*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L); F=EP6;
+  C=PKP_EP07_335,PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),PKP_BDH|PKP_BHT,				\
+      PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),PKP_BDH|PKP_BHT, PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),	\
+      PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L);								\
+    F=EP6;
+# Malonskie Natalin 30.08.2004
+  C=PKP_SM31(|L),3*G_EAS3B,PKP_SIKKPS,8*G_EAS3B; F=DZZ6;
+# Zawiercie 31.08.2004
+  TX=Os. 125 Kraków Gl. <-> Rzeszów (anno 2004);							\
+    C=PKP_EP07~KC,3*PKP_BDHPUMN; F=EP6;
+  C=PKP_ST44_313,30*PKP_EAOS[O:FR_COAL(1|2)],PKP_SM42K; F=D6;
+#12.10.2004
+  TX=Ex 13401 "Karlowicz" Warszawa Wsch. <-> Zakopane (anno 2004);					\
+    C=PKP_EP08_013,3*PKP_B_5,PKP_A_5,PKP_4WRBD2(|L),PKP_A_5,3*PKP_B_5; F=EP6;
+  C=PKP_SM42K,DR_4RGS3910RA[OB:GKW_MBXD2,,12]; F=D6;
+#19.11.2004
+  C=PKP_ET41,2*PKP_SM42_468; V=3; F=6;
+  C=PKP_SM42K,(<PKP_CATTF1,PKP_BH_RYFL_CAT1,PKP_BH_RYFL_CAT2,PKP_CATTF2); F=D6;
+#31.1.2005 Zyrardów
+  TX=RegioPlus "Orlik" Kraków Gl. <-> Czestochowa Os. (anno 2005);					\
+    C=2*(<PKP_EN57_1913FL,PKP_EN57_1913M,PKP_EN57_1913F); F=LU6;
+  POOL=PKP_POS_2005; F=6;
+  TX=P 614 Skarzysko-Kamienna <-> Radom (13.2.2005);							\
+    C=<PKP_EN57FL,PKP_EN57M[PFU],PKP_EN57F; F=LU6;
+  TX=TLK 8116 "Pobrzeze" Kolobrzeg <-> Warszawa Zachodnia (anno 2005);					\
+    C=PKP_EP07_187|PKP_EU07_(007|113),(<2*PKP_ADNU1LUX,PKP_6WRBD(|L),6*PKP_BDMNU1I); F=EP6;
+  POOL=PKP_EX_2005; F=6;
+  TX=Dzialdowo <-> Warszawa Wsch. (07.06.2005);								\
+    C=2*(<PKP_EN57_1018FL,PKP_EN57_1018M[PFU],PKP_EN57_1018F); F=LU6;
+  C=PKP_ET22A,PKP_GBS,PKP_RES,5*KVG_795(6310|7089|7378),KVG_(7852541|STPL),KVG_795(6310|7089|7378),	\
+      KVG_(7852541|STPL),9*KVG_795(6310|7089|7378),2*KVG_(7852541|STPL),7*KVG_795(6310|7089|7378),	\
+      PKP_RES;												\
+    F=E6;
+  POOL=PKP_OS_2005; F=6;
+  TX=Os. 85160 Szczein Port Centralny <-> Zajaczkowo Tczewskie (4.4.2005);				\
+    C=PKP_ST44_313,PKP_SM42K,G_SGS4[O:C4_NOL,<7][O:C2R_OOCL,>192,12],8*G_SGS4[O:C4_MAERSK(1|2)], G_ES1,	\
+      6*CFR_ZAS5|CFR_ZAS6,PKP_SIKKPS,BASF_AMMONIAK[B:68,30,21,7],4*KVG_STPL,PKP_SIKKPS,			\
+      8*PKP_EAOS[O:FR_KO10];										\
+    F=D6;
+  C=PKP_ST43_(056|228|404)(|L),PKP_SIKKPS; F=D6;
+#TKMSc 4467 Pruszcz Bagienica <-> X
+  C=PKP_ET22A,3*CD_NAS,G_EAS1D,CSD_RA_LOUH,G_EAS1D,G_RMMS,5*G_EAS1D,G_EAS1D,G_RMMS; F=E6;
+#21.05.2005 Wronki
+  TX=Nowy Sacz <-> Muszyny (14.06.2005);								\
+    C=PKP_ET22_340,2*SNCF_S58,SNCF_RILS206,2*SNCF_S58, 6*G_RILS_L|DBAG_RILS652|SNCF_RILS206|DB_RILS652,	\
+      G_EAS2A,PKP_GBS,4*CFR_ZAS(5|6|7|8),G_RMMS, 2*GB15(C|D),2*CD_ZTS;					\
+    F=E6;
+#should be PKP Cargo special livery.
+  POOL=PKP_OS_2005; F=6;
+  TX=Kraków Prokocim <-> Lazy (20.06.2005);								\
+    C=PKP_EU06_01[PFU],PKP_EP07_187,3*G_EAS3B,2*G_RES2,2*PKP_SIKKPS,PKP_SMMS,3*CSD_RA_LOUH, 2*G_EAS3B,	\
+      4*GT08VTG[B:20,28,21,6],3*G_EAS3B,3*GT08VTG[B:20,28,21,6],G_EAS3B,SBB_G26, 8*PKP_FALNS(1|2|3);	\
+    F=E6;
+  TX=TNGS 5196 Zajaczkowo Tczewskie <-> Bialystok (03.07.2005);						\
+    C=PKP_SU46A,2*PKP_GBS,7*CFR_ZAS(3|4|5|6),G_EAS3A,2*G_SGS4[O:C4004|C4005|C4006|C4007|C4008,*,12],	\
+      G_SGS4[O:C3T_02|C3T_03|C3T_05,<7][O:C3T_02|C3T_03|C3T_05,>192,12],ZAS5,2*PKP_SIKKPS;		\
+    F=D6;
+  TX=Os. 33223 Gorzów Wielkopolski <-> Kostrzyn (18.07.2005);						\
+    M=CHANGE; C=PKP_BDMNU3L,2*PKP_BDH; C1=PKP_SM42_468; C2=PKP_SU45_089; F=O6;
+  C=PKP_SA105_101; F=DU6;
+# Gorzów Wielkopolski (18.07.2005)
+  TX=Os. 232 Rzepin <-> Poznan Gl. (19.07.2005);							\
+    C=PKP_EU07_027,2*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_BDH, 2*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L);	\
+    F=EP6;
+  TX=Os. 87230 Kostrzyn <-> Rzepin (19.07.2005);							\
+    C=(<PKP_EN57_1018FL,PKP_EN57_1018M,PKP_EN57_1018F),(<PKP_EN57BYDFL,PKP_EN57BYDM,PKP_EN57BYDF); F=LU6;
+  TX=Os. 5980 Rzepin <-> Frankfurt (O) (19.07.2005);							\
+    C=PKP_SU45_089,2*PKP_BHT; F=DP6;
+  POOL=PKP_OS_2005; F=6;
+  TX=Os. 5519 Görlitz <-> Wroclaw Gl. (22.07.2005);							\
+    C=PKP_SU46A,2*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),		\
+      2*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L);								\
+    F=DP6;
+  C=PKP_ST43_(056|228|404)(|L),4*PKP_BDHPMNU; F=DP6;
+# 04.08.2005 Gorzów
+  TX=Gdansk <-> Gdynia Portu (15.08.2005);								\
+    C=PKP_ET22A,PKP_GAGST,DR_4RGS3910RBL[OB:STEEL1,*,12],2*PKP_RES,4*G_SGS4|M_454SGS3,8*CONT00; F=E6;
+  TX=Leszno <-> Poznan (19.08.2005);									\
+    C=PKP_EU07_113,3*PKP_BDHPMNU; F=EP6;
+  TX=TPGSc 58161 Zajaczkowo Tczewskie <-> Szczecin Port Centralny (09.09.2005);				\
+    C=PKP_ST44_313,DR_4RGS3910RA(|L),DB_3B_UAHS_VTG1L|DB_3B_UAHS_VTG1,3*SJ_KBPS761|SJ_KBPS741,		\
+      2*SNCB_TADS1|SNCB_TADS2,8*PKP_UGPS,2*PKP_SIKKPS,PKP_GBS,PKP_SIKKPS,KVG_STPL,5*PKP_GAGST;		\
+    F=D6;
+  TX=Os. 22481 Koscierzyna <-> Gdynia Port (14.09.2005);						\
+    C=PKP_ST44_313,PKP_GBS,DBAG_5RMMS663R(|L),VTG_CHLOR1[B:18,28,21,4][B:19,32,7,2],G_EAS1D, PKP_GAGST,	\
+      VTG_CHLOR1[B:18,28,21,4][B:19,32,7,2],2*PKP_GAGST,DR_4RGS3910RA(|L),PKP_GAGST, G_EAS3A;		\
+    F=D6;
+  POOL=PKP_OS_2005; F=6;
+  TX=TPGSc 85160 Szczecin Port Centralny <-> Zajaczkowo Tczewskie (21.09.2005);				\
+    C=PKP_ST44_313,G_EAS1D,KVG_STPL,PKP_ZAES_DEC,PKP_ZAES_DEC2,2*KVG_STPL,DR_4RGS3910A(|L),VTG_GAS1,	\
+      G_EAS1D,PKP_UGPS,4*G_EAS1D,PKP_EAOS,DRTDS, 3*G_EAS3A[OB:FR_WOOD11,<11,28][OB:FR_WOOD11[M],>126,28]; \
+    F=D6;
+  TX=P 9310 Zyrardow <-> Warszawa Wsch. (22.9.2005);							\
+    C=<PKP_EN57FL,PKP_EN57M[PFU],PKP_EN57F; F=LU6;
+  TX=P 12231 Warszawa Wsch. <-> Radom (12.10.2005);							\
+    C=2*(<PKP_EN57_1944FL,PKP_EN57_1944M[PFU],PKP_EN57_1944F); F=LU6;
+  C=PKP_SM42K,(G_SGS4|M_454SGS3|G_SGS1)[O:C4005,<7,12][O:C2R_ACL,>192,12],				\
+      (G_SGS4|M_454SGS3|G_SGS1)[O:C4R03,<7,12],M_443LGS[O:C2R16,*,11],					\
+      3*(G_SGS4|M_454SGS3|G_SGS1)[OB:C4_CAPITAL,*,11],							\
+      2*(G_SGS4|M_454SGS3|G_SGS1)[O:C2RT05,<7,12][O:C2RT05,*,12][O:C2RT05,>192,12],			\
+      G_LGS1[O:C3T_BUZZ,*,11],										\
+      3*(G_SGS4|M_454SGS3|G_SGS1)[O:C2RT05,<7,12][O:C2RT05,*,12][O:C2RT05,>192,12],			\
+      2*(G_SGS4|M_454SGS3|G_SGS1)[OB:C4_CAPITAL,*,11];							\
+    F=D6;
+#14.10.2005
+  C=PKP_ET22A,SJ_LAAIS921,6*G_HBBILLNS,HABISNORM,PKP_SMMS,CD_HBBILLNS,PKP_SIKKPS,5*DR_4RES3936R(|L),	\
+      DB_SFINS1(A|B|C),G_RILS_L,G_RGS2,4*PKP_UGPS;							\
+    F=E6;
+  C=2*LHS_ST44_2046,23*SZDOPEN; F=6;
+#22.10.2005 Zwierzyniec
+  POOL=PKP_IC_2005; F=6;
+  C=PKP_ST43_(056|228|404)(|L),DSB_EAOS1,PKP_GAGST,2*ZACGS; F=D6;
+  TX=TMZS 51682 Korsze <-> Raciaz (31.10.2005);								\
+    C=PKP_SU45_089,20*G_EAS3A[O:FR_PISEK|FR_PISEK[M]]; F=D6;
+  POOL=PKP_POS_2005; F=6;
+  C=PKP_SU45(|_089|_135),2*PKP_B(DH|HT); F=DP6;
+  C=PKP_ET22A,PKP_SMMS,3*CSD_RA_LOUH,VTG_4,M_ZAES_1(0|1|2|3|4|5)(|L),3*G_EAS3B,9*PKP_SIKKPS; F=E6;
+  TX=694 Czeremcha <-> Vysolo-Litovsk (anno 2005);							\
+    C=PKP_SN81_002; F=DU6;
+  C=PKP_SM42_468,3*G_HBBILLNS,3*G_EAS1A,2*ZACGS,2*G_EAS1A; F=D6;
+  POOL=PKP_EX_2005; F=6;
+  POOL=PKP_POS_2005; F=6;
+  C=PKP_ET22A,2*PKP_SMMS,2*G_EAS3B,MINOL_7845444,VTG_7956816,PKP_GAGST; F=E6;
+  POOL=PKP_OS_2005; F=6;
+  TX=TLK 18411 "Posejdon" Kolobrzeg <-> Warszawa Zach. (anno 2005);					\
+    C=PKP_EP07_187|PKP_EU07_(007|113),(<2*PKP_ADNU1LUX,PKP_6WRBD(|L),6*PKP_BDMNU1I); F=EP6;
+  POOL=PKP_EX_2005; F=6;
+  TX=TLK 83702 Kolobrzeg <-> Kraków Gl. (anno 2005);							\
+    C=PKP_EP07_187|PKP_EU07_(007|113),3*PKP_BDMNU1I,PKP_4WRBD2(|L),PKP_BDMNU1I,2*PKP_BC_6, 2*PKP_WLAB_6, \
+      PKP_BC_6;												\
+    F=EP6;
+  TX="Sienkiewicz" Rozwadów <-> Warszawa Wsch. (anno 2005);						\
+    C=PKP_EU07_(007|027|113|113_2003|132|141|169|403|404|404_2003|524),					\
+      PKP_5_BWXZD(1|1L|2|2L|3L)|PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),					\
+      PKP_5_ADU112AG(1|1L|2|2L)|PKP_5_ADNU1(|L),							\
+      2*PKP_5_BWXZD(1|1L|2|2L|3L)|PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L);					\
+    F=EP6;
+  POOL=PKP_POS_2005; F=6;
+  TX=Poznan <-> Kalisz (02.12.2005);									\
+    C=<PKP_ED73_001FL,PKP_ED73_001B1,PKP_ED73_001B2,PKP_ED73_001F; F=EU6;
+  C=PKP_ET22B|PKP_ET22_114,4*G_RILS_L,PKP_SIKKPS,HABISNORM,3*G_ES1,2*PKP_UGPS,8*G_EAS2B,ZACGS; F=E6;
+  C=PKP_SU45_089,2*PKP_BHT; F=DP6;
+  POOL=PKP_IC_2005; F=6;
+  TX=RKPEi 34800 Kraków Pl. <-> Oswiecim (anno 2005);							\
+    C=PKP_EP07_187|PKP_EU07_(007|113),3*(<PKP_BHP2L~KD,2*PKP_BHP2M~KD,PKP_BHP2~KD); F=EP6;
+  C=<PKP_EN57_1018FL,PKP_EN57_1018M,PKP_EN57_1018F; F=LU6;
+  TX=SWSr 33966 Kraków Gl. <-> Kraków Pl. (anno 2005);							\
+    C=PKP_SM42_468,PKP_BC_6,PKP_WLAB_(5|6),2*PKP_B_6,PKP_A_6,2*PKP_B(DH|HT); F=DP6;
+  C=PKP_SM42_468,2*ZACGS; F=D6;
+  TX=ROPJr 55621 Kraków Gl. <-> Zakopane (anno 2005);							\
+    C=2*(<PKP_EN57_1018FL,2*PKP_EN57_1018M,PKP_EN57_1018F); F=LU6;
+  POOL=PKP_POS_2005; F=6;
+  TX=TLK 38704 Kraków Gl. <- Swinoujscie Port -> Berlin Lichtenberg (anno 2005);			\
+    C=PKP_EU07_132,2*PKP_WLAB_6,2*PKP_BC_6,2*PKP_ADMNU_145A,PKP_4WRBD2(|L),2*PKP_ADMNU_145A, PKP_BC_6,	\
+      PKP_WLAB_6;											\
+    F=EP6;
+  TX=HOT 36 "Józef Chelmonski" Kraków Gl. <-> Kiev Pass. (anno 2005);					\
+    C=PKP_EU07_007_2003,3*PKP_305AB,2*PKP_WLABDIMNU; F=EP6;
+  POOL=PKP_IC_2005; F=6;
+  TX=EC 205 "Sobieski" Kraków Gl. <-> Wien Südbhf. (anno 2005);						\
+    C=PKP_EU07_(403|404|524)|PKP_EP07_544,OBB_29XX_6,OBB_3070_021|OBB_3071(A|B)(|L); F=EP6;
+  POOL=PKP_OS_2005; F=6;
+  TX=Tarnobrzeg <-> Przeworsk (anno 2005);								\
+    C=<PKP_EN57_1018FL,PKP_EN57_1018M,PKP_EN57_1018F; F=LU6;
+  TX="Telimena" Warszawa <-> Lodz Fabryczna (07.01.2006);						\
+    C=PKP_EU07_404_2003,PKP_5_BWXZD1(|L)|PKP_5_BWXZD2(|L)|PKP_5_BWXZD3L,				\
+      PKP_5_ADU112AG(1|2)(|L)|PKP_5_ADNU1(|L),PKP_5_BWXZD1(|L)|PKP_5_BWXZD2(|L)|PKP_5_BWXZD3L;		\
+    F=EP6;
+  C=PKP_ST48,(<16*PKP_ZAES_DEC2,PKP_ZAES_DEC,PKP_ZAES_DEC2,PKP_ZAES_DEC); F=DZ6;
+  C=PKP_ET22A,PKP_GAGST,14*G_KS1; F=E6;
+#Gdansk Stocznia 19.01.2006
+  TX=Gdynia <-> Koscierzyna (12.05.2006);								\
+    C=PKP_SM42_468,3*PKP_B(DH|HT); F=DP6;
+  TX="Bursztyn" Grudziadz <-> Slupsk (12.05.2006);							\
+    C=PKP_EP07_(187|522|544),3*PKP_B(DH|HT); F=EP6;
+  TX="Parseta" Olsztyn <-> Kolobrzeg (12.05.2006);							\
+    C=PKP_ET22A,2*PKP_BDMNU3(|L),PKP_A1,2*PKP_BDMNU3(|L); F=EP6;
+  TX="Bolko" Lublin <-> Warszawa (21.12.2006);								\
+    C=PKP_ET22A[PFU],PKP_A1,PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_BDMNU3,				\
+      PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L);								\
+    F=EP6;
+  C=PKP_ST44AL|PKP_ST44A,PKP_GAGST,22*PKP_ZAES_DEC2,PKP_GAGST,WASC_MECHL,PKP_EAOS; F=D6;
+# Gdansk 30.12.2006
+  C=PKP_SM42_468,5*G_EAS3B; V=3-5; F=D6;
+# Zukowo 10.01.2007
+  C=PKP_SM30,2*G_RGS2,2*PKP_RES,G_RGS2; V=2-3; F=D6;
+# Gdansk Kokoszki 19.01.2007
+  C=PKP_SU45_089,2*PKP_BDHPMNU; F=DP6;
+# Kwidzyn 20.01.2007
+  TX=Sp. 1800 Opole <-> Ostruzna (27.01.2007);								\
+    C=PKP_SU42,PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L),PKP_B(DH|HT); F=DP6;
+  TX="Sukiennice" Gdynia <-> Krakow (05.02.2008);							\
+    C=PKP_EU07_007_2003,2*PKP_5_BDNU1(|L),PKP_BDMNU3(|L),PKP_5_BDNU1(|L),PKP_5_ADNU1(|L),		\
+      PKP_5_BWXZD1(|L);											\
+    F=EP6;
+# PKP_BDMNU3 should be manual door, ribbed roof
+  C=<PKP_EN71BNFL,PKP_EN71BNM,PKP_EN71BNM[PD],PKP_EN71BNF; F=LU6;
+# Gdynia Cisowa 08.02.2008
+  TX=Wejherowo <-> Gdansk (15.02.2008);									\
+    C=2*(<PKP_EW58FL,PKP_EW58M,PKP_EW58F); F=LU6;
+  TX=Malbork <-> Gdynia (19.02.2008);									\
+    C=2*(<PKP_EN57BYDFL,PKP_EN57BYDM,PKP_EN57BYDF); F=LU6;
+  TX=Luzino <-> Goscicino (22.02.2008);									\
+    C=CTL_182_118,12*KVG_STPL|KVG_7852541,PKP_ZAES_DEC,7*KVG_STPL|KVG_7852541; F=E6;
+  TX="Bryza" Olsztyn <-> Szczecin (22.02.2008);								\
+    C=PKP_EU07_113_2003,PKP_5_ADNU1L|PKP_5_ADNU1,3*PKP_BDMNU3L|PKP_BDMNU3,PKP_5_BDNU1L|PKP_5_BDNU1;	\
+    F=EP6;
+# PKP_BDMNU3 should be manual door, ribbed roof
+  TX="Rybak" Bialystok <-> Szczecin (22.02.2008);							\
+    C=PKP_EU07_113_2003,PKP_DBS,2*PKP_5_BDNU1L|PKP_5_BDNU1,PKP_BDMNU3L|PKP_BDMNU3,			\
+      PKP_5_BDNU1L|PKP_5_BDNU1,PKP_ABDNU1,PKP_A1;							\
+    F=EP6;
+# PKP_BDMNU3 and PKP_A1 should be manual door, ribbed roof
+  C=PKP_EU07_404_2003,PKP_ADNU1LUX,PKP_6WRBD(|L),3*PKP_BDMNU1I; F=EP6;
+# Gdansk 01.04.2008
+# B's should all be 111 in IC livery
+  TX=Gdynia <-> Malbork (34.04.2008);									\
+    C=PKP_EP07_522,5*PKP_5_BDU111A1(|L)|PKP_5_BDNU1(|L); F=EP6;
+
+
+}
+%ENDPOOL;

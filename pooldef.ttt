@@ -1,194 +1,109 @@
-$REQUIRE GETOPT.TTT
+$REQUIRE POOLDEF0.TTT
 $REQUIRE JMD_DEF.TTT
-#--------------------------------------------------------------------------
-{H?
-$POOL N=POOL_HUN;
-$INCLUDE JMD_HUNGARY.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
-}
-{D&(E1|E2)?
-$POOL N=POOL_GHIST;
-$INCLUDE JMD_GHIST.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
-}
-{BRD?
-$POOL N=POOL_BRD;
-$INCLUDE JMD_BRD.TTT
-$ENDPOOL  
-#--------------------------------------------------------------------------
-}
-{DDR?
-$POOL N=POOL_DDR;
-$INCLUDE JMD_DDR.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
-}
+
+$REQUIRE MLG_SNCF_DEF.TTT
+$REQUIRE MLG_SNCFS_DEF.TTT
+$REQUIRE MLG_SNCFQ_DEF.TTT
+$REQUIRE MLG_SNCFX_DEF.TTT
+$REQUIRE MLG_D_DEF.TTT
+$REQUIRE MLG_INTL_DEF.TTT
+$REQUIRE MLG_PRIV_DEF.TTT               
+
+%*DEF(ADDPOOL(N,E)=$ADDPOOL N=%N;)
+%*DEF(ENDPOOL=$ENDPOOL)
+
+{H?    			$REQUIRE JMD_HUNGARY.TTT
+			$REQUIRE LB_HUNGARY.TTT  	}
+{D&(E1|E2)?     	$REQUIRE JMD_GHIST.TTT
+			$REQUIRE LB_GHIST.TTT		}
+{BRD&(E3|E4|E5|E6)?	$REQUIRE JMD_BRD.TTT
+			$REQUIRE LB_BRD.TTT		}
+{DDR&(E3|E4|E5)?	$REQUIRE JMD_DDR.TTT
+			$REQUIRE LB_DDR.TTT		}
+{CH?			$REQUIRE JMD_SWISS.TTT
+			$REQUIRE LB_SWISS.TTT		}
+{A?    			$REQUIRE JMD_AUSTRIA.TTT
+			$REQUIRE LB_AUSTRIA.TTT		}
+{GB?    		$REQUIRE JMD_BRITAIN.TTT
+			$REQUIRE LB_BRITAIN.TTT		}
+{F?			$REQUIRE JMD_FRANCE.TTT
+			$REQUIRE LB_FRANCE.TTT		}
+{B|L|NL?		$REQUIRE JMD_BENELUX.TTT
+			$REQUIRE LB_BENELUX.TTT		}
+{DK|N|S|SF?		$REQUIRE JMD_EUNORD.TTT
+			$REQUIRE LB_EUNORD.TTT		}
+{P|E?			$REQUIRE JMD_HISP.TTT
+			$REQUIRE LB_HISP.TTT		}
+{I?			$REQUIRE JMD_ITALY.TTT
+			$REQUIRE LB_ITALY.TTT 		}
+{CSD|CS|SK?		$REQUIRE JMD_CS.TTT
+			$REQUIRE LB_CS.TTT		}
+{PL?			$REQUIRE JMD_POLAND.TTT		
+			$REQUIRE LB_POLAND.TTT		}
+{IE|RO|SLO|HR|YU|BG|GR|HSH|TR|ASSD?
+			$REQUIRE JMD_EUOTHER.TTT
+			$REQUIRE LB_EUOTHER.TTT		}
+{SU|RZD|UZ|BCH|EVR|LDZ|LG|GEO|AZ|KAZ|MD?
+			$REQUIRE JMD_SU.TTT		
+			$REQUIRE LB_SU.TTT		}
+{USA?			$REQUIRE JMD_USA.TTT
+			$REQUIRE LB_USA.TTT		}
+{J|CN|SA?		$REQUIRE JMD_OTHER.TTT		}
+{J|CN|SA|USA|AS|AF?	$REQUIRE LB_OTHER.TTT		}
+{F|SU|CN|AS?		$REQUIRE ZSZ_OTHPOOL.TTT	}
+{J?			$REQUIRE ZSZ_JAPAN.TTT		}
 {CH?
-$POOL N=POOL_CH;
-$INCLUDE JMD_SWISS.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
+  $POOL N=MLG_CH; %POOLFLAGS; AP=CH_ENV;
+    $INCLUDE MLG_CH.TTT
+  $ENDPOOL 
 }
+
 {A?
-$POOL N=POOL_A;
-$INCLUDE JMD_AUSTRIA.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
+  $POOL N=MLG_A; %POOLFLAGS; AP=A_ENV;
+    $INCLUDE MLG_A.TTT
+  $ENDPOOL 
 }
-{GB?
-$POOL N=POOL_GB;
-$INCLUDE JMD_BRITAIN.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
-}
+
 {F?
-$POOL N=POOL_F	
-$INCLUDE JMD_FRANCE.TTT
-$ENDPOOL  
-#--------------------------------------------------------------------------
+  $POOL N=MLG_F3B; %POOLFLAGS; AP=F_ENV;
+    $INCLUDE MLG_SNCF3B.TTT
+  $ENDPOOL 
+
+  $POOL N=MLG_F4A; %POOLFLAGS; AP=F_ENV;
+    $INCLUDE MLG_SNCF4A.TTT
+  $ENDPOOL 
+
+  $POOL N=MLG_F4B; %POOLFLAGS; AP=F_ENV;
+    $INCLUDE MLG_SNCF4B.TTT
+  $ENDPOOL 
+
+  $POOL N=MLG_F5A; %POOLFLAGS; AP=F_ENV;
+    $INCLUDE MLG_SNCF5A.TTT
+  $ENDPOOL 
+
+  $POOL N=MLG_F5B; %POOLFLAGS; AP=F_ENV;
+    $INCLUDE MLG_SNCF5B.TTT
+  $ENDPOOL 
+
+  $POOL N=MLG_F6; %POOLFLAGS; AP=F_ENV; [WE=F_GCAT,[W=X]][WM=[FG-=PLM_3RBG_M:..,-1;],[W=X]]; 
+    $INCLUDE MLG_SNCF6.TTT
+  $ENDPOOL 
 }
+
 {L?
-$POOL N=POOL_L
-$INCLUDE JMD_LUXEMBURG.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
+  $POOL N=MLG_L; %POOLFLAGS; AP=L_ENV;
+    $INCLUDE MLG_L.TTT
+  $ENDPOOL 
 }
-{B?
-$POOL N=POOL_B
-$INCLUDE JMD_BELGIUM.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
-}
+
 {NL?
-$POOL N=POOL_NL
-$INCLUDE JMD_HOLLAND.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
-}
-{DK?
-$POOL N=POOL_DK
-$INCLUDE JMD_DENMARK.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
-}
-{N?
-$POOL N=POOL_N
-$INCLUDE JMD_NORWAY.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
-}
-{S?
-$POOL N=POOL_S
-$INCLUDE JMD_SWEDEN.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
-}
-{SF?
-$POOL N=POOL_SF
-$INCLUDE JMD_FINLAND.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
-}
-{P?
-$POOL N=POOL_P
-$INCLUDE JMD_PORTUGAL.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
-}
-{E?
-$POOL N=POOL_E
-$INCLUDE JMD_SPAIN.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
-}
-{I?
-$POOL N=POOL_I
-$INCLUDE JMD_ITALY.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
-}
-{CSD|CS?
-$POOL N=POOL_CS
-$INCLUDE JMD_CZECH.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
-}
-{SK?
-$POOL N=POOL_SK
-$INCLUDE JMD_SLOVAKIA.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
-}
-{PL?
-$POOL N=POOL_PL
-$INCLUDE JMD_POLAND.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
-}
-{RO|SLO|HR|YU|ASSD|BG|HSH|GR|TR?
-$POOL N=POOL_BALKAN
-$INCLUDE JMD_BALKAN.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
-}
-{SU|RZD|UZ|EVR|LDZ|LG|BCH?
-$POOL N=POOL_SU
-$INCLUDE JMD_USSD.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
-}
-$POOL N=POOL_EU;
-$INCLUDE JMD_INTERNAT.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
-{USA?
-$POOL N=POOL_USA;
-$INCLUDE USA.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
-}
-{F?
-  {E3?
-$POOL N=POOL_FS
-$INCLUDE MLG_S.TTT
-$ENDPOOL  
-#--------------------------------------------------------------------------
-  }
-  {E5?
-$POOL N=POOL_FQ
-$INCLUDE MLG_Q.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
-  }
-  {E6|E7?
-$POOL N=POOL_FX
-$INCLUDE MLG_X.TTT
-$ENDPOOL
-#--------------------------------------------------------------------------
-  }
+  $POOL N=MLG_NL; %POOLFLAGS; AP=[WE=NL_CAT,[W=X]];
+    $INCLUDE MLG_NL.TTT
+  $ENDPOOL 
 }
 
-$DEF Q_H=[POOL=POOL_HUN][WE=M_CAT]
-$DEF Q_D=[POOL=POOL_GHIST][WE=D_CAT]|[POOL=POOL_BRD][WE=D_CAT]|[POOL=POOL_DDR][WE=D_CAT]
-$DEF Q_CH=[POOL=POOL_CH][WE=SBB_CAT]
-$DEF Q_F=[POOL=POOL_FS][WE=F_CAT]|[POOL=POOL_FQ][WE=F_CAT]|[POOL=POOL_FX][WE=F_CAT]
-$DEF Q_B=[POOL=POOL_B][WE=F_CAT]
-$DEF Q_L=[POOL=POOL_L][WE=F_CAT]
-$DEF Q_NL=[POOL=POOL_NL][WE=F_CAT]
-$DEF Q_N=[POOL=POOL_N][WE=CATENARY]|[POOL=POOL_S][WE=CATENARY]|[POOL=POOL_SF][WE=CATENARY]
-$DEF Q_I=[POOL=POOL_I][WE=CATENARY]
-
-$DEF QP=Q_H|Q_D|Q_F|Q_NL
-$SET QP={H|BRD|DDR|F|NL?1?0}
-
-$DEF QH=Q_D|Q_F|Q_B|Q_L|Q_I
-$SET QH={BRD|DDR|F|B|L|I?1?0}
-
-$DEF QM=Q_CH|Q_I
-$SET QM={CH|I?1?0}
-
-$DEF QN=Q_N
-$SET QN={N|S|SF?1?0}
-#--------------------------------------------------------------------------
+{B?
+  $POOL N=MLG_B; %POOLFLAGS; AP=[WE=NL_CAT,[W=X]];
+    $INCLUDE MLG_B.TTT
+  $ENDPOOL 
+}

@@ -1,0 +1,71 @@
+$OPTGDEF 1
+$REQUIRE ZSZ_DEF.TTT
+#------------------------------------------------------------------------------
+#
+# Wuppertal Schwebebahn
+#        (Lars Boﬂhammer)
+$SCENE LC=5; DY=250; YDIR=U; SEQ=2; DX=1949;								\
+  BG=((LAMP10,200):..; (40,D_MONSCHAU06A,D_MONSCHAU07A,510,D_H035,AU_CLUNES_RSLB,210,D_BWG004):,+6;	\
+    280,NL_H050_1,269,NL_SPOORZICHT_1:,+6; CS_H001,D_MUNCHEN01A,D_MUNCHEN02B:15;TREE83,10,TREE38:85,+6;	\
+    TREE80:,+6;BGPIC\WUPPERTAL2.JPG);
+  $PATH Y=6; LC=3; FG=(STREET01:..,-6;FL_SP_F:..,-4;#DU_STOP1:15;B_SHELTER:15,3);
+    M=STOP; POOL=POOL_WUPSTRABR; D=R; P=20; TB=6-10;
+  $ENDPATH 
+  $PATH Y=6; LC=3;											\
+    BG=(B_SHELTER:49,3;DU_STOP1:49;20,13*FENCE8,120,3*FENCE8,34,35*FENCE8,12;				\
+      (D_FABRIK01A,80,D_FABRIK01A,700):,-34);
+    M=STOP; POOL=POOL_WUPSTRABL; D=L; P=40;
+  $ENDPATH 
+  $PATH Y=40; LC=3;											\
+    FG=(98,3*(WUP_PILLAR4,298),WUP_PILLAR5,928,WUP_PILLAR5,298,3*(WUP_PILLAR4,234):,-40;		\
+      WUP_ST_WERTHERBR:,-34);
+    M=STOP; POOL=POOL_WUPR; D=R; P=*50;
+  $ENDPATH 
+  $PATH Y=40; LC=3; FG=4*WUP_TRACK3,330,4*WUP_TRACK3,8:,43;
+    M=STOP; POOL=POOL_WUPL; D=L; P=*50; TB=6-10;
+  $ENDPATH 
+$ENDSCENE 
+#------------------------------------------------------------------------------
+#
+# Disney monorail (Brian Clough)
+#
+$SECTION LC=1;
+  $GROUP LC=2; AB=130; BL=61;										\
+    BG=(GREEN1:..,^-39,#; GREEN1:..,-39,#; GREEN2:..,14,<=>,88,1120; DMR_BEAMWAY:..,^14,0;		\
+      310[OMV:,DMR_COLUMN,,13,,50]:..,^-11,0);								\
+    AP=SKYD;
+    D=L; C=<DMR_(RED|BLK|BLU|GLD|ORG|PUR|SIL|YEL|GRN|PIN|LIM|COR)(L,4*T,); V=6-9;
+  $ENDGROUP 
+$ENDSECTION 
+#------------------------------------------------------------------------------
+#
+# Yurikamome
+#        (Hayato)
+$SCENE YDIR=U; DY=130; BG=(FIELD01:..,6; RAIL_YURIKAMOME:..,6,0; SEE03:..,9,0; STREET01:..);		\
+  FG=RAIL_YURIKAMOME2:..,70;
+  $PATH Y=70; LC=2; BG=ST_YURIKAMOME:<0,-64;
+    M=STOP; D=L; C=<YURI_CL,3*YURI_M,YURI_01,YURI_C; P=>0+286;
+  $ENDPATH 
+  $PATH Y=70; LC=2;
+    M=OPEN; D=R; C=<YURI_CL,3*YURI_M,YURI_01,YURI_C; P=>0+286;
+  $ENDPATH 
+$ENDSCENE 
+#------------------------------------------------------------------------------
+#
+# Tokyo Monorail
+#        (Hayato)
+$POOL N=POOL_TOKM;
+  C=<TOKM_700TC1L,TOKM_700M1,TOKM_700M2,TOKM_700M3,TOKM_700M4,TOKM_700TC2;
+  C=<TOKM_1000TCL,TOKM_1000M1,TOKM_1000M2,TOKM_1000M1,TOKM_1000M2,TOKM_1000TC;
+  C=<TOKM_1000NTCL,TOKM_1000NM1,TOKM_1000NM2,TOKM_1000NM1,TOKM_1000NM2,TOKM_1000NTC;
+  C=<TOKM_2000TCL,4*TOKM_2000M1,TOKM_2000TC;
+$ENDPOOL 
+
+$SCENE YDIR=U; DY=130; BG=(FIELD01:..,6; SEE03:..,9,0; STREET01:..); FG=ST_TOKYOMONO:<0,6;
+  $PATH Y=67; LC=2; BG=RAIL_TOKYOMONO:..,-61,0;
+    M=OPEN; POOL=POOL_TOKM; D=L; P=>0+286;
+  $ENDPATH 
+  $PATH Y=67; LC=2;
+    M=STOP; POOL=POOL_TOKM; D=R; P=>0+286;
+  $ENDPATH 
+$ENDSCENE 

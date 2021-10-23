@@ -1,0 +1,359 @@
+$REQUIRE POOLDEF.TTT
+$REQUIRE ZSZ_DEF.TTT
+
+%*DEFINE(BDWHLST1=
+%BDWH(ag_134m,>,QP)
+%BDWH(ag_144a,<,QP)
+%BDWH(ag_158m,>,QM)
+%BDWH(ag_159a,<,QP)
+%BDWH(ag_165a,<,QP)
+%BDWH(ag_165b,>,QP)
+%BDWH(ag_197a,<,QH)
+%BDWH(ag_197b,>,QH)
+%BDWH(ag_198a,<,QP)
+%BDWH(ag_198b,>,QP)
+%BDWH(ag_79a,<,QP)
+%BDWH(ag_79b,>,QP)
+%BDWH(ag_87a,<,QP)
+%BDWH(ag_88a,<,QP)
+%BDWH(ag_89a,<,QP)
+%BDWH(cm_142m,<,QH)
+%BDWH(hills_981227,>,QP)   
+%BDWH(hl_132a,<,QH)
+%BDWH(hl_132b,>,QH)
+%BDWH(hl_133a,<,QP)
+%BDWH(hl_133b,>,QP)
+%BDWH(hl_140a,<,QP)
+%BDWH(hl_140b,>,QP)
+%BDWH(hl_141a,<,QH)
+%BDWH(hl_141b,>,QH)
+%BDWH(hl_162a,<,QP)
+%BDWH(hl_162b,>,QP)
+%BDWH(hl_162c,>,QP)
+%BDWH(hl_120a,<,QN)
+%BDWH(hl_130m,>,QP)
+%BDWH(hl_175a,<,QH)
+%BDWH(hl_175b,>,QH)
+%BDWH(hl_180m,>,QH)
+%BDWH(hl_199a,<,QH)
+%BDWH(hl_199b,>,QH)
+%BDWH(hl_981014a,<,QP)
+%BDWH(hl_981014b,>,QP)
+%BDWH(mh_113m,>,QM)
+%BDWH(mh_137d,<,QH)
+%BDWH(mh_137e,>,QH)
+%BDWH(mh_143c,<,QH)
+%BDWH(mh_143d,>,QH)
+%BDWH(mh_145a,<,QP)
+%BDWH(mh_145b,>,QH)
+%BDWH(mh_146m,>,QP)
+%BDWH(mh_147b,>,QH)
+%BDWH(mh_169m,<,QH)
+%BDWH(mh_174a,<,QM)
+%BDWH(mh_174b,>,QM)
+%BDWH(mh_24m,>,QN)
+%BDWH(mh_83a,<,QM)
+%BDWH(mh_83d,>,QM)
+%BDWH(mh_83e,>,QM)
+%BDWH(mh_83f,>,QM)
+%BDWH(mh_86d,>,QM)
+%BDWH(mh_86e,>,QM)
+%BDWH(mh_86f,>,QM)
+%BDWH(mt_195a,<,QM)
+%BDWH(mt_200a,<,QM)
+%BDWH(mt_200b,>,QM)
+%BDWH(mt_41a,<,QM)
+%BDWH(mts_980510,>,QM)
+%BDWH(mts_981205a,<,QM)
+%BDWH(mts_981205b,>,QM)
+%BDWH(rh_100a,<,QN)
+%BDWH(rh_184m,<,QN)
+)
+
+%*DEFINE(BDHWLST2=
+%BDWH(ag_107m,>)
+%BDWH(ag_110a,<)
+%BDWH(ag_110b,>)
+%BDWH(ag_159b,>)
+%BDWH(ag_186a,<)
+%BDWH(ag_186b,>)
+%BDWH(cm_116a,<)
+%BDWH(cm_116b,>)
+%BDWH(cm_117m,>)
+%BDWH(cm_118m,>)
+%BDWH(cm_121m,<)
+%BDWH(cm_124m,>)
+%BDWH(cm_139a,<)
+%BDWH(cm_139b,>)
+%BDWH(cm_172m,<)
+%BDWH(cm_173b,<)
+%BDWH(cm_183m,<)
+%BDWH(cm_193a,<)
+%BDWH(cm_193b,>)
+%BDWH(cm_196a,<)
+%BDWH(cm_196b,>)
+%BDWH(cm_97a,<)
+%BDWH(hl_166m,<)
+%BDWH(in_164a,<)
+%BDWH(in_164b,>)
+%BDWH(in_90a,<)
+%BDWH(in_90b,>)
+)
+
+%*DEFINE(BDWH(BG,SIDE,CMD)=
+{%CMD?
+$SECTION LC=1; DX=1852;
+  AP=%CMD;[M=SIMPLE]; BG=(BGPIC/%BG.JPG:,,%SIDE,20; @@ TRBED12:..,^0;); \
+	AB=407; BL=40; 
+$ENDSECTION	
+}
+)
+
+$DEF BDWHBG= \
+	[BG-=BGPIC\AG_79A.JPG:..,-70,<=>,194,1872;][AB=270] | \
+	[BG-=BGPIC\AG_79B.JPG:,-50;][DX=1800][AB=290] | \
+	[BG-=BGPIC\AG_87A.JPG:,-50;][DX=1800][AB=290] | \
+    	[BG-=BGPIC\AG_88A.JPG:,-50;][DX=1800][AB=290] | \
+    	[BG-=BGPIC\AG_134M.JPG:,-160;][DX=1800][AB=180] | \
+    	[BG-=BGPIC\AG_144A.JPG:,-50;][DX=1800][AB=290] | \
+    	[BG-=BGPIC\AG_158M.JPG:,-40;][DX=1800][AB=300] | \
+    	[BG-=BGPIC\AG_159A.JPG:,-80;][DX=1800][AB=260] | \
+    	[BG-=BGPIC\AG_165A.JPG:,-60;][DX=1800][AB=280] | \
+    	[BG-=BGPIC\AG_165B.JPG:,-60;][DX=1800][AB=280]
+
+{QP|QH|QM|QN|I?
+  $SECTION LC=1;
+    {QP|QH|QM|QN?
+      $SECTION LC=1; SEQ=MQ;
+	%BDWHLST1;
+      $ENDSECTION 
+    }
+
+    {I?
+      $SECTION LC=1;
+#sonstige Szenen
+	$GROUP LC=2; AB=250;										\
+	  BG=(LAMP11:80;I_FACT06:90;									\
+	    I_STAZ6|I_STAZ7|I_STAZIONE_C|I_STAZIONE_C3|I_BRISIGHELLA|I_CANOSCIO|I_CESI|I_MONTECASTRILLI| \
+	    I_ORMEA|I_PISCILLE|I_SAN_SECONDO|I_SAN_SECONDOB|I_SAN_SEPOLCRO|I_UMBERTIDE:20;		\
+	    E_RENTERIA1:45; FS_MAR0:20,-4;SIF_FS3_2L:70; 20*I_MARCIAP;STELLWERK4B:65);			\
+	  FG=(TRBED11:..,^0;palo_tt:..,-4,#;TREE44:90,-4;30*STACCION:20,-4;FIELD01:..,-20); AP=BDWHBG;
+	  TX=FS cambio di trazione;									\
+	    M=change; D=R;										\
+	    C=FS_D2E|FS_DI92000|FS_DXE,									\
+	      3-5*(FS_BZ36000|FS_AZ50000E|FS_BZ38244E|FS_BZ33010DL|FS_ABZ_G~GI|FS_4A_B2100KT),		\
+	      (1:1|1:2|4:0)*(fs_ff|FS_GHMS6A);								\
+	    C1=FS_646N~GI|fs_e636; C2=fs_e554|fs_e431|fs_e432; P=60;
+	  TX=FS E 330, 333 Ep. 2;									\
+	    M=STOP; D=L; C=FS_E330K|FS_E333K,1-2*FS_CZ30000G,FS_BZ20000G,0-1*FS_AZ10000G; P=0+5;
+	  M=unit; D=r;											\
+	    C1=fs_e431|fs_e333,0-2*(FS_GHMS6A|fs_ff),0-2*FS_DZ88000CA,FS_ABZ64B|fs_52000is,		\
+	      3-5*(FS_BZ33010CL|FS_CZ33010BL|FS_BZ38244NL|FS_BZ38244DL);				\
+	    C2=fs_e332; D1=r; D2=l; P=>70; T1=3; T2=5;
+	  M=cut; D=r;											\
+	    C1=fs_e431|fs_e333,0-2*(FS_GHMS6A|fs_ff),0-2*FS_DZ88000CA,FS_ABZ64B|fs_52000is,		\
+	      3-5*(FS_BZ33010CL|FS_CZ33010BL|FS_BZ38244NL|FS_BZ38244DL);				\
+	    C2=fs_e332|fs_e330; D1=r; D2=r; T1=3; T2=5;
+	  M=unit; D=r;											\
+	    C1=fs_e431|fs_e333|fs_e432|fs_e330,0-1*FS_DZ88000CA,FS_ABZ64B|fs_52000is,			\
+	      3-5*(FS_BZ33010CL|FS_CZ33010BL|FS_BZ38244NL|FS_BZ38244DL);				\
+	    C2=fs_e551|fs_e554|FS_E331; D1=r; D2=r; P=<10; T1=3; T2=5;
+	  TX=FS;											\
+	    M=echange; D=r;										\
+	    C=0-1*(FS_DXE|FS_DUZ93100E),1-2*FS_4A_A1100,						\
+	      3-5*(FS_BZ33010DL|FS_ABZ_G~GI|FS_ABZ64500|FS_4A_B2100KT),0-1*FS_DXE;			\
+	    C1=FS_646N~GI[pd]|fs_e636[pd],0-1*(FS_DXE|FS_DUZ93100E); C2=fs_e431|fs_e432;		\
+	    C3=fs_e431|fs_e432; P=70;
+	  TX=FS;											\
+	    M=STOP; C=FS_TRIFASE,I3PR;
+	  TX=FS Ale 840 Bicorrenti con rinforzo di carrozze ordinarie;					\
+	    M=put; D=r; C=fs_ale840; C1=2*(FS_BZ38244NL|FS_BI35300NL); C2=fs_e551|fs_e554; P=<10-30;
+	  TX=FS E 554, 432;										\
+	    M=TURN; D=L; C=FS_DI92000,2*(FS_BZ38244E|FS_BZ69100EL); C1=FS_E432|FS_E554;
+	  TX=FS;											\
+	    M=echange; D=r;										\
+	    C=0-1*(FS_DXE|FS_DUZ93100E),1-2*FS_4A_A1100,						\
+	      3-5*(FS_BZ33010DL|FS_ABZ_G~GI|FS_ABZ64500|FS_4A_B2100KT),0-1*FS_DXE;			\
+	    C1=FS_646N~GI[pd]|fs_e636[pd],0-1*(FS_DXE|FS_DUZ93100E); C2=fs_e431|fs_e432;		\
+	    C3=fs_e431|fs_e432; P=70;
+	  TX=FS;											\
+	    M=STOP; C=FS_TRIFASE,I3PR;
+	  TX=FS cambio trazione Carmagnola con scarto della macchina;					\
+	    M=echange; D=r;										\
+	    C=0-1*(FS_DXE|FS_DUZ93100E),1-2*FS_4A_A1100,						\
+	      3-5*(FS_BZ33010DL|FS_ABZ_G~GI|FS_ABZ64500|FS_4A_B2100KT),0-1*FS_DXE;			\
+	    C1=FS_646N~GI[pd]|fs_e636[pd]|FS_E428IIIC[pd],0-1*(FS_DXE|FS_DUZ93100E); C2=fs_e431|fs_e432; \
+	    C3=fs_e431|fs_e432; P=70;
+	  TX=FS cambio trazione Carmagnola con scarto della macchina;					\
+	    M=echange; D=r;										\
+	    C=FS_D2E|FS_DI92000|FS_DUZ93100E,								\
+	      3-5*(FS_BZ36000|FS_AZ50000E|FS_BZ38244E|FS_BZ33010DL|FS_ABZ_G~GI),0-3*(fs_ff|FS_GHMS6A);	\
+	    C1=FS_646N~GI[pd]|fs_e636[pd]; C2=fs_e554|fs_e431|fs_e432; C3=fs_e554|fs_e431|fs_e432; P=70;
+	$ENDGROUP 
+
+# Italien ohne2
+	$GROUP LC=2;											\
+	  BG=(20*STACCION,STACCIONE:,3;I_H013,I_H014_1:85;100*I_MARCIAP;				\
+	    I_MONTECASTRILLI|I_PONTE_SGIOVANNI);							\
+	  FG=(FS_MAR0:,-3;TRBED11:..,-14;NL_NIEMEIJERO_3:0,-14;FIELD01:..,-20); AP=BDWHBG;
+	  M=$FLG(P,STOP,SIMPLE); POOL=POOL_I:#E&#O&#C&#X&#N&(#S|F)&(4|5|6);
+	$ENDGROUP 
+
+#  Italien E 3000 V 1
+	$GROUP LC=1;											\
+	  BG=((PALM12|PALM14|PALM16|TREE91|TREE108|PINE1)(|[M]):30; STAZ;				\
+	    (PALM12|PALM14|PALM16|TREE91|TREE108|PINE1)(|[M]):90; I_TRESTINA:20;			\
+	    I_UMBERTIDE_MAGMERCI:75);									\
+	  FG=(TRBED11:..,^0; (<FL_FS5C,FL_FS5B),2*(<FL_FS5A,FL_FS5B),4*(<FL_FS4A,FL_FS4B):..,-4,#;	\
+	    I_PENSIL1,I_PENSIL_1,#I_PENSIL1; (40*I_MARCIAP));						\
+	  AP=BDWHBG;
+	  M=$FLG(P,STOP,SIMPLE); POOL=POOL_I:#Z&#O&#C&#X&#N;
+	$ENDGROUP 
+
+#  Italien E 3000 V 3
+	$GROUP LC=2; BG=(I_FACT05:10;TREE92:65;TREE93:75;STAZ:47;(20*I_MARCIAP):..;I_WATERTOWER:69);	\
+	  FG=(TRBED11:..,^0;30*STACCION:47,-4;<FL_FS5C,FL_FS5B,2*FL_FS5A,FL_FS5B:..,-4,#;		\
+	    I_FACT06:90,-14; STREET01:..,-20);								\
+	  AP=BDWHBG;
+	  M=$FLG(P,STOP,SIMPLE); POOL=POOL_I:#Z&#O&#C&#X&#N&(#S|F);
+	$ENDGROUP 
+
+#  Italien E 3000 V 4
+	$GROUP LC=2;											\
+	  BG=(TREE54:20;I_PONTE_SGIOVANNI:47;(20*I_MARCIAP):..;I_UMBERTIDE_MAGMERCI:90;E_RENTERIA1:10);	\
+	  FG=(TRBED11:..,^0;30*STACCION:47,-6;								\
+	    (<FL_FS5C,FL_FS5B),2*(<FL_FS5A,FL_FS5B),4*(<FL_FS4A,FL_FS4B):..,-4,#;FIELD01:..,-20);	\
+	  AP=BDWHBG;
+	  M=$FLG(P,STOP,SIMPLE); POOL=POOL_I:#Z&#O&#C&#X&#N&(#S|F)&(3|4|5|6);
+	$ENDGROUP 
+
+#  Italien E 3000 V 5
+	$GROUP LC=2; BG=(I_SAN_SEPOLCRO|I_UMBERTIDE;I_WC(1|2|3):6,75);					\
+	  FG=(TRBED11:..,^0;(<FL_FS5C,FL_FS5B),2*(<FL_FS5A,FL_FS5B),4*(<FL_FS4A,FL_FS4B):..,-4,#;	\
+	    I_PENSIL1,I_PENSIL_1,#I_PENSIL1;(20*I_MARCIAP):..;DEPOT1_1:1,-4);				\
+	  AP=BDWHBG;
+	  M=$FLG(P,STOP,SIMPLE); POOL=POOL_I:#Z&#O&#C&#X&#N&(#S|F);
+	$ENDGROUP 
+
+#  Italien E 3000 V 6
+	$GROUP LC=2; BG=I_TERNI;									\
+	  FG=(TRBED11:..,^0;(<FL_FS5C,FL_FS5B),2*(<FL_FS5A,FL_FS5B),4*(<FL_FS4A,FL_FS4B):..,-4,#;	\
+	    WALL08_1:..,-40; I_PENSIL1,I_PENSIL_1,#I_PENSIL1;(20*I_MARCIAP):..);			\
+	  AP=BDWHBG;
+	  M=$FLG(P,STOP,SIMPLE); POOL=POOL_I:#Z&#O&#C&#X&#N&(#S|F)&6;
+	$ENDGROUP 
+
+
+#  Italien Schmalspur
+	$GROUP LC=2; BG=(E_RENTERIA4:70;TREE32:80);							\
+	  FG=(TRBED11:..,^0;I_GARITB:40-100,-4;PL7|PL:40,-5;BRIDGE2:25,-20;TREE33:10,-4); AP=BDWHBG;
+	  M=$FLG(P,STOP,SIMPLE); POOL=POOL_I:#E&#Z&#C&N&(#S|F); P=70;
+	$ENDGROUP 
+      $ENDSECTION 
+    }
+  $ENDSECTION 
+}
+
+%*DEFINE(BDWH(BG,SIDE,CMD)=
+$SECTION ML=1;
+$GROUP SEQ=D; Y=*; LC=2;    \
+DX=1852; AB=407; BL=40;     \
+BG=(BGPIC/%BG.JPG:,,%SIDE,20; @@ TRBED12:..,^0;);
+POOL=(POOL_USA:DF)|US_FR1;
+$ENDGROUP
+$ENDSECTION
+)
+
+{USA?
+  $SECTION LC=1;
+    $SECTION LC=1; SEQ=MQ;
+      %BDHWLST2;
+    $ENDSECTION 
+
+    $SECTION LC=1;
+      $GROUP LC=2; AB=407; BL=40; BG=(BGPIC\AG_79A.JPG:<0-20; BGPIC\AG_79B.JPG:<0+1807; TRBED12:..,^0);	\
+	Y=*; DX=3679; VM=HEAD,JUMP;
+	POOL=(POOL_USA:D&F)|US_FR1;
+      $ENDGROUP 
+
+      $GROUP LC=2; AB=407; BL=40; BG=(BGPIC\AG_110A.JPG:<0-20; BGPIC\AG_110B.JPG:<0+1779; TRBED12:..,^0); \
+	Y=*; DX=3631; VM=CONT,JUMP;
+	POOL=(POOL_USA:D&F)|US_FR1;
+      $ENDGROUP 
+
+      $GROUP LC=2; AB=407; BL=40; BG=(BGPIC\AG_159A.JPG:<0-20; BGPIC\AG_159B.JPG:<0+1772; TRBED12:..,^0); \
+	Y=*; DX=3624; VM=HEAD,JUMP;
+	POOL=(POOL_USA:D&F)|US_FR1;
+      $ENDGROUP 
+
+      $GROUP LC=2; AB=407; BL=40; BG=(BGPIC\AG_165A.JPG:<0-20; BGPIC\AG_165B.JPG:<0+1781; TRBED12:..,^0); \
+	Y=*; DX=3633; VM=CONT,JUMP;
+	POOL=(POOL_USA:D&F)|US_FR1;
+      $ENDGROUP 
+
+      $GROUP LC=2; AB=407; BL=40; BG=(BGPIC\AG_186A.JPG:<0-20; BGPIC\AG_186B.JPG:<0+1782; TRBED12:..,&0); \
+	Y=*; DX=3634; VM=CONT,JUMP;
+	POOL=(POOL_USA:D&F)|US_FR1;
+      $ENDGROUP 
+
+      $GROUP LC=2; AB=407; BL=40; BG=(BGPIC\AG_197A.JPG:<0-20; BGPIC\AG_197B.JPG:<0+1796; TRBED12:..,&0); \
+	Y=*; DX=3648; VM=CONT,JUMP;
+	POOL=(POOL_USA:D&F)|US_FR1;
+      $ENDGROUP 
+
+      $GROUP LC=2; AB=407; BL=40; BG=(BGPIC\AG_198A.JPG:<0-20; BGPIC\AG_198B.JPG:<0+1779; TRBED12:..,&0); \
+	Y=*; DX=3631; VM=CONT,JUMP;
+	POOL=(POOL_USA:D&F)|US_FR1;
+      $ENDGROUP 
+
+      $GROUP LC=2; AB=397; BL=40;									\
+	BG=(BGPIC\CM_139A.JPG:<0-20,-10; BGPIC\CM_139B.JPG:<0+1779,-10; TRBED12:..,&0); Y=*; DX=3631;	\
+	VM=CONT,JUMP;
+	POOL=(POOL_USA:D&F)|US_FR1;
+      $ENDGROUP 
+
+      $GROUP LC=2; AB=407; BL=40; BG=(BGPIC\CM_173A.JPG:<0-20; BGPIC\CM_173B.JPG:<0+1286; TRBED12:..,&0); \
+	Y=*; DX=3138; VM=CONT,JUMP;
+	POOL=(POOL_USA:D&F)|US_FR1;
+      $ENDGROUP 
+
+      $GROUP LC=2; AB=407; BL=40; BG=(BGPIC\CM_193A.JPG:<0-20; BGPIC\CM_193B.JPG:<0+1804; TRBED12:..,&0); \
+	Y=*; DX=3656; VM=CONT,JUMP;
+	POOL=(POOL_USA:D&F)|US_FR1;
+      $ENDGROUP 
+
+      $GROUP LC=2; AB=407; BL=40; BG=(BGPIC\HL_132A.JPG:<0-20; BGPIC\HL_132B.JPG:<0+1804; TRBED12:..,&0); \
+	Y=*; DX=3656; VM=CONT,JUMP;
+	POOL=(POOL_USA:D&F)|US_FR1;
+      $ENDGROUP 
+
+      $GROUP LC=2; AB=407; BL=40; BG=(BGPIC\HL_133A.JPG:<0-20; BGPIC\HL_133B.JPG:<0+1794; TRBED12:..,&0); \
+	Y=*; DX=3646; VM=CONT,JUMP;
+	POOL=(POOL_USA:D&F)|US_FR1;
+      $ENDGROUP 
+
+      $GROUP LC=2; AB=367; BL=40;									\
+	BG=(BGPIC\HL_162A.JPG:<0-20,-40; BGPIC\HL_162B.JPG:<0+1780,-40; BGPIC\HL_162C.JPG:<0+3580,-40;	\
+	  TRBED12:..,&0);										\
+	Y=*; DX=5432; VM=CONT,JUMP;
+	POOL=(POOL_USA:D&F)|US_FR1;
+      $ENDGROUP 
+
+      $GROUP LC=2; AB=407; BL=40; BG=(BGPIC\HL_175A.JPG:<0-20; BGPIC\HL_175B.JPG:<0+1780; TRBED12:..,&0); \
+	Y=*; DX=3632; VM=CONT,JUMP;
+	POOL=(POOL_USA:D&F)|US_FR1;
+      $ENDGROUP 
+
+      $GROUP LC=2; AB=407; BL=40;									\
+	BG=(BGPIC\HL_981014A.JPG:<0-20; BGPIC\HL_981014B.JPG:<0+1737; TRBED12:..,&0); Y=*; DX=3589;	\
+	VM=CONT,JUMP;
+	POOL=(POOL_USA:D&F)|US_FR1;
+      $ENDGROUP 
+
+      $GROUP LC=2; AB=407; BL=40; BG=(BGPIC\IN_164A.JPG:<0-20; BGPIC\IN_164B.JPG:<0+1783; TRBED12:..,&0); \
+	Y=*; DX=3635; VM=CONT,JUMP;
+	POOL=(POOL_USA:D&F)|US_FR1;
+      $ENDGROUP 
+    $ENDSECTION 
+  $ENDSECTION 
+}

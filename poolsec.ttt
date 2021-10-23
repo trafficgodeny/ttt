@@ -1,0 +1,236 @@
+$REQUIRE POOLDEF.TTT
+%*DEF(SEC=$SECTION LC=14; %SECFIN; AB=30; BL=20; SEQ=D;)
+%*DEF(PSEC(A)=
+  %SEC;
+     POOL=%A;;
+  $ENDSECTION
+)
+
+{D?
+  $SECTION LC=1;
+    {E1|E2?
+      %PSEC(POOL_GHIST);
+    }
+    {E3|E4|E5|E6?
+      %PSEC(POOL_BRD);
+    }
+    {E3|E4|E5|E6?
+      %PSEC(POOL_DDR);
+    }
+    {E3|E4|E5|E6?
+      %PSEC(POOL_BRD);
+    }
+  $ENDSECTION 
+}
+
+{CH|A|F?
+  $SECTION LC=1;
+    {CH|A?
+      $SECTION LC=1;
+	{CH?
+	  $SECTION LC=1;
+	    %PSEC(POOL_CH);
+	    %PSEC(MLG_CH);
+	    %PSEC(POOL_CH);
+	    %PSEC(POOL_CH);
+	  $ENDSECTION 
+	}
+	{A?
+	  $SECTION LC=1;
+	    %PSEC(POOL_A);
+	    %PSEC(POOL_A);
+	    %PSEC(MLG_A);
+	    %PSEC(POOL_A);
+	  $ENDSECTION 
+	}
+      $ENDSECTION 
+    }
+    {F?
+      $SECTION LC=1;
+	%PSEC(POOL_F);
+	%PSEC(MLG_F3B);
+	%PSEC(MLG_F4A);
+	%PSEC(MLG_F4B);
+	%PSEC(MLG_F5A);
+	%PSEC(MLG_F5B);
+	%PSEC(MLG_F6);
+      $ENDSECTION 
+    }
+  $ENDSECTION 
+}
+
+{B|L|NL|GB?
+  $SECTION LC=1;
+    {GB?
+      %PSEC(POOL_GB);
+    }
+    {B?
+      %PSEC(POOL_B);
+    }
+    {NL?
+      %PSEC(MLG_NL);
+    }
+    {L?
+      %PSEC(MLG_L);
+    }
+    {GB?
+      %PSEC(POOL_GB);
+    }
+    {NL?
+      %PSEC(POOL_NL);
+    }
+    {B?
+      %PSEC(MLG_B);
+    }
+    {NL?
+      %PSEC(MLG_NL);
+    }
+    {GB?
+      %PSEC(POOL_GB);
+    }
+    {L?
+      %PSEC(POOL_L);
+    }
+    {NL?
+      %PSEC(POOL_NL);
+    }
+  $ENDSECTION 
+}
+  
+{DK|N|S|SF|P|E|I|H|CSD|CS|SK|PL|RO|SLO|HR|BG|GR|IE|YU|HSH|TR|ASSD|SA|CN?
+  $SECTION LC=1;
+    {DK|N|S|SF?
+      $SECTION LC=1;
+	{DK?
+	  %PSEC(POOL_DK);
+	}
+	{S?
+	  %PSEC(POOL_S);
+	}
+	{N|SF?
+	  $SECTION LC=1;
+	    {N?
+	      %PSEC(POOL_N);
+	    }
+	    {SF?
+	      %PSEC(POOL_SF; VH=62);
+	    }
+	  $ENDSECTION 
+	}
+      $ENDSECTION 
+    }
+
+    {P|E|I?
+      $SECTION LC=1;
+	{E?
+	  %PSEC(POOL_E);
+	}
+	{I?
+	  %PSEC(POOL_I);
+	}
+	{P?
+	  %PSEC(POOL_P);
+	}
+	{I?
+	  %PSEC(POOL_I);
+	}
+	{E?
+	  %PSEC(POOL_E);
+	}
+	{I?
+	  %PSEC(POOL_I);
+	}
+      $ENDSECTION 
+    }
+
+    {H|CSD|CS|SK|PL|RO|SLO|HR|BG|GR|IE|YU|HSH|TR|ASSD|SA|CN?
+      $SECTION LC=1;
+	{H|CSD|CS|SK|PL?
+	  $SECTION LC=1;
+	    {CSD|CS?
+	      %PSEC(POOL_CS);
+	    }
+	    {H|SK?
+	      $SECTION LC=1;
+		{H?
+		  %PSEC(POOL_HUN);
+		}
+		{SK?
+		  %PSEC(POOL_SK);
+		}
+	      $ENDSECTION 
+	    }
+	    {PL?
+	      %PSEC(POOL_PL);
+	    }
+	  $ENDSECTION 
+	}
+
+	{RO|SLO|HR|BG|GR|IE|YU|HSH|TR|ASSD|SA|CN?
+	  $SECTION LC=1;
+	    {RO?
+	      %PSEC(POOL_RO);
+	    }
+	    {SLO?
+	      %PSEC(POOL_SLO);
+	    }
+	    {HR?
+	      %PSEC(POOL_HR);
+	    }
+	    {BG?
+	      %PSEC(POOL_BG);
+	    }
+	    {GR?
+	      %PSEC(POOL_GR);
+	    }
+	    {IE|YU|HSH|TR|ASSD|SA|CN?
+	      %SEC;
+	      {IE?
+		POOL=POOL_IR;
+	      }
+	      {YU?
+		POOL=POOL_YU;
+	      }
+	      {HSH?
+		POOL=POOL_HSH;
+	      }
+	      {TR?
+		POOL=POOL_TR;
+	      }
+	      {ASSD?
+		POOL=POOL_OTH;
+	      }
+	      {SA?
+		POOL=POOL_SA;
+	      }
+	      {CN?
+		POOL=POOL_CN;
+	      }
+	    $ENDSECTION 
+	  }
+	$ENDSECTION 
+      }
+    $ENDSECTION 
+  }
+$ENDSECTION 
+}
+
+{SU|RZD|UZ|BCH|EVR|LDZ|LG|GEO|AZ|KAZ|MD|USA|J?
+  $SECTION LC=1;
+    {SU|RZD|UZ|BCH|EVR|LDZ|LG|GEO|AZ|KAZ|MD|USA?
+      $SECTION LC=1;
+	{SU|RZD|UZ|BCH|EVR|LDZ|LG|GEO|AZ|KAZ|MD?
+	  %PSEC(POOL_SU);
+	}
+	{USA?
+	  %PSEC(POOL_USA);
+	}
+      $ENDSECTION 
+    }
+    {J?
+      %PSEC(POOL_JP);
+    }
+  $ENDSECTION 
+}
+
+

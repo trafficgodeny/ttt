@@ -1,0 +1,329 @@
+$OPTGDEF 1
+$REQUIRE POOLDEF.TTT
+$REQUIRE POOLDEF2.TTT
+$REQUIRE FIXTRAIN.TTT
+$REQUIRE ZSZ_DEF.TTT
+#==============================================================================
+#
+# Germany
+#
+#==============================================================================
+# (LB)
+$GROUP	DX=984; BL=239; AB=350; LC=2; 						\
+	BG=BGPIC/HERBST.JPG:,-239; 						\
+	FG=BGPIC/HERBST.JPG[MSK:BGPIC/HERBSTM.gif,#000000,,239]:,-239;
+  POOL=POOL_GHIST:E&#Z&#O&#1&#N; TXY=15;
+$ENDGROUP                 
+#-------------------------------------------------------------------------------	
+# (LB)
+$GROUP	DX=1000; BL=284; AB=440; LC=2; 						\
+	BG=BGPIC/WIESE_BRANDENBURG.JPG:,-284; 					\
+	FG=BGPIC/WIESE_BRANDENBURG.JPG[MSK:BGPIC/WIESE_BRANDENBURGM.GIF,#000000,,284]:,-284;
+  POOL=POOL_(DDR|BRD):E&#Z&#O&#1&#N; TXY=15;
+$ENDGROUP                 
+#-------------------------------------------------------------------------------	
+# (LB)
+$SCENE DY=450; DX=1900; YDIR=U; BG=BGPIC\FLUSS2.JPG:<0;
+  $PATH Y=155; BG=(TRBED40:..,^0;17*BRIDGE51A,3:*,^-3;);			\
+    FG=(HANDRAIL03A:..,^8;4*FL_DR[SP:560,84],194:*,-4;BRIDGE51C,519,BRIDGE51B,511,BRIDGE51C:*,^-71); TXY=-200;
+    POOL=POOL_BRD:#Z&#O&E&(4|5|6); D=L;
+  $ENDPATH 
+  $PATH Y=155; TXY=-180;
+    POOL=POOL_BRD:#Z&#O&E&(4|5|6); D=R;
+  $ENDPATH 
+$ENDSCENE 
+#------------------------------------------------------------------------------
+# (LB)
+$GROUP	DX=996; BL=410; AB=350; LC=2; 						\
+	BG=BGPIC/LAND_INTERURBAN.JPG:,-410;      				\
+	FG=BGPIC/LAND_INTERURBAN.JPG[MSK:BGPIC/LAND_INTERURBANM.GIF,#000000,,410]:,-410;
+  POOL=POOL_(GHIST|BRD|DDR):E&#Z&#O; TXY=15;
+$ENDGROUP                 
+#-------------------------------------------------------------------------------	
+# (HMH)
+$GROUP LC=2; AB=487; BL=223; 							\
+  	BG=BGPIC/GRBAUM.JPG:,-223;						\
+  	FG=BGPIC/GRBAUM.JPG[MSK:BGPIC/GRBAUMM.GIF,#000000,,223]:,-223; DX=1024;
+  POOL=POOL_DPE;
+$ENDGROUP 
+#-------------------------------------------------------------------------------	
+# (LB)
+$GROUP BL=166; AB=500; DX=1923; LC=2; \
+  BG=(  BGPIC\FLUSS.JPG:,-300; \  	
+  	FL_BRIDGE37(8*_30,A,12*_30,_29,A,_29,12*_30,A,8*_30); \
+  	TRBED24:..,^0; \
+  	BRIDGE37(3*H,B,4*H,C,4*H,B,3*H):,^-3; \
+  	HANDRAIL02B:..,^3; \
+     );
+    AP2=[M=SIMPLE]; POOL=POOL_BRD:#Z&#O&(4|5|6); TE=3;
+$ENDGROUP	
+#------------------------------------------------------------------------------
+# (LB)
+$SCENE DY=400; DX=1800; BG=BGPIC\ag_(159a|197b).JPG;					\
+  FG=(BUSH12,10,BUSH06:5,5;COW(1|3):95,10;COW2(|L):90,10);
+  $PATH Y=270;	LC=2;									\
+    FG=(BRIDGE12:,-8;(3*#NL_BRIDGE02G,#NL_BRIDGE02F,570,NL_BRIDGE02F,3*NL_BRIDGE02G):,-75;		\
+      5*TRBED11,570,5*TRBED11:..,^0);							\
+    BG=3*(FL_DB_M(4:1|2),FL_DB_F),FL_DB_M1;
+    POOL=POOL_BRD:3&#Z&#S&#O;
+  $ENDPATH 
+$ENDSCENE 
+#==============================================================================
+#
+# Switzerland
+#
+#==============================================================================
+#
+# Grindelwald
+#									 (ZSZ)
+$GROUP SEQ=D; AB=253; BL=20; Y=*; V=4-6; DX=1280;				\
+	BG=(BGPIC/GRINDELWALD.JPG); 						\
+	FG=(TRBED12:..,^0;FL_VBZ_M1,FL_VBZ_F3:..,-7,#);
+  C=CHA_ABDE44;
+  C=RHB_3ABDE44_481|RHB_4ABDE44_481|RHB_5ABDE44_481;
+  C=RHB_3ABE44|RHB_4ABE44|RHB_4ABE44C|RHB_5ABE44|RHB_2BCE44|RHB_BCE44M;
+$ENDGROUP 
+#-------------------------------------------------------------------------------
+#
+# Zermatt
+#									 (ZSZ)
+$SECTION LC=1; ML=1;
+  $GROUP LC=2; SEQ=D; AB=222; BL=20; BG=(BGPIC/ZERMATT.JPG;FL_SP48_M1:..,-15;TRBED12:..,^0); Y=*; V=2;	\
+    DX=1280;
+    C=<SPB_HE22R1,SPB_B1R,SPB_B1ER;
+    C=<SPB_HE22R2,SPB_B2R,SPB_B2ER;
+    C=<SPB_HE22N1,SPB_B1G,SPB_B1EG;
+  $ENDGROUP 
+
+  $GROUP LC=2; SEQ=D; AB=222; BL=20; BG=(BGPIC/ZERMATT.JPG;FL_SP_M1,FL_SP_F:..,-15;TRBED12:..,^0); Y=*;	\
+    V=2; DX=1280;
+    C=<SPB_HE22R,SPB_BR;
+    C=<SPB_HE22G,SPB_BC,SPB_BG;
+    C=<SPB_HE22N,SPB_BN;
+  $ENDGROUP 
+$ENDSECTION 
+#==============================================================================
+#
+# Great Britain
+#
+#==============================================================================
+#
+# Redhill
+#
+$GROUP LC=2; AB=132; BL=36; BG=(BGPIC/REDHILL.JPG; TRBED31:..,^0); DX=771; DY=220; Y=*;
+  POOL=POOL_GB:#E#M#O#Z; AP=[TX=];
+$ENDGROUP 
+#------------------------------------------------------------------------------
+#
+# Maidenhead
+#
+$SECTION ML=1;
+  $GROUP LC=2; AB=133; BL=162; BG=(BGPIC/MBRIDGE.JPG:,-162;TRBED9:..,^0); DX=1046; Y=*;
+    POOL=POOL_GW; V=2-4; AP=[M=SIMPLE];
+  $ENDGROUP 
+$ENDSECTION 
+#------------------------------------------------------------------------------
+#
+# Wales
+#
+$SECTION ML=1;
+  $GROUP LC=2; AB=195; BL=30; BG=(BGPIC/WALES.JPG; TRBED7:..,^0); DX=1200; Y=*;
+    POOL=POOL_GB:#E#M#O#Z; AP=[TX=];
+  $ENDGROUP 
+$ENDSECTION 
+#==============================================================================
+#
+# Italy
+#
+#==============================================================================
+$DEF ISTRIPS= \
+	[DX=1800][DY=480][BG+=BGPIC\BGI1.JPG:,10;] | \
+	[DX=1800][DY=400][BG+=BGPIC\BGI2.JPG:,10;] | \
+    	[DX=1544][DY=460][BG+=BGPIC\BGI3.JPG:,10;] | \
+    	[DX=1500][DY=600][BG+=BGPIC\BGI4.JPG:,10;] | \
+    	[DX=1500][DY=560][BG+=BGPIC\BGI5.JPG;]     | \
+    	[DX=1700][DY=360][BG+=BGPIC\BGI6.JPG:,10;]
+#------------------------------------------------------------------------------
+#
+# Dubrovnik (used as an italian city)
+#									(ZSZ)
+$GROUP LC=2; AB=699; BL=51; BG=(BGPIC\SXC1081660.JPG; TRBED13:..,^0; WALL02:..,^-9); DX=1600;
+  POOL=POOL_I:#E&#Z&#O&(4|5|6);
+$ENDGROUP
+#------------------------------------------------------------------------------ 
+# (ZSZ)
+$GROUP LC=3; AB=746; BL=40; DX=1600; \
+  BG=( \
+    BGPIC\SXC1219432.JPG; \
+    I_MONTECASTRILLI:30; \
+    I_PISCILLE_WC:30-280; \
+    TRBED15:..,^0; \
+    WALL14:..,^-6; \
+  ); \
+  FG=( \
+    SIG_FS_3AL:30+880; \
+    STACCION:..,-6; \
+  );
+  M=STOP; POOL=POOL_I:P&#S&#E&#O&#C&#X&#M&#Z; P=*50;
+$ENDGROUP
+#------------------------------------------------------------------------------
+# INCROCIO CON SOSTA/SOSTA TD   
+# (LB)
+$SCENE DY=250; YDIR=U; AP=ISTRIPS;
+#200 è l'altezza della scena
+  $PATH Y=20; FG=(HEDGE1:..,-20;PBRIDGE2:35,-3;TRBED25:..,^0;45*STACCION:60);
+    M=STOP; D=R; C=(FS_DIESEL_IV,I4PR)|FS_ALN_IV; TB=20;
+  $ENDPATH 
+#è il tipo di rotaia
+  $PATH Y=20;												\
+    BG=(STAZ:53;(20*I_MARCIAP):..;AU_CLUNES_RSL,I_H008:30;STELLWERK4BS:80;TREE50:90;); 	
+    W=4;M=STOP; D=L; C=(FS_DIESEL_IV,I4PR)|FS_ALN_IV; T=20;
+  $ENDPATH 
+$ENDSCENE 
+#------------------------------------------------------------------------------
+# (LB)
+$SCENE DY=200; YDIR=U; AP=ISTRIPS;
+  $PATH Y=20;												\
+    FG=(WATERCOLUMNFS:12,-4;(<FL_FS5C,FL_FS5B),2*(<FL_FS5A,FL_FS5B),4*(<FL_FS4A,FL_FS4B):..,-4,#);
+    M=$FLG(P,STOP,SIMPLE); POOL=POOL_I:#C&#X&#N&(#S|F)&(2|3|4); D=L; TB=15;
+  $ENDPATH 
+  $PATH Y=20; FG=(TRBED25:..,^0;PLF_NORTEG:,-3;120*I_MARCIAP;WALL02:..,-40);				\
+    BG=((I_MONTECASTRILLI|(I_CANOSCIO,I_WC4)|I_CESI|(I_SANSEPOLCRO1,I_SAN_SECONDO)):47,3;		\
+      WATERCOLUMNFS:90,-4;I_H029_1,I_FACT02,:10;PALM16:33;PALM12:39;I_H069_1,I_H025:77,-3;I_H022_1:99,-3;);
+    M=$FLG(P,STOP,SIMPLE); POOL=POOL_I:#C&#X&#N&(#S|F)&(2|3|4); D=R; T=20;
+  $ENDPATH 
+$ENDSCENE 
+#------------------------------------------------------------------------------
+# INCROCIO CON SOSTA/TRANSITO TT
+# (LB)
+$SCENE DY=200; YDIR=U; AP=ISTRIPS;
+  $PATH Y=20; FG=(30*STACCION:20,-4;TREE44:75,-8;palo_tt:..,-4,#);
+    M=$FLG(P,STOP,SIMPLE); POOL=POOL_I:(X|D|S)&#N&(#S|F)&(3|4); D=L; TB=20;
+  $ENDPATH 
+  $PATH Y=20;												\
+    FG=(120*I_MARCIAP:40;TRBED25:..,^0;WATERCOLUMNFS:82,-4;WALL08_1:..,-35;				\
+      (PLF_NORTER0[AR:3*PLF_NORTER1,PLF_NORTER4,3*PLF_NORTER1,PLF_NORTER5]):20,-3);			\
+    BG=(LAMP11:80;I_SOTSTAZELE2|I_FACT04:90;								\
+      STAZ|I_CESI|I_ORMEA|I_PISCILLE|I_SAN_SEPOLCRO|I_UMBERTIDE:20; E_RENTERIA1:45;SIF_FS3_2L:70;0;	\
+      20*I_MARCIAP:;STELLWERK4A:65;);									
+    M=$FLG(P,STOP,SIMPLE); POOL=POOL_I:(X|D|S)&#N&(#S|F)&(3|4); D=R; T=20;
+  $ENDPATH 
+$ENDSCENE
+#------------------------------------------------------------------------------
+# Italien E 3000 V 2
+# (LB)
+$GROUP LC=2; AB=330;											\
+  BG=(BGPIC\BGI7.JPG:,-10;SHRUBBERY7:90;4*I_SANSEPOLCRO1,I_SAN_SEPOLCRO,3*I_SANSEPOLCRO2:>50-50,+7;	\
+    I_MAGAZ1A,I_MAGAZ1B,I_MAGAZ1C,I_MAGAZ1D,I_MAGAZ1E,I_MAGAZ1F:70);					\
+  FG=(TRBED11:..,^0;(120*I_MARCIAP):30;									\
+    (<FL_FS5C,FL_FS5B),2*(<FL_FS5A,FL_FS5B),4*(<FL_FS4A,FL_FS4B):..,-4,#;E_DONOSTIA:>50-50;		\
+    14*WALL04:>50-50,-14; WALL04:..,-30);								\
+  DX=1600;
+  M=$FLG(P,STOP,SIMPLE); POOL=POOL_I:#Z&#O&#C&#X&#N&(#S|F); P=>50+100;
+$ENDGROUP 
+#==============================================================================
+#
+# USA
+#
+#==============================================================================
+#
+# Limestone
+#
+$GROUP AB=364; BL=40; BG=(BGPIC/LIMESTONEA.JPG; TRBED8:..,^0); DX=1024; DY=462; Y=*;
+  POOL=POOL_USA:#E#M#O#Z; AP=[TX=];
+$ENDGROUP 
+
+$GROUP AB=350; BL=40; BG=(BGPIC/LIMESTONEB.JPG; TRBED8:..,^0); DX=1024; DY=448; Y=*;
+  POOL=POOL_USA:#E#M#O#Z; AP=[TX=];
+$ENDGROUP 
+#------------------------------------------------------------------------------
+#
+# Denver
+#
+$GROUP LC=2; AB=960; BL=70; BG=(BGPIC\SXC1344351.JPG; TRBED7:..,^0); DX=1920;
+  POOL=POOL_USA:#E&#O&#Z&(4|5|6);
+$ENDGROUP 
+#------------------------------------------------------------------------------
+#
+# Desert dunes
+#
+$GROUP AB=473; BL=120; BG=(BGPIC/SANDDUNES2.JPG:,-80; TRBED8:..,^0); DX=1024; DY=651; Y=*;
+  POOL=POOL_USA:#E#M#O#Z; AP=[TX=];
+$ENDGROUP 
+#------------------------------------------------------------------------------
+#
+# America, the beautiful
+#
+$GROUP AB=473; BL=120; BG=(BGPIC/AMERICA.JPG; TRBED8:..,^0); DX=1024; DY=651; Y=*;
+  POOL=POOL_USA:#E#M#O#Z; AP=[TX=];
+$ENDGROUP 
+#------------------------------------------------------------------------------
+#
+# San Diego
+#									(ZSZ)
+$GROUP LC=2; AB=808; BL=110; BG=(BGPIC\SXC1313570.JPG; TRBED13:..,^0; EMB4,EMB3:..,^-9,<=>); DX=1920;
+  POOL=POOL_USA:#E&#Z&#O(4|5|6);
+$ENDGROUP 
+#------------------------------------------------------------------------------
+#
+# Canyon bridge
+#
+$GROUP AB=350; BL=539; BG=(BGPIC/LIMESTONEA.JPG; BGPIC/RRBRIDGEA.JPG:,-539); DX=926; Y=*;
+  POOL=POOL_USA:#E#M#O#Z; AP=[TX=];
+$ENDGROUP 
+#------------------------------------------------------------------------------
+#
+# San Diego skyline
+#
+$GROUP AB=547; BL=25; BG=(BGPIC/SFSKYLINE.JPG; TRBED8:..,^0); DX=1024; DY=630; Y=*;
+  POOL=POOL_USA:D#O#Z; AP=[TX=];
+$ENDGROUP 
+#------------------------------------------------------------------------------
+#
+# HorseShoeCurve
+#
+$GROUP AB=147; BL=107; BG=(BGPIC/HORSESHOECURVE.JPG:,-107; TRBED8:..,^0); DX=1024; DY=312; Y=*;
+  POOL=POOL_USA:D#O#Z; AP=[TX=];
+$ENDGROUP 
+#------------------------------------------------------------------------------
+#
+# Pittsburgh
+#									(ZSZ)
+$GROUP LC=2; AB=682; BL=70; BG=(BGPIC\SXC1356631.JPG; EMB01:..,^-9; TRBED13:..,^0); DX=1630;
+  POOL=POOL_USA:#E&#Z&#O(4|5|6);
+$ENDGROUP 
+#------------------------------------------------------------------------------
+#
+# Quarry
+#
+$SECTION ML=1;
+  $GROUP AB=344; BL=84;											\
+    BG=(BGPIC/QUARRYB.JPG:,-10; BGPIC/QUARRYF.JPG:,^-10; TRBED13:..,^0; WATERTOWER10:83; COALTOWER3:58;	\
+      COALPILE2:63; COALPILE1:74);									\
+    DX=1024; DY=486; Y=*;
+    POOL=POOL_USA:#E#M#O#Z; AP=[TX=];
+  $ENDGROUP 
+$ENDSECTION 
+#------------------------------------------------------------------------------
+#
+# Boston
+#									(ZSZ)
+$GROUP LC=2; AB=919; BL=110; BG=(BGPIC\SXC1322735.JPG; TRBED13:..,^0; EMB4,EMB3:..,^-9,<=>); DX=1920;
+  POOL=POOL_USA:#E#Z#O(4|5|6);
+$ENDGROUP 
+#------------------------------------------------------------------------------
+#
+# Industrial
+#									(ZSZ)
+$GROUP LC=2; AB=1252; BL=76; BG=(BGPIC\SXC797412.JPG; TRBED13:..,^0; EMB4,EMB3:..,^-9,<=>); DX=1920;
+  POOL=US_FR1;
+$ENDGROUP 
+#------------------------------------------------------------------------------
+#
+#
+#									(ZSZ)
+$GROUP LC=2; AB=1330; BL=68; BG=(BGPIC\SXC1259251.JPG; TRBED13:..,^0);					\
+  FG=WALL01(B,8*C,B[M]):..,-68,#,WALL01A; DX=1920;
+  POOL=POOL_USA:#E#Z#O(4|5|6);
+#ENDGROUP
+#==============================================================================

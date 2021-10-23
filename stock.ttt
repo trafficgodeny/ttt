@@ -1,444 +1,173 @@
-# ( [ \{  - parenthesys check
-$REQUIRE GETOPT.TTT
-$SPLASH C=BGPIC\DARU_TR.GIF;FULLSCREEN;TIME=3;
-#
-#	Timetable example
-#
-#	Created by Zoltán Szabó
-#	parts from James McDonald, Zoltán Iván, Marc Le Gad, Jindrich Kalous, 
-#	  Brian Clough, Gábor Kovács
-#
-#--------------------------------------------------------------------------
-#$NOSTOPONMOVE
-#$NOSTOPONKEY
-#$NOSTOPONCLICK
-$SKIPERR 
-$WAY A=a;E=3E;R=3;T=t;L=3L;
-$PHASESTEP 3.1
-$BGCOLOR #000000
-$REQUIRE RENAME.TTT
-$REQUIRE FIXTRAIN.TTT
-#==========================================================================
-#
-#	Macro definitions
-#
-#--------------------------------------------------------------------------
-$REQUIRE ZSZ_DEF.TTT   
-$REQUIRE POOLDEF2.TTT
-$REQUIRE JKA_DEF.TTT
-#--------------------------------------------------------------------------
-#
-#	Trains
-#					  by James McDonald
-#					     Version 3.3
-#					    23.July.2003
-#
-#	The author would like to express his gratitude to the following individuals
-#	who have been instrumental in developing this document:
-#	Zoltán "Gödény" Szabó, Zoltán "Zsivány" Iván and Kris "Mechanik" van de Putte.
-#
-#	All train compositions in this section have been taken from actual observations, 
-#	photographs, and/or text references.  Additional compositions have been created from 
-#	data found on various railfan web sites.  Some compositions have been adapted from
-#	"stock" screensaver train consists from the homepages of other artists.  In particular
-#	from the authors: 
-#	Thomas Brian, Claudio Vianini, Giorgio Stagni, Jan Kärbäck, Peter Klarenbeek,
-#	Dani Egger-Jetzer, Nikolaus Mohr, Eike Kristian Schumacher, Michael Schleifer,
-#	Richie Sliwinski and Daniel Hentschel.
-#
-#	Additionally, the author would like to thank Erikjan Sachse for trainspotting data.
-#
-#	Comments, critiques or suggestions for improvement are always welcome.
-#
-#	If you make alterations, please note them and return the changes to the author at:
-#	jamesm@easternstandardtime.com
-#--------------------------------------------------------------------------
+$SPLASH C=BGPIC\DARU_TR.GIF; F;
 $REQUIRE POOLDEF.TTT
-#--------------------------------------------------------------------------
-#**************************************************************************
-$SECTION LC=1; SEQ=MC; BL=20;
+$REQUIRE POOLDEF2.TTT
+$REQUIRE POOLDEF3.TTT
+$REQUIRE ZSZ_DEF.TTT
+$REQUIRE ZSZ_SPEC_DEF.TTT
+$REQUIRE JKA_DEF.TTT
+$REQUIRE CZ_DEF.TTT
+
 #
-#	The "MM" supersection
+#       1. MM-Style
 #
-{MM|PRG|CITY|OTHER?
-$SECTION LC=1; SEQ=MC;
-{PRG?
-#
-#	Program possibilities
-#
-$SECTION LC=1; SEQ=MC;
-#--------------------------------------------------------------------------
-#
-#	Author's train
-#
-$SECTION LC=10; ML=5; SEQ=D;
-D=L; V=6; W=3; M=M3; P=<20; A=.15; IMGY=85;					\
-	T=3,P1U,W,3,PD,W,3,C.1.F,C.3.F,0.3,C.2.F,1,C.1.F2,0.4,C.3.F2,0.2,C.2.F2;\
-	C=M_M62Y1,M_M62Y2,M_M62Y3,G_RGS2[OB:TRAFFIC,,12],			\
-	4*(G_KS1|G_KS2|G_RMMS|G_RES1|G_RES2|G_RGS2),G_KS1[OB:YOU,,12],		\
-	G_KS2[OB:CAN,,12],G_RMMS[OB:MAKE,,12],G_RGS2[OB:ANY,,12],		\
-	2*(G_KS1|G_KS2|G_RMMS|G_RES1|G_RES2|G_RGS2),				\
-	G_RES2[OB:TRINI,,12],G_KS1[OB:HU,,12],2-6*(G_KS1|G_KS2|G_RMMS|G_RES1|G_RES2|G_RGS2);
-C=SBB_RE460_SWISSMODELL,RE460_SK,						\
-	ADV_HEAD,ADV_TRAF,ADV_ASMM,ADV_BL,ADV_FA,ADV_FLIN1,ADV_HEN1,ADV_KLUGE,ADV_LAF,ADV_MICH1,\
-	ADV_MLG,ADV_MVV,ADV_NIMO,ADV_OFZ,ADV_RAILTRACK,ADV_ROCHE,ADV_SOLINGEN,ADV_STAGNI,		\
-	ADV_SCHWINDT,ADV_THAMM,ADV_TILIUS,ADV_VIANINI,ADV_BRIAN,ADV_FILIP,ADV_TOM,ADV_ZUGFOTOS,	\
-	ADV_ASM101;
-M=M3; D=L; W=3; P=<10+80; C=M_M62Y1,M_M62Y2,M_M62Y3,G_KS1; IMGY=100;			\
-	BG=(SIG_MAV_3HP:<10,-8;SIG_MAV_2VR:<80,-8;); TB=SIGSTOP,2; WP=10,TB:SIGSTOP;	\
-	T=2,SIGGO,1,P1U,W,3,PD,W,3,C.1.F,C.3.F,0.3,C.2.F,1,C.1.F2,0.4,C.3.F2,0.2,C.2.F2;
-C=2*(M_M62Y1|M_M62Y2|M_M62Y3); IMGY=85; V=8; TB=<C.1.FX,>C.2.FX;		\
-	WP=(20,TB:<C.1.F2,>C.2.FX;40,TB:<C.1.F,>C.2.FX;60,TB:>C.2.FX;80,TB:>C.2.FX;);
-M=FOLLOW;D=L;C=(ADV_MICH_MAN2000T;ADV_GIAGLL);
-M=FOLLOW;D=R;C=(MMM_GT8Z;ADV_HB;ADV_KYR;D_T6_13);
-M=FOLLOW;D=L;C=(ADV_MICH_SYLT;ADV_MABY;);
-M=FOLLOW;D=R;C=(ADV_GIAGL;ADV_MICH_D38;ADV_MICH_B8000,ADV_MICH_B8000T;HTRANS3;ADV_MICH_LIEFER);
-C=EURO0,EURO6,EURO1,EURO2,EURO3,EURO4,EURO5;
-$ENDSECTION
-#------------------------------------------------------------------------------
-#
-#	Crane
-#
-{CRAN?
-$SECTION LC=1; SEQ=F;	
-M=M3; C=<(M_M62Y1|M_M62Y2|M_M62Y3),DARU[PD]; T=3,P1U,W,3,PD,W,3,F,1,F2; P=*; 	\
-	A=.1; IMGY=285;
-C=DARU_TR,(M_M62Y1|M_M62Y2|M_M62Y3); V=1; IMGY=285;
-$ENDSECTION
-#------------------------------------------------------------------------------
-}
-#
-#	Sky and forest
-#
-$SECTION LC=20; ML=4; AB=70; BL=20; WR=X; WE=M_CAT; SEQ=D;
-POOL=POOL_HUN;AP=BG1,(|[M#=STOP][BG+=M_STATION1|KERTA|BALATONBERENY|KISKORPAD|CS_STATION1|LIBEN_DOLNY|NEMILKOV|OBRATAN|KACOV|LITEN|GUMPENRIEDASBACH:(20-80)+0=STATION;][P#=*STATION]);
-$ENDSECTION
-#------------------------------------------------------------------------------
-$INCLUDE WAY.TTT
-#------------------------------------------------------------------------------
-$INCLUDE ZSZ_PRG.TTT
-$ENDSECTION
-}#PRG
-#==============================================================================
 {MM?
-{HSH|A|B|BG|BCH|HR|CS|CSD|DK|EVR|SF|F|BRD|DDR|GR|GB|H|I|LDZ|LG|L|NL|N|PL|P|RO|RZD|SK|SLO|E|CH|S|TR|UZ|SU|USA|YU|ASSD?
-#------------------------------------------------------------------------------
-$SECTION LC=1; SEQ=MC;
-{H?
-#
-#	Hungary
-#
-$SECTION LC=20; ML=8; AB=30; SEQ=D;
-POOL=POOL_HUN; WE=M_CAT,[W=3];
-$ENDSECTION
-#------------------------------------------------------------------------------
-}
-{D&(E1|E2)?
-#
-#	German Historical
-#
-$SECTION LC=20; ML=8; AB=30; SEQ=D;
-POOL=POOL_GHIST;
-$ENDSECTION
-#------------------------------------------------------------------------------
-}
-{BRD?
-#
-#	Bundesrepublik Deutschland
-#
-$SECTION LC=20; ML=8; AB=30; SEQ=D;
-POOL=POOL_BRD;
-$ENDSECTION
-#------------------------------------------------------------------------------
-}
-{DDR?
-#
-#	Deutsche Demokratische Republik (DDR)
-#
-$SECTION LC=20; ML=8; AB=30; SEQ=D;
-POOL=POOL_DDR;
-$ENDSECTION
-#------------------------------------------------------------------------------
-}
-{CH?
-#
-#	Switzerland
-#
-$SECTION LC=20; ML=8; AB=30; SEQ=D;
-POOL=POOL_CH; WE=SBB_CAT,[W=3];
-$ENDSECTION
-#------------------------------------------------------------------------------
-}
-{A&(E2|E3|E4|E5|E6|E7)?
-#
-#	Austria
-#
-$SECTION LC=20; ML=8; AB=30; SEQ=D;
-POOL=POOL_A;
-$ENDSECTION
-#------------------------------------------------------------------------------
-}
-{GB&(E2|E3|E4|E5|E6|E7)?
-#
-#	United Kingdom
-#
-$SECTION LC=10; ML=8; AB=30; SEQ=D;
-POOL=POOL_GB;
-$ENDSECTION
-#------------------------------------------------------------------------------
-}
-{F?
-#
-#	France
-#
-$DEF SNCFGS41=SNCF_GS41A|SNCF_GS41B|SNCF_GS41C|SNCF_GS41D|SNCF_GS41E|SNCF_GS41F
-$DEF SNCFGS311=SNCF_GS311A|SNCF_GS311B|SNCF_GS311C|SNCF_GS311D
-$DEF SNCFBB63000=SNCF_BB63000AL|SNCF_BB63000A{(E4|E5|E6)?|SNCF_BB63000BL|SNCF_BB63000B}
-$DEF SNCFBB7200=SNCF_BB72(00B1|00BN|00BC|01|21|58|92)
-#
-$SECTION LC=20; ML=8; AB=30; SEQ=D; WE=F_CAT[W=3];				\
-	[BG+=TRBED1|TRBED8|TRBED5|TRBED6|TRBED10|TRBED11|TRBED12:..,^0][W=X;]
-POOL=POOL_F;
-$ENDSECTION
-{E3?
-$SECTION LC=30; ML=10; AB=30; SEQ=D; WE=F_CAT[W=3];				\
-	[BG+=TRBED1|TRBED8|TRBED5|TRBED6|TRBED10|TRBED11|TRBED12:..,^0][W=X;]
-POOL=POOL_FS;
-$ENDSECTION
-}
-{E5?
-$SECTION LC=30; ML=10; AB=30; SEQ=D; WE=F_CAT[W=3];				\
-	[BG+=TRBED1|TRBED8|TRBED5|TRBED6|TRBED10|TRBED11|TRBED12:..,^0][W=X;]
-POOL=POOL_FQ;
-$ENDSECTION
-}
-{E6|E7?
-$SECTION LC=30; ML=10; AB=30; SEQ=D; WE=F_CAT[W=3];				\
-	[BG+=TRBED1|TRBED8|TRBED5|TRBED6|TRBED10|TRBED11|TRBED12:..,^0][W=X;]
-POOL=POOL_FX;
-$ENDSECTION
-}
-#------------------------------------------------------------------------------
-}
-{L?
-#
-#	Luxembourg
-#
-$SECTION LC=15; ML=8; AB=30; SEQ=D;
-POOL=POOL_L;
-$ENDSECTION
-#--------------------------------------------------------------------------
-}
-{B?
-#
-#	Belgium
-#
-$SECTION LC=15; ML=8; AB=30; SEQ=D;
-POOL=POOL_B;
-$ENDSECTION
-#--------------------------------------------------------------------------
-}
-{NL?
-#
-#	Netherlands
-#
-$SECTION LC=15; ML=8; AB=30; SEQ=D;
-POOL=POOL_NL;
-$ENDSECTION
-#--------------------------------------------------------------------------
-}
-{DK?
-#
-#	Denmark
-#
-$SECTION LC=20; ML=8; AB=30; SEQ=D;
-POOL=POOL_DK;
-$ENDSECTION
-#--------------------------------------------------------------------------
-}
-{N?
-#
-#	Norway
-#
-$SECTION LC=20; ML=8; AB=30; SEQ=D;
-POOL=POOL_N;
-$ENDSECTION
-#--------------------------------------------------------------------------
-}
-{S?
-#
-#	Sweden
-#
-$SECTION LC=20; ML=8; AB=30; SEQ=D;
-POOL=POOL_S;
-$ENDSECTION
-#--------------------------------------------------------------------------
-}
-{SF?
-#
-#	Finland
-#
-$SECTION LC=10; ML=8; AB=30; SEQ=D;
-POOL=POOL_SF;
-$ENDSECTION
-#--------------------------------------------------------------------------
-}
-{P|E?
-#
-#	Portugal, Spain
-#
-$SECTION LC=10; ML=8; AB=30; SEQ=D;
-POOL=4:POOL_P|7:POOL_E;
-$ENDSECTION
-#--------------------------------------------------------------------------
-}
-{I?
-#
-#	Italy
-#
-$SECTION LC=20; ML=8; AB=30; SEQ=D;
-POOL=POOL_I;
-$ENDSECTION
-}
-#--------------------------------------------------------------------------
-{CSD|CS|SK?
-#
-#	Czechoslovakia - Czech Republic - Slovakia
-#
-$SECTION LC=15; ML=8; AB=30; SEQ=D;
-POOL=7:POOL_CS|3:POOL_SK;
-$ENDSECTION
-}
-#--------------------------------------------------------------------------
-{PL?
-#
-#	Poland
-#
-$SECTION LC=15; ML=8; AB=30; SEQ=D;
-POOL=POOL_PL;
-$ENDSECTION
-#--------------------------------------------------------------------------
-}
-{RO|SLO|HR|YU|ASSD|BG|HSH|GR|TR?
-$SECTION LC=15; ML=8; AB=30; SEQ=D;
-POOL=POOL_BALKAN;
-$ENDSECTION
-#--------------------------------------------------------------------------
-}
-{SU|RZD|UZ|EVR|LDZ|LG|BCH?
-#
-#	Soviet Union - Commonwealth of Independent States
-#
-$SECTION LC=20; ML=8; AB=30; SEQ=D;
-POOL=POOL_SU;
-$ENDSECTION
-#--------------------------------------------------------------------------
-}
-{H&(E3|E4|E5|E6|E7)|BRD|DDR|A&(E3|E4|E5|E6|E7)|CH&(E3|E4)|GB&(E4|E5|E6|E7)|F&(E4|E5|E6|E7)|L&(E4|E5|E6)|B&(E4|E5|E6)|NL&(E1|E2|E3|E4|E5|E6)|SF&(E4|E5|E6)|P&(E4|E5)|E&(E4|E5)|I&(E3|E4|E5|E6|E7)|CSD&(E4)|PL&(E4|E6|E7)|SLO&(E5|E6|E7)|SU&(E4|E5|E6|E7)|RZD&(E4|E5|E6|E7)?
-$SECTION ML=8; AB=30; SEQ=D;
-#
-#	International
-#
-POOL=POOL_EU;
-$ENDSECTION
-#--------------------------------------------------------------------------
-}
-{USA?
-#
-#	USA
-#
-$SECTION ML=8; AB=30; SEQ=D;
-POOL=POOL_USA;
-$ENDSECTION
-#--------------------------------------------------------------------------
+  $SECTION LC=1; ENV=TRACK;
+    $REQUIRE POOLSEC.TTT
+  $ENDSECTION 
 }
 #
-#	End of Trains
+#       2. Full-screen background
 #
-$ENDSECTION
-#--------------------------------------------------------------------------
-}#HSH|A|B|BG|BCH|HR|CS|CSD|DK|EVR|SF|F|BRD|DDR|GR|GB|H|I|LDZ|LG|L|NL|N|PL|P|RO|RZD|SK|SLO|E|CH|S|TR|UZ|SU|USA|YU|ASSD
-}#MM
-{CITY|OTHER?
-#	Tramways, busses, cars, ships, aeroplanes
-$SECTION LC=1; SEQ=MC;
-#------------------------------------------------------------------------------
-{CITY?
-#	City traffic - closed sections
-$SECTION LC=1; SEQ=MC;
-$INCLUDE ZSZ_CITYS.TTT
-$ENDSECTION
-#	Diverse tramways - single lines
-$SECTION LC=8; ML=8; AB=10; BL=35; TXX=<3; TXY=19; TXB=#000000; TXC=#AAAAAA; SEQ=D;
-$INCLUDE ZSZ_CITYG.TTT
-$ENDSECTION
-#------------------------------------------------------------------------------
-}
-{CITY&OTHER?
-$ENDSECTION
-$SECTION LC=1;SEQ=C;
-}
-{OTHER?
-#	Truck, ship, aeroplane and others
-$INCLUDE ZSZ_OTHER.TTT
-#	End of city traffic and others
-$ENDSECTION
-}#OTHER
-}#CITY|OTHER
-$ENDSECTION
-}#MM|PRG|CITY|OTHER
-#--------------------------------------------------------------------------
-#
-#	Backgrounds supersection
-#
-{BGPIC|BDWH|BGDRW?
-#--------------------------------------------------------------------------
-$SECTION LC=1; SEQ=MC;
-{BGPIC?
-#
-#	Full screen Backgrounds
-#
-$SECTION LC=1; SEQ=MQ;
-$SECTION LC=1;
-$INCLUDE ZSZ_BGFULL.TTT
+{JKA|LEO|MIX1|BGD|BGCH?
+  $SECTION LC=1;
+    {JKA?
+      $SECTION LC=1;
+	$INCLUDE JKA_BGFULL.TTT
+      $ENDSECTION 
+    }
 
-$INCLUDE HMH_BGFULL.TTT
-$ENDSECTION
-                
-{CSD&E2?
-$SECTION LC=1;
-$INCLUDE JKA_BGFULL.TTT
-$ENDSECTION
-}
+    {LEO|MIX1?
+      $SECTION LC=1;
+	{MIX1?
+	  $SECTION LC=1;
+	    $INCLUDE ZSZ_BG1.TTT
+	  $ENDSECTION 
+	}
 
-{H&E6?
-$SECTION LC=1;
-$INCLUDE LEO_SZOLNOK.TTT
-$ENDSECTION
+	{LEO?
+	  $SECTION LC=1;
+	    $INCLUDE LEO_SZOLNOK.TTT
+	  $ENDSECTION 
+	}
+      $ENDSECTION 
+    }
+
+    {BGD|BGCH?
+      $SECTION LC=1;
+	$INCLUDE HMH_BGFULL.TTT
+      $ENDSECTION 
+    }
+  $ENDSECTION 
 }
-$ENDSECTION
-}#BGPIC
-{BDWH?
-$SECTION LC=1; SEQ=MQ;
-$INCLUDE ZSZ_BG1.TTT
-$ENDSECTION
-}#BDWH
-#==============================================================================
-{BGDRW?
 #
-#	Drawn or composed backgrounds
+#       3. Others
 #
-$SECTION LC=1; SEQ=MQ; 
-$INCLUDE ZSZ_BGDRW.TTT
-$INCLUDE JKA_BGPAINT.TTT
-$ENDSECTION
-}#BGDRW
+{AVIA|SHIP|STREET|LT|TOY|ADV|SPACE|MIX1|OPM|TGIF|LTC|LARGE?
+  $SECTION LC=1;
+    $INCLUDE ZSZ_OTHER.TTT
+  $ENDSECTION 
+}
 #
-#	End of the "program possibilities" section
+#       4. Background stripes
 #
-$ENDSECTION
-}#BGPIC|BDWH|BGDRW
-#==============================================================================
-$ENDSECTION
-$END
-# ) ] \}  - parenthesys check
+{CZA|BGDRW?
+  $SECTION LC=1;
+    {CZA?
+      $SECTION LC=1;
+	$INCLUDE CZ_ALL.TTT
+      $ENDSECTION 
+    }
+    {BGDRW?
+      $SECTION LC=1;
+	$INCLUDE ZSZ_BG4.TTT
+      $ENDSECTION 
+    }
+  $ENDSECTION 
+}
+#
+#       5. City traffic, road vehicles
+#
+{CITY|CYSC|STREET?
+  $SECTION LC=1; NAME=DEBUG;
+    {CITY?
+      $SECTION LC=1; WT=ENV_WAYT1; WM=ENV_WAYM;
+	$INCLUDE ZSZ_CITYS.TTT
+      $ENDSECTION 
+    }
+
+    {CYSC?
+      $SECTION LC=1;
+	$INCLUDE ZSZ_BGDRW.TTT
+      $ENDSECTION 
+    }
+
+    {CITY?
+      $SECTION  %SECFIN;
+	$INCLUDE ZSZ_CITYG.TTT
+      $ENDSECTION 
+    }
+
+    {STREET?
+      $SECTION SEQ=D; AB=30; %SECFIN;
+	$INCLUDE ZSZ_STREET.TTT
+      $ENDSECTION 
+    }
+    
+    {MONO?
+      $SECTION LC=1;
+        $INCLUDE ZSZ_MONO.TTT
+      $ENDSECTION
+    }
+  $ENDSECTION 
+}
+#
+#       6. Imaginary full screen backgrounds
+#
+{BDWH|IMAG?
+  $SECTION LC=1;
+    {BDWH?
+      $SECTION LC=1;
+	$INCLUDE ZSZ_BDWH.TTT
+      $ENDSECTION 
+    }
+
+    {IMAG?
+      $SECTION LC=1;
+	$INCLUDE ZSZ_SXC.TTT
+      $ENDSECTION 
+
+      $SECTION LC=1;
+	$INCLUDE ZSZ_BG2.TTT
+      $ENDSECTION 
+
+      $DEF IPD1=FS_ABZ64500D,3-7*(FS_4A_B2100TDL|FS_4B_AB3100DL|FS_4B_BR8550L|FS_4B_BR8550TL|FS_BMD)
+      $DEF IPD2=2-6*FS_PRSD(|L)
+      $DEF IPD3=2-4*FS_NB2PD,|FS_NB2P_PD($DIR(,[!L]))
+
+      $POOL N=NIGHTTRAIN1;
+	C=LIGHT_16,FS_E646D,IPD(1|2|3);
+	C=FS_E656DLI,IPD(1|2|3);
+	C=FS_A668_1500N;
+	C=FS_ETR250N;
+	TX=FS ETR.250 »Arlecchino« Ansicht bei Nacht;								\
+    	  C=FS_ETR250N; F=EPU34;
+      $ENDPOOL 
+
+      $SECTION LC=1;
+	$GROUP LC=2; AB=525; BL=20; BG=(BGPIC\SXC1242604.JPG; FL_SNCF_MIDI5:..,-5,#; TRBED25:..,^0);	\
+	  DX=1600;
+	  POOL=NIGHTTRAIN1;
+	$ENDGROUP 
+
+	$GROUP LC=2; AB=276; BL=20; BG=(BGPIC\SXC1233769.JPG; FL_SNCF_MIDI5:..,-5,#; TRBED25:..,^0);	\
+	  DX=1600;
+	  POOL=NIGHTTRAIN1;
+	$ENDGROUP 
+
+#
+#       New York Subway at night
+#
+	$GROUP LC=2; AB=700; BL=90;									\
+	  BG=(BGPIC\SXC1362701.JPG; BRIDGE4H[BC:-90]:..,^-8; TRBED10[BC:-50]:..,^0; SNCF_3ERAIL_BG:..);	\
+	  DX=2512; VM=HEAD;
+	  C=3*IND_R1_(1|2)00(L,);
+	$ENDGROUP 
+
+	$GROUP LC=2; AB=438; BL=20; BG=(BGPIC\SXC923817.JPG; FL_SNCF_MIDI5:..,-5,#; TRBED25:..,^0);	\
+	  DX=2922; VM=HEAD;
+	  POOL=NIGHTTRAIN1;
+	$ENDGROUP 
+      $ENDSECTION 
+    }
+  $ENDSECTION 
+}

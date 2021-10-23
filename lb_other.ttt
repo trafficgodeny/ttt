@@ -1,0 +1,316 @@
+{FILELEVEL=1?
+  $INCLUDE SINGLE.TTT
+  $ENV TRACK
+}
+
+$REQUIRE TRAINDEF.TTT
+
+#---------------------------------------------------------------------------
+#
+# Japan
+#
+{J?
+  %ADDPOOL(POOL_JP,J_ENV)
+
+# ohne
+  {E2|E3?
+    TX=JNR C51;												\
+      C=JNR_C51AL|JNR_C51A|JNR_C51DFAL|JNR_C51DFA|JNR_C51EXL|JNR_C51EX,JNR_KANI29L_0|JNR_KANI29_0,	\
+	(<JNR_SUYUNI30AL|JNR_SUYUNI30A,JNR_OHA31L|JNR_OHA31,JNR_OHA27BL|JNR_OHA27B,			\
+	JNR_OROHA30L|JNR_OROHA30|JNR_ORO30L|JNR_ORO30|JNR_ORO31L|JNR_ORO31,JNR_OHA26|JNR_OHA26L,	\
+	JNR_OHA27AL|JNR_OHA27A);									\
+      F=SP23;
+  }
+
+  {E3?
+# Japan Vorort
+    TX=Meitetsu (Nagoya)400;										\
+      C=MEI_0400; F=GEPU3;
+    TX=Meitetsu (Nagoya)510, 520;									\
+      C=MEI_0510|MEI_0520; F=GEPU3;
+    TX=Meitetsu (Nagoya)600;										\
+      C=MEI_0600; F=GEPU3;
+    TX=Meitetsu (Nagoya)750;										\
+      C=MEI_0750G|MEI_0750; F=GEPU3;
+    TX=Meitetsu (Nagoya)800;										\
+      C=<MEI_0800A,MEI_0800B; F=GEPU3;
+    TX=Meitetsu (Nagoya)850;										\
+      C=<MEI_0850MC1,MEI_0850MC2,MEI_0850TC; F=GEPU3;
+    TX=Meitetsu (Nagoya)900;										\
+      C=<MEI_0900MC,MEI_0900TC; F=GEPU3;
+    TX=Meitetsu (Nagoya)2001;										\
+      C=MEI_2001; F=GEPU3;
+    TX=Meitetsu (Nagoya)3400;										\
+      C=(<MEI_3400GMCL,MEI_3400GMC)|(<MEI_3400MCL,MEI_3400TL,MEI_3400T,MEI_3400MC); F=GEPU3;
+    TX=Eizan Electric Railway 1;									\
+      C=EIZAN_0001; F=GEPU3;
+    TX=Eizan Electric Railway 21;									\
+      C=EIZAN_0021; F=GEPU3;
+    TX=Eizan Electric Railway 200;									\
+      C=EIZAN_0200O|EIZAN_0200; F=GEPU3;
+    TX=Eizan Electric Railway 300;									\
+      C=EIZAN_0300; F=GEPU3;
+    TX=Eizan Electric Railway 500;									\
+      C=EIZAN_0600; F=GEPU3;
+    TX=Eizan Electric Railway 600;									\
+      C=EIZAN_0600; F=GEPU3;
+    TX=Eizan Electric Railway 700;									\
+      C=2*(EIZAN_0711|EIZAN_0720|EIZAN_0724|EIZAN_0730); F=GEPU3;
+    TX=Eizan Electric Railway 800;									\
+      C=(<EIZAN_0815EAL,EIZAN_0815EB)|(<EIZAN_0801AL,EIZAN_0801B)|(<EIZAN_0802AL,EIZAN_0802B)|		\
+	(<EIZAN_0811AL,EIZAN_0811B)|(<EIZAN_0813AL,EIZAN_0813B);					\
+      F=GEPU3;
+    TX=Eizan Electric Railway 900;									\
+      C=(<EIZAN_0902L,EIZAN_0901)|(<EIZAN_0903L,EIZAN_0904); F=GEPU3;
+    TX=Hankyu 200;											\
+      C=HKYU_0200|HKYU_0200P; F=GEPU3;
+    TX=Keihan 10;											\
+      C=KEIH_10; F=GEPU3;
+    TX=Keihan 16;											\
+      C=KEIH_0016; F=GEPU3;
+    TX=Keihan 200;											\
+      C=KEIH_0201B|KEIH_0201AL|KEIH_0207AL|KEIH_0207B; F=GEPU3;
+    TX=Keihan 500;											\
+      C=KEIH_0500OAL|KEIH_0500OB; F=GEPU3;
+    TX=Keihan 600;											\
+      D=R; C=KEIH_0600T; F=GEPU3;
+  }
+  %ENDPOOL;
+}
+#---------------------------------------------------------------------------
+#
+# CHINA
+#
+{CN?
+  %ADDPOOL(POOL_CN,CN_ENV)
+  {E4|E5?
+    TX=China RM;											\
+      C=CR_RM~HEN,(<CR_D1,CR_B1,CR_22,CR_22K2,CR_22); F=SF45;
+    TX=China QJ;											\
+      C=CR_QJ~HEN,CR_CAB,										\
+	(<CR_C60,CR_FLAT,CR_FLATS,CR_T17,CR_T17E,CR_T17Y,CR_BOX1,CR_BOX2,CR_C63T,CR_C62C,CR_COAL,	\
+	CR_FLATWE,CR_FLATW,CR_COKE,CR_C63);								\
+      F=SF45;
+    TX=China ND2;											\
+      C=CR_ND2L|CR_ND2,(<CR_25BY,CR_B4,CR_22K2,CR_22,CR_B3,CR_25B); F=SF45;
+  }
+# elektrisch
+  {E5|E6?
+    TX=China SS4;											\
+      C=CR_SS4,(<CR_25KY,CR_JW25B,2*CR_GS25Z1,CR_25KF,CR_DJ25K,3*CR_25K); F=EP56;
+  }
+  %ENDPOOL;
+}
+#---------------------------------------------------------------------------
+{SA?
+  %ADDPOOL(POOL_SA,SA_ENV)
+#
+# BRAZIL
+#
+  {E3?
+# elektrisch
+    TX=Companhia Paulista de Estradas de Ferro (1600 mm);						\
+      C=CPB_422|CPEF_422L,10*(ERIE_92506_XM_USRASS(|L)); F=EF56;
+  }
+  {E6?
+# elektrisch
+    TX=Ferrovia Paulista SA 6420;									\
+      C=FEP_6420(|L),											\
+	5-6*(2-4*(JR_TAKI10749MCL|JR_TAKI7750DS1HL|JR_WAKI50000A3|FEP_6420|JR_TOKI25000S|JR_WAKI5000A1)); \
+      F=EF56;
+
+#Diesel
+    TX=Estrada de Ferro Santos a Jundiaí 511;								\
+      C=EFSJ_511(|L),5*GATX_TANK55K,6*GATX_TANK54A; F=DF56;
+    TX=Estrada de Ferro Central do Brasil 3100;								\
+      C=EFCB_3101(|L),BRA6F; F=DF56;
+    TX=Estrada de Ferro Central do Brasil 3300;								\
+      C=EFCB_33(01|73)(|L),BRA6F; F=DF56;
+    TX=Companhia Mogiana de Estradas de Ferro 12;							\
+      C=MOG_12(|L),BRA6F; F=DF56;
+    TX=Companhia Mogiana de Estradas de Ferro 71;							\
+      C=MOG_71(|L),BRA6F; F=DF56;
+    TX=Companhia Mogiana de Estradas de Ferro 100/3000;							\
+      C=MOG_(104|120|3010)(|L),BRA6F; F=DF56;
+    TX=América Latina Logística AC44;									\
+      C=ALL_AC44ISO01(|L),5*(2-4*(ALL_HFE(1|2|3))); F=DF56;
+    TX=Estrada de Ferro Vitoria a Minas BB40;								\
+      C=EFVM_BB40_2(O|N)L,BRA6F; F=DF56;
+    TX=MRS Logistica S.A. AC44;										\
+      C=MRSL_AC44ISO01(|L),BRA6F; F=DF56;
+  }
+#---------------------------------------------------------------------------
+#
+# Chile
+#
+  {E3?
+    TX=Chile FFCCDE: Ferrocarriles del Estado de Chile AM 101;						\
+      C=FFCCDE_AM10(1|1U|2|3|4|5|6)(|L); F=DPU3;
+  }
+  {E5?
+# elektrisch
+    TX=Chile Empresa de los Ferrocarriles del Estado 269;						\
+      C=EFE_269AL|EFE_269A|EFE_269BL|EFE_269B,								\
+	(<EFE_C2L,EFE_C2|EFE_C3L,EFE_C3|EFE_C4L,EFE_C4|EFE_C5,EFE_C6,EFE_D1,EFE_D2,EFE_C1);		\
+      F=EP56;
+  }
+  %ENDPOOL;
+}
+#---------------------------------------------------------------------------
+#
+# Canada
+#
+{USA|AS|AF?
+  %ADDPOOL(POOL_OTH,OTH_ENV)
+  {USA?
+    {E4?
+# ohne
+
+      TX=Ontario Northlander;										\
+	D=L; C=<ONT_1900UAL,ONT_1900UB,ONT_1900UC,ONT_1900UD; F=DPU4;
+      TX=Ontario Northlander;										\
+	D=R; C=<ONT_1900UDL,ONT_1900UCL,ONT_1900UBL,ONT_1900UA; F=DPU4;
+      TX=Ontario Northlander;										\
+	D=L; C=<ONT_1900AL,ONT_1900B,ONT_1900C,ONT_1980_01D; F=DPU4;
+      TX=Ontario Northlander;										\
+	D=R; C=<ONT_1980_01DL,ONT_1900CL,ONT_1900BL,ONT_1900A; F=DPU4;
+    }
+    {E5?
+# ohne
+      TX=Ontario Northlander;										\
+	D=R; C=<ONT_1980_01DL,ONT_1900CL,ONT_1900BL,ONT_1982FP7|ONT_1980_02FP7; F=DPU5;
+    }
+    {E5|E6?
+# ohne
+      TX=Kanada VIA P42;										\
+	C=(<VIA_P42L[#D:L],2*VIA_SLPB,2*VIA_COACH2B,2*VIA_CHAIRB,2*VIA_BAGB)|				\
+	  (<VIA_P42[#D:R],2*VIA_CHAIRB,2*VIA_COACH2B,2*VIA_SLPB,VIA_BAGB);				\
+	F=DPU56;
+      TX=Ottawa OC Transpo;										\
+	C=OCTR_C1; F=DPU56;
+    }
+  }
+  {AS?
+#---------------------------------------------------------------------------
+#
+# Neuseeland
+#
+    {E4?
+      TX=Neuseeland NZR RM 100;										\
+	C=NZR_RM100; F=DPU45;
+    }
+#---------------------------------------------------------------------------
+#
+# Australien
+#
+
+# ohne
+    {E5|E6?
+      TX=Australien Rio Tinto ES44;									\
+	C=RTO_ES44DCISO0(1|2)(|L),8*FA_VHJX(|L),6*PN_VHQF(|L); F=DF56;
+      TX=Australien BHP AC 60;										\
+	C=BHP_AC60CWSO0(1|2)[#D:R]|BHP_AC60CWSO0(1|2)L[#D:L],15-18*(VIC_VHC(131|A16)(|L)); F=DF56;
+      TX=Australien FMG C44;										\
+	C=FMG_C449WSO01(|L),15-18*(VIC_VHC(131|A16)(|L)); F=DF56;
+      TX=Australien Hamersley Iron C44;									\
+	C=HI_C449W(|L),5-8*VIC_VTGX,5-8*(VIC_VPCX),5-8*(PN_VPBX(|L)); F=DF56;
+      TX=Australien Pilbara Rail C44;									\
+	C=PILB_C449W(|L),15-18*(VL_VHCX|FA_JCF(|L)); F=DF56;
+      TX=Australien NSW XPT;										\
+	C=(<NSW_XPTSO01L,NSW_XPTSO01XLL,NSW_XPTSO01XFHL,NSW_XPTSO01XFL,NSW_XPTSO01XBRL,NSW_XPTSO01XAML,	\
+	  NSW_XPTSO01)|											\
+	  (<NSW_XPTSO01L,NSW_XPTSO01XAM,NSW_XPTSO01XBR,NSW_XPTSO01XF,NSW_XPTSO01XFH,NSW_XPTSO01XL,	\
+	  NSW_XPTSO01);											\
+	F=DPU56;
+      TX=Australien ANL BL;										\
+	C=ANR_BLL|ANR_BL,ANR_IPB,ANR_IPCL,ANR_IPCL,ANR_IPDL,ANR_IPSL,ANR_IPC;
+      F=DP56;
+# Australien E Schmalspur
+      TX=Australien QR TE;										\
+	C=(<QR_TE1SO1DL,QR_TE1SO2ML,3*QR_TE1SO3TL,QR_TE1SO6D)|						\
+	  (<QR_TE1SO6DL,3*QR_TE1SO3T,QR_TE1SO2M,QR_TE1SO1D)|						\
+	  (<QR_TE2SO6DL,3*QR_TE2SO3T,QR_TE2SO2M,QR_TE2SO1D)|						\
+	  (<QR_TE2SO6DL,3*QR_TE2SO3T,QR_TE2SO2M,QR_TE2SO1D);						\
+	F=ENPU56;
+
+# Australien Schmalspur
+      TX=Australien QR 1700;										\
+	C=QR_1700AL|QR_1700A|QR_1720AL|QR_1720A|QR_1720CL|QR_1720C|QR_1720BCENTL|QR_1720BCENT,		\
+	  5-15*QR_GN0(1|2)(|L);										\
+	F=DF56;
+      TX=Australien ARG 2100;										\
+	C=ARG_DD2350SO1L|ARG_DD2350SO1,5-20*QR_BEZY1(|L)[O:C60B,*,10]; F=DF56;
+      TX=Australien QR 2100;										\
+	C=QR_2100AL|QR_2100A,1-9*QR_PJZY1(|L); F=DF56;
+      TX=Australien QR 2800;										\
+	C=ARG_2800SO01L|ARG_2800SO01,12-18*QR_GN0(1|2)(|L); F=DF56;
+      TX=Australien QR TD;										\
+	C=(<QR_TD1SO1ML,QR_TD1SO2BL,QR_TD1SO3SL,QR_TD1SO4CL,QR_TD1SO5SL,QR_TD1SO1M)|			\
+	  (<QR_TD1SO1ML,QR_TD1SO5S,QR_TD1SO4C,QR_TD1SO3S,QR_TD1SO2B,QR_TD1SO1M);			\
+	F=DPU56;
+    }
+  }
+  {AF?
+#---------------------------------------------------------------------------
+#
+# Algerien
+#
+    {E6?
+      TX=Algerien Flirt;										\
+	C=SNTF_FLIRT4_10|SNTF_FLIRT1; F=EPU6;
+    }
+#---------------------------------------------------------------------------
+#
+# Marokko
+#
+
+# ohne
+    {E4?
+      TX=Marokko ONCF DF 100 mit Reisezug;								\
+	D=L;												\
+	C=ONCF_DF100,ONCF_D,3*(ONCF_CORAIL_B|ONCF_KOLMEX_B),2*(ONCF_KOLMEX_A|ONCF_CORAIL_A),		\
+	  2*(ONCF_CORAIL_B|ONCF_KOLMEX_B);								\
+	F=DP45;
+
+# E
+      TX=Marokko ONCF E 700;										\
+	C=ONCF_E700|ONCF_E702,ONCF_WS2060; F=DF45;
+      TX=Marokko ONCF E 800;										\
+	C=ONCF_E800|ONCF_DF101E,|ONCF_D,1-2*ONCF_KOLMEX_A,3-5*ONCF_KOLMEX_B; F=DF45;
+      TX=Marokko ONCF E 900;										\
+	C=ONCF_E900,ONCF_D,1-2*ONCF_KOLMEX_A,3-8*ONCF_KOLMEX_B; F=DF45;
+      TX=Marokko ONCF E 1200;										\
+	C=ONCF_E1200,2*ONCF_T2S,3*ONCF_CORAIL_A1,ONCF_VU_B6DUL; F=DP6;
+      TX=Marokko ONCF E 1300;										\
+	C=ONCF_E1300,(<(2*ONCF_CORAIL_A1),ONCF_CORAIL_WR,(2*ONCF_CORAIL_A1),ONCF_VU_B6DUL); F=DP6;
+      TX=Marokko ONCF Prima 2;										\
+	C=ONCF_DE,ONCF_PRIMA2; F=DF6;
+      TX=Marokko ONCF ZMC;										\
+	C=ONCF_ZMC; F=DF45;
+      TX=Marokko ONCF TAF;										\
+	C=<ONCF_TAF_FL,2*ONCF_TAF_M,ONCF_TAF_F; F=DPU45;
+    }
+    {E5|E6?
+# E
+      TX=Marokko ONCF ZMC;										\
+	C=(<ONCF_ZMC2EL,ONCF_ZMC2BL,ONCF_ZMC2F)|(<ONCF_ZMC2FL,ONCF_ZMC2B,ONCF_ZMC2E)|			\
+	  (<ONCF_ZMC3EL,ONCF_ZMC3BL,ONCF_ZMC3F)|(<ONCF_ZMC3FL,ONCF_ZMC3B,ONCF_ZMC3E);			\
+	F=DPU56;
+      TX=Marokko ONCF TAF;										\
+	C=<ONCF_TAF_FL,2*ONCF_TAF_M,ONCF_TAF_F; F=DPU45;
+    }
+#---------------------------------------------------------------------------
+#
+# Tunesien
+#
+
+# ohne
+    {E5|E6?
+      TX=Tunesien SNCFT 04 mit Reisezug;								\
+	C=SNCFT_040DLL|SNCFT_040DL|SNCFT_040DOL|SNCFT_040DO,						\
+	  (<SNCFT_YBOP_A,SNCFT_YBOP_AB,3*SNCFT_YBOP_B,SNCFT_YBOP_BD);					\
+	F=DP56;
+    }
+  }
+  %ENDPOOL;
+}
