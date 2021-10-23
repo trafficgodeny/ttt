@@ -1,0 +1,1138 @@
+# zsz_cityg.ttt: City traffic on single lines
+
+$REQUIRE GETOPT.TTT
+$REQUIRE ZSZ_DEF.TTT
+$BGCOLOR #000000
+              
+TX=Kaposvár;                                                                    \
+  M=FOLLOW; D=R;                                                                \
+  C=(KAPV_IK415;KAP_RC;KAP_RC135;KAP_RC15;KAPV_E94;KAP_E95;KAP_E98;KAPV_N4014NF);
+	
+$GROUP TX=Pécs; LC=1; W=A;
+  M=FOLLOW; D=R;                                                                \
+    C=(PS_IK556;PS_IK180;PS_IK246;IK246_ESSO;PS_IK260B;PS_IK260R;PS_IK260DAF;   \
+	PS_IK280R;PS_IK280D;PS_IK280E;PS_IK280I);
+  M=FOLLOW; D=R;                                                                \
+    C=(PS_IK280F;PS_IK280G;PS_IK280H;PS_IK280J;PS_IK280K;PS_IK280L;PS_IK280M;   \
+	PS_IK280N;PS_IK280RA;IK280RA;PS_IK280B);
+  M=FOLLOW; D=R;                                                                \
+    C=(PS_IK280C;PS_IK280A;IK280PSA;IK280SA;PS_IK284;PS_IK284A;PS_IK410;	\
+    	PS_IK415;PS_IK415A;PS_IK435;PS_O345;PS_O345G;PS_O345G1;PS_O345G2);
+  C=PS_CITAROL;
+$ENDGROUP 
+            
+$GROUP TX=Sopron; LC=2; W=T;
+  C=SVV_A;
+  C=SVV_1;
+  C=SVV_2;
+  C=SVV_5;
+$ENDGROUP 
+         
+$GROUP TX=Szombathely; LC=2; W=T;
+  C=SZVV_0;
+  C=SZVV_1,|SZVV_1A;
+  C=SZVV_3;
+  C=SZVV_6;
+  C=SZVV_6,SZVV_6A;
+  C=SZVV_11;
+  C=SZVV_17;
+$ENDGROUP 
+           
+$GROUP TX=Aachen; LC=2; W=T;
+  C=AACH_T4EXD|(AACH_T4TALBOT,0-1*AACH_B4TALBOT)|AACH_T4TALBOTR|AACH_GT6;
+  M=FOLLOW; D=R;                                                                \
+    C=5*(AACH_SL202R|AACH_NL202|AACH_O405N2|AACH_V7000|AACH_SG242H|AACH_SG242HY|\
+	AACH_NG262|AACH_O405N|AACH_O405G|AACH_O405GN2|AACH_NG313W|AACH_0530G|   \
+	AACH_AGG300);
+$ENDGROUP 
+
+TX=Aalen; C=AALEN_N4026_3L|AALEN_N4026_3;
+
+$GROUP TX=Augsburg; LC=4; W=T;
+  POOL=POOL_AUGSBURG_GT4;
+  POOL=POOL_AUGSBURG_GT4L;
+  C=SWA_GT5(|L);
+  C=SWA_GT8(|L);
+  POOL=POOL_AUGSBURG_GT4;
+  POOL=POOL_AUGSBURG_GT4L;
+  C=SWA_M8;
+  C=SWA_COMBINO(|L);
+$ENDGROUP 
+
+TX=Bad Homburg; C=BH_(A1L|A1|A2|A3|B1L|B1|B2|B3),0-1*(3:BH_BW|1:BH_BWO); 
+
+$GROUP TX=Bad Schandau (Kirnitzschtalbahn); LC=1; W=T;
+  C=KIRB_TZ57A;
+  D=R; C=KIRB_TZ57A,KIRB_EB57A;
+  D=L; C=KIRB_TZ57A,KIRB_EB57AL;
+  C=KIRB_TZ57N;
+  D=R; C=KIRB_TZ57N,KIRB_EB57A;
+  D=L; C=KIRB_TZ57N,KIRB_EB57AL;
+  C=KIRB_ES48;
+  C=KIRB_ET57;
+  D=L; C=KIRB_ET57,KIRB_EB57L;
+  D=R; C=KIRB_ET57,KIRB_EB57;
+$ENDGROUP 
+
+$GROUP TX=Baden Baden; LC=2; W=A;
+  C=BAD_N4021(|L);
+  M=FOLLOW; D=L;                                                                \
+    C=(BAD_NL313L;BAD_NL313L_VITA;BAD_O530L;BAD_O530L_HEEL;BAD_O530_HETTICHL;   \
+	BAD_O530L_MCDONALDS;BAD_O530GL;BAD_O530G_HEE);
+  M=FOLLOW; D=R; C=(BAD_NL313;BAD_O530;BAD_O530G;BAD_O530G_HEEL);
+$ENDGROUP 
+
+TX=Bergisch Gladbach; M=FOLLOW; D=R; C=3*(BGL_NL26(2_BETTENLOCH|2_METALLBAU|3|3_MODE)); 
+
+$GROUP TX=Bielefeld; LC=2; W=T;
+  C=BIEL_3GT6L,|BIEL_3B4L;
+  C=BIEL_3GT6,|BIEL_3B4;
+  C=BIEL_4GT6L,|BIEL_4B4L;
+  C=BIEL_4GT6,|BIEL_4B4;
+  C=BIEL_GT8(|L);
+  C=BIEL_M8;
+  C=<BIEL_6M8L,|BIEL_6B4,BIEL_6M8;
+  M=FOLLOW;                                                                     \
+    C=4*(BIEL_(2:0530(|N)|N4009|3:N4021(B1|O1|O2)|NG313|NL202|NL262|2:O530G(|   \
+	N)));
+$ENDGROUP 
+
+$GROUP TX=Bochum; LC=2; W=T;
+  C=BOCH_3T2,|BOCH_3B2;
+  C=BOCH_4T2,|BOCH_4B2;
+  C=BOCH_4GT6|BOCH_5GT6;
+  C=BOCH_5M6;
+  C=BOCH_6GT6;
+  C=BOCH_6M6;
+  C=BOCH_M6C;
+  C=BOCH_6B80;
+  C=BOCH_6NF6;
+  C=BOCH_NF6D|BOCH_NF6D_SPARKASSE;
+  M=FOLLOW; C=2*BOCH_(SL200|SL202_SPARKASSE|N416|O405G|SG240|SG242|SL202);
+  M=FOLLOW;                                                                     \
+    C=3*BOCH_(N4416_SPIELZEUGLAND|N4421_MEYERSCHE|NG272|NG313|NL202|NL202CE|    \
+	NL263|3:O405GN(|_CE|_RADIO985)|O530G|2:URBINO(12|18G)|UL292);
+$ENDGROUP 
+
+$GROUP TX=Bonn; LC=4; W=T;
+  C=BONN_1T2,|BONN_1B2;
+  C=BGM_3T,|BGM_3B|BGM_3N;
+  C=BGM_4T3,|BGM_4B3,|BGM_4S3;
+  C=BGM_4S3,BGM_4T3;
+  C=BONN_SSB_4GT8;
+  C=BONN_SSB_4T4;
+  C=(BONN_SWB_4T4(|A)L,|BONN_SWB_4B4L)|(BONN_SWB_4T4(|A),|BONN_SWB_4B4);
+  C=BONN_6B80;
+  C=BONN_6NF6;
+  M=FOLLOW; C=2*SWB_B100(|T_TD1XTRA|T_TMOBILE|_HOTSPOT|_TKOM);
+  M=FOLLOW; C=2*SWB_NGT6(|HOLZWELT|W|_HAUSMANN|_SQUASH);
+  M=FOLLOW;                                                                     \
+    C=4*SWB_(N4021|NG312|3:NL202(|_2|_2D3)|O305|3:O405(|G|N2)|SG192|SG220|SG242|\
+	SL200|SL202);
+  M=FOLLOW; C=4*SWB_(3:0530(GW|W|WR)|NG312W|NG313W|NL222W|NL232_CNG3|O405N2W);
+  M=FOLLOW; C=3*SWB_(0530E|NL202E|NL263|2:O405(GNE|N2E));
+$ENDGROUP 
+
+$GROUP TX=Brandenburg; LC=2; W=T;
+  C=BRA_TZ57|(BRA_ET57L,|BRA_EB57L)|(BRA_ET57,|BRA_EB57);
+  C=(BRA_ET57AL,|BRA_EB57AL)|(BRA_ET57A,|BRA_EB57A);
+  C=BRA_KT4D(|M)(|L);
+  C=BRA_(6NF6|KTNF6(|L)|MGT6D(|L));
+  C=BRA_CITADIS_A1;
+$ENDGROUP 
+
+$SECTION TX=Braunschweig;DY=100;LC=3;
+  POOL=POOL_BWG_T;
+  $SECTION LC=1;W=A;
+    M=FOLLOW; D=L;                                                              \
+      C=7*(15:(BWG_(2:B15(|LUDWIG)|2:B6000T(|G)|4:B6500T(|E|EG|_MG)|PLF_CZ13|   \
+		PRASIDENTG|S13RU|2:TU11(|U)|TU7|VG16)L)|3:(BWG_B6(0|5)00TL,     \
+		BWG_GTL));
+    M=FOLLOW; D=R;                                                              \
+      C=3*BWG_(2:(|74_)SG192|74_SL192|3:MAN(73|74|74J)|2:SL192(|_DORNKAAT));
+    M=FOLLOW; D=L;                                                              \
+      C=4*KVGB_(7972L|8102L|8331AL|8331L|9414L|9503L|9617L|MAN_NL222L);
+    M=FOLLOW; D=R;                                                              \
+      C=7*(15:(BWG_(2:B15(|LUDWIG)|2:B6000T(|G)|4:B6500T(|E|EG|_MG)|PLF_CZ13|   \
+		PRASIDENTG|S13RU|2:TU11(|U)|TU7|VG16))|3:(BWG_B6(0|5)00T,       \
+		BWG_GT));
+    M=FOLLOW; D=L;                                                              \
+      C=3*BWG_(2:(|74_)SG192|74_SL192|3:MAN(73|74|74J)|2:SL192(|_DORNKAAT))L;
+    M=FOLLOW; D=R; C=3*KVGB_(0002|0101|7972|8102|9503|MAN_NL222);
+  $ENDSECTION 
+$ENDSECTION 
+
+$GROUP TX=Bremen; LC=2; W=T;
+  C=(BRE_GT4AL,|BRE_GB4AL)|(BRE_GT4A,|BRE_GB4A)|(BRE_80L,|BRE_218L)|(BRE_80,|   \
+	BRE_218);
+  C=(BRE_GT4BL,|BRE_GB4BL)|(BRE_GT4B,|BRE_GB4B);
+  C=(BRE_GT4CL,|BRE_GB4CL)|(BRE_GT4C,|BRE_GB4C);
+  C=BRE_GT6(|L);
+  C=BSAG_GT8N(B|G|O1|O2|R|Y)(|L);
+$ENDGROUP 
+
+$GROUP TX=Bremerhafen; LC=3; W=T;
+  C=(BRE_64L,|BRE_208L)|3:(BRE_64|BRE_73|BRE_68),|BRE_208;
+  C=(BRE_77L(|[O:BRE_ADVB1,12,7]),|BRE_215L(|[O:BRE_ADVB1,12,7]))|(BRE_77(|     \
+	[O:BRE_ADVA1,26,7][O:BRE_ADVA1,87,7]),|BRE_215(|[O:BRE_ADVA1,23,        \
+	7][O:BRE_ADVA1,84,7]));
+$ENDGROUP 
+
+TX=Castrop-Rauxel;                                                              \
+  M=FOLLOW;                                                                     \
+  C=4*HCR_(N4416|NG272|NG313|2:NL202(|_2)|NL223|O305|O405N|O530|O530G_LUEG|     \
+	SL202);
+
+$GROUP TX=Chemnitz; LC=2; W=T;
+  C=KMXS_T3DL,|KMXS_B3DL;
+  C=KMXS_T3D,|KMXS_B3D;
+  C=(1-2*CVAG_T3DL,|CVAG_B3DL)|(1-2*CVAG_T3D,|CVAG_B3D)|(1-2*CVAG_T3DNL,|       \
+	CVAG_B3DNL)|(1-2*CVAG_T3DN,|CVAG_B3DN);
+  C=(CVAG_T3DML,|CVAG_TB3DML,|CVAG_B3DML)|(CVAG_T3DM,|CVAG_TB3DM,|CVAG_B3DM);
+  C=CVAG_(CBC_VARIOZ|2:VARIO(|L)|VARIOZ);
+  M=FOLLOW; AP=[C=(CVAG_O405;CVAG_O530G;CVAG_N4032)]|[C=(CVAG_O530GL;CVAG_N4032L)];
+$ENDGROUP 
+
+$GROUP TX=Cottbus; LC=2; W=T;
+  C=COT_HISTTW,|COT_HISTBW;
+  C=(COT_ET50L,|COT_EB50L)|(COT_ET50,|COT_EB50);
+  C=COT_ET54,|COT_EB54;
+  C=COT_TZ57A,COT_BZ57A;
+  C=(COT_ET57L,|COT_EB57L)|(COT_ET57,|COT_EB57)|(COT_TZ57,|COT_BZ57);
+  C=COT_KT4D(M|_JACOBS)(|L);
+  C=COT_KTNF6(|L|_COMMERZBANK(|L)|_FPPL|_JAGER(|L)|_LANDSKRON|_MAZDA|           \
+	_SPREEGALERIEL);
+  C=COT_AT901(|A);
+$ENDGROUP 
+
+TX=Dahmetal; C=DAHM_N4020(|L);
+
+$GROUP TX=Hessische Elektrizitäts AG, Darmstadt (HEAG); LC=3;
+  C=HEAG_ST(3|4|6|62|62M|6M),3:|5:HEAG_SB(3|6|62|62M|6M); W=TL53;
+  C=HEAG_ST9(|L);
+  C=HEAG_ST10(A|B)(|L);
+  C=HEAG_ST(10C|11)(|L);
+  C=HEAG_ST12(A|B)(|L);
+  C=(HEAG_ST13L,|HEAG_SB9L)|(HEAG_ST13,|HEAG_SB9);
+  C=HEAG_ATW6,|HEAG_AB501;
+$ENDGROUP 
+
+TX=Dessau; C=(DES_ES8XOR|DES_GT6W)(|L); 
+
+$GROUP TX=Detmold; LC=1; W=A;
+  M=FOLLOW; D=R;                                                                \
+    C=4*(BVOD_SETRA|BVOD_RESERVE|BVOD_N4021|BVOD_6|BVOD_16|BVOD_17|BVOD_18);
+  M=FOLLOW; D=L;                                                                \
+    C=4*(BVOD_2L|BVOD_SETRAL|BVOD_RESERVEL|BVOD_7L|BVOD_N4021L|BVOD_13L|        \
+	BVOD_10L);
+$ENDGROUP 
+
+TX=Dingolfingen;                                                                \
+  M=FOLLOW;									\
+  AP=[C=4*DIN_(N4007(B|G|R|Y)|SM182(B|G|R|Y))L]|[C=4*DIN_(N4007(B|G|R|Y)|SM182(B|G|R|Y))];
+
+$SECTION LC=3;DY=100;
+  $GROUP TX=Dortmund; LC=1; W=T;
+    C=DO_4T2,|DO_4B2;
+    C=(DO_4T4L,|DO_4B4L)|(DO_4T4,|DO_4B4);
+    C=DO_4GT4(|L);
+    C=DO_4GT8;
+    C=DORTM_1;
+    C=DO_5N8C(|_VAILLANT);
+    C=DO_5GT8(|L);
+    C=DO_6GT8;
+    C=1-2*DO_6N8;
+    C=1-2*DO_6B80|DO_B8;
+    C=DO_5FAHRSCHULE;
+    C=DO_6H1;
+  $ENDGROUP 
+  $GROUP LC=1; W=A;
+    TX=Dortmunder Stadtwerke AG;                                                \
+      M=FOLLOW; D=R;                                                            \
+      C=5*DO_(SL200(A|B|C)|SL202_LEARN|NM223|NL202|NL223|SG242H|NG263|          \
+	    NG313_POCO|2:NG272(|_2)|2:O405(GN|N)|A360|AG300|2:N4421_ERDGAS(|2));
+    TX=Dortmund, Quecke-Reisen;                                                 \
+      M=FOLLOW; C=(QUECKE_S315NF;QUECKE_O405N;QUECKE_NL242);
+    TX=Dortmund, TRD-Reisen;                                                    \
+      M=FOLLOW; C=(TRD_NL263;TRD_N4014;TRD_AGORA);
+    TX=Dortmund. Verkehrsgesellschaft Breitenbach;                              \
+      M=FOLLOW; C=(VGB_NL202;VGB_NL202_SCHULTE;VGB_NL263;VGB_NG272_1567);
+    TX=Dortmund, Zeretzke-Reisen;                                               \
+      M=FOLLOW;                                                                 \
+      C=(ZERE_NL202;ZERE_TEAMSTAR;ZERE_N4014;ZERE_N4015;ZERE_S215SL;ZERE_S315NF);
+  $ENDGROUP 
+$ENDSECTION 
+
+TX=Döbeln;                                                                      \
+  C=HORSE(|BTW|DTW|D|GTW|G|4:_TWIN(|2|3|4))_PB,DOBPB_B145; V=1;
+
+TX=Dormagen;                                                                    \
+  M=FOLLOW;                                                                     \
+  C=5-8*BVR_(AS319NF3S|N4011(|_DOR)|NU263(|S)|NU313|O307(|R)|O405(|R)|O407(|S)| \
+	S215(SL|UL|ULS)|S315N(F|FS|F_DOR|UF)|SG221UL(|S)|SU240|UL312);
+
+$GROUP TX=Duisburg; LC=3; W=T;
+  C=DU_1T2A|DU_1T2;
+  C=DU_2T2,0-2*DU_2B2;
+  C=DU_(2|4|5)HARKORT;
+  C=DU_4T2,0-2*DU_4B2;
+  C=(DU_4GT4AL|DU_4GT8L,|DU_4B4L)|(DU_4GT4A|DU_4GT4|DU_4GT8,|DU_4B4);
+  C=(DU_5GT4L,|DU_5B4AL)|(DU_5GT4,|DU_5B4A)|DU_5GT8A(|L)|DU_G82(|L);
+  C=DU_5GT8A(|L);
+  C=DU_4GT10(|L);
+  C=DU_GT10NC;
+  C=DU_5N8C|DU_B80_B|DU_6B80A|DU_6NF10|DU_N10_B|DU_B80;
+  C=DU_NF;
+  C=DU_6GT8KOPIL|DU_6GT8KOPI;
+  M=FOLLOW;                                                                     \
+    C=6*DU_(O305|O405(|N2|O)|NL223(|K)|NG312|AG300(|_FIELMANN)|O405(GN_CNG|     \
+	N_REAL)|O530(|G|K)|N4020);
+$ENDGROUP 
+
+TX=Eberswalde; C=BBG_152NGE;
+
+TX=Ennepe-Ruhr;                                                                 \
+  M=FOLLOW;                                                                     \
+  C=4-8*(VER_NM222S|VER_NM223|VER_NL263|VER_NL263_4|VER_O405|VER_O405N|         \
+	VER_O405GN|VER_O407S|VER_O520|VER_O530|VER_O530S|VER_O530G|VER_O530G3|  \
+	VER_O530G4);
+
+$GROUP TX=Erfurt; LC=4; W=T;
+  C=(EVAG_ET57,EVAG_EB57)|(EVAG_ET57L,EVAG_EB57L);
+  C=EVAG_GOTHA,EVAG_GOTHAB;
+  C=EVAG_G4A(|L);
+  C=EVAG_G4(|L);
+  C=EVAG_KT4DA(|L);
+  C=EVAG_KT4D(|L);
+  C=EVAG_NF6;
+  C=EVAG_COMBINO(|2|3)(|L);
+  C=EVAG_CITADIS_A1;
+  M=STOP; C=EVAG_G4_ATW(|L);
+  C=EVAG_N4021(|L);
+  C=EVAG_O405GTD(|L);
+  C=EVAG_SL200(|L);
+$ENDGROUP 
+
+$GROUP TX=Esslingen-Nellingen-Denkendorf; LC=2; W=T;
+  C=<END_1L,END_1;
+  C=2-3*END_(11|2|2S|3VR|4RE|5|5BR|5RE|6EM|7|8EM|9|9JK|T4);
+  C=END_20(A|B),0-2*END_(29|3S|B9);
+  C=END_1(2|3H|3HL),END_36(|H|HL);
+$ENDGROUP 
+
+$GROUP TX=Esslingen; LC=1; W=T;
+  C=ESS_5(|A)(|L);
+  C=ESS_3L,|ESS_53;
+  C=ESS_3,|ESS_53;
+$ENDGROUP 
+
+$GROUP TX=Esslingen; LC=3; W=T;
+  C=SVE_MPE4500S|SVE_MPE4500K;
+  C=SVE_110AF2;
+  M=FOLLOW; C=4-6*(8:SVE_UH3S_(11|12|13|14|15|29|30|31)|3:SVE_UB4S(32|33|34),4:|SVE_PA4);
+  M=FOLLOW; C=3-5*SVE_HS160_(16|17|18|19|20|21|22|23);
+  M=FOLLOW;                                                                     \
+    C=3-5*SVE_(AG300TAL|O305DL|O305GTDL|O405GTD2L|O405GTDL|O405TL|VE16SOL);
+  M=FOLLOW; C=3-5*SVE_(AG300TA|O305D|O305GTD|O405GTD|O405GTD2|O405T|VE16SO);
+  M=FOLLOW;                                                                     \
+    C=4-6*SVE_(307T|O305(D_301|D_303|GTD_307)|O405GTD_3(14|24|27)|O405T_205|    \
+	VE16SO_20(1|3|4));
+  C=SVE_OE302|SVE_O305G;
+$ENDGROUP 
+
+$GROUP TX=Flensburg; LC=3; W=T;
+  C=FLEN_32O;
+  C=FLEN_24,|FLEN_44;
+  C=FLEN_26|FLEN_32|FLEN_36,|FLEN_48;
+  C=FLEN_25,|FLEN_45;
+  C=[O:FLEN_ADV(1|2|3|4|5|6),,^14]FLEN_(37|40),|FLEN_26B;
+  C=FLEN_43,FLEN_108;
+  C=FLEN_ZTW,FLEN_BW;
+  C=AFAG_0317;
+  C=FLEN_O305G_AKTIVBUS;
+  C=AFAG_O305G;
+$ENDGROUP 
+
+$GROUP TX=Frankfurt/Oder; LC=1; W=T;
+C=SVF_ET57,SVF_EB57;
+M=FOLLOW; D=L; C=2-4*SVF_(209|213|215|220|2:KT4D)L;
+M=FOLLOW; D=R; C=2-4*SVF_(209|213|215|220|2:KT4D);
+C=SVF_GT6M(|L);
+$ENDGROUP
+
+TX=Frankfurt-Offenbacher Trambahn; C=FOTG_TW(|L),0-2*FOTG_BW;
+
+TX=Fürstenwalde; M=FOLLOW; C=3*FUWA_IK(260_96|260_97|280_01|415_01|C56_01);
+
+TX=Fürth; C=CITARO_INFRA_FURTH;
+
+$GROUP TX=Gera; LC=3; W=T;
+  C=GERA_ET57L,0-2*GERA_EB57L;
+  C=GERA_KT4DA;
+  C=GERA_KTNF8L;
+  C=GERA_AT57L;
+  C=GERA_KT4DMA;
+  C=GERA_ATZ57_103;
+  C=GERA_ET57,0-2*GERA_EB57;
+  C=GERA_KT4DAL;
+  C=GERA_KTNF8;
+  C=GERA_AT57LL;
+  C=GERA_KT4D;
+  C=GERA_KT4DMAL;
+$ENDGROUP 
+
+$GROUP TX=Gotha; LC=3; W=T;
+  C=GOTHA_ET55,|GOTHA_EB57;
+  C=GOTHA_ET55N;
+  C=GOTHA_G4L;
+  C=GOTHA_KT4DA;
+  C=GOTHA_KT4DL;
+  C=GOTHA_GT6A;
+  C=GOTHA_GT6BL;
+  C=GOTHA_GT6Z;
+  C=GOTHA_TZ57,|GOTHA_BZ57;
+  C=GOTHA_ET55,GOTHA_EB57L;
+  C=GOTHA_G4;
+  C=GOTHA_KT4DAL;
+  C=GOTHA_KT4D;
+  C=GOTHA_GT6AL;
+  C=GOTHA_GT6B;
+$ENDGROUP
+
+$GROUP TX=Görlitz; LC=2; W=T;
+  C=SWG_WUMAG58;
+  C=SWG_KT4DL;
+  C=SWG_KT4D;
+  C=CNX_GORLITZ_KT4D;
+$ENDGROUP 
+
+TX=Gummersbach;                                                                 \
+  M=FOLLOW; D=R; C=4-6*OVAG_(							\
+  	7:NL262(B|_ERDGAS|_KRAUS|_MOEBELBLASS|_MOEBELNIES|_REHATEAM|_SPARKASSE)|\
+  	3:NL263(|B|_ESSO|_HOLZMARKT)|						\
+  	4:O405N(B|W|_EUROMOEBEL|_SPARKASSE)|					\
+  	3:O530(|L|_SPARKASSE)|							\
+  	4:SL202(|_BMW|_HOLZMARKT|_SPARKASSE)|     				\
+	UL292);
+
+TX=Gütersloh;                                                                   \
+  M=FOLLOW; D=R;                                                                \
+  C=4-6*(GUT_(0530|N4016A|N4016B|N4016W|N4021|NL202|NL262N|NL262W|O405GN2|      \
+	O405N2|O530G));
+
+$SECTION TX=Hagen;LC=1;
+  C=HAGEN_3T2,|HAGEN_3B2;
+  M=FOLLOW; C=3-5*HAGEN_(O405A|O405C|SG192|SG240H|SL200|SL202O);
+  C=HAGEN_4T2,|HAGEN_4B2;
+  M=FOLLOW;                                                                     \
+    C=4-6*HAGEN_(614|A360|AG300|AG300_OHREN|O405B|O405GB|O405GN_CE|O405GN_MAGGI|\
+	SG292B|SG292_BAUMARKT|SL200_INFO|SL202B);
+  C=HAGEN_4T4;
+  M=FOLLOW;                                                                     \
+    C=4-6*WSW_(NG313|NG313_CITYEX|NL202|NL263|NM222|NM223|O405|O405G|O405GN2|   \
+	O405N|O530G|SG292|SL202);
+$ENDSECTION 
+  
+$SECTION TX=Halberstadt;LC=1;W=T;
+  C=HVG_T2REKO;
+  $GROUP LC=1; W=T;
+    C=HVG_GT4L~BL;
+    C=HVG_GT4L~WSI;
+    C=HVG_GT4L~TIS;
+    C=HVG_GT4AL;
+    C=HVG_GT4Z;
+    C=HVG_GT4BL;
+    C=FVAG_152HL;
+    C=FVAG_154FL;
+    C=FVAG_155AL;
+    C=FVAG_155BL;
+    C=FVAG_156AL;
+    C=FVAG_158CL;
+    C=FVAG_159KL;
+  $ENDGROUP 
+  $GROUP LC=1; W=T;
+    C=HVG_GT4~BL;
+    C=HVG_GT4~WSI;
+    C=HVG_GT4~TIS;
+    C=HVG_GT4A;
+    C=HVG_GT4ZA;
+    C=HVG_GT4B~BL;
+    C=HVG_GT4B~KRE;
+    C=FVAG_152H;
+    C=FVAG_154F;
+    C=FVAG_155A;
+    C=FVAG_155B;
+    C=FVAG_156A;
+    C=FVAG_158C;
+    C=FVAG_159K;
+    C=HVG_163;
+    C=HVG_165;
+  $ENDGROUP 
+  $GROUP LC=1; W=T;
+    C=HVG_LEOLINERL;
+    C=HVG_LEOLINER;
+  $ENDGROUP 
+$ENDSECTION 
+
+$SECTION TX=Halle;LC=3;DY=100;
+  $GROUP LC=1; W=T;
+    C=1-2*HVAG_T4DL[P1U],|HVAG_B4DL~JP;
+    C=1-2*HVAG_T4D[P1U],|HVAG_B4D~JP;
+    C=<HVAG_T4DZL[P1U],|HVAG_ZB4DL~JP|HVAG_ZB4D~JP,HVAG_T4DZ[P1U];
+    C=HVAG_ZT4DL~JP;
+    C=1-2*HVAG_T4DNL,|HVAG_B4DNL;
+    C=1-2*HVAG_T4DN,|HVAG_B4DN;
+    C=HVAG_ZT4DNL;
+    C=HVAG_ZT4DN;
+    C=HVAG_T4DML,HVAG_B4DML;
+    C=HVAG_T4DM,HVAG_B4DM;
+  $ENDGROUP 
+  $GROUP LC=1; W=T;
+    C=HVAG_GT4L~BL;
+    C=HVAG_GT4L~TIS;
+    C=HVAG_GT4L~KRE;
+    C=HVAG_GT4WL~BL;
+    C=HVAG_GT4WL~WSI;
+    C=HVAG_GT4AL~BL;
+    C=HVAG_GT4BL;
+    C=HVAG_GT4CL;
+    C=HVAG_851SL;
+    C=HVAG_851TL;
+    C=HVAG_853ML;
+    C=HVAG_854L;
+    C=HVAG_862HL;
+    C=HVAG_864ML;
+    C=HVAG_869HL;
+    C=HVAG_870ML;
+    C=HVAG_872EL;
+    C=HVAG_873KL;
+    C=HVAG_874KL;
+    C=HVAG_875ML;
+    C=HVAG_876L;
+    C=HVAG_877L;
+    C=HVAG_877ML;
+    C=HVAG_878LOL;
+    C=HVAG_880FL;
+    C=HVAG_882HL;
+    C=HVAG_886LL;
+    C=HVAG_887BL;
+    C=HVAG_887DL;
+    C=HVAG_888FL;
+    C=HVAG_888UL;
+    C=HVAG_890ML;
+    C=HVAG_890SL;
+  $ENDGROUP 
+  $GROUP LC=1; W=T;
+    C=HVAG_874K;
+    C=HVAG_875M;
+    C=HVAG_876;
+    C=HVAG_877;
+    C=HVAG_877M;
+    C=HVAG_878LO;
+    C=HVAG_880F;
+    C=HVAG_882H;
+    C=HVAG_886L;
+    C=HVAG_887B;
+    C=HVAG_887D;
+    C=HVAG_888F;
+    C=HVAG_888U;
+    C=HVAG_890M;
+    C=HVAG_890S;
+    C=HVAG_GT4~BL;
+    C=HVAG_GT4~TIS;
+    C=HVAG_GT4~KRE;
+    C=HVAG_GT4A~TIS;
+    C=HVAG_GT4W~BL;
+    C=HVAG_GT4W~WSI;
+    C=HVAG_GT4A~BL;
+    C=HVAG_GT4B;
+    C=HVAG_GT4C;
+    C=HVAG_851S;
+    C=HVAG_851T;
+    C=HVAG_853M;
+    C=HVAG_854;
+    C=HVAG_862H;
+    C=HVAG_864M;
+    C=HVAG_869H;
+    C=HVAG_870M;
+    C=HVAG_872E;
+    C=HVAG_873K;
+  $ENDGROUP
+  $GROUP 
+    C=HVAG_MGT6DL;
+    C=HVAG_GT6Z;
+    C=HVAG_MGT6KL;
+    C=HVAG_MGT6D;
+    C=HVAG_GT6ZL;
+    C=HVAG_MGT6K;
+  $ENDGROUP 
+$ENDSECTION 
+
+TX=Hamm;                                                                        \
+  M=FOLLOW;                                                                     \
+  C=3-6*VBH_(B7000|NG272|NG312|NG313|NL202|NL202G|NL202_2|NL202_2G|S215SL|      \
+	SG219SL|SG240H);
+
+$SECTION TX=Hanau; LC=2; DY=100;
+  $GROUP LC=1; W=T;
+    C=HSBA_TW1A;
+    C=HSBA_TW1C;
+    C=HSBA_TW1B;
+    C=HSBA_TW15;
+  $ENDGROUP 
+  $GROUP LC=1; W=A;
+    M=FOLLOW; C=3-5*HSBA_O(305A|305GA|405A|405C|405GA|405GC|405GNA|405N|405NM)L;
+    M=FOLLOW;                                                                   \
+      C=3-5*HSBA_O(305A|305B|305GA|305GB|405A|405C|405GC|405GNA|405N|405NM);
+    M=FOLLOW; C=2-4*HSBA_O405(B|BM|D|GB|N_HANAUER_ANZEIGER|N_REUS|_BRASS|       \
+		_HOHL)L;
+    M=FOLLOW; C=2-4*HSBA_O405(B|BM|D|GB|N_HANAUER_ANZEIGER|N_REUS|_BRASS|_HOHL);
+    M=FOLLOW; C=2*HSBA_O530(|E|G)L;
+    M=FOLLOW; C=2*HSBA_O530(|E|G);
+  $ENDGROUP 
+$ENDSECTION 
+
+$GROUP TX=Heilbronn; LC=2; W=T;
+  C=HSAG_16A;
+  C=HSAG_16B;
+  C=HSAG_20A,|HSAG_70(A|B);
+  C=HSAG_20B,|HSAG_70(A|B);
+  C=HSAG_51AL,|HSAG_70(A|B);
+  C=HSAG_51A,|HSAG_70(A|B);
+  C=HSAG_51PL,|HSAG_70(A|B);
+  C=HSAG_51P,|HSAG_70(A|B);
+$ENDGROUP 
+
+$GROUP TX=Heinsberg; W=A;
+  M=FOLLOW;                                                                     \
+    C=3-5*KWH_(O305|O305G|O405B|O405G|O408_SELFKANT|SG292|SL202B|               \
+	UL272_SELFKANT);
+  M=FOLLOW; C=2-4*KWH_(NG263|NL223|O405W|O530|O530G);
+$ENDGROUP 
+
+TX=Herford; C=<HERF_8,HERF_51;
+
+TX=Hoyerswerda; C=HOYW_T715;
+
+$GROUP TX=Jena; LC=2; W=T;
+  C=JENA_TZ70_1,|JENA_BZ70;
+  C=JENA_GT6ML;
+  C=JENA_GT6M;
+$ENDGROUP 
+
+$GROUP TX=Kassel; LC=3; W=T;
+  C=KVG_GT4L,|KVG_4B4L;
+  C=KVG_4GT6A~WSI,|KVG_4B4;
+  C=KVG_4GT6BL~WSI,|KVG_4B4L;
+  C=KVG_5GT6(A|B);
+  C=KVG_6GT6AL;
+  C=KVG_4GT6Z~WSI;
+  C=KVG_5GT6Z~WSI;
+  C=KVG_5N8;
+  C=KVG_5N8C;
+  C=KVG_5NGT6CL~WSI;
+  C=KVG_8NGTW;
+  C=KVG_N4021L;
+  C=KVG_6N8;
+  C=KVG_GT4,|KVG_4B4;
+  C=KVG_4GT6AL~WSI,|KVG_4B4L;
+  C=KVG_4GT6B~WSI,|KVG_4B4;
+  C=KVG_5GT6(A|B)L;
+  C=KVG_6GT6A;
+  C=KVG_6GT6Z;
+  C=KVG_5NGT6C~WSI;
+  C=KVG_N4021;
+  C=KVG_8NGTWL;
+$ENDGROUP 
+
+$GROUP TX=Kiel; LC=2; W=T;
+  C=KVAG_GT4L,|KVAG_B1L~PH;
+  C=KVAG_GT4,|KVAG_B1~PH;
+  C=KVAG_LEEL;
+  C=KVAG_LEE;
+  C=KVAG_GT6L~PH,|KVAG_B1L~PH;
+  C=KVAG_GT6~PH,|KVAG_B1~PH;
+  C=KVAG_GT6(AL|L~WSI),|KVAG_B1(|J)L~WSI;
+  C=KVAG_GT6(A|~WSI),|KVAG_B1(|J)~WSI;
+$ENDGROUP 
+
+$SECTION TX=Krefeld; LC=2; DY=100;
+  $GROUP LC=1; W=T;
+    C=1-2*KREF_401L;
+    C=1-2*KREF_411;
+    C=KREF_4GT4L,KREF_4B2;
+    C=KREF_GT8;
+    C=KREF_5M8;
+    C=1-2*KREF_401;
+    C=1-2*KREF_411L;
+    C=KREF_4GT4,KREF_4B2;
+    C=KREF_GT8L;
+  $ENDGROUP 
+  $GROUP LC=1; W=A;
+    M=FOLLOW; C=(KREF_SL200;KREF_SL202;KREF_SG242H);
+    M=FOLLOW; C=(KREF_NL202;KREF_NL223;KREF_NG263;KREF_AG300);
+    C=KREF_AG300L;
+  $ENDGROUP 
+$ENDSECTION 
+
+TX=Leverkusen;                                                                  \
+  M=FOLLOW;                                                                     \
+  C=4-6*(KWS_NL222|KWS_NL222_SELBACH|KWS_NL223|KWS_NL263_OKOSTROM|KWS_NG263|    \
+	KWS_O405N2|KWS_O405GN2|KWS_O530|KWS_O530_OPEL|KWS_O530_SELBACH|         \
+	KWS_O530_SPARKASSE|KWS_O530G|KWS_N4021);
+
+TX=Lippe; C=LIP_S315NF|LIP_518L;
+
+TX=Lübeck; C=3:LUB_240|LVG_O305L|LVG_O305|2:LVG_SD202;
+
+TX=Lüdenscheid;                                                                 \
+  M=FOLLOW;                                                                     \
+  C=4-6*(LUD_(CITYB96|NG312|NL202|NM192S|NM192STERN|NU313|O405G|O405GW|O405N2|  \
+	O405R|O405RW|O530|O530E|O530G01|O530G02|O530S|SG242H|SG292|SL202));
+
+$GROUP TX=Magdeburg; LC=3; W=T;
+  POOL=POOL_MVB1;
+  POOL=POOL_MVB2;
+  POOL=POOL_MVB3;
+  POOL=POOL_MVBM;
+$ENDGROUP 
+
+$GROUP TX=Mainz; LC=2; W=T;
+  C=MAINZ_3T3;
+  C=MAINZ_4T4;
+  C=MAINZ_4GT6;
+  C=MAINZ_GT6Z;
+  C=MAINZ_5M8;
+  C=MAINZ_M8C1;
+  C=MAINZ_M8C2;
+  C=MAINZ_GT6M_Z(|L);
+$ENDGROUP 
+
+$GROUP TX=Mettmann; LC=1; W=T;
+  C=KMS_3E100,1-3*KMS_3B2E;
+  C=KMS_3RWE1,|KMS_3B1;
+  C=KMS_3RWE2,|KMS_3B2;
+$ENDGROUP 
+
+$SECTION TX=Monheim; LC=1; DY=100;
+  $GROUP LC=1; W=T;
+    C=BSM_1;
+    C=BSM_5;
+    C=BSM_2;
+  $ENDGROUP 
+  $GROUP LC=1; W=A;
+    C=BSM_O305;
+    M=FOLLOW; C=2-3*BSM_(NL263|O405|O405N|O405N2);
+  $ENDGROUP 
+$ENDSECTION 
+
+$GROUP TX=Mönchengladbach; LC=1; W=A;
+  M=FOLLOW;                                                                     \
+    C=4-6*NVV_(NG272|NL202O|O305|O305G|O405GO|O405NO|O405O|SG192|SL200|SL202O);
+  M=FOLLOW; C=4-6*NVV_(NG263|NL202|NL223|O405|O405G|O405N|O530|O530G|SL202);
+$ENDGROUP 
+
+$GROUP TX=Münster; LC=1; W=A;
+  M=FOLLOW;                                                                     \
+    C=2-4*STWM_(O317G|O317G_GERMANIA_PILS|O317G_VAILLANT|RU14_11D|SG192|SG219SL|\
+	SG219SL_ERDGAS);
+  M=FOLLOW;                                                                     \
+    C=3-5*STWM_(NG262|NG313D4|NL202N|NL283|O405GN|O405N|O530|O530G|S319NF3);
+$ENDGROUP 
+
+TX=Naumburg;                                                                    \
+  C=HORSE(BTW_PB|DTW_PB|D_PB|GTW_PB|G_PB|_PB|_PB_MM),NAUMF_B133;
+
+$GROUP TX=Naumburg;
+  C=NAUM_ET57OL;
+  C=NAUM_ET57O;
+  C=NAUM_ET57;
+$ENDGROUP 
+
+$GROUP TX=Neunkirchen; LC=2; W=T;
+  C=NSBA_GT4L~BL;
+  C=NSBA_GT4~BL;
+  C=NSBA_GT4L~WSI;
+  C=NSBA_GT4L~TIS;
+  C=NSBA_GT4~TIS;
+  C=NSBA_GT4Z;
+  C=NSBA_1DL;
+  C=NSBA_1D;
+  C=NSBA_2L;
+  C=NSBA_2;
+  C=NSBA_6AL;
+  C=NSBA_6A;
+$ENDGROUP 
+
+$SECTION TX=Neuss; LC=2; DY=100;
+  $GROUP LC=2; W=T;
+    C=NEUSS_2T2,|NEUSS_59;
+    C=NEUSS_19,|NEUSS_59;
+    C=NEUSS_17~WSI,|NEUSS_73;
+    C=NEUSS_29;
+    C=NEUSS_38;
+    C=NEUSS_41L;
+    C=NEUSS_41;
+    C=NEUSS_35,NEUSS_76;
+    C=NEUSS_31,NEUSS_77;
+  $ENDGROUP 
+  M=FOLLOW; C=2-3*NEUSS_(NG263|O405GN2|O405N|O530G|SG219SL);
+$ENDSECTION 
+
+TX=Nord-Rhein-Westfalien; M=FOLLOW; C=3-6*NRW_(N4407|N4416(|A|B)|N4421(|A)|NG313|NL263|O530(|A)|O530G(|A));
+
+$GROUP TX=Nürnberg; LC=2; W=T;
+  C=N_T4L,N_B5L;
+  C=N_T4,N_B4;
+  C=N_GT6L;
+  C=N_GT6;
+$ENDGROUP 
+
+$SECTION TX=Oberhausen; LC=2; DY=100;
+  $GROUP LC=1; W=T;
+    C=STOAG_T3,STOAG_B3;
+    C=STOAG_GT6;
+    C=STOAG_NF6;
+  $ENDGROUP 
+  $GROUP LC=1; W=A;
+    M=FOLLOW; C=(STOAG_NL202A;STOAG_O405NA;STOAG_O405GNA);
+    M=FOLLOW; C=(STOAG_NL202B;STOAG_NL263B;STOAG_O405N;STOAG_O405GN);
+    M=FOLLOW; C=3-6*STOAG_(N8012|NL202|NL263|O405|O530|O530G|SL202|URBINO12);
+  $ENDGROUP 
+$ENDSECTION 
+
+$GROUP TX=Offenbach; LC=2; W=T;
+  C=SSO_R,SSO_RB;
+  C=SSO_U,SSO_UB;
+  C=SSO_UV,SSO_UVB;
+  C=SSO_GRL,SSO_GRBL;
+  C=SSO_GR,SSO_GRB;
+$ENDGROUP 
+
+TX=Oschersleben;                                                                \
+  M=FOLLOW; C=(OSCH_IK260_01;OSCH_IK280_01;OSCH_IK260_51;OSCH_IK280_51);
+
+$GROUP TX=Pforzheim; LC=3; W=T51;
+  C=SWP_TUB|SWP_TUO,|SWP_BO|SWP_BOA;
+  C=SWP_TU|SWP_TF|SWP_TH,|SWP_B|SWP_B2|SWP_B2A;
+  C=<SWP_601[!L],SWP_705,SWP_601;
+  C=<SWP_606[!L],SWP_601B,SWP_606;
+$ENDGROUP 
+
+$GROUP TX=Plauen; LC=2; W=T;
+  C=PLAU_ET57L,|PLAU_EB57L;
+  C=PLAU_ET57,|PLAU_EB57;
+  C=PLAU_BIER;
+  C=PLAU_79,|PLAU_28;
+  C=PLAU_KT4DL;
+  C=PLAU_KT4D;
+  C=PLAU_064;
+  C=PLAU_202;
+$ENDGROUP 
+
+$SECTION TX=Potsdam; LC=2; DY=100;
+  C=[PHU]1-2@POT_KT4DL|POT_KT4D|POT_KT4DMR;
+  M=FOLLOW; C=(POT_O405NL;POT_O405NGL);
+  C=POT_COMB(INO1|INO2|INO3|INOL~FLE|INO~FLE|_BASELL~TIS|_BASEL~TIS);
+  C=POT_T915;
+  M=FOLLOW; C=(POT_O405N;POT_O405NG;HVGP_2;HVGP_1);
+$ENDSECTION 
+
+$SECTION TX=Remscheid; LC=2; DY=100;
+  C=REM_GT4(|L);
+  $GROUP LC=1; W=A;
+    M=FOLLOW;                                                                   \
+      C=4-6*REM_(NL202|O305|O305G|O405|O405G|O405N|SG220|SG292|SL200|SL202);
+    M=FOLLOW; C=2-4*REM_(A308|NG272|NL202A|NM223|O405GN2|O405N1|WSW_NL263);
+  $ENDGROUP 
+$ENDSECTION 
+
+$SECTION TX=Rhein-Haardt-Bahn; LC=1; DY=100; W=T;
+  $GROUP LC=2;
+    C=RHBA_GT6AL,RHBA_GB6AL;
+    C=RHBA_GT6A,RHBA_GB6A;
+    C=RHBA_GT6BL~TIS,RHBA_GB6BL~TIS;
+    C=RHBA_GT6B~TIS,RHBA_GB6B~TIS;
+    C=RHBA_GT12L~TIS;
+    C=RHBA_GT12~TIS;
+    C=RHBA_8MGTL~TIS;
+    C=RHBA_8MGT~TIS;
+  $ENDGROUP 
+  $GROUP LC=2;
+    C=RHBA_GT6BL~WSI,RHBA_GB6BL~WSI;
+    C=RHBA_GT6B~WSI,RHBA_GB6B~WSI;
+    C=RHBA_GT12L~WSI;
+    C=RHBA_GT12~WSI;
+    C=RHBA_8MGTL~WSI;
+    C=RHBA_8MGT~WSI;
+  $ENDGROUP 
+  C=RHBA_GT12(|L)~FLE;
+$ENDSECTION 
+
+TX=Rodewisch; M=FOLLOW; C=2-4*ROD_IK(260_0(1|2|3)|263_01|C60_0(1|2));
+
+$GROUP TX=Rostock; LC=3; W=T;
+  C=[PHU]RSAG_26|RSAG_40|(RSAG_46L,0-1*RSAG_156L)|(RSAG_46|RSAG_797,            \
+	0-1*RSAG_156)|(RSAG_ET57L,0-1*RSAG_EB57L)|(RSAG_ET57,0-1*RSAG_EB57)|    \
+	RSAG_G4L|RSAG_G4|RSAG_G4L|RSAG_G4|(1-2*RSAG_T6A2OL,0-1*RSAG_B6A2OL)|    \
+	(1-2*RSAG_T6A2O,0-1*RSAG_B6A2O);
+  C=[PHU]6:(1-2@((RSAG_T6A2AL|RSAG_T6A2MOL|RSAG_T6A2ML|RSAG_T6A2M1L|            \
+	RSAG_T6A2M2L)(|[A1:RSAG_ADVTL1|RSAG_ADVTL2|RSAG_ADVTL3])),              \
+	0-1*(RSAG_B6A2AL(|[A1:RSAG_ADVTL1|RSAG_ADVTL2|RSAG_ADVTL3])))|RSAG_704L|\
+	RSAG_707L|RSAG_708L;
+  C=[PHU]6:(1-2@((RSAG_T6A2A|RSAG_T6A2MO|RSAG_T6A2M|RSAG_T6A2M1|RSAG_T6A2M2)(|  \
+	[A1:RSAG_ADVT1][A2:RSAG_ADVT1]|[A1:RSAG_ADVT2][A2:RSAG_ADVT3])),        \
+	0-1*(RSAG_B6A2A(|[A1:RSAG_ADVT1][A2:RSAG_ADVT1]|                        \
+	[A1:RSAG_ADVT2][A2:RSAG_ADVT3])))|RSAG_704|RSAG_707|RSAG_708;
+  C=RSAG_6(65|67|68|76|NGTWDE1~PH|NGTWDE~PH)(|L);
+  C=RSAG_(ATWT50|REKOATW);
+  C=RSAG_(MAN_SL202(|B)|O405(|B)|O405G(|_OZ))(|L);
+$ENDGROUP 
+
+TX=Saarbrücken; C=SAARB;
+
+$GROUP TX=Schöneiche; LC=2; W=T;
+  C=SCHON_T2REKO;
+  C=SCHON_T4BL;
+  C=SCHON_T4B;
+  C=SCHON_T4RL,SCHON_B4R;
+  C=SCHON_T4R,SCHON_B4R;
+  C=SCHON_GT6;
+$ENDGROUP 
+  
+TX=Siegburg; C=SIEB_TW20;  
+  
+$SECTION TX=Siegen; LC=2; DY=100;
+  C=SIEG_21|SIEG_39,0-1*SIEG_120|SIEG_107;
+  M=FOLLOW; C=2-4*VWS_(0530|NG272|3:NL202_2(|K|N)|2:S319NF3(|_WDR)|SL202WO);
+$ENDSECTION 
+
+TX=Strausberg;                                                                  \
+  C=SEB_16|(SEB_T2,0-2*SEB_B2)|SEB_KT8D5;
+
+$GROUP TX=Schwerin; LC=3; W=T;
+  C=NVS_26;
+  C=NVS_T3DL,|NVS_B3DL;
+  C=NVS_T3D,|NVS_B3D;
+  C=NVS_T3DML|NVS_TB3DML, 0-1*NVS_B3DML;
+  C=NVS_T3DM|NVS_TB3DM,0-1*NVS_B3DM;
+  C=NVS_SN2001L;
+  C=NVS_SN2001;
+$ENDGROUP 
+
+$GROUP TX=Troisdorf; LC=1; W=A;
+  M=FOLLOW;                                                                     \
+    C=4-6*RSVG_(2001|362FHR|591|N316SHD|N4016|N4021|N4021_2042|N4021_2043|NG272|\
+	NL202|NL222|NL232CNG|NM222|SG240H|SL200|UL292_397|UL292_592);
+  M=FOLLOW; C=2-3*BBV_(NG263|NL232CNG|NL263|O530G|URBINO12);
+$ENDGROUP 
+
+$GROUP TX=Ulm; LC=2; W=T;
+C=ULM_GRW4(D|)(|L),|ULM_811;
+C=ULM_(11P|12D|4|4M|5G|6|8S|GT4A)(|L);
+C=ULM_COMBINO(|L);
+$ENDGROUP
+
+TX=Kreis Unna;                                                                  \
+  M=FOLLOW;                                                                     \
+  C=3-5*VKU_(N4426_3|NG263|NL202S|NL263|NU313|O405GN|O405N2|O530G|O530_3|       \
+	SG219SL|SL202S);
+
+$GROUP TX=Vestische; LC=2; W=T;
+  C=VEST_T4G;
+  C=VEST_T4_JAKOBS;
+  C=VEST_T4_KABA;
+  C=VEST_3GT4;
+  C=VEST_UGTG;
+  C=VEST_4T4;
+  C=VEST_T4;
+  C=VEST_T4_DOORNKAAT;
+  C=VEST_GT6;
+  C=VEST_GT6_ADLER;
+  C=VEST_GT6_JAGERMEISTER;
+  C=VEST_GT6_WICKULER;
+  C=VEST_UGT;
+$ENDGROUP 
+
+$GROUP TX=Vestische; LC=2; W=A;
+  M=FOLLOW; C=2-3*VEST_(KMS110|LTU7|P13D~AXS|SATURN2|V110SL);
+  M=FOLLOW;                                                                     \
+    C=3-5*VEST_(200SH110U|260SH110|N416|SG192|SG240H|SG240H_JAGER|SG242H|SL200| \
+	SL202);
+  M=FOLLOW;                                                                     \
+    C=4-6*VEST_N(4014A|4014B|4014DE1|4014DE2|4015A|4015B|4015C|4015NF|4020|4021|\
+	4021A|8012|G313|L202|L202_2);
+  M=FOLLOW;                                                                     \
+    C=4-6*VEST_(N4014CE|N4014S|N4016CE|N4016_VOLKSBANK|N416S|                   \
+	N416_RUHRNACHRICHTEN|N416_WAZ|N4416_VRNET|NL202CE|NL202_KINGSIZEKONTO|  \
+	NL202_REAL|NL222CE|O530G_LOTTO|O530_LOTTO|SG192CYC|SL200CYC);
+  C=VEST_(ABSCHLEPP|N212H|N906|WERKSTATT); TB=ON;
+$ENDGROUP 
+
+TX=Viersen;                                                                     \
+  M=FOLLOW; C=2-4*VIE_(0530|NL202|NL263|O405|O405N|O405NCE|SL202|SL202CE|       \
+	SL202S);
+
+TX=Weimar;                                                                      \
+  C=WEI_IK260T|WEI_IK280T_216;
+
+$GROUP TX=Wolfsburg; LC=1; W=A;
+  C=WVG_SCANIA,WVG_SCANIAT;
+  C=WVG_BAHNLE(|L);
+$ENDGROUP 
+
+TX=Woltersdorf;                                                                 \
+  C=WTD_ET57,WTD_EB57;
+
+$GROUP TX=Würzburg; LC=1;
+  C=WVV_GT8L;
+  C=WVV_GTN6;
+  C=WVV_GT8;
+  C=WVV_GTN6L;
+$ENDGROUP 
+
+$GROUP TX=Zwickau; LC=2;
+  C=ZW_ET62L,ZW_EB62L;
+  C=ZW_GT6MA;
+  C=ZW_GT6MNL;
+  C=ZW_ET62,ZW_EB62;
+  C=ZW_GT6MAL;
+  C=ZW_GT6MN;
+$ENDGROUP 
+
+$GROUP                                                                          \
+  TX=[N=Düwag trams - neutral livery;                                           \
+	 G=Düwag Straßenbahnen - einfache Farbgebung;                           \
+	 H=Düwag villamosok - egyszerû festés];
+  C=DUE_T4L,DUE_B4L;
+  C=DUE_GT6;
+  C=DUE_GT8L;
+  C=DUE_T4,DUE_B4;
+  C=DUE_GT6L;
+  C=DUE_GT8;
+$ENDGROUP
+
+$GROUP TX=Bern; LC=2; W=T;
+  C=BERN_(BE48|BE48_BUND|BE48_EWB|BE48_RBK|COMBINO)(|L);
+$ENDGROUP
+
+$GROUP TX=Stansstad - Stans; LC=2; W=T;
+  C=STST_1(|L),0-2*STST_11;
+  C=STST_1(|L),1-3*(STST_K21A|STST_L22)(|[!E]);
+$ENDGROUP
+
+TX=Schwyz;                                                                      \
+  C=STSW_BR_ST4_(L|LR|R);
+
+$GROUP TX=Genf; W=T; LC=2;
+  C=TPG_NFGT6(A|B)L;
+  C=TPG_NFGT8;
+  C=TPG_CITYRUNNER;
+  C=TPG_NFGT8L;
+  C=TPG_NFGT6(A|B);
+  C=TPG_COMBINO_X;
+$ENDGROUP 
+
+$GROUP TX=Genf; LC=2; W=T;
+  C=TPG_B25UT;
+  C=TPG_B25UGTL;
+  C=TPG_B25UMT;
+  C=TPG_B25UTL;
+  C=TPG_B25UGT;
+  C=TPG_B25UMTL;
+$ENDGROUP 
+
+TX=Lausanne; C=TSOL_BEM558(|[!L]);
+
+$GROUP TX=Luzern; LC=2;
+  C=VBLZ_TW27B;
+  C=VBLZ_BT5_25(|A),3:|VBLZ_HESS_BT5T;
+  C=VBLZ_TW27BW;
+  C=VBLZ_BT5_25(|A)L,3:|VBLZ_HESS_BT5TL;
+  C=VBLZ_TW27W;
+  C=VBL_201L;
+$ENDGROUP 
+
+TX=Winterthur; C=WINT_MB(D|T)(|L);
+
+$GROUP TX=Gmunden; LC=2; W=T;
+  C=GMUN_100,GMUN_101;
+  C=GMUN_(4L|5|5A|5AL|5L);
+  C=GMUN_(10|8|8M|9)(|L);
+$ENDGROUP 
+
+$GROUP TX=Graz; LC=2; W=T;
+  C=GVB_201,GVB_302;
+  C=GVB_(200|E1|GT6A|GT6B)(|L);
+  C=GVB_(500|500A|500B|521|GT6BM|GT8WUP1|GT8WUP2|GT8WUP3)(|L);
+  C=GVB_226;
+  C=GVB_600(|L);
+  C=GVB_651(|L);
+$ENDGROUP 
+
+$GROUP TX=Innsbruck; LC=3;
+  C=INSB_SL6,2-4*INSB_B(1|2|3);
+  C=INSB_61(|L);
+  C=INSB_(31|71|GT6|GT6S)(|L);
+  C=INSB_GT6W(|L);
+  C=INSB_51(|L);
+  C=INSB_81;
+  C=INSB_BUS1;
+  M=FOLLOW; C=(INSB_MAN1;INSB_MAN_OD;INSB_CITARO;INSB_CITAROG);
+  M=FOLLOW; C=(INSB_GRAFSTIFT_OGL;INSB_CITAROL;INSB_CITAROGL);
+$ENDGROUP 
+
+$GROUP TX=Linz; LC=2;
+  C=LINZ_GT8;
+  C=LINZ_GT10_(1|2)(|L);
+  C=LINZ_CITYRUNNER1(|L)(~JC|~WSI);
+  C=LINZ_T2;
+$ENDGROUP 
+
+$GROUP TX=Salzburg; LC=2; W=T;
+  C=SVB_E62,0-3*SVB_GBS151;
+  C=SVB_ET2,SVB_ET2BC,SVB_ET2C;
+  C=SVB_ET21;
+  C=SVB_ET22;
+$ENDGROUP 
+
+$GROUP TX=Salzburg; LC=2;
+C=SVB_(GE112|NGT204);
+M=FOLLOW; C=2-4*SVB_(O405|O405A|SG272|SG272_MANAS|SL222|SL222_MANAS);
+C=SVB_(GE112|NGT204)L;
+M=FOLLOW; C=2-4*SVB_(O405|O405A|SG272|SG272_MANAS|SL222|SL222_MANAS)L;
+$ENDGROUP
+
+$GROUP TX=Oslo;                                                                 \
+  LC=2; W=T;
+C=OSLO_M28L|OSLO_M28|OSLO_S79L|OSLO_S79|OSLO_S79BL|OSLO_S79B;
+$ENDGROUP
+
+TX=Trondheim;                                                                   \
+  C=TRON_GT6L|TRON_GT6;
+
+$GROUP TX=Göteborg; LC=3; W=T;
+C=(1-2*GBOR_M21L)|(1-2*GBOR_M21)|(1-2*GBOR_M25V1L,GBOR_M25V2L)|(1-2*GBOR_M25V1, \
+	GBOR_M25V2)|(2*GBOR_M25,0-1*GBOR_M25A)|(2*GBOR_M25L,0-1*GBOR_M25AL)|    \
+	(2*GBOR_M28)|(2*GBOR_M28L)|(2*GBOR_M29)|(2*GBOR_M29L)|GBOR_M31|         \
+	GBOR_M31L;
+$ENDGROUP
+
+$GROUP TX=Helsinki; LC=2; W=T;
+C=HELS_GT6OL|HELS_GT6O|HELS_GT6GL|HELS_GT6G|HELS_VARIOL|HELS_VARIO;
+$ENDGROUP
+
+$GROUP TX=Brno;                                                                 \
+  LC=3; W=T;
+C=(BRNO_T3L,BRNO_VV60LFL)|(BRNO_T3,BRNO_VV60LF);
+C=BRNO_K2TL|BRNO_K2T;
+C=BRNO_KT8D5R;
+C=BRNO_ANITRAL|BRNO_ANITRA;
+$ENDGROUP
+
+TX=Istanbul; C=2*IST_B80;
+
+TX=Hakodate (Japan);                                                            \
+  C=HAKODATE_710R|HAKODATE_718|HAKODATE_724|HAKODATE_800R|HAKODATE_1007|        \
+	HAKODATE_8004;
+

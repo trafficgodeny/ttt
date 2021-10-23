@@ -1,0 +1,141 @@
+$REQUIRE GETOPT.TTT
+$REQUIRE RENAME.TTT
+$REQUIRE FIXTRAIN.TTT
+$REQUIRE ZSZ_DEF.TTT
+$REQUIRE POOLDEF.TTT
+
+%*DEFINE(BDWHLST1=
+%BDWH(ag_134m,>,QP)
+%BDWH(ag_144a,<,QP)
+%BDWH(ag_158m,>,QM)
+%BDWH(ag_159a,<,QP)
+%BDWH(ag_165a,<,QP)
+%BDWH(ag_165b,>,QP)
+%BDWH(ag_197a,<,QH)
+%BDWH(ag_197b,>,QH)
+%BDWH(ag_198a,<,QP)
+%BDWH(ag_198b,>,QP)
+%BDWH(ag_79a,<,QP)
+%BDWH(ag_79b,>,QP)
+%BDWH(ag_87a,<,QP)
+%BDWH(ag_88a,<,QP)
+%BDWH(ag_89a,<,QP)
+%BDWH(cm_142m,<,QH)
+%BDWH(hills_981227,>,QP)   
+%BDWH(hl_132a,<,QH)
+%BDWH(hl_132b,>,QH)
+%BDWH(hl_133a,<,QP)
+%BDWH(hl_133b,>,QP)
+%BDWH(hl_140a,<,QP)
+%BDWH(hl_140b,>,QP)
+%BDWH(hl_141a,<,QH)
+%BDWH(hl_141b,>,QH)
+%BDWH(hl_162a,<,QP)
+%BDWH(hl_162b,>,QP)
+%BDWH(hl_162c,>,QP)
+%BDWH(hl_120a,<,QN)
+%BDWH(hl_130m,>,QP)
+%BDWH(hl_175a,<,QH)
+%BDWH(hl_175b,>,QH)
+%BDWH(hl_180m,>,QH)
+%BDWH(hl_199a,<,QH)
+%BDWH(hl_199b,>,QH)
+%BDWH(hl_981014a,<,QP)
+%BDWH(hl_981014b,>,QP)
+%BDWH(mh_113m,>,QM)
+%BDWH(mh_137d,<,QH)
+%BDWH(mh_137e,>,QH)
+%BDWH(mh_143c,<,QH)
+%BDWH(mh_143d,>,QH)
+%BDWH(mh_145a,<,QP)
+%BDWH(mh_145b,<,QH)
+%BDWH(mh_146m,>,QP)
+%BDWH(mh_147b,>,QH)
+%BDWH(mh_169m,<,QH)
+%BDWH(mh_174a,<,QM)
+%BDWH(mh_174b,>,QM)
+%BDWH(mh_24m,>,QN)
+%BDWH(mh_83a,<,QM)
+%BDWH(mh_83d,>,QM)
+%BDWH(mh_83e,>,QM)
+%BDWH(mh_83f,>,QM)
+%BDWH(mh_86d,>,QM)
+%BDWH(mh_86e,>,QM)
+%BDWH(mh_86f,>,QM)
+%BDWH(mt_195a,<,QM)
+%BDWH(mt_200a,<,QM)
+%BDWH(mt_200b,>,QM)
+%BDWH(mt_41a,<,QM)
+%BDWH(mts_980510,>,QM)
+%BDWH(mts_981205a,<,QM)
+%BDWH(mts_981205b,>,QM)
+%BDWH(rh_100a,<,QN)
+%BDWH(rh_184m,<,QN)
+)
+
+%*DEFINE(BDHWLST2=
+%BDWH(ag_107m,>)
+%BDWH(ag_110a,<)
+%BDWH(ag_110b,>)
+%BDWH(ag_159b,>)
+%BDWH(ag_186a,<)
+%BDWH(ag_186b,>)
+%BDWH(cm_116a,<)
+%BDWH(cm_116b,>)
+%BDWH(cm_117m,>)
+%BDWH(cm_118m,>)
+%BDWH(cm_121m,<)
+%BDWH(cm_124m,>)
+%BDWH(cm_139a,<)
+%BDWH(cm_139b,>)
+%BDWH(cm_172m,<)
+%BDWH(cm_173b,<)
+%BDWH(cm_183m,<)
+%BDWH(cm_193a,<)
+%BDWH(cm_193b,>)
+%BDWH(cm_196a,<)
+%BDWH(cm_196b,>)
+%BDWH(cm_97a,<)
+%BDWH(hl_166m,<)
+%BDWH(in_164a,<)
+%BDWH(in_164b,>)
+%BDWH(in_90a,<)
+%BDWH(in_90b,>)
+)
+
+{QP|QH|QM|QN?
+$SECTION LC=1; SEQ=MQ;
+
+%*DEFINE(BDWH(BG,SIDE,CMD)=
+{%CMD?
+$SECTION LC=1; DX=1852;
+AP=%CMD;[M=SIMPLE]; BG=(BGPIC/%BG.JPG:,,%SIDE,20;TRBED12:..,^0;); \
+	AB=407; BL=40;				\
+	TX=%BG;; TXX=30; TXY=20; 
+$ENDSECTION	
+}
+)
+
+%BDWHLST1
+
+$ENDSECTION
+}
+
+{USA?
+$SECTION LC=1; SEQ=MQ;
+
+%*DEFINE(BDWH(BG,SIDE,CMD)=
+$SECTION ML=1;
+$GROUP	SEQ=D; Y=*; LC=2;				\
+	DX=1852; AB=407; BL=40;  			\
+	BG=(BGPIC/%BG.JPG:,,%SIDE,20;TRBED12:..,^0;); 	\
+	TX=%BG;; TXX=30; TXY=20; 
+POOL=US_FR1;						\
+$ENDGROUP
+$ENDSECTION
+)
+
+%BDHWLST2
+
+$ENDSECTION
+}

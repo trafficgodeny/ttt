@@ -1,0 +1,1245 @@
+# Scenarios/Data/BackgroundCommon/*.txt
+
+$REQUIRE cz_bgelem.ttt
+
+#-ID 101 - LES1KABELY in S ----------------------------------------------------
+# defaultni nastaveni promenne TREE, lze zmenit pri volani Pxxxx z Pxxxx_x_xxx 
+# pro cely tento soubor, jinak se bere z Infrastructure.txt
+$DEF CZ_BG101 =									\
+  [BG =										\
+    0-1*BACKTREEHOUSTNIK:..;							\
+    (8:0|2:1)*(M_STATION1M|STRAZDOMEK):*(20+(0-1000));				\
+    TRBED7:..,0;								\
+    TRBED7:..,-22;								\
+    0-1*BG_GRAS1:..,1;								\
+    TREE:10,-5;									\
+    TREE:14,-1;									\
+    TREE:18,-4;									\
+    TREE:28,-4;									\
+    TREE:38,-5;									\
+    TREE:45,-1;									\
+    TREE:75,-5;									\
+    TREE:78,-1;									\
+    TREE:85,-1;									\
+    TREE:18,-2;									\
+    TREE:33,-2;									\
+    TREE:76,-1;									\
+    TREE:85,-5;									\
+    TREE:97,-2;									\
+    TRBED3:..,-5;								\
+  ]										\
+  [FG =										\
+    CROSS1|PIKE1:<50+(50-200)=POS1,-5;						\
+    CABLE5:0..>POS1-(10-150)=POS2,-3;						\
+    CABLE5:<POS2..100,-3;							\
+  ]										
+
+#-ID 102 - LES1BEZKABELU  in S 2, 3--------------------------------------------
+# defaultni nastaveni promenne TREE, lze zmenit pri volani Pxxxx z Pxxxx_x_xxx 
+# pro cely tento soubor, jinak se bere z Infrastructure.txt
+$DEF CZ_BG102 =									\
+  [BG =										\
+    0-1*BACKTREEHOUSTNIK:..;							\
+    (8:0|2:1)*(M_STATION1M|STRAZDOMEK):*(20+(0-1000));				\
+    TRBED7:..,0;								\
+    TRBED7:..,-22;								\
+    TREE:10,-5;									\
+    TREE:14,-1;									\
+    TREE:18,-4;									\
+    TREE:28,-4;									\
+    TREE:38,-5;									\
+    TREE:45,-1;									\
+    TREE:55,-5;									\
+    TREE:78,-1;									\
+    TREE:85,-1;									\
+    TREE:18,-2;									\
+    TREE:33,-2;									\
+    TREE:76,-1;									\
+    TREE:85,-5;									\
+    TREE:97,-2;									\
+    TRBED3:..,-5;								\
+    CROSSIG1N:>65-47;								\
+  ]										\
+  [FG =										\
+    BG_UT_F:>65,-5;								\
+    BG_UT_F:>65,-8;								\
+    BG_UT_F:<65,-8;								\
+    BG_UT_F:<65,-5;								\
+    CROSSIG1L:<65+47;								\
+  ]										\
+  [TB = 5,STOP,5]								\
+  [TE = GO,5]									
+
+#-ID 103 - POLE1KABELY PRECHOD NEBO SEMAFOR in S 1, 5--------------------------
+$DEF CZ_BG103 =									\
+  [BG =										\
+    TRBED7:..;									\
+    FR_LARGE1|BG_GRAS1|TRBED2:..,16;						\
+    CABLE5:..,-3,#;								\
+    1-3*TREE:10,-5;								\
+    1-2*TREE:35|40|85|95,0;							\
+  ]										\
+  [FG =										\
+    TRBED5:..,-9;								\
+    (1:(AZD_3L|AZD_3P|AZD_4L|AZD_4P|AZD_5L|AZD_5P|AZD_PRE_L|AZD_PRE_P|		\
+      SSSR_2L|SSSR_2P|SSSR_3L|SSSR_3P|SSSR_4L|SSSR_4P|SSSR_5L|SSSR_5P)|		\
+      1:(CROSS1|PIKE1)):<50+220,-5; 						\
+  ]										
+
+#- ID 104 - POLE1KABELY PRECHOD A STROM NEBO SEMAFOR in S 2--------------------
+$DEF CZ_BG104 =									\
+  [BG =										\
+    BG_GRAS1:..,1;								\
+    BG_GRAS1:..,6;								\
+    FTP_NF131_N1|FR_BAUX2|GC20_4:..;						\
+    AZD_3L|AZD_3P|AZD_4L|AZD_4P|AZD_5L|AZD_5P|AZD_PRE_L|AZD_PRE_P|		\
+      SSSR_2L|SSSR_2P|SSSR_3L|SSSR_3P|SSSR_4L|SSSR_4P|SSSR_5L|SSSR_5P|		\
+      TREE:35|40|85|95,0; 							\
+  ]										\
+  [FG =										\
+    TRBED6:..,-7;								\
+    CABLE5:..,-3,#;								\
+    1-3*TREE:10,-5;								\
+    CROSS1|PIKE1:65,-5;								\
+  ]										
+
+#- ID 105 - VOLNA TRAT S MOSTEM STROMY A SEMOFOREM NEBO STROMEM----------------
+$DEF CZ_BG105 =									\
+  [BG =										\
+    AZD_3L|AZD_3P|AZD_4L|AZD_4P|AZD_5L|AZD_5P|AZD_PRE_L|AZD_PRE_P|		\
+      SSSR_2L|SSSR_2P|SSSR_3L|SSSR_3P|SSSR_4L|SSSR_4P|SSSR_5L|SSSR_5P,		\
+      3-6*BG_NULL,0-1*STRAZDOMEK:21|24|19,-3; 					\
+    1-3*TREE:75|85|90,-5;							\
+  ]										\
+  [FG =										\
+    TRBED3:..,-5;								\
+    TRBED8:..,-10;								\
+    (2-5*TREE|BG_NULL):10;							\
+    BRIDGE1,(50*TREE|BG_NULL):<(35-(0-50)),-9;					\
+  ]										\
+
+#- ID 106 - VOLNA TRAT S MOSTEM A KABELY---------------------------------------
+$DEF CZ_BG106 =									\
+  [BG =										\
+    BG_GRAS1:..,1;								\
+    0-1*CHILD1|CHILD2:15+(0-50),3;						\
+    CABLE5:..,-3,#;								\
+  ]										\
+  [FG =										\
+    TRBED8:..,-10;								\
+    BRIDGE1:<61+(2-85),-9;							\
+  ]										
+
+#- ID 107 - VOLNA TRAT S KABELY in S 3-----------------------------------------
+$DEF CZ_BG107 =									\
+  [W = G|5|K]									\
+  [BG =										\
+    TRBED7:..;									\
+    TRBED7:..,12;								\
+    BACKTREEHOUSTNIK:..,12;							\
+    CABLE5:..,-3,100-200;							\
+    10*PALE3;									\
+    TREE:59,-3;									\
+    CROSSIG1N:>85-47;								\
+  ]										\
+  [FG =										\
+    BG_GRAS1:..,-7;								\
+    2*PALE1:5,0;								\
+    TREE:>85-60,-5;								\
+    1-10@(PALE3):75,-3;								\
+    PBRIDGE1L|PALE2:28,-5;							\
+    BG_UT_F[M]:>85,-5;								\
+    BG_UT_F[M]:>85,-8;								\
+    BG_UT_F:<85,-8;								\
+    BG_UT_F:<85,-5;								\
+    CROSSIG1L:<85+47;								\
+  ]										\
+  [TB = 5,STOP,5]								\
+  [TE = GO,5]									
+
+#- ID 108 - POSUNOVACI KOLEJE1 FUNKCNI-----------------------------------------
+$DEF CZ_BG108 =									\
+  [W = G|5|K]									\
+  [BG =										\
+    0-1*BACKTREEHOUSTNIK:..;							\
+    FR_LARGE1:..;								\
+    0-4*FR_CA:10;								\
+    (STAVECIDUM|COALPILE1|COALPILE2|PBRIDGE1),0-4@(PALE1|PALE2|PALE3),		\
+    	PLF1EL,1-8*PLF1O,PLF1O|PLF1L,PLF1E:30,-3; 				\
+    CROSSIG1N:>85-47;								\
+  ]										\
+  [FG =										\
+    TRBED1:..,-9;								\
+    1-2*FR_PL1|PYLON1|FR_CP2|FR29:50,-4;					\
+    1-10@(PALE3):75,-3;								\
+    BG_UT_F[M]:>85,-8;								\
+    BG_UT_F[M]:>85,-5;								\
+    BG_UT_F:<85,-8;								\
+    BG_UT_F:<85,-5;								\
+    CROSSIG1L:<85+47;								\
+  ]										\
+  [TB = 5,STOP,5]								\
+  [TE = GO,5]									
+
+#- ID  109 - NADRAZISVLASTOVKAMIALUCERNAMI  in S 1n, 3n, 10ne------------------
+$DEF CZ_BG109 =									\
+  [BG =										\
+    BG_GRAS1:..;								\
+    BACKTREEHOUSTNIK:<15+50..;							\
+    1-3*TREE:>15-55;								\
+    (0-1*BUSP,4-10*BG_NULL, 0-1*BUSP):*(70-(0-400)),-4;				\
+    NADRBUDOVA:*50;								\
+    SKLAD:*50+400;								\
+    BG_ASL:>15,-5;								\
+    NADRSTRED:<20+50,-5;							\
+    TRBED8:..,-10;								\
+  ]										\
+  [FG =										\
+    0-1*POMBUDOVA:>15-50;							\
+    BG_UT_F:>15,-5;								\
+    BG_UT_F:>15,-7;								\
+    BG_UT_F:<15,-7;								\
+    CROSSIG1L:>15-47;								\
+    BG_AS:<15,-5;								\
+    CROSSIG1L:15+47;								\
+    0-1*NADRSTRED:<20+50,-5;							\
+    0-1*(PALE3|FR_LARGE1|FP_P601_N0):<80..,-1;					\
+  ]										\
+  [TB = 5,STOP,2,LE,5]								\
+  [TE = GO,5]									\
+  [WP = 10,<TE:FEL;20,>TE:FEL]							
+
+#-ID 110 - NADRAZILOKALNI  in S 2, 3, 4----------------------------------------
+$DEF CZ_BG110 =									\
+  [W = G|5|K]									\
+  [BG =										\
+    TRBED7:..;									\
+    FR_LARGE1|BG_GRAS1|TRBED2:..,16;						\
+    BG_GRAS1:..;								\
+    BACKTREEHOUSTNIK:..;							\
+    1-4*(TREE),0-4@(PALE1|PALE2|PALE3),0-4*(TREE):>90-60,-3;			\
+    2-3*(TREE):<2;								\
+    CROSSIG1N:90-47;								\
+  ]										\
+  [FG =										\
+    TRBED5:..,-11;								\
+    BG_UT_F:>90,-5;								\
+    BG_UT_F:>90,-7;								\
+    BG_UT_F:<90,-7;								\
+    BG_UT_F:<90,-5;								\
+    CROSSIG1R|CROSSIG1:90+47;							\
+    (0-2*TREE, NADRLOKVAR, 0-1*(FR_PL1|FR_PL2|FR_PL3|COALPILE1|COALPILE2), 	\
+      0-1*(PBRIDGE1L),0-4*(TREE)):40,-6; 					\
+  ]										\
+  [TB = 5,STOP,2,LE,5]								\
+  [TE = GO,5]									
+
+#- ID 111 - POSUNOVACI KOLEJE1 in S 2n-----------------------------------------
+$DEF CZ_BG111 =									\
+  [W = G|5|K]									\
+  [BG =										\
+    NADRBUDOVA:15+(0-100);							\
+    BACKTREEHOUSTNIK|BACKTREE:..;						\
+    FR_LARGE1:..;								\
+    SKLAD:40+(0-100);								\
+    STAVECIDUM|STRAZDOMEK:95-(0-200);						\
+    1-10@(PALE3):75,3;								\
+    AZD_POS_P|AZD_TRP_P|AZD_3P|AZD_4P|AZD_5P|SSSR_2P|SSSR_3P|SSSR_4P|SSSR_5P:3,-1; \
+    ((4:0|6:1)*BGVNTS,BG_VALTO1):65;						\
+  ]										\
+  [FG =										\
+    TRBED1:..,-9;								\
+    0-1*BGVNTS,BG_VALTO1:35;							\
+    0-1*(PIKE1|PIKE2|CROSS1|PBRIDGE1),0-4@(PALE1|PALE2|PALE3),			\
+      PLF1EL,1-8*PLF1O,PLF1O|PLF1L,PLF1E:30,-3; 				\
+    AZD_POS_L|AZD_TRP_L|AZD_3L|AZD_4L|AZD_5L|SSSR_2L|SSSR_3L|SSSR_4L|SSSR_5L:98,-1; \
+    BG_VALTO1:3+20;								\
+    BG_VALTO1:98-20;								\
+  ]										
+
+#- ID 112 - POSUNOVACI KOLEJE2 ------------------------------------------------
+$DEF CZ_BG112 =									\
+  [W = G|5|K]									\
+  [BG =										\
+    BACKTREEHOUSTNIK|BACKTREE:<8+210..;						\
+    NADRBUDOVA:25+(0-100);							\
+    FR_LARGE1:..;								\
+    BOCK1,DRZ|DRZ[M]:30;							\
+    AZD_POS_P|AZD_TRP_P|SSSR_2P:8+(160-250),-1;					\
+    0-1*COALTOWER3,COALPILE1|COALPILE2:45+(0-100);				\
+  ]										\
+  [FG =										\
+    TRBED1:..,-9;								\
+    BRIDGE1:8-(0-50),-9;							\
+    (PLF1EL,1-5*PLF1O,PLF1O|PLF1L,1-15*PLF1O,PLF1E)|				\
+      (PL_YE,1-5*PL_YP, PL_YP|PL_YL1,1-5*PL_YP,(PL_YEL))|			\
+      (PLF2EL,4-12*PLF2S,PLF2E):90,-3; 						\
+    AZD_POS_L|AZD_TRP_L|SSSR_2L:98,-1;						\
+  ]										
+
+#- ID 114 - VOLNA TRAT S MOSTEM STROMY A SEMOFOREM ZASTAVUJICIM VLAKY  in S 1, 2
+$DEF CZ_BG114 =									\
+  [W = G|5|K]									\
+  [BG =										\
+    TRBED7:..;									\
+    TRBED2:..,18;								\
+    BG_GRAS1:..;								\
+    BACKTREEHOUSTNIK|BACKTREE:..,-2;						\
+    AZD_3P|AZD_4P|AZD_5P|SSSR_3P|SSSR_4P|SSSR_5P:25,-3;				\
+  ]										\
+  [FG =										\
+    TRBED3:..,-5;								\
+    TRBED7:..,-20;								\
+    3-5*TREE1|TREE2:5,-3;							\
+    BRIDGE1:85,-9;								\
+  ]										
+
+#- ID 115 - POLE1KABELY PRECHOD SEMAFOR ZASTAVUJICI VLAKY  in S 1, 3, 4--------
+$DEF CZ_BG115 =									\
+  [W = G|5|K]									\
+  [BG =										\
+    TRBED7:..;									\
+    TRBED7:..,12;								\
+    BACKTREEHOUSTNIK|BACKTREE:<5+20..,15;					\
+    BACKTREEHOUSTNIK|BACKTREE:<5+20..,-5;					\
+    STAVECIDUM|STRAZDOMEK:<85+60,-3;						\
+    PALE1|PALE2|PALE3:85+60..100;						\
+    PALE1|PALE2|PALE3:3..85-60;							\
+    BG_ASL:>85,-5;								\
+    AZD_3P|AZD_4P|AZD_5P|SSSR_3P|SSSR_4P|SSSR_5P:35,-3;				\
+  ]										\
+  [FG =										\
+    CROSS1:>2,-5;								\
+    BG_GRAS1|TRBED2|TRBED3|TRBED4:..,-8;					\
+    BG_UT_F:>85,-5;								\
+    BG_UT_F:>85,-8;								\
+    BG_UT_F:<85,-8;								\
+    CROSSIG1L:>85-47;								\
+    BG_AS:<85,-5;								\
+    CROSSIG1L:85+47;								\
+    0-1*STAVECIDUM|STRAZDOMEK:<85+60,-3;					\
+  ]										\
+  [TB = 5,STOP,2,LE,5]								\
+  [TE = GO,5]									\
+  [WP = 80,<TE:FEL;90,>TE:FEL]							
+
+#- ID 116 - KUSA KOLEJ NA NADRAZI in S 2, 3, 5, 6------------------------------
+$DEF CZ_BG116 =									\
+  [W = G|5]									\
+  [BG =										\
+    BACKTREEHOUSTNIK|BACKTREE:..,-3;						\
+    NADRBUDOVA:<3;								\
+    (1-2*FR_CP2)|(1-3*FR_PL2)|(1-4*FR_CA)|FR29|FR_LARGE1:45,-1;			\
+    (4:0|6:1)*BGVNTS,BG_VALTO1:>90;						\
+    0-1*(BGVOSNTS),BG_VALTO1:>30;						\
+    AZD_3L|AZD_4L|AZD_5L|SSSR_3L|SSSR_4L|SSSR_5L:95-10,-3;			\
+    BG_VALTO1:98-10;								\
+  ]										\
+  [FG =										\
+    TRBED8:..,-11;								\
+    AZD_3L|AZD_4L|AZD_5L|SSSR_3L|SSSR_4L|SSSR_5L:32,-3;				\
+    PLF1EL,3*PLF1O,PLF1L,8*PLF1O,PLF1L,5*PLF1O,20*PLF11,			\
+      6*(PLF1C,5*PLF11,PLF1V,5*PLF11,PLF1T,5*PLF11,PLF1V,5*PLF11,PLF1C,		\
+        5*PLF11,PLF1V,40*PLF11,PLF1V,5*PLF11),					\
+      PLF1C,20*PLF11,3*PLF1O,PLF1L,3*PLF1O:>33,-6; 				\
+    BOCK1:36;									\
+    AZD_POS_L|AZD_TRP_L|SSSR_2L:95,-3;						\
+    BG_VALTO1:98;								\
+    SPITZNERM:50,-2;								\
+    0-1*POMBUDOVA:70,-5;							\
+  ]										
+
+#- ID 117 - NADRAZI VELKE in S 3, 4, 6-----------------------------------------
+$DEF CZ_BG117 =									\
+  [W = G|5]									\
+  [BG =										\
+    BACKTREEHOUSTNIK|BACKTREE:..>60,-3;						\
+    PALE3:..;									\
+    NADRBUDOVAVELKA:70-(0-50),-2;						\
+    BGVNTS,BG_VALTO1:>90;							\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:9+10,-5;					\
+    NADRVELNT:<5,-6;								\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:9,-5;						\
+  ]										\
+  [FG =										\
+    0-1*NADRVELNT,BG_VALTO1:<5,-6;						\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:9-10,-5;					\
+    0-1*BGVOSNTS,BG_VALTO1:>30;							\
+    TRBED5:..,-10;								\
+    WOOD|PYLON1|FR_CP|FR_PL3:40,-4;						\
+    STAVECIDUM:20,-3;								\
+    SPITZNERM:95,-2;								\
+    CABLE5:..,-4,#;								\
+  ]										
+
+#- ID 118 - KUSA KOLEJ ZA NADRAZIM ELEKTRIFIKOVANE in S 5e---------------------
+$DEF CZ_BG118 =									\
+  [W = G|5]									\
+  [BG =										\
+    5*(SVAH|(2-5*BG_NULL)):..,2;						\
+    SVAH:..;									\
+    BACKTREEHOUSTNIK|BACKTREE:..,-3;						\
+    PBRIDGE1L:>(85+18);								\
+    4-8@PALE1|PALE2|PALE3:*(60+(60-100));					\
+  ]										\
+  [FG =										\
+    4@M_RFR|M_VFR:<5+56;							\
+    M_REL:<5,-4;								\
+    TRBED12:..,-20;								\
+    BRIDGE2:<35+(0-50),-20;							\
+    BG_GRAS1:..>12-10,-2;							\
+    BG_GRAS1:..>12-12,3;							\
+    1-2*TREE:3,-4;								\
+    BOCK1:12;									\
+    0-1*FP_P614N1:>35,-1;							\
+    AZD_POS_L|AZD_TRP_L|SSSR_2L:98,-1;						\
+    PBRIDGE1:<85;								\
+  ]										
+
+#-ID 119 - LES1KABELY in S ----------------------------------------------------
+$DEF CZ_BG119 =									\
+  [W = 3]									\
+  [BG =										\
+    SVAH:..;									\
+    5*(SVAH|(2-5*BG_NULL)):..,2;						\
+    BG_ASL:>50,-5;								\
+    TREE:25;									\
+    TREE:33;									\
+    TREE:41;									\
+    TREE:13;									\
+    TREE:7;									\
+    TREE:71;									\
+    TREE:83;									\
+    TREE:81;									\
+    TREE:69;									\
+    TREE:77;									\
+    STRAZDOMEK:23,-1;								\
+  ]										\
+  [FG =										\
+    PALE1:..>15-1,-3;								\
+    PALE1E:>15,-3;								\
+    PALE1E,15*PALE1,PALE1E:<25,-3;						\
+    BG_GRAS1:..,-7;								\
+    BG_UT_F:>50,-5;								\
+    BG_UT_F:>50,-7;								\
+    BG_UT_F:<50,-7;								\
+    CROSS1:<20,-7;								\
+    CROSSIG1L:>50-47;								\
+    BG_AS:<50,-5;								\
+    CROSSIG1L:<50+47;								\
+    PALE1E:<50+50,-9;								\
+    PALE3:<50+51..90,-1;							\
+    TREE:57,-3;									\
+    TREE:73,-7;									\
+    TREE:87,-6;									\
+    TREE:95,-3;									\
+    TREE:64,-4;									\
+  ]										\
+  [TB = 5,STOP,2,LE,5]								\
+  [TE = GO,5]									\
+  [WP = 45,<TE:FEL;55,>TE:FEL]							
+
+#-ID 120 - LES1KABELY in S ----------------------------------------------------
+$DEF CZ_BG120 =									\
+  [W = 3]									\
+  [BG =										\
+    SVAH:..;									\
+    5*(SVAH|(2-5*BG_NULL)):..,2;						\
+    BACKTREEHOUSTNIK|BACKTREE:..,10;						\
+    TREE:25;									\
+    TREE:33;									\
+    TREE:41;									\
+    TREE:13;									\
+    TREE:7;									\
+    TREE:71;									\
+    TREE:83;									\
+    TREE:81;									\
+    TREE:69;									\
+    TREE:77;									\
+    CROSSIG1N:>50-47;								\
+  ]										\
+  [FG =										\
+    PALE1:..>15-1,-3;								\
+    PALE1E:>15,-3;								\
+    PALE1E,15*PALE1,PALE1E:<25,-3;						\
+    BG_GRAS1:..,-7;								\
+    BG_UT_F:>50,-5;								\
+    BG_UT_F:>50,-7;								\
+    BG_UT_F:<50,-7;								\
+    BG_UT_F:<50,-5;								\
+    CROSSIG1L:<50+47;								\
+    CROSS1:<20,-7;								\
+    STRAZDOMEK:>95-(0-50),-3;							\
+  ]										\
+  [TB = 5,STOP,5]								\
+  [TE = GO,5]									
+			
+#-ID 201 - LES1BEZKABELU ELEKTRIFIKOVANE in S 1e, 2e, 5------------------------
+$DEF CZ_BG201 =									\
+  [BG =										\
+    0-1*BACKTREEHOUSTNIK:..;							\
+    (8:0|2:1)*M_STATION1:*(20+(0-1000));					\
+    TRBED7:..,0;								\
+    TRBED7:..,-22;								\
+    0-1*BG_GRAS1:..,1;								\
+    TREE:10,-5;									\
+    TREE:14,-1;									\
+    TREE:18,-4;									\
+    TREE:28,-4;									\
+    TREE:38,-5;									\
+    TREE:45,-1;									\
+    TREE:75,-5;									\
+    TREE:78,-1;									\
+    TREE:85,-1;									\
+    TREE:18,-2;									\
+    TREE:33,-2;									\
+    TREE:76,-1;									\
+    TREE:85,-5;									\
+    TREE:97,-2;									\
+    TRBED3:..,-5;								\
+  ]										\
+  [FG =										\
+    ELVED1:45-(0-200),-4;							\
+    CROSS1|PIKE1:<50+50,-5;							\
+  ]										
+
+#-ID 202 - LES1BEZKABELU  in S 2, 3--------------------------------------------
+$DEF CZ_BG202 =									\
+  [BG =										\
+    0-1*BACKTREEHOUSTNIK:..;							\
+    (8:0|2:1)*M_STATION1:*(20+(0-1000));					\
+    TRBED7:..,0;								\
+    TRBED7:..,-22;								\
+    TREE:10,-5;									\
+    TREE:14,-1;									\
+    TREE:18,-4;									\
+    TREE:28,-4;									\
+    TREE:38,-5;									\
+    TREE:45,-1;									\
+    TREE:55,-5;									\
+    TREE:78,-1;									\
+    TREE:85,-1;									\
+    TREE:18,-2;									\
+    TREE:33,-2;									\
+    TREE:76,-1;									\
+    TREE:85,-5;									\
+    TREE:97,-2;									\
+    TRBED3:..,-5;								\
+    CROSSIG1N:>65-47;								\
+  ]										\
+  [FG =										\
+    ELVED1:65-(120-270),-4;							\
+    BG_UT_F:>65,-5;								\
+    BG_UT_F:>65,-8;								\
+    BG_UT_F:<65,-8;								\
+    BG_UT_F:<65,-5;								\
+    CROSSIG1L:<65+47;								\
+  ]										\
+  [TB = 5,STOP,5]								\
+  [TE = GO,5]									
+
+#-ID 203 - POLE1KABELY PRECHOD NEBO SEMAFOR in S 1, 5--------------------------
+$DEF CZ_BG203 =									\
+  [BG =										\
+    TRBED7:..;									\
+    FR_LARGE1|BG_GRAS1|TRBED2:..,16;						\
+    1-3*TREE:10,-5;								\
+    1-2*TREE:35|40|85|95,0;							\
+  ]										\
+  [FG =										\
+    TRBED5:..,-9;								\
+    ELVED1:50+(270-420),-4;							\
+    (1:(AZD_3L|AZD_3P|AZD_4L|AZD_4P|AZD_5L|AZD_5P|AZD_PRE_L|AZD_PRE_P|		\
+      SSSR_2L|SSSR_2P|SSSR_3L|SSSR_3P|SSSR_4L|SSSR_4P|SSSR_5L|SSSR_5P)|		\
+      1:(CROSS1|PIKE1)):<50+220,-5; \
+  ]										
+
+#- ID 204 - POLE1KABELY PRECHOD A STROM NEBO SEMAFOR in S 2--------------------
+$DEF CZ_BG204 =									\
+  [BG =										\
+    BG_GRAS1:..,1;								\
+    BG_GRAS1:..,6;								\
+    FTP_NF131_N1|FR_BAUX2|GC20_4:..;						\
+    AZD_3L|AZD_3P|AZD_4L|AZD_4P|AZD_5L|AZD_5P|AZD_PRE_L|AZD_PRE_P|		\
+      SSSR_2L|SSSR_2P|SSSR_3L|SSSR_3P|SSSR_4L|SSSR_4P|SSSR_5L|SSSR_5P|TREE:35|40|85|95,0; \
+  ]										\
+  [FG =										\
+    TRBED6:..,-7;								\
+    ELVED1:65-(120-270),-4;							\
+    1-3*TREE:10,-5;								\
+    CROSS1|PIKE1:65,-5;								\
+  ]										
+
+#- ID 205 - VOLNA TRAT S MOSTEM STROMY A SEMOFOREM NEBO STROMEM----------------
+$DEF CZ_BG205 =									\
+  [BG =										\
+    AZD_3L|AZD_3P|AZD_4L|AZD_4P|AZD_5L|AZD_5P|AZD_PRE_L|AZD_PRE_P|		\
+      SSSR_2L|SSSR_2P|SSSR_3L|SSSR_3P|SSSR_4L|SSSR_4P|SSSR_5L|SSSR_5P,		\
+      3-6*BG_NULL,0-1*STRAZDOMEK:21|24|19,-3; 					\
+    1-3*TREE:75|85|90,-5;							\
+  ]										\
+  [FG =										\
+    TRBED3:..,-5;								\
+    TRBED8:..,-10;								\
+    ELVED2:<0-(0-600),-4;							\
+    2-5*TREE|BG_NULL:10;							\
+    BRIDGE1,50*TREE|BG_NULL:<(35-(0-50)),-9;					\
+  ]										
+
+#- ID 206 - VOLNA TRAT S MOSTEM A KABELY---------------------------------------
+$DEF CZ_BG206 =									\
+  [BG =										\
+    BG_GRAS1:..,1;								\
+    0-1*CHILD1|CHILD2:15+(0-50),3;						\
+  ]										\
+  [FG =										\
+    TRBED8:..,-10;								\
+    ELVED2:<0-(0-600),-4;							\
+    BRIDGE1:<61+(2-85),-9;							\
+  ]										
+
+#- ID 207 - POSUNOVACI KOLEJE1 FUNKCNI ELEKTRIFIKOVANE in 5e ekvivalent - P1108 
+$DEF CZ_BG207 =									\
+  [W = G|5|K]									\
+  [BG =										\
+    0-1*BACKTREEHOUSTNIK:..;							\
+    FR_LARGE1:..;								\
+    0-4*FR_CA:10;								\
+    STAVECIDUM|COALPILE1|COALPILE2|PBRIDGE1,0-4@(PALE1|PALE2|PALE3),		\
+      PLF1EL, 1-8*PLF1O,PLF1O|PLF1L,PLF1E:30,-3; 				\
+    CROSSIG1N:>85-47;								\
+  ]										\
+  [FG =										\
+    TRBED1:..,-9;								\
+    ELVED1:*(85-(120-270)),-4;							\
+    1-2*FR_PL1|PYLON1|FR_CP2|FR29:50,-4;					\
+    1-10@(PALE3):75,-3;								\
+    BG_UT_F[M]:>85,-8;								\
+    BG_UT_F[M]:>85,-5;								\
+    BG_UT_F:<85,-8;								\
+    BG_UT_F:<85,-5;								\
+    CROSSIG1L:<85+47;								\
+  ]										\
+  [TB = 5,STOP,5]								\
+  [TE = GO,5]									
+
+#- ID 209 - NADRAZISVLASTOVKAMIALUCERNAMI  ELEKTRIFIKOVANE in S 1e, 3e - P1109 
+$DEF CZ_BG209 =									\
+  [BG =										\
+    BG_GRAS1:..;								\
+    BACKTREEHOUSTNIK:<15+50..;							\
+    1-3*TREE:>15-55;								\
+    (0-1*BUSP,4-10*BG_NULL, 0-1*BUSP):*(70-(0-400)),-4;				\
+    NADRBUDOVAVELKA:*50;							\
+    SKLAD:*50+400;								\
+    BG_ASL:>15,-5;								\
+    NADRSTRED:<20+50,-5;							\
+    TRBED8:..,-10;								\
+  ]										\
+  [FG =										\
+    0-1*STAVECIDUM:<1;								\
+    BG_UT_F:>15,-5;								\
+    BG_UT_F:>15,-7;								\
+    BG_UT_F:<15,-7;								\
+    CROSSIG1L:>15-47;								\
+    BG_AS:<15,-5;								\
+    CROSSIG1L:15+47;								\
+    0-1*NADRSTRED:<20+50,-5;							\
+    ELVED3:*(15+(20-170)),-4;							\
+    0-1*(PALE3|FR_LARGE1|FP_P601_N0):<80..,-1;				\
+  ]										\
+  [TB = 5,STOP,2,LE,5]								\
+  [TE = GO,5]									\
+  [WP = 10,<TE:FEL;20,>TE:FEL]							
+
+#-ID 210 - NADRAZILOKALNI ELEKTRIFIKOVANE in S 4e, 5e, 6e, 10ne - P1110 -------
+$DEF CZ_BG210 =									\
+  [W = G|5|K]									\
+  [BG =										\
+    TRBED7:..;									\
+    FR_LARGE1|BG_GRAS1|TRBED2:..,16;						\
+    BG_GRAS1:..;								\
+    BACKTREEHOUSTNIK:..;							\
+    1-4*(TREE),0-4@(PALE1|PALE2|PALE3),0-4*(TREE):>90-60,-3;			\
+    2-3*(TREE):<2;								\
+    CROSSIG1N:90-47;								\
+  ]										\
+  [FG =										\
+    TRBED5:..,-11;								\
+    BG_UT_F:>90,-5;								\
+    BG_UT_F:>90,-7;								\
+    BG_UT_F:<90,-7;								\
+    BG_UT_F:<90,-5;								\
+    (CROSSIG1R|CROSSIG1):90+47;							\
+    (0-2*TREE, NADRLOKVAR, 0-1*(FR_PL1|FR_PL2|FR_PL3|COALPILE1|COALPILE2), 	\
+      0-1*(PBRIDGE1L),0-4*(TREE)):40,-6; 					\
+    ELVED3:90-(120-270),-4;							\
+  ]										\
+  [TB = 5,STOP,2,LE,5]								\
+  [TE = GO,5]									
+
+#- ID 211 - POSUNOVACI KOLEJE1 ELEKTRIFIKOVANE in S  4e, 11es  - P1111 --------
+# do statickych obrazku FG a BG nelze zarazovat animovane stroje s pantografy,
+# proto je treba vytvorit definice obsahujici jen staticky obrazek bez pantografu
+$DEF CZ_BG211 = 								\
+  [W = G|5|K]									\
+  [BG =										\
+    NADRBUDOVA:15+(0-100);							\
+    (BACKTREE|BACKTREEHOUSTNIK):..;						\
+    FR_LARGE1:..;								\
+    SKLAD:40+(0-100);								\
+    STAVECIDUM:95-(0-200);							\
+    1-10@(PALE3):75,3;								\
+    AZD_POS_P|AZD_TRP_P|AZD_3P|AZD_4P|AZD_5P|SSSR_2P|SSSR_3P|SSSR_4P|SSSR_5P:3,-1; \
+    ((4:0|6:1)*BGVNTS,BG_VALTO1):65;						\
+  ]										\
+  [FG =										\
+    TRBED1:..,-9;								\
+    (0-1*BGVNTS,BG_VALTO1):35;							\
+    0-1*(PIKE1|PIKE2|CROSS1|PBRIDGE1),0-4@(PALE1|PALE2|PALE3),			\
+      PLF1EL,1-8*PLF1O,PLF1O|PLF1L,PLF1E:30,-3; \
+    ELVED4:<0-(0-600),-4;							\
+    AZD_POS_L|AZD_TRP_L|AZD_3L|AZD_4L|AZD_5L|SSSR_2L|SSSR_3L|SSSR_4L|SSSR_5L:98,-1; \
+    BG_VALTO1:3+20;								\
+    BG_VALTO1:98-20;								\
+  ]										
+
+#- ID 214 - VOLNA TRAT S MOSTEM STROMY A SEMOFOREM ZASTAVUJICIM VLAKY  
+# ELEKTRIFIKOVANE in S 1e, 2e, 5  - Ekvivalent P1114 --------------------------
+$DEF CZ_BG214 = 								\
+  [W = G|5|K]									\
+  [BG =										\
+    TRBED7:..;									\
+    TRBED2:..,18;								\
+    BG_GRAS1:..;								\
+    (BACKTREE|BACKTREEHOUSTNIK):..,-2;						\
+    AZD_3P|AZD_4P|AZD_5P|SSSR_3P|SSSR_4P|SSSR_5P:25,-3;				\
+  ]										\
+  [FG =										\
+    TRBED3:..,-5;								\
+    TRBED7:..,-20;								\
+    ELVED2:<0-(0-600),-4;							\
+    3-5*TREE1|TREE2:5,-3;							\
+    BRIDGE1:85,-9;								\
+  ]										
+
+#- ID 215 - POLE1KABELY PRECHOD SEMAFOR ZASTAVUJICI VLAKY  ELEKTRIFIKOVANE 
+# in S 1e, 3e, 6 - ekvivalent P1115--------------------------------------------
+$DEF CZ_BG215 = 								\
+  [W = G|5|K]									\
+  [BG =										\
+    TRBED7:..;									\
+    TRBED7:..,12;								\
+    (BACKTREE|BACKTREEHOUSTNIK):<5+20..,15;					\
+    (BACKTREE|BACKTREEHOUSTNIK):<5+20..,-5;					\
+    PALE1|PALE2|PALE3:85+60..100;						\
+    PALE1|PALE2|PALE3:3..85-60;							\
+    BG_ASL:>85,-5;								\
+    AZD_3P|AZD_4P|AZD_5P|SSSR_3P|SSSR_4P|SSSR_5P:35,-3;				\
+  ]										\
+  [FG =										\
+    CROSS1:>2,-5;								\
+    BG_GRAS1|TRBED2|TRBED3|TRBED4:..,-8;					\
+    BG_UT_F:>85,-5;								\
+    BG_UT_F:>85,-8;								\
+    BG_UT_F:<85,-8;								\
+    CROSSIG1L:>85-47;								\
+    BG_AS:<85,-5;								\
+    CROSSIG1L:85+47;								\
+    ELVED1:85-(150-300),-4;							\
+    0-1*STRAZDOMEK:<85+60,-3;							\
+  ]										\
+  [TB = 5,STOP,2,LE,5]								\
+  [TE = GO,5]									\
+  [WP = 80,<TE:FEL;90,>TE:FEL]							
+
+#- ID 216 - KUSA KOLEJ NA NADRAZI ELEKTRIFIKOVANE in S 2e, 3e, 4, 6 - Ekvivalent P1116 --------------------------------------------------------------------
+$DEF CZ_BG216 =									\
+  [W = G|5]									\
+  [BG =										\
+    (BACKTREE|BACKTREEHOUSTNIK):..,-3;						\
+    NADRBUDOVA:<3;								\
+    (1-2*FR_CP2)|(1-3*FR_PL2)|(1-4*FR_CA)|FR29|FR_LARGE1:45,-1;			\
+    (4:0|6:1)*BGVNTS,BG_VALTO1:>90;						\
+    0-1*(BGVOSNTS),BG_VALTO1:>30;						\
+    AZD_3L|AZD_4L|AZD_5L|SSSR_3L|SSSR_4L|SSSR_5L:95-10,-3;			\
+    BG_VALTO1:98-10;								\
+  ]										\
+  [FG =										\
+    TRBED8:..,-11;								\
+    AZD_3L|AZD_4L|AZD_5L|SSSR_3L|SSSR_4L|SSSR_5L:32,-3;				\
+    PLF1EL,3*PLF1O,PLF1L,8*PLF1O,PLF1L,5*PLF1O,20*PLF11,6*(PLF1C,5*PLF11,PLF1V,	\
+      5*PLF11,PLF1T,5*PLF11,PLF1V,5*PLF11,PLF1C,5*PLF11,PLF1V,40*PLF11,PLF1V,	\
+      5*PLF11),PLF1C,20*PLF11,3*PLF1O,PLF1L,3*PLF1O:>33,-6;			\
+    BOCK1:36;									\
+    AZD_POS_L|AZD_TRP_L|SSSR_2L:95,-3;						\
+    BG_VALTO1:98;								\
+    SPITZNERM:50,-2;								\
+    ELVEDKL1:<30-(0-20),-4;							\
+    0-1*POMBUDOVA:70,-5;							\
+  ]										
+
+#- ID 217 - NADRAZI VELKE ELEKTRIFIKOVANE  in S 4e, 5e 2x, 11es- Ekvivalent P1117 --------------------------------------------------------------------
+$DEF CZ_BG217 =									\
+  [W = G|5]									\
+  [BG =										\
+    (BACKTREE|BACKTREEHOUSTNIK):..>60,-3;					\
+    PALE3:..;									\
+    NADRBUDOVAVELKA:70-(0-50),-2;						\
+    (BGVNTS),BG_VALTO1:>90;							\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:9+10,-5;					\
+    NADRVELNT:<5,-6;								\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:9,-5;						\
+  ]										\
+  [FG =										\
+    0-1*NADRVELNT,BG_VALTO1:<5,-6;						\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:9-10,-5;					\
+    (0*(BGVOSNTS)),BG_VALTO1:>30;						\
+    TRBED5:..,-10;								\
+    WOOD|PYLON1|FR_CP|FR_PL3:40,-4;						\
+    SPITZNERM:95,-2;								\
+    ELVED4:<0-(0-400),-4;							\
+    STAVECIDUM:20,-3;								\
+  ]										
+
+#- ID 218 - KUSA KOLEJ ZA NADRAZIM ELEKTRIFIKOVANE in S 5e EKVIVALENT P1118 ---
+$DEF CZ_BG218 =									\
+  [BG =										\
+    5*(SVAH|(2-5*BG_NULL)):..,2;						\
+    SVAH:..;									\
+    (BACKTREE|BACKTREEHOUSTNIK):..,-3;						\
+    PBRIDGE1L:>(85+18);								\
+    4-8@PALE1|PALE2|PALE3:*(60+(60-100));					\
+  ]										\
+  [FG =										\
+    TRBED12:..,-20;								\
+    BRIDGE2:<35+(0-50),-20;							\
+    BG_GRAS1:..>12-10,-2;							\
+    BG_GRAS1:..>12-12,3;							\
+    0-1*FP_P614N1:>35,-1;							\
+    ELVEDKL1:<5,-4;								\
+    1-2*TREE:3,-4;								\
+    BOCK1:12;									\
+    AZD_POS_L|AZD_TRP_L|SSSR_2L:98,-1;						\
+    PBRIDGE1:<85;								\
+  ]										
+
+#- ID 222  - ZASTAVKA KORIDOROVA LEVA------------------------------------------
+$DEF CZ_BG222 =									\
+  [W = G|5]									\
+  [BG =										\
+    5*(SVAH|(2-5*BG_NULL)):..,2;						\
+    SVAH:..;									\
+    (BACKTREE|BACKTREEHOUSTNIK):..,-3;						\
+    (4:0|6:1)*BGVNTS,BG_VALTO1:>(90-(0-50));					\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:9+10,-5;					\
+    KORIDOR,BG_VALTO1:<5,-3;							\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:9,-5;						\
+  ]										\
+  [FG =										\
+    0-1*KORIDOR,BG_VALTO1:<5,-3;						\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:9-10,-5;					\
+    0-1*(BGVOSNTS),BG_VALTO1:>(30-(0-100));					\
+    TRBED1:..,-10;								\
+    ELVED4:<0-(0-400),-4;							\
+  ]										
+
+#- ID 223  - ZASTAVKA KORIDOROVA PRAVA-----------------------------------------
+$DEF CZ_BG223 =									\
+  [W = G|5]									\
+  [BG =										\
+    (BACKTREE|BACKTREEHOUSTNIK):..,-3;						\
+    NADRBUDOVA, 1-3*BG_NULL, 0-1*WC1:<3;					\
+    (1-2*FR_CP2)|(1-3*FR_PL2)|(1-4*FR_CA)|FR29|FR_LARGE1:45,-1;			\
+    (4:0|6:1)*BGVNTS,BG_VALTO1:>(90-(0-150));					\
+    AZD_4L|AZD_5L|SSSR_4L|SSSR_5L:91-10,-5;					\
+    KORIDOR:>95,-3;								\
+    AZD_4L|AZD_5L|SSSR_4L|SSSR_5L:91,-5;					\
+  ]										\
+  [FG =										\
+    BG_VALTO1,0-1*KORIDOR:>95,-3;						\
+    AZD_4L|AZD_5L|SSSR_4L|SSSR_5L:91+10,-5;					\
+    0-1*(BGVOSNTS),BG_VALTO1:>(30+(0-100));					\
+    TRBED1:..,-10;								\
+    SPITZNERM:50,-2;								\
+    ELVED4:<0-(0-400),-4;							\
+    0-1*POMBUDOVA:70,-5;							\
+  ]										
+
+#- ID 224  - ZASTAVKA KORIDOROVA STRED-----------------------------------------
+$DEF CZ_BG224 =									\
+  [W = G|5]									\
+  [BG =										\
+    (BACKTREE|BACKTREEHOUSTNIK):..>80,-3;					\
+    PALE3:..;									\
+    0-1*NADRBUDOVA,BG_VALTO1:*40,-2;						\
+    (4:0|6:1)*BGVNTS,BG_VALTO1:>(35-(0-50));					\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:4+10,-5;					\
+    AZD_4L|AZD_5L|SSSR_4L|SSSR_5L:96-10,-5;					\
+    KORIDOR:*50,-3;								\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:4,-5;						\
+    AZD_4L|AZD_5L|SSSR_4L|SSSR_5L:96,-5;					\
+  ]										\
+  [FG =										\
+    BG_VALTO1,0-1*KORIDOR:*50,-3;						\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:4-10,-5;					\
+    AZD_4L|AZD_5L|SSSR_4L|SSSR_5L:96+10,-5;					\
+    0-1*(BGVOSNTS),BG_VALTO1:>(90-(0-100));					\
+    TRBED1:..,-10;								\
+    ELVED4:<0-(0-400),-4;							\
+  ]										
+
+#- ID 225 - NADRAZI VELKE ELEKTRIFIKOVANE TYP B- jizdni rad 215 ---------------
+$DEF CZ_BG225 =									\
+  [W = G|5]									\
+  [BG =										\
+    (BACKTREE|BACKTREEHOUSTNIK):<8+210..;					\
+    FR_LARGE1:..;								\
+    NADRBUDOVAVELKA, 1-3*BG_NULL, 0-1*WC1:75+(0-100);				\
+    (4:0|6:1)*BGVNTS,BG_VALTO1:>(90-(0-50));					\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:9+10,-5;					\
+    NADRVELNTV2:<5,-6;								\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:9,-5;						\
+  ]										\
+  [FG =										\
+    (6*(M_B,M_VEZ)):*(50-(0-399));						\
+    0-1*NADRVELNTV2,BG_VALTO1:<5,-6;						\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:9-10,-5;					\
+    0-1*(BGVOSNTS),BG_VALTO1:>(30-(0-100));					\
+    TRBED1:..,-10;								\
+    SPITZNERM:50,-2;								\
+    ELVED4:<0-(0-400),-4;							\
+    0-1*POMBUDOVA:25,-5;							\
+  ]										
+
+#- ID 226  - NADRAZI VELKE ELEKTRIFIKOVANE TYP C-------------------------------
+$DEF CZ_BG226 =									\
+  [W = G|5]									\
+  [BG =										\
+    (BACKTREE|BACKTREEHOUSTNIK):<8+210..;					\
+    FR_LARGE1:<75..;								\
+    NADRBUDOVA, 1-3*BG_NULL, 0-1*WC1:25-(0-20);					\
+    (4:0|6:1)*BGVNTS,BG_VALTO1:>(90-(0-50));					\
+    AZD_4L|AZD_5L|SSSR_4L|SSSR_5L:91-10,-5;					\
+    NADRVELNTV2P:>95,-6;							\
+    AZD_4L|AZD_5L|SSSR_4L|SSSR_5L:91,-5;					\
+  ]										\
+  [FG =										\
+    BG_VALTO1,0-1*NADRVELNTV2P:>95,-6;						\
+    AZD_4L|AZD_5L|SSSR_4L|SSSR_5L:91+10,-5;					\
+    0-1*(BGVOSNTS),BG_VALTO1:>(30+(0-200));					\
+    TRBED1:..,-10;								\
+    SPITZNERM:3,-2;								\
+    ELVED4:<0-(0-400),-4;							\
+    0-1*POMBUDOVA:65,-5;							\
+  ]										
+
+#- ID 227  - NADRAZI VELKE ELEKTRIFIKOVANE TYP D-------------------------------
+$DEF CZ_BG227 =									\
+  [W = G|5]									\
+  [BG =										\
+    (BACKTREE|BACKTREEHOUSTNIK):<8+210..;					\
+    FR_LARGE1:..>50;								\
+    NADRBUDOVA, 1-3*BG_NULL, 0-1*WC1:*50;					\
+    (4:0|6:1)*BGVNTS,BG_VALTO1:>(35-(0-50));					\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:4+10,-5;					\
+    AZD_4L|AZD_5L|SSSR_4L|SSSR_5L:96-10,-5;					\
+    NADRVELNTV3M:*50,-6;							\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:4,-5;						\
+    AZD_4L|AZD_5L|SSSR_4L|SSSR_5L:96,-5;					\
+  ]										\
+  [FG =										\
+    BG_VALTO1,0-1*NADRVELNTV3M:*50,-6;						\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:4-10,-5;					\
+    AZD_4L|AZD_5L|SSSR_4L|SSSR_5L:96+10,-5;					\
+    0-1*(BGVOSNTS),BG_VALTO1:>(90-(0-100));					\
+    TRBED1:..,-10;								\
+    ELVED4:<0-(0-400),-4;							\
+  ]										
+
+#- ID 228  - NADRAZI OTROKOVICE LEVE ------------------------------------------
+$DEF CZ_BG228 =									\
+  [W = G|5]									\
+  [BG =										\
+    (BACKTREE|BACKTREEHOUSTNIK):<8+210..;					\
+    FR_LARGE1:..>50;								\
+    NADRBUDOVAVELKA, 1-3*BG_NULL, 0-1*WC1:*65;					\
+    (4:0|6:1)*BGVNTS,BG_VALTO1:>(90-(0-50));					\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:4+10,-5;					\
+    OTROKOVICE:<4,-3;								\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:4,-5;						\
+  ]										\
+  [FG =										\
+    0-1*OTROKOVICE,BG_VALTO1:<4,-3;						\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:4-10,-5;					\
+    0-1*(BGVOSNTS),BG_VALTO1:>(30-(0-100));					\
+    TRBED1:..,-10;								\
+    ELVED4:<0-(0-400),-4;							\
+  ]										
+
+#- ID 229  - NADRAZI OTROKOVICE PRAVE------------------------------------------
+$DEF CZ_BG229 =									\
+  [W = G|5]									\
+  [BG =										\
+    (BACKTREE|BACKTREEHOUSTNIK):<8+210..;					\
+    FR_LARGE1:<60..;								\
+    MAVTIL, 1-3*BG_NULL, 0-1*WC1:*10;						\
+    (4:0|6:1)*BGVNTS,BG_VALTO1:>(90-(0-150));					\
+    AZD_4L|AZD_5L|SSSR_4L|SSSR_5L:91-10,-5;					\
+    OTROKOVICE:>95,-3;								\
+    AZD_4L|AZD_5L|SSSR_4L|SSSR_5L:91,-5;					\
+  ]										\
+  [FG =										\
+    BG_VALTO1,0-1*OTROKOVICE:>95,-3;						\
+    AZD_4L|AZD_5L|SSSR_4L|SSSR_5L:91+10,-5;					\
+    0-1*(BGVOSNTS),BG_VALTO1:>(15+(0-200));					\
+    TRBED1:..,-10;								\
+    SPITZNERM:95,-2;								\
+    ELVED4:<0-(0-400),-4;							\
+    0-1*POMBUDOVA:75,-5;							\
+  ]										
+
+#- ID 401(10) -  PRECHODOVE NADRAZI STRIDAVE KOLEJE IDENTICKE S P2217 ---------
+$DEF CZ_BG401 =									\
+  [W = G|5]									\
+  [BG =										\
+    (BACKTREE|BACKTREEHOUSTNIK):..>60,-3;					\
+    PALE3:..;									\
+    NADRBUDOVAVELKA:70-(0-50),-2;						\
+    (BGVNTS),BG_VALTO1:>90;							\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:9+10,-5;					\
+    NADRVELNT:<5,-6;								\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:9,-5;						\
+  ]										\
+  [FG =										\
+    0-1*NADRVELNT,BG_VALTO1:<5,-6;						\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:9-10,-5;					\
+    (0*(BGVOSNTS)),BG_VALTO1:>30;						\
+    TRBED5:..,-10;								\
+    WOOD|PYLON1|FR_CP|FR_PL3:40,-4;						\
+    SPITZNERM:95,-2;								\
+    ELVED4:<0-(0-400),-4;							\
+    STAVECIDUM:20,-3;								\
+  ]										
+
+#- ID 402(10) - PRECHODOVE NADRAZI STRIDAVE KOLEJE IDENTICKE S P2225 ----------
+$DEF CZ_BG402 =									\
+  [W = G|5]									\
+  [BG =										\
+    (BACKTREE|BACKTREEHOUSTNIK):<8+210..;					\
+    FR_LARGE1:..;								\
+    NADRBUDOVAVELKA, 1-3*BG_NULL, 0-1*WC1:75+(0-100);				\
+    (4:0|6:1)*BGVNTS,BG_VALTO1:>(90-(0-50));					\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:9+10,-5;					\
+    NADRVELNTV2:<5,-6;								\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:9,-5;						\
+  ]										\
+  [FG =										\
+    0-1*NADRVELNTV2,BG_VALTO1:<5,-6;						\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:9-10,-5;					\
+    0-1*(BGVOSNTS),BG_VALTO1:>(30-(0-100));					\
+    TRBED1:..,-10;								\
+    SPITZNERM:50,-2;								\
+    ELVED4:<0-(0-400),-4;							\
+    0-1*POMBUDOVA:25,-5;							\
+  ]										
+
+#- ID 403 - PRECHODOVE NADRAZI STEJNOSMERNE KOLEJE in S P2218 -----------------
+$DEF CZ_BG403 =									\
+  [W = G|5]									\
+  [BG =										\
+    (BACKTREE|BACKTREEHOUSTNIK):<8+210..;					\
+    FR_LARGE1:10..60;								\
+    NADRBUDOVAVELKA, 1-3*BG_NULL, 0-1*WC1:*50;					\
+    (4:0|6:1)*BGVNTS,BG_VALTO1:>(35-(0-50));					\
+    (4:0|6:1)*BGVNTS,BG_VALTO1:>(90-(0-50));					\
+    AZD_4L|AZD_5L|SSSR_4L|SSSR_5L:91-10,-5;					\
+    NADRVELNTV2P:>95,-6;							\
+    AZD_4L|AZD_5L|SSSR_4L|SSSR_5L:91,-5;					\
+  ]										\
+  [FG =										\
+    BG_VALTO1,0-1*NADRVELNTV2P:>95,-6;						\
+    AZD_4L|AZD_5L|SSSR_4L|SSSR_5L:91+10,-5;					\
+    0-1*(BGVOSNTS),BG_VALTO1:>(30+(0-200));					\
+    TRBED1:..,-10;								\
+    ELVED4:<0-(0-400),-4;							\
+    POMBUDOVA:90,-5;								\
+  ]										
+
+#- ID 405 - PRECHODOVE NADRAZI KOLEJE BEZ TROLEJI in JAKO P2227 BEZ TROLEJI A SEMAFORU
+$DEF CZ_BG405 =									\
+  [W = G|5]									\
+  [BG =										\
+    (BACKTREE|BACKTREEHOUSTNIK):<8+210..;					\
+    FR_LARGE1:..>50;								\
+    NADRBUDOVAVELKA, 1-3*BG_NULL, 0-1*WC1:*50;					\
+    (4:0|6:1)*BGVNTS,BG_VALTO1:>(35-(0-50));					\
+    NADRVELNTV3M:*50,-6;							\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:4,-5;						\
+  ]										\
+  [FG =										\
+    BG_VALTO1,0-1*NADRVELNTV3M:*50,-6;						\
+    AZD_4P|AZD_5P|SSSR_4P|SSSR_5P:4-10,-5;					\
+    AZD_4L|AZD_5L|SSSR_4L|SSSR_5L:96+10,-5;					\
+    0-1*(BGVOSNTS),BG_VALTO1:>(90-(0-100));					\
+    TRBED1:..,-10;								\
+  ]										
+
+#- ID 406 - KUSA KOLEJ ZA NADRAZIM STRIDAVE PRAVA in S-------------------------
+$DEF CZ_BG406 =									\
+  [W = G|5]									\
+  [BG =										\
+    5*(SVAH|(2-5*BG_NULL)):..,2;						\
+    SVAH:..;									\
+    ((30*(TREE|BG_NULL))|(30*(TREE|(2-6*BG_NULL)))):..,-3;			\
+    2*TREE1|TREE2:>(40-(0-180));						\
+    3*TREE1|TREE2:<(42+(0-100));						\
+    4-8@PALE1|PALE2|PALE3:>(70-(0-100));					\
+    8-15@PALE1|PALE2|PALE3:>(20-(0-100));					\
+  ]										\
+  [FG =										\
+    ELVEDKR1:>90,-4;								\
+    TRBED2:..,-6;								\
+    10@TRBED2:<85,-1;								\
+    10@TRBED2:<80,-5;								\
+    CROSS1:75,-4;								\
+    BOCK1[M]:83;								\
+    TREE1:93,-4;								\
+    TREE1:97,-6;								\
+    AZD_POS_P|AZD_TRP_P|SSSR_2P:2,-1;						\
+    8*BG_GRAS1:*40,-3;								\
+    7*BG_GRAS1:*40,2;								\
+    6*BG_GRAS1:*40,7;								\
+  ]										
+
+#- ID 407 - KUSA KOLEJ ZA NADRAZIM STRIDAVE LEVA in S--------------------------
+$DEF CZ_BG407 =									\
+  [W = G|5]									\
+  [BG =										\
+    (BACKTREE|BACKTREEHOUSTNIK):..>65;						\
+    FR_LARGE1:<45..;								\
+    0-1*POMBUDOVA,BG_NULL:85+(0-100);						\
+    2*TREE1|TREE2:>(40-(0-180));						\
+    2*TREE1|TREE2:<(42+(0-100));						\
+    4-8@PALE1|PALE2|PALE3:<(70+(0-100));					\
+    8-15@PALE1|PALE2|PALE3:<(15+(0-100));					\
+    12*TRBED2:*55,-3;								\
+    11*TRBED2:*55,2;								\
+    10*TRBED2:*55,7;								\
+  ]										\
+  [FG =										\
+    ELVEDKL1:<5,-4;								\
+    TRBED2:..,-6;								\
+    10@TRBED2:>10,-1;								\
+    BOCK1:12;									\
+    AZD_POS_L|AZD_TRP_L|SSSR_2L:98,-1;						\
+    CROSS1:*(95+(0-10)),-4;							\
+    7*BG_GRAS1:*35,-3;								\
+    6*BG_GRAS1:*35,2;								\
+    5*BG_GRAS1:*35,7;								\
+  ]										
+
+#- ID 901 - #Dieselova vlecka vapenka -----------------------------------------
+$DEF CZ_BG901 =									\
+  [W = G|5|K]									\
+  [BG =										\
+    BACKTREE:..>65+(0-200);							\
+    0-1*NADRBUDOVA,BG_NULL:65-(0-600);						\
+    FR_LARGE1:<20-(0-400)..;							\
+    POMBUDOVA:85+(0-100);							\
+    0-1*PBRIDGE1L:>10+18,-9;							\
+    4-8@PALE1|PALE2|PALE3:>(95-(100-150));					\
+    12*TRBED2:*55,-3;								\
+    11*TRBED2:*55,2;								\
+    10*TRBED2:*55,7;								\
+    CROSSIG1N:95-47;								\
+    ((0-1*TNHVVAP,0-1*TLLOKNTBG)|(0-1*POSSVAP,0-1*VLLOKNTBG01)):>(70-(0-20));	\
+    AZD_POS_L|AZD_TRP_L|AZD_3L|AZD_4L|AZD_5L|SSSR_3L|SSSR_4L|SSSR_5L:75,-1;	\
+  ]										\
+  [FG =										\
+    0-1*POSSVAP|TNHVVAP:>(50-(0-300));						\
+    0-1*VLLOKNTBG01:<(50+(0-50));						\
+    TRBED1:..,-9;								\
+    0-1*PBRIDGE1, 0-1*(TRBED1,PIKE1|PIKE2|CROSS1),0-4@(PALE1|PALE2|PALE3),	\
+      PLF1EL,1-8*PLF1O,PLF1O|PLF1L,PLF1E,					\
+      FINPARK5BOX|REF6_WATERTOWER7|(COALTOWER3,0-1*COALPILE1|COALPILE2):<10,-9; \
+    ,0-1*COALPILE1|COALPILE2, 1-10@(PALE3):>75,-3;				\
+    AZD_POS_L|AZD_TRP_L|AZD_3L|AZD_4L|AZD_5L|SSSR_3L|SSSR_4L|SSSR_5L:85,-1;	\
+    BG_VALTO1:85+10,2;								\
+    BG_UT_F:>95,-5;								\
+    BG_UT_F:>95,-7;								\
+    BG_UT_F:<95,-7;								\
+    BG_UT_F:<95,-5;								\
+    (CROSSIG1R|CROSSIG1):95+47;							\
+  ]										\
+  [TB = 5,STOP,2,LE,5]								\
+  [TE = GO,5]									
+
+#- ID 903 - #Dieselova vlecka cisterny ----------------------------------------
+$DEF CZ_BG903 =									\
+  [BG=										\
+    BACKTREE:..>65+(0-200);							\
+    0-1*NADRBUDOVA:65-(0-600);							\
+    FR_LARGE1:<20-(0-400)..;							\
+    POMBUDOVA:85+(0-100);							\
+    0-1*PBRIDGE1L:>10+18,-9;							\
+    4-8@PALE1|PALE2|PALE3:>(95-(100-150));					\
+    12*TRBED2:*55,-3;								\
+    11*TRBED2:*55,2;								\
+    10*TRBED2:*55,7;								\
+    CROSSIG1N:95-47;								\
+    ((0-1*TNHVCIST|TNHVCIST95,0-1*TLLOKNTBG)|					\
+      (0-1*POSSCIST,0-1*VLLOKNTBG01)):>(70-(0-20));				\
+    AZD_POS_L|AZD_TRP_L|AZD_3L|AZD_4L|AZD_5L|SSSR_3L|SSSR_4L|SSSR_5L:75,-1]	\
+  [W=G|5|K]									\
+  [FG=										\
+    0-1*POSSCIST|TNHVCIST:>(50-(0-300));					\
+    0-1*VLLOKNTBG01:<(50+(0-50));						\
+    TRBED1:..,-9;								\
+    0-1*PBRIDGE1,								\
+      0-1*(TRBED1,PIKE1|PIKE2|CROSS1),						\
+      0-4@(PALE1|PALE2|PALE3),							\
+      PLF1EL, 1-8*PLF1O, PLF1O|PLF1L, PLF1E,					\
+      FINPARK5BOX|REF6_WATERTOWER7|(COALTOWER3,					\
+      0-1*COALPILE1|COALPILE2):<10,-9;						\
+    0-1*COALPILE1|COALPILE2, 1-10@(PALE3):>75,-3;				\
+    AZD_POS_L|AZD_TRP_L|AZD_3L|AZD_4L|AZD_5L|SSSR_3L|SSSR_4L|SSSR_5L:85,-1;	\
+    BG_VALTO1:85+10,2;								\
+    BG_UT_F:>95,-5; BG_UT_F:>95,-7; BG_UT_F:<95,-7; BG_UT_F:<95,-5;		\
+    (CROSSIG1R|CROSSIG1):95+47]							\
+  [TB=5,STOP,2,LE,5]								\
+  [TE=GO,5]
+
+#- ID 904 - #Dieselova vlecka uhli --------------------------------------------
+$DEF CZ_BG904 =									\
+  [W=G|5|K]									\
+  [FG=										\
+    0-1*POSSUHLI|TNHVUHLIPLNE|TNHVUHLIPRAZDNE:>(50-(0-300));			\
+    0-1*VLLOKNTBG01:<(50+(0-50));						\
+    TRBED1:..,-9;								\
+    0-1*PBRIDGE1,								\
+      0-1*(TRBED1,PIKE1|PIKE2|CROSS1),						\
+      0-4@(PALE1|PALE2|PALE3),							\
+      PLF1EL, 1-8*PLF1O, PLF1O|PLF1L, PLF1E,					\
+      FINPARK5BOX|REF6_WATERTOWER7|(COALTOWER3,0-1*COALPILE1|COALPILE2):<10,-9;	\
+    ,0-1*COALPILE1|COALPILE2, 1-10@(PALE3):>75,-3;				\
+    AZD_POS_L|AZD_TRP_L|AZD_3L|AZD_4L|AZD_5L|SSSR_3L|SSSR_4L|SSSR_5L:85,-1;	\
+    BG_VALTO1:85+10,2;								\
+    BG_UT_F:>95,-5; BG_UT_F:>95,-7; BG_UT_F:<95,-7; BG_UT_F:<95,-5;		\
+    (CROSSIG1R|CROSSIG1):95+47]							\
+  [BG=										\
+    BACKTREE:..>65+(0-200);							\
+    0-1*NADRBUDOVA:65-(0-600);							\
+    FR_LARGE1:<20-(0-400)..;							\
+    POMBUDOVA:85+(0-100);							\
+    0-1*PBRIDGE1L:>10+18,-9;							\
+    4-8@PALE1|PALE2|PALE3:>(95-(100-150));					\
+    12*TRBED2:*55,-3;								\
+    11*TRBED2:*55,2;								\
+    10*TRBED2:*55,7;								\
+    CROSSIG1N:95-47;								\
+    ((0-1*TNHVUHLIPLNE|TNHVUHLIPRAZDNE,0-1*TLLOKNTBG)|				\
+      (0-1*POSSUHLI,0-1*VLLOKNTBG01)):>(70-(0-20));				\
+    AZD_POS_L|AZD_TRP_L|AZD_3L|AZD_4L|AZD_5L|SSSR_3L|SSSR_4L|SSSR_5L:75,-1]	\
+  [TB=5,STOP,2,LE,5]								\
+  [TE=GO,5]

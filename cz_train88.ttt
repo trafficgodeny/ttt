@@ -1,0 +1,1434 @@
+$REQUIRE cz_rename.ttt
+$REQUIRE cz_vagon.ttt
+$REQUIRE cz_freight.ttt
+$REQUIRE cz_bgelem.ttt
+$REQUIRE cz_loc.ttt
+
+#3. Layer
+#-Lokomotivy parni---------------------------------------------------------------------
+
+$DEF M262_0Z=M262_0[<R]
+$DEF M262_0BZ=CSD_M262_0B[<R]
+
+#$DEF CD_T334=CD_T334_0+>CD_T334_1+>CD_T334_3+>CD_T334_2+.3[<R]
+
+$DEF DB_GMHS30LHL=DB_GMHS30HL[O:DB_GMHS30L1,24,25][O:DB_GMHS30L2,82,25]
+$DEF ABMM=ABM3
+
+#-Varianty lokomotiv ---------------------------------------------------------------------
+
+$DEF T435_0=(ZSR_720_093|CD_720_055)(|L)
+#$DEF T679_0=CSD_775|CSD_775[M]
+$DEF T678_0=CSD_T678_0B|CSD_T678_0B[M]|CSD_T678_0|CSD_T678_0[M]
+#$DEF T444_0=T444_0[>R]|T444_0[<R]
+#$DEF T444_1=T444_1|T444_1[M]
+#$DEF T211_0=T211_0|T211_0[M]
+#$DEF T334_0=(T334_0[>R]|T334_0B[>R]|CSD_T334~RSL[>R]|CSD_T334~CD[>R]|T334_0[<R]|T334_0B[<R]|CSD_T334~RSL[<R]|CSD_T334~CD[<R])|(CD_T334[>R]|CD_T334[<R])
+$DEF T478_1=CD_751C|CD_751D|CD_751C[M]|CD_751D[M]
+$DEF T499_0=CSD_T4990|CSD_T499_0Z
+$DEF T679_1=CSD_T679_1C|CSD_T679_1C[M]|CD_781E|CD_781EL|CD_781A|CD_781AL|CD_781B|CD_781BL|CD_781C|CD_781CL|CD_781D|CD_781DL
+
+$DEF T466_0=CSD_T466_0B|CSD_T466_0B[M]|CSD_T466_0C|CSD_T466_0C[M]
+$DEF T466_2=CSD_T466_2B1|CSD_T466_2B1[M]|CD_742_157|CD_742_157L|CD_742_409|CD_742_409L|CD_742_2D|CD_742_2D[M]
+$DEF T669_0=CD_770_065L|CD_770_065|CD_771_003L|CD_771_003|CD_771_044L|CD_771_044|CD_770_1D|CD_770_2D|CD_770_3D
+
+$DEF T466_3=CD_743_007L|CD_743_007|CD_743_007A|CD_743_007A[M]
+#stare |CSD_T669[<R]|CSD_T669[<R]
+$DEF T478_3=CSD_T478_3C1|CSD_T478_3C1[M]
+#stare|CD_752D|CD_752D[M]|CD_752C|CD_752C[M]
+$DEF T457_0=1:CSD_T457_0002[M]|1:CSD_T457_0002|5:CSD_T457_0010[M]|5:CSD_T457_0010|5:CSD_T457_0011[M]|5:CSD_T457_0011|[M]
+$DEF T448_0=OKD_740_423L|OKD_740_423|OKD_740_450L|OKD_740_450|OKD_740_681L|OKD_740_681|OKD_740_701L|OKD_740_701
+$DEF T419_05=CSD_T419_0502|CSD_T419_0502[M]|CSD_T419_0505|CSD_T419_0505[M]|CSD_T419_0512|CSD_T419_0512[M]
+
+$DEF M262_0_V1=1:(CSD_M262_0B|CSD_M262_0B[M][MP:47,12,3,5][MP:110,12,3,5])|1:(M262_0|CSD_M262_0~CD|M262_0[M][MP:47,12,3,5][MP:110,12,3,5]|CSD_M262_0~CD[M][MP:47,12,3,5][MP:110,12,3,5])
+#$DEF M262_0_V2=CSD_M262_0~RSL[>R]|CSD_M262_0~RSL[<R]
+#$DEF M262_0_V3=CSD_830L|CSD_830
+#$DEF M131_1=M131_1B[>R]|M131_1[>R]|M131_1B[<R]|M131_1[<R]
+#$DEF M240_0_V1=M240_0|M240_0[M][MP:66,11,2,3][MP:118,11,2,3]|CSD_M240|CSD_M240[M][MP:66,11,2,3][MP:118,11,2,3]
+#$DEF M240_0_V2=CSD_M240A[>R]|CSD_M240A[<R]|CSD_820[>R]|CSD_820[<R]
+$DEF M240_0_V3=CSD_M240_1|CSD_M240_1[M][MP:68,12,2,3][MP:126,12,2,3]|CSD_820UNI|CSD_820UNI[M][MP:67,12,2,3][MP:123,12,2,3]
+#$DEF M286_0_V1=M286_0[>R]|M286_0[<R]|CSD_M286_0~CD[>R]|CSD_M286_0~CD[<R]
+#$DEF M286_0_V2=CSD_M286_0~RSL[>R]|CSD_M286_0~RSL[<R]|CSD_M286_0W[>R]|CSD_M286_0W[<R]
+#$DEF M286_0_V3=CSD_850|CSD_850L
+$DEF M152_0_V1=CD_810A|CD_810A[M][MP:17,14,2,3][MP:114,14,2,3]
+$DEF M152_0_V2=CSD_M152E|CSD_M152E[M][MP:18,14,2,3][MP:120,14,2,3]|CSD_M152C|CSD_M152C[M][MP:18,14,2,3][MP:120,14,2,3]|CSD_M152D|CSD_M152D[M][MP:18,14,2,3][MP:120,14,2,3]
+#$DEF M296_1=CSD_M296_1R[>R]|CSD_M296_1L[<R]
+#$DEF M296_2_V1=M296[>R]|M296[<R]|CSD_M296[>R]|CSD_M296[<R]
+#$DEF M296_2_V2=CSD_853|CSD_853L|CSD_860[<R]|CSD_860[>R]
+$DEF M296_2_V3=CSD_852D|CSD_852E|CSD_852F|CSD_852G|CSD_852H
+$DEF M296_2_V4=M296_2_V3
+$DEF M296_V1=M296_2_V3
+$DEF M296_V2=M296_2_V4
+#M296_2_V3
+#$DEF M475_0=CSD_M475_0|CSD_M475_0L
+
+$DEF M131_2=CSD_M131_2A|CSD_M131_2A[M]
+$DEF M263_0=CSD_M263_0|CSD_M263_0[M]|CSD_M263_0|CSD_M263_0[M]
+$DEF M144_0=CSD_M144_0|CSD_M144_0[M]|CSD_M144_0|CSD_M144_0[M]
+$DEF M153_0=CSD_M153_0|CSD_M153_0[M]|CD_M153|CD_M153[M]
+
+$DEF MV_TATRA=CD_TATRA[>R]
+$DEF MUV=CD_MUV69|CD_MUV69A, 0-2*CD_PV69
+
+$DEF E458_0=CSD_E458_0B|CSD_E458_0B[M]
+#$DEF E469_1=
+
+#$DEF E469_2=
+
+$DEF E479_0=E479_0_V2
+#stare E479_0_V1|
+$DEF E479_1_V1=ZSR_131[<R]|ZSR_131[>R]
+
+$DEF E479_1=E479_1_017_018|E479_1_062_061
+$DEF E479_1P=E479_1_017_018|E479_1_062_061
+$DEF E479_1S=E479_1_017_018S|E479_1_062_061S
+
+$DEF E499_0=E499_0_V3
+$DEF E499_0S=E499_0_V3S
+
+$DEF E499_1=E499_1_V2
+$DEF E499_1S=E499_1_V2S
+
+$DEF E499_2=CSD150_002|CSD150_011|CSD150_024|E499_2_017|E499_2_019|E499_2_022
+#|E499_2_V3
+$DEF E499_2P=CSD150_002|CSD150_011|CSD150_024|E499_2_017|E499_2_019|E499_2_022
+$DEF E499_2S=CSD150_002S|CSD150_011S|CSD150_024S|E499_2_017S|E499_2_019S|E499_2_022S
+
+$DEF E499_3=CSD163_002|CSD163_018|E499_3_040
+$DEF E499_3P=CSD163_002|CSD163_018|E499_3_040
+$DEF E499_3S=CSD163_002S|CSD163_018S|E499_3_040S
+
+$DEF CD169=CD169_V1
+$DEF CD169S=CD169_V1S
+
+#$DEF E669_1=
+
+$DEF S489_0=S489_0_V1
+$DEF S489_0S=S489_0_V1S
+
+$DEF S499_0=S499_0_V2
+$DEF S499_0S=S499_0_V2S
+
+$DEF S499_02=S499_02_224|S499_02_248|S499_02_202
+$DEF S499_02P=S499_02_202|S499_02_248|S499_02_224
+$DEF S499_02S=S499_02_202S|S499_02_248S|S499_02_224S
+#stare S499_02_V1|
+
+
+$DEF S499_2=CSD263_004|CSD263_004L|S499_2_001
+#stare |S499_2_V1|S499_2_V2
+$DEF S499_2P=CSD263_004|CSD263_004L|S499_2_001
+$DEF S499_2S=CSD263_004S|CSD263_004LS|S499_2_001S
+
+$DEF S458_0=CSD_S458_0A|CSD_S458_0A[M]|CD_209|CD_209[M]
+
+$DEF ES499_0=CSD350_001_4GR|CSD350_001_4|CSD350_009_7|ES499_0003|ES499_0006|ES499_0012|ES499_0016
+#stare|ES499_0_V4|ES499_0_V5|ES499_0_V6
+$DEF ES499_0P=CSD350_001_4GR|CSD350_001_4|CSD350_009_7|ES499_0003|ES499_0006|ES499_0012|ES499_0016
+$DEF ES499_0S=CSD350_001_4GRS|CSD350_001_4S|CSD350_009_7S|ES499_0003S|ES499_0006S|ES499_0012S|ES499_0016S
+
+$DEF ES499_1=CSD363_002|CSD363_011|CSD363_047|CSD363_060|CSD363_088|CSD363_170|ES499_1_001|ES499_1_002|ES499_1_012
+#STARE |ES499_1_V1|ES499_1_V2
+$DEF ES499_1P=CSD363_002|CSD363_011|CSD363_047|CSD363_060|CSD363_088|CSD363_170|ES499_1_001|ES499_1_002|ES499_1_012
+$DEF ES499_1S=CSD363_002S|CSD363_011S|CSD363_047S|CSD363_060S|CSD363_088S|CSD363_170S|ES499_1_001S|ES499_1_002S|ES499_1_012S
+
+$DEF ES499_2=ES499_2_001|ES499_2_005|ES499_2_011
+#stare |ES499_2_V1|ES499_2_V2
+$DEF ES499_2P=ES499_2_001|ES499_2_005|ES499_2_011
+$DEF ES499_2S=ES499_2_001S|ES499_2_005S|ES499_2_011S
+
+$DEF EM475_1=EM475_1_V1
+$DEF EM475_1S=EM475_1_V1S
+
+
+$DEF EM488_0=EM488_0_V5
+$DEF EM488_0S=EM488_0_V5
+
+$DEF SM488_0=SM488_0_V5
+$DEF SM488_0S=SM488_0_V5
+
+$DEF DA60=1:(CSD_DA60|CSD_DA60[M]|CSD_DA60|CSD_DA60[M])|1:(CSD_DA60L~RSL|CSD_DA60L~RSL[M])
+$DEF DA60TMV=(CSD_DA60L~RSL|CSD_DA60L~RSL[M])
+$DEF DA60SV=(DA60|CSD_DA60|DA60[M]|CSD_DA60[M])
+
+
+# 4. Layer
+
+#-Lokomotivy---------------------------------------------------------------------
+
+#-Parni lokomotivy----------------------------------------------------------
+
+# Tezke nakladni parni lokomotivy
+$DEF TNPL=2:556_RSL|2:556_0|2:CSD_556~CD|1:534_03
+
+# Lehke nakladni parni lokomotivy
+$DEF LNPL=5:CSD_434_2B_2|1:CSD_434_2B_1|5:464_0|5:524_1
+
+# Parni postrk
+$DEF PPOSTRK=556_RSL|556_0|CSD_556~CD|534_03|CSD_434_2B_2|464_0|524_1
+
+# Parni priprez
+$DEF PPRZ=556_RSLP
+
+# Rychlikove parni lokomotivy
+$DEF RPL=2:475_1|2:475_11|2:CSD_475_1~RSL|3:498_1|3:((1-2*477_0_V2)|3:(1-2*(477_0|477_0L)))|1:CSD_498_0~RSL|3:CSD_498_1~RSL
+
+# Tezke osobni parni lokomotivy
+$DEF TOPL=464_0|475_1|CSD_475_1~RSL|475_11|(477_0_V2|477_0|477_0L)|CSD_498_0~RSL|CSD_498_1~RSL|498_1
+
+# Lehke osobni parni lokomotivy
+$DEF LOPL=CSD_434_2B_1|CSD_434_2B_2|464_0|524_0|524_1|423_0|354_1|CSD_423|433_0|534_03
+
+# Obojsmerne parni lokomotivy
+$DEF OBPL=354_1|433_0|477_0_V2
+
+# Lehke obojsmerne parni lokomotivy
+$DEF LOBPL=354_1|433_0
+
+# Parni posunovaci lokomotivy
+$DEF PPOL=1:CSD_434_2B_1|5:CSD_434_2B_2|5:524_1|1:434_1P|5:434_2P|5:524_0
+
+# Parni lokomotivy
+$DEF PL=CSD_434_2B_1|CSD_434_2B_2|464_0|524_0|524_1|423_0|354_1|433_0|464_0|475_1|477_0|534_03
+
+# parni lokomotivy staticke
+$DEF PLS=434_1S|434_2S|464_0S|524_0S|524_1S|423_0S|354_1S|433_0S|464_0S|475_1S|477_0S|534_03S
+
+
+#-Elektricke lokomotivy----------------------------------------------------------
+
+# Rychlikove osobni elektricke lokomotivy
+$DEF ROEL=E499_0|E499_1|E499_2|E499_3|ES499_0|ES499_1|ES499_2|CD169
+$DEF ROELP=E499_0|E499_1|E499_2P|E499_3P|ES499_0P|ES499_1P|ES499_2P|CD169
+$DEF ROEL=ROEL[PDU]|ROEL|ROEL[PFU]
+
+# Rychlikove osobni elektricke lokomotivy jednosoustavove
+$DEF ROELJS=E499_0|E499_1|E499_2|E499_3|CD169
+$DEF ROELJSP=E499_0|E499_1|E499_2P|E499_3P|CD169
+$DEF ROELJS=ROELJS[PDU]|ROELJS|ROELJS[PFU]
+
+# Lehke elektricke lokomotivy
+$DEF LEL=E458_0
+$DEF LEL=LEL[PDU]|LEL|LEL[PFU]
+
+# Osobni elektricke lokomotivy
+$DEF OEL=E499_0|E499_1|E499_3|CD169
+$DEF OELP=E499_0|E499_1|E499_3P|CD169
+$DEF OEL=OEL[PDU]|OEL|OEL[PFU]
+
+# Tezke nakladni elektricke lokomotivy solo
+$DEF TNEL=E479_0|E479_1|E499_3|E499_1|E499_0|ES499_1|ES499_2
+$DEF TNELP=E479_1P|E499_1|E499_0|E499_3P|ES499_2P|ES499_1P
+$DEF TNEL=TNEL[PDU]|TNEL|TNEL[PFU]
+
+# Tezke nakladni elektricke lokomotivy solo jednosystemove
+$DEF TNELJS=E479_0|E479_1|E499_3|E499_1|E499_0
+$DEF TNELJSP=E479_1P|E499_1|E499_0|E499_3P
+$DEF TNELJS=TNEL[PDU]|TNEL|TNEL[PFU]
+
+# Tezke nakladni elektricke lokomotivy double
+$DEF TNELD=(2@E479_0)|(2@E499_3)|(2*E499_1)|(2*E499_0)|(2*ES499_1)|(2*ES499_2)
+$DEF TNELDP=(2*E499_1)|(2*E499_0)|(2*E499_3P)|(2*ES499_1P)|(2*ES499_2P)
+$DEF TNELD=[PDU]TNELD|TNELD|[PFU]TNELD
+
+# Tezke nakladni elektricke lokomotivy double jednosystemove
+$DEF TNELJSD=(2@E479_0)|(2*E499_3)|(2*E499_1)|(2*E499_0)
+$DEF TNELJSDP=(2*E499_1)|(2*E499_0)|(2*E499_3P)
+$DEF TNELJSD=[PDU]TNELD|TNELD|[PFU]TNELD
+
+# Elektricke posunovaci lokomotivy
+$DEF EPOL=1:E479_0|1:E499_3|1:E499_1|1:E499_0|6:E458_0
+$DEF EPOLP=E499_1|E499_0
+$DEF EPOL=EPOL[PDU]|EPOL|EPOL[PFU]
+
+
+# Elektricke lokomotivy
+$DEF EL=E458_0|E479_0|E479_1|E499_0|E499_1|E499_2|E499_3|ES499_0|ES499_1|ES499_2|CD169
+$DEF ELP=E479_1P|E499_1|E499_0|ES499_0P|ES499_2P|E499_2P|E499_3P|ES499_1P|CD169
+$DEF ELS=E458_0|E499_1S|E499_0S|ES499_0S|ES499_2S|E499_2S|E499_3S|ES499_1S|CD169S
+
+# Elektricke lokomotivy jednosoustavove
+$DEF ELJS=E458_0|E479_0|E479_1|E499_0|E499_1|E499_2|E499_3|CD169
+$DEF ELJSP=E479_1P|E499_1|E499_0|E499_2P|E499_3P|CD169
+$DEF ELJSS=E458_0|E499_1S|E499_0S|E499_3S|CD169S
+
+#_Stridave lokomotivy_---------------------------------------------------------
+
+# Stridave elektricke lokomotivy solo
+$DEF SEL=S489_0|S499_0|S499_02|S499_2|ES499_1
+$DEF SELP=S489_0|S499_0|S499_02P|S499_2P|ES499_1P
+$DEF SEL=SEL[PDU]|SEL|SEL[PFU]
+
+# Stridave elektricke lokomotivy solo jednosystemove
+$DEF SELJS=S489_0|S499_0|S499_02|S499_2
+$DEF SELJSP=S489_0|S499_0|S499_02P|S499_2P
+$DEF SELJS=SEL[PDU]|SEL|SEL[PFU]
+
+# Rychlikove osobni stridave lokomotivy
+$DEF ROSL=3:S489_0|3:S499_0|3:S499_02|3:S499_2|2:ES499_0|2:ES499_1
+$DEF ROSLP=S489_0|S499_0|S499_02P|S499_2P|ES499_0P|ES499_1P
+$DEF ROSL=ROSL[PDU]|ROSL|ROSL[PFU]
+
+# Rychlikove osobni stridave lokomotivy jednosystemove
+$DEF ROSLJS=4:S489_0|4:S499_0|4:S499_02|4:S499_2
+$DEF ROSLJSP=S489_0|S499_0|S499_02P|S499_2P
+$DEF ROSLJS=ROSL[PDU]|ROSL|ROSL[PFU]
+
+# Stridave elektricke lokomotivy lehke solo
+$DEF SELL=S458_0
+
+# Stridave elektricke lokomotivy double
+$DEF SELD=(2*S489_0)|(2*S499_0)|2@S499_02|2@S499_2|2*ES499_1
+$DEF SELDP=(2*S489_0)|(2*S499_0)|2@S499_02P|2*S499_2P|2*ES499_1P
+$DEF SELD=[PDU]SELD|SELD|[PFU]SELD
+
+# Stridave elektricke lokomotivy double jednosystemove
+$DEF SELJSD=(2*S489_0)|(2*S499_0)|2@S499_02|2@S499_2
+$DEF SELJSDP=(2*S489_0)|(2*S499_0)|2@S499_02P|2*S499_2P
+$DEF SELJSD=[PDU]SELD|SELD|[PFU]SELD
+
+# Stridave posunovaci lokomotivy
+$DEF SPOL=4:S489_0|4:S499_0|4:S499_02|4:S499_2|32:S458_0
+$DEF SPOLP=8:S489_0|8:S499_0|16:S499_02P|8:S499_2P
+$DEF SPOL=SPOL[PDU]|SPOL|SPOL[PFU]
+
+# Stridave lokomotivy
+$DEF SL=S458_0|S489_0|S499_0|S499_02|S499_2|ES499_0|ES499_1
+$DEF SLP=15:S489_0|15:S499_0|25:S499_02P|15:S499_2P|15:ES499_1P
+$DEF SLS=S458_0
+
+# Stridave lokomotivy jednosystemove
+$DEF SLJS=S458_0|S489_0|S499_0|S499_02|S499_2
+$DEF SLJSP=15:S489_0|15:S499_0|25:S499_02P|15:S499_2P
+$DEF SLJSS=S458_0|S489_0S|S499_0S|S499_02S|S499_2S|ES499_0S|ES499_1S
+
+#_Vicesystemove lokomotivy_________-------------------------------------------------
+
+# Osobni vicesystemove lokomotivy
+$DEF OESL=ES499_0|ES499_1
+$DEF OESLP=ES499_0P|ES499_1P
+$DEF OESL=OESL[PDU]|OESL|OESL[PFU]
+
+# Nakladni vicesystemove lokomotivy
+$DEF NESL=ES499_1
+$DEF NESLP=ES499_1P
+$DEF NESL=OESL[PDU]|OESL|OESL[PFU]
+
+#-Dieselove lokomotivy----------------------------------------------------------
+
+# Tezke nakladni dieselove lokomotivy solo
+$DEF TNDL=5:T679_1|2:T478_1|1:T478_3|5:T669_0|3:T678_0
+
+# Tezke nakladni dieselove lokomotivy double
+$DEF TNDLD=6:(2*T679_1)|2:(2*T478_1)|2:(2*T478_3)|1:(2*T466_2)|1:(2*T466_0)|1:(2*(T466_2|T466_0))|1:(2*T457_0)|6:(2*T669_0)|6:(T669_0|T679_1)|4:(2*T678_0)
+
+# Lehke nakladni dieselove lokomotivy
+$DEF LNDL=5:T435_0|5:T466_0|5:T466_2|3:T466_3|5:T457_0|3:T426_0
+
+# Nakladni dieselove lokomotivy
+$DEF NDL=TNDL|LNDL
+
+# Tezke osobni dieselove lokomotivy
+$DEF TODL=2:T478_1|2:T478_3|1:T499_0
+
+# Lehke osobni dieselove lokomotivy
+$DEF LODL=5:T466_0|5:T466_2|2:T466_3|2:T426_0
+
+# Dieselove posunovaci lokomotivy
+$DEF DPOL=5:T435_0|5:T466_0|5:T466_2|5:T457_0|2:T466_3
+
+# Dieselove posunovaci lokomotivy vleckove
+$DEF VDPOL=5:T435_0|5:T466_0|5:T466_2|5:T457_0|20:T448_0|10:T419_05
+
+# Kondenzacni posunovaci lokomotivy
+$DEF VKPOL=CS40
+
+# Dieselove lokomotivy
+$DEF DL=CD_T211_0|T426_0|T435_0|CSD_T458_1|T466_0|T466_2|T478_1|T478_3|T669_0|T678_0|CSD_T679_0|T679_1
+
+# Dieselove lokomotivy staticke
+$DEF DLS=CD_T211_0|CSD_T334_0|T426_0S|T435_0|CSD_T444_0|CSD_T444_1|CSD_T458_1|T466_0|T466_2|T478_1|T478_3|T669_0|T678_0|CSD_T679_0|T679_1
+
+#-Kombinace trakci - lokomotivy----------------------------------------------------------
+
+# Nakladni lokomotivy
+$DEF NL=TNPL|TNDL|TNEL|LNDL
+
+# Tezke nakladni lokomotivy
+$DEF TNL=TNPL|TNDL|TNEL
+
+#Staticke lokomotivy do pozadi nezavisla trakce
+$DEF LOKNTS=DLS
+
+
+#Staticke lokomotivy do pozadi elektricka trakce
+$DEF LOKETS=7:ELS|3:DLS
+
+#Staticke lokomotivy do pozadi stridava trakce
+$DEF LOKSTS=7:SLS|3:DLS
+
+# 5. layer
+
+#-Specielni vozidla----------------------------------------------------------
+
+
+
+#-Motorove soupravy---------------------------------------------------------------------
+
+# Elektricky motorovy
+$DEF EMU=EM475_1|EM488_0
+$DEF EMUS=EM475_1S|EM488_0S
+
+# Elektricky motorovy
+$DEF SMU=SM488_0
+$DEF SMUS=SM488_0S
+
+# Motorove rychle samostatne vozy
+$DEF MRSV=1-2*M296_V1
+
+# Motorovy rychly
+#$DEF MR262_V1=(M262_0_V1, 0-2*BALM_V1, 9:0|1:1*M262_0_V1)
+#$DEF MR262_V2=(M262_0_V2, 0-2*BALM_V2, 9:0|1:1*M262_0_V2)
+#$DEF MR262=MR262_V1|MR262_V2|M262_0_V3|M262_0_V1
+#$DEF MR262=MR262_V1
+
+#$DEF MR286_V1=(M286_0_V1, (0-2*BALM_V1)|(0-2*BALM_X_V1), 9:0|1:1*M286_0_V1)
+#$DEF MR286_V2=(M286_0_V2, (0-2*BALM_V2)|(0-2*BALM_X_V2), 9:0|1:1*M286_0_V2)
+#$DEF MR286_V3=(M286_0_V3, 0-2*BALM_X_V3, 0-1*M286_0_V3)
+#$DEF MR286=MR286_V1|MR286_V2|MR286_V3
+#$DEF MR286=MR286_V1
+
+$DEF MRJ296=(M296_V1, (1-2*CSD_BAIM_B)|(1-3*BALM_V1))|(M296_V1, 1-2*CSD_BAM_B, CSD_AAM_B)
+
+$DEF MRO296C=M296_V1, 2-6*CSD_BAIM_B, 8:(M296_V1)|1:M262_0_V1
+$DEF MRO296D=M296_V1, MR_V84, M296_V1
+$DEF MRO296=MRO296C|MRO296D
+
+$DEF MR296=MRJ296|MRO296
+
+# Motorovy lokalni
+#$DEF ML131=M131_1, (0-2*BLM|BDLM), 0-1*M131_1
+
+
+$DEF MLJ152_V1=(M152_0_V1, (0-2*BLM2_V1))
+$DEF MLO152_V1=(M152_0_V1, (1-3*BLM2_V1), CD_810)
+$DEF ML152_V1=MLJ152_V1|MLO152_V1
+
+$DEF MLJ152_V2=(M152_0_V2, (0-2*BLM2_V1))
+$DEF MLO152_V2=(M152_0_V2, (1-3*BLM2_V1), CD_810)
+$DEF ML152_V2=MLJ152_V2|MLO152_V2
+
+$DEF ML152=ML152_V1|ML152_V2
+$DEF MLO152=MLO152_V1|MLO152_V2
+$DEF MLJ152=MLJ152_V1|MLJ152_V2
+
+$DEF MLJ240=(M240_0_V3, (0-2*BALM_V1)|(0-2*BALM_V2))
+$DEF MLO240=(M240_0_V3, (2-3*BALM_V1)|(2-3*BALM_V2), M240_0_V3)
+$DEF ML240=MLJ240|MLO240
+
+# Motorove pripojne vozy
+$DEF MPV131=CSD_BLM|CSD_BDLM
+
+#-Soupravy vagonu---------------------------------------------------------------------
+
+# Motorove rychle pripojne vozy
+$DEF MRPV=(BALM_X_V1)|(BAIM_V1|BAIM_V2)
+
+#Motorove lehke pripojne vozy
+$DEF MLPV=MPV131|BALM_V1|CD_010
+
+# Rychlikove soupravy ceske hlavni trate kombinovane se sluzebnim vozem vozy 60
+$DEF RSCZHTKSV60=((0-1*DA60,3-5*CSD_BA60A)|(3-5*CSD_BA60A,0-1*DA60))
+
+# Rychlikove soupravy ceske hlavni trate kombinovane bez sluzebniho vozu vozy 60
+$DEF RSCZHTKBSV60=((3-5*CSD_BA60A)|(3-5*CSD_BA60A))
+
+# Rychlikove soupravy ceske hlavni trate kombinovane vozy 60
+$DEF RSCZHTK60=RSCZHTKSV60|RSCZHTKBSV60
+
+# Rychlikove soupravy ceske hlavni trate dlouhe vozy 60
+$DEF RSCZHTD60=((0-1*DA60,(2-4@CSD_BA60A|CSD_WLAB60,0-1*CSD_WR1, 3-5@CSD_BA60A|CSD_WLAB60))|(2-4@CSD_BA60A|CSD_WLAB60,0-1*CSD_WR1, 3-5@CSD_BA60A|CSD_WLAB60,0-1*DA60))
+
+# Rychlikove soupravy ceske hlavni trate homogenni vozy 60
+$DEF RSCZHTH60=((0-1*DA60,(0-1*CSD_WR1,3-6@CSD_BA60A|CSD_WLAB60))|(0-1*CSD_WR1,3-6@CSD_BA60A|CSD_WLAB60, 0-1*DA60))
+
+# Rychlikove soupravy hlavni trate vozy 60
+$DEF RSCZHT60=RSCZHTK60|RSCZHTD60|RSCZHTH60
+
+$DEF RSCZHTKY=RS88
+
+# Rychlikove soupravy
+$DEF RS=RS88
+
+# Rychlikove soupravy nezavisle trate
+$DEF RSNT=RS88
+
+# Rychlikove soupravy elektricke trate
+$DEF RSES=RSES88
+
+#Tezke osobni soupravy BE30
+$DEF TOSBE30=((0-1*CSD_DSD,3-7*(CSD_BE30|CSD_BE31))|(0-1*CSD_DSD,3-7*(CSD_BE30|CSD_BE31))|(0-1*CSD_DSD|CSD_DSD,3-7*(CSD_BE30|CSD_BE31|CSD_BE30|CSD_BE31)))
+
+#Tezke osobni soupravy 4AB
+$DEF TOS4AB=((0-1*CSD_3D, 1-3*CSD_4AB|CSD_4B1|CSD_4B2)|(1-3*CSD_4AB|CSD_4B1|CSD_4B2,0-1*CSD_3D))
+
+#Tezke osobni soupravy BA60
+$DEF TOSBA60=TOSZEL_V37
+
+#Tezke osobni soupravy patrove
+$DEF TOSDD=TOSDD_V31
+#stare
+
+#Tezke osobni soupravy pripojne motorove vozy
+$DEF TOSMRPV=MOS_V60|MOS_V61|MOS_V64|MOS_V65|MOS_V86
+
+
+#Tezke osobni soupravy Y vozy
+$DEF TOSY=TOSY88
+
+#Tezke osobni soupravy vedlejsi trate
+$DEF TOSVT=TOSMRPV|TOSBA60
+
+#Tezke osobni soupravy hlavni trate
+$DEF TOSHT=TOSMRPV|TOSDD|TOSY
+
+#Tezke osobni soupravy
+$DEF TOS=TOSBA60|TOSMRPV|TOSDD|TOSY
+
+#Nakladni sluzebni vagony
+$DEF NSV=CSD_DS|CSD_DSL
+
+#Lehke osobni soupravy M152
+$DEF LOSM152=LMOS_V66
+
+#Lehke osobni soupravy M240
+$DEF LOSM240=LMOS_V62
+
+
+#Lehke osobni soupravy y
+$DEF LOSY=LOSY88
+
+#Lehke osobni soupravy patrove
+$DEF LOSDD=LOSDD_V31
+
+#Lehke osobni soupravy
+$DEF LOS=LOSM152|LOSM240|LOSY|LOSDD
+
+#Lehke osobni posunovane soupravy BE30
+$DEF LOPSBE30=LOPSZEL_V36
+
+#Lehke osobni posunovane soupravy soupravy motorove rychle pripojne vozy
+$DEF LOPSMRPV=[MI:4]TOSMRPV
+
+#Lehke osobni posunovane soupravy motorove lehke pripojne vozy
+$DEF LOPSMLPV=(1-3*B_V66)|(1-3*B_V62)
+
+#Lehke osobni posunovane soupravy Y
+$DEF LOPSY=(0-2*B_V31, 1-3*D_V31)|((1-3*D_V31)|(0-2*B_V31))
+
+#Lehke osobni posunovane soupravy X
+$DEF LOPSX=(0-2*B_V18, 1-3*D_V18)|((1-3*D_V18)|(0-2*B_V18))
+
+
+#Lehke osobni posunovane soupravy x60
+$DEF LOPS60=(0-4*(B_V37A|B_V37B|B_V37C|A_V35|D_V35))|(0-4@(B_V37A|B_V37B|B_V37C|A_V35|D_V35))
+
+#Lehke osobni posunovane soupravy pracovni
+$DEF LOPSPR=1-3*PRAC60
+
+#Lehke osobni posunovane soupravy pracovni
+$DEF LOPSPR=1-3*PRAC60
+
+#Lehke osobni posunovane soupravy 4x
+$DEF LOPS4AB=(0-2*B_V42, 1-3*D_V42)|((1-3*D_V42)|(0-2*B_V42))
+
+#Lehke osobni posunovane soupravy dvoupatrove
+$DEF LOPSDD=((0-4*BAPCSD_V1)|DDCSD_V1)
+
+#Lehke osobni posunovane soupravy
+$DEF OPS=LOPSBE30|LOPSMRPV|LOPSMLPV|LOPSY|LOPS60|LOPSDD|LOPSPR
+
+#Postovni vagony
+$DEF POST=POST76
+
+#Nakladni  vagony dvounapravove
+$DEF NV2=NV2_88
+
+#Nakladni  vagony ctyrnapravove
+$DEF NV4=NV4_88
+
+#Nakladni vagony
+$DEF NV=NV2|NV4
+
+#Nakladni vagony pripojitelne za osobni vlak
+$DEF NVPOS=NVPOS88
+
+# Tezky nakladni homogenni
+$DEF TNHV2=TNHV88
+
+#Nakladni vagony nalozene vojenskymi auty
+$DEF NAUTA=NAUTA
+
+#Nakladni vagony vedlejsi trate stare
+$DEF NVVTS=NVVTS88
+
+#Nakladni vagony vedlejsi trate - navic stare
+$DEF NVVT=NVVTS|NV2
+
+# Tezky smiseny nakladni
+$DEF TSN=NSV, 9-15*NV
+
+# Tezky smiseny nakladni skupinky vagonu
+$DEF TSNSV=NSV, 9-15*(1-4@NV)
+
+# Tezky nakladni homogenni
+$DEF TSNH=(0-1*NSV, TNHV2)|(TNHV2,0-1*NSV)
+
+# Tezky nakladni homogenni dva druhy vagonu
+$DEF TNHDD=TNHV2, 2-4@NV
+
+# Tezky nakladni
+$DEF TNV=1:TSN|1:TSNSV|2:TSNH|2:TNHDD
+
+# Nakladni posunovane soupravy
+$DEF NPS=0-2*NSV, 1-5*NV
+
+#Spesninovy vlak
+$DEF SPES=SPESVL88
+
+# Lehka smisena nakladni souprava
+$DEF LSN=8:0|2:1*NSV, 1-2*NVVT
+
+# Lehka homogenni nakladni souprava
+$DEF LHN=8:0|2:1*NSV, 1-2@NVVT
+
+# Lehka nakladni souprava
+$DEF LNS=LSN|LHN
+
+#Souprava v pozadi
+$DEF BGSS=1:(TOS|LOS|OPS)|2:(NPS|TNV|LNS|SPES)
+
+#Souprava v pozadi s preferenci osobnich vozu
+$DEF BGSOSS=7:(TOS|LOS|OPS)|3:(NPS|TNV|LNS|SPES)
+
+# 6a. layer
+
+#-Vlaky---------------------------------------------------------------------
+
+# Tezky smiseny nakladni parni
+$DEF TSNP=1-2*TNPL, TSN, 0-1*PPOSTRK
+
+# Tezky smiseny nakladni parni skupiny vagonu
+$DEF TSNPSV=1-2*TNPL, TSNSV, 0-1*PPOSTRK
+
+# Tezky smiseny nakladni parni homogenni
+$DEF TSNPH=1-2*TNPL, TSNH, 0-1*PPOSTRK
+
+# Tezky nakladni parni
+$DEF TNP=1-2*TNPL, TNV, 0-1*PPOSTRK
+
+# Tezky nakladni elektricky
+$DEF TNE=TNELD|TNEL, TNV, 0-1*(TNEL|TNDL)
+
+# Tezky nakladni elektricky stridavy
+$DEF TNS=SELD|SEL, TNV, 0-1*(SEL|TNDL)
+
+# Tezky nakladni dieselovy
+$DEF TND=TNDL|TNDLD, TNV, 0-1*NDL
+
+# Tezky nakladni stejnosmerna/stridava trakce
+$DEF TNES=NESL, TNV, 0-1*NESL
+
+# Spesninovy elektricky
+$DEF SPESE=TNEL, SPES
+
+# Spesninovy elektricky stridavy
+$DEF SPESS=SEL, SPES
+
+# Spesninovy dieselovy
+$DEF SPESD=TNDL, SPES
+
+# Spesninovy stejnosmerna/stridava trakce
+$DEF SPESES=NESL, SPES
+
+# Rychlik parni
+$DEF RP=RPL, RSNT
+
+# Rychlik dieselovy
+$DEF RD=TODL, RSNT
+
+# Rychlik elektricky
+$DEF RE=ROEL, RSES
+
+# Rychlik stridavy
+$DEF RES=ROSL, RSES
+
+# Tezky osobni parni
+$DEF TOP=TOPL, TOS
+
+# Tezky osobni dieselovy
+$DEF TOD=TODL, TOS
+
+# Tezky osobni elektricky
+$DEF TOE=(OEL, TOSHT)|EMU
+
+# Tezky osobni stridavy
+$DEF TOSST=(SEL, TOSHT)|SMU
+
+# Lokalni osobni parni
+$DEF LOP=LOPL, LOS
+
+# Lokalni osobni dieselove
+$DEF LOD=LODL, LOS
+
+# Lokalni osobni dieselove dvoupatrove
+$DEF LODDD=TODL, LOSDD
+
+# Lokalni osobni elektricky
+$DEF LOE=LEL, LOS
+
+# Lokalni osobni stridavy
+$DEF LOBS=SELL, LOS
+
+# -----------Posunovaci osobni
+
+# Posunovaci osobni dieselovy tazeny
+$DEF PODTA=DL, OPS
+
+# Posunovaci osobni dieselovy tlaceny
+$DEF PODTL=OPS, DL
+
+# Posunovaci osobni elektricky tazeny - zde jiz nepouzity, mozna v JR
+$DEF POETA=OEL, OPS
+
+# Posunovaci osobni elektricky tlaceny
+$DEF POETL=OPS, OEL
+
+# Posunovaci osobni stridavy tazeny
+$DEF POSTA=SPOL, OPS
+
+# Posunovaci osobni stridavy tlaceny
+$DEF POSTL=OPS, SPOL
+
+# Posunovaci osobni parni tazeny
+$DEF POPTA=PPOL, OPS
+
+# Posunovaci osobni parni tlaceny
+$DEF POPTL=OPS, PPOL
+
+# -----------Posunovaci nakladni
+
+# Posunovaci nakladni parni tazeny
+$DEF PNPTA=PPOL, NPS
+
+# Posunovaci nakladni parni tlaceny
+$DEF PNPTL=NPS, PPOL
+
+#Posunovaci nakladni elektrickY tazeny
+$DEF PNETA=EL, NPS
+
+#Posunovaci nakladni elektrickY tlaceny
+$DEF PNETL=NPS, EL
+
+# Posunovaci nakladni stridavy tazeny
+$DEF PNSTA=SPOL, NPS
+
+# Posunovaci nakladni stridavy tlaceny
+$DEF PNSTL=NPS, SPOL
+
+# Posunovaci nakladni dieselovy tazeny
+$DEF PNDTL=NPS, DL
+
+# Posunovaci nakladni dieselovy tlaceny
+$DEF PNDTA=DL, NPS
+
+# ----------------Manipulacni
+
+# Manipulacni parni tazeny
+$DEF MPPTA=PPOL, 0-1*NSV
+
+# Manipulacni parni  tlaceny
+$DEF MPPTL=0-1*NSV, PPOL
+
+# Manipulacni dieselovy tazeny
+$DEF MPDTA=DL, 0-1*NSV
+
+# Manipulacni dieselovy tlaceny
+$DEF MPDTL=0-1*NSV, DL
+
+# Manipulacni elektricky
+$DEF MPETA=EL, 0-1*NSV
+
+# Manipulacni elektricky
+$DEF MPETL=0-1*NSV, EL
+
+# Manipulacni stridavy
+$DEF MPSTA=SPOL, 0-1*NSV
+
+# Manipulacni stridavy
+$DEF MPSTL=0-1*NSV, SPOL
+
+# Lehke smisene nakladni-------------------
+
+# Lehky smiseny nakladni dieselovy
+$DEF LSND=LNDL, 0-1*NSV, 0-4*NVVT
+
+# Lehky smiseny nakladni elektricky
+$DEF LSNE=LEL, 0-1*NSV, 0-4*NVVT
+
+# Lehky smiseny nakladni stridavy
+$DEF LSNS=SELL, 0-1*NSV, 0-4*NVVT
+
+# 6b. layer
+
+#-------------------------------------------
+
+# Vsechny lokomotivy nezavisla trakce
+$DEF LONT=DL
+
+# Vsechny lokomotivy elektricka trakce
+$DEF LOET=DL|EL
+
+# Vsechny lokomotivy stridava trakce
+$DEF LOST=DL|SL
+
+# Dreziny
+$DEF DRZ=1:MV_TATRA|1:(M_HAJT|M_HAJT2|M_HAJT3|KLTK)|1:MUV|1:KLTK
+
+# Udrzba el. vedeni
+$DEF UEV=M131_2|M144_0|M153_0
+
+#----------A Motoraky
+
+#001 Motorovy rychly
+$DEF MR=MR296|MRSV
+
+#002 Motorovy lokalni
+#$DEF ML=3:ML240|1:ML131|6:ML152
+$DEF ML=3:ML240|7:ML152
+
+#003 Motorovy rychly OBOUSMERNY
+$DEF MRO=MRO296
+
+#004 Motorovy rychly jednosmerny
+$DEF MRJ=MRJ296
+
+#005 Motorovy lokalni jednosmerny
+#$DEF MLJ=3:MLJ240|MLJ131|MLJ152
+$DEF MLJ=3:MLJ240|7:MLJ152
+
+#006 Motorovy lokalni obousmerny
+#$DEF MLO=MLO240|MLO131|MLO152
+$DEF MLO=3:MLO240|7:MLO152
+
+# 7. layer
+#-------------------------------------------
+
+#----------B Tezky nakladni
+
+#007 Tezky nakladni vsechny trakce bez postrku elektricka trat 0
+$DEF TNVTBP=TNELD|TNEL|TNDL|TNDLD, TNV
+$DEF TNVTBPP=TNVTBP
+
+#008 Tezky nakladni vsechny trakce bez postrku stridava trat 0
+$DEF TNSTBP=SELD|SEL|TNDL|TNDLD, TNV
+$DEF TNSTBPP=TNSTBP
+
+#009 Tezky nakladni nezavisle trakce 1
+$DEF TNNT=TND
+$DEF TNNTP=TNNT
+
+#010 Tezky nakladni elektricka trakce 2
+$DEF TNET=9:TNE|1:TND
+$DEF TNETP=TNET
+
+#011 Tezky nakladni stridava trakce 2
+$DEF TNST=8:TNS|2:TND
+$DEF TNSTP=TNST
+
+#----------C Rychly nakladni
+
+#012 Rychly nakladni nezavisle trakce 2
+$DEF NEXNT=TNNT
+$DEF NEXNTP=NEXNT
+
+#014 Rychly nakladni elektricka trakce 2
+$DEF NEXET=TNET
+$DEF NEXETP=NEXET
+
+#015 Rychly nakladni stridava trakce 2
+$DEF NEXST=TNST
+#$DEF NEXSTP=NEXSTP
+
+#----------D Lehky nakladni
+
+#016 Lehky smiseny nakladni nezavisla trakce 2
+$DEF LSNNT=LSND
+$DEF LSNNTP=LSNNT
+
+#017 Lehky smiseny nakladni elektricka trakce 1
+$DEF LSNET=LSND|LSNE
+$DEF LSNETP=LSNET
+
+#018 Lehky smiseny nakladni stridava trakce 1
+$DEF LSNST=LSND|LSNS
+$DEF LSNSTP=LSNST
+
+#----------E Rychliky
+
+#019 Rychlik nezavisla trakce 1
+$DEF RNT=RD
+$DEF RNTP=RNT
+
+#020 Rychlik elektrifikovane trate
+$DEF RET=9:RE|1:RD
+$DEF RETP=RET
+
+#021 Rychlik stridave trate
+$DEF RST=8:RES|2:RD
+$DEF RSTP=RST
+
+#----------F Tezky osobni
+
+#022 Tezky osobni nezavisla trakce 2
+$DEF TONT=TOD
+$DEF TONTP=TONT
+
+#023 Tezky osobni elektrifikovane trate 2
+$DEF TOET=9:TOE|1:TOD
+$DEF TOETP=TOET
+
+#024 Tezky osobni stridave trate 2
+$DEF TOST=8:TOSST|2:TOD
+$DEF TOSTP=TOST
+
+#----------G Lokalni osobni
+
+#025 Lokalni osobni nezavisla trakce 2
+$DEF LOSNT=LOD|LODDD
+$DEF LOSNTP=LOSNT
+
+#026 Lokalni osobni elektrifikovane trate 2
+$DEF LOSET=1:LOD|1:LODDD|4:LOE|4:EMU
+$DEF LOSETP=LOSET
+
+#027 Lokalni osobni stridave trate 2
+$DEF LOSST=2:LOD|4:LOBS|4:SMU
+$DEF LOSSTP=LOSST
+
+#----------H Posunovaci nakladni
+
+#028 Posunovaci nakladni elektricka trakce tazeny 2
+$DEF PNETTA=PNETA|PNDTA
+
+#029 Posunovaci nakladni elektricka trakce tlaceny 2
+$DEF PNETTL=PNETL|PNDTL
+
+#030 Posunovaci nakladni stridava trakce tazeny 2
+$DEF PNSTTA=PNSTA|PNDTA
+
+#031 Posunovaci nakladni stridava trakce tlaceny 2
+$DEF PNSTTL=PNSTL|PNDTL
+
+#069 Posunovaci nakladni nezavisle trakce tlaceny 2
+$DEF PNNTTL=PNDTL
+
+#070 Posunovaci nakladni nezavisle trakce tazeny 2
+$DEF PNNTTA=PNDTA
+
+#----------CH Posunovaci osobni
+
+#071 Posunovaci osobni elektricka trakce tazeny 2
+$DEF POETTA=POETA|PODTA
+
+#072 Posunovaci osobni elektricka trakce tlaceny 2
+$DEF POETTL=POETL|PODTL
+
+#073 Posunovaci osobni stridava trakce tazeny 2
+$DEF POSTTA=POSTA|PODTA
+
+#074 Posunovaci osobni stridava trakce tlaceny 2
+$DEF POSTTL=POSTL|PODTL
+
+#075 Posunovaci osobni nezavisle trakce tazeny 2
+$DEF PONTTA=PODTA
+
+#076 Posunovaci osobni nezavisle trakce tlaceny 2
+$DEF PONTTL=PODTL
+
+#----------I Manipulacni
+
+#032 Manipulacni nezavisle trakce tazeny 0
+$DEF MPNTTA=MPDTA
+
+#033 Manipulacni nezavisle trakce tlaceny 0
+$DEF MPNTTL=MPDTL
+
+#034 Manipulacni nezavisle trakce 3
+$DEF MPNT=MPNTTL|MPNTTA
+
+#035 Manipulacni elektricka trakce tazeny 0
+$DEF MPETTA=MPDTA|MPETA
+
+#036 Manipulacni elektricka trakce tlaceny 0
+$DEF MPETTL=MPDTL|MPETL
+
+#037 Manipulacni elektricka trakce 1
+$DEF MPET=5:MPETTL|5:MPETTA|1:UEV
+
+#038 Manipulacni elektricka trakce na kuse koleji 3
+$DEF MPKSET=3:(MR|MLO)|4:MPET|3:EMU
+
+#039 Manipulacni stridava trakce tazeny 0
+$DEF MPSTTA=MPDTA|MPSTA
+
+#040 Manipulacni stridava trakce tlaceny 0
+$DEF MPSTTL=MPDTL|MPSTL
+
+#041 Manipulacni stridava trakce 2
+$DEF MPST=5:MPSTTL|5:MPSTTA|1:UEV
+
+#042 Manipulacni stridava trakce na kuse koleji 3
+$DEF MPKSST=3:(MR|MLO)|4:MPST|3:SMU
+
+#----------J Lokomotivni vlaky
+
+#043 Lokomotivni vlak NT/ST
+$DEF LOVLNTST=(SELP[PD],DPOL)|(DPOL, SELP[PD])
+
+#044 Lokomotivni vlak NT/ET
+$DEF LOVLNTET=(ELP[PD],DPOL)|(DPOL, ELP[PD])
+
+#045 Lokomotivni vlak ET
+$DEF LOVLET=EL|DL
+
+#046 Lokomotivni vlak ST
+$DEF LOVLST=SL|DL
+
+#047 Lokomotivni vlak ET
+$DEF LOVLNT=DL
+
+#----------Ka Spesninove vlaky
+
+#048 Spesninovy nezavisle trakce 2
+$DEF SPESNT=SPESD
+$DEF SPESNTP=SPESNT
+
+#049 Spesninovy elektricka trakce 2
+$DEF SPESET=6:SPESE|1:SPESD|3:SPESES
+$DEF SPESETP=SPESET
+
+#050 Spesninovy stridava trakce 2
+$DEF SPESST=5:SPESS|2:SPESD|3:SPESES
+$DEF SPESSTP=SPESST
+
+# 8. layer
+
+#-Kombinace vlaku---------------------------------------------------------------------
+
+#----------K Posunovaci
+
+#048 Posunovaci vlaky elektrifikovane trate 3
+$DEF PVET=4:POETTA|4:POETTL|4:PNETTA|4:PNETTL|1:UEV
+$DEF PVETP=PVET
+
+#049 Posunovaci vlaky stridave trate 3
+$DEF PVST=4:POSTTA|4:POSTTL|4:PNSTTA|4:PNSTTL|1:UEV
+$DEF PVSTP=PVST
+
+#050 Posunovaci vlaky neelektrifikovane trate 3
+$DEF PVNT=PONTTA|PONTTL|PNNTTA|PNNTTL
+$DEF PVNTP=PVNT
+
+#----------L Projizdejici
+
+#051 Projizdejici vlaky  trate elektrifikovane 3
+$DEF PRVET=[MI:20]TNET|LSNET|RET|TOET|LOSET|MR|ML|SPESET
+$DEF PRVETP=PRVET
+
+#052 Projizdejici vlaky stridave trate 3
+$DEF PRVST=[MI:20]TNST|LSNST|RST|TOST|LOSST|MR|ML|SPESST
+$DEF PRVSTP=PRVST
+
+#053 Projizdejici vlaky neelektrifikovane trate 3
+$DEF PRVNT=[MI:20]TNNT|LSNNT|RNT|TONT|LOSNT|MR|ML|SPESNT
+$DEF PRVNTP=PRVNT
+
+#----------M Nakladni
+
+#054 Nakladni vlaky elektrifikovane trate 3
+$DEF NAVET=6:[MI:20]TNET|3:LSNET|1:SPESET
+$DEF NAVETP=NAVET
+
+#055 Nakladni vlaky stridave trate 3
+$DEF NAVST=6:[MI:20]TNST|3:LSNST|1:SPESST
+$DEF NAVSTP=NAVST
+
+#056 Nakladni vlaky neelektrifikovane trate 3
+$DEF NAVNT=4:[MI:20]TNNT|5:LSNNT|1:SPESNT
+$DEF NAVNTP=NAVNT
+
+#----------N Osobni
+
+#057 Osobni vlaky elektrifikovane trate 3
+$DEF OSVET=RET|TOET|LOSET|MR|ML
+$DEF OSVETP=OSVET
+
+#058 Osobni vlaky stridave trate 3
+$DEF OSVST=RST|TOST|LOSST|MR|ML
+$DEF OSVSTP=OSVST
+
+#059 Osobni vlaky neelektrifikovane trate 3
+$DEF OSVNT=RNT|TONT|LOSNT|MR|ML
+$DEF OSVNTP=OSVNT
+
+#----------O Pomale
+
+#060 Pomale vlaky elektrifikovane trate 3
+$DEF POVET=6:[MI:20]TNET|6:LSNET|6:TOET|6:LOSET|1:UEV|1:DRZ|2:ML
+$DEF POVETP=POVET
+
+#061 Pomale vlaky stridave trate 3
+$DEF POVST=6:[MI:20]TNST|1:LSNST|6:TOST|6:LOSST|1:UEV|1:DRZ|2:ML
+$DEF POVSTP=POVST
+
+#062 Pomale vlaky neelektrifikovane trate 3
+$DEF POVNT=6:[MI:20]TNNT|6:LSNNT|6:TONT|6:LOSNT|2:DRZ|2:ML
+$DEF POVNTP=POVNT
+
+#----------P Rychle
+
+#063 Rychle vlaky elektrifikovane trate 3
+$DEF RYVET=RET|TOET|MR|SPESET
+$DEF RYVETP=RYVET
+
+#064 Rychle vlaky stridave trate 3
+$DEF RYVST=RST|TOST|MR|SPESST
+$DEF RYVSTP=RYVST
+
+#065 Rychle vlaky neelektrifikovane trate 3
+$DEF RYVNT=RNT|TONT|MR|SPESNT
+$DEF RYVNTP=RYVNT
+
+#----------Q Pomale osobni
+
+#066 Pomale osobni vlaky nezavisla trakce 3
+$DEF POSVNT=LOSNT|ML
+$DEF POSVNTP=POSVNT
+
+#067 Pomale osobni vlaky elektricka trakce 3
+$DEF POSVET=LOSET|ML
+$DEF POSVETP=POSVET
+
+#068 Pomale osobni vlaky stridava trakce 0
+$DEF POSVST=LOSST|ML
+$DEF POSVSTP=POSVST
+
+#9. Layer
+#----------------------------------------------------------
+
+#108, 111a
+# Nakladni souprava pro UNIT pridani postrku
+$DEF TNVUNIT=TNV
+
+# Predni loko pro UNIT pridani postrku
+$DEF TNLUNITNT=TNDL
+
+# Postr pro UNIT
+$DEF NLUNITNT=NDL
+
+#207, 211a
+# Predni loko pro UNIT pridani postrku
+$DEF TNLUNITET=TNEL
+
+# Postrk pro UNIT
+$DEF NLUNITET=TNEL|NDL
+
+#307, 311a
+# Predni loko pro UNIT pridani postrku
+$DEF TNLUNITST=2:TNDL|6:SEL
+
+# Postrk pro UNIT
+$DEF NLUNITST=3:NDL|4:SEL
+
+#108, 117a
+# Vlak pro GET|PUT
+$DEF VGPNT=RNT
+
+# Vagony pripojitelne za vlak GET|PUT
+$DEF VAGP=NVPOS|CSD_DS|POST
+
+# Posunivaci loko GET|PUT
+$DEF POLGPNT=DPOL
+
+#207, 217a, 226a
+# Vlak pro GET|PUT
+$DEF VGPET=RET
+
+# Posunivaci loko GET|PUT
+$DEF POLGPET=4:DPOL|3:EPOL
+
+#307, 317a, 326a
+# Vlak pro GET|PUT
+$DEF VGPST=RST
+
+# Posunivaci loko GET|PUT
+$DEF POLGPSST=4:DPOL|3:SPOL
+
+#111a
+# Posunovaci vlak pro PUT
+$DEF PVPUTNT=LSNNT
+
+# Posunovane Vagony pripojovane za vlak PUT
+$DEF PVAGPUT=NVVT
+
+# Posunovaci loko PUT
+$DEF POLPUTNT=3:LNDL|4:DPOL
+
+#211a
+# Posunovaci vlak pro PUT
+$DEF PVPUTET=LSNET
+
+# Posunovaci loko PUT
+$DEF POLPUTET=3:LNDL|4:DPOL|3:EPOL
+
+#311a
+# Posunovaci vlak pro PUT
+$DEF PVPUTST=LSNST
+
+# Posunovaci loko PUT
+$DEF POLPUTST=3:LNDL|4:DPOL|3:SPOL
+
+#111a, 112
+# Posunovaci vlak pro CHANGE
+$DEF LNSCHANGE=LNS
+
+# Prvni lokomotiva pro CHANGE
+$DEF NLCHANGE1NT=LNDL
+
+# Druha lokomotiva pro CHANGE
+$DEF NLCHANGE2NT=LNDL
+
+#211a
+# Prvni lokomotiva pro CHANGE
+$DEF NLCHANGE1ET=LNDL|EPOL
+
+# Druha lokomotiva pro CHANGE
+$DEF NLCHANGE2ET=LNDL|EPOL
+
+#311a
+# Prvni lokomotiva pro CHANGE
+$DEF NLCHANGE1ST=LNDL|SPOL
+
+# Druha lokomotiva pro CHANGE
+$DEF NLCHANGE2ST=LNDL|SPOL
+
+#112
+# Nakladni souprava pro UNIT pridani priprahu
+$DEF TNVPRUNIT=TNV
+
+# Predni loko pro UNIT pridani priprahu
+$DEF TNLPRUNITNT=TNDL
+
+# Priprah pro UNIT
+$DEF NLPRUNITNT=NDL
+
+#211a
+# Predni loko pro UNIT pridani priprahu
+$DEF TNLPRUNITET=TNELP
+
+# Priprah pro UNIT
+$DEF NLPRUNITET=TNDL
+
+#311a
+# Predni loko pro UNIT pridani priprahu
+$DEF TNLPRUNITST=SELJSP
+
+# Priprah pro UNIT
+$DEF NLPRUNITST=TNDL
+
+#116a, 118a
+# Vlak pro UNIT na kuse koleji
+$DEF VLUNITNT=MLJ|MRJ
+
+# Loko pro UNIT na kuse koleji ktera odtahne vlak
+$DEF POLUNITNT=LNDL|DPOL
+
+#216a, 218a, 408
+# Loko pro UNIT na kuse koleji ktera odtahne vlak
+$DEF POLUNITET=4:EPOL|4:(LNDL|DPOL)
+
+#316a, 318a, 406, 407
+# Loko pro UNIT na kuse koleji ktera odtahne vlak
+$DEF POLUNITST=5:SELL|1:SPOL|4:(LNDL|DPOL)
+
+#117a
+# Souprava pro CHANGE
+$DEF SCHANGENT=RS
+
+# Prvni lokomotiva pro CHANGE
+$DEF LCHANGE1NT=3:DPOL|3:TODL
+
+# Druha lokomotiva pro CHANGE
+$DEF LCHANGE2NT=3:DPOL|3:TODL
+
+#217a, 226a
+# Prvni lokomotiva pro CHANGE
+$DEF LCHANGE1ET=2:DPOL|2:EPOL|8:TODL|8:ROEL
+
+# Druha lokomotiva pro CHANGE
+$DEF LCHANGE2ET=(2:DPOL|2:EPOL|8:TODL|8:ROEL)
+
+#317a
+# Prvni lokomotiva pro CHANGE
+$DEF LCHANGE1ST=2:LNDL|2:DPOL|4:SL|4:TODL
+
+# Druha lokomotiva pro CHANGE
+$DEF LCHANGE2ST=2:LNDL|2:DPOL|4:SL|4:TODL
+
+#10. vrstva definice pro pohyby na prechodove stanici
+#-------------------------------------------------------
+
+#401 Provoz na stejnosmernych kolejich
+# Osobni souprava pro stridavy vlak pak stejnosmerny
+$DEF OSSP01=TOSHT
+
+# Stridava loko ktera vlak priveze
+$DEF LOK1ST01=SELP
+
+# Nezavisla posunovaci loko
+$DEF LOK2NT01=DPOL
+
+# Loko ktera vlak odveze
+$DEF LOK3ET01=7:OEL|3:TODL
+
+# Nakladni souprava pro stridavy vlak pak stejnosmerny
+$DEF NSP02=TNV
+
+# Stridava loko ktera vlak priveze
+$DEF LOK1ST02=SELDP|SELP
+
+# Nezavisla posunovaci loko
+$DEF LOK2NT02=DPOL
+
+# Loko ktera vlak odveze
+$DEF LOK3NT02=7:(TNEL|TNELD)|3:(TNDL|TNDLD)
+
+# Nakladni souprava pro dieselovy vlak pak stejnosmerny
+$DEF NSP03=TNV
+
+# Diesel loko ktera vlak priveze
+$DEF LOK1NT03=TNDL|TNDLD
+
+# Diesel loko ktera vlak priveze
+$DEF LOK2ET03=TNEL
+
+
+# Rychlik s ES loko
+$DEF REES04=RET
+
+# Nakladni vlak s ES loko
+$DEF NVES04=TNES
+
+#404 Provoz na stridavych kolejich
+
+# Stejnosmerna loko ktera vlak priveze
+$DEF LOK1ET01=OELP
+
+# Loko ktera vlak odveze
+$DEF LOK3ST01=7:SEL|3:TODL
+
+# Stejnosmerna loko ktera vlak priveze
+$DEF LOK1ET02=[PD]TNELDP|[PD]TNELP
+
+# Loko ktera vlak odveze
+$DEF LOK3ST02=7:SEL|3:(TNDL|TNDLD)
+
+# loko ktera vlak priveze
+$DEF LOK2ST03=SEL
+
+#406 Provoz na stridavych kusich kolejich
+
+# Posunovaci NT loko ktera dotlaci el. loko
+$DEF LOK1NT05=DPOL
+
+# Posunovana ST loko
+$DEF LOK2ST05=SELP
+
+#408 Provoz na stridavych kusich kolejich
+
+# Posunovana ET loko
+$DEF LOK2ET05=ELP
+
+#Odtazeni nebo pritazeni el. loko a odjezd posunu i loko - animace posunovace - 401, 404, 207, 307, 211, 311, 216, 316, 218, 318
+$DEF LOKSOLET=ELP
+$DEF LOKSOLST=SLP
+$DEF LPOSNT=T211POSUN
+
+# 11. layer - Vlecky
+#-------------------------------------
+
+#Vleckova lokomotiva
+$DEF VLLOKNT01=VDPOL
+
+#Vleckova lokomotiva cisterny
+$DEF VLLOKNT02=3:VDPOL|1:VKPOL
+
+#Tratova lokomotiva
+$DEF TLLOKNT=TNDL|TNDLD
+
+#Vleckove soupravy Vapenka
+$DEF POSSVAP=POSSVAP61
+$DEF TNHVVAP=TNHVVAP61
+
+$DEF POSVLTAZVAP=VLLOKNT01, POSSVAP
+$DEF POSVLTLVAP=POSSVAP, VLLOKNT01
+
+#Vlecka petrochemie
+$DEF POSSCIST=POSSCIST61
+$DEF TNHVCIST=TNHVCIST61
+
+$DEF POSVLTAZCIST=VLLOKNT01, POSSCIST
+$DEF POSVLTLCIST=POSSCIST, VLLOKNT01
+
+#Vlecka uhli
+
+$DEF POSSUHLI=POSSUHLI88
+$DEF TNHVUHLIPLNE=TNHVUHLIPLNE88
+$DEF TNHVUHLIPRAZDNE=TNHVUHLIPRAZDNE88
+
+$DEF POSVLTAZUHLI=VLLOKNT01, POSSUHLI
+$DEF POSVLTLUHLI=POSSUHLI, VLLOKNT01
+
+# 12. layer - vlaky v pozadi
+#-------------------------------------
+#Vlecka P9901, 9902, 9904
+
+#Vleckova lokomotiva
+$DEF VLLOKNTBG01=VDPOL
+
+#Tratova lokomotiva
+$DEF TLLOKNTBG=TNDL|TNDLD
+
+#Vlak v pozadi nezavisla trakce
+$DEF BGVNTS=3:(LOKNTS|BGSS|(LOKNTS,BGSS))|1:(MR|ML)
+
+#Vlak v pozadi s preferenci osobniho vlaku nezavisla trakce
+$DEF BGVOSNTS=3:(LOKNTS|BGSOSS|(LOKNTS,BGSOSS))|1:(MR|ML)
+
+#Vlak v pozadi elektricka stejnosmerna trakce
+$DEF BGVETS=3:(LOKETS|BGSS|(LOKETS,BGSS))|1:(MR|ML)
+
+#Vlak v pozadi s preferenci osobniho vlaku nezavisla trakce
+$DEF BGVOSETS=3:(LOKETS|BGSOSS|(LOKETS,BGSOSS))|1:(MR|ML)|3:EMUS
+
+#Vlak v pozadi elektricka stridava trakce
+$DEF BGVSTS=3:(LOKSTS|BGSS|(LOKSTS,BGSS))|1:(MR|ML)
+
+#Vlak v pozadi s preferenci osobniho vlaku stridava trakce
+$DEF BGVOSSTS=3:(LOKSTS|BGSOSS|(LOKSTS,BGSOSS))|1:(MR|ML)|2:SMUS
+
+# 14. layer - ostatni elementy v pozadi
+# -------------------------------------
+
+$DEF BUSP=DPMO_SM11L|DPMO_SM11|CSAD_SD11L|CSAD_SL11|CSAD_SL11L|DPMO_IK280|CSAD_IK280|KAROSA_B732_1666|KAROSA_B732_1666L|KAROSA_B732|KAROSA_B732L|KAROSA_B932|KAROSA_B932L|KAROSA_C734|KAROSA_C734AL
