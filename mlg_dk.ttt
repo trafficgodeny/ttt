@@ -5,210 +5,662 @@ $REQUIRE MLG_DEF.TTT
 $REQUIRE MLG_DEF.TTT
 
 %ADDPOOL(POOL_DK,DK_ENV)
-{E4?
-
-
+  {E4?
 ;===============================================
 ;========= Ep. IVa =============================
 ;===============================================
-%ADDPOOL(POOL_DK,DK_ENV)
-;TEE Merkur                                                                                                     
-TX=DSB MY + TEE Merkur  ; F=DP4; V=13;C=DSB_MY_BX(|L),DB_APMZ121_SDT(|L),DB_AVMZ111T(|L);
-TX=DSB MX + TEE Merkur  ; F=DP4; V=13;C=DSB_MX_BX(|L),DSB_MY_BX(|L),DB_AVMZ111T(|L),DB_APMZ121T(|L);
-TX=DSB MZ + TEE Merkur  ; F=DP4; V=13;C=DSB_MZ_C3(|L),2*DB_AVMZ111T(|L);
+    %ADDPOOL(POOL_DK,DK_ENV)
+;TEE Merkur
+      TX=DSB MY + TEE Merkur;										\
+	C=DSB_MY_BX(|L),DB_APMZ121_SDT(|L),DB_AVMZ111T(|L);						\
+	V=13;												\
+	F=DP4;
+      TX=DSB MX + TEE Merkur;										\
+	C=DSB_MX_BX(|L),DSB_MY_BX(|L),DB_AVMZ111T(|L),DB_APMZ121T(|L);					\
+	V=13;												\
+	F=DP4;
+      TX=DSB MZ + TEE Merkur;										\
+	C=DSB_MZ_C3(|L),2*DB_AVMZ111T(|L);								\
+	V=13;												\
+	F=DP4;
 
-TX=DSB Lyntog; F=DPU4; V=14;C=<(DSB_LYNTOG_ABR_R1_L,DSB_LYNTOG_AB_R1_R)|(DSB_LYNTOG_AB_R1_L,DSB_LYNTOG_ABR_R1_R);
-TX=DSB Lyntog; F=DPU4; V=14;C=<(DSB_LYNTOG_ABR_R1_L|DSB_LYNTOG_AB_R1_R|DSB_LYNTOG_AB_R1_L|DSB_LYNTOG_ABR_R1_R);
+      TX=DSB Lyntog;											\
+	C=<(DSB_LYNTOG_ABR_R1_L,DSB_LYNTOG_AB_R1_R)|(DSB_LYNTOG_AB_R1_L,DSB_LYNTOG_ABR_R1_R);		\
+	V=14;												\
+	F=DPU4;
+      TX=DSB Lyntog;											\
+	C=<(DSB_LYNTOG_ABR_R1_L|DSB_LYNTOG_AB_R1_R|DSB_LYNTOG_AB_R1_L|DSB_LYNTOG_ABR_R1_R);		\
+	V=14;												\
+	F=DPU4;
 
-
-  ;===============================================
-  ;========= EP. IVB =============================
-  ;===============================================
+;===============================================
+;========= EP. IVB =============================
+;===============================================
 
 ;TEE Merkur
-TX=DSB MX+ TEE Merkur; F=DP4; V=14;C=DSB_MX1(|L),DB_AVMZ111_SDT(|L),DB_APMZ121T(|L);
-  ;"NEPTUN" KOPENHAGEN - BERLIN
-TX= DSB MY + "Neptun" Kopenhagen - Berlin; F=DP4; V=12;C=DSB_MY1(|L),6*DSB_BN1(|L),DR_HS_BM(|L),DR_HS_ABM(|L); 
+      TX=DSB MX+ TEE Merkur;										\
+	C=DSB_MX1(|L),DB_AVMZ111_SDT(|L),DB_APMZ121T(|L);						\
+	V=14;												\
+	F=DP4;
+;"NEPTUN" KOPENHAGEN - BERLIN
+      TX=DSB MY + "Neptun" Kopenhagen - Berlin;								\
+	C=DSB_MY1(|L),6*DSB_BN1(|L),DR_HS_BM(|L),DR_HS_ABM(|L);						\
+	V=12;												\
+	F=DP4;
 
-TX=DSB Lyntog; F=DPU4; V=14;C=<(DSB_LYNTOG_ABR_R2_L,DSB_LYNTOG_AB_R2_R)|(DSB_LYNTOG_AB_R2_L,DSB_LYNTOG_ABR_R2_R);
-TX=DSB Lyntog; F=DPU4; V=14;C=<(DSB_LYNTOG_ABR_R2_L|DSB_LYNTOG_AB_R2_R|DSB_LYNTOG_AB_R2_L|DSB_LYNTOG_ABR_R2_R);
-TX=DSB Lyntog; F=DPU4; V=14;C=<2:(DSB_LYNTOG_ABR_G_L,DSB_LYNTOG_AB_G_R)|2:(DSB_LYNTOG_AB_G_L,DSB_LYNTOG_ABR_G_R)|1:DSB_LYNTOG_AB_G_R|1:DSB_LYNTOG_AB_G_L|1:DSB_LYNTOG_ABR_G_R|1:DSB_LYNTOG_ABR_G_L;
-TX=DSB MX ; F=DP4; V=12;C=DSB_MX1(|L),DSB_UICX_BD1(|L),2*DSB_UICX_B1(|L),DSB_UICX_AB1(|L);
-TX=DSB MY ; F=DP4; V=13;C=DSB_MY_BX(|L),DSB_UICX_A1(|L),3*DSB_UICX_B1(|L);
-TX=DSB MY; F=DP4; V=13;C=DSB_MY1(|L),DSB_UICX_A1(|L),5*DSB_UICX_B1(|L);
-TX=DSB MZ; F=DPU4; V=14;C=DSB_MZ_BX1(|L),4*DSB_UICX_B1(|L),DSB_UICX_A1(|L);
-TX=DSB MZ; F=DPU4; V=14;C=DSB_MZ_BX2(|L),DSB_UICX_B1(|L),DSB_UICX_AB1(|L),2*DSB_UICX_B1(|L),DSB_UICX_AB1(|L),3*DSB_UICX_B1(|L),DSB_DM1(|L);
-TX=DSB MZ; F=DPU4; V=14;C=DSB_MZ_D1(|L),DSB_UICX_A1(|L),6*DSB_UICX_B1(|L);
-TX=DSB MX; F=DPU4; V=12;C=(<DSB_MX1(|L),1-3*DSB_BN1(|L),DSB_BNS1A|DSB_BNS2A)|(>DSB_MX1(|L),1-3*DSB_BN1(|L),DSB_BNS1AL|DSB_BNS2AL);
-TX=DSB MY ; F=DP4; V=12;C=(<DSB_MY_BX(|L),2*DSB_BN1(|L),DSB_AN1(|L),2*DSB_BN1(|L),DSB_BNS1A)|(>DSB_MY_BX(|L),2*DSB_BN1(|L),DSB_AN1(|L),2*DSB_BN1(|L),DSB_BNS1AL);
-TX=DSB MY; F=DPU4; V=12;C=(<DSB_MY_BX(|L),DSB_AN1(|L),5*DSB_BN1(|L),DSB_BNS1A)|(>DSB_MY_BX(|L),DSB_AN1(|L),5*DSB_BN1(|L),DSB_BNS1AL);
-TX=DSB MY; F=DPU4; V=12;C=(<DSB_MY1(|L),3*DSB_BN1(|L),DSB_BNS1A)|(>DSB_MY1(|L),3*DSB_BN1(|L),DSB_BNS1AL);
-TX=DSB MZ; F=DPU4; V=12;C=(<DSB_MZ_BX2(|L),6*DSB_BN1(|L),DSB_BNS1A)|(>DSB_MZ_BX2(|L),6*DSB_BN1(|L),DSB_BNS1AL);
-TX=DSB MZ; F=DPU4; V=12;C=(<DSB_MZ_B3(|L),4*DSB_BN1(|L),DSB_BNS1A)|(>DSB_MZ_B3(|L),4*DSB_BN1(|L),DSB_BNS1AL);
-TX=DSB MZ; F=DPU4; V=12;C=(<DSB_MZ_D1(|L),3-5*DSB_BN1(|L),DSB_BNS1A)|(>DSB_MZ_D1(|L),3-5*DSB_BN1(|L),DSB_BNS1AL);
-TX=DSB MZ; F=DPU4; V=12;C=(<DSB_MZ_D1(|L),DSB_BN1(|L),DSB_AN1(|L),DSB_BN1(|L),DSB_BNS1A)|(>DSB_MZ_D1(|L),DSB_BN1(|L),DSB_AN1(|L),DSB_BN1(|L),DSB_BNS1AL);
-TX=DSB ME; F=DPU4;V=16;C=DSB_ME_L1(|L),4*DSB_UICX_B1(|L),(DSB_UICX_A1(|L),DSB_UICX_B1(|L))|(2*DSB_UICX_B1(|L),DSB_UICX_A1(|L));
-TX=DSB ME; F=DPU4; V=14;C=(<DSB_ME_L1(|L),4*DSB_BN1(|L),DSB_BNS1A)|(>DSB_ME_L1(|L),4*DSB_BN1(|L),DSB_BNS1AL);
+      TX=DSB Lyntog;											\
+	C=<(DSB_LYNTOG_ABR_R2_L,DSB_LYNTOG_AB_R2_R)|(DSB_LYNTOG_AB_R2_L,DSB_LYNTOG_ABR_R2_R);		\
+	V=14;												\
+	F=DPU4;
+      TX=DSB Lyntog;											\
+	C=<(DSB_LYNTOG_ABR_R2_L|DSB_LYNTOG_AB_R2_R|DSB_LYNTOG_AB_R2_L|DSB_LYNTOG_ABR_R2_R);		\
+	V=14;												\
+	F=DPU4;
+      TX=DSB Lyntog;											\
+	C=<2:(DSB_LYNTOG_ABR_G_L,DSB_LYNTOG_AB_G_R)|2:(DSB_LYNTOG_AB_G_L,DSB_LYNTOG_ABR_G_R)|		\
+	  1:DSB_LYNTOG_AB_G_R|1:DSB_LYNTOG_AB_G_L|1:DSB_LYNTOG_ABR_G_R|1:DSB_LYNTOG_ABR_G_L;		\
+	V=14;												\
+	F=DPU4;
+      TX=DSB MX;											\
+	C=DSB_MX1(|L),DSB_UICX_BD1(|L),2*DSB_UICX_B1(|L),DSB_UICX_AB1(|L);				\
+	V=12;												\
+	F=DP4;
+      TX=DSB MY;											\
+	C=DSB_MY_BX(|L),DSB_UICX_A1(|L),3*DSB_UICX_B1(|L);						\
+	V=13;												\
+	F=DP4;
+      TX=DSB MY;											\
+	C=DSB_MY1(|L),DSB_UICX_A1(|L),5*DSB_UICX_B1(|L);						\
+	V=13;												\
+	F=DP4;
+      TX=DSB MZ;											\
+	C=DSB_MZ_BX1(|L),4*DSB_UICX_B1(|L),DSB_UICX_A1(|L);						\
+	V=14;												\
+	F=DPU4;
+      TX=DSB MZ;											\
+	C=DSB_MZ_BX2(|L),DSB_UICX_B1(|L),DSB_UICX_AB1(|L),2*DSB_UICX_B1(|L),DSB_UICX_AB1(|L),		\
+	  3*DSB_UICX_B1(|L),DSB_DM1(|L);								\
+	V=14;												\
+	F=DPU4;
+      TX=DSB MZ;											\
+	C=DSB_MZ_D1(|L),DSB_UICX_A1(|L),6*DSB_UICX_B1(|L);						\
+	V=14;												\
+	F=DPU4;
+      TX=DSB MX;											\
+	C=(<DSB_MX1(|L),1-3*DSB_BN1(|L),DSB_BNS1A|DSB_BNS2A)|						\
+	  (>DSB_MX1(|L),1-3*DSB_BN1(|L),DSB_BNS1AL|DSB_BNS2AL);						\
+	V=12;												\
+	F=DPU4;
+      TX=DSB MY;											\
+	C=(<DSB_MY_BX(|L),2*DSB_BN1(|L),DSB_AN1(|L),2*DSB_BN1(|L),DSB_BNS1A)|				\
+	  (>DSB_MY_BX(|L),2*DSB_BN1(|L),DSB_AN1(|L),2*DSB_BN1(|L),DSB_BNS1AL);				\
+	V=12;												\
+	F=DP4;
+      TX=DSB MY;											\
+	C=(<DSB_MY_BX(|L),DSB_AN1(|L),5*DSB_BN1(|L),DSB_BNS1A)|						\
+	  (>DSB_MY_BX(|L),DSB_AN1(|L),5*DSB_BN1(|L),DSB_BNS1AL);					\
+	V=12;												\
+	F=DPU4;
+      TX=DSB MY;											\
+	C=(<DSB_MY1(|L),3*DSB_BN1(|L),DSB_BNS1A)|(>DSB_MY1(|L),3*DSB_BN1(|L),DSB_BNS1AL);		\
+	V=12;												\
+	F=DPU4;
+      TX=DSB MZ;											\
+	C=(<DSB_MZ_BX2(|L),6*DSB_BN1(|L),DSB_BNS1A)|(>DSB_MZ_BX2(|L),6*DSB_BN1(|L),DSB_BNS1AL);		\
+	V=12;												\
+	F=DPU4;
+      TX=DSB MZ;											\
+	C=(<DSB_MZ_B3(|L),4*DSB_BN1(|L),DSB_BNS1A)|(>DSB_MZ_B3(|L),4*DSB_BN1(|L),DSB_BNS1AL);		\
+	V=12;												\
+	F=DPU4;
+      TX=DSB MZ;											\
+	C=(<DSB_MZ_D1(|L),3-5*DSB_BN1(|L),DSB_BNS1A)|(>DSB_MZ_D1(|L),3-5*DSB_BN1(|L),DSB_BNS1AL);	\
+	V=12;												\
+	F=DPU4;
+      TX=DSB MZ;											\
+	C=(<DSB_MZ_D1(|L),DSB_BN1(|L),DSB_AN1(|L),DSB_BN1(|L),DSB_BNS1A)|				\
+	  (>DSB_MZ_D1(|L),DSB_BN1(|L),DSB_AN1(|L),DSB_BN1(|L),DSB_BNS1AL);				\
+	V=12;												\
+	F=DPU4;
+      TX=DSB ME;											\
+	C=DSB_ME_L1(|L),4*DSB_UICX_B1(|L),								\
+	  (DSB_UICX_A1(|L),DSB_UICX_B1(|L))|(2*DSB_UICX_B1(|L),DSB_UICX_A1(|L));			\
+	V=16;												\
+	F=DPU4;
+      TX=DSB ME;											\
+	C=(<DSB_ME_L1(|L),4*DSB_BN1(|L),DSB_BNS1A)|(>DSB_ME_L1(|L),4*DSB_BN1(|L),DSB_BNS1AL);		\
+	V=14;												\
+	F=DPU4;
 
-TX= DSB MR  ; F=DP4; V=12;C=DSB_MRMR_L1;
-TX= DSB MR  ; F=DP4; V=12;C=1-2@DSB_MRMRD_L1;
+      TX=DSB MR;											\
+	C=DSB_MRMR_L1;											\
+	V=12;												\
+	F=DP4;
+      TX=DSB MR;											\
+	C=1-2@DSB_MRMRD_L1;										\
+	V=12;												\
+	F=DP4;
 
-TX=DSB MR; F=DP4; V=12;C=DSB_MX1(|L),DSB_DM1(|L),DSB_BN1(|L),2*DSB_HBIS,SNCF_G_UIC_BOIS_RW;
-{E5?
+      TX=DSB MR;											\
+	C=DSB_MX1(|L),DSB_DM1(|L),DSB_BN1(|L),2*DSB_HBIS,SNCF_G_UIC_BOIS_RW;				\
+	V=12;												\
+	F=DP4;
+      {E5?
 ;===============================================
 ;========= Ep. Va ==============================
 ;===============================================
 
 ;EC MERKUR
-TX=DSB ME + EC Merkur; F=DP5; V=16;C=DSB_ME_L1(|L),DB_AVMZ111_SDT2(|L),2*DB_BM234BB2(|L),2*DB_BPMZ291BB(|L);
+	TX=DSB ME + EC Merkur;										\
+	  C=DSB_ME_L1(|L),DB_AVMZ111_SDT2(|L),2*DB_BM234BB2(|L),2*DB_BPMZ291BB(|L);			\
+	  V=16;												\
+	  F=DP5;
 
 ;IC
-TX= DSB MZ + IC ; F=DP5; V=14;C=DSB_MZ_A3(|L),DB_DMS905BB2(|L),DB_ABM225BB2(|L),DB_BM234BB2(|L),DSB_UICX_BD1(|L);
-TX= DSB MZ + IC ; F=DP5; V=14;C=DSB_MZ_B2(|L),DB_BM234BB2(|L),DB_DMS905BB2(|L),DB_ABM225BB2(|L),DB_BM234BB2(|L),DSB_UICX_BD1(|L),DSB_UICX_B1(|L);
-TX= DSB MZ + IC ; F=DP5; V=14;C=DSB_MZ_C3(|L),DB_BM234BB2(|L),DB_ABM225BB2(|L),DB_DMS902NBG(|L),2*DSB_UICX_B1(|L);
+	TX=DSB MZ + IC;											\
+	  C=DSB_MZ_A3(|L),DB_DMS905BB2(|L),DB_ABM225BB2(|L),DB_BM234BB2(|L),DSB_UICX_BD1(|L);		\
+	  V=14;												\
+	  F=DP5;
+	TX=DSB MZ + IC;											\
+	  C=DSB_MZ_B2(|L),DB_BM234BB2(|L),DB_DMS905BB2(|L),DB_ABM225BB2(|L),DB_BM234BB2(|L),		\
+	    DSB_UICX_BD1(|L),DSB_UICX_B1(|L);								\
+	  V=14;												\
+	  F=DP5;
+	TX=DSB MZ + IC;											\
+	  C=DSB_MZ_C3(|L),DB_BM234BB2(|L),DB_ABM225BB2(|L),DB_DMS902NBG(|L),2*DSB_UICX_B1(|L);		\
+	  V=14;												\
+	  F=DP5;
 
-TX= DSB MX + D ; F=DP5; V=13;C=DSB_MX1(|L),(DSB_UICX_A1(|L),DSB_UICX_B1(|L),$DIR(DSB_UICX_BD1,DSB_UICX_BD1L))|($DIR(DSB_UICX_BD1L,DSB_UICX_BD1),DSB_UICX_B1(|L),DSB_UICX_A1(|L));
-TX= DSB MY + D ; F=DP5; V=13;C=2*DSB_MY_BX(|L),4*DSB_UICX_B1(|L);
-TX= DSB MY + D ; F=DP5; V=13;C=2*DSB_MY_BX(|L),DSB_UICX_B1(|L),DSB_UICX_A1(|L),4*DSB_UICX_B1(|L);
-TX= DSB MZ + D ; F=DP5; V=14;C=DSB_MZ_B2(|L),4*DSB_UICX_B1(|L),DSB_UICX_A1(|L);
-TX= DSB MZ + D ; F=DP5; V=14;C=DSB_MZ_B2(|L),2*DSB_UIC_BAB1(|L),DSB_UICX_BD1(|L),DSB_UICX_A1(|L),3*DSB_UICX_B1(|L);
-TX= DSB MZ + D ; F=DP5; V=12;C=DSB_MZ_B2(|L),DSB_BDAN1(|L),DSB_UIC_BA1(|L);
-TX= DSB ME + D ; F=DP5; V=16;C=DSB_ME_L1(|L),DSB_UICX_B1(|L),DB_AVMZ111R(|L),2*DB_BPMZ291BB(|L),DB_BPMZ291IC(|L);
-TX= DSB ME + D ; F=DP5; V=16;C=DSB_ME_L1(|L),DSB_UIC_BA1(|L),DSB_UICX_B1(|L),DB_ABM225BB2(|L),3*DB_BM234BB2(|L);
-TX= DSB ME + D ; F=DP5; V=16;C=DSB_ME_L1(|L),DR_HS_ABM200(|L),DR_HS_BM200(|L),5*DSB_BN1B(|L),$DIR(DSB_ADNS1AB,DSB_ADNS1ABL);
+	TX=DSB MX + D;											\
+	  C=DSB_MX1(|L),										\
+	    (DSB_UICX_A1(|L),DSB_UICX_B1(|L),$DIR(DSB_UICX_BD1,DSB_UICX_BD1L))|				\
+	    ($DIR(DSB_UICX_BD1L,DSB_UICX_BD1),DSB_UICX_B1(|L),DSB_UICX_A1(|L));				\
+	  V=13;												\
+	  F=DP5;
+	TX=DSB MY + D;											\
+	  C=2*DSB_MY_BX(|L),4*DSB_UICX_B1(|L);								\
+	  V=13;												\
+	  F=DP5;
+	TX=DSB MY + D;											\
+	  C=2*DSB_MY_BX(|L),DSB_UICX_B1(|L),DSB_UICX_A1(|L),4*DSB_UICX_B1(|L);				\
+	  V=13;												\
+	  F=DP5;
+	TX=DSB MZ + D;											\
+	  C=DSB_MZ_B2(|L),4*DSB_UICX_B1(|L),DSB_UICX_A1(|L);						\
+	  V=14;												\
+	  F=DP5;
+	TX=DSB MZ + D;											\
+	  C=DSB_MZ_B2(|L),2*DSB_UIC_BAB1(|L),DSB_UICX_BD1(|L),DSB_UICX_A1(|L),3*DSB_UICX_B1(|L);	\
+	  V=14;												\
+	  F=DP5;
+	TX=DSB MZ + D;											\
+	  C=DSB_MZ_B2(|L),DSB_BDAN1(|L),DSB_UIC_BA1(|L);						\
+	  V=12;												\
+	  F=DP5;
+	TX=DSB ME + D;											\
+	  C=DSB_ME_L1(|L),DSB_UICX_B1(|L),DB_AVMZ111R(|L),2*DB_BPMZ291BB(|L),DB_BPMZ291IC(|L);		\
+	  V=16;												\
+	  F=DP5;
+	TX=DSB ME + D;											\
+	  C=DSB_ME_L1(|L),DSB_UIC_BA1(|L),DSB_UICX_B1(|L),DB_ABM225BB2(|L),3*DB_BM234BB2(|L);		\
+	  V=16;												\
+	  F=DP5;
+	TX=DSB ME + D;											\
+	  C=DSB_ME_L1(|L),DR_HS_ABM200(|L),DR_HS_BM200(|L),5*DSB_BN1B(|L),				\
+	    $DIR(DSB_ADNS1AB,DSB_ADNS1ABL);								\
+	  V=16;												\
+	  F=DP5;
 
 ;NIGHT TRAINS
-TX= DSB MY + Night train  ; F=DP5; V=13;C=DSB_MY_BX(|L),3*DSB_BCM3(|L);
-TX= DSB MZ + Night train  ; F=DP5; V=12;C=DSB_MZ_A3(|L),3*DSB_BCM3(|L),DSB_BAN1(|L),DSB_BCM3(|L),DSB_AF1(|L);
-TX= DSB MZ + Night train  ; F=DP5; V=12;C=DSB_MZ_B2(|L),4*DSB_BCM3(|L);
+	TX=DSB MY + Night train;									\
+	  C=DSB_MY_BX(|L),3*DSB_BCM3(|L);								\
+	  V=13;												\
+	  F=DP5;
+	TX=DSB MZ + Night train;									\
+	  C=DSB_MZ_A3(|L),3*DSB_BCM3(|L),DSB_BAN1(|L),DSB_BCM3(|L),DSB_AF1(|L);				\
+	  V=12;												\
+	  F=DP5;
+	TX=DSB MZ + Night train;									\
+	  C=DSB_MZ_B2(|L),4*DSB_BCM3(|L);								\
+	  V=12;												\
+	  F=DP5;
 ;VIKING PARIS NORD - KOBENHAVN
-TX= DSB MZ + Night train Viking Paris Nord - Kobenhavn  ; F=DP5; V=13;C=DSB_MZ_C3(|L),DSB_UICX_BD1(|L),2*SNCF_5UIC_B10C(|L),SNCF_MU_J_TEN(|L),SNCF_5UIC_B10CH(|L);
+	TX=DSB MZ + Night train Viking Paris Nord - Kobenhavn;						\
+	  C=DSB_MZ_C3(|L),DSB_UICX_BD1(|L),2*SNCF_5UIC_B10C(|L),SNCF_MU_J_TEN(|L),SNCF_5UIC_B10CH(|L);	\
+	  V=13;												\
+	  F=DP5;
 
-TX=DSB MX; F=DP55; V=12;C=(<DSB_MX1(|L),2-3*DSB_BN1(|L),DSB_BNS2RA)|(>DSB_MX1(|L),2-3*DSB_BN1(|L),DSB_BNS2RAL);
-TX= DSB MY ; F=DRP5; V=12;C=DSB_MY_BX(|L),$DIR(DSB_UICX_BD1L,DSB_UICX_BD1),4*DSB_BN1(|L);
-TX= DSB MY ; F=DRP5; V=12;C=(<DSB_MY_BX(|L),3*DSB_BN1(|L),DSB_ABNS1AB)|(>DSB_MY_BX(|L),3*DSB_BN1(|L),DSB_ABNS1ABL);
-TX= DSB MZ ; F=DRP5; V=12;C=DSB_MZ_B2(|L)|DSB_UICX_B1(|L),7*DSB_BN1B(|L),DSB_UICX_B1(|L);
-TX= DSB MZ ; F=DRP5; V=12;C=(<DSB_MZ_C2(|L),DSB_BN1(|L),DSB_ABNS1AB)|(>DSB_MZ_C2(|L),DSB_BN1(|L),DSB_ABNS1ABL);
-TX= DSB MZ ; F=DRP5; V=12;C=(<DSB_MZ_C3(|L),2*DSB_UICX_B1(|L),2*DSB_BN1(|L),DSB_ADNS2AB)|(>DSB_MZ_C3(|L),2*DSB_UICX_B1(|L),2*DSB_BN1(|L),DSB_ADNS2ABL);
-TX= DSB MZ ; F=DRP5; V=12;C=DSB_MZ_B2(|L)|DSB_MZ_C2(|L),DSB_UICX_BD1(|L),4*DSB_BN1(|L);
-TX= DSB MZ ; F=DRPUE5; V=14;C=(<DSB_ME_L1(|L),3*DSB_UICX_B1(|L),DSB_BN1(|L),DSB_ABNS1AB)|(>DSB_ME_L1(|L),3*DSB_UICX_B1(|L),DSB_BN1(|L),DSB_ABNS1ABL);
-TX= DSB MZ ; F=DRPUE5; V=14;C=(<DSB_ME_L1(|L),7*DSB_BN1B(|L),DSB_ADNS1AB)|(>DSB_ME_L1(|L),7*DSB_BN1B(|L),DSB_ADNS1ABL);
-TX= DSB EA ; F=EP5; V=12;C=(<DSB_EA1,4-5*DSB_BN1(|L),DSB_BNS2RA)|(>DSB_EA1,4-5*DSB_BN1(|L),DSB_BNS2RAL);
+	TX=DSB MX;											\
+	  C=(<DSB_MX1(|L),2-3*DSB_BN1(|L),DSB_BNS2RA)|(>DSB_MX1(|L),2-3*DSB_BN1(|L),DSB_BNS2RAL);	\
+	  V=12;												\
+	  F=DP55;
+	TX=DSB MY;											\
+	  C=DSB_MY_BX(|L),$DIR(DSB_UICX_BD1L,DSB_UICX_BD1),4*DSB_BN1(|L);				\
+	  V=12;												\
+	  F=DRP5;
+	TX=DSB MY;											\
+	  C=(<DSB_MY_BX(|L),3*DSB_BN1(|L),DSB_ABNS1AB)|(>DSB_MY_BX(|L),3*DSB_BN1(|L),DSB_ABNS1ABL);	\
+	  V=12;												\
+	  F=DRP5;
+	TX=DSB MZ;											\
+	  C=DSB_MZ_B2(|L)|DSB_UICX_B1(|L),7*DSB_BN1B(|L),DSB_UICX_B1(|L);				\
+	  V=12;												\
+	  F=DRP5;
+	TX=DSB MZ;											\
+	  C=(<DSB_MZ_C2(|L),DSB_BN1(|L),DSB_ABNS1AB)|(>DSB_MZ_C2(|L),DSB_BN1(|L),DSB_ABNS1ABL);		\
+	  V=12;												\
+	  F=DRP5;
+	TX=DSB MZ;											\
+	  C=(<DSB_MZ_C3(|L),2*DSB_UICX_B1(|L),2*DSB_BN1(|L),DSB_ADNS2AB)|				\
+	    (>DSB_MZ_C3(|L),2*DSB_UICX_B1(|L),2*DSB_BN1(|L),DSB_ADNS2ABL);				\
+	  V=12;												\
+	  F=DRP5;
+	TX=DSB MZ;											\
+	  C=DSB_MZ_B2(|L)|DSB_MZ_C2(|L),DSB_UICX_BD1(|L),4*DSB_BN1(|L);					\
+	  V=12;												\
+	  F=DRP5;
+	TX=DSB MZ;											\
+	  C=(<DSB_ME_L1(|L),3*DSB_UICX_B1(|L),DSB_BN1(|L),DSB_ABNS1AB)|					\
+	    (>DSB_ME_L1(|L),3*DSB_UICX_B1(|L),DSB_BN1(|L),DSB_ABNS1ABL);				\
+	  V=14;												\
+	  F=DRPUE5;
+	TX=DSB MZ;											\
+	  C=(<DSB_ME_L1(|L),7*DSB_BN1B(|L),DSB_ADNS1AB)|(>DSB_ME_L1(|L),7*DSB_BN1B(|L),DSB_ADNS1ABL);	\
+	  V=14;												\
+	  F=DRPUE5;
+	TX=DSB EA;											\
+	  C=(<DSB_EA1,4-5*DSB_BN1(|L),DSB_BNS2RA)|(>DSB_EA1,4-5*DSB_BN1(|L),DSB_BNS2RAL);		\
+	  V=12;												\
+	  F=EP5;
 
-TX= DSB Lyntog  ; F=DPU5; V=14;C=<2:(DSB_LYNTOG_ABR_G_L,DSB_LYNTOG_AB_G_R)|2:(DSB_LYNTOG_AB_G_L,DSB_LYNTOG_ABR_G_R)|1:DSB_LYNTOG_AB_G_R|1:DSB_LYNTOG_AB_G_L|1:DSB_LYNTOG_ABR_G_R|1:DSB_LYNTOG_ABR_G_L;
-TX= DSB IC 3  ; F=DPU5; V=16;C=1-2@DSB_IC3_L2;
-TX= DSB MR  ; F=DP5; V=12;C=1-2@DSB_MRMRD_L1;
-TX= DSB MR  ; F=DP5; V=12;C=DSB_MRMRD_L1,DSB_BCMO3(|L);
+	TX=DSB Lyntog;											\
+	  C=<2:(DSB_LYNTOG_ABR_G_L,DSB_LYNTOG_AB_G_R)|2:(DSB_LYNTOG_AB_G_L,DSB_LYNTOG_ABR_G_R)|		\
+	    1:DSB_LYNTOG_AB_G_R|1:DSB_LYNTOG_AB_G_L|1:DSB_LYNTOG_ABR_G_R|1:DSB_LYNTOG_ABR_G_L;		\
+	  V=14;												\
+	  F=DPU5;
+	TX=DSB IC 3;											\
+	  C=1-2@DSB_IC3_L2;										\
+	  V=16;												\
+	  F=DPU5;
+	TX=DSB MR;											\
+	  C=1-2@DSB_MRMRD_L1;										\
+	  V=12;												\
+	  F=DP5;
+	TX=DSB MR;											\
+	  C=DSB_MRMRD_L1,DSB_BCMO3(|L);									\
+	  V=12;												\
+	  F=DP5;
 
-TX= DSB MX  ; F=DP5; V=12;C=DSB_MX1(|L)|DSB_MY_BX(|L),2*DSB_DM1(|L);
-
+	TX=DSB MX;											\
+	  C=DSB_MX1(|L)|DSB_MY_BX(|L),2*DSB_DM1(|L);							\
+	  V=12;												\
+	  F=DP5;
 
 ;========= Ep. Vb / VI =========================
 ;===============================================
 
-  ;EC 184 HAMBURG - KOPENHAGEN
-TX= DSB MY + EC 184 Hamburg - Kopenhagen; F=DP6; V=13;C=DSB_MY1(|L),DSB_UICX_B1(|L),(DB_AVMZ111_SDRK|DB_AVMZ111SDRKL),DB_BVMZ185ICK(|L),DB_BM234BBK1(|L),DB_BPMZ291BBK(|L);
-TX= DSB MY + EC 184 Hamburg - Kopenhagen; F=DP6; V=14;C=DSB_MZ_C2(|L),DB_BPMZ291BBK(|L),2*DB_BPMZ291ICK(|L),DB_BM234BBK1(|L),DB_AVMZ111SDR(|L),DSB_UICX_B1(|L);
+;EC 184 HAMBURG - KOPENHAGEN
+	TX=DSB MY + EC 184 Hamburg - Kopenhagen;							\
+	  C=DSB_MY1(|L),DSB_UICX_B1(|L),(DB_AVMZ111_SDRK|DB_AVMZ111SDRKL),DB_BVMZ185ICK(|L),		\
+	    DB_BM234BBK1(|L),DB_BPMZ291BBK(|L);								\
+	  V=13;												\
+	  F=DP6;
+	TX=DSB MY + EC 184 Hamburg - Kopenhagen;							\
+	  C=DSB_MZ_C2(|L),DB_BPMZ291BBK(|L),2*DB_BPMZ291ICK(|L),DB_BM234BBK1(|L),DB_AVMZ111SDR(|L),	\
+	    DSB_UICX_B1(|L);										\
+	  V=14;												\
+	  F=DP6;
 ;HAMBURG - KOPENHAGEN
-TX= DSB 605 +ICE Hamburg - Kopenhagen; V=16;C=3:(1-2@DSB_605_ICE)|1:(DSB_605_DSB,0-1*DSB_605_ICE);
+	TX=DSB 605 +ICE Hamburg - Kopenhagen;								\
+	  C=3:(1-2@DSB_605_ICE)|1:(DSB_605_DSB,0-1*DSB_605_ICE);					\
+	  V=16;
 ;EC 370/1
-TX=DSB ME + EC 370/1; F=DP6; V=16;C=DSB_ME_L2(|L),6*CD_BMZ21910_EC(|L),CD_WRMZEC(|L),CD_AMPZ10910_EC(|L);
-TX=DSB EA + EC 370/1; F=EP6; V=16;C=DSB_EA1,6*CD_BMZ21910_EC(|L),CD_WRMZEC(|L),CD_AMPZ10910_EC(|L);
+	TX=DSB ME + EC 370/1;										\
+	  C=DSB_ME_L2(|L),6*CD_BMZ21910_EC(|L),CD_WRMZEC(|L),CD_AMPZ10910_EC(|L);			\
+	  V=16;												\
+	  F=DP6;
+	TX=DSB EA + EC 370/1;										\
+	  C=DSB_EA1,6*CD_BMZ21910_EC(|L),CD_WRMZEC(|L),CD_AMPZ10910_EC(|L);				\
+	  V=16;												\
+	  F=EP6;
 
-TX=DSB EA + Night train; F=EP6; V=14;C=DSB_EA1,(DSB_UICX_B1(|L),DSB_WLABMH_EXTEN(|L),2*DSB_UIC_BC2(|L),DSB_WLABMH_TEN(|L))|(DSB_WLABMH_EXTEN(|L),DSB_UIC_BC2(|L),DSB_UICX_BD1(|L),3*DSB_UIC_BC2(|L));
-TX=DSB EA + Night train; F=EP6; V=14;C=DSB_EA1,DB_BVCMZ248_5CNL(|L),DB_BVCMBZ249_1VRNZ(|L),DB_WRMBZ138_1VRNZ(|L),2*DB_BVCMZ248_5CNL(|L),DB_BVCMBZ249_1VRNZ(|L),2*DB_BVCMZ248VRNZ(|L),3*DB_BVCMZ248_5CNL(|L),DB_BVCMBZ249_1VRNZ(|L),DB_BVCMZ248VRNZ(|L);
+	TX=DSB EA + Night train;									\
+	  C=DSB_EA1,											\
+	    (DSB_UICX_B1(|L),DSB_WLABMH_EXTEN(|L),2*DSB_UIC_BC2(|L),DSB_WLABMH_TEN(|L))|		\
+	    (DSB_WLABMH_EXTEN(|L),DSB_UIC_BC2(|L),DSB_UICX_BD1(|L),3*DSB_UIC_BC2(|L));			\
+	  V=14;												\
+	  F=EP6;
+	TX=DSB EA + Night train;									\
+	  C=DSB_EA1,DB_BVCMZ248_5CNL(|L),DB_BVCMBZ249_1VRNZ(|L),DB_WRMBZ138_1VRNZ(|L),			\
+	    2*DB_BVCMZ248_5CNL(|L),DB_BVCMBZ249_1VRNZ(|L),2*DB_BVCMZ248VRNZ(|L),			\
+	    3*DB_BVCMZ248_5CNL(|L),DB_BVCMBZ249_1VRNZ(|L),DB_BVCMZ248VRNZ(|L);				\
+	  V=14;												\
+	  F=EP6;
 ;KOBENHAVN - BLUDENZ
-TX=DSB ME + Night train Kobenhavn - Bludenz; F=DP6; V=14;C=DSB_ME_L2(|L),DSB_DM005IC(|L),7*DSB_UIC_BC2(|L);
-TX=DSB EA + Night train Kobenhavn - Bludenz; F=EP6; V=14;C=DSB_EA2,7*DSB_UIC_BC2(|L),DSB_DM005IC(|L);
-TX=DSB ME + Night train Kobenhavn - Bludenz; F=DP6; V=14;C=DSB_ME_L2(|L),2*DB_BVCMZ248VRAZ(|L),DB_WRMH132VRF(|L),DB_BOCMKZ249VRF(|L),CNL_BVCMZ248_5(|L),2*DB_BVCMZ248VRAZ(|L);
+	TX=DSB ME + Night train Kobenhavn - Bludenz;							\
+	  C=DSB_ME_L2(|L),DSB_DM005IC(|L),7*DSB_UIC_BC2(|L);						\
+	  V=14;												\
+	  F=DP6;
+	TX=DSB EA + Night train Kobenhavn - Bludenz;							\
+	  C=DSB_EA2,7*DSB_UIC_BC2(|L),DSB_DM005IC(|L);							\
+	  V=14;												\
+	  F=EP6;
+	TX=DSB ME + Night train Kobenhavn - Bludenz;							\
+	  C=DSB_ME_L2(|L),2*DB_BVCMZ248VRAZ(|L),DB_WRMH132VRF(|L),DB_BOCMKZ249VRF(|L),			\
+	    CNL_BVCMZ248_5(|L),2*DB_BVCMZ248VRAZ(|L);							\
+	  V=14;												\
+	  F=DP6;
 ;CNL 472 Aurora
-TX=DSB EA + CNL 472 Aurora; F=EP6; V=14;C=DSB_EA2,DB_BOMDZ236_9VRNZ(|L),DB_BVCMZ248_5CNLNZ(|L),DB_BVCMBZ249_1VRNZ(|L),DB_WLABMZ173VR(|L),DB_BVCMZ248_5B(|L),DB_BVCMZ248VRNZ(|L),CNL_BVCMBZ249_1(|L),DB_BOMDZ236_9VRNZ(|L),CNL_WLABM2NC(|L),(CNL_WLBM2NC|CNL_WLABM2NCL),DB_BVCMZ248_5CNL(|L),DB_BDCM874_1CNL(|L);
-TX=DSB EA + CNL 472 Aurora; F=EP6; V=14;C=DSB_EA2,DB_WLABMZ173CNL(|L),DB_BVCMBZ249_1VRNZ(|L),2*DB_BVCMZ248_5CNL(|L),DB_BVCMBZ249_1VRNZ(|L),DB_BVCMZ248_5CNL(|L),DB_BOMDZ236_9VRNZ(|L),DB_WRMBZ138_1CNL(|L),2*DB_WLBM172CNL(|L),CD_WLABMZ826N(|L),DB_BVCMZ248VRNZ(|L);
+	TX=DSB EA + CNL 472 Aurora;									\
+	  C=DSB_EA2,DB_BOMDZ236_9VRNZ(|L),DB_BVCMZ248_5CNLNZ(|L),DB_BVCMBZ249_1VRNZ(|L),		\
+	    DB_WLABMZ173VR(|L),DB_BVCMZ248_5B(|L),DB_BVCMZ248VRNZ(|L),CNL_BVCMBZ249_1(|L),		\
+	    DB_BOMDZ236_9VRNZ(|L),CNL_WLABM2NC(|L),(CNL_WLBM2NC|CNL_WLABM2NCL),DB_BVCMZ248_5CNL(|L),	\
+	    DB_BDCM874_1CNL(|L);									\
+	  V=14;												\
+	  F=EP6;
+	TX=DSB EA + CNL 472 Aurora;									\
+	  C=DSB_EA2,DB_WLABMZ173CNL(|L),DB_BVCMBZ249_1VRNZ(|L),2*DB_BVCMZ248_5CNL(|L),			\
+	    DB_BVCMBZ249_1VRNZ(|L),DB_BVCMZ248_5CNL(|L),DB_BOMDZ236_9VRNZ(|L),DB_WRMBZ138_1CNL(|L),	\
+	    2*DB_WLBM172CNL(|L),CD_WLABMZ826N(|L),DB_BVCMZ248VRNZ(|L);					\
+	  V=14;												\
+	  F=EP6;
 
-  ;IC
-TX= DSB IC 3  ; F=DPU6; V=16;C=1-2*(DSB_IC3_L2|DSB_IC3_L3);
-TX= DSB IC 3  ; F=DPU6; V=16;C=1-2@DSB_IC3_L3;
-TX= DSB IC 3  ; F=DPU6; V=16;C=1-3@DSB_IC3_L4;
-TX= DSB IC 3  ; F=DPU6; V=16;C=DSB_IC3_L5;
+;IC
+	TX=DSB IC 3;											\
+	  C=1-2*(DSB_IC3_L2|DSB_IC3_L3);								\
+	  V=16;												\
+	  F=DPU6;
+	TX=DSB IC 3;											\
+	  C=1-2@DSB_IC3_L3;										\
+	  V=16;												\
+	  F=DPU6;
+	TX=DSB IC 3;											\
+	  C=1-3@DSB_IC3_L4;										\
+	  V=16;												\
+	  F=DPU6;
+	TX=DSB IC 3;											\
+	  C=DSB_IC3_L5;											\
+	  V=16;												\
+	  F=DPU6;
 
-  ;IR
-TX=DSB IR4; F=EPU6; V=14;C=1-2@DSB_IR4_L2;
-TX=DSB IR4; F=EPU6; V=14;C=2*(DSB_IR4_L2|DSB_IR4_L3);
-TX=DSB IR4; F=EPU6; V=14;C=1-2@DSB_IR4_L3;
-TX=DSB IR4 + IC3; F=EP6; V=14;C=DSB_IC3_L3,DSB_IR4_L3;
-TX=DSB IR4 ; F=EPU6; V=14;C=1-2@DSB_IR4_L4;
-TX=DSB IR4 + IC3; F=EPU6; ;C=2*DSB_IC3_L4,DSB_IR4_L4;
-TX=DSB IR4 + IC3; F=EPU6; ;V=16;C=DSB_IC3_L5,3*(DSB_IC3_L4|DSB_IC3_L4B),DSB_IR4_L4;
-TX=DSB IR4 + IC3; F=EPU6; ;V=14;C=DSB_IR4_L4B,DSB_IC3_L4B;
+;IR
+	TX=DSB IR4;											\
+	  C=1-2@DSB_IR4_L2;										\
+	  V=14;												\
+	  F=EPU6;
+	TX=DSB IR4;											\
+	  C=2*(DSB_IR4_L2|DSB_IR4_L3);									\
+	  V=14;												\
+	  F=EPU6;
+	TX=DSB IR4;											\
+	  C=1-2@DSB_IR4_L3;										\
+	  V=14;												\
+	  F=EPU6;
+	TX=DSB IR4 + IC3;										\
+	  C=DSB_IC3_L3,DSB_IR4_L3;									\
+	  V=14;												\
+	  F=EP6;
+	TX=DSB IR4;											\
+	  C=1-2@DSB_IR4_L4;										\
+	  V=14;												\
+	  F=EPU6;
+	TX=DSB IR4 + IC3;										\
+	  C=2*DSB_IC3_L4,DSB_IR4_L4;									\
+	  F=EPU6;
+	TX=DSB IR4 + IC3;										\
+	  C=DSB_IC3_L5,3*(DSB_IC3_L4|DSB_IC3_L4B),DSB_IR4_L4;						\
+	  V=16;												\
+	  F=EPU6;
+	TX=DSB IR4 + IC3;										\
+	  C=DSB_IR4_L4B,DSB_IC3_L4B;									\
+	  V=14;												\
+	  F=EPU6;
 
-TX= DSB EA + IR ; F=EP6; V=14;C=DSB_EA1,DB_ARKIMBZ262IRK(|L),2*DB_BIMZ264IRK(|L);
-TX= DSB EA + IR ; F=EP6; V=14;C=DSB_EA1,(DB_WRMBZ138_1VRNZ(|L),2*DB_BIMZ264IRK(|L))|(DB_ARKIMBZ262W(|L),DB_BM235ICK(|L),DB_BM235W1(|L));
-TX= DSB EA + IR ; F=EP6; V=16;C=(<DSB_EA2,6*DSB_UIC_BC2(|L),DSB_ADNS2B)|(>DSB_EA2,6*DSB_UIC_BC2(|L),DSB_ADNS2BL);
-TX= DSB MZ + IR ; F=DP6; V=14;C=DSB_MZ_B2(|L),|DB_BIMZ264IRK(|L),DB_ARKIMBZ262IRK(|L),2*DB_BIMZ264IRK(|L),DB_BIMDZ268IRK(|L);
-TX= DSB MZ + IR ; F=DP6; V=14;C=DSB_MZ_C2(|L),DB_BIMZ264IRK(|L),DB_ARKIMBZ262IRK(|L),3*DB_BIMZ264IRK(|L);
-TX=DSB EA + IR; F=EP6; V=14;C=DSB_EA1,DB_ARKIMBZ262W(|L),DB_BM235ICK(|L),DB_BM235W1(|L);
+	TX=DSB EA + IR;											\
+	  C=DSB_EA1,DB_ARKIMBZ262IRK(|L),2*DB_BIMZ264IRK(|L);						\
+	  V=14;												\
+	  F=EP6;
+	TX=DSB EA + IR;											\
+	  C=DSB_EA1,											\
+	    (DB_WRMBZ138_1VRNZ(|L),2*DB_BIMZ264IRK(|L))|						\
+	    (DB_ARKIMBZ262W(|L),DB_BM235ICK(|L),DB_BM235W1(|L));					\
+	  V=14;												\
+	  F=EP6;
+	TX=DSB EA + IR;											\
+	  C=(<DSB_EA2,6*DSB_UIC_BC2(|L),DSB_ADNS2B)|(>DSB_EA2,6*DSB_UIC_BC2(|L),DSB_ADNS2BL);		\
+	  V=16;												\
+	  F=EP6;
+	TX=DSB MZ + IR;											\
+	  C=DSB_MZ_B2(|L),|DB_BIMZ264IRK(|L),DB_ARKIMBZ262IRK(|L),2*DB_BIMZ264IRK(|L),			\
+	    DB_BIMDZ268IRK(|L);										\
+	  V=14;												\
+	  F=DP6;
+	TX=DSB MZ + IR;											\
+	  C=DSB_MZ_C2(|L),DB_BIMZ264IRK(|L),DB_ARKIMBZ262IRK(|L),3*DB_BIMZ264IRK(|L);			\
+	  V=14;												\
+	  F=DP6;
+	TX=DSB EA + IR;											\
+	  C=DSB_EA1,DB_ARKIMBZ262W(|L),DB_BM235ICK(|L),DB_BM235W1(|L);					\
+	  V=14;												\
+	  F=EP6;
 
+	TX=DSB MY + IR;											\
+	  C=DSB_MY_BX(|L),DSB_UICX_A1(|L),2*DSB_UICX_B1(|L);						\
+	  V=13;												\
+	  F=DP6;
+	TX=DSB MY + IR;											\
+	  C=DSB_MY1(|L),DSB_UICX_B1(|L),DSB_UICX_A1(|L),DSB_UICX_AB1(|L);				\
+	  V=13;												\
+	  F=DP6;
+	TX=DSB MY + IR;											\
+	  C=2*DSB_MY_BX(|L),DSB_UICX_A1(|L),2*DSB_UICX_B1(|L),DSB_UICX_BD1(|L),DSB_UICX_B1(|L);		\
+	  V=13;												\
+	  F=DP6;
+	TX=DSB MZ + IR;											\
+	  C=DSB_MZ_B2(|L),DSB_UICX_B1(|L),								\
+	    (2*DSB_UICX_AB1(|L),DSB_UICX_BD1(|L),DSB_UICX_A1(|L),3*DSB_UICX_B1(|L))|			\
+	    (DSB_UICX_B1(|L),DSB_UICX_AB1(|L),DSB_UICX_BD1(|L),DSB_UICX_AB1(|L));			\
+	  V=14;												\
+	  F=DP6;
+	TX=DSB MZ + IR;											\
+	  C=DSB_MZ_A2(|L),DSB_UICX_B1(|L),DSB_BDN1(|L),2*DSB_UICX_B1(|L),DSB_BDAN1(|L);			\
+	  V=14;												\
+	  F=DP6;
+	TX=DSB MZ + IR;											\
+	  C=DSB_MZ_A2(|L),DSB_UICX_B1(|L),DSB_UIC_BAB1(|L),DSB_BDAN1(|L),3*DSB_UICX_B1(|L);		\
+	  V=13;												\
+	  F=DP6;
+	TX=DSB MZ + IR;											\
+	  C=2*DSB_MZ_A2(|L),DSB_UICX_B1(|L),DSB_BDAN1(|L),2*DSB_UICX_B1(|L);				\
+	  V=13;												\
+	  F=DP6;
+	TX=DSB MZ + IR;											\
+	  C=DSB_MZ_B2(|L),|(DSB_UIC_BA1(|L),6*DSB_UICX_B1(|L)),DSB_UIC_BA1(|L),3*DSB_UICX_B1(|L);	\
+	  V=14;												\
+	  F=DP6;
+	TX=DSB MZ + IR;											\
+	  C=DSB_MZ_B2(|L),2*DSB_UICX_B1(|L),DSB_BN1(|L),DSB_UICX_B1(|L);				\
+	  V=14;												\
+	  F=DP6;
+	TX=DSB MZ + IR;											\
+	  C=DSB_MZ_C2(|L),(2|5)*DSB_UICX_B1(|L),DSB_BDAN1(|L),2*DSB_UICX_B1(|L);			\
+	  V=14;												\
+	  F=DP6;
+	TX=DSB ME + IR;											\
+	  C=(<DSB_ME_L1(|L),DSB_BN2(|L),DSB_BN1(|L),2*DSB_BN2(|L),DSB_ADNS2B)|				\
+	    (>DSB_ME_L1(|L),DSB_BN2(|L),DSB_BN1(|L),2*DSB_BN2(|L),DSB_ADNS2BL);				\
+	  V=14;												\
+	  F=DPU6;
+	TX=DSB ME + IR;											\
+	  C=(<DSB_ME_L2(|L),4*DSB_BN2(|L),DSB_ADNS2B)|(>DSB_ME_L2(|L),4*DSB_BN2(|L),DSB_ADNS2BL);	\
+	  V=14;												\
+	  F=DPU6;
+	TX=DSB ME + IR;											\
+	  C=(<DSB_ME_L2(|L),4-5*DSB_DOSTO_B3,DSB_DOSTO_ABS3)|						\
+	    (>DSB_ME_L2(|L),4-5*DSB_DOSTO_B3L,DSB_DOSTO_ABS3L);						\
+	  V=14;												\
+	  F=DPU6;
+	TX=DSB ME + IR;											\
+	  C=(<DSB_ME_L2(|L),3-4*DSB_DOSTO_B4,DSB_DOSTO_ABS4)|						\
+	    (>DSB_ME_L2(|L),3-4*DSB_DOSTO_B4L,DSB_DOSTO_ABS4L);						\
+	  V=14;												\
+	  F=DPU6;
+	TX=DSB ME + IR;											\
+	  C=(<DSB_ME_L3(|L),3*DSB_DOSTO_B4B,DSB_DOSTO_ABS4B)|						\
+	    (>DSB_ME_L3(|L),3*DSB_DOSTO_B4BL,DSB_DOSTO_ABS4BL);						\
+	  V=14;												\
+	  F=DPU6;
 
-TX=DSB MY + IR; F=DP6; V=13; C=DSB_MY_BX(|L),DSB_UICX_A1(|L),2*DSB_UICX_B1(|L);
-TX=DSB MY + IR; F=DP6; V=13;C=DSB_MY1(|L),DSB_UICX_B1(|L),DSB_UICX_A1(|L),DSB_UICX_AB1(|L);
-TX=DSB MY + IR; F=DP6; V=13;C=2*DSB_MY_BX(|L),DSB_UICX_A1(|L),2*DSB_UICX_B1(|L),DSB_UICX_BD1(|L),DSB_UICX_B1(|L);
-TX=DSB MZ + IR; F=DP6; V=14;C=DSB_MZ_B2(|L),DSB_UICX_B1(|L),(2*DSB_UICX_AB1(|L),DSB_UICX_BD1(|L),DSB_UICX_A1(|L),3*DSB_UICX_B1(|L))|(DSB_UICX_B1(|L),DSB_UICX_AB1(|L),DSB_UICX_BD1(|L),DSB_UICX_AB1(|L));
-TX=DSB MZ + IR; F=DP6; V=14;C=DSB_MZ_A2(|L),DSB_UICX_B1(|L),DSB_BDN1(|L),2*DSB_UICX_B1(|L),DSB_BDAN1(|L);
-TX=DSB MZ + IR; F=DP6; V=13;C=DSB_MZ_A2(|L),DSB_UICX_B1(|L),DSB_UIC_BAB1(|L),DSB_BDAN1(|L),3*DSB_UICX_B1(|L);
-TX=DSB MZ + IR; F=DP6; V=13;C=2*DSB_MZ_A2(|L),DSB_UICX_B1(|L),DSB_BDAN1(|L),2*DSB_UICX_B1(|L);
-TX=DSB MZ + IR; F=DP6; V=14;C=DSB_MZ_B2(|L),|(DSB_UIC_BA1(|L),6*DSB_UICX_B1(|L)),DSB_UIC_BA1(|L),3*DSB_UICX_B1(|L);
-TX=DSB MZ + IR; F=DP6; V=14;C=DSB_MZ_B2(|L),2*DSB_UICX_B1(|L),DSB_BN1(|L),DSB_UICX_B1(|L);
-TX=DSB MZ + IR; F=DP6; V=14;C=DSB_MZ_C2(|L),(2|5)*DSB_UICX_B1(|L),DSB_BDAN1(|L),2*DSB_UICX_B1(|L);
-TX=DSB ME + IR; F=DPU6; V=14;C=(<DSB_ME_L1(|L),DSB_BN2(|L),DSB_BN1(|L),2*DSB_BN2(|L),DSB_ADNS2B)|(>DSB_ME_L1(|L),DSB_BN2(|L),DSB_BN1(|L),2*DSB_BN2(|L),DSB_ADNS2BL);
-TX=DSB ME + IR; F=DPU6; V=14;C=(<DSB_ME_L2(|L),4*DSB_BN2(|L),DSB_ADNS2B)|(>DSB_ME_L2(|L),4*DSB_BN2(|L),DSB_ADNS2BL);
-TX=DSB ME + IR; F=DPU6; V=14;C=(<DSB_ME_L2(|L),4-5*DSB_DOSTO_B3,DSB_DOSTO_ABS3)|(>DSB_ME_L2(|L),4-5*DSB_DOSTO_B3L,DSB_DOSTO_ABS3L);
-TX=DSB ME + IR; F=DPU6; V=14;C=(<DSB_ME_L2(|L),3-4*DSB_DOSTO_B4,DSB_DOSTO_ABS4)|(>DSB_ME_L2(|L),3-4*DSB_DOSTO_B4L,DSB_DOSTO_ABS4L);
-TX=DSB ME + IR; F=DPU6; V=14;C=(<DSB_ME_L3(|L),3*DSB_DOSTO_B4B,DSB_DOSTO_ABS4B)|(>DSB_ME_L3(|L),3*DSB_DOSTO_B4BL,DSB_DOSTO_ABS4BL);
+	TX=DSB EA + IR;											\
+	  C=(<DSB_EA1,3*DSB_UIC_BA1(|L),DSB_ADNS2AB)|(>DSB_EA1,3*DSB_UIC_BA1(|L),DSB_ADNS2ABL);		\
+	  V=16;												\
+	  F=EP6;
+	TX=DSB EA + IR;											\
+	  C=(<DSB_EA1,4-5*DSB_BN1B(|L),DSB_ABNS1AB|DSB_ABNS2AB|DSB_ADNS2AB)|				\
+	    (>DSB_EA1,4-5*DSB_BN1B(|L),DSB_ABNS1ABL|DSB_ABNS2ABL|DSB_ADNS2ABL);				\
+	  V=12;												\
+	  F=EP6;
+	TX=DSB EA + IR;											\
+	  C=(<DSB_EA2,2-5*DSB_BN2L,DSB_ADNS2B)|(>DSB_EA2,2-5*DSB_BN2,DSB_ADNS2BL);			\
+	  V=12;												\
+	  F=EP6;
+	TX=DSB EA + IR;											\
+	  C=(<DSB_EA2,3*DSB_DOSTO_B4,DSB_DOSTO_ABS4)|(>DSB_EA2,3*DSB_DOSTO_B4L,DSB_DOSTO_ABS4L);	\
+	  V=14;												\
+	  F=EPU6;
+	TX=DSB EA + IR;											\
+	  C=(<DSB_EA3,3*DSB_DOSTO_B4,DSB_DOSTO_ABS4)|(>DSB_EA3,3*DSB_DOSTO_B4L,DSB_DOSTO_ABS4L);	\
+	  V=14;												\
+	  F=EPU6;
 
-TX=DSB EA + IR; F=EP6; V=16;C=(<DSB_EA1,3*DSB_UIC_BA1(|L),DSB_ADNS2AB)|(>DSB_EA1,3*DSB_UIC_BA1(|L),DSB_ADNS2ABL);
-TX=DSB EA + IR; F=EP6; V=12;C=(<DSB_EA1,4-5*DSB_BN1B(|L),DSB_ABNS1AB|DSB_ABNS2AB|DSB_ADNS2AB)|(>DSB_EA1,4-5*DSB_BN1B(|L),DSB_ABNS1ABL|DSB_ABNS2ABL|DSB_ADNS2ABL);
-TX=DSB EA + IR; F=EP6; V=12;C=(<DSB_EA2,2-5*DSB_BN2L,DSB_ADNS2B)|(>DSB_EA2,2-5*DSB_BN2,DSB_ADNS2BL);
-TX= DSB EA + IR ; F=EPU6; V=14; C=(<DSB_EA2,3*DSB_DOSTO_B4,DSB_DOSTO_ABS4)|(>DSB_EA2,3*DSB_DOSTO_B4L,DSB_DOSTO_ABS4L);
-TX= DSB EA + IR ; F=EPU6; V=14;C=(<DSB_EA3,3*DSB_DOSTO_B4,DSB_DOSTO_ABS4)|(>DSB_EA3,3*DSB_DOSTO_B4L,DSB_DOSTO_ABS4L); 
+	TX=DSB MR;											\
+	  C=1-2*(DSB_MRMRD_L1|DSB_MRMRD_L2);								\
+	  V=12;												\
+	  F=DPR6;
+	TX=DSB MR;											\
+	  C=1-2@DSB_MRMRD_L2;										\
+	  V=12;												\
+	  F=DPR6;
+	TX=DSB MR;											\
+	  C=1-2*(DSB_MRMRD_L2|DSB_MRMRD_L3);								\
+	  V=12;												\
+	  F=DPR6;
+	TX=DSB MR;											\
+	  C=1-4@DSB_MRMRD_L3;										\
+	  V=12;												\
+	  F=DPR6;
+	TX=DSB MR;											\
+	  C=1-2@DSB_MRMRD_L4;										\
+	  V=12;												\
+	  F=DPR6;
+	TX=DSB Desiro;											\
+	  C=DSB_MQ_DB(|L);										\
+	  V=12;												\
+	  F=DPRU6;
+	TX=DSB Desiro;											\
+	  C=DSB_DESIRO3(|L);										\
+	  V=12;												\
+	  F=DPRU6;
+	TX=DSB Desiro;											\
+	  C=DSB_DESIRO3(|L);										\
+	  V=12;												\
+	  F=DPRU6;
+	TX=DSB Desiro;											\
+	  C=DSB_DESIRO4(|L);										\
+	  V=12;												\
+	  F=DPRU6;
+	TX=DSB Desiro;											\
+	  C=DSB_MQ_4B(|L);										\
+	  V=12;												\
+	  F=DPRU6;
+	TX=DSB Desiro;											\
+	  C=2*(DSB_DESIRO4(|L)|DSB_MQ_4B(|L));								\
+	  V=12;												\
+	  F=DPRU6;
 
-TX= DSB MR  ; F=DPR6; V=12;C=1-2*(DSB_MRMRD_L1|DSB_MRMRD_L2);
-TX= DSB MR  ; F=DPR6; V=12;C=1-2@DSB_MRMRD_L2;
-TX= DSB MR  ; F=DPR6; V=12;C=1-2*(DSB_MRMRD_L2|DSB_MRMRD_L3);
-TX= DSB MR  ; F=DPR6; V=12;C=1-4@DSB_MRMRD_L3;
-TX= DSB MR  ; F=DPR6; V=12;C=1-2@DSB_MRMRD_L4;
-TX= DSB Desiro  ; F=DPRU6; V=12;C=DSB_MQ_DB(|L);
-TX= DSB Desiro  ; F=DPRU6; V=12;C=DSB_DESIRO3(|L);
-TX= DSB Desiro  ; F=DPRU6; V=12;C=DSB_DESIRO3(|L);
-TX= DSB Desiro  ; F=DPRU6; V=12;C=DSB_DESIRO4(|L);
-TX= DSB Desiro  ; F=DPRU6; V=12;C=DSB_MQ_4B(|L);
-TX= DSB Desiro  ; F=DPRU6; V=12;C=2*(DSB_DESIRO4(|L)|DSB_MQ_4B(|L));
+	TX=DSB MY;											\
+	  C=DSB_MY1(|L),12-16*DSB_HBIS;									\
+	  V=10;												\
+	  F=DF6;
 
-TX= DSB MY  ; F=DF6; V=10;C=DSB_MY1(|L),12-16*DSB_HBIS;
+	TX=DSB MK;											\
+	  C=DSB_MK(|L)~MLG,DB_152[PD];									\
+	  V=4; W=X;											\
+	  F=DF6;
+	TX=DSB MY;											\
+	  C=DSB_MY2(|L),2@DSB_IR4_L2[PD];								\
+	  V=10; W=R;											\
+	  F=DPR6;
+	TX=DSB MK;											\
+	  C=DSB_MK(|L)~MLG,DB_WLABMZ173VR(|L),DB_BVCMBZ249_1CNL(|L),DB_BVCMZ248_5CNL(|L),		\
+	    DB_BOMDZ236_9CNL(|L),DB_BVCMBZ249_1VRNZ(|L),DB_BVCMZ248_5CNL(|L),DB_BOMDZ236_9CNL(|L),	\
+	    DB_WRMBZ138_1CNL(|L),DB_WLBM172CNL(|L),CD_WLABMZ826N(|L),DB_BVCMZ248_5CNL(|L),DSB_EA2[PD];	\
+	  V=5;												\
+	  F=DP6;
 
-TX=DSB MK  ; F=DF6; V=4;C=DSB_MK(|L)~MLG,DB_152[PD];W=X;
-TX=DSB MY; F=DPR6; W=R;V=10;C=DSB_MY2(|L),2@DSB_IR4_L2[PD];
-TX=DSB MK; F=DP6; V=5;C=DSB_MK(|L)~MLG,DB_WLABMZ173VR(|L),DB_BVCMBZ249_1CNL(|L),DB_BVCMZ248_5CNL(|L),DB_BOMDZ236_9CNL(|L),DB_BVCMBZ249_1VRNZ(|L),DB_BVCMZ248_5CNL(|L),DB_BOMDZ236_9CNL(|L),DB_WRMBZ138_1CNL(|L),DB_WLBM172CNL(|L),CD_WLABMZ826N(|L),DB_BVCMZ248_5CNL(|L),DSB_EA2[PD];
-
-  ;ARRIVA
-TX= Arriva MR  ; F=DPR6; V=12;C=1-2@ARRIVA_MRMRD_L2;
-TX= Arriva MR  ; F=DPR6; V=12;C=1-2*(ARRIVA_MRMRD_L2|ARRIVA_MRMRD_ARRIVA);
-TX= Arriva 1000  ; F=DPR6; V=12;C=AR_1000(|L);
-TX= Arriva 1000  ; F=DPR6; V=12;C=1-2*AR_1000(|L);
+;ARRIVA
+	TX=Arriva MR;											\
+	  C=1-2@ARRIVA_MRMRD_L2;									\
+	  V=12;												\
+	  F=DPR6;
+	TX=Arriva MR;											\
+	  C=1-2*(ARRIVA_MRMRD_L2|ARRIVA_MRMRD_ARRIVA);							\
+	  V=12;												\
+	  F=DPR6;
+	TX=Arriva 1000;											\
+	  C=AR_1000(|L);										\
+	  V=12;												\
+	  F=DPR6;
+	TX=Arriva 1000;											\
+	  C=1-2*AR_1000(|L);										\
+	  V=12;												\
+	  F=DPR6;
 
 ;LNJ
-TX= LNJ RegioSprinter  ; F=DPR6; V=10;C=LNJ_RS;
+	TX=LNJ RegioSprinter;										\
+	  C=LNJ_RS;											\
+	  V=10;												\
+	  F=DPR6;
 
-  ;LOKALBANEN
-TX= Lokalbanen RegioSprinter  ; F=DPR6; V=10;C=LB_RS;
-TX= Lokalbanen 100  ; F=DPR6; V=12;C=LB_100;
+;LOKALBANEN
+	TX=Lokalbanen RegioSprinter;									\
+	  C=LB_RS;											\
+	  V=10;												\
+	  F=DPR6;
+	TX=Lokalbanen 100;										\
+	  C=LB_100;											\
+	  V=12;												\
+	  F=DPR6;
 
 ;Railion Scandinavia / DB Schenker Denmark
-TX= Railion Scandinavia / DB Cargo Denmark EG 3100  ; F=EF6; V=12;C=DB_EG3100D,2*DB_HBBILLS311,DB_HBILLNS302K,DB_HBBILLS311,DB_HBILLNS302K,2*TWAG_HR4,3*DB_SHIMMS708K(|L),RAI_SHIMMNS723;
-TX= Railion Scandinavia / DB Cargo Denmark EG 3100  ; F=EF6; V=12;C=DB_EG3100GC,TWAG_HB15,TWAG_HB12,DB_RES687K,TWAG_HR4,DB_RILNS654B,DB_SHIMMNS720B,TWAG_HB15,TWAG_HR4,4*TWAG_HB15,DB_RILNS654B,4*CFLC_SHIMMNSS,6*TWAG_HB15;
-TX= Railion Scandinavia / DB Schenker Denmark MK  ; F=DF6; V=6;C=DB_MK1(|L),2*SNCB_3614D5_VB,SNCF_RES90_6,2*SNCB_3614L1_VB,SNCF_REMMS10_2;
-TX=DB Cargo Denmark MZ  ; F=DF6; V=10;C=DB_MZ_D1(|L),5*(3:DB_ROOS639|2:DB_ROOS639VR)[OB:WOOD7(1|2|3),8,12][OB:WOOD7(1|2|3),50,12][OB:WOOD7(1|2|3),92,12][OB:WOOD(6|7|8),134,12][OB:WOOD(6|7|8),160,12];
-TX=DB Cargo Denmark MZ  ; F=DF6; V=10;C=DB_MZ_D1(|L),5*DB_SHIMMNS718A;
-TX=DB Cargo Denmark MZ  ; F=DF6; V=10;C=DB_MZ_DVR(|L),20*BLG_LAAERS700;
+	TX=Railion Scandinavia / DB Cargo Denmark EG 3100;						\
+	  C=DB_EG3100D,2*DB_HBBILLS311,DB_HBILLNS302K,DB_HBBILLS311,DB_HBILLNS302K,2*TWAG_HR4,		\
+	    3*DB_SHIMMS708K(|L),RAI_SHIMMNS723;								\
+	  V=12;												\
+	  F=EF6;
+	TX=Railion Scandinavia / DB Cargo Denmark EG 3100;						\
+	  C=DB_EG3100GC,TWAG_HB15,TWAG_HB12,DB_RES687K,TWAG_HR4,DB_RILNS654B,DB_SHIMMNS720B,TWAG_HB15,	\
+	    TWAG_HR4,4*TWAG_HB15,DB_RILNS654B,4*CFLC_SHIMMNSS,6*TWAG_HB15;				\
+	  V=12;												\
+	  F=EF6;
+	TX=Railion Scandinavia / DB Schenker Denmark MK;						\
+	  C=DB_MK1(|L),2*SNCB_3614D5_VB,SNCF_RES90_6,2*SNCB_3614L1_VB,SNCF_REMMS10_2;			\
+	  V=6;												\
+	  F=DF6;
+	TX=DB Cargo Denmark MZ;										\
+	  C=DB_MZ_D1(|L),										\
+	    5*(3:DB_ROOS639|2:DB_ROOS639VR)[OB:WOOD7(1|2|3),8,12][OB:WOOD7(1|2|3),50,12]		\
+	    [OB:WOOD7(1|2|3),92,12][OB:WOOD(6|7|8),134,12][OB:WOOD(6|7|8),160,12];			\
+	  V=10;												\
+	  F=DF6;
+	TX=DB Cargo Denmark MZ;										\
+	  C=DB_MZ_D1(|L),5*DB_SHIMMNS718A;								\
+	  V=10;												\
+	  F=DF6;
+	TX=DB Cargo Denmark MZ;										\
+	  C=DB_MZ_DVR(|L),20*BLG_LAAERS700;								\
+	  V=10;												\
+	  F=DF6;
 
-}
-%ENDPOOL;
+      }
+    %ENDPOOL;

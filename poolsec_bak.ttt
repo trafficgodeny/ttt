@@ -1,0 +1,263 @@
+# { [ (
+
+$REQUIRE POOLDEF.TTT
+%*DEF(PSEC(A, N)=
+$SECTION NAME=%N;; LC=14; %SECFIN; BL=20; SEQ=D;
+POOL=%A;;
+$ENDSECTION
+)
+
+$SPOOL N=RWMODE; SEQ=RSEQ;
+  {RW0?
+    AB=5;												\
+      VAR=BGTYPE=0; DIS=5; ST=0.4;
+  }
+  {RW2?
+    AB=25;												\
+      VAR=BGTYPE=2; DIS=10; ST=0.5;
+  }
+  {RW3?
+    AB=25;												\
+      VAR=BGTYPE=3,BGUP=83; DIS=20; ST=1;
+  }
+  {RW4?
+    AB=100;												\
+      VAR=BGTYPE=4,BGUP=158; DIS=20;
+  }
+  {RW5?
+    AB=340;												\
+      VM=HEAD,JUMP; DX=5000; VAR=BGTYPE=5,BGUP=398; DIS=50;
+  }
+$ENDPOOL 
+
+$SECTION NAME=POOLSEC; LC=1; POOL=RWMODE;
+  {D|BRD|DDR?
+    $SECTION NAME=P_D; LC=1;
+      {D?
+	{E1|E2?
+	  %PSEC(POOL_GHIST,P_GHIST)
+	}
+      }
+      {D|BRD?
+	{E3|E4?
+	  %PSEC(POOL_BRD,P_BRD1)
+	}
+      }
+      {D|DDR?
+	{E3|E4?
+	  %PSEC(POOL_DDR,P_DDR)
+	}
+      }
+      {D|BRD?
+	{E3|E4?
+	  %PSEC(POOL_BRD,P_BRD2)
+	}
+      }
+      {E5|E6?
+	%PSEC(POOL_GER,P_GER)
+      }
+    $ENDSECTION 
+  }
+  {F?
+    %PSEC(POOL_F,P_F)
+  }
+  {CH|A|I?
+    $SECTION NAME=P_CH_A_I; LC=1;
+      {CH?
+	%PSEC(POOL_CH,P_CH1)
+      }
+      {I?
+	%PSEC(POOL_I,P_I1)
+      }
+      {A?
+	%PSEC(POOL_A)
+      }
+      {CH?
+	%PSEC(POOL_CH,P_CH2)
+      }
+      {I?
+	%PSEC(POOL_I,P_I2)
+      }
+    $ENDSECTION 
+  }
+  {DK|N|S|SF|B|L|NL|GB|IE|HR|SLO?
+    $SECTION NAME=P_MIX1; LC=1;
+      {GB|DK?
+	$SECTION NAME=P_GB_DK; LC=1;
+	  {GB?
+	    %PSEC(POOL_GB,P_GB1)
+	  }
+	  {DK?
+	    %PSEC(POOL_DK,P_DK)
+	  }
+	  {GB?
+	    %PSEC(POOL_GB,P_GB2)
+	  }
+	$ENDSECTION 
+      }
+      {B?
+	%PSEC(POOL_B,P_B)
+      }
+      {NL?
+	%PSEC(POOL_NL,P_NL)
+      }
+      {L|S|N|SF|HR|SLO?
+	$SECTION NAME=P_N_HR; LC=1;
+	  {HR?
+	    %PSEC(POOL_HR,P_HR)
+	  }
+	  {S?
+	    %PSEC(POOL_S,P_S1)
+	  }
+	  {SLO?
+	    %PSEC(POOL_SLO,P_SLO)
+	  }
+	  {L?
+	    %PSEC(POOL_L,P_L)
+	  }
+	  {S?
+	    %PSEC(POOL_S,P_S2)
+	  }
+	  {N?
+	    %PSEC(POOL_N,P_N)
+	  }
+	  {SF?
+	    %PSEC(POOL_SF; VH=62,P_SF)
+	  }
+	$ENDSECTION 
+      }
+    $ENDSECTION 
+  }
+  {P|E|H|CSD|CS|SK|PL|RO|BG|GR|YU|HSH|TR|ASSD|IE?
+    $SECTION NAME=P_MIX2; LC=1;
+      {E?
+	%PSEC(POOL_E,P_E)
+      }
+      {H?
+	%PSEC(POOL_HUN,P_H)
+      }
+      {CSD|CS?
+	%PSEC(POOL_CS,P_CS)
+      }
+      {PL?
+	%PSEC(POOL_PL,P_PL)
+      }
+      {RO|GR|P?
+	$SECTION NAME=P_RO_GR_P; LC=1;
+	  {RO?
+	    %PSEC(POOL_RO,P_RO)
+	  }
+	  {GR?
+	    %PSEC(POOL_GR,P_GR)
+	  }
+	  {P?
+	    %PSEC(POOL_P,P_P)
+	  }
+	$ENDSECTION 
+      }
+      {SK|BG|YU|HSH|TR|IE|ASSD?
+	$SECTION NAME=P_MIX2_1; LC=1;
+	  {SK?
+	    %PSEC(POOL_SK,P_SK)
+	  }
+	  {YU?
+	    %PSEC(POOL_YU,P_YU);
+	  }
+	  {TR?
+	    %PSEC(POOL_TR,P_TR);
+	  }
+	  {BG?
+	    %PSEC(POOL_BG,P_BG)
+	  }
+	  {HSH|IE|ASSD?
+	    $SECTION NAME=P_MIX2_1_1; LC=14; %SECFIN; BL=20; SEQ=D;
+	      {HSH?
+		POOL=POOL_HSH;
+	      }
+	      {ASSD?
+		POOL=POOL_OTH;
+	      }
+	      {IE?
+		POOL=POOL_IR;
+	      }
+	    $ENDSECTION 
+	  }
+	$ENDSECTION 
+      }
+    $ENDSECTION 
+  }  
+  {USA|J?
+    $SECTION NAME=P_USA_J; LC=1;
+      {USA?
+	%PSEC(POOL_USA,P_USA1)
+      }
+      {J?
+	%PSEC(POOL_JP,P_J)
+      }
+      {USA?
+	%PSEC(POOL_USA,P_USA2)
+      }
+    $ENDSECTION    
+  }
+  {SU|RZD|UZ|BCH|EVR|LDZ|LG|GEO|AZ|KAZ|MD|SA|AS|NE|AF|CN|FAN|AUS?
+    $SECTION NAME=P_SU_AUS_WORLD; LC=1;
+      {SU|RZD|UZ|BCH|EVR|LDZ|LG|GEO|AZ|KAZ|MD?
+	%PSEC(POOL_SU,P_SU)
+      }
+      {AUS?
+	%PSEC(POOL_AUS,P_AUS)
+      }
+      {SA|AS|NE|AF|CN|FAN|IND?
+        $SECTION NAME=P_WORLD; LC=1;
+	  {SA?
+	    %PSEC(POOL_SA)
+	  }
+	  {AS?
+	    %PSEC(POOL_AS)
+	  }
+	  {NE?
+	    %PSEC(POOL_NE)
+	  }
+	  {IND?
+	    %PSEC(POOL_IND)
+	  }
+	  {SA?
+	    %PSEC(POOL_SA)
+	  }
+	  {AF?
+	    %PSEC(POOL_AF)
+	  }
+	  {CN?
+	    %PSEC(POOL_CN)
+	  }
+	  {FAN?
+	    %PSEC(POOL_PHA)
+	  }
+	$ENDSECTION 
+      }
+    $ENDSECTION 
+  }
+
+  {MMCT?
+    {OWN??
+      $SECTION NAME=P_CITY; LC=1;
+	{MLGT??
+	  $INCLUDE ZSZ_CITYS.TTT
+
+	  $SECTION NAME=P_CITYG; SEQ=D; AB=30; POOL=CYMODE; %SECFIN;
+	    $INCLUDE ZSZ_CITYG.TTT
+	  $ENDSECTION 
+	}
+
+	{MLGT?
+	  $SECTION NAME=P_MLGCITY; LC=1; VAR=BGTYPE=1;
+	    $INCLUDE MLG_URBAN.TTT
+	  $ENDSECTION 
+	}
+      $ENDSECTION 
+    }
+  }
+
+$ENDSECTION 
+
+# ) ] }

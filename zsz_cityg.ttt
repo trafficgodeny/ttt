@@ -116,7 +116,7 @@ $SECTION POOL=CYMODE; LT=25; FIN=S;
   {D|BRD|DDR?
     {TRAM|BUS?
       $GROUP 												\
-          NAME=D_AACHEN; \
+	  NAME=D_AACHEN;										\
 	  TX=Aachen;											\
 	  LC=2; %GBG(STBGEU,[WA=ENV_WAYA][WT=ENV_WAYT1]);
 	{TRAM?
@@ -148,13 +148,14 @@ $SECTION POOL=CYMODE; LT=25; FIN=S;
     }
 #----------------------------- Aalen -----------------------------------------
     {BUS?
-      NAME=D_AALEN;											\
       TX=Aalen;												\
-	C=AALEN_N4026_3L|AALEN_N4026_3; %ABG(STBGMD);
+	C=AALEN_N4026_3L|AALEN_N4026_3;NAME=D_AALEN;							\
+	 %ABG(STBGMD);
     }
 #----------------------------- Augsburg --------------------------------------
     {TRAM?
-      $GROUP NAME=D_AUGSBURG; %GBG(STBGEU,ENV_WAYT1);
+      $GROUP 												\
+	  NAME=D_AUGSBURG; %GBG(STBGEU,ENV_WAYT1);
 	TX=AUGSBURG TW 175 - 188 + Bw 221 ff;								\
 	  C=(SWA_175A|SWA_175B),SWA_221;								\
 	  LC=3;
@@ -188,15 +189,15 @@ $SECTION POOL=CYMODE; LT=25; FIN=S;
 #----------------------------- Altenburg Ballenstedt Bautzen-------------------
     {BUS?
       $GROUP LC=1;
-        NAME=D_ALTENBURG; \
 	TX=Altenburg;											\
-	  C=THUESAC_IK280_02; %ABG(STBGEU);
-	NAME=D_BALLENSTEDT; \
+	  C=THUESAC_IK280_02;NAME=D_ALTENBURG;								\
+	   %ABG(STBGEU);
 	TX=Ballenstedt;											\
-	  C=QBUS_QLBNA2743; %ABG(STBGEU);
-	NAME=D_BAUTZEN; \
+	  C=QBUS_QLBNA2743;NAME=D_BALLENSTEDT;								\
+	   %ABG(STBGEU);
 	TX=Bautzen;											\
-	  C=BAUTZ_IK260_02; %ABG(STBGEU);
+	  C=BAUTZ_IK260_02;NAME=D_BAUTZEN;								\
+	   %ABG(STBGEU);
       $ENDGROUP
     }
 #----------------------------- Bad Homburg -----------------------------------
@@ -3942,8 +3943,8 @@ $SECTION POOL=CYMODE; LT=25; FIN=S;
 	    TX=Athen;											\
 	      C=ATHEN_N6216;										\
 	      F=X;
-	    TX=Athen;
-	      C=ATHEN_N6016E(|L);
+	    TX=Athen;											\
+	      C=ATHEN_N6016E(|L);									\
 	      F=X;
 	  }
 	$ENDGROUP
