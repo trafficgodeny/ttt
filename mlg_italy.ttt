@@ -1,5 +1,8 @@
  $REQUIRE MLG_DEF.TTT
 
+ {FILELEVEL=1?
+   $INCLUDE SINGLE.TTT
+ }
  %ADDPOOL(POOL_I,I_ENV)
 ;====================================================
 ;===========   ITALIE / ITALY / ITALIEN   ===========
@@ -112,14 +115,14 @@
        F=EP4;
 
 ;RIVIERA EXPRESS
-     TX=FS E636 + Riviera Express;									\
+     TX=FS E636 + RIVIERA EXPRESS;									\
        C=FS_E636I1(|L),FS_T57_GA_AB(|L),OBB_AB37400G(|L),OBB_B29132(|L),DB_ABM224G(|L)~MLG,		\
 	 DB_BM232G(|L),FS_T59_GA_ABC(|L),FS_T57_GA_AB(|L),FS_T59_GA_AB(|L),DB_ABM224G(|L)~MLG,		\
 	 DB_BCM243B(|L),DB_BM232G(|L),DB_BCM243G(|L),DB_BCM243B(|L),DB_ABM224G(|L)~MLG;			\
        V=11;												\
        F=EP4;
 ;LOMBARDIE EXPRESS
-     TX=FS E646 + Lombardie Express;									\
+     TX=FS E646 + LOMBARDIE EXPRESS;									\
        C=FS_E646G1(|L),SNCF_UIC_B10G(|L),3*(SNCF_UIC_B10CG(|L)|SNCF_UIC_B10CHG1(|L)),			\
 	 FS_UICX64_GPB_AB(|L),2*(FS_UICX64_G_A(|L)|FS_UICX68E_A(|L)),FS_T55_ABE(|L),			\
 	 SNCF_UIC_B10CG(|L)|SNCF_UIC_B10CHG1(|L),CIWL_MU_B64MJ(|L),CIWL_4Z(|L),2*FS_T59_GA_B(|L),	\
@@ -127,7 +130,7 @@
        V=14;												\
        F=EP4;
 ;DOLOMITEN EXPRESS
-     TX=FS E645 + Dolomiten Express;									\
+     TX=FS E645 + DOLOMITEN EXPRESS;									\
        C=FS_E645BI1(|L),FS_T59_GA_B(|L),FS_T46_BZE(|L),FS_T59_GA_A(|L),FS_UICX68_G_DZ(|L),		\
 	 4*(2:FS_UICX64_G_B(|L)|1:FS_UICX68E_B(|L)),2:FS_UICX64_G_B(|L)|1:FS_UICX68E_A(|L),		\
 	 FS_T55_ABE(|L),FS_UICX64_GPB_AB(|L),FS_T59_GA_B(|L),						\
@@ -142,14 +145,14 @@
        V=14;												\
        F=EP4;
 ;ROME EXPRESS
-     TX=FS E636 + Rome Express;										\
+     TX=FS E636 + ROME EXPRESS;										\
        C=FS_E636I1(|L),FS_T59_GA_A(|L),SNCF_METPLM_B4D(|L),FS_T59_GA_B(|L),2*SNCF_UIC_B10CG(|L),	\
 	 SNCF_MU_JL_TENTG(|L),SNCF_UIC_B10CG(|L),FS_UICX64_G_B(|L),FS_T59_GA_B(|L),FS_UICX64_G_B(|L),	\
 	 SNCF_AOL_Y24_A4B5CG(|L),SNCF_UIC_B10CG(|L),SNCF_METPLM_B4D(|L);				\
        V=11;												\
        F=EP4;
 ;ROME - GENÈVE / BIEL
-     TX=FS E636 + D Rome - Genève / Biel;								\
+     TX=FS E636 + D ROME - GENÈVE / BIEL;								\
        C=FS_E646G1(|L),2*SBB_4UICB12(|L),SBB_4UIC_A(|L),2*SBB_4UIC_BCM(|L),CIWL_MU_B64MJ(|L),		\
 	 SBB_4UIC_A(|L),2*SBB_4UICB12(|L);								\
        V=14;												\
@@ -167,126 +170,127 @@
        V=14;												\
        F=EP4;
 
-;Rapido
-     TX=FS E444 +Rapido;										\
+;RAPIDO / DIRETTO
+     TX=FS E444 +RAPIDO;										\
        C=FS_E444_EB1(|L),2*FS_T59_GA_B(|L),FS_T46_BZE(|L),FS_UICX64_BRP_GA(|L),				\
 	 2*(FS_UICX64_G_B(|L)|FS_UICX68E_B(|L)),3*(FS_UICX64_G_A(|L)|FS_UICX68E_A(|L));			\
        V=15;												\
        F=EP4;
-     TX=FS E444 +Rapido;										\
+     TX=FS E444 +RAPIDO;										\
        C=FS_E444_EB1(|L),FS_UICX64_G_A(|L)|FS_UICX68E_A(|L),3*(FS_UICX64_G_B(|L)|FS_UICX68E_B(|L));	\
        V=14;												\
        F=EP4;
-     TX=FS E444 +Rapido;										\
+     TX=FS E444 +RAPIDO;										\
        C=FS_E444_EB1(|L),6*(FS_UICX64_G_B(|L)|FS_UICX68E_B(|L)),					\
 	 2*(FS_UICX64_G_A(|L)|FS_UICX68E_A(|L)),FS_T64_GA_DZ(|L);					\
        V=16;												\
        F=EP4;
-     TX=FS E636 +Rapido;										\
+     TX=FS E636 +RAPIDO;										\
        C=FS_E636I1(|L),2*(SBB_B20330,SBB_RICBLS_A7(|L)),2*FS_T59_GA_B(|L),SNCF_AOL_Y24_A4B5CG(|L),	\
 	 FS_UICX64_G_A(|L)|FS_UICX68E_A(|L),4*(FS_UICX64_G_B(|L)|FS_UICX68E_B(|L));			\
        V=11;												\
        F=EP4;
-     TX=FS E636 +Rapido;										\
+     TX=FS E636 +RAPIDO;										\
        C=FS_E636I1(|L),											\
 	 (SNCF_DD4SG,FS_T55_ABE(|L),3*FS_T59_GA_B(|L),FS_T55_ABE(|L),FS_T55_ACBC(|L),			\
 	 SNCF_AOC4_A212B6G0(|L))|									\
 	 (FS_UICX64_G_B(|L),FS_T55_ABE(|L),SNCF_UIC_A4CB5CG(|L),SNCF_AOC48_B10G(|L),SNCF_METPLM_A4D(|L)); \
        V=11;												\
        F=EP4;
-     TX=FS E636 +Rapido;										\
+     TX=FS E636 +RAPIDO;										\
        C=FS_E636I1(|L),											\
 	 (2*(3*FS_UICX64_G_B(|L),FS_UICX64_G_A(|L),))|							\
 	 (FS_UICX64_G_AB(|L),FS_T59_GA_A(|L),FS_T59_GA_B(|L),FS_T59_GA_A(|L),2*FS_T59_GA_B(|L)),	\
 	 FS_T64_GA_DZ(|L);										\
        V=11;												\
        F=EP4;
-     TX=FS E645 +Rapido;										\
+     TX=FS E645 +RAPIDO;										\
        C=FS_E645AI1(|L),2*SBB_4EW1BM,FS_T64_GA_DZ(|L),3*FS_UICX64_G_B(|L),FS_UICX64_G_A(|L),		\
 	 SBB_B20330,FS_UICX64_G_A(|L),3*FS_UICX64_G_B(|L),;						\
        V=12;												\
        F=EP4;
-     TX=FS E645 +Rapido;										\
+     TX=FS E645 +RAPIDO;										\
        C=FS_E645BI1(|L),4*(2:FS_UICX64_G_B(|L)|1:FS_UICX68E_B(|L)),2*FS_T64_GA_DZ(|L),			\
 	 2*(2:FS_UICX64_G_B(|L)|1:FS_UICX68E_A(|L)),2*(2:FS_UICX64_G_B(|L)|1:FS_UICX68E_B(|L));		\
        V=12;												\
        F=EP4;
-
-     TX=FS E646 +Rapido;										\
+     TX=FS E646 +RAPIDO;										\
        C=FS_E646P(|L),FS_UICX64_G_AB(|L),FS_UICX68E_BC(|L),FS_T46_BZE(|L),FS_T59_GA_BC(|L),		\
 	 FS_T59_GA_A(|L),FS_T59_GA_AB(|L),2*FS_T55_ABE(|L),FS_T59_GA_BC(|L),FS_T59_GA_B(|L),		\
 	 FS_T46_BZE(|L),FS_UICX68E_B(|L),FS_UICX68E_A(|L),FS_UICX68E_BC(|L),FS_T59_GA_BC(|L),		\
 	 FS_T59_GA_A(|L),FS_UICX68E_BC(|L),FS_T46_BZE(|L),FS_T59_GA_B(|L);				\
        V=14;												\
        F=EP4;
-     TX=FS E646 +Rapido;										\
+     TX=FS E646 +RAPIDO;										\
        C=FS_E646P(|L),3*FS_UICX68E_A(|L),4*FS_UICX68E_B(|L);						\
        V=14;												\
        F=EP4;
-     TX=FS E646 +Rapido;										\
+     TX=FS E646 +RAPIDO;										\
        C=FS_E646G1(|L),4*FS_UICX68E_A(|L);								\
        V=14;												\
        F=EP4;
-     TX=FS E646 +Rapido;										\
+     TX=FS E646 +RAPIDO;										\
        C=FS_E646G1(|L),2*FS_T59_GA_B(|L),FS_T55_ABE(|L),FS_T59_GA_A(|L);				\
        V=14;												\
        F=EP4;
-     TX=FS E646 +Rapido;										\
+     TX=FS E646 +RAPIDO;										\
        C=FS_E646G1(|L),FS_UICX64_G_A(|L)|FS_UICX68E_A(|L),3*(FS_UICX64_G_B(|L)|FS_UICX68E_B(|L)),	\
 	 FS_T55_ABE(|L);										\
        V=14;												\
        F=EP4;
-
-     TX=FS D 343 +Rapido;										\
+     TX=FS D 343 +RAPIDO;										\
        C=FS_D343G(|L),FS_T46_BZE(|L),FS_UICX64_G_B(|L),FS_T37_BZI(|L),FS_T59_GA_B(|L),FS_T55_ABE(|L),	\
 	 FS_T37_BZE(|L),FS_T46_BZE(|L),FS_T37_ABZE(|L);							\
        V=10;												\
        F=DP4;
-     TX=FS D 343 +Rapido;										\
+     TX=FS D 343 +RAPIDO;										\
        C=FS_D343G(|L),FS_UICX64_G_A(|L),$DIR(FS_T59_GA_ABL,FS_T59_GA_AB),4*FS_UICX64_G_B(|L);		\
        V=13;												\
        F=DP4;
 
-     TX=FS D 343 +Rapido;										\
+     TX=FS D 343 +RAPIDO;										\
        C=FS_D343G(|L),FS_T59_GA_BC(|L),FS_UICX64_G_AB(|L),FS_T46T_AE(|L),FS_T29AZE(|L);			\
        V=13;												\
        F=DP4;
-     TX=FS D 343 +Rapido;										\
+     TX=FS D 343 +RAPIDO;										\
        C=FS_D343G(|L),FS_T55_AE(|L),FS_T59_GA_B(|L),FS_T46_BZE(|L);					\
        V=13;												\
        F=DP4;
-     TX=FS D 343 +Rapido;										\
+     TX=FS D 343 +RAPIDO;										\
        C=FS_D343G(|L),DB_GS210A1,FS_T46_BZE(|L),2*FS_T57_GA_B(|L),FS_T59_GA_AB(|L);			\
        V=12;												\
        F=DP4;
-     TX=FS E444 + Rapido;										\
-       C=FS_E444_EB2(|L),FS_UICX64_G_A(|L),(FS_UICX75_L_GPB_A|FS_UICX75_L1_GPB_AL),FS_UICX64_G_A(|L),	\
-	 2*FS_UICX64_G_B(|L),XFS_UICX75_GPB_B,FS_UICX64_G_B(|L),XFS_UICX75_GPB_B;			\
-       V=16;												\
-       F=EP4;
 
 ;NOTTE
-     TX=FS E645 +Treno Notte;										\
+     TX=FS E645 +TRENO NOTTE;										\
        C=FS_E645BI1(|L),FS_UICX64_GPB_AB(|L),2*FS_T59_GA_B(|L),FS_UICX68E_BC(|L),FS_MU_F64M_WL(|L),	\
 	 FS_T59_GA_B(|L),FS_T55_ACBC(|L),FS_UICX64_G1B(|L),SNCF_AOL_B10CG(|L),SNCF_AOL_Y24_A4B5CG(|L),	\
 	 2*SNCF_AOC4_B10G0(|L);										\
        V=12;												\
        F=EP4;
 
-     TX=FS Aln 460 TEE;											\
+     TX=FS ALN 460 TEE;											\
        C=FS_ALN460_TEESL;										\
        V=14;												\
        F=DPU4;
 
 ;REGIONAL
-     TX=FS E424 + Regionale;										\
+     TX=FS E424 + REGIONALE;										\
        C=FS_E424_ISA1(|L),FS_T51RB1S3(|L),FS_T51RB2S3(|L);						\
        V=10;												\
        F=EPR4;
+     TX=FS ALN 668.1400 + LN 664.1400;									\
+       C=(<FS_ALN668_1400B1(|L),FS_LN664_1400B1)|(>FS_ALN668_1400B1(|L),FS_LN664_1400B1L);		\
+       V=11;												\
+       F=EPRU4;
+     TX=FS ALN 668.2400;										\
+       C=4:(2*FS_ALN668_2400_BB1)|1:(1-2*FS_ALN668_2400O2(|L));						\
+       V=11;												\
+       F=EPRU4;
 
 ;FSE
 ;---
-     TX=FSE - FERROVIE DEL SUD-EST AD20 Regionale;							\
+     TX=FSE - FERROVIE DEL SUD-EST AD20 REGIONALE;							\
        C=(<FSE_AD20,FSE_R220)|(>FSE_AD20,FSE_R220);							\
        V=8;												\
        F=DPR4;
@@ -300,30 +304,42 @@
        V=14;												\
        F=DP4;
 ;TEE LIGURE
-     TX=FS E444 + TEE Ligure;										\
+     TX=FS E444 + TEE LIGURE;										\
        C=FS_E444_EB2(|L),3*FS_TEE_AU(|L),FS_TEE_WR(|L)~MLG,FS_TEE_ATU(|L),FS_TEE_D(|L)~MLG,		\
 	 FS_GC70EB_AP(|L);										\
        V=16;												\
        F=EP4;
-     TX=FS E656 + TEE Ligure;										\
+     TX=FS E656 + TEE LIGURE;										\
        C=FS_E656S1B(|L)|FS_E656S2B(|L),2*FS_GC69_TEE_AU(|L),FS_GC69_TEE_WR(|L),FS_GC69_TEE_ATU(|L),	\
 	 FS_GC69_TEE_D(|L),3*FS_GC70EB_A(|L);								\
        V=15;												\
        F=EP4;
+;TEE MEDIOLANUM
+     TX=FS E656 + TEE LEMANO / MEDIOLANUM;								\
+       C=FS_E656S1B(|L),FS_GC69_TEE_D(|L),FS_GC69_TEE_ATU(|L),FS_GC69_TEE_WR(|L),2*FS_GC69_TEE_AU(|L);	\
+       V=15;												\
+       F=EP4;
+     TX=FS E633 + TEE LEMANO / MEDIOLANUM;								\
+       C=FS_E633P(|L),|(3*FS_VSE_A9O(|L)),2*FS_GC69_TEE_AU(|L),FS_GC69_TEE_WR(|L),FS_GC69_TEE_ATU(|L),	\
+	 FS_GC69_TEE_D(|L);										\
+       V=15;												\
+       F=EP4;
 ;TEE LEMANO / MEDIOLANUM
-     TX=FS E444 + TEE Lemano / MediolanumMEDIOLANUM;							\
+     TX=FS E444 + TEE LEMANO / MEDIOLANUM;								\
        C=FS_E444_EB2(|L),FS_TEE_D(|L)~MLG,FS_TEE_ATU(|L),FS_TEE_WR(|L)~MLG,2*FS_TEE_AU(|L);		\
        V=16;												\
        F=EP4;
-     TX=FS E656 + TEE Lemano / MediolanumMEDIOLANUV=15;							\
-       C=FS_E656S1B(|L),FS_GC69_TEE_D(|L),FS_GC69_TEE_ATU(|L),FS_GC69_TEE_WR(|L),2*FS_GC69_TEE_AU(|L);
+     TX=FS E656 + TEE LEMANO / MEDIOLANUM;								\
+       C=FS_E656S1B(|L),FS_GC69_TEE_D(|L),FS_GC69_TEE_ATU(|L),FS_GC69_TEE_WR(|L),2*FS_GC69_TEE_AU(|L);	\
+       V=15;												\
+       F=EP4;
 ;TEE CISALPIN
-     TX=FS E444 + TEE Cisalpin;										\
+     TX=FS E444 + TEE CISALPIN;										\
        C=FS_E444_EB2(|L),(>SNCF_TEEM69U_AD,2*SNCF_TEEM69_AO,2*SNCF_TEEM69_ATO,SNCF_TEEM69_ABARO(|L));	\
        V=16;												\
        F=EP4;
 ;TEE ADRIATICO
-     TX=FS E444 + TEE Adriaticolpin;									\
+     TX=FS E444 + TEE ADRIATICOLPIN;									\
        C=FS_E444_EB2(|L),										\
 	 (FS_GC70EB_DZ(|L),3*FS_GC70EB_A(|L),FS_GC70EB_AP(|L),FS_GC70EB_WR,FS_GC70EB_AP(|L),		\
 	 4*FS_GC70EB_A(|L))|										\
@@ -332,33 +348,33 @@
        V=16;												\
        F=EP4;
 ;TEE AMBROSIANO
-     TX=FS E444 + TEE Ambrosiano;									\
+     TX=FS E444 + TEE AMBROSIANO;									\
        C=FS_E444_EB2(|L),2*FS_GC70EB_WR,2*FS_GC70EB_A(|L),3*FS_GC70EB_AP(|L),FS_GC70EB_DZ(|L),		\
 	 3*FS_GC70EB_A(|L);										\
        V=16;												\
        F=EP4;
 ;TEE VESUVIO
-     TX=FS E444 + TEE VesuvioESUVIO;									\
+     TX=FS E444 + TEE VESUVIOESUVIO;									\
        C=FS_E646G1(|L),3*FS_GC70EB_A(|L),FS_GC70EB_DZ(|L),2*FS_GC70EB_AP(|L),2*FS_GC70EB_A(|L);		\
        V=14;												\
        F=EP4;
 ;IC MONT-CENIS
-     TX=FS E444 + IC Mont-Cenis;									\
+     TX=FS E444 + IC MONT-CENIS;									\
        C=FS_E444_EB2(|L),2*FS_VSE_A9O(|L),SNCF_VU_B6DU(|L),3*SNCF_VTU_B(|L);				\
        V=16;												\
        F=EP4;
-     TX=FS E656 + IC Mont-Cenis;									\
+     TX=FS E656 + IC MONT-CENIS;									\
        C=FS_E656S1B(|L),3*SNCF_VTU_B(|L),SNCF_VU_B6DU(|L),2*FS_VSE_A9O(|L);				\
        V=15;												\
        F=EP4;
 ;IC LEMANO
-     TX=FS E444 + IC Lemano;										\
+     TX=FS E444 + IC LEMANO;										\
        C=FS_E444_EB2(|L),3*FS_VSE_BO(|L),FS_GC69_TEE_WR(|L),FS_GC69_TEE_ATU(|L),FS_GC69_TEE_D(|L),;	\
        V=16;												\
        F=EP4;
 
 ;IC LIGURE
-     TX=FS E656 + IC Ligure;										\
+     TX=FS E656 + IC LIGURE;										\
        C=FS_E656S1B(|L)|FS_E656S2B(|L),									\
 	 (3*FS_UICX75_L(_GPB_A|1_GPB_AL),CIWL_4WRT3341(|L),5*FS_UICX75_GPB_B)|				\
 	 (4*FS_UICX75_GPB_B,FS_UICX70_BR_RFPBSR(|L),FS_UICX75_RGPB_A(|L),				\
@@ -366,56 +382,75 @@
        V=14;												\
        F=EP4;
 ;LUTETIA
-     TX=FS E656 + IC Lutetia;										\
+     TX=FS E656 + IC LUTETIA;										\
        C=FS_E656S1B(|L),FS_VSE_BO(|L),2*FS_VSE_A9O(|L),4*FS_VSE_BO(|L),FS_UICX75_C1_DZ(|L),		\
 	 2*SBB_Z1B(|L),SBB_VSE_A9O(|L);									\
        V=15;												\
        F=EP4;
 ;METROPOLITANO
-     TX=FS E444 + D Metropolitano;									\
+     TX=FS E444 + D METROPOLITANO;									\
        C=FS_E444_EB1(|L),2*(3:DB_AVMZ111_SDT(|L)|1:DB_AVMZ111_SDT2(|L)),5*FS_VSE_BO(|L);		\
        V=16;												\
        F=EP4;
-     TX=FS E646 + D Metropolitano;									\
+     TX=FS E646 + D METROPOLITANO;									\
        C=FS_E646G1(|L),2*DB_BPMZ291BB(|L)~MLG,DB_BM234BB2(|L),DB_BPMZ291BB(|L)~MLG,DB_BM234BB2(|L),	\
 	 DB_AVMZ111_SDT(|L);										\
        V=14;												\
        F=EP4;
 ;HOLLAND ITALIEN EXPRESS
-     TX=FS E444 + Holland Italien Express;								\
+     TX=FS E444 + HOLLAND ITALIEN EXPRESS;								\
        C=FS_E444_EB1(|L),FS_UICX68E_A(|L),3*FS_UICX68E_B(|L),DB_BM232G(|L),DB_DMS902G(|L),		\
 	 2:FS_UICX64_G_AB(|L)|1:FS_UICX70_SJ_GPB_AB(|L),FS_UICX68E_B(|L),FS_UICX68E_A(|L),		\
 	 4*FS_UICX68E_B(|L);										\
        V=14;												\
        F=EP4;
-     TX=FS E636 + Holland Italien Express;								\
+     TX=FS E636 + HOLLAND ITALIEN EXPRESS;								\
        C=FS_E636I1(|L),DB_DMS905BB2(|L),$DIR(DB_BDMS273BB2L,DB_BDMS273BB2),DB_BM234BB2(|L),		\
 	 DB_AM202BB2(|L);										\
        V=11;												\
        F=EP4;
 ;GONDOLIERE
-     TX=FS E636 + D Gondoliere;										\
+     TX=FS E636 + D GONDOLIERE;										\
        C=FS_E636I2(|L),DB_ABM225BB2(|L),OBB_ABMZ30700O(|L),OBB_VSE_C1_B(|L),2*OBB_ABMZ30700O(|L),	\
 	 OBB_VSE_C1_B(|L),OBB_DMSZ95700O(|L);								\
        V=11;												\
        F=EP4;
 ;ROMULUS
-     TX=FS E646 + D Romulus;										\
+     TX=FS E646 + D ROMULUS;										\
        C=FS_E646G1(|L),OBB_DMSZ95700O(|L),2*OBB_VSE_C1_B(|L),OBB_ABMZ30700O(|L),FS_WRSS_B_SELF(|L),	\
 	 OBB_VSE_C1_A(|L),2*OBB_VSE_C1_B(|L),FS_UICX75_GPB_B;						\
        V=14;												\
        F=EP4;
 
+;MÜNCHEN - VERONA - BOLOGNA/MERANO/NAPOLI/LECCE
+     TX=FS E633 + D MÜNCHEN - VERONA – BOLOGNA/MERANO/NAPOLI/LECCE;					\
+       C=FS_E633P(|L),FS_UICX64_GPB_A(|L),2*FS_UICX6(4|8)_RGPB_B,FS_UICX70_RGPB_B(|L),			\
+	 FS_UICX68_UIZ_GA(|L),FS_UICX75_RGPB_DZ(|L),2*FS_UICX70_RGPB_B(|L),FS_UICX6(4|8)_RGPB_B(|L),	\
+	 FS_UICX75_GPB_AB(|L),FS_UICX6(4|8)_RGPB_B,FS_UICX64_RGPB_AB(|L),FS_T59_GA_BC(|L);		\
+       V=13;												\
+       F=EP4;
 ;MILANO - HAMBURG / AMSTERDAM / BRUXELLES
-     TX=FS E656 + D Milano - Hamburg / Amsterdam / Bruxelles;						\
+     TX=FS E656 + D MILANO - HAMBURG / AMSTERDAM / BRUXELLES;						\
        C=FS_E656S1B(|L),DB_WRMH132TT(|L),5*DB_BM234BB2(|L),2*DB_AVMZ111_SDT(|L),SNCB_I4ABG(|L),		\
 	 SNCB_I2_B(|L);											\
        V=15;												\
        F=EP4;
 ;HOEK VAN HOLLAND - MERANO
-     TX=FS E656 + D Hoek van Holland – Merano;								\
+     TX=FS E656 + D HOEK VAN HOLLAND – MERANO;								\
        C=FS_E656S1B(|L),DB_BM232G(|L),DB_ABM224G(|L),DB_BM234POP(|L),DB_BCM243POPJ(|L);			\
        V=15;												\
+       F=EP4;
+;LYON - TORINO
+     TX=FS E633 + D LYON - TORINO;									\
+       C=FS_E633P(|L),											\
+	 (3*SNCF_VTU_B(|L),SNCF_VU_B6D(|L),SNCF_VTU_B(|L),2*SNCF_VTU2_B(|L),SNCF_VSE_A9(|L))|		\
+	 (SNCF_DD4S(|L),SNCF_VTU_B(|L),SNCF_VSE_A9(|L),2*SNCF_VTU_B(|L));				\
+       V=13;												\
+       F=EP4;
+     TX=FS E633 + D LYON - TORINO;									\
+       C=FS_E633P(|L),FS_UICX75_RGPB_DZ(|L),FS_UICX68_RG_A(|L),4*FS_UICX68_RGPB_B(|L),			\
+	 FS_UICX68ET_B(|L),SNCF_5UIC_B10WAS(|L);							\
+       V=13;												\
        F=EP4;
 
      TX=FS E636 + D;											\
@@ -445,39 +480,39 @@
        F=EP4;
 
 ;LOMBARDIE EXPRESS
-     TX=FS E444 +Lombardie Express;									\
+     TX=FS E444 +LOMBARDIE EXPRESS;									\
        C=FS_E444_EB2(|L),SNCF_DDMC76,FS_UICX70_GPB_AB(|L)|FS_UICX75_GPB_AB(|L),				\
 	 FS_UICX70_GPB_B(|L)|FS_UICX75_GPB_B,SNCF_VU_B11C(|L),SNCF_MU_JL_TEN(|L)|SNCF_MU_FLJ_TEN(|L),	\
 	 SNCF_MU_F71_TEN(|L),SNCF_4A_UIC_A4CB5C(|L),FS_UICX70_GPB_AB(|L),SNCF_DDMC76;			\
        V=16;												\
        F=EP4;
 ;NAPOLI EXPRESS
-     TX=FS E646 + Napoli Express;									\
+     TX=FS E646 + NAPOLI EXPRESS;									\
        C=FS_E646G1(|L),FS_WRSS_B_SELF(|L),2*SNCF_VU_B11C(|L),FS_UICX75_GPB_ACBC(|L),SNCF_VU_A4B6(|L),	\
 	 SNCF_VU_B6DU(|L),FS_UICX64_G_B(|L)|FS_UICX68E_B(|L),SNCF_VU_A4B6(|L),				\
 	 FS_UICX64_G1B(|L)|FS_UICX68ET_B(|L),SNCF_VU_B11C(|L),2*FS_UICX75_GPB_BC(|L),FS_MUFS_TEN2(|L),;	\
        V=14;												\
        F=EP4;
-     TX=FS E656 + Napoli Express;									\
+     TX=FS E656 + NAPOLI EXPRESS;									\
        C=FS_E656S1B(|L),FS_MU_F64LJ_TENTG(|L)|FS_MU64_TENTG(|L),2*FS_UICX70_GPB_BC(|L),			\
 	 SNCF_VU_B11C(|L),FS_UICX70_GPB_B(|L),SNCF_VU_A4B6(|L),FS_UICX70_GPB_B(|L),SNCF_VU_B6DU(|L),	\
 	 SNCF_VU_A4B6(|L),FS_UICX70_GPB_AB(|L),SNCF_VU_B11C(|L);					\
        V=15;												\
        F=EP4;
 ;PALATINO
-     TX=FS E444 + D Palatino;										\
+     TX=FS E444 + D PALATINO;										\
        C=FS_E444_EB2(|L),FS_WRSS_B_SELF(|L),2*FS_UICX75_RGPB_A(|L),FS_UICX80_L_RGPB_BC(|L),		\
 	 FS_UICX68ET_BC(|L),5*SNCF_VU_B11C(|L),XFS_MU64_TENTG,						\
 	 2*(FS_T2S75_TENTB(|L)|FS_T2S82_TEN2TB(|L),),SNCF_T2_TEN2(|L),;					\
        V=14;												\
        F=EP4;
 ;BRITANNIA EXPRESS
-     TX=FS E646 + Britannia Express;									\
+     TX=FS E646 + BRITANNIA EXPRESS;									\
        C=FS_E636I2(|L),SNCB_I5BC1(|L),DB_ABM225BB2(|L),DB_BCM243BB2(|L),DB_BM234BB2(|L);		\
        V=11;												\
        F=EP4;
 ;BRENNER EXPRESS
-     TX=FS E444 +Brenner Express;									\
+     TX=FS E444 +BRENNER EXPRESS;									\
        C=FS_E646G1(|L),FS_UICX75_GPB_BC(|L),2*XFS_MU64_TENTG,FS_UICX75_GPB_DZ(|L),			\
 	 2*(FS_UICX64_G_B(|L)|FS_UICX68E_B(|L)),FS_UICX64_G_AB(|L),DB_ABM224G(|L),DB_BM234POP(|L),	\
 	 FS_T2S75_TENTB(|L),DB_ABM225POP(|L),DB_BM234POP(|L);						\
@@ -521,56 +556,56 @@
        V=15;												\
        F=EP4;
 
-;Aurora
-     TX=FS E444 + D Aurora;										\
+;AURORA
+     TX=FS E444 + D AURORA;										\
        C=FS_E444_EB2(|L),2*FS_UICX75_GPB_B,FS_GC70EB2_A(|L),2*FS_VSE_A9O(|L),FS_UICX75_GPB_B,		\
 	 2*FS_VSE_A9O(|L),2*FS_UICX75_GPB_B,FS_GC70EB2_WR(|L);						\
        V=16;												\
        F=EP4;
-     TX=FS E444 + D Aurora;										\
+     TX=FS E444 + D AURORA;										\
        C=FS_E444_EB2(|L),2*FS_VSE_A9O(|L),FS_WRSS_B_SELF(|L),4*FS_VSE_BO(|L);				\
        V=16;												\
        F=EP4;
-     TX=FS E444 + D Aurora;										\
+     TX=FS E444 + D AURORA;										\
        C=FS_E444_EB2(|L),FS_VSE_BO(|L),FS_UICX64_BRG_RFPBSR(|L),7*FS_VSE_BO(|L),FS_VSE_A9O(|L),		\
 	 FS_UICX75_GPB_DZ(|L);										\
        V=16;												\
        F=EP4;
-;Rapido
-     TX=FS E424 + Rapido;										\
+;RAPIDO
+     TX=FS E424 + RAPIDO;										\
        C=FS_E424_ISA1(|L),FS_UICX64_G1B(|L),FS_UICX64_GPB_A(|L),FS_UICX64_G1B(|L);			\
        V=12;												\
        F=EP4;
-     TX=FS E444 + Rapido;										\
+     TX=FS E444 + RAPIDO;										\
        C=FS_E444_EB2(|L),FS_UICX64_G_A(|L),FS_UICX75_(L_GPB_A|L1_GPB_AL),FS_UICX64_G_A(|L),		\
 	 2*FS_UICX64_G_B(|L),FS_UICX75_GPB_B,FS_UICX64_G_B(|L),FS_UICX75_GPB_B;				\
        V=16;												\
        F=EP4;
-     TX=FS E636 + Rapido;										\
+     TX=FS E636 + RAPIDO;										\
        C=FS_E636I2(|L),FS_WRSS_B_SELF(|L),FS_GC70EB2_AP(|L),3*FS_GC70EB2_A(|L),FS_GC70EB2_DZ(|L);	\
        V=11;												\
        F=EP4;
-     TX=FS E645 + Rapido;										\
+     TX=FS E645 + RAPIDO;										\
        C=FS_E645BI2(|L),FS_UICX64_GPB_A(|L),7*FS_PR73_NBN1(|L),2*FS_UICX64_GPB_A(|L);			\
        V=12;												\
        F=EP4;
-     TX=FS E646 + Rapido;										\
+     TX=FS E646 + RAPIDO;										\
        C=FS_E646G1(|L),2*FS_T59_GA_A(|L),4*(FS_UICX64_G_B(|L)|FS_UICX68E_B(|L));			\
        V=14;												\
        F=EP4;
-     TX=FS E646 + Rapido;										\
+     TX=FS E646 + RAPIDO;										\
        C=FS_E646G1(|L),FS_UICX68ET_B(|L),FS_UICX68_RGPB_B(|L),FS_UICX68ET_B(|L),FS_UICX68_RGPB_B(|L),	\
 	 FS_T59_GA_B(|L),FS_UICX64_BRG_GA(|L),FS_UICX64_GPB_A(|L),FS_UICX64_RGPB_A(|L),			\
 	 FS_UICX64_RGPB_AB(|L),FS_UICX64_RGPB_AB(|L),FS_UICX68_RGPB_BC(|L),SZD_WLABM73(|L),		\
 	 FS_UICX70_GPB_B(|L),FS_UICX75_RGPB_A(|L),;							\
        V=14;												\
        F=EP4;
-     TX=FS E656 + Rapido;										\
+     TX=FS E656 + RAPIDO;										\
        C=FS_E656S1B(|L),5*FS_UICX70_GPB_B(|L),FS_WRSS_B_SELF(|L),FS_GC70EB_A(|L),FS_GC70EB_AP(|L),	\
 	 2*FS_GC70EB_A(|L);										\
        V=15;												\
        F=EP4;
-     TX=FS D445 + Rapido;										\
+     TX=FS D445 + RAPIDO;										\
        C=FS_D445G(|L),											\
 	 (FS_UICX64_RGPB_B(|L),2*FS_UICX64_G1B(|L),FS_UICX70_GPB_B(|L),FS_UICX64_GPB_A(|L))|		\
 	 (FS_UICX64_RGPB_A(|L),FS_UICX64_G1B(|L),FS_UICX64_RGPB_B(|L),FS_UICX70_GPB_B(|L),		\
@@ -578,26 +613,33 @@
        V=13;												\
        F=DP4;
 
-     TX=FS E444 + Rapido;										\
+     TX=FS E444 + RAPIDO;										\
        C=FS_E444_EB2(|L),2*FS_MDVE_REG_NA,5*FS_MDVE_REG_NB,FS_MDVE_REG_NA,3*FS_MDVE_REG_NB;		\
        V=14;												\
        F=EP4;
-     TX=FS E444 + Rapido;										\
-       C=FS_E444_EB2(|L),5*FS_MDVE_REG_NB,FS_MDVE_REG_NA,FS_UICX68T_REG_DZ(|L);				\
+     TX=FS E444 + RAPIDO;										\
+       C=FS_E444_EB2(|L),5*FS_MDVE_REG_NB,FS_MDVE_REG_NA,FS_UICX70T_NDU_REG(|L);			\
        V=16;												\
        F=EP4;
-     TX=FS E646 + Rapido;										\
-       C=(<FS_E646RN1(|L),FS_UICX68T_REG_DZ(|L),2*FS_MDVE_REG_NA,5*FS_MDVE_REG_NB,FS_MDVC_REG_NPBD2)|	\
-	 (>FS_E646RN1(|L),FS_UICX68T_REG_DZ(|L),2*FS_MDVE_REG_NA,5*FS_MDVE_REG_NB,FS_MDVC_REG_NPBD2L);	\
+     TX=FS E646 + RAPIDO;										\
+       C=(<FS_E646RN1(|L),FS_UICX70T_NDU_REG(|L),2*FS_MDVE_REG_NA,5*FS_MDVE_REG_NB,FS_MDVC_REG_NPBD2)|	\
+	 (>FS_E646RN1(|L),FS_UICX70T_NDU_REG(|L),2*FS_MDVE_REG_NA,5*FS_MDVE_REG_NB,FS_MDVC_REG_NPBD2L);	\
        V=12;												\
        F=EP4;
-     TX=FS E656 + Rapido;										\
+
+     C=FS_E444_EB2(|L),5*FS_MDVE_REG_NB,FS_MDVE_REG_NA,FS_UICX70T_NDU_REG(|L);				\
+       V=16;
+     C=(<FS_E646RN1(|L),FS_UICX70T_NDU_REG(|L),2*FS_MDVE_REG_NA,5*FS_MDVE_REG_NB,FS_MDVC_REG_NPBD2)|	\
+	 (>FS_E646RN1(|L),FS_UICX70T_NDU_REG(|L),2*FS_MDVE_REG_NA,5*FS_MDVE_REG_NB,FS_MDVC_REG_NPBD2L);	\
+       V=12;
+
+     TX=FS E656 + RAPIDO;										\
        C=FS_E656S1B(|L)|FS_E656S2B(|L)|FS_E656S3B,FS_UICX64_G_B(|L),3*FS_T46_BZE(|L),FS_T59_GA_A(|L),	\
 	 FS_T56_UIZE(|L),FS_T46T_AE(|L),FS_UICX64_BRG_GA(|L),FS_UICX64_G_B(|L);				\
        V=13;												\
        F=EP4;
 
-     TX=FS D443 + Rapido;										\
+     TX=FS D443 + RAPIDO;										\
        C=2*FS_D443F(|L),FS_UICX68_RG_A(|L),FS_UICX75_GPB_ACBC(|L),FS_UICX64_RGPB_A(|L),			\
 	 FS_UICX64_G_AB(|L),2*FS_UICX75_RGPB_B,2*FS_UICX75_GPB_B,2*FS_DDM_RG;				\
        V=12;												\
@@ -608,23 +650,23 @@
        V=14;												\
        F=DPU4;
 
-# Vintimille/Nice - Coni
-     TX=FS D 345 + Vintimille/Nice - Coni;								\
+# VINTIMILLE/NICE - CONI
+     TX=FS D 345 + VINTIMILLE/NICE - CONI;								\
        C=FS_D345G(|L),(FS_T55_ABE(|L),FS_T46_BZE(|L))|FS_T59_GA_AB(|L),2*FS_T46_BZE(|L);		\
        V=10;												\
        F=DP4;
-     TX=FS D 345 + Vintimille/Nice - Coni;								\
+     TX=FS D 345 + VINTIMILLE/NICE - CONI;								\
        C=FS_D345G(|L)|FS_D345G1(|L),									\
 	 (FS_UICX64_GPB_A(|L),FS_UICX68ET_B(|L),FS_UICX64_G_B(|L),0-1*SBB_4UIC_AB(|L))|			\
 	 (FS_UICX68E_A(|L),FS_UICX70_GPB_B(|L),FS_UICX75_RG_B(|L),);					\
        V=10;												\
        F=DP4;
-     TX=FS ALN 663Vintimille/Nice - Coni;								\
+     TX=FS ALN 663VINTIMILLE/NICE - CONI;								\
        C=3*FS_ALN663A(|L);										\
        V=12;												\
        F=DPU4;
 # BERN-VENTIMIGLIA
-     TX=FS D 345 + Bern-Ventimiglia;									\
+     TX=FS D 345 + BERN-VENTIMIGLIA;									\
        C=FS_D345G(|L),2*SBB_UIC_C1_B11(|L),BLS_RIC_A7(|L),;						\
        V=10;												\
        F=DP4;
@@ -637,97 +679,112 @@
        TUI FERIEN EXPRESS;
 
 ;REGIONAL
-     TX=FS E636 + Regionale;										\
+     TX=FS E636 + REGIONALE;										\
        C=FS_E636I1(|L),2*FS_UICX68T_REG_DZ(|L),FS_MDVE_REG_NA,4*FS_MDVE_REG_NB;				\
        V=11;												\
        F=EPR4;
-     TX=FS E646 + Regionale;										\
-       C=(<FS_E646G2(|L),2*FS_PR65_NBE(|L),2*FS_PR73_NBE(|L),2*FS_PR65_NBE(|L),FS_PR73_NPBDN)|		\
+     TX=FS E646 + REGIONALE;										\
+       C=(<FS_E646G2(|L),2*FS_UICX70T_NDU_REG(|L),2*FS_PR73_NBE(|L),2*FS_PR65_NBE(|L),FS_PR73_NPBDN)|	\
 	 (>FS_E646G2(|L),2*FS_PR65_NBE(|L),2*FS_PR73_NBE(|L),2*FS_PR65_NBE(|L),FS_PR73_NPBDNL);		\
        V=12;												\
        F=EPRU4;
-     TX=FS E646 + Regionale;										\
+     TX=FS E646 + REGIONALE;										\
        C=(<FS_E646RG2(|L),5*FS_2AT64_DUI_GA(|L),FS_DPC_NPBZ_NAV1)|					\
 	 (>FS_E646RG2(|L),5*FS_2AT64_DUI_GA(|L),FS_DPC_NPBZ_NAV1L);					\
        V=12;												\
        F=EPRU4;
-     TX=FS E646 + Regionale;										\
+     TX=FS E646 + REGIONALE;										\
        C=(<FS_E646RN(|L),(6*FS_MDVC_NAV_NBZ,4*FS_MDVC_NAV_NAB)|(4*FS_MDVC_NAV_NAB,6*FS_MDVC_NAV_NBZ),	\
 	 FS_MDVC_NAV_NPBD2)|										\
 	 (>FS_E646RN(|L),(6*FS_MDVC_NAV_NBZ,4*FS_MDVC_NAV_NAB)|(4*FS_MDVC_NAV_NAB,6*FS_MDVC_NAV_NBZ),	\
 	 FS_MDVC_NAV_NPBD2L);										\
        V=14;												\
        F=EPRU4;
-     TX=FS E646 + Regionale;										\
+     TX=FS E646 + REGIONALE;										\
        C=(<FS_E646RN(|L),2*FS_PR73_NBN(|L),FS_PR73_NPBDN)|						\
 	 (>FS_E646RN(|L),2*FS_PR73_NBN(|L),FS_PR73_NPBDNL);						\
        V=12;												\
        F=EPRU4;
-     TX=FS E656 + Regionale;										\
+     TX=FS E656 + REGIONALE;										\
        C=FS_E656S2B(|L),FS_UICX70_G_DZ(|L),4*FS_MDVC_NAV1_NBZ,FS_UICX64_GPB_A(|L);			\
        V=13;												\
        F=EPRU4;
-     TX=FS E656 + Regionale;										\
+     TX=FS E656 + REGIONALE;										\
        C=FS_E656S1B(|L)|FS_E656S2B(|L),5*FS_MDVC_NAV1_NBZ,FS_UICX64_GPB_A(|L),				\
 	 FS_UICX75_L(_GPB_A|1_GPB_AL);									\
        V=13;												\
        F=EPRU4;
-     TX=FS E656 + Regionale;										\
+     TX=FS E656 + REGIONALE;										\
        C=FS_E656S1B(|L)|FS_E656S2B(|L),FS_UICX64_RGPB_A(|L),FS_MDVE_REG_NA,5*FS_MDVE_REG_NB;		\
        V=13;												\
        F=EPRU4;
-     TX=FS D445 + Regionale;										\
+     TX=FS D445 + REGIONALE;										\
        C=(<FS_D445NAV(|L),2*FS_PR73_NBN1(|L),FS_MDVC_NAV_NAB,FS_PR73_NPBDN1)|				\
 	 (>FS_D445NAV(|L),2*FS_PR73_NBN1(|L),FS_MDVC_NAV_NAB,FS_PR73_NPBDN1L);				\
        V=12;												\
        F=DPRU4;
-     TX=FS ALE 724 Regionale;										\
+     TX=FS ALE 724 REGIONALE;										\
        C=1-2*(<FS_ALE724_NAVL,FS_LE884_2S_NAVL,FS_LE884_2S_NAV,FS_ALE724_NAV);				\
        V=14;												\
        F=EPRU4;
-     TX=FS ALE 644 Regionale;										\
+     TX=FS ALE 644 REGIONALE;										\
        C=<(FS_ALE644AL,2@(FS_LE724_1A|FS_LE724_1AL),FS_ALE644A);					\
        V=13;												\
        F=EPRU4;
-     TX=FS ALE 804 Regionale;										\
+     TX=FS ALE 804 REGIONALE;										\
        C=<3:(FS_ALE804AL,2@(FS_LE884_1A|FS_LE884_1AL),FS_ALE804A)|					\
 	 1:(FS_ALE804AL,2@(FS_LE724_1A|FS_LE724_1AL),FS_ALE804A);					\
        V=13;												\
        F=EPRU4;
-     TX=FS ALE 724 Regionale;										\
+     TX=FS ALE 724 REGIONALE;										\
        C=1-2*((<FS_ALE724_NAVL,FS_LE884_2S_NAVL,FS_LE884_2S_NAV,FS_LE724_NAV)|				\
 	 (<FS_LE724_NAVL,FS_LE884_2S_NAVL,FS_LE884_2S_NAV,FS_ALE724_NAV));				\
        V=14;												\
        F=EPUR4;
-     TX=FS ALN 668 2400 Regionale;									\
-       C=1-2*FS_ALN668_2400_L1;										\
+     TX=FS ALN 668.1400;										\
+       C=FS_ALN668_1400A1(|L);										\
        V=11;												\
        F=DPRU4;
-     TX=FS ALN 668 2400 Regionale;									\
-       C=(2*FS_ALN668_2400_L1,3*FS_ALN663A(|L))|(3*FS_ALN663A(|L),2*FS_ALN668_2400_L1);			\
+     TX=FS ALN 668.1900;										\
+       C=1-2*FS_ALN668_1900C(|L);									\
        V=11;												\
        F=DPRU4;
-     TX=FS ALN 668 1200 Regionale;									\
+     TX=FS ALN 668 1200 REGIONALE;									\
        C=1-2*FS_ALN668_1200B(|L);									\
        V=11;												\
        F=DPRU4;
-     TX=FS ALN 668 3000 Regionale;									\
+     TX=FS ALN 668 3000 REGIONALE;									\
        C=1-3*FS_ALN668_3000B(|L);									\
        V=13;												\
        F=DPRU4;
+     TX=FS ALN 668.2400;										\
+       C=1-2*FS_ALN668_2400_BB1;									\
+       V=11;												\
+       F=DPRU4;
+     TX=FS ALN 668.2400 + ALN 663;									\
+       C=(2*FS_ALN668_2400_BB1,3*FS_ALN663A(|L))|(3*FS_ALN663A(|L),2*FS_ALN668_2400_BB1);		\
+       V=11;												\
+       F=DPRU4;
 ;FNM
 ;---
-     TX=FERROVIA MILANO NORD EB7500 Regionale;								\
+     TX=FERROVIA MILANO NORD EB7500 REGIONALE;								\
        C=1-2@((<FNM_EB750AOL,FNM_EB950O,FNM_EAB850O)|(>FNM_EB750AO,FNM_EB950OL,FNM_EAB850OL));		\
        V=12;												\
        F=EPUR4;
+
+;SNFT
+;----
+     TX=SNFT ALN 668;											\
+       C=3:SNFT_ALN668_120BA(|L)|1:SNFT_ALN668_120AA(|L),|SNFT_B68A(|L);				\
+       V=9;												\
+       F=DPU4;
    }
    {E5?
 ;=============
 ;=== EP VA ===
 ;=============
 ;TEE COLOSSEUM
-     TX=FS E444 + TEE Colosseum;									\
+     TX=FS E444 + TEE COLOSSEUM;									\
        C=FS_E444_EB2(|L),										\
 	 (CIWL_4WRT3341N(|L),FS_GC70EB_AP(|L),3*FS_GC70EB_A(|L),FS_GC70EB_DZ(|L),4*FS_GC70EB_A(|L),	\
 	 FS_GC70EB_AP(|L))|										\
@@ -736,54 +793,96 @@
        V=16;												\
        F=EP5;
 ;EC CARLO MAGNO
-     TX=FS E444 + EC Carlo Magno;									\
+     TX=FS E444 + EC CARLO MAGNO;									\
        C=FS_E444_EB2(|L),2*XFS_UICX75_RGPB_B,3*DB_BPMZ291BB(|L)~MLG,3*DB_BM234BB2(|L),			\
 	 DB_WRMH132T2(|L),2*DB_AVMZ207TEE2(|L),DB_APMZ121T2(|L)|DB_APMZ121_SDT2(|L);			\
        V=16;												\
        F=EP5;
 ;EC LUTETIA / LEMANO
-     TX=FS E444 + EC Lutetia / Lemano;									\
+     TX=FS E444 + EC LUTETIA / LEMANO;									\
        C=FS_E444_EB2(|L),FS_UICX75_C1_DZ(|L),(FS_UICX75_L_GPB_A|FS_UICX75_L1_GPB_AL),			\
 	 FS_UICX75_RGPB_A(|L),4*FS_VSE_BO(|L);								\
        V=16;												\
        F=EP5;
 ;EC MICHELANGELO
-     TX=FS E656 + EC Michelangelo;									\
+     TX=FS E656 + EC MICHELANGELO;									\
        C=FS_E656S1B(|L)|FS_E656S2B(|L)|FS_E656S3B,2*FS_UICZ85_A_BG(|L),FS_GC70EB_WR(|L),		\
 	 7*FS_UICZ85_GB_B(|L);										\
        V=15;												\
        F=EP5;
+     TX=FS E633 + EC MICHELANGELO;									\
+       C=FS_E633P(|L),2*FS_UICZ85_A_BG(|L),FS_GC70EB2_WR(|L),7*FS_UICZ85_GB_B(|L);			\
+       V=13;												\
+       F=EP5;
+;EC LEONARDO DA VINCI
+     TX=FS E633 + EC LEONARDO DA VINCI;									\
+       C=FS_E633EB(|L),2*DB_AVMZ207TEE2(|L),DB_WRMH132T2(|L),2*DB_BM234BB2(|L),4*DB_BPMZ291BB(|L);	\
+       V=13;												\
+       F=EP5;
 ;EC MONTEVERDI
-     TX=FS E444 + EC Monteverdi;									\
+     TX=FS E444 + EC MONTEVERDI;									\
        C=FS_E444_EB2(|L),2*SBB_VSE_A9O(|L),2*SBB_Z1B(|L),SBB_4UIC_B(|L);				\
        V=16;												\
        F=EP5;
 ;IC MONT-CENIS
-     TX=FS E444 + IC Mont-Cenis;									\
+     TX=FS E444 + IC MONT-CENIS;									\
        C=FS_E444_EB2(|L),2*SNCF_VSE_A9N(|L),SNCF_VU_CN_B6DU(|L),4*SNCF_VTU_CN_B(|L),;			\
        V=16;												\
        F=EP5;
 ;IC CAVOUR
-     TX=FS E444 + IC Cavour;										\
+     TX=FS E444 + IC CAVOUR;										\
        C=FS_E444_EB2(|L),3*FS_UICX75_RGPB_A(|L),FS_UICX70_BR_RFPBSR(|L),				\
 	 2*(FS_UICX64_RGPB_B(|L)|FS_UICX68_RGPB_B(|L),),5*(FS_UICX64_G1B(|L)|FS_UICX68ET_B(|L));	\
        V=16;												\
        F=EP5;
 ;EC ROMULUS
-     TX=FS E656 + EC RomulusLigure;									\
+     TX=FS E656 + EC ROMULUSLIGURE;									\
        C=FS_E656S1B(|L)|FS_E656S2B(|L)|FS_E656S3B,2*OBB_VSE_C1_A(|L),FS_GC70EB_WR(|L),OBB_VSE_B(|L),	\
 	 4*OBB_VSE_C1_B(|L),2*FS_UICX75_RGPB_B;								\
        V=15;												\
        F=EP5;
 ;EC ROSSINI
-     TX=FS E645 + EC Rossini;										\
+     TX=FS E645 + EC ROSSINI;										\
        C=FS_E645BI2(|L),3*SBB_Z1B(|L),SBB_5UIC_WRL,2*SBB_4UIC_A(|L);					\
        V=12;												\
        F=EP5;
 ;EC TIZIANO
-     TX=FS E645 + EC Tiziano;										\
+     TX=FS E645 + EC TIZIANO;										\
        C=FS_E645BI2(|L),DB_AVMZ111_SDT2(|L),2*DB_BM234BB2(|L),2*DB_BPMZ291BB(|L);			\
        V=12;												\
+       F=EP5;
+;IC MONT CENIS
+     TX=FS E633 + IC MONT CENIS;									\
+       C=FS_E633P(|L),											\
+	 (SNCF_VTU2_B(|L),2*(SNCF_VTU_CN_B(|L)|SNCF_VTU_B(|L)),SNCF_VU_B6D(|L),				\
+	 FS_VSE_A9O(|L)|FS_VSE_A9O1(|L),FS_UICX75_C_RG_A)|						\
+	 (4*(SNCF_VTU_CN_B(|L)|SNCF_VTU_B(|L)),SNCF_VU_CN_B6DU(|L)|SNCF_VU_B6DU(|L),			\
+	 2*(SNCF_VSE_A9N(|L)|SNCF_VSE_A9(|L)));								\
+       V=13;												\
+       F=EP5;
+
+;GENOVA - STUTTGART
+     TX=FS 633 + D GENOVA - STUTTGART;									\
+       C=FS_E633P(|L),FS_UICX75_RGPB_DZ(|L),2*FS_UICX6(4|8)_RGPB_B(|L),FS_UICX64_RGPB_AB(|L),		\
+	 FS_UICX64_GPB_AB(|L),FS_UICX6(4|8)_RGPB_B(|L),SBB_4UIC_AB(|L),SBB_4UIC_B(|L),			\
+	 (FS_UICX6(4|8)_RGPB_B(|L),FS_UICX70_GPB_B(|L))|(FS_UICX70_RGPB_B(|L),FS_UICX64_GPB_A(|L));	\
+       V=13;												\
+       F=EP5;
+;SPREE ALPEN EXPRESS
+     TX=FS E636 + SPREE ALPEN EXPRESS;									\
+       C=FS_E636I1(|L),DR_WLABME78B(|L),3*DR_HS_BM200(|L);						\
+       V=11;												\
+       F=EP5;
+     TX=FS E652 + SPREE ALPEN EXPRESS;									\
+       C=FS_E652EB(|L),3*DR_HS_BM(|L),DR_WLABME78B(|L);							\
+       V=13;												\
+       F=EP5;
+;ALPEN EXPRESS
+     TX=FS E633 + ALPEN EXPRESS;									\
+       C=FS_E633EB(|L),FS_UICX6(4|8)_RGPB_B,FS_UICX64_RGPB_AB(|L),FS_UICX76_UMIZ_GAPB(|L),		\
+	 FS_UICX75_RGPB_DZ(|L),FS_UICX70_RGPB_B(|L),FS_UICX6(4|8)_RGPB_B,2*FS_UICX75_RG_A(|L),		\
+	 FS_WRSS_B_SELF(|L),XFS_UICX75_GPB_B,FS_UICX6(8ET_|4_G1)B(|L),2*FS_UICX70_RGPB_B(|L);		\
+       V=13;												\
        F=EP5;
 
      TX=FS E646 + IC;											\
@@ -793,28 +892,14 @@
        F=EP5;
 
 ;IC LIGURE
-     TX=FS E656 + IC Ligure;										\
+     TX=FS E656 + IC LIGURE;										\
        C=FS_E656S1B(|L)|FS_E656S2B(|L),FS_UICX75_RGPB_B,FS_UICX75_GPB_B,2*FS_UICX75_RGPB_B,		\
 	 FS_UICX70_BR_RFPBSR(|L),FS_UICX75_RGPB_A(|L),FS_UICX75_GPB_B;					\
        V=15;												\
        F=EP5;
 
-;SPREE ALPEN EXPRESS
-     TX=FS E636 + Spree Alpen Express;									\
-       C=FS_E636I1(|L),DR_WLABME78B(|L),3*DR_HS_BM200(|L);						\
-       V=11;												\
-       F=EP5;
-;PALATINO
-     TX=FS E444 + D Palatino;										\
-       C=FS_E444_EB2(|L),FS_T2S82_TEN2TB(|L)|FS_T2S_TEN2(|L),FS_MU64_TEN(|L),				\
-	 2|FS_MU72_TEN2(|L)|FS_MUFS_TEN2(|L),2*(FS_T2S75_TENTB(|L)|FS_T2S82_TEN2TB(|L)),		\
-	 FS_MU64_TEN(|L),2|FS_MU72_TEN2(|L)|FS_MUFS_TEN2(|L),SNCF_VU_NN_B11C(|L),FS_UICX75_GPB_BC(|L),	\
-	 6*(1:SNCF_VU_B11C(|L)|2:SNCF_VU_NN_B11C(|L));							\
-       V=14;												\
-       F=EP5;
-
-;Vintimille/Nice - Coni
-     TX=FS D 445 + Vintimille/Nice – ConiI;								\
+;VINTIMILLE/NICE - CONI
+     TX=FS D 445 + VINTIMILLE/NICE – CONII;								\
        C=(>FS_D445NAV(|L),										\
 	 (FS_MDVE_REG_NA,FS_MDVC_NAV1_NBZ|FS_MDVC_NAV_NBZ)|						\
 	 (FS_MDVC_NAV1_NBZ|FS_MDVC_NAV_NBZ,FS_MDVC_NAV_NAB),2*(FS_MDVC_NAV1_NBZ|FS_MDVC_NAV_NBZ),	\
@@ -825,69 +910,78 @@
 	 FS_MDVC_NAV_NPBD2);										\
        V=10;												\
        F=DP5;
-     TX=FS D 445 + Vintimille/Nice – Coni;								\
+     TX=FS D 445 + VINTIMILLE/NICE – CONI;								\
        C=FS_D445NAV(|L),FS_MDVC_NAV_NBZ,FS_UICX68_RG_A(|L),3*FS_MDVC_NAV_NBZ;				\
        V=10;												\
        F=DP5;
 
-;Rapido
-     TX=FS E444 + Rapido;										\
+;RAPIDO
+     TX=FS E444 + RAPIDO;										\
        C=FS_E444_EB2(|L),FS_UICZ85_G_B(|L),2*FS_UICZ85_GB_B(|L),FS_UICZ85_G_B(|L),FS_UICZ85_GB_B(|L),	\
 	 (FS_UICZ85_G_B(|L),FS_WRSS_B_SELF(|L),FS_GC70EB2_AP(|L),2*FS_GC70EB2_A(|L),FS_GC70EB2_AP(|L))|	\
 	 (FS_UICZ85_GB_B(|L),FS_UICZ88_G_BH(|L),FS_WRSS_B_SELF(|L),FS_GC70EB2_DZ(|L),			\
 	 FS_GC86EB2_AP(|L),2*FS_GC86EB2_A(|L),FS_GC86EB2_AP(|L));					\
        V=16;												\
        F=EP5;
-     TX=FS E444 + Rapido;										\
+
+     TX=FS E444 + RAPIDO;										\
        C=FS_E444_EB2(|L),5*FS_UICZ85_GB_B(|L),FS_UICZ88_G_BH(|L),FS_GC70EB2_DZ(|L),FS_GC70EB2_WR(|L),	\
 	 FS_GC70EB2_AP(|L),2*FS_GC70EB2_A(|L),FS_GC70EB2_AP(|L);					\
        V=16;												\
        F=EP5;
-     TX=FS E444 + Rapido;										\
+     TX=FS E444 + RAPIDO;										\
        C=FS_E444_EB2(|L),XFS_UICX75_RGPB_B,FS_UICX75_RG_B(|L),2*XFS_UICX75_RGPB_B,FS_UICX75_C_RG_B,	\
 	 FS_UICZ88_G_BH(|L),FS_GC86EB2_AP(|L),3*FS_GC86EB2_A(|L);					\
        V=16;												\
        F=EP5;
-     TX=FS E444 + Rapido;										\
+     TX=FS E444 + RAPIDO;										\
        C=FS_E444_EB2(|L),FS_VSE_A9O1(|L),2*FS_UICZ85_A9E(|L),FS_VSE_A9O1(|L),FS_GC70_GBB1P_R(|L),	\
 	 2*FS_UICZ85_GB_B(|L),FS_UICZ88_G_BH(|L),FS_VSE_B1O(|L),FS_UICZ85_GB_B(|L),FS_UICZ85_G_B(|L),	\
 	 FS_UICZ85_GB_B(|L);										\
        V=16;												\
        F=EP5;
-     TX=FS E444 + Rapido;										\
+     TX=FS E444 + RAPIDO;										\
        C=FS_E444_EB2(|L),2*FS_GC70EB2_A(|L),2*FS_GC70EB2_AP(|L),FS_GC70EB2_WR(|L),FS_GC70EB2_DZ(|L),	\
 	 FS_UICZ85_G_B(|L),FS_UICX75_C_RG_B,4*FS_UICZ85_GB_B(|L);					\
        V=16;												\
        F=EP5;
-     TX=FS E636 + Rapido;										\
+     TX=FS E633 + RAPIDO;										\
+       C=FS_E633P(|L),FS_MDVE_REG_NA,7*FS_MDVE_REG_NB,2*FS_MDVE_REG_NA;					\
+       V=13;												\
+       F=EP5;
+     TX=FS E633 + RAPIDO;										\
+       C=>FS_E633EB(|L),FS_UICX70T_NDU_REG(|L),2*FS_MDVE_REG_NA,5*FS_MDVE_REG_NB,FS_MDVC_REG_NPBD2L;	\
+       V=14;												\
+       F=EP5;
+     TX=FS E636 + RAPIDO;										\
        C=FS_E636I3(|L),FS_UICX75_RGPB_B,FS_UICX75_GPB_B,FS_UICX75_RG_A(|L),FS_UICX64_BRG_RFPBSR(|L),	\
 	 2*FS_UICX70_SJ_RGPB_AB(|L),FS_UICX75_AB_RFPB(|L),FS_UICX80_RG_BC(|L);				\
        V=11;												\
        F=EP5;
-     TX=FS E636 + Rapido;										\
+     TX=FS E636 + RAPIDO;										\
        C=FS_E636I3(|L),FS_UICX70_SJ_RGPB_AB(|L),FS_UICX75_AB_RFPB(|L),FS_UICX75_RGPB_B,			\
 	 FS_UICX68_RGPB_BC(|L),FS_UICX64_RGPB_AB(|L),FS_T78R_DUZ_NAV(|L),FS_UICX68_UIZ_GA(|L);		\
        V=11;												\
        F=EP5;
-     TX=FS E645 + Rapido;										\
+     TX=FS E645 + RAPIDO;										\
        C=FS_E645AI2(|L),FS_UICX64_RGPB_A(|L),FS_VSE_B1O(|L),FS_UICZ85_GB_B(|L),3*FS_VSE_B1O(|L);	\
        V=12;												\
        F=EP5;
-     TX=FS E646 + Rapido;										\
+     TX=FS E646 + RAPIDO;										\
        C=FS_E646G2(|L),XFS_UICX75_GPB_B,FS_UICX75_(L_GPB_A|L1_GPB_AL),FS_VSE_A9O1(|L);			\
        V=14;												\
        F=EP5;
-     TX=FS E646 + Rapido;										\
+     TX=FS E646 + RAPIDO;										\
        C=FS_E646RN(|L),FS_T55T_RF_A(|L),FS_T57_RF_B(|L),FS_T59_GA_AB(|L),FS_T46_BZE(|L);		\
        V=14;												\
        F=EP5;
-     TX=FS D  445 + Rapido;										\
+     TX=FS D  445 + RAPIDO;										\
        C=FS_D445G(|L),4*FS_UICX64_RGPB_B(|L),FS_UICX64_RGPB_A(|L);					\
        V=13;												\
        F=DP5;
 
 ;NOTTE
-     TX=FS E444 + Treno Notte;										\
+     TX=FS E444 + TRENO NOTTE;										\
        C=FS_E444_EB2(|L),										\
 	 (<FS_UICX75_RG_BC(|L),FS_UICX68ET_BC,FS_T59T_RF_BCZ(|L),FS_MUFS_TEN2(|L),FS_T2S_TEN2,		\
 	 FS_UICX87_RG_D(|L),FS_MU64_TEN(|L),FS_MUFS_TEN2(|L),FS_T59T_RF_ACBCZ(|L),FS_UICX75_RG_BC(|L),	\
@@ -897,248 +991,321 @@
 	 FS_UICX80_RG_BC(|L),FS_UICX75_RG_BC(|L),FS_T59T_RF_ACBCZ(|L),FS_UICX80_RG_BC(|L));		\
        V=16;												\
        F=EP5;
+     TX=FS E633 + TRENO NOTTE;										\
+       C=FS_E633EB(|L),2*FS_UICX68_RGPB_B(|L),2*SNCF_5UIC_B10CH(|L),FS_UICX68_RGPB_B(|L),		\
+	 2*SNCB_I5BCO(|L);										\
+       V=16;												\
+       F=EP5;
+;EC PALATINO
+     TX=FS E 633 +EC PALATINO;										\
+       C=FS_E633P(|L),6*SNCF_VU_NN_B11C(|L),FS_UICX70_GPB_BC(|L),SNCF_VU_NN_B11C(|L),FS_MU64_TEN2(|L),	\
+	 2*FS_T2S82_TEN2TB(|L),FS_MU64_TEN2(|L),FS_T2S82_TEN2TB(|L);					\
+       V=13;												\
+       F=EP5;
+;PALATINO
+     TX=FS E444 + D PALATINO;										\
+       C=FS_E444_EB2(|L),FS_T2S82_TEN2TB(|L)|FS_T2S_TEN2(|L),FS_MU64_TEN(|L),				\
+	 2|FS_MU72_TEN2(|L)|FS_MUFS_TEN2(|L),2*(FS_T2S75_TENTB(|L)|FS_T2S82_TEN2TB(|L)),		\
+	 FS_MU64_TEN(|L),2|FS_MU72_TEN2(|L)|FS_MUFS_TEN2(|L),SNCF_VU_NN_B11C(|L),FS_UICX75_GPB_BC(|L),	\
+	 6*(1:SNCF_VU_B11C(|L)|2:SNCF_VU_NN_B11C(|L));							\
+       V=14;												\
+       F=EP5;
 
-     TX=FS E424 + Treno Notte;										\
+;EC STENDHAL
+     TX=FS E 633 + EC STENDHAL;										\
+       C=FS_E633P(|L),SNCF_DDMC76N(|L),4-6*FS_UICX80_L_RGPB_BC(|L),SNCF_MU_F71_TEN(|L),SNCF_T2_TENN(|L); \
+       V=13;												\
+       F=EP5;
+;TUI FERIEN EXPRESS
+     TX=FS E 656 + TUI FERIEN-EXPRESS;									\
+       C=FS_E656S3B,2*TUI_BCVMH(|L),TUI_WGTMH(|L),3*TUI_BCVMH(|L);					\
+       V=14;												\
+       F=EP5;
+
+     TX=FS E424 + TRENO NOTTE;										\
        C=FS_E424_ISA1(|L),FS_T55T_RF_A(|L),FS_T57_RF_B(|L),2*FS_T59_GA_AB(|L);				\
        V=12;												\
        F=EP5;
-     TX=FS E424 + Treno Notte;										\
+     TX=FS E424 + TRENO NOTTE;										\
        C=(FS_E424_ISA2(|L),FS_T46_AZE(|L),2*FS_T57_RF_B(|L),FS_T57_GA_B(|L))|				\
 	 (FS_E424_ISA1(|L),FS_T55T_RF_A(|L),FS_T57_RF_B(|L),FS_T57_GA_B(|L),2*FS_T57_RF_B(|L),		\
 	 FS_T46_AZE(|L));										\
        V=12;												\
        F=EP5;
-     TX=FS E424  + Treno Notte;										\
+     TX=FS E424  + TRENO NOTTE;										\
        C=FS_E424_ISA3(|L),										\
 	 (3*FS_T57_RF_B(|L),FS_UICX64_RGPB_B(|L),)|							\
 	 (FS_T55T_RF_A(|L),FS_UICX64_RGPB_B(|L),3*FS_T57_RF_B(|L),);					\
        V=12;												\
        F=EP5;
-     TX=FS E424 + Treno Notte;										\
+     TX=FS E424  + TRENO NOTTE;										\
+       C=FS_E424_ISA1(|L),2*(FS_T55T_RF_A(|L),FS_T57_RF_B(|L)),FS_T49_UIZE(|L);				\
+       V=12;												\
+       F=EP5;
+     TX=FS E424 + TRENO NOTTE;										\
        C=FS_E424_ISA1(|L),2*(FS_T55T_RF_A(|L),FS_T57_RF_B(|L),),FS_T49_UIZE(|L),;			\
        V=12;												\
        F=EP5;
-     TX=FS E 656 + Treno Notte;										\
+     TX=FS E652 + TRENO NOTTE;										\
+       C=FS_E652EB(|L),FS_T57_GA_B(|L),3*FS_T57_RF_B(|L),FS_UICX70T_NDU_REG(|L);			\
+       V=13;												\
+       F=EP5;
+     TX=FS E 656 + TRENO NOTTE;										\
        C=FS_E656S1B(|L)|FS_E656S2B(|L)|FS_E656S3B,FS_T46_BZE(|L),FS_T59_GA_AB(|L),			\
 	 FS_UICX97R_FL_NB_LEOEXPR2(|L),3*FS_T57_RF_B(|L),FS_UICX64_RGPB_AB(|L),FS_T55T_RF_A(|L),	\
 	 FS_T59_RF_AB(|L);										\
        V=13;												\
        F=EP5;
-     TX=FS D345 + Treno Notte;										\
+     TX=FS D345 + TRENO NOTTE;										\
        C=FS_D345G1(|L),FS_T57_RF_B(|L),FS_T57_GA_B(|L);							\
        V=12;												\
        F=DP5;
-     TX=FS D  443 + Treno Notte;									\
+     TX=FS D  443 + TRENO NOTTE;									\
        C=FS_D443F(|L),2*FS_T46_BZE(|L),FS_T59_GA_BC(|L),FS_T46_AZE(|L);					\
        F=DP5;												\
        DV=12;
 
-;TUI FERIEN EXPRESS
-     TX=FS E 656 + TUI Ferien-Express;									\
-       C=FS_E656S3B,2*TUI_BCVMH(|L),TUI_WGTMH(|L),3*TUI_BCVMH(|L);					\
-       V=14;												\
-       F=EP5;
-
 ;REGIONAL
-     TX=FS E 424 + Regionale;										\
+     TX=FS E 424 + REGIONALE;										\
        C=(<FS_E424_2R(|L),2*FS_MDVC_NAV1_NBZ,FS_MDVC_REG_NPBD2)|					\
 	 (>FS_E424_2R(|L),2*FS_MDVC_NAV1_NBZ,FS_MDVC_REG_NPBD2L);					\
        V=12;												\
        F=EPRU5;
-     TX=FS E 424 + Regionale;										\
+     TX=FS E 424 + REGIONALE;										\
        C=(<FS_E424_2R(|L),FS_T64T_DZ_NAV(|L),2*FS_PR73_NBN1(|L),FS_PR73_NPBDN)|				\
 	 (>FS_E424_2R(|L),FS_T64T_DZ_NAV(|L),2*FS_PR73_NBN1(|L),FS_PR73_NPBDNL);			\
        V=12;												\
        F=EPRU5;
-     TX=FS E 424 + Regionale;										\
+     TX=FS E 424 + REGIONALE;										\
        C=(<FS_E424_2_REG,FS_T78R_DUZ_NAV(|L),FS_MDVC_NAV_NBZ,FS_MDVE_REG_NA,3*FS_PR73_NBN1(|L),		\
 	 FS_PR73_NPBDN)|										\
 	 (>FS_E424_2_REG,FS_T78R_DUZ_NAV(|L),FS_MDVC_NAV_NBZ,FS_MDVE_REG_NA,3*FS_PR73_NBN1(|L),		\
 	 FS_PR73_NPBDNL);										\
        V=12;												\
        F=EPRU5;
-     TX=FS E 424 + Regionale;										\
+     TX=FS E 424 + REGIONALE;										\
        C=(<FS_E424_2_REG,2*FS_MDVC_NAV1_NBZ,FS_MDVC_REG_NPBD2)|						\
 	 (>FS_E424_2_REG,2*FS_MDVC_NAV1_NBZ,FS_MDVC_REG_NPBD2L);					\
        V=12;												\
        F=EPRU5;
-     TX=FS E 636 + Regionale;										\
+     TX=FS E 633 + REGIONALE;										\
+       C=<FS_E633EB(|L),FS_T78R_DUZ_NAV(|L),5*FS_MDVC_NAV_NBZ,FS_PR65_NPBD2N|FS_PR73_NPBDN;		\
+       V=13;												\
+       F=EPRU5;
+     TX=FS E 633 + REGIONALE;										\
+       C=>FS_E633P(|L),5*FS_MDVC_NAV_NBZ,FS_MDVC_NAV_NAB,FS_MDVC_NAV_NPBD2L;				\
+       V=13;												\
+       F=EPRU5;
+     TX=FS E 633 + REGIONALE;										\
+       C=<FS_E633EB(|L),7*FS_MDVC_NAV_NBZ,FS_MDVC_REG_NPBD2;						\
+       V=13;												\
+       F=EPRU5;
+     TX=FS E 636 + REGIONALE;										\
        C=FS_E636I2(|L),2*FS_UICX75_RGPB_B,FS_UICX70_SJ_GPB_AB(|L),;					\
        V=11;												\
        F=EPR5;
-     TX=FS E 636 + Regionale;										\
+     TX=FS E 636 + REGIONALE;										\
        C=FS_E636I1(|L),2*(FS_MDVC_NAV_NBZ,FS_MDVC_NAV_NAB);						\
        V=11;												\
        F=EPR5;
-     TX=FS E 645 + Regionale;										\
+     TX=FS E 645 + REGIONALE;										\
        C=FS_E645BI2(|L),FS_T46_BZE(|L),FS_UICX97R_FL_NB_LEOEXPR2(|L),FS_T55T_AZE(|L),FS_T57_RF_B(|L),	\
 	 FS_T55_AE(|L),FS_T57_RF_B(|L);									\
        V=12;												\
        F=EPR5;
-     TX=FS E 646 + Regionale;										\
+     TX=FS E 646 + REGIONALE;										\
        C=(<FS_E646RN(|L),FS_T78R_DUZ_NAV(|L),FS_MDVE_REG_NA,2*FS_MDVC_NAV_NBZ,2*FS_PR73_NBN1(|L),	\
 	 FS_PR73_NPBDN1)|										\
 	 (>FS_E646RN(|L),FS_T78R_DUZ_NAV(|L),FS_MDVE_REG_NA,2*FS_MDVC_NAV_NBZ,2*FS_PR73_NBN1(|L),	\
 	 FS_PR73_NPBDN1L);										\
        V=12;												\
        F=EPRU5;
-     TX=FS E 646 + Regionale;										\
-       C=FS_E646RN(|L),5*FS_MDVE_REG_NB,FS_MDVE_REG_NA,FS_UICX68T_REG_DZ(|L);				\
+     TX=FS E 646 + REGIONALE;										\
+       C=FS_E646RN(|L),5*FS_MDVE_REG_NB,FS_MDVE_REG_NA,FS_UICX70T_NDU_REG(|L);				\
        V=14;												\
        F=EPR5;
-     TX=FS E 646 + Regionale;										\
+     TX=FS E 646 + REGIONALE;										\
        C=(<FS_E646RN(|L),FS_T78R_DUZ_NAV(|L),5*FS_PR73_NBN(|L),FS_MDVC_NAV_NPBD1)|			\
 	 (>FS_E646RN(|L),FS_T78R_DUZ_NAV(|L),5*FS_PR73_NBN(|L),FS_MDVC_NAV_NPBD1L);			\
        V=12;												\
        F=EPRU5;
-     TX=FS E 646 + Regionale;										\
+     TX=FS E 646 + REGIONALE;										\
        C=(<FS_E646RN(|L),5*FS_DPC_BZ_NAV(|L),FS_DPC_NPBZ_NAV)|						\
 	 (>FS_E646RN(|L),5*FS_DPC_BZ_NAV(|L),FS_DPC_NPBZ_NAVL);						\
        V=12;												\
        F=EPRU5;
-     TX=FS E 646 + Regionale;										\
+     TX=FS E 646 + REGIONALE;										\
        C=(<FS_E646RN(|L),FS_T78R_DUZ_NAV(|L),4*FS_DPC_BZ_NAV(|L),FS_DPC_NPBZ_NAV)|			\
 	 (>FS_E646RN(|L),FS_T78R_DUZ_NAV(|L),4*FS_DPC_BZ_NAV(|L),FS_DPC_NPBZ_NAVL);			\
        V=12;												\
        F=EPRU5;
-     TX=FS E 646 + Regionale;										\
+     TX=FS E 646 + REGIONALE;										\
        C=(<FS_E646RN(|L),4*FS_MDVC_NAV_NBZ,FS_MDVC_NAV_NPBD2)|						\
 	 (>FS_E646RN(|L),4*FS_MDVC_NAV_NBZ,FS_MDVC_NAV_NPBD2L);						\
        V=12;												\
        F=EPRU5;
-     TX=FS E 646 + Regionale;										\
+     TX=FS E 646 + REGIONALE;										\
        C=(<FS_E646RN(|L),3*FS_MDVC_NAV_NBZ,FS_MDVC_NAV_NAB,FS_MDVC_REG_NPBD2)|				\
 	 (>FS_E646RN(|L),3*FS_MDVC_NAV_NBZ,FS_MDVC_NAV_NAB,FS_MDVC_REG_NPBD2L);				\
        V=13;												\
        F=EPRU5;
-     TX=FS E 656 + Regionale;										\
+     TX=FS E 656 + REGIONALE;										\
        C=FS_E656S1B(|L)|FS_E656S2B(|L)|FS_E656S3B,FS_MDVC_NAV_NBZ,2*FS_MDVE_REG_NB,FS_MDVC_NAV_NBZ,	\
 	 2*FS_MDVE_REG_NB,FS_UICX64_GPB_A(|L);								\
        V=13;												\
        F=EPRU5;
-     TX=FS E 656 + Regionale;										\
+     TX=FS E 656 + REGIONALE;										\
        C=FS_E656S6B(|L),FS_MDVE_REG_NB,FS_MDVE_REG_NA,5*FS_MDVE_REG_NB;					\
        V=14;												\
        F=EPRU5;
-     TX=FS E 656 + Regionale;										\
+     TX=FS E 656 + REGIONALE;										\
        C=(<FS_E656S6B(|L),FS_MDVE_REG_NA,5*FS_MDVE_REG_NB,FS_MDVC_REG_NPBD2)|				\
 	 (>FS_E656S6B(|L),FS_MDVE_REG_NA,5*FS_MDVE_REG_NB,FS_MDVC_REG_NPBD2L);				\
        V=13;												\
        F=EPRU5;
-     TX=FS D 345 + Regionale;										\
+     TX=FS D 345 + REGIONALE;										\
        C=FS_D345G(|L),3*(FS_T51RB1S3(|L)|FS_T51RB2S3(|L)|FS_T51RBEXAB3(|L));				\
        V=12;												\
        F=DPR5;
-     TX=FS D 443 + Regionale;										\
+     TX=FS D 443 + REGIONALE;										\
        C=FS_D443F(|L),FS_UICX70_G_DZ(|L),FS_UICX64_GPB_A(|L),2*FS_T51RB2S3(|L),2*FS_T57_GA_B(|L);	\
        V=10;												\
        F=DPR5;
-     TX=FS D 445 + Regionale;										\
+     TX=FS D 445 + REGIONALE;										\
        C=FS_D445NAV(|L),FS_MDVC_NAV_NBZ,FS_MDVC_NAV1_NBZ,FS_MDVE_REG_NA;				\
        V=12;												\
        F=DPR5;
-     TX=FS ALe 644 Regionale;										\
-       C=<3:(FS_ALE644AL,2@(FS_LE724_1A|FS_LE724_1AL),FS_ALE644A);					\
-       V=13;												\
-       F=EPRU5;
-     TX=FS ALe 804 Regionale;										\
-       C=<3:(FS_ALE804AL,2@(FS_LE884_1A|FS_LE884_1AL),FS_ALE804A)|					\
+     TX=FS ALE 644 REGIONALE;										\
+       C=<3:(FS_ALE644AL,2@(FS_LE724_1A|FS_LE724_1AL),FS_ALE644A)|					\
+	 3:(FS_ALE804AL,2@(FS_LE884_1A|FS_LE884_1AL),FS_ALE804A)|					\
 	 1:(FS_ALE644AL,2@(FS_LE884_1A|FS_LE884_1AL),FS_ALE644A);					\
        V=13;												\
        F=EPRU5;
-     TX=FS ALE 724 Regionale;										\
+     TX=FS ALE 724 REGIONALE;										\
        C=1-2*(<FS_ALE724_NAVL,FS_LE884_2S_NAVL,FS_LE884_2S_NAV,FS_ALE724_NAV);				\
        V=14;												\
        F=EPRU5;
-     TX=FS ALE 724 Regionale;										\
+     TX=FS ALE 724 REGIONALE;										\
        C=(<FS_ALE724_NAVL,FS_LE884_2S_NAVL,|FS_LE884_2S_NAV,FS_LE724_NAV)|				\
 	 (<FS_LE724_NAVL,FS_LE884_2S_NAVL,|FS_LE884_2S_NAV,FS_ALE724_NAV);				\
        V=14;												\
        F=EPRU5;
-     TX=FS ALE 724 Regionale;										\
+     TX=FS ALE 724 REGIONALE;										\
        C=<FS_ALE724_NAVL,FS_LE763REG,FS_LE763REGL,FS_ALE582REG,FS_ALE582REGL,FS_LE884_2S_NAVL,		\
 	 FS_LE562REG;											\
        V=14;												\
        F=EPRU5;
-     TX=FS ALe 582 Regionale;										\
+     TX=FS ALE 582 REGIONALE;										\
        C=(<FS_ALE582REGL,1:|3:FS_LE763REG,FS_LE562REG)|(>FS_ALE582REG,1:|3:FS_LE763REG,FS_LE562REGL);	\
        V=12;												\
        F=EPRU5;
-     TX=FS ALe 582 Regionale;										\
+     TX=FS ALE 582 REGIONALE;										\
        C=(<FS_ALE582REGL,1:|3:FS_LE763REG,FS_LE682REG)|(>FS_ALE582REG,1:|3:FS_LE763REG,FS_LE682REGL);	\
        V=13;												\
        F=EPRU5;
-     TX=FS ALe 582 Regionale;										\
+     TX=FS ALE 582 REGIONALE;										\
        C=<FS_ALE582REGL,2@(FS_LE763REG|FS_LE763REGL),FS_ALE582REG;					\
        V=14;												\
        F=EPRU5;
-     TX=FS ALe 582 Regionale;										\
+     TX=FS ALE 582 REGIONALE;										\
        C=<FS_ALE582REGL,										\
 	 2:(FS_LE884_2S_NAV,2:FS_LE884_2S_NAVL|1:FS_LE763REG|1:FS_LE763REGL)|				\
 	 1:(FS_LE763REG|FS_LE763REGL),FS_ALE582REG;							\
        V=12;												\
        F=EPRU5;
-     TX=FS ALN 460 Regionale;										\
+     TX=FS ALN 460 REGIONALE;										\
        C=FS_ALN460_TEESL;										\
        V=12;												\
        F=DPRU5;
-     TX=FS ALN 663 Regionale;										\
+     TX=FS ALN 668 1400 REGIONALE;									\
+       C=5:(1-3*FS_ALN668_1400A2(|L))|1:(2*FS_ALN668_1400B2(|L))|1:(4*FS_ALN668_1400A2(|L));		\
+       V=11;												\
+       F=DPRU5;
+     TX=FS ALN 668 1400 REGIONALE;									\
+       C=(FS_ALN668_1400P2(|L),|FS_ALN668_3000A(|L))|(FS_ALN668_1400B3(|L),|FS_ALN668_1400A3(|L));	\
+       V=11;												\
+       F=DPRU5;
+     TX=FS ALN 668 1900 REGIONALE;									\
+       C=1-2*(FS_ALN668_1900C(|L)|FS_ALN668_1900D(|L));							\
+       V=11;												\
+       F=DPRU5;
+     TX=FS ALN 668 1200 REGIONALE;									\
+       C=1-2*(FS_ALN668_1200B(|L)|FS_ALN668_1200X(|L));							\
+       V=11;												\
+       F=DPRU5;
+     TX=FS ALN 668 3000 REGIONALE;									\
+       C=1-3*(FS_ALN668_3000B(|L)|FS_ALN668_3000X(|L));							\
+       V=13;												\
+       F=DPRU5;
+     TX=FS ALN 663 REGIONALE;										\
        C=1-2*FS_ALN663A(|L);										\
        V=12;												\
        F=DPRU5;
-     TX=FS Aln 668 2400 Regionale;									\
+     TX=FS ALN 668 2400 REGIONALE;									\
        C=2*FS_ALN668_2400_L1;										\
        V=11;												\
        F=DPRU5;
-     TX=FS ALN 668 2400 Regionale;									\
+     TX=FS ALN 668 2400 REGIONALE;									\
        C=1:(2*FS_ALN668_2400A1(|L),FS_ALN663A(|L))|1:(FS_ALN663A(|L),2*FS_ALN668_2400A1(|L))|		\
 	 2:FS_ALN668_2400B1(|L);									\
        V=11;												\
        F=DEPRU5;
-     TX=FS Aln 668 1200 Regionale;									\
-       C=1-2*(FS_ALN668_1200B(|L)|FS_ALN668_1200X(|L));							\
-       V=11;												\
-       F=DPRU5;
-     TX=FS Aln 668 3000 Regionale;									\
-       C=1-3*(FS_ALN668_3000B(|L)|FS_ALN668_3000X(|L));							\
-       V=13;												\
-       F=DPRU5;
 
 ;ATCM
 ;----
-     TX=Azienda Trasporti Collettivi e Mobilita (Modena) 54/55;						\
+     TX=AZIENDA TRASPORTI COLLETTIVI E MOBILITA (MODENA) 54/55;						\
        C=ATCM_AM54A(|L)|ATCM_AM55A(|L);									\
        V=11;												\
        F=DPRU5;
 
 ;FBP
 ;---
-     TX=FERROVIA BOLOGNA-PORTOMAGGIORE ALN 663 Regionale;						\
+     TX=FERROVIA BOLOGNA-PORTOMAGGIORE ALN 663 REGIONALE;						\
        C=(<FBP_ALN663A(|L),FBP_LN778A)|(>FBP_ALN663A(|L),FBP_LN778AL);					\
        V=10;												\
        F=DPRU5;
 
 ;FCU
 ;---
-     TX=FCU: Ferrovia Centrale Umbra Aln 776;								\
+     TX=FCU: FERROVIA CENTRALE UMBRA ALN 776;								\
        C=FCU_ALN776M_1S_L1;										\
        V=10;												\
        F=DPRU5;
 
 ;FNM
 ;---
-     TX=Ferrovia Milano Nord EB 7500 Regionale;								\
+     TX=FERROVIA MILANO NORD EB 7500 REGIONALE;								\
        C=1-2@((<FNM_EB750AOL,FNM_EB950O,FNM_EAB850O)|(>FNM_EB750AO,FNM_EB950OL,FNM_EAB850OL));		\
        V=12;												\
        F=EPRU5;
-     TX=Ferrovia Milano Nord EB 7500 Regionale;								\
-       C=1-2@((<FNM_EB750AOL,1-2*FNM_EB950O,FNM_EAB850O)|(>FNM_EB750AO,1-2*FNM_EB950OL,FNM_EAB850OL));	\
-       V=12;												\
-       F=EPRU5;
-     TX=Ferrovia Milano Nord EB 7500 Regionale;								\
+     TX=FERROVIA MILANO NORD EB 7500 REGIONALE;								\
        C=(<FNM_EB750AOL,2*FNM_EB950O,FNM_EAB850O)|(>FNM_EB750AO,2*FNM_EB950OL,FNM_EAB850OL);		\
        V=12;												\
        F=EPRU5;
+     TX=FERROVIA MILANO NORD ALN 668 120;								\
+       C=FNM_ALN668_120AS2(|L),FNM_ALN668_130S2(|L),2*FNM_B68S2(|L),FNM_ALN668_120BS1(|L);		\
+       V=9;												\
+       F=DPRU5;
+
+;FSF
+;---
+     TX=FSF 220 (EX DB)+ LEICHTSTAHLWAGEN (EX CFF);							\
+       C=FSF_220BB(|L),FSF_CFFL_AB(|L),3*FSF_CFFL_B,FSF_CFFL_AB(|L),FSF_CFFL_B;				\
+       V=7;												\
+       F=DPRU5;
+
+;SNFT
+;----
+     TX=SNFT ALN 668;											\
+       C=3:SNFT_ALN668_120BA(|L)|1:SNFT_ALN668_120AB(|L)|1:SNFT_ALN668_120AA(|L),			\
+	 0-1*((1-2*(SNFT_B68A(|L)|SNFT_B68B(|L)))|(1-2*SNFT_BZ80B));					\
+       V=9;												\
+       F=DPU5;
+     TX=SNFT ALN 668;											\
+       C=SNFT_ALN668_130B(|L),										\
+	 |((1-2*(1:SNFT_B68A(|L)|3:SNFT_B68B(|L)),0-1*SNFT_ALN668_130B(|L))|(1-2*SNFT_BZ80B));		\
+       V=9;												\
+       F=DPU5;
 
 ;=============
 ;EP VB
@@ -1149,58 +1316,76 @@
        V=16;												\
        F=EPU5;
 ;LYON - TURIN
-     TX=FS ETR 460 Lyon-Torino;										\
+     TX=FS ETR 460 LYON-TORINO;										\
        C=FS_ETR460P_L1_3KV|FS_ETR460P_L1T_3KV;								\
        V=20;												\
        F=EPU5;
 
-;Cisalpino
-     TX=Cisalpino ETR 470;										\
+;CISALPINO
+     TX=CISALPINO ETR 470;										\
        C=CIS_ETR470_L1_DC;										\
        V=20;												\
        F=EPU5;
-     TX=Cisalpino ETR 470;										\
+     TX=CISALPINO ETR 470;										\
        C=CIS_ETR470_L1B_DC;										\
        V=20;												\
        F=EPU5;
-     TX=FS E654 + Cisalpino;										\
-       C=FS_E656S1XT(|L),CIS_UICZ_D(|L),CIS_SBBEC_A(|L),2*CIS_UICZ_A(|L),CIS_WR79(|L),6*CIS_UICZ_B;	\
+     TX=FS E654 + CISALPINO;										\
+       C=FS_E656S1XT(|L),CIS_UICZ_D(|L),CIS_SBBEC_A(|L),2*CIS_UICZ_A(|L),CIS_WR79(|L),6*XCIS_UICZ_B;	\
        V=15;												\
        F=EP5;
 ;EC
-     TX=FS E444 + TEE;											\
+     TX=FS E405 + EC;											\
+       C=FS_E405XT(|L),FS_UICZ85_XMPRT_A9(|L),FS_GC83_XMPRT_R(|L),6*FS_UICZ85_XMPRT_B(|L);		\
+       V=16;												\
+       F=EP5;
+     TX=FS E405 + EC;											\
+       C=FS_E405XT(|L),FS_UICZ85_XMPRIC_A9(|L),FS_UICZ85_XMPRT_B(|L),5*FS_UICZ85_XMPRIC_B(|L);		\
+       V=16;												\
+       F=EP5;
+     TX=FS E444 + EC;											\
        C=FS_E444RXT(|L),2*(FS_UICZ85_XMPRIC_A9(|L)|FS_UICZ85_XMPRIC_A9(|L),),				\
 	 7*(FS_UICZ85_XMPRIC_B(|L)|FS_UICZ85_XMPRIC_B(|L),);						\
        V=16;												\
        F=EP5;
 ;EC ALLEGRO STRADIVARI
-     TX=FS E402 + Allegro Stradivari;									\
+     TX=FS E402 + EC ALLEGRO STRADIVARI;								\
        C=FS_E402BGET,FS_UICX87_XRT_D(|L),4*FS_UICZ85_XMPRIC_B(|L),FS_UICZ85_XMPRIC_A9(|L),		\
 	 FS_WRSS_XMPRT_RESTO(|L);									\
        V=20;												\
        F=EP5;
 ;EC TIEPOLO
-     TX=FS E402 + EC Tiepolo;										\
+     TX=FS E402 + EC TIEPOLO;										\
        C=FS_E402BGET,FS_UICZ85_XMPRIC_A9(|L),FS_WRSS_XMPRT_RESTO(|L),FS_UICZ88_XMPRIC_BH(|L),		\
 	 5*FS_UICZ85_XMPRIC_B(|L),;									\
        V=20;												\
        F=EP5;
 ;EC MEDIOLANUM
-     TX=FS E444 + TEE Mediolanum;									\
+     TX=FS E444 + TEE MEDIOLANUM;									\
        C=FS_E444RXT(|L),2*SBB_EC_A(|L),4*SBB_EC_B(|L);							\
        V=16;												\
        F=EP5;
-     TX=FS E646 + TEE Mediolanum;									\
+     TX=FS E646 + TEE MEDIOLANUM;									\
        C=FS_E646XT(|L),2*SBB_EC_A(|L),4*SBB_EC_B(|L);							\
        V=14;												\
        F=EP5;
+;EC MONT CENIS
+     TX=FS E633 + EC MONT CENIS;									\
+       C=FS_E633X1(|L),FS_VSE_A9O1(|L),FS_VSE_XMPR_A9(|L),FS_GC70EB2_WR(|L),4*FS_VSE_BX(|L);		\
+       V=16;												\
+       F=EP5;
 ;EC CASANOVA LJUBLJANA-VENICE
-     TX=SZ 310 EC Casanova Ljubljana-Venice;								\
+     TX=SZ 310 EC CASANOVA LJUBLJANA-VENICE;								\
+       C=SZ_310_ICS;											\
+       V=16;												\
+       F=EPU5;
+;EC CASANOVA LJUBLJANA-VENICE
+     TX=SJ 310 EC CASANOVA LJUBLJANA-VENICE;								\
        C=SZ_310_ICS;											\
        V=16;												\
        F=EPU5;
 ;EUROCITY ITALIA
-     TX=FS E444 + Eurocity Italia;									\
+     TX=FS E444 + EUROCITY ITALIA;									\
        C=FS_E444RXT(|L),FS_GC70T_A_ICG(|L),FS_GC70T_AS_ECI(|L),3*FS_GC70T_B_ICG(|L),			\
 	 3*(2:FS_UICZ85_B_ICG(|L)|1:FS_UICZ85_B_ICG(|L));						\
        V=20;												\
@@ -1238,12 +1423,16 @@
        V=16;												\
        F=EP5;
 ;EN311/313 GENÈVE/BASEL - ROMA
-     TX=FS E444 + EN311/313 Genève/Basel – Roma;							\
+     TX=FS E444 + EN311/313 GENÈVE/BASEL – ROMA;							\
        C=FS_E444R1(|L),SBB_MU72_N3(|L),2*SBB_U_N3(|L),2*SBB_UIC_BC(|L),2*FS_UICZ85_B_BGLX(|L),		\
 	 SBB_MU72_N2B2(|L),3*SBB_UIC_BC(|L),FS_UICZ85_GB_B(|L),SBB_5UIC_A(|L);				\
        V=16;												\
        F=EP5;
-
+;VINTIMILLE/NICE - CONI
+     TX=FS ALN 663 VINTIMILLE/NICE - CONI;								\
+       C=3*FS_ALN663_XMPR(|L);										\
+       V=12;												\
+       F=DPRU5;
      TX=FS ETR 420;											\
        C=FS_ETR460_L1;											\
        V=20;												\
@@ -1272,268 +1461,301 @@
 
 ;NIGHT
 ;FRECCIA DEL SUD
-     TX=FS E36 + Night Train Freccia del Sud;								\
+     TX=FS E36 + NIGHT TRAIN FRECCIA DEL SUD;								\
        C=FS_E636I2(|L),5*FS_UICX75_XMPRT_B,2*FS_UICX70_XMPRT_BC(|L);					\
        V=11;												\
        F=EP5;
-     TX=FS E36 + Night Train Freccia del Sud;								\
+     TX=FS E36 + NIGHT TRAIN FRECCIA DEL SUD;								\
        C=FS_E636X(|L),2*FS_UICX68_XMPRT_BC(|L),5*(3:FS_UICX75_XMPRT_B|1:XFS_UICX75_C_XMPRT_B);		\
        V=11;												\
        F=EP5;
 
 ;REGIONAL
-     TX=FS E424 + Regionale;										\
+     TX=FS E424 + REGIONALE;										\
        C=(<FS_E424_2_REG,2*FS_PR73_NBN(|L),FS_PR73_NPBDN)|						\
 	 (>FS_E424_2_REG,2*FS_PR73_NBN(|L),FS_PR73_NPBDNL);						\
        V=12;												\
        F=EPRU5;
-     TX=FS E424 + Regionale;										\
+     TX=FS E424 + REGIONALE;										\
        C=(<FS_E424_2R(|L),2*FS_MDVC_NAV_NBZ,FS_MDVC_NAV_NPBD1)|						\
 	 (>FS_E424_2R(|L),2*FS_MDVC_NAV_NBZ,FS_MDVC_NAV_NPBD1L);					\
        V=12;												\
        F=EPRU5;
-     TX=FS E424 + Regionale;										\
+     TX=FS E424 + REGIONALE;										\
        C=(<FS_E424_2R(|L),FS_MDVC_NAV_NBZ,FS_MDVC_NAV_NABM,FS_MDVC_NAV_NPBD2)|				\
 	 (>FS_E424_2R(|L),FS_MDVC_NAV_NBZ,FS_MDVC_NAV_NABM,FS_MDVC_NAV_NPBD2L);				\
        V=12;												\
        F=EPRU5;
-     TX=FS E424 + Regionale;										\
+     TX=FS E424 + REGIONALE;										\
        C=(<FS_E424_2B(|L),FS_MDVC_NAVB_NBZ,2*FS_MDVC_NAV_NBZ,FS_MDVC_NAV_NPBD2)|			\
 	 (>FS_E424_2B(|L),FS_MDVC_NAVB_NBZ,2*FS_MDVC_NAV_NBZ,FS_MDVC_NAV_NPBD2L);			\
        V=12;												\
        F=EPRU5;
-     TX=FS E424 + Regionale;										\
+     TX=FS E424 + REGIONALE;										\
        C=FS_E424_2R(|L),3*FS_MDVC_XMPR_NB;								\
        V=12;												\
        F=EPR5;
-     TX=FS E424 + Regionale;										\
+     TX=FS E424 + REGIONALE;										\
        C=FS_E424_2X(|L),FS_MDVE_XMPR_NB,3*FS_MDVC_XMPR_NB;						\
        V=12;												\
        F=EPR5;
-     TX=FS E424 + Regionale;										\
+     TX=FS E424 + REGIONALE;										\
        C=FS_E424_2X(|L),3*FS_UICX75T_XR_B(|L),;								\
        V=12;												\
        F=EPR5;
-     TX=FS E424 + Regionale;										\
+     TX=FS E424 + REGIONALE;										\
        C=FS_E424_2X2(|L),2*FS_UICX75T_XRT_B(|L),;							\
        V=12;												\
        F=EPR5;
-     TX=FS E424 + Regionale;										\
+     TX=FS E424 + REGIONALE;										\
        C=FS_E424_2X(|L),3*FS_UICX79T_XRT_B(|L),;							\
        V=12;												\
        F=EPR5;
-     TX=FS E424 + Regionale;										\
+     TX=FS E424 + REGIONALE;										\
        C=FS_E424_2XT(|L),FS_UICX79T_XRT_B(|L),XFS_UICX75_XMPRT_B,FS_UICX79T_XRT_B(|L),;			\
        V=12;												\
        F=EPR5;
-     TX=FS E444 + Regionale;										\
-       C=(<FS_E444R1(|L),FS_UICX68T_REG_DZ(|L),2*FS_MDVE_REG_NA,0-1*FS_UICX68T_REG_NBH(|L),		\
+     TX=FS E444 + REGIONALE;										\
+       C=(<FS_E444R1(|L),FS_UICX70T_NDU_REG(|L),2*FS_MDVE_REG_NA,0-1*FS_UICX68T_REG_NBH(|L),		\
 	 4-5*FS_MDVE_REG_NB,FS_MDVC_REG_NPBD2)|								\
-	 (>FS_E444R1(|L),FS_UICX68T_REG_DZ(|L),2*FS_MDVE_REG_NA,0-1*FS_UICX68T_REG_NBH(|L),		\
+	 (>FS_E444R1(|L),FS_UICX70T_NDU_REG(|L),2*FS_MDVE_REG_NA,0-1*FS_UICX68T_REG_NBH(|L),		\
 	 4-5*FS_MDVE_REG_NB,FS_MDVC_REG_NPBD2L);							\
        V=16;												\
        F=EPRU5;
-     TX=FS E464 + Regionale;										\
+     TX=FS E464 + REGIONALE;										\
        C=(<FS_E464_XMPRL,3*FS_PR73_NBXT(|L),FS_PR73_NPBDXT)|						\
 	 (>FS_E464_XMPR,3*FS_PR73_NBXT(|L),FS_PR73_NPBDXTL);						\
        V=12;												\
        F=EPRU5;
-     TX=FS E464 + Regionale;										\
+     TX=FS E464 + REGIONALE;										\
        C=(<FS_E464_XMPRL,FS_MDVC_XMPR_NB,FS_MDVC_XMPR_NAB,3-5*FS_MDVC_XMPR_NB,FS_MDVC_XMPR_NPBD2)|	\
 	 (>FS_E464_XMPR,FS_MDVC_XMPR_NB,FS_MDVC_XMPR_NAB,3-5*FS_MDVC_XMPR_NB,FS_MDVC_XMPR_NPBD2L);	\
        V=13;												\
        F=EPRU5;
-     TX=FS E464 + Regionale;										\
+     TX=FS E464 + REGIONALE;										\
        C=(<FS_E464_XMPRL,FS_MDVE_XMPR_NB,FS_MDVE_XMPR_NA,3-5*FS_MDVE_XMPR_NB,FS_MDVC_XMPR_NPBD2)|	\
 	 (>FS_E464_XMPR,FS_MDVE_XMPR_NB,FS_MDVE_XMPR_NA,3-5*FS_MDVE_XMPR_NB,FS_MDVC_XMPR_NPBD2L);	\
        V=13;												\
        F=EPRU5;
-     TX=FS E464 + Regionale;										\
+     TX=FS E464 + REGIONALE;										\
        C=(<FS_E464_XMPRL,4*FS_DPC_B_XMPR(|L),FS_DPC_NPB_XMPR)|						\
 	 (>FS_E464_XMPR,4*FS_DPC_B_XMPR(|L),FS_DPC_NPB_XMPRL);						\
        V=13;												\
        F=EPRU5;
-     TX=FS E636 + Regionale;										\
+     TX=FS E636 + REGIONALE;										\
        C=FS_E636I2(|L),FS_UICX64_XRT_A(|L),FS_UICX64_XRT_A(|L),FS_UICX79T_XRT_B(|L),;			\
        V=11;												\
        F=EPR5;
-     TX=FS E636 + Regionale;										\
+     TX=FS E636 + REGIONALE;										\
        C=FS_E636I3(|L),3*FS_UICX75T_XR_B(|L);								\
        V=12;												\
        F=EPR5;
-     C=<FS_E646RN1(|L),3*FS_PR73_NBX(|L),FS_MDVE_NBX,FS_MDVC_XMPR_NB,FS_MDVC_XMPR_NPBD2;		\
-       V=12;
-     TX=FS E646 + Regionale;										\
+     TX=FS E646 + REGIONALE;										\
        C=<FS_E646RN1(|L),3*FS_PR73_NBX(|L),FS_MDVE_XMPR_NB,FS_MDVC_XMPR_NB,FS_MDVC_XMPR_NPBD2;		\
        V=12;												\
        F=EPRU5;
-     TX=FS E646 + Regionale;										\
+     TX=FS E646 + REGIONALE;										\
        C=(<FS_E646RN(|L),FS_PR65_NBN(|L),4*FS_PR73_NBN(|L),2*FS_PR65_NBN(|L),FS_PR73_NBN(|L),		\
 	 FS_PR65_NBN(|L),FS_PR73_NPBDN)|								\
 	 (>FS_E646RN(|L),FS_PR65_NBN(|L),4*FS_PR73_NBN(|L),2*FS_PR65_NBN(|L),FS_PR73_NBN(|L),		\
 	 FS_PR65_NBN(|L),FS_PR73_NPBDNL);								\
        V=12;												\
        F=EPRU5;
-     C=(<FS_E646XT(|L),3*FS_PR73_NBX(|L),FS_MDVC_NPBD2X1)|						\
+     TX=FS E646 + REGIONALE;										\
+       C=(<FS_E646RN(|L),FS_MDVE_NAX,FS_MDVC_NBX1,FS_MDVC_NAV_NBZ,FS_MDVC_NBX1,FS_MDVC_XMPR_NB,		\
+	 FS_MDVC_NPBD2X1)|										\
+	 (>FS_E646RN(|L),FS_MDVE_NAX,FS_MDVC_NBX1,FS_MDVC_NAV_NBZ,FS_MDVC_NBX1,FS_MDVC_XMPR_NB,		\
+	 FS_MDVC_NPBD2X1L);										\
+       V=13;												\
+       F=EPRU5;
+     TX=FS E646 + REGIONALE;										\
+       C=(<FS_E646XT(|L),3*FS_PR73_NBX(|L),FS_MDVC_NPBD2X1)|						\
 	 (>FS_E646XT(|L),3*FS_PR73_NBX(|L),FS_MDVC_NPBD2X1L);						\
-       V=12;
-     TX=FS D 445 + Regionale;										\
+       V=12;												\
+       F=EPRU5;
+     TX=FS D 445 + REGIONALE;										\
        C=<FS_D445NAV(|L),FS_MDVC_NAVB_NBZ,3*FS_MDVC_NAV_NBZ,FS_MDVC_NAV_NPBD2;				\
        V=12;												\
        F=DPRU5;
-     TX=FS D 445 + Regionale;										\
+     TX=FS D 445 + REGIONALE;										\
        C=>FS_D445NAV(|L),2*FS_MDVC_NAV_NBZ,FS_MDVC_NAV_NPBD2L;						\
        V=12;												\
        F=DPRU5;
-     TX=FS Ale 501 Regionale;										\
+     TX=FS ALE 501 REGIONALE;										\
        C=1-2@FS_ALE501_XMPRT;										\
        V=14;												\
        F=EPRU5;
-     TX=FS Ale 804 Regionale;										\
+     TX=FS ALE 804 REGIONALE;										\
        C=<(FS_ALE804XL,FS_LE724_1X,3:FS_ALE804X|1:FS_ALE644X)|						\
 	 (3:FS_ALE804XL|1:FS_ALE644XL,FS_LE724_1XL,3:FS_ALE804X);					\
        V=13;												\
        F=EPRU5;
-     TX=FS Ale 724 Regionale;										\
+     TX=FS ALE 724 REGIONALE;										\
        C=(<FS_ALE724XL,FS_LE884BXL,|FS_LE884BX,FS_LE724X)|						\
 	 (<FS_LE724XL,FS_LE884BXL,|FS_LE884BX,FS_ALE724XT);						\
        V=14;												\
        F=EPRU5;
-     TX=FS Ale 724 Regionale;										\
+     TX=FS ALE 724 REGIONALE;										\
        C=<FS_ALE724XL,FS_LE884BXL,FS_LE884BX,FS_ALE724X;						\
        V=14;												\
        F=EPRU5;
-     TX=FS Ale 724 Regionale;										\
+     TX=FS ALE 724 REGIONALE;										\
        C=(<FS_ALE724XL,FS_LE884BXL,|FS_LE884BX,FS_LE724X)|						\
 	 (<FS_LE724XL,FS_LE884BXL,|FS_LE884BX,FS_ALE724X);						\
        V=14;												\
        F=EPRU5;
-     TX=FS Ale 58224 Regionale;										\
+     TX=FS ALE 58224 REGIONALE;										\
        C=(<FS_ALE582X1L,FS_LE763X1,FS_LE562X1)|(>FS_ALE582X1,FS_LE763X1L,FS_LE562X1L)|			\
 	 (<FS_ALE582X1L,FS_LE763X1,FS_LE763X1L,FS_ALE582X1);						\
        V=14;												\
        F=EPRU5;
-     TX=FS Ale 58224 Regionale;										\
+     TX=FS ALE 58224 REGIONALE;										\
        C=(<FS_ALE582X1L,(FS_LE763X1,FS_LE682REG|FS_LE682X1)|FS_LE682X1)|				\
 	 (>FS_ALE582X1,(FS_LE763X1L,FS_LE682REGL|FS_LE682X1L)|FS_LE682X1L);				\
        V=14;												\
        F=EPRU5;
-     TX=FS Aln 501 Regionale;										\
+     TX=FS ALN 501 REGIONALE;										\
        C=1-2@FS_ALN501_XMPRT;										\
        V=12;												\
        F=DPRU5;
-     TX=FS ALN 668 1200 Regionale;									\
+     TX=FS ALN 668 1400 REGIONALE;									\
+       C=2-4*FS_ALN668_1400A3(|L);									\
+       V=11;												\
+       F=DPRU5;
+     TX=FS ALN 668 1900 REGIONALE;									\
+       C=1-2*(1:FS_ALN668_1900X(|L)|2:FS_ALN668_1900XT(|L));						\
+       V=11;												\
+       F=DPRU5;
+     TX=FS ALN 668 1200 REGIONALE;									\
        C=(1-2*FS_ALN668_1200XT(|L))|(1-3*FS_ALN668_3000XT(|L));						\
        V=10;												\
        F=DPRU5;
-     TX=FS ALN 668 1200 Regionale;									\
+     TX=FS ALN 668 1200 REGIONALE;									\
        C=1-2*(1:FS_ALN668_1200XT(|L)|2:FS_ALN668_3000A(|L));						\
        V=11;												\
        F=DPRU5;
-     TX=FS ALN 668 3000 Regionale;									\
+     TX=FS ALN 668 3000 REGIONALE;									\
        C=1-3*(1:FS_ALN668_3000XT(|L)|2:FS_MDVC_NAB2XT(|L));						\
        V=13;												\
        F=DPRU5;
-     TX=FS Aln 663 Regionale;										\
+     TX=FS ALN 663 REGIONALE;										\
        C=1-2*(FS_ALN663A(|L)|FS_ALN663_XMPR(|L));							\
        V=12;												\
        F=DPRU5;
-     TX=FS ALN 663 Regionale;										\
+     TX=FS ALN 663 REGIONALE;										\
        C=1-2*(FS_ALN663_XMPR(|L)|FS_ALN663_XMPRT(|L));							\
        V=12;												\
        F=DPRU5;
-
-;Vintimille/Nice - Coni
-     TX=FS ALN 663 Vintimille/Nice - Coni;								\
-       C=3*FS_ALN663_XMPR(|L),;										\
+     TX=FS ALN 663 + ALN 668 1200 REGIONALE;								\
+       C=1-2*(FS_ALN663_XMPRT(|L)|FS_ALN668_1200A(|L));							\
+       V=12;												\
+       F=DPRU5;
+     TX=FS ALN 663 + ALN 668 3000 REGIONALE;								\
+       C=FS_ALN663_XMPRT(|L),FS_ALN668_3000XT(|L);							\
        V=12;												\
        F=DPRU5;
 
-;Freight
-     TX=FS D 636 + Freight;										\
+;FREIGHT
+     TX=FS D 636 + FREIGHT;										\
        C=FS_E636I3(|L),FS_SHIMMNS2(|L),10-12*(1:FS_EAOS5301B|FS_EANOS5377B);				\
        V=10;												\
        F=EF5;
-     TX=FS D 636 + Freight;										\
+     TX=FS D 636 + FREIGHT;										\
        C=FS_E636X(|L)|FS_E645AX(|L),16*(1:FS_GABS_PA1|2:FS_GABS_PA2);					\
        V=10;												\
        F=EF5;
-     TX=FS D 645 + Freight;										\
+     TX=FS D 645 + FREIGHT;										\
        C=FS_E645AX(|L),25*(3:FS_EAOS5301B|1:FS_EAOS5303T|1:FS_EAOS5325T);				\
        V=10;												\
        F=EF5;
-     TX=FS D 645 + Freight;										\
+     TX=FS D 645 + FREIGHT;										\
        C=FS_E645AX(|L),3*SBB_HABBIILLNS_CARGO,7*SBB_SHIMMNS_G(|L),2*FS_EANOS5377C,4*TWAG_HB15;		\
        V=10;												\
        F=EF5;
 
 ;FCU
 ;---
-     TX=FCU: Ferrovia Centrale Umbra Aln 776;								\
+     TX=FCU: FERROVIA CENTRALE UMBRA ALN 776;								\
        C=<FCU_ALN776M1AL,FCU_ALN776B1A(|L),2*FCU_ALN776M2A(|L),FCU_ALN776M2A;				\
        V=10;												\
        F=DPRU5;
-     TX=FCU: Ferrovia Centrale Umbra Aln 776;								\
+     TX=FCU: FERROVIA CENTRALE UMBRA ALN 776;								\
        C=<FCU_ALN776B1A(|L)|FCU_ALN776M1AL,FCU_ALN776B1A(|L),FCU_ALN776M1A;				\
        V=10;												\
        F=DPRU5;
-     TX=FCU: Ferrovia Centrale Umbra Aln 776;								\
+     TX=FCU: FERROVIA CENTRALE UMBRA ALN 776;								\
        C=2*FCU_ALN776B_L2;										\
        V=10;												\
        F=DPRU5;
-     TX=FCU: Ferrovia Centrale Umbra Aln 776;								\
+     TX=FCU: FERROVIA CENTRALE UMBRA ALN 776;								\
        C=FCU_ALN776M_1S_L2;										\
        V=10;												\
        F=DPRU5;
 
 ;FNM
 ;---
-     TX=Ferrovie Nord Milano D 343n  EaD75;								\
+     TX=FERROVIE NORD MILANO D 343N  EAD75;								\
        C=FNM_D343B(|L),2*FNM_BZ80G;									\
        V=11;												\
        F=EPRU5;
-     TX=Ferrovie Nord Milano Aln  Ea 750;								\
+     TX=FERROVIE NORD MILANO ALN  EA 750;								\
        C=(<FNM_EA750AGL,3:1|1:2*FNM_EB950G,FNM_EB850G)|(>FNM_EA750AG,3:1|1:2*FNM_EB950GL,FNM_EB850GL);	\
        V=12;												\
        F=EPRU5;
-     TX=Ferrovie Nord Milano Aln  Ea 750;								\
+     TX=FERROVIE NORD MILANO ALN  EA 750;								\
        C=(<FNM_EA750BGL,2*FNM_EB950G,FNM_EB850G)|(>FNM_EA750BG,2*FNM_EB950GL,FNM_EB850GL);		\
        V=12;												\
        F=EPRU5;
-     TX=Ferrovie Nord Milano Aln  668 120;								\
+     TX=FERROVIE NORD MILANO ALN  668 120;								\
+       C=FNM_ALN668_120AS2(|L)|FNM_ALN668_120BS1(|L)|FNM_ALN668_130S2(|L),				\
+	 (1-2*FNM_B68S2(|L))|FNM_BZ80S2;								\
+       V=9;												\
+       F=DPRU5;
+     TX=FERROVIE NORD MILANO ALN  668 120;								\
+       C=FNM_ALN668_120A(|L),FNM_B68B(|L),FNM_ALN668_130(|L)|FNM_B68B(|L);				\
+       V=9;												\
+       F=DPRU5;
+     TX=FERROVIE NORD MILANO ALN  668 120;								\
        C=FNM_ALN668_120BG(|L),FNM_B68B(|L),FNM_B68B(|L)|FNM_ALN668_120BG(|L);				\
        V=11;												\
        F=DPRU5;
-     TX=Ferrovie Nord Milano Aln  668 130;								\
+     TX=FERROVIE NORD MILANO ALN  668 130;								\
        C=FNM_ALN668_130(|L)|(<FNM_ALN776L,FNM_ALN776);							\
        V=11;												\
        F=DPRU5;
-     TX=Ferrovie Nord Milano ALN 668 130;								\
+     TX=FERROVIE NORD MILANO ALN 668 130;								\
        C=FNM_ALN668_130(|L),2*FNM_B68B(|L),FNM_ALN668_130(|L);						\
        V=10;												\
        F=DPRU5;
 
+;FSF
+;---
+     TX=FSF 220 (EX DB);										\
+       C=FSF_220BB(|L),6*FS_SHMMNS,3*FS_SHIMMNS2(|L),FS_SHMMNS,3*FS_SHIMMNS2(|L),FS_SHMMNS;		\
+       V=7;												\
+       F=DPRU5;
+
 ;FUC
 ;---
-     TX=Ferrovie Udine-Cividale Aln 663;								\
+     TX=FERROVIE UDINE-CIVIDALE ALN 663;								\
        C=FUC_ALN663A(|L)|FUC_ALN663B(|L),0-1*($DIR(FUC_LN664,FUC_LN664L),0-1*FUC_ALN663A(|L));		\
        V=11;												\
        F=DPRU5;
 
 ;SATTI
 ;-----
-     TX=SATTI - Societá per Azioni Transporti Torinesi Intercommunali Am 54;				\
+     TX=SATTI - SOCIETÁ PER AZIONI TRANSPORTI TORINESI INTERCOMMUNALI AM 54;				\
        C=1-2*SATTI_AM54(|L);										\
        V=11;												\
        F=DPRU5;
-     TX=SATTI - Societá per Azioni Transporti Torinesi Intercommunali Am 55/56;				\
+     TX=SATTI - SOCIETÁ PER AZIONI TRANSPORTI TORINESI INTERCOMMUNALI AM 55/56;				\
        C=1:SATTI_AM55(|L)|3:SATTI_AM56(|L);								\
        V=11;												\
        F=DPRU5;
 
 ;TILO
 ;----
-     TX=TILO E464 + Regionale;										\
+     TX=TILO E464 + REGIONALE;										\
        C=(<TILO_E464AL,5-6*TILO_PR73NB(|L),TILO_PR73NPBDH)|						\
 	 (>TILO_E464A,5-6*TILO_PR73NB(|L),TILO_PR73NPBDHL);						\
        V=12;												\
@@ -1548,6 +1770,7 @@
        C=TGVR_I_DC;											\
        V=16;												\
        F=EPU6;
+
 ;RAILJET
      TX=ÖBB 1216 + RAILJET;										\
        C=(<OBB_1216_RAILJET_L_325KV,OBB_RAILJET_BE,4*OBB_RAILJET_B,OBB_RAILJET_AR,OBB_RAILJET_AS)|	\
@@ -1572,28 +1795,26 @@
 	 (>THELLO_UICZ96_NPB90,5*THELLO_UICZ85_B(|L),THELLO_GC70_BRH(|L),2*THELLO_GC86_AT(|L));		\
        V=16;												\
        F=EP6;
-     TX=THELLO 36000;											\
-       C=THELLO_36000,2@THELLO_GC70_A(|L),$DIR(THELLO_GC83_BRH(|L),THELLO_GC83_BRH(|L)),		\
-	 5*THELLO_UICZ85_B(|L),;									\
+     TX=FS E 402B + THELLO;										\
+       C=FS_E402B_FRB1,											\
+	 (<THELLO_GC86_AT(|L),THELLO_GC70_A(|L),THELLO_GC83_BRH(|L),					\
+	 3*(THELLO_UICZ85_B(|L)|THELLO_UICZ85_B(|L)),THELLO_UICZ96_NPB90)|				\
+	 (6*(THELLO_UICZ85_B(|L)|THELLO_UICZ85_B(|L)),THELLO_GC83_BRH(|L),2*THELLO_GC70_A(|L));		\
        V=16;												\
        F=EP6;
-     TX=THELLO 36000;											\
-       C=THELLO_36000,											\
-	 (2*THELLO_UICX75T_BC(|L),THELLO_UICX75T_PL_BC(|L),3*THELLO_UICX75T_BC(|L),THELLO_WRSS(|L),	\
-	 3*THELLO_MUFST_PG(|L),THELLO_UICX80T_BC(|L),THELLO_UICX75T_PL_BC(|L),2*THELLO_UICX70T_BC(|L),)| \
-	 (THELLO_UICX80T_BC(|L),THELLO_UICX70T_BC(|L),THELLO_UICX80T_BC(|L),THELLO_UICX75T_BC(|L),	\
-	 THELLO_WRSS(|L),THELLO_MUFST_PB(|L),3*THELLO_MUFST_PG(|L),2*THELLO_UICX80T_BC(|L),		\
-	 THELLO_UICX70T_BC(|L),THELLO_UICX75T_BC(|L),);							\
+     TX=FS E 402B + THELLO;										\
+       C=FS_E402B_IC,2*THELLO_GC70_B(|L),THELLO_GC86B(|L),THELLO_UICZ85_B(|L),THELLO_WRSS83BRH(|L),	\
+	 THELLO_GC70_B(|L),THELLO_GC86_AT(|L);								\
        V=16;												\
        F=EP6;
-;Cisalpino
-     TX=Cisalpino ETR 470;										\
+;CISALPINO
+     TX=CISALPINO ETR 470;										\
        C=CIS_ETR470_L2_DC;										\
        V=20;												\
        F=EPU6;
 
 ;MOSCOU - NICE
-     TX=TI 656 + E Moscow -Nice;									\
+     TX=TI 656 + E MOSCOW -NICE;									\
        C=FS_E656S1XT(|L),2*RZD_WLABMEE4(|L),PKP_X89_WR3IC(|L),6*RZD_WLABMEE4(|L);			\
        F=EP6;												\
        OC;												\
@@ -1612,14 +1833,13 @@
        C=3:FS_ETR470_CIS_DC|1:CFF_ETR470_CIS_DC;							\
        V=20;												\
        F=EPU6;
-
 ;EUROSTAR CITY ITALIA
-     TX=TI 444 + Eurostar City Italia;									\
+     TX=TI 444 + EUROSTAR CITY ITALIA;									\
        C=FS_E402BGET,2*FS_GC86T_A_ESCI(|L),FS_WRSS83T_BHR_ESCI(|L),2*FS_UICZ85_B_ESCI(|L),		\
 	 FS_GC86T_B_ESCI(|L),3*FS_UICZ85_B_ESCI(|L),;							\
        V=20;												\
        F=EP6;
-     TX=TI 414 + Eurostar City Italia;									\
+     TX=TI 414 + EUROSTAR CITY ITALIA;									\
        C=<FS_E414_ESCIL,										\
 	 (FS_GC86T_AS_ESCI(|L),FS_GC70T_A_ESCI(|L),FS_UICZ88_BHR_ESCI(|L),6*FS_UICZ85_B_ESCI(|L))|	\
 	 (2*FS_GC86T_A_ESCI(|L),FS_GC70T_BHR_ESCI(|L),2*FS_UICZ85_B_ESCI(|L),				\
@@ -1627,7 +1847,7 @@
 	 (2*FS_UICZ85_B_ESCI(|L),FS_VSE_BEXA_ESCI(|L),FS_UICZ85_B_ESCI(|L))),FS_E414_ESCI;		\
        V=20;												\
        F=EPU6;
-     TX=TI 414 + Eurostar City Italia;									\
+     TX=TI 414 + EUROSTAR CITY ITALIA;									\
        C=<FS_E414_ESCIL,										\
 	 (FS_UICZ85_B_ESCI(|L),FS_GC70T_B_ESCI(|L),5*FS_UICZ85_B_ESCI(|L),FS_WRSS83T_BHR_ESCI(|L),	\
 	 2*FS_GC86T_A_ESCI(|L))|									\
@@ -1635,47 +1855,57 @@
 	 FS_GC70T_AS_ESCI(|L),FS_GC86T_AS_ESCI(|L)),FS_E414_ESCI;					\
        V=20;												\
        F=EPU6;
-     TX=TI 444 + Eurostar City Italia;									\
+     TX=TI 444 + EUROSTAR CITY ITALIA;									\
        C=FS_E444RXT(|L),2*FS_GC86T_A_ESCI(|L),FS_GC70T_BHR_ESCI(|L),6*FS_UICZ85_B_ESCI(|L),;		\
        V=20;												\
        F=EP6;
-     TX=TI 444 + Eurostar City Italia;									\
+     TX=TI 444 + EUROSTAR CITY ITALIA;									\
        C=FS_E444R_ESCI(|L),FS_GC70T_B_ESCI(|L),FS_VSE_B_ESCI(|L),5*FS_UICZ85_B_ESCI(|L),		\
 	 FS_GC70T_BHR_ESCI(|L),FS_GC86T_A_ESCI(|L),FS_GC70T_AS_ESCI(|L);				\
        V=20;												\
        F=EP6;
 
+;FRECCIARGENTA
+     TX=FS ETR 485 FRECCIARGENTA;									\
+       C=FS_ETR485_FRA2_AC;										\
+       V=25;												\
+       F=EPU6;
+     TX=FS ETR 485 FRECCIARGENTA;									\
+       C=FS_ETR485_FRA2_DC;										\
+       V=20;												\
+       F=EPU6;
+
 ;FRECCIABIANCA
-     TX=TI ETR 460 Frecciabianca;									\
+     TX=TI ETR 460 FRECCIABIANCA;									\
        C=FS_ETR460_FRB;											\
        V=25;												\
        F=EPU6;
-     TX=TI ETR 460 Frecciabianca;									\
+     TX=TI ETR 460 FRECCIABIANCA;									\
        C=FS_ETR460P_FRB;										\
        V=20;												\
        F=EPU6;
-     TX=TI ETR 470 Frecciabianca;									\
+     TX=TI ETR 470 FRECCIABIANCA;									\
        C=FS_ETR470_FRB_DC;										\
        V=20;												\
        F=EPU6;
-     TX=TI E402B + Frecciabianca;									\
+     TX=TI E402B + FRECCIABIANCA;									\
        C=FS_E402B_XMPRT,FS_GC70T_B_ECI(|L),FS_GC86T_AS_ICG(|L),FS_UICZ88_BHR_FB(|L),			\
 	 6*(FS_UICZ85_B_FB(|L)|FS_UICZ85_B_FB(|L));							\
        V=20;												\
        F=EPU6;
-     TX=TI E402B + Frecciabianca;									\
+     TX=TI E402B + FRECCIABIANCA;									\
        C=<FS_E402B_FRB1|FS_E402B_FRB2,FS_GC86T_AS_FRB(|L),FS_GC86T_A_FB(|L),				\
 	 (FS_UICZ88_BHR_FB(|L),FS_UICZ85_B_FB(|L),FS_GC70T_B_FB(|L),3*FS_UICZ85_B_FB(|L))|		\
 	 (FS_WRSS83T_BHR_FRB(|L),3*FS_UICZ85_B_FB(|L),FS_UICZ85_BEXA_FB(|L),FS_GC70T_B_FB(|L)),		\
 	 FS_UICZ96_NPB90_FB;										\
        V=20;												\
        F=EPU6;
-     TX=TI E402B + Frecciabianca;									\
+     TX=TI E402B + FRECCIABIANCA;									\
        C=>FS_E402B_FRB1|FS_E402B_FRB2,FS_GC86T_AS_FRB(|L),FS_GC86T_A_FB(|L),FS_GC70T_BHR_FB(|L),	\
 	 5*FS_UICZ85_B_FB(|L),FS_UICZ96_NPB90_FBL;							\
        V=20;												\
        F=EPU6;
-     TX=TI E402B + Frecciabianca;									\
+     TX=TI E402B + FRECCIABIANCA;									\
        C=FS_E402B_FRB1|FS_E402B_FRB2,									\
 	 (FS_GC70T_AS_FB(|L),FS_GC70T_A_FB(|L),FS_WRSS83T_BHR_FRB(|L),FS_UICZ85_B_FB(|L),		\
 	 2*FS_UICZ85_BEXA_FB(|L),FS_VSE_B_FB(|L),FS_UICZ85_B_FB(|L),FS_UICZ85_BEXA_FB(|L))|		\
@@ -1683,7 +1913,7 @@
 	 FS_UICZ85_B_FB(|L),FS_GC70T_BHREXA_FB(|L),2*FS_GC70T_A_FB(|L));				\
        V=20;												\
        F=EPU6;
-     TX=TI E414 + Frecciabianca;									\
+     TX=TI E414 + FRECCIABIANCA;									\
        C=<FS_E414_FRBL,											\
 	 (2*FS_GC86T_A_FB(|L),FS_GC70T_BHR_FB(|L),2*FS_UICZ85_B_FB(|L),FS_UICZ85_B_FB(|L),		\
 	 3*FS_UICZ85_B_FB(|L))|										\
@@ -1691,7 +1921,7 @@
 	 FS_UICZ85_B_FB(|L)),FS_E414_FRB;								\
        V=20;												\
        F=EPU6;
-     TX=TI E414 + Frecciabianca;									\
+     TX=TI E414 + FRECCIABIANCA;									\
        C=<FS_E414_FRBL,											\
 	 (6*FS_UICZ85_B_FB(|L),FS_GC70T_BHREXA_FB(|L),FS_GC70T_A_FB(|L),FS_GC86T_A_FB(|L))|		\
 	 (4*FS_UICZ85_B_FB(|L),FS_UICZ85_BEXA_FB(|L),FS_UICZ85_B_FB(|L),FS_GC70T_BHR_FB(|L),		\
@@ -1700,7 +1930,7 @@
        F=EPU6;
 
 ;INTERCITY GIORNO
-     TX=TI E402B + Intercity Giorno;									\
+     TX=TI E402B + INTERCITY GIORNO;									\
        C=(<FS_E402B_IC,FS_GC86T_A_ICG(|L),FS_GC86T_A_ICGIB(|L),FS_GC70T_BHR_ICG(|L),			\
 	 4*(FS_UICZ85_B_ICGIB(|L)|FS_UICZ85_B_ICGIB(|L)|FS_UICZ93_A9_ICG(|L)|FS_UICZ93_A9_ICG(|L)),	\
 	 FS_UICZ96_NPB98_IC)|										\
@@ -1709,14 +1939,14 @@
 	 FS_UICZ96_NPB98_ICL);										\
        V=20;												\
        F=EPU6;
-     TX=TI E403 + Intercity Giorno;									\
+     TX=TI E403 + INTERCITY GIORNO;									\
        C=(<FS_E403_IC(|L),FS_GC86T_A_ICG(|L),FS_GC86T_AS_ICG(|L),FS_WRSS83T_BHR_ICG(|L),		\
 	 4*(FS_UICZ85_B_ICGIB(|L)|FS_UICZ85_B_ICGIB(|L)),FS_UICZ96_NPB98_IC)|				\
 	 (>FS_E403_IC(|L),FS_GC86T_A_ICG(|L),FS_GC86T_AS_ICG(|L),FS_WRSS83T_BHR_ICG(|L),		\
 	 4*(FS_UICZ85_B_ICGIB(|L)|FS_UICZ85_B_ICGIB(|L)),FS_UICZ96_NPB98_ICL);				\
        V=20;												\
        F=EPU6;
-     TX=TI E414 + Intercity Giorno;									\
+     TX=TI E414 + INTERCITY GIORNO;									\
        C=<FS_E414_ICGL,											\
 	 (FS_GC86T_A_ICG(|L),FS_GC86T_AS_ICG(|L),FS_GC83T_BHR_ICG(|L),					\
 	 5*(FS_UICZ85_B_ICGIB(|L)|FS_UICZ85_B_ICGIB(|L)))|						\
@@ -1753,33 +1983,39 @@
 
 ;NOTTE
 
-     TX=TI E402B + Treno Notte;										\
+     TX=TI E402B + TRENO NOTTE;										\
        C=FS_E402B_XMPRT,FS_UICX75S1_XMPRT_BEXA(|L),FS_UICX75T_XMPRNT_BC(|L),FS_MU_XMPRT(|L),		\
 	 FS_GC86_XMPRT_ATU(|L),3*FS_UICX95R_C_XMPRT_B(|L),XFS_UICX75_C_XMPRT_B;				\
        V=16;												\
        F=EP6;
-     TX=TI E444 + Treno Notte;										\
+     TX=TI E444 + TRENO NOTTE;										\
        C=FS_E444RXT(|L),2*FS_UICX95R_XMPRT_T4,FS_UICX98R_XMPRT_T4,FS_UICX80_XMPRT_BC(|L),		\
 	 FS_T2S_F_XMPR(|L),FS_MUFST_XMPRTPB(|L),FS_T2S_F_XMPR(|L),FS_UICX95R_XMPRT_T4,			\
 	 FS_UICX98R_XMPRT_T4,FS_UICX80_XMPRT_BC(|L),;							\
        V=16;												\
        F=EP6;
-     TX=TI E444 + Treno Notte;										\
+     TX=TI E444 + TRENO NOTTE;										\
        C=FS_E444RXT(|L),FS_UICX80_XMPRT_BC(|L),FS_UICX80R_XMPRNT_BC(|L),3*FS_UICX95R_L_XMPRT_B(|L),	\
 	 FS_T2S_F_XMPR(|L),FS_MUFST_XMPRTPB(|L),2*FS_UICX95R_L_XMPRT_B(|L),;				\
        V=16;												\
        F=EP6;
-     TX=TI E444 + Treno Notte;										\
+     TX=TI E444 + TRENO NOTTE;										\
        C=FS_E444RXT(|L),2*FS_UICX98R_XMPRT_T4,FS_MUFST_XMPRTPB(|L),3*FS_UICX98R_XMPRT_T4,		\
 	 3*FS_UICZ85_XMPRT_B(|L),;									\
        V=16;												\
        F=EP6;
-     TX=TI D 445 + Treno Notte;										\
+     TX=TI D 445 + TRENO NOTTE;										\
        C=FS_D445X(|L),2*FS_UICX95R_FC_XMPRT_T4(|L),FS_UICX95R_C_XMPRT_B(|L),FS_UICX95R_L_XMPRT_B(|L);	\
        V=12;												\
        F=DP6;
+;HAMBURG - VERONA
+     TX=TI E 646 + TRENO NOTTE HAMBURG - VERONA;							\
+       C=2*FS_E405XT(|L),2*DB_WLABMZ173VR(|L),DB_WLABMZ173CNL(|L),DB_WRMH137_3CNL(|L),			\
+	 DB_BVCMBZ249_1VRNZ(|L),3*DB_BVCMZ248VRNZ(|L),DB_DDM915GK|DB_DDM915BK,3*DB_DDM915VRAZ;		\
+       V=13;												\
+       F=EP6;
 ;FRECCIA DEL SUD
-     TX=TI E 646 + Freccia del Sud;									\
+     TX=TI E 646 + FRECCIA DEL SUD;									\
        C=FS_E646XT(|L),2*FS_UICX80_XMPRT_BC(|L),FS_UICX80_XMPRT_BEXA(|L),4*XFS_UICX75_C_XMPRT_B;	\
        V=14;												\
        F=EP6;
@@ -1791,433 +2027,534 @@
 	 (2*FS_UICX98R_XMPRT_T4,6*(FS_UICX95R_L_XMPRT_B(|L)|FS_UICX95R_C_XMPRT_B(|L)),			\
 	 FS_GC70_XMPRT_ATU(|L),FS_MUFST_XMPRT(|L),FS_MUFST_XMPRTPB(|L),FS_UICX80_XMPRT_BC(|L));		\
        V=16;												\
-       F=EP6;												\
-       ICN 768 SCILLA;
+       F=EP6;
 
 ;PÉLERINS
-     TX=TI E 656 + Ferienzug;										\
+     TX=TI E 656 + FERIENZUG;										\
        C=FS_E656S1XT(|L),5*(FS_UICX80_XMPRT_BC(|L)|FS_UICX80R_XMPRNT_BC(|L)|FS_UICX80_L_XMPRT_BC(|L)),	\
 	 FS_UICZ88_XMPRT_D(|L),FS_UICX87_XRT_D(|L),							\
 	 5*(FS_UICX80_XMPRT_BC(|L)|FS_UICX80R_XMPRNT_BC(|L)|FS_UICX80_L_XMPRT_BC(|L)),			\
 	 FS_UICX78_XMPRT_BM(|L);									\
        V=14;												\
        F=EP6;
-     TX=TI D 345 + Ferienzug;										\
+     TX=TI D 345 + FERIENZUG;										\
        C=2*FS_D445X(|L),FS_UICX78_XMPRT_BM(|L),5*FS_UICX80_XMPRT_BC(|L),FS_UICX68T_XR_DZ(|L),		\
 	 FS_UICX87_XRT_D(|L),6*FS_UICX80_XMPRT_BC(|L),;							\
        V=10;												\
        F=DP6;
 
 ;REGIONAL
-
-     TX=TI E 464 + Regionale;										\
+;--------
+     TX=TI E 464 + REGIONALE;										\
+       C=(<FS_E464_XMPRTL,FS_UICX97R_FL_XRT_A(|L),2*FS_UICX97R_FL_XRT_B(|L),FS_UICX97R_FC_XRT_B(|L),	\
+	 FS_UICX97R_FL_XRT_A(|L),FS_MDVC_NPBD2_2XT)|							\
+	 (>FS_E464_XMPRT,FS_UICX97R_FL_XRT_A(|L),2*FS_UICX97R_FL_XRT_B(|L),FS_UICX97R_FC_XRT_B(|L),	\
+	 FS_UICX97R_FL_XRT_A(|L),FS_MDVC_XMPRT_NPBD2L);							\
+       V=14;												\
+       F=EPRU6;
+     TX=TI E 464 + REGIONALE;										\
        C=(<FS_E464_XMPRTL,FS_MDVC_XMPRT_NB,FS_UICX97R_FL_XRT_B(|L),FS_UICX97R_FC_XRT_B(|L),		\
 	 FS_UICX97R_FL_XRT_NPBDH)|									\
 	 (>FS_E464_XMPRT,FS_MDVC_XMPRT_NB,FS_UICX97R_FL_XRT_B(|L),FS_UICX97R_FC_XRT_B(|L),		\
 	 FS_UICX97R_FL_XRT_NPBDHL);									\
        V=16;												\
        F=EPRU6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + REGIONALE;										\
        C=(<FS_E464_XMPRTL,3*FS_MDVC_XMPRT_NB,2*(FS_MDVC_XMPRT_NAB,2*FS_MDVC_XMPRT_NB),			\
 	 FS_MDVC_XMPRT_NPBD1)|										\
 	 (>FS_E464_XMPRT,3*FS_MDVC_XMPRT_NB,2*(FS_MDVC_XMPRT_NAB,2*FS_MDVC_XMPRT_NB),			\
 	 FS_MDVC_XMPRT_NPBD1L);										\
        V=13;												\
        F=EPUR6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + REGIONALE;										\
        C=(<FS_E464_XMPRTL,2*FS_MDVC_XMPRT_NB,FS_MDVE_XMPRT_NB,3*FS_MDVC_XMPRT_NB,FS_MDVC_XMPRT_NPBD2)|	\
 	 (>FS_E464_XMPRT,2*FS_MDVC_XMPRT_NB,FS_MDVE_XMPRT_NB,3*FS_MDVC_XMPRT_NB,FS_MDVC_XMPRT_NPBD2L);	\
        V=13;												\
        F=EPRU6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + REGIONALE;										\
        C=<FS_E464_XMPRTL,3*FS_MDVC_XMPRT_NB,3*(FS_MDVE_XMPRT_NB,FS_MDVC_XMPRT_NB),FS_E464_XMPRT;	\
        V=13;												\
        F=EPRU6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + REGIONALE;										\
        C=(<FS_E464_XMPRTL,FS_MDVE_XMPRT_NB,FS_MDVE_XMPRT_NA,5*FS_MDVE_XMPRT_NB,FS_MDVC_XMPRT_NPBD2)|	\
 	 (>FS_E464_XMPRT,FS_MDVE_XMPRT_NB,FS_MDVE_XMPRT_NA,5*FS_MDVE_XMPRT_NB,FS_MDVC_XMPRT_NPBD2L);	\
        V=13;												\
        F=EPRU6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + REGIONALE;										\
        C=(<FS_E464_XMPRTL,FS_MDVE_NA3D1(|L),6*FS_MDVE_NB3D1(|L),FS_MDVC_NPBD2_3XT)|			\
 	 (>FS_E464_XMPRT,FS_MDVE_NA3D1(|L),6*FS_MDVE_NB3D1(|L),FS_MDVC_NPBD2_3XTL);			\
        V=14;												\
        F=EPRU6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + REGIONALE;										\
        C=(<FS_E464_XMPRTL,5*FS_PR73_NBXT(|L),FS_DPC_NPB_XMPRTB)|					\
 	 (>FS_E464_XMPRT,5*FS_PR73_NBXT(|L),FS_DPC_NPB_XMPRTBL);					\
        V=12;												\
        F=EPRU6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + REGIONALE;										\
        C=(<FS_E464_XMPRTL,3-4*FS_PR73_RQ_NB_XMPRT(|L),FS_PR73_RQ_NPBDH_XMPRT)|				\
 	 (>FS_E464_XMPRT,3-4*FS_PR73_RQ_NB_XMPRT(|L),FS_PR73_RQ_NPBDH_XMPRTL);				\
        V=12;												\
        F=EPRU6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + REGIONALE;										\
        C=(<FS_E464_XMPRTL,5-7*FS_PR73_RQ_NB_XMPRT(|L),FS_PR73_RQ_NPBDH_XMPRT)|				\
 	 (>FS_E464_XMPRT,5-7*FS_PR73_RQ_NB_XMPRT(|L),FS_PR73_RQ_NPBDH_XMPRTL);				\
        V=12;												\
        F=EPRU6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + REGIONALE;										\
        C=(<FS_E464_XMPRTL,5*FS_PR73_RQ_NB_XMPRT(|L),FS_MDVC_NPBD2_2XT)|					\
 	 (>FS_E464_XMPRT,5*FS_PR73_RQ_NB_XMPRT(|L),FS_MDVC_NPBD2_3XTL);					\
        V=12;												\
        F=EPRU6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + REGIONALE;										\
        C=(<FS_E464_XMPRTL,5*FS_PR73_RQ_NB_XMPRT(|L),FS_DPC_NPB_XMPRTB)|					\
 	 (>FS_E464_XMPRT,5*FS_PR73_RQ_NB_XMPRT(|L),FS_DPC_NPB_XMPRTBL);					\
        V=12;												\
        F=EPRU6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + REGIONALE;										\
        C=(<FS_E464_XMPRTL,TILO_PR73NB(|L),3*FS_PR73_NBXT(|L),FS_PR65_NPBD2XT)|				\
 	 (>FS_E464_XMPRT,TILO_PR73NB(|L),3*FS_PR73_NBXT(|L),FS_PR65_NPBD2XTL);				\
        V=12;												\
        F=EPRU6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + REGIONALE;										\
        C=(<FS_E464_XMPRTL,6@(FS_MDVE_XMPRT_NB|FS_MDVC_XMPRT_NB),FS_PR73_RQ_NPBDH_XMPRT)|		\
 	 (>FS_E464_XMPRT,6@(FS_MDVE_XMPRT_NB|FS_MDVC_XMPRT_NB),FS_PR73_RQ_NPBDH_XMPRTL);		\
        V=12;												\
        F=EPRU6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + REGIONALE;										\
        C=(<FS_E464_XMPRTL,2*FS_MDVC_XMPRT_NB,FS_DPC_NPB_XMPRT)|						\
 	 (>FS_E464_XMPRT,2*FS_MDVC_XMPRT_NB,FS_DPC_NPB_XMPRTL);						\
        V=12;												\
        F=EPRU6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + REGIONALE;										\
        C=(<FS_E464_XMPRTL,3*FS_DPC_B_XMPRT(|L),FS_PR65_NPBD2XT)|					\
 	 (>FS_E464_XMPRT,3*FS_DPC_B_XMPRT(|L),FS_PR65_NPBD2XTL);					\
        V=12;												\
        F=EPRU6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + REGIONALE;										\
        C=(<FS_E464_XMPRTL,3*FS_DPC_B_XMPRT(|L),FS_DPC_NPB_XMPRT)|					\
 	 (>FS_E464_XMPRT,3*FS_DPC_B_XMPRT(|L),FS_DPC_NPB_XMPRTL);					\
        V=12;												\
        F=EPRU6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + REGIONALE;										\
        C=(<FS_E464_XMPRTL,6*FS_DPC_RB_XMPRT(|L),FS_DPC_RNPB_XMPRT)|					\
 	 (>FS_E464_XMPRT,6*FS_DPC_RB_XMPRT(|L),FS_DPC_RNPB_XMPRTL);					\
        V=12;												\
        F=EPRU6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + REGIONALE;										\
        C=(<FS_E464_XMPRTL,FS_MDVE_NB2XT(|L),6*FS_DPC_BZ_NAV1(|L),FS_MDVC_NPBD2_3D1)|			\
 	 (>FS_E464_XMPRT,FS_MDVE_NB2XT(|L),6*FS_DPC_BZ_NAV1(|L),FS_MDVC_NPBD2_3D1L);			\
        V=14;												\
        F=EPRU6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + REGIONALE;										\
        C=(<FS_E464DTR1L,2*FS_MDVC_NB3D1(|L),FS_MDVE_NA3D1(|L),FS_MDVE_NB3D1(|L),FS_MDVC_NPBD2_3XT)|	\
 	 (>FS_E464DTR1,2*FS_MDVC_NB3D1(|L),FS_MDVE_NA3D1(|L),FS_MDVE_NB3D1(|L),FS_MDVC_NPBD2_3XTL);	\
        V=14;												\
        F=EPRU6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + REGIONALE;										\
        C=>FS_E464DTR1,FS_MDVE_NBXT1,FS_DPC_BZ_NAV1(|L),FS_MDVE_NAXT,2*FS_MDVE_NAXT,FS_MDVE_NAXT,	\
 	 FS_DPC_BZ_NAV1(|L),FS_MDVC_NPBD2_3D1L;								\
        V=14;												\
        F=EPRU6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + REGIONALE;										\
        C=>FS_E464DTR1,5*FS_MDVE_NA2XT(|L),FS_DPC_BZ_NAV1(|L),FS_MDVE_NB2XT(|L),FS_UICX97R_FL_XRT_NPBDHL; \
        V=14;												\
        F=EPRU6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + REGIONALE;										\
        C=<FS_E464DTR1L,FS_MDVE_NA2XT(|L),FS_MDVE_NB2XT(|L),FS_DPC_BZ_NAV1(|L),5*FS_MDVE_NA2XT(|L),	\
 	 FS_E464DTR1;											\
        V=13;												\
        F=EPRU6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + REGIONALE;										\
        C=<FS_E464DTR1L,FS_DPC_BZ_NAV1(|L),FS_MDVE_NB2XT(|L),FS_DPC_BZ_NAV1(|L),FS_MDVE_NA2XT(|L),	\
 	 FS_DPC_BZ_NAV1(|L),FS_MDVE_NA2XT(|L),FS_E464DTR1;						\
        V=14;												\
        F=EPRU6;
-     TX=TI E 646 + Regionale;										\
+     TX=TI E 633 + REGIONALE;										\
+       C=FS_E633XT(|L),2*FS_UICX75T_XRT_B(|L);								\
+       V=14;												\
+       F=EPR6;
+     TX=TI E 646 + REGIONALE;										\
        C=(<FS_E646X(|L),FS_PR73_RQ_NB_XMPRT(|L),3*FS_DPC_B_XMPRTB(|L),FS_DPC_NPB_XMPRTB)|		\
 	 (>FS_E646X(|L),FS_PR73_RQ_NB_XMPRT(|L),3*FS_DPC_B_XMPRTB(|L),FS_DPC_NPB_XMPRTBL);		\
        V=12;												\
        F=EPRU6;
-     TX=TI E 656 + Regionale;										\
+     TX=TI E 656 + REGIONALE;										\
        C=(<FS_E656S6XTB(|L),4*FS_PR73_NBXT(|L),FS_DPC_NPB_XMPRT)|					\
 	 (>FS_E656S6XTB(|L),4*FS_PR73_NBXT(|L),FS_DPC_NPB_XMPRTL);					\
        V=12;												\
        F=EPRU6;
-     TX=TI D 445 + Regionale;										\
+     TX=TI D 445 + REGIONALE;										\
        C=<FS_D445X(|L)|FS_UICX97R_FC_XRT_B(|L),2*FS_UICX97R_FL_XRT_B(|L),FS_MDVC_XMPRT_NB,		\
 	 FS_MDVC_XMPRT_NPBD2;										\
        V=12;												\
        F=DPR6;
-     TX=TI D 445 + Regionale;										\
+     TX=TI D 445 + REGIONALE;										\
        C=<FS_D445X(|L),FS_MDVC_XMPRT_NB,3*FS_MDVE_XMPRT_NB,FS_MDVC_XMPRT_NB,FS_MDVC_XMPRT_NPBD2;	\
        V=12;												\
        F=DPR6;
-     TX=TI D 445 + Regionale;										\
+     TX=TI D 445 + REGIONALE;										\
        C=>FS_D445X(|L),5*FS_MDVE_XMPRT_NB,FS_MDVC_XMPRT_NPBD2L;						\
        V=12;												\
        F=DPR6;
-     TX=TI D 445 + Regionale;										\
+     TX=TI D 445 + REGIONALE;										\
        C=>FS_D445X(|L),2*FS_MDVC_XMPRT_NB,FS_VSE_XMPRT_B(|L),FS_MDVC_XMPRT_NB,FS_MDVC_XMPRT_NPBD2L;	\
        V=12;												\
        F=DPR6;
-     TX=TI D 445 + Regionale;										\
-       C=<FS_D445X(|L),FS_MDVC_XMPRT_NB,FS_MDVC_NBXT1,FS_MDVC_XMPRT_NB,FS_MDVC_NPBD2XT1;		\
-       V=12;												\
-       F=DPR6;
-     TX=TI D 445 + Regionale;										\
+
+     TX=TI D 445 + REGIONALE;										\
        C=(<FS_D445X(|L),2*FS_MDVE_NB3D1(|L),2*FS_MDVC_RG_NB2XT,FS_MDVC_NPBD2_3XT)|			\
 	 (>FS_D445X(|L),FS_MDVC_RG_NB2XT,2*FS_MDVE_NB3D1(|L),FS_MDVC_RG_NB2XT,FS_MDVC_XMPRT_NPBD2L);	\
        V=12;												\
-       F=DPR6;
-     TX=TI Ale 724;											\
+       F=DPRU6;
+
+     TX=TI D 445 + REGIONALE;										\
+       C=(<FS_D445X(|L),4*FS_PR73_RQ_NB_XMPRT(|L),FS_MDVC_NPBD2_3XT)|					\
+	 (>FS_D445X(|L),4*FS_PR73_RQ_NB_XMPRT(|L),FS_MDVC_NPBD2_3XTL);					\
+       V=12;												\
+       F=DPRU6;
+     TX=TI ALE 724;											\
        C=(<FS_ALE724MXTL,FS_LE884BMXTL,FS_LE724MXT)|(<FS_LE724MXTL,FS_LE884BMXTL,FS_ALE724MXT);		\
        V=14;												\
        F=DPRU6;
-     TX=TI Ale 582;											\
+     TX=TI ALE 582;											\
        C=(<FS_ALE582XTL,FS_LE884BXT,FS_LE562XT|FS_LE682XT)|						\
 	 (>FS_ALE582XT,FS_LE884BXTL,FS_LE562XTL|FS_LE682XTL|FS_ALE582XTL);				\
        V=14;												\
        F=DPRU6;
-     TX=TI Ale 501;											\
-       C=2*FS_ALE501_LEOEXPR2;										\
-       V=14;												\
-       F=DPRU6;
-     TX=TI AL2 501;											\
+     TX=TI ALE 501;											\
        C=1-2*FS_ALE501_DTR1;										\
        V=14;												\
        F=EPRU6;
-     TX=TI ALn 501;											\
+     TX=TI ALN 501;											\
        C=FS_ALN501_DTR1;										\
        V=13;												\
        F=DPRU6;
-     TX=TI 668 1200 + Regionale;									\
-       C=1-2*FS_ALN668_1200A(|L);									\
+     TX=FS ETR 324;											\
+       C=FS_ETR324_DTR1;										\
+       V=16;												\
+       F=EPRU6;
+     TX=FS ETR 425;											\
+       C=1-2@FS_ETR425_DTR1;										\
+       V=16;												\
+       F=EPRU6;
+     TX=FS BTR 813 VAL D' AOSTE;									\
+       C=FS_BTR813_AOSTE[PD];										\
        V=12;												\
        F=DPRU6;
-     TX=TI 668 3000 + Regionale;									\
+     TX=TI 668 1900 + REGIONALE;									\
+       C=1-2*FS_ALN668_1900XT(|L);									\
+       V=11;												\
+       F=DPRU6;
+     TX=TI 668 3000 + REGIONALE;									\
        C=1-2*FS_ALN668_3000A(|L);									\
        V=11;												\
        F=DPRU6;
-     TX=TI 663 + Regionale;										\
+#FEHLER IN MLG-DATEI
+     TX=TI 663 + REGIONALE;										\
        C=1-2*FS_ALN663_XMPRT(|L);									\
+       V=12;												\
+       F=DPRU6;
+     TX=TI 668 1200 + REGIONALE;									\
+       C=1-2*FS_ALN668_1200A(|L);									\
        V=12;												\
        F=DPRU6;
 
 ;LEONARDO EXPRESS
-     TX=TI E 464 + Leonardo Express;									\
+     TX=TI E 464 + LEONARDO EXPRESS;									\
        C=(<FS_E464_LEONARDO2L,4*(2:FS_UICX97R_FC_NB_LEOEXPR2(|L)|1:FS_UICX00R_C_XMPRT_B(|L)),		\
 	 FS_UICX97R_FL_NPBDH_LEOEXPR2)|									\
 	 (>FS_E464_LEONARDO2,4*(2:FS_UICX97R_FC_NB_LEOEXPR2(|L)|1:FS_UICX00R_C_XMPRT_B(|L)),		\
 	 FS_UICX97R_FL_NPBDH_LEOEXPR2L);								\
        V=14;												\
        F=EPRU6;
+     TX=TI ALE 501 LEONARDO EXPRESS;									\
+       C=2*FS_ALE501_LEOEXPR2;										\
+       V=14;												\
+       F=DPRU6;
+     TX=TI ETR 425 LEONARDO EXPRESS;									\
+       C=1-2@FS_ETR425_LEOEXPR2;									\
+       V=16;												\
+       F=EPRU6;
 ;FRIULI VENEZIA GIULIA
-     TX=TI ETR 463 Friuli Venezia Giulia;								\
-       C=FS_ETR463_FVG;											\
+     TX=TI ETR 563 FRIULI VENEZIA GIULIA;								\
+       C=FS_ETR563_FVG;											\
        V=14;												\
        F=EPRU6;
 
-;Freight
+;FREIGHT
 ;-------
-     TX=TI E 645 + Freight;										\
+     TX=TI E 405 + FREIGHT;										\
+       C=FS_E405XT(|L),15*(FS_EANOS5377C|FS_EANOS5377T);						\
+       V=10;												\
+       F=EF6;
+     TX=TI E 405 + FREIGHT;										\
+       C=FS_E405XT(|L),14*SBB_SHIMMNS_G(|L);								\
+       V=10;												\
+       F=EF6;
+     TX=TI E 405 + FREIGHT;										\
+       C=FS_E405XT(|L),10-12*TWAG_LAAIS;								\
+       V=12;												\
+       F=EF6;
+     TX=TI E 405 + E 412 FREIGHT;									\
+       C=FS_E405XT(|L),FS_E412_XMPR_DC,5*DB_SDGGMRSS738VR[OB:STRAIL_DBSL,14,4][OB:STRAIL_DBS,187,4],	\
+	 4*DB_SDGGMRSS738VR[OB:STRAIL_(TRANSPED2|DBS)L,14,4][OB:STRAIL_(TRANSPED2|DBS),187,4],		\
+	 4*DB_SDGGMRSS738VR[OB:STRAIL_DBSL,14,4][OB:STRAIL_DBS,187,4];					\
+       V=10;												\
+       F=EF6;
+     TX=TI E 412 + FREIGHT;										\
+       C=FS_E412_XMPR_DC,18-20*(1:NACCO_EANOS_B|2:NACCO_EANOS|1:RCA_EANOS5380);				\
+       V=10;												\
+       F=EF6;
+     TX=TI E 412 + FREIGHT;										\
+       C=2*FS_E412_XMPR_DC,12-14*DB_SDGGMRSS738VR[OB:STRAIL_WALTER3L,14,4][OB:STRAIL_WALTER3,187,4];	\
+       V=10;												\
+       F=EF6;
+     TX=TI E 633 + FREIGHT;										\
+       C=FS_E633EB(|L),18-20*TWAG_HB15;									\
+       V=10;												\
+       F=EF6;
+     TX=TI E 652 + FREIGHT;										\
+       C=FS_E652XT(|L),12-15*GEFCO_TA379MB2;								\
+       V=12;												\
+       F=EF6;
+     TX=TI E 645 + FREIGHT;										\
        C=FS_E645AX(|L),9*(1:FS_HABILS1|2:FS_HABILS2);							\
        V=10;												\
        F=EF6;
-     TX=TI E 656 + Freight;										\
+     TX=TI E 656 + FREIGHT;										\
        C=FS_E656S6B(|L),18*FS_SHIMMNS(1|2|3)(|L);							\
        V=10;												\
        F=EF6;
-     TX=TI D 345 + Freight;										\
+     TX=TI D 345 + FREIGHT;										\
        C=FS_D345G1(|L),9*(FS_SHIMMNS2(|L)|FS_SHIMMNS3(|L)),4*SNCB_SHIMMNS3614D5A,			\
 	 4*(FS_SHIMMNS2(|L)|FS_SHIMMNS3(|L));								\
        V=9;												\
        F=DF6;
-     TX=TI D 345 + Freight;										\
+     TX=TI D 345 + FREIGHT;										\
        C=FS_D345G2(|L),12-15*STVA_TA381WR;								\
        V=10;												\
        F=DF6;
-     TX=TI D 345 + Freight;										\
+     TX=TI D 345 + FREIGHT;										\
        C=FS_D345X(|L),25-30*FS_SHIMMNS4677_T;								\
        V=10;												\
        F=DF6;
-     TX=TI D 345 + Freight;										\
+     TX=TI D 345 + FREIGHT;										\
        C=FS_D345X2(|L),13*(FS_SHIMMNS2(|L)|FS_SHIMMNS3(|L)),SNCB_SHIMMNS3614D5A,			\
 	 3*(FS_SHIMMNS2(|L)|FS_SHIMMNS3(|L));								\
        V=9;												\
        F=DF6;
-     TX=TI D 345 + Freight;										\
+     TX=TI D 345 + FREIGHT;										\
        C=FS_D345G2(|L),FS_D345X(|L),4*FS_EAOS5303T;							\
        V=10;												\
        F=DF6;
-     TX=TI D 443 + Freight;										\
+     TX=TI D 443 + FREIGHT;										\
        C=FS_D443T(|L),10*(3:FS_EANOS5377B,3:FS_EANOS5377C,1:FS_EAOS5325T);				\
        V=10;												\
        F=DF6;
-     TX=TI D 443 + Freight;										\
+     TX=TI D 443 + FREIGHT;										\
        C=FS_D443XT(|L),20*(FS_SHIMMNS2(|L)|FS_SHIMMNS3(|L));						\
        V=10;												\
        F=DF6;
-
-;Mercitalia
+;SERVICE
+;-------
+     TX=TI E 412 + E 405;										\
+       C=2*FS_E412_XMPR_DC,2*FS_E405XT(|L)[PD];								\
+       V=10;
+;MERCITALIA
 ;----------
-     TX=Mercitalia E494;										\
+     TX=MERCITALIA E494;										\
        C=MIR_E494(|L),18-20*(3:FS_EANOS5377B|1:FS_EANOS5377C|1:FS_EANOS5377T);				\
        V=10;												\
        F=EF6;
-     TX=Mercitalia 193;											\
+     TX=MERCITALIA 193;											\
        C=MIR_193_MRCE_DC,15-18*FS_SHIMMNS3(|L);								\
        V=10;												\
        F=EF6;
-     TX=Mercitalia 193;											\
+     TX=MERCITALIA 193;											\
        C=MIR_193_MRCE_DC,18*FS_SHIMMNS4677_T;								\
+       V=10;												\
+       F=EF6;
+     TX=MERCITALIA E 652;										\
+       C=MIR_E652(|L),8*(2:TWAG_HB7|1:TWAG_HB15),2*SBB_HABBIILLNS_CARGO,8*(2:TWAG_HB7|1:TWAG_HB15);	\
+       V=12;												\
+       F=EF6;
+     TX=MERCITALIA E 652;										\
+       C=MIR_E652(|L),14-16*(FS_SHIMMNS2(|L)|FS_SHIMMNS3(|L));						\
        V=10;												\
        F=EF6;
 
 ;TILO
 ;----
-     TX=TILO RABe 524;											\
-       C=1-2@TILO_RABe524_L1,0-1*TILO_RABe524_1_L1;							\
+     TX=TILO RABE 524;											\
+       C=1-2@TILO_RABE524_L1,0-1*TILO_RABE524_1_L1;							\
        V=12;												\
        F=EPRU6;
-     TX=TILO RABe 524;											\
-       C=TILO_RABe524_1_L1;										\
+     TX=TILO RABE 524;											\
+       C=TILO_RABE524_1_L1;										\
        V=12;												\
        F=EPRU6;
-     TX=TILO RABe 524;											\
-       C=TILO_RABe524_L2|TILO_RABe524_1_L2;								\
+     TX=TILO RABE 524;											\
+       C=TILO_RABE524_L2|TILO_RABE524_1_L2;								\
        V=12;												\
        F=EPRU6;
-     TX=TILO RABe 524;											\
-       C=TILO_RABe524_L2,TILO_RABe524_1_L2;								\
+     TX=TILO RABE 524;											\
+       C=TILO_RABE524_L2,TILO_RABE524_1_L2;								\
        V=12;												\
        F=EPRU6;
-     TX=TILO RABe 524;											\
-       C=TILO_RABe524_2_L2T|TILO_RABe524_L2;								\
+     TX=TILO RABE 524;											\
+       C=TILO_RABE524_2_L2T|TILO_RABE524_L2;								\
        V=12;												\
        F=EPRU6;
-     TX=TILO RABe 524;											\
+     TX=TILO RABE 524;											\
        C=1-2*TILO_RABE524_L3;										\
        V=12;												\
        F=EPRU6;
-     TX=TILO RABe 524;											\
+     TX=TILO RABE 524;											\
        C=TILO_RABE524_2_L3|(TILO_RABE524_L3,TILO_RABE524_2_L2T);					\
        V=12;												\
        F=EPRU6;
-     TX=TILO RABe 524;											\
+     TX=TILO RABE 524;											\
        C=TILO_RABE524_1_L3;										\
+       V=12;												\
+       F=EPRU6;
+     TX=TILO RABE 524;											\
+       C=TILO_RABE524_3_L3_DC;										\
        V=12;												\
        F=EPRU6;
 
 ;TRENORD
 ;-------
-     TX=Trenord E464 + Regionale;									\
+     TX=TRENORD E464 + REGIONALE;									\
        C=(<TNOR_E464L,5-7*TNOR_PR73RQ_NB(|L),TNOR_PR73RQ_NPBDH)|					\
 	 (>TNOR_E464,5-7*TNOR_PR73RQ_NB(|L),TNOR_PR73RQ_NPBDHL);					\
        V=12;												\
        F=EPRU6;
-     TX=Trenord E464 + Regionale;									\
+     TX=TRENORD E464 + REGIONALE;									\
        C=(<TNOR_E464L,5*TNOR_MDVC_NB(|L),TNOR_MDVC_NPBD1)|						\
 	 (>TNOR_E464,5*TNOR_MDVC_NB(|L),TNOR_MDVC_NPBD1L);						\
        V=13;												\
        F=EPRU6;
-     TX=Trenord E464 + Regionale;									\
+     TX=TRENORD E464 + REGIONALE;									\
        C=(<TNOR_E464L,4*TNOR_DPC_B(|L),TNOR_DPC_NPB)|(>TNOR_E464,4*TNOR_DPC_B(|L),TNOR_DPC_NPBL);	\
        V=13;												\
        F=EPRU6;
-     TX=Trenord E464 + Regionale;									\
+
+     TX=TRENORD E464 + REGIONALE;									\
        C=(<FS_E464_XMPRTL,TNOR_DPC_RG_AB(|L),3*TNOR_DPC_RG_B(|L),TNOR_DPC_RG_NPB)|			\
 	 (>FS_E464_XMPRT,TNOR_DPC_RG_AB(|L),3*TNOR_DPC_RG_B(|L),TNOR_DPC_RG_NPBL);			\
        V=12;												\
        F=EPRU6;
-     TX=Trenord E464 + Regionale;									\
+     TX=TRENORD E464 + REGIONALE;									\
        C=(<TNOR_E464L,6*TNOR_DPC_RG_BL,TNOR_DPC_RG_NPB)|(>TNOR_E464,6*TNOR_DPC_RG_B,TNOR_DPC_RG_NPBL);	\
        V=12;												\
        F=EPRU6;
-     TX=Trenord ALe 582 + Regionale;									\
+
+     TX=TRENORD ALE 582 + REGIONALE;									\
        C=1-2*(<TNOR_ALE582L,TNOR_LE763L,TNOR_LE562)|(>TNOR_ALE582,TNOR_LE763,TNOR_LE562L);		\
        V=13;												\
        F=EPRU6;
-     TX=Trenord ALN 668 1200 + Regionale;								\
+     TX=TRENORD ALE 582 + REGIONALE;									\
+       C=1-2@(<TNOR_ALE582L,2*TNOR_DPC_BL,TNOR_DPC_NPB)|(>TNOR_ALE582,2*TNOR_DPC_BL,TNOR_DPC_NPBL);	\
+       V=13;												\
+       F=EPRU6;
+     TX=TRENORD ALE ETR 425;										\
+       C=1-2@TRENORD_ETR425;										\
+       V=14;												\
+       F=EPRU6;
+     TX=TRENORD ALE ETR 526;										\
+       C=TRENORD_ETR526;										\
+       V=14;												\
+       F=EPRU6;
+     TX=TRENORD ALN 668 120 + REGIONALE;								\
+       C=TNOR_ALN668_120ALN(|L),TNOR_B68LN(|L),TNOR_ALN668_130A(|L);					\
+       V=11;												\
+       F=DPRU6;
+     TX=FS;												\
+       C=(TNOR_ALN668_120ACA(|L),|(TNOR_B68A(|L),TNOR_ALN668_120ACA(|L)))|				\
+	 (TNOR_ALN668_120ACB(|L),|(TNOR_B68A(|L),TNOR_ALN668_120ACB(|L)))|				\
+	 (TNOR_ALN668_120ACA(|L),TNOR_ALN668_120ACB(|L));						\
+       V=11;												\
+       F=DPRU6;
+     TX=TRENORD ALN 668 1200 + REGIONALE;								\
        C=TNOR_ALN668_1200MCB(|L),FS_ALN668_3000A(|L);							\
        V=11;												\
        F=DPRU6;
-     TX=Trenord ALN 668 1200 + Regionale;								\
+     TX=TRENORD ALN 668 120 + REGIONALE;								\
        C=TNOR_ALN668_120BCA(|L),TNOR_B68A(|L),TNOR_ALN668_120BCA(|L);					\
        V=11;												\
        F=DPRU6;
-     TX=Trenord ALN 668 3100 + Regionale;								\
+     TX=TRENORD ALN 668 3100 + REGIONALE;								\
        C=TNOR_ALN668_3100MCB(|L),TNOR_ALN668_120BCA(|L);						\
        V=11;												\
        F=DPRU6;
-     TX=Trenord ALN 668 130 + Regionale;								\
+     TX=TRENORD ALN 668 130 + REGIONALE;								\
        C=2:(1-2*TNOR_ALN668_130A(|L))|1:(1-2*TNOR_ALN668_130B(|L));					\
        V=11;												\
        F=DPRU6;
-     TX=Trenord ALN 668 130 + Regionale;								\
+     TX=TRENORD ALN 668 130 + REGIONALE;								\
        C=(TNOR_ALN668_130A(|L),2*TNOR_B68A(|L),TNOR_ALN668_130A(|L))|					\
 	 (TNOR_ALN668_130B(|L),TNOR_B68A(|L),TNOR_ALN668_130B(|L));					\
        V=11;												\
        F=DPRU6;
 
-;TT
-;--
-     C=TT_ETR170_L1;											\
-       V=14;												\
-       F=ETRU6;TX:TRENTINO TRANSPORTI TRENTO ETR 170;							\
-
-     C=5:TT_ALN501_6_L1|1:(TT_ALN501_6_L1,FS_ALN501_XMPRT)|1:(FS_ALN501_XMPRT,TT_ALN501_6_L1);		\
-       V=13;												\
-       F=ETRU6;TX:TRENTINO TRANSPORTI TRENTO ALN 5801TR 170;						\
-
-
 ;FBP
 ;---
-     TX=Ferrovia Bologna-Portomaggiore ALN 663 + Regionale;						\
+     TX=FERROVIA BOLOGNA-PORTOMAGGIORE ALN 663 + REGIONALE;						\
        C=FBP_ALN663B(|L),FBP_LN778B(|L),FBP_ALN663B(|L);						\
        V=10;												\
        F=DPRU6;
 
 ;FCU
 ;---
-     TX=FCU: Ferrovia Centrale Umbra Ale 501;								\
+     TX=FCU: FERROVIA CENTRALE UMBRA ALE 501;								\
        C=1-2@FCU_ALE501_L3;										\
        V=12;												\
        F=EPRU6;
 
-     TX=FCU: Ferrovia Centrale Umbra Aln 776;								\
+     TX=FCU: FERROVIA CENTRALE UMBRA ALN 776;								\
        C=FCU_ALN776M2CB(|L)|FCU_ALN776B_L3;								\
        V=11;												\
        F=DPRU6;
-     TX=FCU: Ferrovia Centrale Umbra Aln 776;								\
+     TX=FCU: FERROVIA CENTRALE UMBRA ALN 776;								\
        C=4:FCU_ALN776M_L3|1:(<FCU_ALN776M2CCL,FCU_ALN776M2CB)|1:(<FCU_ALN776M2CBL,FCU_ALN776M2CC);	\
        V=11;												\
        F=DPRU6;
-     TX=FCU: Ferrovia Centrale Umbra Aln 776;								\
+     TX=FCU: FERROVIA CENTRALE UMBRA ALN 776;								\
        C=<FCU_ALN776M2CCL,FCU_ALN776B_L3,FCU_ALN776M2CB(|L)|FCU_ALN776M2CC;				\
        V=11;												\
        F=DPRU6;
 
 ;FNM / LENORD
 ;------------
-     TX=Ferrovia Milano Nord / LeNord EA 750 + Regionale;						\
+     TX=FERROVIA MILANO NORD / LENORD EA 750 + REGIONALE;						\
        C=(<FNM_EA750ABGL|(FNM_EA750BBGL,FNM_EB950G),FNM_EB950G,FNM_EB850G)|				\
 	 (>FNM_EA750ABG|(FNM_EA750BBG,FNM_EB950GL),FNM_EB950GL,FNM_EB850GL);				\
        V=12;												\
        F=EPRU6;
-     TX=Ferrovia Milano Nord / LeNord ALN 668 120 + Regionale;						\
+     TX=FERROVIA MILANO NORD / LENORD ALN 668 120 + REGIONALE;						\
+       C=FNM_ALN668_120ALN(|L);										\
+       V=11;												\
+       F=DPRU6;
+     TX=FERROVIA MILANO NORD / LENORD ALN 668 120 + REGIONALE;						\
        C=FNM_ALN668_120BG(|L)|FNM_ALN668_120BLN(|L),FNM_B68LN(|L),FNM_ALN668_130LN(|L);			\
        V=11;												\
        F=DPRU6;
-     TX=Ferrovia Milano Nord / LeNord ALN 668 130 + Regionale;						\
+     TX=FERROVIA MILANO NORD / LENORD ALN 668 130 + REGIONALE;						\
        C=FNM_ALN668_130LN(|L)|(FNM_ALN668_130(|L),FNM_B68B(|L),FNM_ALN668_130LN(|L));			\
        V=10;												\
        F=DPRU6;
-     TX=Ferrovia Milano Nord / LeNord  ALN 668 130 + Regionale;						\
+     TX=FERROVIA MILANO NORD / LENORD  ALN 668 130 + REGIONALE;						\
        C=FNM_ALN668_130LN(|L),1-2*FNM_B68LN(|L),FNM_ALN668_130LN(|L);					\
        V=10;												\
        F=DPRU6;
 
 ;FUC
 
-     TX=Societa Ferrovie Udine-Cividale ES64U;								\
+     TX=SOCIETA FERROVIE UDINE-CIVIDALE ES64U;								\
        C=FUC_ES64U4(|L),OBB_6DMSZ95700(|L),OBB_BMPZ29910MIC(|L),OBB_BMPZ29910MIC(|L);			\
        V=16;												\
        F=EP6;
-     TX=Societa Ferrovie Udine-Cividale ALN 663;							\
+     TX=SOCIETA FERROVIE UDINE-CIVIDALE ALN 663;							\
        C=FUC_ALN663AC(|L)|FUC_ALN663BC(|L),								\
 	 0-1*($DIR(FUC_LN664|FUC_LN664C,FUC_LN664L|FUC_LN664CL),0-1*FUC_ALN663AC(|L));			\
        V=11;												\
@@ -2225,56 +2562,105 @@
 
 ;GTT
 ;---
-     TX=GTT Gruppo Trasporti Torinesi AM 54;								\
+     TX=GTT GRUPPO TRASPORTI TORINESI AM 54;								\
        C=6:GTT_AM54(|L)|1:GTT_AM55(|L);									\
        V=11;												\
-       F=EPRU6;
-     TX=GTT Gruppo Trasporti Torinesi AM 56;								\
+       F=DPRU6;
+     TX=GTT GRUPPO TRASPORTI TORINESI AM 56;								\
        C=GTT_AM56O(|L)|GTT_AM56Y(|L);									\
        V=11;												\
-       F=EPRU6;
-     TX=GTT Gruppo Trasporti Torinesi AM 54;								\
+       F=DPRU6;
+     TX=GTT GRUPPO TRASPORTI TORINESI AM 54;								\
        C=(GTT_AM54(|L),GTT_AM56O(|L))|(GTT_AM54(|L),GTT_AM55(|L),GTT_AM54(|L));				\
        V=11;												\
+       F=DPRU6;
+     TX=GTT GRUPPO TRASPORTI TORINESI ALE 501;								\
+       C=1-2@XGTT_ALE501;										\
+       V=12;												\
        F=EPRU6;
 
-;Nordcargo
+;TFT
+;---
+     TX=TFT_ALE 501;											\
+       C=XTFT_ALE501_LFI1;										\
+       V=12;												\
+       F=EPRU6;
+
+;TT
+;--
+     C=TT_ETR170_L1;											\
+       V=14;												\
+       F=ETRU6;												\
+       TX:TRENTINO TRANSPORTI TRENTO ETR 170;
+     C=5:TT_ALN501_6_L1|1:(TT_ALN501_6_L1,FS_ALN501_XMPRT)|1:(FS_ALN501_XMPRT,TT_ALN501_6_L1);		\
+       V=13;												\
+       F=ETRU6;												\
+       TX:TRENTINO TRANSPORTI TRENTO ALN 5801TR 170;
+
+;DB CARGO ITALIA
+;---------------
+     TX=DB CARGO ITALIA 191;										\
+       C=DBCI_191VR(|L),18-22*DB_EAOS051_Y25K;								\
+       V=10;												\
+       F=EF6;
+     TX=DB CARGO ITALIA 483;										\
+       C=DBCI_483VR(|L),18-22*DBC_TAMNS895(|L);								\
+       V=10;												\
+       F=EF6;
+     TX=DB CARGO ITALIA 483;										\
+       C=DBCI_E483NC(|L),10*(4:RAI_EAOS075|3:DBS_EAOS075|1:RAI_EAOS075B(|L)),				\
+	 3*DB_SPS719M[OB:WOOD7(1|2|3),19,12][OB:WOOD7(1|2|3),62,12][OB:WOOD7(1|2|3),105,12]		\
+	 [OB:WOOD7(1|2|3),148,12],5*TWAG_HB16;								\
+       V=10;												\
+       F=EF6;
+     TX=DB CARGO ITALIA 483;										\
+       C=DBCI_E483NC(|L),NORC_E483A(|L),								\
+	 16*RCA_RNOOS3523[OB:WOOD7(1|2|3),7,12,][OB:WOOD7(1|2|3),50,12,][OB:WOOD7(1|2|3),93,12,]	\
+	 [OB:WOOD7(1|2|3),136,12,][OB:WOOD7(1|2|3),179,12,];						\
+       V=10;												\
+       F=EF6;
+
+;NORDCARGO
 ;---------
-     TX=Nordcargo E483;											\
+     TX=NORDCARGO E474 SBB;										\
+       C=NORC_E474SBB,8*SNCB_EAOS_1415A3;								\
+       V=10;												\
+       F=EF6;
+     TX=NORDCARGO E483;											\
        C=NORC_E483S(|L),DB_SHIMMNS724A,DB_SHIMMNS722,DB_SHIMMS708K(|L);					\
        V=10;												\
        F=EF6;
-     TX=Nordcargo E483;											\
+     TX=NORDCARGO E483;											\
        C=2:NORC_E483S(|L)|1:NORC_E483(|L)|1:NORC_E483A(|L),12-16*DB_TADGS959_Y25K(|L);			\
        V=10;												\
        F=EF6;
-     TX=Nordcargo E483;											\
+     TX=NORDCARGO E483;											\
        C=NORC_E483(|L)|NORC_E474SBB,22-26*(14:DB_HBBIS306F|3:DBC_HBBIS306|1:DB_HBIS295L2K);		\
        V=10;												\
        F=EF6;
-     TX=Nordcargo E483;											\
+     TX=NORDCARGO E483;											\
        C=NORC_E483A(|L)|DISP_ES64F4NORC,18-22*DBC_TAMNS895(|L);						\
        V=10;												\
        F=EF6;
-     TX=Nordcargo E483;											\
+     TX=NORDCARGO E483;											\
        C=NORC_E483A(|L),5*(DB_SAMMS709K|DB_SAMMS710K);							\
        V=10;												\
        F=EF6;
 
 ;SBB CFF FFS CARGO
 ;-----------------
-     TX=SBB Cargo Am 842;										\
+     TX=SBB CARGO AM 842;										\
        C=SBB_AM842C(|L),15*GEFCO_TAL489F_B;								\
        V=10;												\
        F=DF6;
-     TX=SBB Cargo Am 840;										\
+     TX=SBB CARGO AM 840;										\
        C=SBB_AM840C1(|L),										\
 	 (10*CFL_RILNSS,20*CFL_SHIMMNSSB(|L))|								\
 	 (3-4*DBS_RILS652M,22-25*(DB_SHIMMNS724A|DB_SHIMMNS720B|RAI_SHIMMNS718B|CFL_SHIMMNSSB(|L)));	\
        V=10;												\
        F=DF6;
 
-;Freight, OTHER COMPANIES
+;FREIGHT, OTHER COMPANIES
 ;------------------------
      TX=ÖBB 293;											\
        C=OBB_1293_DCB,15*(5:OBB_HABBINS2742A|1:OBB_HABBINS2742B|3:RCA_HABBINS2743);			\
@@ -2284,6 +2670,35 @@
        C=OBB_1293_DCB,16*MOSOLF_LAAERS700M;								\
        V=12;												\
        F=EF6;
+
+# ERGÄNZUNG
+
+     TX=FS E444 + RAPIDO;										\
+       C=FS_E444_EB2(|L),FS_UICX64_G_A(|L),(FS_UICX75_L_GPB_A|FS_UICX75_L1_GPB_AL),FS_UICX64_G_A(|L),	\
+	 2*FS_UICX64_G_B(|L),XFS_UICX75_GPB_B,FS_UICX64_G_B(|L),XFS_UICX75_GPB_B;			\
+       V=16;												\
+       F=EP4;
+
+     TX=FS ALE 804 REGIONALE;										\
+       C=<3:(FS_ALE804AL,2@(FS_LE884_1A|FS_LE884_1AL),FS_ALE804A)|					\
+	 1:(FS_ALE644AL,2@(FS_LE884_1A|FS_LE884_1AL),FS_ALE644A);					\
+       V=13;												\
+       F=EPRU5;
+
+     TX=THELLO 36000;											\
+       C=THELLO_36000,2@THELLO_GC70_A(|L),$DIR(THELLO_GC83_BRH(|L),THELLO_GC83_BRH(|L)),		\
+	 5*THELLO_UICZ85_B(|L),;									\
+       V=16;												\
+       F=EP6;
+     TX=THELLO 36000;											\
+       C=THELLO_36000,											\
+	 (2*THELLO_UICX75T_BC(|L),THELLO_UICX75T_PL_BC(|L),3*THELLO_UICX75T_BC(|L),THELLO_WRSS(|L),	\
+	 3*THELLO_MUFST_PG(|L),THELLO_UICX80T_BC(|L),THELLO_UICX75T_PL_BC(|L),2*THELLO_UICX70T_BC(|L),)| \
+	 (THELLO_UICX80T_BC(|L),THELLO_UICX70T_BC(|L),THELLO_UICX80T_BC(|L),THELLO_UICX75T_BC(|L),	\
+	 THELLO_WRSS(|L),THELLO_MUFST_PB(|L),3*THELLO_MUFST_PG(|L),2*THELLO_UICX80T_BC(|L),		\
+	 THELLO_UICX70T_BC(|L),THELLO_UICX75T_BC(|L),);							\
+       V=16;												\
+       F=EP6;
 
    }
  %ENDPOOL;
