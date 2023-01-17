@@ -1,292 +1,436 @@
 {FILELEVEL=1?
   $BGCOLOR #000000
   $OPTGDEF 1
-  $VAR BGTYPE=0
+  $VAR BGTYPE=0;
 }
 
 $REQUIRE ZSZ_DEF.TTT
 #------------------------------------------------------------------------------
 #
-#	Berlin Ostbahnhof - right (east) side
+# Berlin Ostbahnhof - right (east) side
 #
 $SECTION ML=1;
-  $SCENE NAME=D_BLN1; DY=202; YDIR=U;
-    $PATH Y=58; FG=(BERLIN_OBF2F:>100,-3;BERLIN_OBFBX:..>100-800,-58);
+  $SCENE 												\
+      NAME=D_BLN1;											\
+      DY=202; YDIR=U;
+    $PATH Y=58;												\
+	FG=(BERLIN_OBF2F:>100,-3;BERLIN_OBFBX:..>100-800,-58);
       M=STOP; POOL=POOL_BLN_STADTBAHN; D=R; P=>100-80;
-    $ENDPATH 
-    $PATH Y=58; FG=BERLIN_OBF2M:>100,-3;
+    $ENDPATH
+    $PATH Y=58;												\
+	FG=BERLIN_OBF2M:>100,-3;
       M=STOP; POOL=POOL_BLN_STADTBAHN; D=L; P=>100-80;
-    $ENDPATH 
+    $ENDPATH
     $PATH Y=58;
-      M=STOP; POOL=POOL_BLN_S5:#S; D=R; P=>100-410; AP2=[TX=];
-    $ENDPATH 
-    $PATH Y=58; BG=BERLIN_OBF2B:>100,-58;
-      M=STOP; POOL=POOL_BLN_S5:#S; D=L; P=>100-430; AP2=[TX=];
-    $ENDPATH 
-  $ENDSCENE 
-$ENDSECTION 
+      M=STOP; POOL=POOL_BLN_S5:#S; D=R; P=>100-410;							\
+	AP2=[TX=];
+    $ENDPATH
+    $PATH Y=58;												\
+	BG=BERLIN_OBF2B:>100,-58;
+      M=STOP; POOL=POOL_BLN_S5:#S; D=L; P=>100-430;							\
+	AP2=[TX=];
+    $ENDPATH
+  $ENDSCENE
+$ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Berlin Ostbahnhof - left (west) side
+# Berlin Ostbahnhof - left (west) side
 #
 $SECTION ML=1;
-  $SCENE NAME=D_BLN2; DY=202; YDIR=U;
-    $PATH Y=58; FG=(BERLIN_OBF1F:<0,-3;#BERLIN_OBFBX:<0+800..,-58,0);
+  $SCENE 												\
+      NAME=D_BLN2;											\
+      DY=202; YDIR=U;
+    $PATH Y=58;												\
+	FG=(BERLIN_OBF1F:<0,-3;#BERLIN_OBFBX:<0+800..,-58,0);
       M=STOP; POOL=POOL_BLN_STADTBAHN; D=R; V=5-9; P=<0+360;
-    $ENDPATH 
-    $PATH Y=58; FG=BERLIN_OBF1M:<0+230,-3;
+    $ENDPATH
+    $PATH Y=58;												\
+	FG=BERLIN_OBF1M:<0+230,-3;
       M=STOP; POOL=POOL_BLN_STADTBAHN; D=L; V=5-9; P=<0+360;
-    $ENDPATH 
+    $ENDPATH
     $PATH Y=58;
-      M=STOP; POOL=POOL_BLN_S5:#S; D=R; V=5-9; P=<0+330; AP2=[TX=];
-    $ENDPATH 
-    $PATH Y=58; BG=BERLIN_OBF1B:<0,-58;
-      M=STOP; POOL=POOL_BLN_S5:#S; D=L; V=5-9; P=<0+350; AP2=[TX=];
-    $ENDPATH 
-  $ENDSCENE 
-$ENDSECTION 
+      M=STOP; POOL=POOL_BLN_S5:#S; D=R; V=5-9; P=<0+330;						\
+	AP2=[TX=];
+    $ENDPATH
+    $PATH Y=58;												\
+	BG=BERLIN_OBF1B:<0,-58;
+      M=STOP; POOL=POOL_BLN_S5:#S; D=L; V=5-9; P=<0+350;						\
+	AP2=[TX=];
+    $ENDPATH
+  $ENDSCENE
+$ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Düsseldorf Hauptbahnhof
+# Düsseldorf Hauptbahnhof
 #
-$SCENE NAME=D_D1; BG=D_HBFB; YDIR=U; DY=71; DX=1200;
+$SCENE 													\
+    NAME=D_D1;												\
+    DX=1200; DY=71; YDIR=U;										\
+    BG=D_HBFB;
   $PATH Y=5; LC=2;
-    M=STOP; D=R; C=1-3*DU_6B80A; P=100-100;
-  $ENDPATH 
-  $PATH Y=5; LC=2; FG=(RAIL2:..,^0; D_HBFF:,-5);
-    M=STOP; D=L; C=1-3*DU_6B80A; P=0+100;
-  $ENDPATH 
-$ENDSCENE 
+    M=STOP;												\
+      C=1-3*DU_6B80A;											\
+      D=R; P=100-100;
+  $ENDPATH
+  $PATH Y=5; LC=2;											\
+      FG=(RAIL2:..,^0; D_HBFF:,-5);
+    M=STOP;												\
+      C=1-3*DU_6B80A;											\
+      D=L; P=0+100;
+  $ENDPATH
+$ENDSCENE
 #------------------------------------------------------------------------------
 #
-#	Berlin Alexanderplatz - left (west) side)
+# Berlin Alexanderplatz - left (west) side)
 #
 $SECTION ML=1;
-  $SCENE NAME=D_BLN3; DY=192; DX=813; YDIR=U; BG=(BERLIN_ALEX1B;SKY01:..);						\
-    FG=BERLIN_ALEX1B[MSK:BERLIN_ALEX1M,#FFFFFF,,58];
+  $SCENE 												\
+      NAME=D_BLN3;											\
+      DX=813; DY=192; YDIR=U;										\
+      BG=(BERLIN_ALEX1B;SKY01:..);									\
+      FG=BERLIN_ALEX1B[MSK:BERLIN_ALEX1M,#FFFFFF,,58];
     $PATH Y=63;
       POOL=POOL_BLN_STADTBAHN; D=R; P=<0+490;
-    $ENDPATH 
-    $PATH Y=63; FG=BERLIN_ALEX1B[MSK:BERLIN_ALEX1M,#0000FF,,63]:,-63;
+    $ENDPATH
+    $PATH Y=63;												\
+	FG=BERLIN_ALEX1B[MSK:BERLIN_ALEX1M,#0000FF,,63]:,-63;
       POOL=POOL_BLN_STADTBAHN; D=L; P=<0+460;
-    $ENDPATH 
+    $ENDPATH
     $PATH Y=63;
-      M=STOP; POOL=POOL_BLN_S5:#S; D=R; P=<0+435; AP2=[TX=];
-    $ENDPATH 
+      M=STOP; POOL=POOL_BLN_S5:#S; D=R; P=<0+435;							\
+	AP2=[TX=];
+    $ENDPATH
     $PATH Y=63;
-      M=STOP; POOL=POOL_BLN_S5:#S; D=L; P=<0+410; AP2=[TX=];
-    $ENDPATH 
-  $ENDSCENE 
-$ENDSECTION 
+      M=STOP; POOL=POOL_BLN_S5:#S; D=L; P=<0+410;							\
+	AP2=[TX=];
+    $ENDPATH
+  $ENDSCENE
+$ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Berlin Alexanderplatz - right (east) size
+# Berlin Alexanderplatz - right (east) size
 #
 $SECTION ML=1;
-  $SCENE NAME=D_BLN4; DY=192; DX=813; YDIR=U; BG=(BERLIN_ALEX2B;SKY01:..);						\
-    FG=BERLIN_ALEX2B[MSK:BERLIN_ALEX2M,#FFFFFF,,63];
+  $SCENE 												\
+      NAME=D_BLN4;											\
+      DX=813; DY=192; YDIR=U;										\
+      BG=(BERLIN_ALEX2B;SKY01:..);									\
+      FG=BERLIN_ALEX2B[MSK:BERLIN_ALEX2M,#FFFFFF,,63];
     $PATH Y=63;
       POOL=POOL_BLN_STADTBAHN; D=R; P=>100-490;
-    $ENDPATH 
-    $PATH Y=63; FG=BERLIN_ALEX2B[MSK:BERLIN_ALEX2M,#0000FF,,63]:,-63;
+    $ENDPATH
+    $PATH Y=63;												\
+	FG=BERLIN_ALEX2B[MSK:BERLIN_ALEX2M,#0000FF,,63]:,-63;
       POOL=POOL_BLN_STADTBAHN; D=L; P=>100-460;
-    $ENDPATH 
+    $ENDPATH
     $PATH Y=63;
-      M=STOP; POOL=POOL_BLN_S5:#S; D=R; P=>100-435; AP2=[TX=];
-    $ENDPATH 
+      M=STOP; POOL=POOL_BLN_S5:#S; D=R; P=>100-435;							\
+	AP2=[TX=];
+    $ENDPATH
     $PATH Y=63;
-      M=STOP; POOL=POOL_BLN_S5:#S; D=L; P=>100-410; AP2=[TX=];
-    $ENDPATH 
-  $ENDSCENE 
-$ENDSECTION 
+      M=STOP; POOL=POOL_BLN_S5:#S; D=L; P=>100-410;							\
+	AP2=[TX=];
+    $ENDPATH
+  $ENDSCENE
+$ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Duisburg Hauptbahnhof
+# Duisburg Hauptbahnhof
 #
-$SCENE NAME=D_DU1; BG=DU_HBFB; YDIR=U; DY=116; DX=1235;
+$SCENE 													\
+    NAME=D_DU1;												\
+    DX=1235; DY=116; YDIR=U;										\
+    BG=DU_HBFB;
   $PATH Y=5; LC=2;
-    M=STOP; D=R; C=DU_6B80A; P=100-450;
-    M=STOP; D=R; C=DU_NF; P=100-60;
-  $ENDPATH 
-  $PATH Y=5; LC=2; FG=(RAIL2:..,^0; DU_HBFF:,-5);
-    M=STOP; D=L; C=DU_6B80A; P=0+450;
-    M=STOP; D=L; C=DU_GT10NC; P=0+60;
-  $ENDPATH 
-$ENDSCENE 
+    M=STOP;												\
+      C=DU_6B80A;											\
+      D=R; P=100-450;
+    M=STOP;												\
+      C=DU_NF;												\
+      D=R; P=100-60;
+  $ENDPATH
+  $PATH Y=5; LC=2;											\
+      FG=(RAIL2:..,^0; DU_HBFF:,-5);
+    M=STOP;												\
+      C=DU_6B80A;											\
+      D=L; P=0+450;
+    M=STOP;												\
+      C=DU_GT10NC;											\
+      D=L; P=0+60;
+  $ENDPATH
+$ENDSCENE
 
 #------------------------------------------------------------------------------
 #
-#	Berlin Hackescher Markt
+# Berlin Hackescher Markt
 #
 $SECTION ML=1;
-  $SCENE NAME=D_BLN5; DY=208; YDIR=U; BG=(BERLIN_HACKMARKTB:>100;SKY01:..);						\
-    FG=(BERLIN_HACKMARKTB[MSK:BERLIN_HACKMARKTM,#FFFFFF,,60]:>100; BERLIN_HACKMARKTF1:..>100-813,60);
+  $SCENE 												\
+      NAME=D_BLN5;											\
+      DY=208; YDIR=U;											\
+      BG=(BERLIN_HACKMARKTB:>100;SKY01:..);								\
+      FG=(BERLIN_HACKMARKTB[MSK:BERLIN_HACKMARKTM,#FFFFFF,,60]:>100; BERLIN_HACKMARKTF1:..>100-813,60);
     $PATH Y=60;
-      POOL=POOL_BLN_STADTBAHN; D=R; AP=[M=SIMPLE];
-    $ENDPATH 
+      POOL=POOL_BLN_STADTBAHN; D=R;									\
+	AP=[M=SIMPLE];
+    $ENDPATH
     $PATH Y=60;
-      POOL=POOL_BLN_STADTBAHN; D=L; AP=[M=SIMPLE];
-    $ENDPATH 
+      POOL=POOL_BLN_STADTBAHN; D=L;									\
+	AP=[M=SIMPLE];
+    $ENDPATH
     $PATH Y=60;												\
-      FG=(BERLIN_HACKMARKTB[MSK:BERLIN_HACKMARKTM,#0000FF,,60]:>100,-60;				\
+	FG=(BERLIN_HACKMARKTB[MSK:BERLIN_HACKMARKTM,#0000FF,,60]:>100,-60;				\
 	BERLIN_HACKMARKTB1:..>100-813,-60);
-      M=STOP; POOL=POOL_BLN_S5:#S; D=R; V=6; P=>100-600; TB=10; AP2=[TX=];
-    $ENDPATH 
-    $PATH Y=60; FG=BERLIN_HACKMARKTB[MSK:BERLIN_HACKMARKTM,#00FF00,,60]:>100,-60;
-      M=STOP; POOL=POOL_BLN_S5:#S; D=L; V=6; P=>100-500; AP2=[TX=];
-    $ENDPATH 
-  $ENDSCENE 
-$ENDSECTION 
+      M=STOP; POOL=POOL_BLN_S5:#S; D=R; V=6; P=>100-600; TB=10;						\
+	AP2=[TX=];
+    $ENDPATH
+    $PATH Y=60;												\
+	FG=BERLIN_HACKMARKTB[MSK:BERLIN_HACKMARKTM,#00FF00,,60]:>100,-60;
+      M=STOP; POOL=POOL_BLN_S5:#S; D=L; V=6; P=>100-500;						\
+	AP2=[TX=];
+    $ENDPATH
+  $ENDSCENE
+$ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Wien Donaukanalufer 1.
+# Wien Donaukanalufer 1.
 #
-$GROUP NAME=A_WIEN1; LC=1; SEQ=D; AB=202; BL=151; W=X; BG=BgPic/WIEN02B.JPG:,-151;					\
-  FG=BgPic/WIEN02B.JPG[MSK:BgPic/WIEN02M.GIF,#FFFFFF,,151]:,-151; Y=*; DX=1280;
-  M=FOLLOW; D=L; C=6-12*(CAR|TRANSPORTER|BUS|TRUCK);
-$ENDGROUP 
+$GROUP 													\
+    NAME=A_WIEN1;											\
+    LC=1; SEQ=D; DX=1280; AB=202; BL=151; W=X;								\
+    BG=BgPic/WIEN02B.JPG:,-151;										\
+    FG=BgPic/WIEN02B.JPG[MSK:BgPic/WIEN02M.GIF,#FFFFFF,,151]:,-151;					\
+    Y=*;
+  M=FOLLOW;												\
+    C=6-12*(CAR|TRANSPORTER|BUS|TRUCK);									\
+    D=L;
+$ENDGROUP
 #------------------------------------------------------------------------------
 #
-#	Berlin Friedrichstrasse
+# Berlin Friedrichstrasse
 #
 $SECTION ML=1;
-  $SCENE NAME=D_BLN6; DY=230; YDIR=U; BG=(BERLIN_FRIED1B:<0;SKY01:..);						\
-    FG=(BERLIN_FRIED1B[MSK:BERLIN_FRIED1M,#FFFFFF,,108]:<0;BERLIN_FRIED1X:<0+803..);
+  $SCENE 												\
+      NAME=D_BLN6;											\
+      DY=230; YDIR=U;											\
+      BG=(BERLIN_FRIED1B:<0;SKY01:..);									\
+      FG=(BERLIN_FRIED1B[MSK:BERLIN_FRIED1M,#FFFFFF,,108]:<0;BERLIN_FRIED1X:<0+803..);
     $PATH Y=108;
       POOL=POOL_BLN_STADTBAHN; D=R; P=<0+250;
-    $ENDPATH 
-    $PATH Y=108; FG=BERLIN_FRIED1B[MSK:BERLIN_FRIED1M,#0000FF,,108]:<0,-108;
+    $ENDPATH
+    $PATH Y=108;											\
+	FG=BERLIN_FRIED1B[MSK:BERLIN_FRIED1M,#0000FF,,108]:<0,-108;
       POOL=POOL_BLN_STADTBAHN; D=L; P=<0+200;
-    $ENDPATH 
-    $PATH Y=108; FG=BERLIN_FRIED1B[MSK:BERLIN_FRIED1M,#00FF00,,108]:<0,-108;
-      M=STOP; POOL=POOL_BLN_S5:#S; D=R; P=<0+150; AP2=[TX=];
-    $ENDPATH 
-    $PATH Y=108; FG=BERLIN_FRIED1B[MSK:BERLIN_FRIED1M,#FF0000,,108]:<0,-108;
-      M=STOP; POOL=POOL_BLN_S5:#S; D=L; P=<0+100; AP2=[TX=];
-    $ENDPATH 
-  $ENDSCENE 
-$ENDSECTION 
+    $ENDPATH
+    $PATH Y=108;											\
+	FG=BERLIN_FRIED1B[MSK:BERLIN_FRIED1M,#00FF00,,108]:<0,-108;
+      M=STOP; POOL=POOL_BLN_S5:#S; D=R; P=<0+150;							\
+	AP2=[TX=];
+    $ENDPATH
+    $PATH Y=108;											\
+	FG=BERLIN_FRIED1B[MSK:BERLIN_FRIED1M,#FF0000,,108]:<0,-108;
+      M=STOP; POOL=POOL_BLN_S5:#S; D=L; P=<0+100;							\
+	AP2=[TX=];
+    $ENDPATH
+  $ENDSCENE
+$ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Berlin Kupfergraben
+# Berlin Kupfergraben
 #
-$SCENE NAME=D_BLN7; DX=1330; DY=986; YDIR=B; V=8-10; BG=BgPic/BERLIN_KUPFERGRABEN.JPG;				\
-  FG=BgPic/BERLIN_KUPFERGRABEN.JPG[MSK:BgPic/BERLIN_KUPFERGRABENM.GIF,#000000,,446];
-  $PATH Y=446;  TB=2-10; LC=2;
-    POOL=(POOL_BLN_S5|POOL_BLN_S5); AP=[TX=""]; TB=2-10;
-  $ENDPATH 
+$SCENE 													\
+    NAME=D_BLN7;											\
+    DX=1330; DY=986; YDIR=B;										\
+    BG=BgPic/BERLIN_KUPFERGRABEN.JPG;									\
+    FG=BgPic/BERLIN_KUPFERGRABEN.JPG[MSK:BgPic/BERLIN_KUPFERGRABENM.GIF,#000000,,446];			\
+    V=8-10;
+  $PATH Y=446; LC=2; TB=2-10;
+    POOL=POOL_BLN_S5|POOL_BLN_S5; TB=2-10;								\
+      AP=[TX=""];
+  $ENDPATH
   $PATH Y=446; LC=2;
-    POOL=POOL_BRD:#C&#G&#N&#F&(5|6); AP=[TX=""];
-  $ENDPATH 
-$ENDSCENE 
+    POOL=POOL_BRD:#C&#G&#N&#F&(5|6);									\
+      AP=[TX=""];
+  $ENDPATH
+$ENDSCENE
 #------------------------------------------------------------------------------
 #
-#	Berlin Tiergarten
+# Berlin Tiergarten
 #
-$SCENE NAME=D_BLN8; DY=191; DX=813; YDIR=U; LC=3; BG=BLN_TIERGARTENB;
-  $PATH Y=5; FG=BLN_TIERGARTENB[MSK:BLN_TIERGARTENM,#FFFFFF]:,-5;
-    M=FOLLOW; D=R; C=10*(6:CAR|BUS_BLN|BUS_TUR);
-  $ENDPATH 
+$SCENE 													\
+    NAME=D_BLN8;											\
+    DX=813; DY=191; YDIR=U;										\
+    BG=BLN_TIERGARTENB;											\
+    LC=3;
+  $PATH Y=5;												\
+      FG=BLN_TIERGARTENB[MSK:BLN_TIERGARTENM,#FFFFFF]:,-5;
+    M=FOLLOW;												\
+      C=10*(6:CAR|BUS_BLN|BUS_TUR);									\
+      D=R;
+  $ENDPATH
   $PATH Y=7;
-    M=FOLLOW; D=L; C=10*(6:CAR|BUS_BLNL|BUS_TURL);
-  $ENDPATH 
-  $PATH Y=76; FG=BLN_TIERGARTENB[MSK:BLN_TIERGARTENM,#0000FF]:,-76;
-    M=STOP; POOL=POOL_BLN_S5:#S; D=R; V=8; P=55; TB=10; AP2=[TX=];
-  $ENDPATH 
-  $PATH Y=76; FG=BLN_TIERGARTENB[MSK:BLN_TIERGARTENM,#00FF00]:,-76;
-    M=STOP; POOL=POOL_BLN_S5:#S; D=L; V=8; A=.8; P=*0-300; TB=15; AP2=[TX=];
-  $ENDPATH 
-  $PATH Y=76; FG=BLN_TIERGARTENB[MSK:BLN_TIERGARTENM,#FF0000]:,-76;
-    POOL=POOL_BLN_STADTBAHN; D=R; V=6-8; AP=[M=SIMPLE];
-  $ENDPATH 
-  $PATH Y=76; FG=BLN_TIERGARTENB[MSK:BLN_TIERGARTENM,#00FFFF]:,-76;
-    POOL=POOL_BLN_STADTBAHN; D=L; V=6-8; TB=20; AP=[M=SIMPLE];
-  $ENDPATH 
-$ENDSCENE 
+    M=FOLLOW;												\
+      C=10*(6:CAR|BUS_BLNL|BUS_TURL);									\
+      D=L;
+  $ENDPATH
+  $PATH Y=76;												\
+      FG=BLN_TIERGARTENB[MSK:BLN_TIERGARTENM,#0000FF]:,-76;
+    M=STOP; POOL=POOL_BLN_S5:#S; D=R; V=8; P=55; TB=10;							\
+      AP2=[TX=];
+  $ENDPATH
+  $PATH Y=76;												\
+      FG=BLN_TIERGARTENB[MSK:BLN_TIERGARTENM,#00FF00]:,-76;
+    M=STOP; POOL=POOL_BLN_S5:#S; D=L; V=8; A=.8; P=*0-300; TB=15;					\
+      AP2=[TX=];
+  $ENDPATH
+  $PATH Y=76;												\
+      FG=BLN_TIERGARTENB[MSK:BLN_TIERGARTENM,#FF0000]:,-76;
+    POOL=POOL_BLN_STADTBAHN; D=R; V=6-8;								\
+      AP=[M=SIMPLE];
+  $ENDPATH
+  $PATH Y=76;												\
+      FG=BLN_TIERGARTENB[MSK:BLN_TIERGARTENM,#00FFFF]:,-76;
+    POOL=POOL_BLN_STADTBAHN; D=L; V=6-8; TB=20;								\
+      AP=[M=SIMPLE];
+  $ENDPATH
+$ENDSCENE
 #------------------------------------------------------------------------------
 #
-#	Berlin Zoologischer Garten
+# Berlin Zoologischer Garten
 #
 $SECTION ML=1;
-  $SCENE NAME=D_BLN9; DY=205; DX=813; YDIR=U; LC=16; BG=(BLN_ZOOB;SKY01:..);
+  $SCENE 												\
+      NAME=D_BLN9;											\
+      DX=813; DY=205; YDIR=U;										\
+      BG=(BLN_ZOOB;SKY01:..);										\
+      LC=16;
     $PATH Y=1; LC=4;
-      M=FOLLOW; D=L; C=3*BUS_BLNL; TB=10; TE=20;
-    $ENDPATH 
-    $PATH Y=81; LC=3; FG=BLN_ZOOB[MSK:BLN_ZOOM,#FFFFFF,,81]:,-81;
+      M=FOLLOW;												\
+	C=3*BUS_BLNL;											\
+	D=L; TB=10; TE=20;
+    $ENDPATH
+    $PATH Y=81; LC=3;											\
+	FG=BLN_ZOOB[MSK:BLN_ZOOM,#FFFFFF,,81]:,-81;
       M=STOP; POOL=POOL_BLN_STADTBAHN; D=R; P=<0+250; TB=30; T=15;
-    $ENDPATH 
-    $PATH Y=81; LC=3; FG=BLN_ZOOB[MSK:BLN_ZOOM,#0000FF,,81]:,-81;
+    $ENDPATH
+    $PATH Y=81; LC=3;											\
+	FG=BLN_ZOOB[MSK:BLN_ZOOM,#0000FF,,81]:,-81;
       M=STOP; POOL=POOL_BLN_STADTBAHN; D=R; P=<0+200; TE=30; T=15;
-    $ENDPATH 
-    $PATH Y=81; LC=3; FG=BLN_ZOOB[MSK:BLN_ZOOM,#00FF00,,81]:,-81;
+    $ENDPATH
+    $PATH Y=81; LC=3;											\
+	FG=BLN_ZOOB[MSK:BLN_ZOOM,#00FF00,,81]:,-81;
       M=STOP; POOL=POOL_BLN_STADTBAHN; D=L; P=<0+150; TB=30; T=15;
-    $ENDPATH 
-    $PATH Y=81; LC=3; FG=BLN_ZOOB[MSK:BLN_ZOOM,#FF0000,,81]:,-81;
+    $ENDPATH
+    $PATH Y=81; LC=3;											\
+	FG=BLN_ZOOB[MSK:BLN_ZOOM,#FF0000,,81]:,-81;
       M=STOP; POOL=POOL_BLN_STADTBAHN; D=L; P=<0+100; TE=30; T=15;
-    $ENDPATH 
-    $PATH Y=81; LC=3; FG=BLN_ZOOB[MSK:BLN_ZOOM,#00FFFF,,81]:,-81;
-      M=STOP; POOL=POOL_BLN_S5:#S; D=R; P=>100-435; AP2=[TX=];
-    $ENDPATH 
+    $ENDPATH
+    $PATH Y=81; LC=3;											\
+	FG=BLN_ZOOB[MSK:BLN_ZOOM,#00FFFF,,81]:,-81;
+      M=STOP; POOL=POOL_BLN_S5:#S; D=R; P=>100-435;							\
+	AP2=[TX=];
+    $ENDPATH
     $PATH Y=81; LC=3;
-      M=STOP; POOL=POOL_BLN_S5:#S; D=L; P=>100-410; AP2=[TX=];
-    $ENDPATH 
-  $ENDSCENE 
-$ENDSECTION 
+      M=STOP; POOL=POOL_BLN_S5:#S; D=L; P=>100-410;							\
+	AP2=[TX=];
+    $ENDPATH
+  $ENDSCENE
+$ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Berlin Hauptbahnhof Mitte - im Bau
+# Berlin Hauptbahnhof Mitte - im Bau
 #
-$SCENE NAME=D_BLN10; DY=290; DX=813; BL=80; LC=1; AB=150;
-  $PATH Y=90; FG=HBF_M_FG:50,-117;
-    M=STOP; D=R; C=BR485CF,BR485CML,BR485CM,BR485CFL,Br485CM,BR485CFL; V=10; A=.15; P=95; TE=3-9;
-    M=STOP; D=R; C=2*(BR485F,BR485ML,BR485M,BR485FL); V=10; A=.15; P=95; TE=3-9;
-    M=STOP; D=R; C=BERLIN_BR488; V=10; A=.15; P=95; TB=3-9;
-  $ENDPATH 
-  $PATH Y=90; BG=HBF_M_BG1:50,-117; FG=HBF_M_MG:50,-1;
-    M=STOP; D=L; C=2*ET481TR0; V=10; A=.15; P=*0+400; TB=3-9;
-    M=STOP; D=L; C=<2*(BR275OL,BR275XB,BR275XBL,BR275O); V=10; A=.15; P=*0+400; TB=3-9;
-    M=STOP; D=L; C=2*(BR475AL,BR475AM,BR475AML,BR475A); V=10; A=.15; P=*0+450; TE=3-9;
-  $ENDPATH 
-$ENDSCENE 
+$SCENE 													\
+    NAME=D_BLN10;											\
+    DX=813; DY=290; BL=80; LC=1; AB=150;
+  $PATH Y=90;												\
+      FG=HBF_M_FG:50,-117;
+    M=STOP;												\
+      C=BR485CF,BR485CML,BR485CM,BR485CFL,Br485CM,BR485CFL;						\
+      D=R; V=10; A=.15; P=95; TE=3-9;
+    M=STOP;												\
+      C=2*(BR485F,BR485ML,BR485M,BR485FL);								\
+      D=R; V=10; A=.15; P=95; TE=3-9;
+    M=STOP;												\
+      C=BERLIN_BR488;											\
+      D=R; V=10; A=.15; P=95; TB=3-9;
+  $ENDPATH
+  $PATH Y=90;												\
+      BG=HBF_M_BG1:50,-117;										\
+      FG=HBF_M_MG:50,-1;
+    M=STOP;												\
+      C=2*ET481TR0;											\
+      D=L; V=10; A=.15; P=*0+400; TB=3-9;
+    M=STOP;												\
+      C=<2*(BR275OL,BR275XB,BR275XBL,BR275O);								\
+      D=L; V=10; A=.15; P=*0+400; TB=3-9;
+    M=STOP;												\
+      C=2*(BR475AL,BR475AM,BR475AML,BR475A);								\
+      D=L; V=10; A=.15; P=*0+450; TE=3-9;
+  $ENDPATH
+$ENDSCENE
 #------------------------------------------------------------------------------
 #
-#	Berlin Hauptbahnhof Süd-Ost - im Bau
+# Berlin Hauptbahnhof Süd-Ost - im Bau
 #
-$SCENE NAME=D_BLN11; DY=230; DX=813; YDIR=UP; BG=(BERLIN_HBF2003_BG);							\
-  FG=BERLIN_HBF2003_BG[MSK:BERLIN_HBF2003_MSK,#FFFFFF,,119];
-  $PATH Y=119; BG=BERLIN_HBF2003_BG[MSK:BERLIN_HBF2003_MSK,#0000FF,,119]:,-119;
-    POOL=POOL_BLN_STADTBAHN; D=R; AP=[M=SIMPLE];
-  $ENDPATH 
-  $PATH Y=119; BG=BERLIN_HBF2003_BG[MSK:BERLIN_HBF2003_MSK,#00FF00,,119]:,-119;
-    M=BACK; D=R; C=DB_SKL53|DB_SKL26|DB_GAF200R|DB_TVTL|DB_MZA_FL|DBAG_711_0|GBM_711_1P; P=>0+380;
-  $ENDPATH 
-  $PATH Y=119; BG=BERLIN_HBF2003_BG[MSK:BERLIN_HBF2003_MSK,#FF0000,,119]:,-119;
+$SCENE 													\
+    NAME=D_BLN11;											\
+    DX=813; DY=230; YDIR=UP;										\
+    BG=BERLIN_HBF2003_BG;										\
+    FG=BERLIN_HBF2003_BG[MSK:BERLIN_HBF2003_MSK,#FFFFFF,,119];
+  $PATH Y=119;												\
+      BG=BERLIN_HBF2003_BG[MSK:BERLIN_HBF2003_MSK,#0000FF,,119]:,-119;
+    POOL=POOL_BLN_STADTBAHN; D=R;									\
+      AP=[M=SIMPLE];
+  $ENDPATH
+  $PATH Y=119;												\
+      BG=BERLIN_HBF2003_BG[MSK:BERLIN_HBF2003_MSK,#00FF00,,119]:,-119;
+    M=BACK;												\
+      C=DB_SKL53|DB_SKL26|DB_GAF200R|DB_TVTL|DB_MZA_FL|DBAG_711_0|GBM_711_1P;				\
+      D=R; P=>0+380;
+  $ENDPATH
+  $PATH Y=119;												\
+      BG=BERLIN_HBF2003_BG[MSK:BERLIN_HBF2003_MSK,#FF0000,,119]:,-119;
     C=KOEHME_GS20|KOEHME_GS4008|VANOMAG_GS4008|VANOMAG_GS5009L|VANOMAG_GS5009|KREBS_GS8008|		\
 	VANOMAG_GS8008|KNAPE_GS10006|KOEHME_GS10006|VANOMAG_GS10006|SWIE_GS10006;			\
       V=2-4;
-  $ENDPATH 
-  $PATH Y=119; BG=BERLIN_HBF2003_BG[MSK:BERLIN_HBF2003_MSK,#00FFFF,,119]:,-119;
-    POOL=POOL_BLN_STADTBAHN; D=L; AP=[M=SIMPLE];
-  $ENDPATH 
-  $PATH Y=119; BG=BERLIN_HBF2003_BG[MSK:BERLIN_HBF2003_MSK,#FF00FF,,119]:,-119;
-    M=STOP; POOL=POOL_BLN_S6; D=R; P=>0+160; AP2=[TX=];
-  $ENDPATH 
+  $ENDPATH
+  $PATH Y=119;												\
+      BG=BERLIN_HBF2003_BG[MSK:BERLIN_HBF2003_MSK,#00FFFF,,119]:,-119;
+    POOL=POOL_BLN_STADTBAHN; D=L;									\
+      AP=[M=SIMPLE];
+  $ENDPATH
+  $PATH Y=119;												\
+      BG=BERLIN_HBF2003_BG[MSK:BERLIN_HBF2003_MSK,#FF00FF,,119]:,-119;
+    M=STOP; POOL=POOL_BLN_S6; D=R; P=>0+160;								\
+      AP2=[TX=];
+  $ENDPATH
   $PATH Y=119;
-    M=STOP; POOL=POOL_BLN_S6; D=L; P=>0+180; AP2=[TX=];
-  $ENDPATH 
-$ENDSCENE 
+    M=STOP; POOL=POOL_BLN_S6; D=L; P=>0+180;								\
+      AP2=[TX=];
+  $ENDPATH
+$ENDSCENE
 #------------------------------------------------------------------------------
 #
 # Wien Donaukanalufer 2.
 #
-$SCENE NAME=A_WIEN2; DX=666; DY=500; YDIR=U; Y=*; BG=BgPic/WIEN03B.JPG;						\
-  FG=BgPic/WIEN03B.JPG[MSK:BgPic/WIEN03M.GIF,#FFFFFF,,156];
+$SCENE 													\
+    NAME=A_WIEN2;											\
+    DX=666; DY=500; YDIR=U;										\
+    BG=BgPic/WIEN03B.JPG;										\
+    FG=BgPic/WIEN03B.JPG[MSK:BgPic/WIEN03M.GIF,#FFFFFF,,156];						\
+    Y=*;
   $PATH Y=156;
-    M=FOLLOW; D=L; C=6-12*(CAR|TRANSPORTER|BUS|TRUCK);
-  $ENDPATH 
+    M=FOLLOW;												\
+      C=6-12*(CAR|TRANSPORTER|BUS|TRUCK);								\
+      D=L;
+  $ENDPATH
   $PATH Y=40; LC=1;
-    C=ZSG_UETLIBERG; V=2; TB=5;
-    C=ZSG_FORCH; V=2; TB=5;
-    C=ZSG_HELVETIA; V=2; TB=5;
-  $ENDPATH 
-$ENDSCENE 
+    C=ZSG_UETLIBERG;											\
+      V=2; TB=5;
+    C=ZSG_FORCH;											\
+      V=2; TB=5;
+    C=ZSG_HELVETIA;											\
+      V=2; TB=5;
+  $ENDPATH
+$ENDSCENE

@@ -1251,9 +1251,8 @@ $REQUIRE BG_DEF.TTT
       F=EP4;
     TX=SBB Re 4/4 II + Swiss-Express-Zug;								\
       C=(<SBB_EW3BT(|K)_SWEXL,3*SBB_EW3B(|K)_SWEXL,2*SBB_EW3A(|K)_SWEXL,SBB_EW3AD(|K)_SWEXL,		\
-	(SBB_11108(|L)|SBB__11108K(|L)|SBB_11109(|L)|SBB_11109K(|L)))|								\
-	(<(SBB_11108(|L)|SBB__11108K(|L)|SBB_11109(|L)|SBB_11109K(|L)),SBB_EW3AD(|K)_SWEX,\
-	2*SBB_EW3A(|K)_SWEX,3*SBB_EW3B(|K)_SWEX,SBB_EW3BT(|K)_SWEX);				\
+	SBB_11108(|L))|											\
+	(<SBB_11109(|L),SBB_EW3AD(|K)_SWEX,2*SBB_EW3A(|K)_SWEX,3*SBB_EW3B(|K)_SWEX,SBB_EW3BT(|K)_SWEX);	\
       F=EPU4;
     TX=SBB Re 4/4 II + Swiss-Express-Zug;								\
       C=(<SBB_RE442S1SWEX1CM(|L),3*SBB_EW3_B(2|3)M,2*SBB_EW3_A2M,SBB_EW3_ADM,SBB_EW3_BT2M)|		\
@@ -2027,13 +2026,6 @@ $REQUIRE BG_DEF.TTT
       C=BLS_251(|B|BL),											\
 	(<BLS_CLL,BLS_CC01,BLS_CC02,BLS_CC04,BLS_CC03,BLS_CC05,BLS_CCO,BLS_CC,BLS_CL,BLS_EW4BL~TV);	\
       F=EP5;
-    TX=BLS Re 4/4 + Regionalzug Lauchenalp;								\
-      C=(<BLS_AE44(|L),BLS_EW1RBC3BDML,BLS_EW1(BC3BM|RBC3BM),BLS_EW1BC3AB1M(|L),BLS_EW1LAUCHENALP(|L),	\
-	BLS_BDT940_BC3M)|										\
-	(>BLS_AE44(|L),BLS_EW1RBC3BDM,BLS_EW1(BC3BM|RBC3BM),BLS_EW1BC3AB1M(|L),BLS_EW1LAUCHENALP(|L),	\
-	BLS_BDT940_BC3ML);										\
-      V=12;												\
-      F=EPRU5;
     TX=BLS Re 4/4 + Schnellzug;										\
       C=BLS_18(3|4)L,(<SBB_5EW1BMM,SBB_5EW1BWMM,3*BLS_EW1_B_BM,BLS_EW1C_AS(|1)M,BLS_EW1BVDM(|L));	\
       F=EP5;
@@ -2193,17 +2185,13 @@ $REQUIRE BG_DEF.TTT
 
 # Schmalspur SBB
 
-    TX=SBB HGe 4/4 961...967 + Brünigbahn Personenzug;							\
+    TX=SBB HGe 4/4 961...967 + Personenzug;								\
       C=BRU_96(1|5|7)|(<BRU_PANOL,BRU_PANO,BRU_PANL,2*BRU_B3~TIS,BRU_D601A(|L));			\
       F=EPN5;
-    TX=SBB HGe 4/4 961...967 + Brünigbahn Personenzug;							\
-      C=(<BRU_96(1|5|7),3*BRU_BM(|L)~TV,BRU_SBB_ABTS|BRU_ABTSS|BRU_ABTS)|				\
-	(>BRU_96(1|5|7),3*BRU_BM(|L)~TV,BRU_SBB_ABTSL|BRU_ABTSSL|BRU_ABTSL);				\
-      F=EPNRU5;
     TX=SBB HGe 4/4 II + Personenzug Brünig-Jass- und Brünig-Bar-Wagen;					\
       C=BRU_4HGE442,(<BRU_B~NEK,BRU_ABG~NEK,BRU_JASS~NEK,BRU_W~NEK,BRU_A~NEK);				\
       F=EZ5;
-    TX=SBB Hge 4/4 1991,92 + Brünigbahn Personenzug;							\
+    TX=SBB Hge 4/4 1991,92 + Personenzug;								\
       C=SBB_5_199(1|1L|2|2L),										\
 	(BRU_(D601B|D601BL|D609A|D609AL|D609B|D609BL|Z67R|Z67RL),2*BRU_B~NEK,BRU_AB~NEK,BRU_B~NEK);	\
       F=EPN5;
@@ -2421,8 +2409,8 @@ $REQUIRE BG_DEF.TTT
     TX=SBB Re 450 + S-Bahn Zürich;									\
       C=(<SBB_450_060AL,SBB_2633SZU,SBB_3633POST,SBB_2633VBZ)|						\
 	(<SBB_2633VBGL,SBB_3633SBWIL,SBB_2633VZOL,SBB_450_060A)|					\
-	(<SBB_RE450ZKBL,SBB_SZ_B_ZKB,SBB_SZ_AB_ZKB,SBB_SZ_BT_ZKB)|					\
-	(<SBB_SZ_BT_ZKBL,SBB_SZ_AB_ZKBL,SBB_SZ_B_ZKBL,SBB_RE450ZKB);					\
+	(<SBB_RE450ZKB,SBB_SZ_B_ZKB,SBB_SZ_AB_ZKB,SBB_SZ_BT_ZKB)|					\
+	(<SBB_SZ_BT_ZKBL,SBB_SZ_AB_ZKBL,SBB_SZ_B_ZKBL,SBB_RE450ZKBL);					\
       F=EPU6;
     TX=SBB Re 450 + S-Bahn Zürich;									\
       C=(<SBB_450M15L,SBB_B2633M15,SBB_AB3633M15,SBB_B26339M15)|					\
@@ -2577,16 +2565,10 @@ $REQUIRE BG_DEF.TTT
       C=SBB_EEM923(|L),SBB_EW2SR_611BURO(|L);								\
       F=EF6;
     TX=SBB Eem 923 + Gerätewagen;									\
-      C=SBBC_EEM923A(|L),SBB_XAS23R,SBB_PROSE(|L);							\
-      F=EF6;
-    TX=SBB Cargo Eem 923 + Rangierzug;									\
-      C=SBB_EEM923(|L),CH6FSH;										\
+      C=SBB_EEM923(|L),SBB_XAS23R,SBB_PROSE(|L);							\
       F=EF6;
     TX=SBB 193 + Gueterzug;										\
-      C=SBB_193W|SBB_193_GOTTARDO(|L)|SBB_193_DONAU(|L),CH5FL1|CH6FCO|D6FCM;				\
-      F=EF6;
-    TX=SBB 193 + Gueterzug;										\
-      C=SBB_193_525HOLLAND(|L)|SBB_193_CENERI(|L),CH5FL1|CH6FCO|D6FCM;				\
+      C=SBB_193W,CH5FL1|CH6FCO|D6FCM;									\
       F=EF6;
 
 # SBB ET
@@ -2852,10 +2834,6 @@ $REQUIRE BG_DEF.TTT
 	BLS_5250(17|18|20|22|26|27)(C|D|E)(|L)|BLS_RABE527322(|L)|BLS_RABE525O(|L)|BLS_525015GUR(|L)|	\
 	BLS_RABE5250(35ALP|36BZ|36ZPK|37LOGIN|37LOGINK|38|38WEST|38WK)(|L);				\
       F=EPU6;
-    TX=Schweiz BLS RABE_528;										\
-      C=(<BLS_RABE528AFL,BLS_RABE528B,BLS_RABE528C,BLS_RABE528D,BLS_RABE528E,BLS_RABE528AF)|		\
-	(<BLS_RABE528AFL,BLS_RABE528EL,BLS_RABE528DL,BLS_RABE528CL,BLS_RABE528BL,BLS_RABE528AF);	\
-      F=EPRU6;
     TX=Schweiz BLS RBDe 566II;										\
       C=(<BLS_ABT930_L2XSML,1-2*BLS_B20_33700_L2XM,BLS_ABT930_RMXM)|					\
 	(<BLS_ABT930_L2XSM,1-2*BLS_B20_33700_L2XM,BLS_ABT930_RMXML);
@@ -2865,9 +2843,6 @@ $REQUIRE BG_DEF.TTT
     TX=BLS RBDe 565;											\
       C=(<BLS_RBDE565_L2SML,BLS_B20_33700_RMIIM,BLS_B20_33700_RMIM,BLS_RBDE566II_RMM,BLS_BT990_L2SM)|	\
 	(>BLS_RBDE565_L2SM,BLS_B20_33700_RMIIM,BLS_B20_33700_RMIM,BLS_RBDE566II_RMM,BLS_BT990_L2SML);	\
-      F=EPRU6;
-    TX=Bodensee-Toggenburg-Bahn Nostalgiezug BDe 4/4 201/202 + Salonwagen Bodan;			\
-      C=(<BT_50BML,BT_VU1_SR751_5BODAN(|L),BT_EW1ABT2M)|(>BT_50BM,BT_VU1_SR751_5BODAN(|L),BT_EW1ABT2ML); \
       F=EPRU6;
     TX=Schweiz Cisalpino 484;										\
       C=SBB_484_017,											\
@@ -2889,15 +2864,14 @@ $REQUIRE BG_DEF.TTT
 	(<CIS_ETR610W7L,CIS_ETR610W6,CIS_ETR610W5,CIS_ETR610W4,CIS_ETR610W3,CIS_ETR610W2,CIS_ETR610W1);	\
       F=EPU6;
     TX=Schweiz Crossrail 436;										\
-      C=CROS_436_112(|L)|CROS_436_114(|L)|CROS_436_115(|L)|CROS_436_111(|L)|CROS_436_115B(|L)|		\
-	CROS_436R(1|2)(|L)|CROS_436C(|L)|CROS_436N(1|2)(|L),4-6*SBB_FAS1(|L),				\
-	4-6*SBB_EAS(3|4|5|6|7|8|9)(|L);									\
+      C=CROS_436_112(|L)|CROS_436_114(|L)|CROS_436_115(|L)|CROS_436R(1|2)(|L)|CROS_436C(|L)|		\
+	CROS_436N(1|2)(|L),4-6*(SBB_FAS1(|L)),4-6*(SBB_EAS(3|4|5|6|7|8|9)(|L));				\
       F=EF6;
     TX=Schweiz Crossrail 185;										\
-      C=CROS_185_595(|L),D6FCM;										\
+      C=CROS_185S2P4BM,D6FCM;										\
       F=EF6;
     TX=Schweiz Regonalverkerhr Mittelland Re 4/4 + Crossrail 436;					\
-      C=CROS_436C(|L)[PFU],RMCH_RE442RM(|L)[PBU],D6FCM;							\
+      C=CROS_436C(|L)[PFU],RM_RE442RM(|L)[PBU],D6FCM;							\
       F=EF6;
     TX=DB Schenker Rail 185 + Güterzug;									\
       C=[PBU]DBAG_185_095U(|L)|RAI_185_142U(|L)|DB_185_399|RAI_185_2U1(|L)|RAI_185_2U2(|L)|		\
@@ -2951,11 +2925,6 @@ $REQUIRE BG_DEF.TTT
 	SBB_5_SAADKMSM[OB:TRUCK_DANZAS,,5],SBB_5_SAADKMSM[OB:TRUCK_TNT,,5],				\
 	SBB_5_SAADKMSM[OB:TRUCK_SCHENKER2,,5],(SBB_5(SAADKMSB|_SAADKMSA))[OB:STEYR_F2000_HVC,,5]);	\
       F=EF6;
-
-    TX=Schweiz Hupac 193;										\
-      C=HUPAC_193_492(|L),15*FS_LOHR[OB:SEMITR6R,>329,3][OB:SEMITR6L,11,3];				\
-      F=EF6;
-
     TX=Schweiz Regionalverkehr Mittelland Gtw 2/6;							\
       C=RMCH_(260|261|262|263|264|265|280|281|282|GTW26|GTW26L|GTW28|GTW28L);				\
       F=EPU6;
@@ -3090,13 +3059,7 @@ $REQUIRE BG_DEF.TTT
 
 # Schweiz privat Schmalspur
 
-    TX=Schweiz Aare Seeland mobil AG, St. Urban - Solothurn, Be 4/8;					\
-      C=(AASM_BE48B|AASM_BE48)(|L);									\
-      F=EPNU6;
-    TX=Schweiz Aare Seeland mobil AG, Täuffelen / Siselen - Ins, Be 2/6;				\
-      C=AASM_BE26_5100(|T|W)(|L);									\
-      F=EPNU6;
-    TX=Schweiz BD: Bremgarten-Dietlikon-Bahn BD 4/8;							\
+    TX=Schweiz BD: Bremgarten-Dietlikon-Bahn 48;							\
       C=BD_BE48(|A|J|JL|_AXPO);										\
       F=EPNU6;
     TX=Schweiz BVZ HGe 4/4 + Pendelzug;									\

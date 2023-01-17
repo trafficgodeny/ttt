@@ -662,14 +662,11 @@ $REQUIRE TRAINDEF.TTT
 	C=NS_3700(|F(|2|1|3|4|5|6|7|8|9|10)|B||D(|2|1|3|4|5|6|7|8|9)|N(|2|1|3|4|5|6|7|8|9|10)|P(|9)|T|	\
 	  V|X|Z(|2|4|6))(|L)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NL2PSC;		\
 	F=SP2;
-      TX=NS 3700 + Schnellzug;										\
-	C=NS_3737B(|L)|NS_2_3713(|L)|NS_2_3701(|L)|NS_2_3785(|L),NL2PL;					\
-	F=SP2;
       TX=NS 3700 + CIWL Edelweiss Amsterdam-Luzern 1937;						\
-	C=NS_2_3713(|L),F2PCE;										\
+	C=NS_3713(|L),F2PCE;										\
 	F=SP2;
       TX=NS 3800 + Eilzug;										\
-	C=NS_2_3816(|L)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NL2PSC;			\
+	C=NS_3800(|L)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NL2PSC;			\
 	F=SP2;
       TX=NS 3900;											\
 	C=NS_3900(|L)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],				\
@@ -679,7 +676,8 @@ $REQUIRE TRAINDEF.TTT
 	C=NS_2_3931(|L),NL2PSC;										\
 	F=SF2;
       TX=NS 3900 + Schnellzug;										\
-	C=NS_2_3931(|L),NL2PL;										\
+	C=NS_2_3931(|L),										\
+	  (<NS_C10C_6101,NS_C10C_6026,NS_BC9C_6001,CIWL_WR2,NS_AB8C_6231L,NS_C10C_6026L|CIWL_WL(20|30)); \
 	F=SP2;
       TX=NS 4500/4600;											\
 	C=NS_2_4501(|L)|NS_2_4612(|L),NL12F;								\
@@ -839,10 +837,11 @@ $REQUIRE TRAINDEF.TTT
 	C=NS_8800(|L)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NL12FS;			\
 	F=SF2;
       TX=NS 9500;											\
-	C=NS_2A95(02|01)(|L),4*((NS_89101HTRSEL|NS_89101HTRSE)[OB:WOOD(24|127)(|[M]),,13]);		\
+	C=NS_9500(|A)(|L)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],			\
+	  4*((NS_89101HTRSEL|NS_89101HTRSE)[OB:WOOD(24|127)(|[M]),,13]);				\
 	F=SF2;
       TX=NS 9500;											\
-	C=NS_2B9504(|L),NL2FLC;										\
+	C=(NS_2A9501L,NS_2B9504L)|(NS_2B9504,NS_2A9501),NL2FLC;						\
 	F=SF2;
 
 # VT
@@ -893,13 +892,13 @@ $REQUIRE TRAINDEF.TTT
 	C=NS_3737B(|L),(<NS_3OV_AB,3*NS_3OV_C)|(>NS_3OV_ABL,3*NS_3OV_CL);				\
 	F=SP3;
       TX=NS 3700 + Schnellzug;										\
-	C=NS_3_37(34|60|46|23|08)(|L),NL3PLA;								\
+	C=NS_3713(|L)|NS_3737B(|L),NL3PLA;								\
 	F=SP3;
       TX=NS 3700 + Personenzug;										\
-	C=NS_3_37(34|60|46|23|08)(|L),NL3PRA;								\
+	C=NS_37(13|37B)(|L),NL3PRA;									\
 	F=SP3;
-      TX=NS 3800 + Personenzug;										\
-	C=NS_3_3819(|L),NL3PRA;										\
+      TX=NS 3900 + Schnellzug;										\
+	C=NS_2_3931(|L),NL3PLA;										\
 	F=SP3;
       TX=NS 3900 + Personenzug;										\
 	C=NS_3_39(30|17|03)(|L),NL3PRA;									\
@@ -943,9 +942,6 @@ $REQUIRE TRAINDEF.TTT
 	F=SF3;
       TX=NS 8800;											\
 	C=NS_3A_8801(|L),NL3FLS;									\
-	F=SF3;
-      TX=NS 9500;											\
-	C=NS_3_9505(|L),NL3FLS;										\
 	F=SF3;
 
 # Akku
@@ -1759,9 +1755,6 @@ $REQUIRE TRAINDEF.TTT
       TX=Arriva GT28E;											\
 	C=AR_GTWE28L|AR_GTWE28;										\
 	F=EPU6;
-      TX=DB Cargo Nederland 1614;									\
-	C=DBS_1616YD[PFU],Z_D_E6_G_Kessel(|2);								\
-	F=DF6;
       TX=DB Cargo Nederland 6400;									\
 	C=(DBS_6400VRM|DBS_6400EYM)(|L),2*D6FZKM;							\
 	F=DF6;

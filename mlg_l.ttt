@@ -1,9 +1,6 @@
 ;LUXEMNOURG / LUXEMBURG
 ;======================
 
-{FILELEVEL=1?
-  $INCLUDE SINGLE.TTT
-}
 $REQUIRE MLG_DEF.TTT
 
 %ADDPOOL(POOL_L,L_ENV)
@@ -19,7 +16,6 @@ $REQUIRE MLG_DEF.TTT
       C=CFL_3600(|L)~MLG,$DIR(SNCF_3EST_1B4DL,SNCF_3EST_1B4D),SNCF_3AOC4_B10(|L),EST_TN_A8;		\
       V=12;												\
       F=EPR3;
-
     TX=CFL 1600;											\
       C=CFL_1600A(|L),SNCF_3ESTDD2(|L),CIWL_WRT4016(|L),FS_T55_ISA(|L),NS_D_BE3B(|L),2*FS_T46_BZI(|L);	\
       V=12;												\
@@ -59,11 +55,11 @@ $REQUIRE MLG_DEF.TTT
       C=CFL_RZ1000A1(|L),2*CFL_RZ1000B1(|L),CFL_RZ1000A1(|L),CFL_800A(|L);				\
       V=5;												\
       F=RPR3;
+
   }
   {E4?
-;=================
-;=== SEVENTIES ===
-;=================
+;Seventies
+
 ;TEE
     TX=SBBRAe TEE;											\
       C=CFF_RAE_TEE2_6V_FS25KV;										\
@@ -80,16 +76,15 @@ $REQUIRE MLG_DEF.TTT
       C=CFL_3600B2(|L),CFL_B6,CFL_BD6(|L),CFL_AB6(|L),CFL_B6;						\
       V=12;												\
       F=EPR4;
-
-    TX=CFL Z 100 (de Dietrich);										\
+    TX=CFL Z 100;											\
       C=CFL_100B(|L),0-2*CFL_RZ1000B2(|L);								\
       V=10;												\
       F=EPRU4;
-    TX=CFL Z 100 (de Dietrich);										\
+    TX=CFL Z 100;											\
       C=CFL_100B(|L),CFL_RZ1000A2(|L),|(2*CFL_100B(|L));						\
       V=10;												\
       F=EPRU4;
-    TX=CFL Z 100 (de Dietrich);										\
+    TX=CFL Z 100;											\
       C=CFL_100B(|L),2*CFL_RZ1000A2(|L),CFL_100B(|L),CFL_Z200_L2;					\
       V=10;												\
       F=EPRU4;
@@ -107,9 +102,8 @@ $REQUIRE MLG_DEF.TTT
       V=6;												\
       F=DF4;
 
-;================
-;=== EIGHTIES ===
-;================
+;EIGHTIES
+;--------
 
 ;IR LIÈGE - LUXEMBOURG
     TX=CFL 1800 + IR Liège - Luxembourg;								\
@@ -150,11 +144,11 @@ $REQUIRE MLG_DEF.TTT
       V=12;												\
       F=EPRU4;
     TX=DB 181;												\
-      C=DB_181_0BB_25KV,CFL_ABD17(|L),CFL_B7(|L),CFL_ABD17(|L),CFL_B7(|L);				\
+      C=DB_181_0BB,CFL_ABD17(|L),CFL_B7(|L),CFL_ABD17(|L),CFL_B7(|L);					\
       V=14;												\
       F=EPR4;
     TX=DB 181;												\
-      C=DB_181_2_BB_25KV,3*CFL_B6,$DIR(CFL_ABD6,CFL_ABD6L);						\
+      C=DB_181_2BB(|L),3*CFL_B6,$DIR(CFL_ABD6,CFL_ABD6L);						\
       V=14;												\
       F=EPR4;
 
@@ -171,12 +165,12 @@ $REQUIRE MLG_DEF.TTT
 ;==================
 ;=== ANNÉES '90 ===
 ;==================
+
     TX=CFL 3600;											\
       C=CFL_3600N(|L),2*SNCB_I5BC3(|L),2*SBB_MU_TEN1(|L),OBB_MU_TEN(|L),OBB_MU64_J_TEN(|L),		\
 	NS_WRMZ(|L),3*SNCF_VU_NN_B11C(|L),2*SNCF_5UIC_B10CH(|L),20*SNCF_LESS_TA260;			\
       V=12;												\
       F=EP5;
-
     TX=CFL 3600;											\
       C=CFL_3600N(|L),SNCB_I5BC3(|L),2*OBB_MU64_J_TEN(|L),SNCF_MU_FLJ_TENN(|L),NS_WRMZ(|L),		\
 	3*SNCF_VU_NN_B11C(|L),NS_BCM_BB(|L),16*SNCF_LESS_TA260;						\
@@ -208,8 +202,7 @@ $REQUIRE MLG_DEF.TTT
 	(2-3*SNCB_I10BN(|L),SNCB_I10AN(|L));								\
       V=14;												\
       F=EP6;
-
-    TX=CFL 3000 + IR 119 Liers - Luxembourg;								\
+    TX=CFL 3000;											\
       C=CFL_3000_AC,0-|CFL_VTU_CP2_B(|L),3*SNCB_I6BN(|L),SNCB_I6AN(|L);					\
       V=14;												\
       F=EP6;
@@ -224,22 +217,18 @@ $REQUIRE MLG_DEF.TTT
 	(<(CFL_ABD17M|CFL_ABD7M,2-3*CFL_B7M(|L))|(2-3*CFL_B7M(|L),CFL_ABD17ML|CFL_ABD7ML));		\
       V=12;												\
       F=EPR6;
-
     TX=CFL 3000;											\
       C=CFL_3000_AC,2*CFL_B7M(|L),CFL_WEGRNS_ABD,2*CFL_B7M(|L),CFL_ABD17M(|L);				\
       V=14;												\
       F=EPR6;
-
     TX=CFL 3600;											\
       C=CFL_3600N(|L),2*CFL_2NB(|L),CFL_2NAB(|L);							\
       V=12;												\
       F=EPR6;
-
     TX=CFL 4000;											\
       C=CFL_4000(|L)~MLG,CFL_2NB(|L),3*CFL_B7M(|L),CFL_WEGRNS_ABD;					\
       V=14;												\
       F=EPR6;
-
     TX=CFL 3000;											\
       C=(CFL_3000_AC,CFL_2NAB(|L),3*CFL_2NB(|L),CFL_2NAB(|L),CFL_2NB(|L))|				\
 	(CFL_185_5(|L),CFL_2NAB(|L),4*CFL_2NB(|L))|							\
@@ -251,24 +240,20 @@ $REQUIRE MLG_DEF.TTT
       C=>CFL_3000_AC,CFL_ABD7M(|L),CFL_B7M(|L),2*CFL_2NB(|L),CFL_2NABXL;				\
       V=14;												\
       F=EPRU6;
-
     TX=CFL 3000;											\
       C=CFL_3000_AC,											\
 	($DIR(CFL_VU_CP2_A4B6L,CFL_VU_CP2_A4B6)|((<CFL_VU_CP2_A4B6,CFL_VU_CP2_A4B6L),CFL_VTU_CP2_B(|L))), \
 	2*CFL_VTU_CP2_B(|L),CFL_VTU82_CP2_B(|L);							\
       V=16;												\
       F=EPRU6;
-
     TX=CFL 4000;											\
       C=<3:CFL_4000(|L)~MLG|1:CFL_4000LU|1:CFL_3000_AC,CFL_2NAB,2*CFL_2NB,CFL_2NABX;			\
       V=14;												\
       F=EPRU6;
-
     TX=CFL 4000 U;											\
       C=>CFL_4000U(|L),CFL_2NABL,1-3*CFL_2NBL,CFL_2NABXL;						\
       V=14;												\
       F=EPRU6;
-
     TX=CFL 4000 U;											\
       C=(<CFL_4000_U_LU,2*CFL_2NBL,CFL_2NABX2)|(>CFL_4000_U_LU,2*CFL_2NB,CFL_2NABX2L);			\
       V=14;												\
@@ -287,7 +272,6 @@ $REQUIRE MLG_DEF.TTT
       C=CFL_250_2V;											\
       V=12;												\
       F=EPRU6;
-
     TX=CFL 260;												\
       M=STOP;												\
       C=CFL_260_3V,|CFL_250_2V;										\
@@ -297,37 +281,30 @@ $REQUIRE MLG_DEF.TTT
       C=CFL_250_2V,CFL_250_3V|CFL_250_2V;								\
       V=12;												\
       F=EPRU6;
-
     TX=CFL 2000;											\
       C=1-3@CFL_2000_L2;										\
       V=14;												\
       F=EPRU6;
-
     TX=CFL 2000;											\
       C=CFL_2000_L3;											\
       V=12;												\
       F=EPRU6;
-
     TX=CFL 2200;											\
       C=CFL_2200_L1;											\
       V=14;												\
       F=EPRU6;
-
     TX=CFL 2200;											\
       C=CFL_2200_L1,(3:CFL_2200_L1|1:Z24500_T2BLOR_AC|1:Z24500_T2BILOR_AC);				\
       V=14;												\
       F=EPRU6;
-
     TX=CFL 2200;											\
       C=CFL_2200_L2;											\
       V=14;												\
       F=EPRU6;
-
     TX=CFL 2300;											\
       C=1-2@CFL_2300_L1_25KV;										\
       V=14;												\
       F=EPRU6;
-
     TX=CFL 2300;											\
       C=CFL_2300_L2_25KV;										\
       V=14;												\
@@ -350,7 +327,6 @@ $REQUIRE MLG_DEF.TTT
       C=CFL_3600N(|L),CFL_RILNSS,CFL_SHIMMNSSA,DB_SHIMMS708K(|L),RAI_SHIMMNS718A;			\
       V=10;												\
       F=EF6;
-
     TX=CFL 1800;											\
       C=2*CFL_1800N(|L)~MLG,20*(1:CFL_SHIMMNSSBL|2:CFL_SHIMMNSSA);					\
       V=10;												\
@@ -363,18 +339,16 @@ $REQUIRE MLG_DEF.TTT
       C=CFL_4000_U_LU,15*DB_RES687K[OB:FIL_R90_1,,12];							\
       V=10;												\
       F=DF6;
-
     TX=CFL Cargo 4000;											\
       C=CFLCARGO_4000_LU,20*CFLC_FAS_B1;								\
       V=10;												\
       F=DF6;
-
     TX=CFL Cargo 4000;											\
       C=CFLCARGO_4000_LU,20*(DB_FACNS133K(|L)|DBC_FACNS133(|L)|RAI_FACNS133(|L));			\
       V=10;												\
       F=DF6;
 
-    TX=CFL Cargo 850;											\
+    TX=CFL Cargo 4000;											\
       C=CFL_850N(|L),											\
 	4-5*CFL_SLPS1L[O:(3:ACTS_ROFF30|1:ACTS_ROFF13A),6,13][O:(3:ACTS_ROFF30|1:ACTS_ROFF13A),68,13]	\
 	[O:(3:ACTS_ROFF30|1:ACTS_ROFF13A),130,13];							\
@@ -392,30 +366,22 @@ $REQUIRE MLG_DEF.TTT
       C=CFLC_1510BVL(|L),2*CFLC_FAS_B1;									\
       V=8;												\
       F=EF6;
-
     TX=CFL Cargo 1510;											\
       C=CFLC_1510BVL(|L),2*CFLC_FAS_B1;									\
       V=8;												\
       F=DF6;
-
     TX=CFL Cargo 1587;											\
       C=CFLC_1587BVL2(|L),CFLC_1500C(|L),20*(2:DBC_FACNS133(|L)|1:DB_FACNS133K(|L));			\
       V=10;												\
       F=DF6;
-
     TX=CFL Cargo DE18;											\
       C=CFLC_DE18(|L),18-20*CFLC_FAS_B1;								\
       V=10;												\
       F=EF6;
-
     TX=CFL Cargo DE 18;											\
       C=CFLC_DE18(|L),12*AAE_SGGRSS80(|L)[O:BOX12_AMBROGIO2,8,12][O:BOX12_AMBROGIO2,138,12];		\
       V=8;												\
       F=DF6;
-    TX=CFL Cargo Dispolok ME 26;									\
-      C=DISP_ME26_CFL(|L),14-15*(DB_EAOS051_Y25K|DBC_EANOSX055);					\
-      V=10;												\
-      FG=(VOIE1:..,-6,0-5;FL_SNCF_25KV1:..,-6,0-300);
     TX=CFL Cargo Dispolok ME 26;									\
       C=DISP_ME26_CFL(|L),20*(DBC_SAHIMMS900|DB_SAHIMMS900K);						\
       V=10;												\
