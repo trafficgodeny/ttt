@@ -186,7 +186,7 @@ $REQUIRE MLG_DEF.TTT
 
 ;BENELUX SEVENTIES
     TX=NS MAT 57  Benelux Seventies;									\
-      C=2-3@NS_MAT57;											\
+      C=2-3*(1:NS_MAT57_K_L1|4:NS_MAT57_K_L2);								\
       V=14;												\
       F=EPU4;
     TX=SNCB HLE25  Benelux Seventies;									\
@@ -425,12 +425,12 @@ $REQUIRE MLG_DEF.TTT
       C=(SNCB_AM54G2(|L),2*SNCB_AM62_V1,SNCB_AM73_V1)|(2*SNCB_AM54G2(|L),2*SNCB_AM62_V1,SNCB_AM55P2(|L)); \
       V=12;												\
       F=EPR4;
-    TX=SNCB AM54;											\
-      C=SNCB_AM54G1(|L)|SNCB_AM54G2(|L);								\
+    TX=SNCB AM55;											\
+      C=SNCB_AM55G1(|L)|SNCB_AM55G2(|L);								\
       V=12;												\
       F=EPR4;
     TX=SNCB AM55;											\
-      C=(SNCB_AM55P2(|L),SNCB_AM54G2(|L))|(0-1*SNCB_AM55P2(|L),SNCB_AM54G2(|L),SNCB_AM56_1P(|L));	\
+      C=(SNCB_AM55P2(|L),SNCB_AM54G2(|L))|(0-1*SNCB_AM55P2(|L),SNCB_AM55G2(|L),SNCB_AM56_1P(|L));	\
       V=12;												\
       F=EPR4;
     TX=SNCB AM56;											\
@@ -582,7 +582,7 @@ $REQUIRE MLG_DEF.TTT
 
 ;PARIS - KÖLN / BERLIN / VARSOVIE
     TX=DB 184 + D Paris - Köln / Berlin / Varsovie;							\
-      C=DB_184_4P_B_SNCBNS,2*SNCF_VSE_A9(|L),DB_WRMH132T2(|L),2*SNCF_VTU_B(|L),SNCF_VTU_1B(|L),		\
+      C=DB_184_4P_B_SNCBNS,2*SNCF_VSE_A9(|L),DB_WRMH132_2S_TEE2,2*SNCF_VTU_B(|L),SNCF_VTU_1B(|L),	\
 	SNCF_DDMC76(|L),DR_YB70_ABG(|L),PKP_YB70BG(|L),SNCF_UIC_B10(|L);				\
       V=14;												\
       F=EP4;
@@ -614,12 +614,12 @@ $REQUIRE MLG_DEF.TTT
       F=EP4;
 ;EC PARSIFAL
     TX=SNC‘F CC40100 + EC Parsifal;									\
-      C=CC40100_1VL_GB_DC,SNCF_VU_B6D(|L),4*SNCF_VU_B11(|L),DB_WRMH132T2(|L),3*SNCF_VSE_A9(|L);		\
+      C=CC40100_1VL_GB_DC,SNCF_VU_B6D(|L),4*SNCF_VU_B11(|L),DB_WRMH132_2S_TEE2,3*SNCF_VSE_A9(|L);	\
       V=16;												\
       F=DP4;
 
     TX=SNCB HLE27 + EC Parsifal;									\
-      C=SNCB_27(|L),SNCF_VSE_2A9(|L),SNCF_VSE_A9(|L),DB_WRMH132T2(|L),2*SNCF_VU_B11(|L),		\
+      C=SNCB_27(|L),SNCF_VSE_2A9(|L),SNCF_VSE_A9(|L),DB_WRMH132_2S_TEE2,2*SNCF_VU_B11(|L),		\
 	SNCF_DDMC76(|L),2*SNCF_VU_B11(|L);								\
       V=16;												\
       F=EP4;
@@ -850,8 +850,8 @@ $REQUIRE MLG_DEF.TTT
 
 ;PÉLERINS
     TX=SNCB HLE12 + Pélerins;										\
-      C=SNCB_HLE12_DC,SNCB_DMSO(|L),SNCF_AMBG(|L),SNCF_DD4S(|L),SNCF_AOL_Y20_B10CG(|L),			\
-	2*SNCF_AOL_Y20_B10C(|L),SNCF_AOL_Y20_B10CG(|L),2*SNCF_AOL_Y20_B10C(|L),SNCF_AOC_A8(|L),		\
+      C=SNCB_HLE12_DC,SNCB_DMSO(|L),SNCF_AMBG(|L),SNCF_DD4S(|L),SNCF_AOL_Y20_B10CG2(|L),		\
+	2*SNCF_AOL_Y20_B10C(|L),SNCF_AOL_Y20_B10CG2(|L),2*SNCF_AOL_Y20_B10C(|L),SNCF_AOC_A8(|L),	\
 	5*SNCF_AOL_Y20_B10C(|L);									\
       V=14;												\
       F=EP4;
@@ -1071,7 +1071,7 @@ $REQUIRE MLG_DEF.TTT
       V=12;												\
       F=DPR4;
     TX=SNCB HLD59;											\
-      C=SNCB_59YG2(|L),SNCB_K1ARDR(|L),3*SNCB_K2B2(|L),SNCB_K3B1(|L);					\
+      C=SNCB_59YG(|L),SNCB_K1ARDR(|L),3*SNCB_K2B2(|L),SNCB_K3B1(|L);					\
       V=12;												\
       F=DPR4;
     TX=SNCB HLD59;											\
@@ -1401,7 +1401,7 @@ $REQUIRE MLG_DEF.TTT
       V=12;												\
       F=EF4;
     TX=SNCB HLE25 + Freigt train;									\
-      C=SNCB_255BY2(|L),6*SNCF_GAS86,3*SNCF_RES90_6A;							\
+      C=SNCB_255BY2(|L),6*SNCF_GAS86,3*SNCF_RES90_DS;							\
       V=12;												\
       F=EF4;
     TX=SNCB HLE26 + Freigt train;									\
@@ -1499,8 +1499,8 @@ $REQUIRE MLG_DEF.TTT
       F=DF4;
     TX=SNCB HLD70 + Freigt train;									\
       C=SNCB_HLD70(|L),											\
-	(DB_GBS254,2*DB_FC090(|L),SNCF_FCS40_2(|L),2*DB_FC090(|L),DB_KLS442,DB_RMMS663,DB_KLS442)|	\
-	(SNCB_H2213A3,DB_GS213,2*SNCB_H2213A3);								\
+	(DB_GBS254,2*DB_FC090(|L),SNCF_FCS40_2(|L),2*DB_FC090(|L),DB_KLS442(|L),DB_RMMS663,		\
+	DB_KLS442(|L))|(SNCB_H2213A3,DB_GS213,2*SNCB_H2213A3);						\
       V=5;												\
       F=DF4;
     TX=SNCB HLD72 + Freigt train;									\
@@ -1545,7 +1545,7 @@ $REQUIRE MLG_DEF.TTT
       V=6;												\
       F=DF4;
     TX=SNCB HLD 80 + Freigt train;									\
-      C=SNCB_80G70(|L),12-16*(DB_LAES542|DB_LAEQRSS550);						\
+      C=SNCB_80G70(|L),12-16*(DB_LAES542(|L)|DB_LAEQRSS550(|L));					\
       V=6;												\
       F=DF4;
     TX=SNCB HLD 84 + Freigt train;									\
@@ -1568,7 +1568,7 @@ $REQUIRE MLG_DEF.TTT
     TX=SNCB HLD 85 + Freigt train;									\
       C=$DIR((SNCB_85G70,SNCB_72G70PL),(SNCB_85G70L,SNCB_72G70)),4*SNCB_E1215A5,			\
 	SNCF_K50_RW[OB:C2R_CAST(1|2),,12],								\
-	SNCF_RES90_6A[OB:C2R_CAST(1|2),10,12][OB:C2R_CAST(1|2),127,12],SNCB_KPS3212B4NV[OB:C4I21,,12],	\
+	SNCF_RES90_DS[OB:C2R_CAST(1|2),10,12][OB:C2R_CAST(1|2),127,12],SNCB_KPS3212B4NV[OB:C4I21,,12],	\
 	SNCB_KPS3212B4NV[OB:C2R_CAST(1|2),8,12][OB:C2R_CAST(1|2),69,12];				\
       V=5;												\
       F=DF4;
@@ -2195,8 +2195,8 @@ $REQUIRE MLG_DEF.TTT
 ;FRET
     TX=SNCB HLE12 + Freight train;									\
       C=SNCB_HLE12_DC,											\
-	25*(SNCF_CERP_SOUFFLET|SNCF_CERP_SOUFFLETL|SNCF_CERP92_SOUF2|SNCF_CERP92_SOUF2L|		\
-	SNCF_CERP96P2_SOUFFLET2|SNCF_CERP96P2_SOUFFLET2L|SNCF_CERG_SOUFFLET|SNCF_CERG_SOUFFLETL);	\
+	25*(SNCF_CERP_SOUFFLET(|L)|SNCF_CERP92_SOUF2(|L)|SNCF_CERP96P2_SOUFFLET2(|L)|			\
+	SNCF_CERG_SOUFFLET(|L));									\
       V=10;												\
       F=EF5;
     TX=SNCB HLE 21 [N:WITH COILS TRAIN;D:MIT COILZUG;F=ET TRAIN DE COILS];				\
@@ -2886,8 +2886,8 @@ $REQUIRE MLG_DEF.TTT
       F=EF5;
 
 ;SERVICE
-    TX=SNCB HLD55 + Service train;									\
-      C=(<SNCB_55YGO,SNCB_55YGOL),(TGVPBKA_L2_R|TGVPBKA_L2_L)[PD];					\
+    TX=SNCB HLD55 Service train Thalys;									\
+      C=(<SNCB_55YGO,SNCB_55YGOL),(THALYS_PBKA_L2_AC[PD]);						\
       V=10;												\
       F=DF5;
   }
@@ -2913,6 +2913,11 @@ $REQUIRE MLG_DEF.TTT
       F=EP6;
 
 ;NIGHTJET
+
+    TX=SNCB HLE18 + Nightjet;										\
+      C=SNCB_HLE18II(|L),OBB_BVCMBZ_NJ(|L),2*OBB_WLABMZ173NJ(|L),OBB_6BMZ21911(|L);			\
+      V=16;												\
+      F=EP6;
     TX=SNCB HLE18 + Nightjet;										\
       C=SNCB_HLE18II(|L),2*OBB_WLABMZ173NJ(|L),OBB_BCMZ59911NJ(|L),OBB_WLABMZ173NJ(|L),			\
 	OBB_BVCMBZ_NJ(|L),OBB_BCMZ59911NJ(|L),OBB_WLABMZ173NJ(|L),OBB_BVCMBZ_NJ(|L);			\

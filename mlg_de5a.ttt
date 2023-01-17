@@ -348,7 +348,7 @@ $REQUIRE MLG_DEF.TTT
       F=EP5;
     TX=DB 141 + Wiesbaden-City;										\
       C=DB_141_2FPH_G(|L)|DB_141_4FPR_OR(|L),DB_AVMZ111T2(|L),DB_BPMZ291BB(|L)~MLG,			\
-	DB_141_4FPR_OR(|L)[PD];										\
+	DB_141_4FPH_G(|L)|DB_141_4FPR_OR(|L)[PD];							\
       V=12;												\
       F=EP5;
     TX=DB 141 + Wiesbaden-City;										\
@@ -1141,7 +1141,7 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=EF5;
     TX=DB 150 + Güterzug;										\
-      C=DB_150_4RG(|L),20-22*(CEREALFP_TC|CEREALFG_TC);							\
+      C=DB_150_4RG(|L),20-22*(SNCF_CERP(|L)|CEREALFG_TC);						\
       V=10;												\
       F=EF5;
     TX=DB 150 + Güterzug;										\
@@ -1196,7 +1196,7 @@ $REQUIRE MLG_DEF.TTT
       V=8;												\
       F=DF5;
     TX=DB 216 + Güterzug;										\
-      C=DB_216BB(|L),2*DB_KBS442M,DB_GBS252;								\
+      C=DB_216BB(|L),2*DB_KBS442M(|L),DB_GBS252;							\
       V=10;												\
       F=DF5;
     TX=DB 216 + Güterzug;										\
@@ -1277,6 +1277,10 @@ $REQUIRE MLG_DEF.TTT
       C=DB_333_1BB(|L),2*DB_TDGS930(|L),DB_TD925(|L),DB_333_1PR(|L);					\
       V=3;												\
       F=DF5;
+    TX=DB 323 + Güterzug;										\
+      C=DB_323B_PR(|L),DB_EANOS052A,SNCF_G4,DB_GS211;							\
+      V=3;												\
+      F=DF5;
     TX=DB 333 + Güterzug;										\
       C=DB_333_1BB(|L),2*DB_TDGS930(|L),DB_TD925(|L),DB_333_1PR(|L);					\
       V=5;												\
@@ -1326,7 +1330,7 @@ $REQUIRE MLG_DEF.TTT
 ;AKN
 ;---
     TX=Altona-Kaltenkirchen-Neumünster Eisenbahn DE 1002;						\
-      C=AKN_DE1002A(|L),DB_GS213,DB_KLS442,DB_TBIS870B;							\
+      C=AKN_DE1002A(|L),DB_GS213,DB_KLS442(|L),DB_TBIS870B;						\
       V=8;												\
       F=DPR5;
     TX=Altona-Kaltenkirchen-Neumünster Eisenbahn VT MAN;						\
@@ -1373,7 +1377,7 @@ $REQUIRE MLG_DEF.TTT
       F=DPRU5;
 
     TX=Hersfelder Kreisbahn V 320;									\
-      C=HEG_V320(|L),DB_TIMS858A|DB_TIMS858B,DB_GS204,3*(DB_TIMS858A|DB_TIMS858B),20*DB_TD925(|L),	\
+      C=HEG_V320(|L),DB_TIMS858A|DB_TIMS858B,DB_GS204W,3*(DB_TIMS858A|DB_TIMS858B),20*DB_TD925(|L),	\
 	HEG_G1300BBO(|L);										\
       V=8;												\
       F=DF5;
@@ -1409,12 +1413,24 @@ $REQUIRE MLG_DEF.TTT
       V=9;												\
       F=DPRU5;
     TX=Hohenzollerische Landesbahn VT MAN;								\
-      C=HZL_VTMAN1(|L),DB_HBIS299,DB_GS204;								\
+      C=HZL_VTMAN1(|L),DB_HBIS299,DB_GS204W;								\
       V=8;												\
       F=DF5;
     TX=Hohenzollerische Landesbahn NE 81;								\
       C=<HZL_NE81VT(|L),HZL_NE81VSL;									\
       V=9;												\
+      F=DPRU5;
+
+;KVG
+;---
+    TX=Kahlgrund Verkehrsgesellschaft (NE 81);								\
+      C=KVGR_VT80A(|L);											\
+      V=10;												\
+      F=DPRU5;
+    TX=Kahlgrund Verkehrsgesellschaft (NE 81);								\
+      C=(<KVGR_VT80A(|L),|KVGR_VS102(|L),KVGR_VS102)|(>KVGR_VT80A(|L),|KVGR_VS102(|L),KVGR_VS102L)|	\
+	(<KVGR_VT80A(|L),KVGR_VS102,KVGR_VS102L,KVGR_VT80A(|L));					\
+      V=10;												\
       F=DPRU5;
 
 ;KBE
@@ -1452,7 +1468,7 @@ $REQUIRE MLG_DEF.TTT
 ;SWEG
 ;----
     TX=Südwestdeutsche Verkehrs-Aktiengesellschaft G1203;						\
-      C=SWEG_G1203(|L),DB_FC090(|L),2*DB_HBIS299,DB_GS204;						\
+      C=SWEG_G1203(|L),DB_FC090(|L),2*DB_HBIS299,DB_GS204W;						\
       V=8;												\
       F=DF5;
 
@@ -1501,7 +1517,7 @@ $REQUIRE MLG_DEF.TTT
 ;Siegener Kreisbahn
 
     TX=Siegener Kreisbahn G 763;									\
-      C=SK_G763_O1,13*(DB_GS210|DB_Gs213);								\
+      C=SK_G763_O1(|L),13*(DB_GS210|DB_Gs213);								\
       V=7;												\
       F=DF5;
 
@@ -1514,11 +1530,33 @@ $REQUIRE MLG_DEF.TTT
       C=TWE_G1300BBO(|L),WEG_V216(|L),7-11*DB_SAMMS710A[OB:STEEL41,,12];				\
       V=8;												\
       F=DF5;
+
 ;WEG
-    TX=Würtembergische Eisenbahn-Gesellschaft VT MAN;							\
-      C=1-2*(WEG_VTMAN|WEG_VTMANL);									\
+    TX=Würtembergische Eisenbahn-Gesellschaft V 216;							\
+      C=WEG_V216(|L),(DB_GBS254,7*(DB_GS204W|DB_GS212C|DB_GS216C))|(DB_HBIS299,DB_GBS254,DB_GLS205C);	\
+      V=9;												\
+      F=DF5;
+    TX=Würtembergische Eisenbahn-Gesellschaft V 320;							\
+      C=HEG_V320(|L),15-16*DB_SAMMS710A[OB:STEEL41,,12];						\
+      V=8;												\
+      F=DF5;
+    TX=Würtembergische Eisenbahn-Gesellschaft TWE G1300BB + V 216;					\
+      C=TWE_G1300BBO(|L),WEG_V216(|L),7-11*DB_SAMMS710A[OB:STEEL41,,12];				\
+      V=8;												\
+      F=DF5;
+    TX=Würtembergische Eisenbahn-Gesellschaft NE 81 + Güterzug;						\
+      C=WEG_NE81A(|L),DB_GS204W|DB_GS212C|DB_GS216C,2*DB_HBIS299,DB_GBS254,				\
+	DB_GS204W|DB_GS212C|DB_GS216C;									\
+      V=8;												\
+      F=DF5;
+    TX=Würtembergische Eisenbahn-Gesellschaft VT MAN 21+22;						\
+      C=2*WEG_VTMAN(|L);										\
       V=9;												\
       F=DPRU5;
+    TX=Würtembergische Eisenbahn-Gesellschaft MAN Schienenbus VT 12;					\
+      C=(<WEG_VT12B,WEG_VS113BL)|(>WEG_VT12BL,WEG_VS113B);						\
+      V=9; W=X;												\
+      FG=TRBED57:..,-6,0-5;
     TX=Würtembergische Eisenbahn-Gesellschaft VT Esslingen;						\
       C=WEG_VT402O(|L);											\
       V=9;												\
@@ -1527,6 +1565,9 @@ $REQUIRE MLG_DEF.TTT
       C=WEG_NE81B(|L),0-1*WEG_VS250(|L);								\
       V=10;												\
       F=DPRU5;
-
+    TX=Würtembergische Eisenbahn-Gesellschaft NE81 + MAN Schienenbus;					\
+      C=WEG_NE81A(|L),WEG_VS220(|L),$DIR((<WEG_VT12B,WEG_VS113BL),(>WEG_VT12BL,WEG_VS113B));		\
+      V=10;												\
+      F=DPRU5;
   }
 %ENDPOOL;

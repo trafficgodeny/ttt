@@ -4,11 +4,11 @@
 ##                              ##
 ##################################
 
-$REQUIRE MLG_DEF.TTT
-
 {FILELEVEL=1?
   $INCLUDE SINGLE.TTT
 }
+$REQUIRE MLG_DEF.TTT
+
 %ADDPOOL(POOL_F,F_ENV)
   {E6?
 ;=============
@@ -50,7 +50,7 @@ $REQUIRE MLG_DEF.TTT
       V=30;												\
       F=EPU6;
     TX=SNCF TGV A;											\
-      C=1-2@(TGVA_I_DC_R|TGVA_I_AC_R);									\
+      C=1-2@(TGVA_I_DC_R|TGVA_I_DC_L);									\
       V=16;												\
       F=GEPU6;
     TX=SNCF TGV A;											\
@@ -65,6 +65,10 @@ $REQUIRE MLG_DEF.TTT
       C=1-2@(TGVA_RG_DC|TGVA_RG_AC);									\
       V=16;												\
       F=EPU6;
+    TX=SNCF TGV Atlantique;										\
+      C=1-2@TGVA_INOUI_AC;										\
+      V=16;												\
+      F=GEPU6;
     TX=SNCF TGV R;											\
       C=(1-2*(1:TGVR_I_AC_L|2:TGVR_RG_AC_L))|(1-2*(1:TGVR_I_AC_R|2:TGVR_RG_AC_R));			\
       V=30;												\
@@ -214,12 +218,16 @@ $REQUIRE MLG_DEF.TTT
       V=30;												\
       F=EPU6;
     TX=THALYS PBA;											\
-      C=THALYS_PBA_L3_AC;										\
+      C=THALYS_PBA_L3_AC|THALYS_PBKA_L3_AC;								\
       V=30;												\
       F=EPU6;
     TX=THALYS PBA;											\
       C=THALYS_PBKA_L3_AC;										\
       V=30;												\
+      F=EPU6;
+    TX=THALYS_Ruby;											\
+      C=(THALYS_PBKA_RUBY_AC_L,THALYS_PBKA_L3_AC_L)|(THALYS_PBKA_RUBY_AC_R,THALYS_PBKA_L3_AC_R);	\
+      V=16;												\
       F=EPU6;
     TX=THALYS IZY;											\
       C=THALYS_TGVR_IZY_AC;										\
@@ -276,7 +284,6 @@ $REQUIRE MLG_DEF.TTT
 	SNCB_I10AN(|L),3*SBB_EC_B(|L),SNCB_I6BN(|L),3*SBB_EC_B(|L),2*SBB_EC_A(|L);			\
       V=16;												\
       F=EP6;
-
     TX=SNCF BB 15000 + VAUBAN / EC90;									\
       C=(SNCF_BB15000S4EV(|L)|BB15000_TI,SNCB_I6BN(|L),2*SBB_EC_A(|L),3*SBB_EC_B(|L))|			\
 	(SNCF_BB15000S3CPI(|L),SNCB_I10C_BN(|L),SNCB_I6BN(|L),2*SBB_EC_A(|L),5*SBB_EC_B(|L));		\
@@ -376,18 +383,30 @@ $REQUIRE MLG_DEF.TTT
 
 ;PARIS - LE HAVRE
     TX=SNCF BB 15000 + PARIS - LE HAVRE;								\
-       C=(<SNCF_BB15000S4EVI(|L),6*SNCF_VTU_CP2CIC_B(|L),SNCF_VU_CP2CIC_A9(|L),2*SNCF_VTU_A_CP2IC(|L),SNCF_VU_CP2CIC_B6DX)|(>SNCF_BB15000S4EVI(|L),6*SNCF_VTU_CP2CIC_B(|L),SNCF_VU_CP2CIC_A9(|L),2*SNCF_VTU_A_CP2IC(|L),SNCF_VU_CP2CIC_B6DXL);	\
-      V=16;F=EPU6;
-     TX=SNCF BB 15000 + PARIS - LE HAVRE;								\
-       C=(<SNCF_BB15000S3CPI(|L),4*SNCF_VTU_CP2CIC_B(|L),2*SNCF_HN_VTU_CIC_B(|L),SNCF_VTU_CP2CIC_B(|L),SNCF_VU_CP2CIC_A9(|L),SNCF_HN_VTU_CIC(|L),SNCF_VU_CPG_B6DX)|(>SNCF_BB15000S3CPI(|L),4*SNCF_VTU_CP2CIC_B(|L),2*SNCF_HN_VTU_CIC_B(|L),SNCF_VTU_CP2CIC_B(|L),SNCF_VU_CP2CIC_A9(|L),SNCF_HN_VTU_CIC(|L),SNCF_VU_CPG_B6DXL);	\
-      V=16;F=EPU6;
-   TX=SNCF BB 15000 + PARIS - LE HAVRE;								\
-      C=<SNCF_BB15000S3CPI(|L),6*SNCF_HN_VTU_CIC_B(|L),2*SNCF_HN_VTU_CIC(|L),SNCF_HN_VU_CIC_B6TUXH;\
-       V=16;F=EPU6;
-   TX=SNCF BB 15000 + PARIS - LE HAVRE;								\
-C=>SNCF_BB15000S4EVI(|L),6*SNCF_HN_VTU_CIC_B(|L),(SNCF_HN_VTU_CIC_B(|L),2*SNCF_HN_VTU_CIC(|L))|(3*SNCF_HN_VTU_CIC(|L),SNCF_HN_VU_CIC_B7UH(|L)),SNCF_HN_VU_CIC_B6TUXHL;\
-      V=16;F=EPU6;
-	  
+      C=(<SNCF_BB15000S4EVI(|L),6*SNCF_VTU_CP2CIC_B(|L),SNCF_VU_CP2CIC_A9(|L),2*SNCF_VTU_A_CP2IC(|L),	\
+	SNCF_VU_CP2CIC_B6DX)|										\
+	(>SNCF_BB15000S4EVI(|L),6*SNCF_VTU_CP2CIC_B(|L),SNCF_VU_CP2CIC_A9(|L),2*SNCF_VTU_A_CP2IC(|L),	\
+	SNCF_VU_CP2CIC_B6DXL);										\
+      V=16;												\
+      F=EPU6;
+    TX=SNCF BB 15000 + PARIS - LE HAVRE;								\
+      C=(<SNCF_BB15000S3CPI(|L),4*SNCF_VTU_CP2CIC_B(|L),2*SNCF_HN_VTU_CIC_B(|L),SNCF_VTU_CP2CIC_B(|L),	\
+	SNCF_VU_CP2CIC_A9(|L),SNCF_HN_VTU_CIC(|L),SNCF_VU_CPG_B6DX)|					\
+	(>SNCF_BB15000S3CPI(|L),4*SNCF_VTU_CP2CIC_B(|L),2*SNCF_HN_VTU_CIC_B(|L),SNCF_VTU_CP2CIC_B(|L),	\
+	SNCF_VU_CP2CIC_A9(|L),SNCF_HN_VTU_CIC(|L),SNCF_VU_CPG_B6DXL);					\
+      V=16;												\
+      F=EPU6;
+    TX=SNCF BB 15000 + PARIS - LE HAVRE;								\
+      C=<SNCF_BB15000S3CPI(|L),6*SNCF_HN_VTU_CIC_B(|L),2*SNCF_HN_VTU_CIC(|L),SNCF_HN_VU_CIC_B6TUXH;	\
+      V=16;												\
+      F=EPU6;
+    TX=SNCF BB 15000 + PARIS - LE HAVRE;								\
+      C=>SNCF_BB15000S4EVI(|L),6*SNCF_HN_VTU_CIC_B(|L),							\
+	(SNCF_HN_VTU_CIC_B(|L),2*SNCF_HN_VTU_CIC(|L))|(3*SNCF_HN_VTU_CIC(|L),SNCF_HN_VU_CIC_B7UH(|L)),	\
+	SNCF_HN_VU_CIC_B6TUXHL;										\
+      V=16;												\
+      F=EPU6;
+
 ;PARIS - DIEPPE
     TX=SNCF BB 67400 + PARIS - DIEPPE;									\
       C=SNCF_BB67400EVI(|L),SNCF_VTU_CP2CIC_B(|L),SNCF_VTU2_CP2CIC_AB(|L),4*SNCF_VTU_CP2CIC_B(|L),	\
@@ -430,10 +449,10 @@ C=>SNCF_BB15000S4EVI(|L),6*SNCF_HN_VTU_CIC_B(|L),(SNCF_HN_VTU_CIC_B(|L),2*SNCF_H
     TX=SNCF BB 9200-9300  + AQUALYS;									\
       C=(SNCF_BB9300CP(|L),SNCF_VTU_AQI_B(|L),SNCF_VTU_AQI_A(|L),SNCF_VTU_AQI_BR(|L),			\
 	SNCF_VTU2_AQI_AB(|L),SNCF_VU_AQI_B11(|L),SNCF_VTU_AQI_B(|L))|					\
-	(SNCF_BB9200BC|SNCF_BB9200BI,SNCF_VTU_AQI_B(|L),SNCF_VU_AQI_B11(|L),SNCF_VTU_AQI_BR(|L),	\
+	(BB9200_GBC|BB9200_GBI,SNCF_VTU_AQI_B(|L),SNCF_VU_AQI_B11(|L),SNCF_VTU_AQI_BR(|L),		\
 	SNCF_VTU2_AQI_AB(|L),SNCF_VTU_AQI_A(|L),SNCF_VTU_AQI_B(|L))|					\
-	(SNCF_BB9200CP2I,SNCF_VTU_AQI_B(|L),SNCF_VTU_AQI_A(|L),SNCF_VTU2_AQI_AB(|L),			\
-	SNCF_VTU_AQI_BR(|L),SNCF_VU_AQI_B11(|L),SNCF_VTU_CP2CIC_B(|L));					\
+	(BB9200_CP2I,SNCF_VTU_AQI_B(|L),SNCF_VTU_AQI_A(|L),SNCF_VTU2_AQI_AB(|L),SNCF_VTU_AQI_BR(|L),	\
+	SNCF_VU_AQI_B11(|L),SNCF_VTU_CP2CIC_B(|L));							\
       V=16;												\
       F=EGP6;
     TX=SNCF BB 22200 + AQUALYS;										\
@@ -522,24 +541,53 @@ C=>SNCF_BB15000S4EVI(|L),6*SNCF_HN_VTU_CIC_B(|L),(SNCF_HN_VTU_CIC_B(|L),2*SNCF_H
       F=DP6;
 
 ;BORDEAUX - NANTES
-  TX=SNCF BB 67400 + Transversale Bordeaux - Nantes;							\
-      C=SNCF_BB67400CP2(|L),SNCF_VTU_B_CP2I(|L),SNCF_VU_CP2I_B11(|L),2*SNCF_VTU_A_CP2I(|L),2*SNCF_VTU_B_CP2I(|L),2*SNCF_VU_CP2I_B11(|L);\
-  V=14;												\
+    TX=SNCF BB 67400 + Transversale Bordeaux - Nantes;							\
+      C=SNCF_BB67400CP2(|L),SNCF_VTU_B_CP2I(|L),SNCF_VU_CP2I_B11(|L),2*SNCF_VTU_A_CP2I(|L),		\
+	2*SNCF_VTU_B_CP2I(|L),2*SNCF_VU_CP2I_B11(|L);							\
+      V=14;												\
       F=DP6;
 
 ;BORDEAUX- TOULOUSE
     TX=SNCF BB 7200 + Transversale Bordeaux- Toulouse;							\
-      C=SNCF_BB7200GCI(|L),1-2@(TEOZI7_R|TEOZI7_L);					\
+      C=SNCF_BB7200GCI(|L),1-2@(TEOZI7_R|TEOZI7_L);							\
       V=16;												\
       F=EGP6;
-   TX=SNCF BB 22200 + Transversale Bordeaux- Toulouse;							\
-      C=BB22200_GC_GBI_DC,1-2@(TEOZI7_R|TEOZI7_L);					\
+    TX=SNCF BB 22200 + Transversale Bordeaux- Toulouse;							\
+      C=BB22200_GC_GBI_DC,1-2@(TEOZI7_R|TEOZI7_L);							\
       V=16;												\
       F=EGP6;
 
 ;========================
 ;===  TRAINS DE NUIT  ===
 ;========================
+
+;ELIPSOS
+    TX=SNCF Elipsos Talgo (BB 7200);									\
+      C=SNCF_BB7200GBI(|L),										\
+	(<ELIP_TG6Z_L2L,ELIP_TA6_L2L,3*(ELIP_WL6UL_L2L,ELIP_WL6UR_L2L),ELIP_WL6GL_L2L,ELIP_WL6DR_L2L,	\
+	ELIP_TC6_L2L,ELIP_TR6_L2L,ELIP_WL6DR_L2L,ELIP_WL6DL_L2L,ELIP_WL6GR_L2L,ELIP_WL6GL_L2L,		\
+	ELIP_WL6GR_L2L,ELIP_WL6UL_L2L,ELIP_WL6UR_L2L,ELIP_WL6UL_L2L,ELIP_TG6_L2L)|			\
+	(<ELIP_TG6_L2,ELIP_WL6UR_L2L,ELIP_WL6UL_L2L,ELIP_WL6UR_L2L,ELIP_WL6GL_L2,2*ELIP_WL6GR_L2,	\
+	ELIP_WL6DL_L2,ELIP_WL6DR_L2,ELIP_TR6_L2,ELIP_TC6_L2,ELIP_WL6DR_L2,ELIP_WL6GL_L2,		\
+	3*(ELIP_WL6UR_L2,ELIP_WL6UL_L2),ELIP_TA6_L2,ELIP_TG6Z_L2);					\
+      V=16;												\
+      F=EGP6;
+
+    TX=SNCF Elipsos Talgo (BB 7200);									\
+      C=SNCF_BB7200GBI(|L),										\
+	(<ELIP_TG6Z_L2L,4*(ELIP_WL6UL_L2L,ELIP_WL6UR_L2L),ELIP_WL6DL_L2L,ELIP_WL6GR_L2L,ELIP_TC6_L2L,	\
+	ELIP_TR6_L2L,ELIP_WL6DR_L2L,ELIP_WL6DL_L2L,ELIP_WL6GR_L2L,ELIP_WL6GL_L2L,2*ELIP_TA6I_L2L,	\
+	ELIP_TG6_L2L);											\
+      V=16;												\
+      F=EGP6;
+
+    TX=SNCF Elipsos Talgo (BB 26000);									\
+      C=BB26000_OI_DC,											\
+	(<ELIP_TG6_L2,ELIP_WL6UR_L2,ELIP_WL6UL_L2,ELIP_WL6UR_L2,ELIP_WL6GL_L2,ELIP_WL6GR_L2,		\
+	ELIP_WL6GL_L2,ELIP_WL6DR_L2,ELIP_WL6DL_L2,ELIP_TR6_L2,ELIP_TC6_L2,ELIP_WL6GL_L2,ELIP_WL6DR_L2,	\
+	ELIP_WL6GL_L2,4*(ELIP_WL6UR_L2,ELIP_WL6UL_L2),ELIP_TA6_L2,ELIP_TG6Z_L2);			\
+      V=16;												\
+      F=EGP6;
 
 ;INTERNATIONAUX
 ;COPENHAGUE- MODANE
@@ -759,6 +807,20 @@ C=>SNCF_BB15000S4EVI(|L),6*SNCF_HN_VTU_CIC_B(|L),(SNCF_HN_VTU_CIC_B(|L),2*SNCF_H
       C=BB22200_GC_INFRA_AC,2*SNCF_UASS_AUTOTRAIN,2*SNCF_DD66I,2*SNCF_UASS_AUTOTRAIN,4*SNCF_DD66I,	\
 	2*SNCF_UASS_AUTOTRAIN;										\
       V=14;												\
+      F=EGP6;
+
+;=============
+;=== OUIGO ===
+;=============
+;TGV OUIGO
+    TX=SNCF TGV Ouigo;											\
+      C=1-2@TGVOUIGO_AC;										\
+      V=30;												\
+      F=EP6;
+;OUIGO TRAINS CLASSIQUES
+    TX=Ouigo Trains Classiques (SNCF BB 22200 + Corail);						\
+      C=BB22200_GC_OUIGOTC_DC,8*SNCF_VTU_OUIGOTC_B(|L);							\
+      V=16;												\
       F=EGP6;
 
 ;=====================================
@@ -1027,8 +1089,7 @@ C=>SNCF_BB15000S4EVI(|L),6*SNCF_HN_VTU_CIC_B(|L),(SNCF_HN_VTU_CIC_B(|L),2*SNCF_H
 	0-1*(1:Z20500_1S_IDFI_4V|1:Z20500_1S_IDFI_4V|3:Z20500_1S_TRANS_4V|1:Z20500_2S_TRANS_4V|		\
 	3:Z20500_1S_STIF_4V|1:Z20500_2S_STIF_4V);							\
       V=10; P=>95; T=OPEN,W,1,CLOSE;									\
-      F=EPROUT6;											\
-      \;
+      F=EPROUT6;
     TX=SNCF Z 20900  RER C;										\
       C=1:(Z20900_2S_IDFTI,Z8800_IDFI_4V)|1:(Z8800_IDFI_4V,Z20500_1S_TRANS_4V)|				\
 	1:(Z20500_1S_TRANS_4V,Z8800_TRANS_4V)|2:(Z8800_TRANS_4V|Z8800_STIF_4V,Z20900_2S_IDFTI)|		\
@@ -1048,7 +1109,10 @@ C=>SNCF_BB15000S4EVI(|L),6*SNCF_HN_VTU_CIC_B(|L),(SNCF_HN_VTU_CIC_B(|L),2*SNCF_H
       C=2*(Z20500_1S_IDFI_4V[PU]|Z20500_1S_TRANS_4V[PU]);						\
       V=12; P=>95; T=OPEN,W,1,CLOSE;									\
       F=EGPROUT6;
-
+    TX=SNCF Z 20900  RER C;										\
+      C=2*Z20900_2S_IDFM;										\
+      V=12;												\
+      F=EGPRU6;
 ;RER_D
 ;-----
 
@@ -1158,11 +1222,10 @@ C=>SNCF_BB15000S4EVI(|L),6*SNCF_HN_VTU_CIC_B(|L),(SNCF_HN_VTU_CIC_B(|L),2*SNCF_H
       F=EPR6;
     TX=SNCF BB 67400 + TER ALSACE;									\
       C=SNCF_BB67400RGBI(|L),										\
-	(SNCF_VU_B9X_3(|L),5*SNCF_ALS_VTU_PP(|L),SNCF_VTU_B_CP2I(|L),SNCF_VU_B9X_3(|L))|		\
-	(SNCF_VTU_B_CP2I(|L),SNCF_ALS_VTU_PP(|L),SNCF_VU_B9X_3(|L),3*SNCF_ALS_VTU_PP(|L));		\
+	(SNCF_VU_T2BI_B9UX(|L),5*SNCF_ALS_VTU_PA(|L),SNCF_VTU_B_CP2I(|L),SNCF_VU_T2BI_B9UX(|L))|	\
+	(SNCF_VTU_B_CP2I(|L),SNCF_ALS_VTU_PA(|L),SNCF_VU_T2BI_B9UX(|L),3*SNCF_ALS_VTU_PA(|L));		\
       V=14;												\
       F=DPR6;
-
     TX=SNCF BB 25500 + TER ALSACE;									\
       C=(<3:BB25500_2S_EVI_AC|3:BB25500_2S_GBI_AC|1:BB25500_2S_FTI_AC,RRR3_C_T2I_R)|			\
 	(>3:BB25500_2S_EVI_AC|3:BB25500_2S_GBI_AC|1:BB25500_2S_FTI_AC,RRR3_C_T2I_L);			\
@@ -1174,11 +1237,11 @@ C=>SNCF_BB15000S4EVI(|L),6*SNCF_HN_VTU_CIC_B(|L),(SNCF_HN_VTU_CIC_B(|L),2*SNCF_H
       V=12;												\
       F=DPRU6;
 
-    TX=SNCF X GC3  TER ALSACE;										\
+    TX=SNCF XGC3  TER ALSACE;										\
       C=XGC3_T2ALSP;											\
       V=14;												\
       F=DPR6;
-    TX=SNCF X GC4  TER ALSACE;										\
+    TX=SNCF XGC4  TER ALSACE;										\
       C=XGC4_T2ALSP;											\
       V=14;												\
       F=DPR6;
@@ -1218,8 +1281,9 @@ C=>SNCF_BB15000S4EVI(|L),6*SNCF_HN_VTU_CIC_B(|L),(SNCF_HN_VTU_CIC_B(|L),2*SNCF_H
 
     TX=SNCF BB 9300 + TER AQUITAINE;									\
       C=SNCF_BB9300CP(|L),										\
+	(SNCF_AQ_VTU2_AB3(|L),2*SNCF_AQ_VTU_B3(|L),SNCF_AQ_VU_B11_3(|L))|				\
 	(SNCF_AQ_VTU2_AB3(|L),SNCF_AQ_VU_B11_2(|L),2*SNCF_AQ_VTU_B3(|L))|				\
-	(SNCF_VTU_CP2CIC_B(|L),SNCF_AQ_VTU_B3(|L),SNCF_AQ_VTU2_AB3(|L),SNCF_AQ_VU_B6DU4(|L));		\
+	(SNCF_VTU2_CP2CIC_B(|L),SNCF_AQ_VTU_B3(|L),SNCF_AQ_VTU2_AB3(|L),SNCF_AQ_VU_B6DU4(|L));		\
       V=16;												\
       F=EGPR6;
     TX=SNCF BB 9300 + TER AQUITAINE;									\
@@ -1244,7 +1308,7 @@ C=>SNCF_BB15000S4EVI(|L),6*SNCF_HN_VTU_CIC_B(|L),(SNCF_HN_VTU_CIC_B(|L),2*SNCF_H
     TX=SNCF BB 7200 + TER AQUITAINE;									\
       C=SNCF_BB7200GEVI(|L),SNCF_AQ_VTU2_AB3(|L),							\
 	(SNCF_VU_CP2CIC_B11(|L),3*SNCF_AQ_VTU_B3(|L),SNCF_AQ_VU_B6DU4(|L),SNCF_AQ_VTU_B3(|L),		\
-	SNCF_AQ_VTU2_AB3(|L))|(SNCF_AQ_VTU2_B2(|L),SNCF_AQ_VTU_B3(|L),SNCF_AQ_VU_B11_3(|L));		\
+	SNCF_AQ_VTU2_AB3(|L))|(SNCF_AQ_VTU82_B5(|L),SNCF_AQ_VTU_B3(|L),SNCF_AQ_VU_B11_3(|L));		\
       V=16;												\
       F=EGPR6;
     TX=SNCF BB 7200 + TER AQUITAINE;									\
@@ -1262,19 +1326,19 @@ C=>SNCF_BB15000S4EVI(|L),6*SNCF_HN_VTU_CIC_B(|L),(SNCF_HN_VTU_CIC_B(|L),2*SNCF_H
     TX=SNCF Z 7300  TER AQUITAINE;									\
       C=3:Z7300_1S_T2BIAQ1|3:Z7300_2S_T2BIAQ1|1:Z7300_2S_T2BIAQ2;					\
       V=16;												\
-      F=EGPRU6;
+      F=EGXPRU6;
     TX=SNCF Z 7300  TER AQUITAINE;									\
       C=2-3*(Z7300_1S_T2BIAQ1|Z7300_2S_T2BIAQ1);							\
       V=14;												\
-      F=EGPRU6;
+      F=EGXPRU6;
     TX=SNCF Z 7300  TER AQUITAINE;									\
       C=1-2*Z7300_RG_T2BI;										\
       V=16;												\
-      F=EGPRU6;
+      F=EXGPRU6;
     TX=SNCF Z 21500  TER AQUITAINE;									\
-      C=1-2*(Z21500_T2AQ2_R|Z21500_T2AQ2_L);								\
-      V=20;												\
-      F=EGPRU6;
+      C=1-2@Z21500_T2AQ2_DC;										\
+      V=16;												\
+      F=EGXPRU6;
     TX=SNCF REGIOLIS Z 51500  TER AQUITAINE;								\
       C=REGIOLIS_Z4R_AQ;										\
       V=14;												\
@@ -1314,9 +1378,10 @@ C=>SNCF_BB15000S4EVI(|L),6*SNCF_HN_VTU_CIC_B(|L),(SNCF_HN_VTU_CIC_B(|L),2*SNCF_H
 ;TER AUVERGNE
 ;============
 
-  TX=SNCF BB 67400 + Corail - TER Auvergne ;									\
-  V=11;C=SNCF_BB67400CP,SNCF_AUV_VTU84AB2(|L),(2*SNCF_VU_T2BIAU_B11(|L))|\
-  SNCF_AUV_VU_CP2IT_B11(|L);      F=DPR6;
+    TX=SNCF BB 67400 + Corail - TER Auvergne;								\
+      C=SNCF_BB67400CP,SNCF_AUV_VTU84AB2(|L),(2*SNCF_VU_T2BIAU_B11(|L))|SNCF_AUV_VU_CP2IT_B11(|L);	\
+      V=11;												\
+      F=DPR6;
 
     TX=SNCF X 73500  TER AUVERGNE;									\
       C=SNCF_AU_X73500I;										\
@@ -1335,7 +1400,7 @@ C=>SNCF_BB15000S4EVI(|L),6*SNCF_HN_VTU_CIC_B(|L),(SNCF_HN_VTU_CIC_B(|L),2*SNCF_H
 
 ;VIC LE COMTE – MOULINS
     TX=SNCF BB 67400 + TER VIC LE COMTE – MOULINS;							\
-      C=(<(SNCF_BB67400EVI(|L)|SNCF_BB67400CP(|L)),RRR3_T2AUV_R)|						\
+      C=(<(SNCF_BB67400EVI(|L)|SNCF_BB67400CP(|L)),RRR3_T2AUV_R)|					\
 	(>(SNCF_BB67400EVI(|L)|BB67400_CP),RRR3_T2AUV_L);						\
       V=12;												\
       F=DPRU6;
@@ -1388,19 +1453,18 @@ C=>SNCF_BB15000S4EVI(|L),6*SNCF_HN_VTU_CIC_B(|L),(SNCF_HN_VTU_CIC_B(|L),2*SNCF_H
 	(<SNCF_BOU_BB7200G(|L),7*SNCF_BOU_V2N_B1,SNCF_V2N_T2T_BX);					\
       V=16;												\
       F=EGPRU6;
-   TX=SNCF BB 8500 + TER BOURGOGNE;									\
-V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|RRR4_T2PBOU_L);F=EGPROUT6;
     TX=SNCF BB 8500 + TER BOURGOGNE;									\
-      C=(<SNCF_BB8500S2EVI(|L)|SNCF_BB25500S2BI(|L)_DC,RRR3_T2PBOU_R)|(>SNCF_BB8500S2EVI(|L)|SNCF_BB25500S2BI(|L)_DC,RRR3_T2PBOU_L);					\
-      V=14;F=EGPROUT6;												\
-     TX=SNCF BB 8500 + TER BOURGOGNE;									\
+      C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|RRR4_T2PBOU_L);		\
+      V=14;												\
+      F=EGPROUT6;
+    TX=SNCF BB 8500 + TER BOURGOGNE;									\
       M=STOP;												\
       C=>SNCF_BB8500S2EVI(|L),RRR4_T2PBOU_L;								\
       V=14; P=>95; T=OPEN,W,1,CLOSE;									\
       F=EGPROUT6;
 
     TX=SNCF BB 66400 + TER BOURGOGNE;									\
-      C=(<SNCF_BB66400C(|L),RRR3_T2PBOU_R)|(>SNCF_BB66400C(|L),RRR3_T2PBOU_L);								\
+      C=(<SNCF_BB66400C(|L),RRR3_T2PBOU_R)|(>SNCF_BB66400C(|L),RRR3_T2PBOU_L);				\
       V=11;												\
       F=DPRU6;
 
@@ -1515,8 +1579,8 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
 ;TER CENTRE
 ;==========
 
-    TX=SNCF BB 72000 +  TER CENTRE;		\
-	C=SNCF_BB7200GBI(|L),SNCF_CEN_USI66_B2I(|L),SNCF_CEN_USI66B2(|L),SNCF_CEN_USI66A2(|L),		\
+    TX=SNCF BB 72000 +  TER CENTRE;									\
+      C=SNCF_BB7200GBI(|L),SNCF_CEN_USI66_B2I(|L),SNCF_CEN_USI66B2(|L),SNCF_CEN_USI66A2(|L),		\
 	SNCF_CEN_USI66B2(|L);										\
       V=16;												\
       F=EGPRU6;
@@ -1544,7 +1608,7 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
       F=EGPROUT6;
 ;PARIS - LE MANS
     TX=SNCF BB 9200 + TER PARIS - LE MANS;								\
-      C=SNCF_BB9200CP,SNCF_CEN_VTU2_AB4(|L),SNCF_CEN_VU_B11A(|L),4*SNCF_CEN_VTU_B4(|L),			\
+      C=SNCF_BB9200CP(|L),SNCF_CEN_VTU2_AB4(|L),SNCF_CEN_VU_B11A(|L),4*SNCF_CEN_VTU_B4(|L),		\
 	SNCF_CEN_VTU2_AB4(|L),SNCF_CEN_VU_B11A(|L),2*SNCF_CEN_VTU_B4(|L);				\
       V=16;												\
       F=EGPR6;
@@ -1567,11 +1631,11 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
       V=16;												\
       F=EGPR6;
     TX=SNCF Z 21500  TER CENTRE;									\
-      C=1-2@Z21500_T2ICEN;										\
+      C=1-2@Z21500_T2ICEN_DC;										\
       V=20;												\
       F=EGPRU6;
     TX=SNCF Z 21500  TER CENTRE;									\
-      C=2-3*(2:Z21500_T2ICEN|1:Z21500_T2ICEN2);								\
+      C=2-3*(2:Z21500_T2ICEN_DC|1:Z21500_T2ICEN2_DC);							\
       V=20;												\
       F=EGPRU6;
 
@@ -1598,17 +1662,23 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
 	SNCF_VU_CP2CIC_B11(|L),SNCF_VTU_A_CP2I(|L);							\
       V=16;												\
       F=EPR6;
-
     TX=SNCF BB 15000 + TER Champagne-Ardenne;								\
       C=SNCF_BB15000S3CPI(|L),										\
-	(SNCF_PIC_VTU_A4(|L),SNCF_VU_NDCIC_B9UX54P(|L))|(SNCF_VTU_CP2ITVM_A(|L),SNCF_VU_NDCIC_B9UX(|L))|	\
-	(SNCF_VU_CP2ITVM_B9X(|L),SNCF_VTU_CP2ITVM_A(|L)),6*SNCF_VTU_CP2ITVM_B(|L);			\
+	(SNCF_PIC_VTU_A4(|L),SNCF_VU_NDCIC_B9UX(|L))|							\
+	(SNCF_VTU_NDITVM_A(|L),SNCF_CA_VU_B9UX54TVM2(|L))|						\
+	(SNCF_CA_VU_B9UX54TVM1(|L),SNCF_VTU_NDITVM_A(|L)),6*SNCF_VTU_NDITVM_B(|L);			\
       V=16;												\
       F=EPR6;
+    TX=TER VALLÉE DE LA MARNE : PARIS - ST DIZIER / BAR-LE-DUC;						\
+      C=SNCF_BB15000S3CPI(|L),										\
+	(SNCF_PIC_VTU_A4(|L),SNCF_VU_NDCIC_B9UX(|L))|							\
+	(SNCF_VTU_NDITVM_A(|L),SNCF_CA_VU_B9UX54TVM2(|L))|						\
+	(SNCF_CA_VU_B9UX54TVM1(|L),SNCF_VTU_NDITVM_A(|L)),6*SNCF_VTU_NDITVM_B(|L);			\
+      V=16;
 
     TX=SNCF BB 15000 + TER Champagne-Ardenne;								\
       C=SNCF_BB15007TVM(|L)|SNCF_BB15000S3CPI(|L),4*SNCF_VTU_CP2ITVM_B(|L),SNCF_VTU_CP2CIC_B(|L),	\
-	SNCF_VTU_CP2ITVM_B(|L),SNCF_VU_NDCIC_B9UX54P(|L),SNCF_VTU_CP2ITVM_A(|L);				\
+	SNCF_VTU_CP2ITVM_B(|L),SNCF_VU_NDCIC_B9UX54P(|L),SNCF_VTU_CP2ITVM_A(|L);			\
       V=16;												\
       F=EPR6;
 
@@ -1618,24 +1688,24 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
       F=EPR6;
 
     TX=SNCF BB 15000 + TER Champagne-Ardenne;								\
-      C=(SNCF_BB15000S4EVI(|L),SNCF_VTU_CP2ITVM_B(|L),SNCF_VU_CP2ITVM_B9X(|L),SNCF_VTU_CP2ITVM_A(|L),	\
-	SNCF_VTU_CP2ITVM_B(|L),SNCF_VTU_T2BITVM_B(|L),2*SNCF_VTU_CP2ITVM_B(|L),SNCF_VTU_T2BITVM_B(|L))|	\
-	(SNCF_BB15000S3CPI(|L),3*SNCF_VTU_CP2ITVM_B(|L),SNCF_VTU_T2BITVM_B(|L),				\
-	2*SNCF_VTU_CP2ITVM_B(|L),SNCF_VU_B9X_4(|L),SNCF_VTU_T2BITVM_A(|L));				\
+      C=(SNCF_BB15000S4EVI(|L),SNCF_VTU_NDITVM_B(|L),SNCF_CA_VU_B9UX54TVM1(|L),SNCF_VTU_NDITVM_A(|L),	\
+	SNCF_VTU_NDITVM_B(|L),SNCF_VTU_T2BITVM_B(|L),2*SNCF_VTU_NDITVM_B(|L),SNCF_VTU_T2BITVM_B(|L))|	\
+	(SNCF_BB15000S3CPI(|L),3*SNCF_VTU_NDITVM_B(|L),SNCF_VTU_T2BITVM_B(|L),2*SNCF_VTU_NDITVM_B(|L),	\
+	SNCF_CA_VU_B9UX54TVM2(|L),SNCF_VTU_T2BITVM_A(|L));						\
       V=16;												\
       F=EPR6;
 
-    TX=SNCF CC 72100 + Corail - TER Champagne-Ardenne ;								\
+    TX=SNCF CC 72100 + Corail - TER Champagne-Ardenne;							\
       C=CC72100_EVI,SNCF_CA_VTU_B4(|L),SNCF_CA_VU_B11_3B(|L),2*SNCF_CA_VTU_B4(|L);			\
       V=16;												\
       F=DPR6;
 
-    TX=SNCF X 72500  TER Champagne-Ardenne (X TER);								\
-      C=X72500_3C_T2ICA;											\
+    TX=SNCF X 72500  TER Champagne-Ardenne (X TER);							\
+      C=X72500_3C_T2ICA;										\
       V=14;												\
       F=DPR6;
 
-    TX=SNCF X 73500  TER Champagne-Ardenne (A TER);								\
+    TX=SNCF X 73500  TER Champagne-Ardenne (A TER);							\
       C=SNCF_CA_X73500I2;										\
       V=12;												\
       F=DPR6;
@@ -1655,16 +1725,22 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
       V=12;												\
       F=DPR6;
 
-    TX=SNCF AGC  TER Champagne-Ardenne;									\
-      C=AGCBIBI_T2PCAP[PD]|XGC_T2CA|(AGCBIBI_T2PCAP[PD],XGC_T2CA);					\
+    TX=SNCF AGC TER Champagne-Ardenne;									\
+      C=AGCBIBI_T2CA[PD]|AGCBIBI_T2PCAP[PD];								\
       V=12; W=R;											\
-      F=EPR6;
-
+      F=DPRU6;
+    TX=SNCF XGC  TER Champagne-Ardenne;									\
+      C=XGC_T2CA;											\
+      V=12; W=R;											\
+      F=DPRU6;
+    TX=SNCF AGC + XGC TER Champagne-Ardenne;								\
+      C=AGCBIBI_T2PCAP[PD],XGC_T2CA;									\
+      V=12;												\
+      F=DPRU6;
     TX=SNCF AGC  TER Champagne-Ardenne;									\
       C=2@AGCBIBI_TPCA;											\
-      V=12; W=R;											\
+      V=12;												\
       F=EPR6;
-
     TX=SNCF AGC TER Champagne-Ardenne;									\
       C=AGCBIBI_TPCA[PD],0-1*(2:AGCBIBI_TPCA[PD]|1:AGCBIBI_FRA[PD]);					\
       V=12; W=R;											\
@@ -1733,11 +1809,11 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
       V=12;												\
       F=DPR6;
     TX=SNCF X 73500  TER FRANCHE-COMTÉ;									\
-      C=SNCF_FC_X73500B|SNCF_FC_X73500D|SNCF_FC_X73500E;						\
+      C=SNCF_FC_X73500B|SNCF_FC_X73500D|SNCF_FC_X73500F;						\
       V=12;												\
       F=DPR6;
     TX=SNCF X 73500  TER FRANCHE-COMTÉ;									\
-      C=1:SNCF_FC_X73500BI|2:(SNCF_X73500_T2BIFC2,0-1*(SNCF_X73500_T2BIFC2|SNCF_FC_X73500E));		\
+      C=1:SNCF_FC_X73500BI|2:(SNCF_X73500_T2BIFC2,0-1*(SNCF_X73500_T2BIFC2|SNCF_FC_X73500F));		\
       V=12;												\
       F=DPR6;
     TX=SNCF X GC  TER FRANCHE-COMTÉ;									\
@@ -1751,40 +1827,43 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
 
 ;GENÈVE - BELLEGARDE
     TX=SNCF BB 25500 + GENÈVE - BELLEGARDE;								\
-      C=SNCF_BB25500CCP(|L),3*SBB_5UIC1B(|L);								\
-      V=14;												\
+      C=BB25500_CR_CP_AC,3*SBB_5UIC1B(|L);								\
+      V=12;												\
       F=EPR6;
 
-;TER LANGUEDOC-ROUSSILLON
+;TER Languedoc-Roussillon
 ;========================
 
-    TX=SNCF BB 7200 + TER LANGUEDOC-ROUSSILLON;								\
+    TX=SNCF BB 7200 + TER Languedoc-Roussillon;								\
       C=3:SNCF_BB7200GFANT(|L)|1:SNCF_BB7200GEVI(|L),SNCF_LR_VUTP_B7UH(|L),SNCF_LR_VTU84TP(|L),		\
 	4*SNCF_LR_VTUTP(|L);										\
       V=16;												\
       F=EGPR6;
-
-    TX=SNCF Z 7300  TER LANGUEDOC-ROUSSILLON;								\
+    TX=SNCF BB 8500 + RRR TER Languedoc-Roussillon;							\
+      C=(<FRET_BB8500S2(|L),RRR3_T2ILR_R)|(>FRET_BB8500S2(|L),RRR3_T2ILR_L);				\
+      V=12;												\
+      F=EGPR6;
+    TX=SNCF Z 7300  TER Languedoc-Roussillon;								\
       C=Z7300_2S_T2BILR;										\
       V=14;												\
       F=EGPR6;
 
-    TX=SNCF Z 7300  TER LANGUEDOC-ROUSSILLON;								\
+    TX=SNCF Z 7300  TER Languedoc-Roussillon;								\
       C=Z7300_RG_T2PLR,Z7300_2S_T2BILR;									\
       V=14;												\
       F=EGPR6;
 
-    TX=SNCF Z 7300  TER LANGUEDOC-ROUSSILLON;								\
+    TX=SNCF Z 7300  TER Languedoc-Roussillon;								\
       C=Z7300_RG_T2PLR;											\
       V=12;												\
       F=EGPR6;
 
-    TX=SNCF X 73500  TER LANGUEDOC-ROUSSILLON;								\
+    TX=SNCF X 73500  TER Languedoc-Roussillon;								\
       C=SNCF_LR_X73500P;										\
       V=14;												\
       F=DPR6;
 
-    TX=SNCF ZGC 4  TER LANGUEDOC-ROUSSILLON;								\
+    TX=SNCF ZGC 4  TER Languedoc-Roussillon;								\
       C=1-2@(1:ZGC4_T2PLR|3:ZGC4_T2PLR2);								\
       V=16;												\
       F=EGPR6;
@@ -1892,7 +1971,7 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
       F=DPR6;
 
     TX=SNCF X 73900  TER LORRAINE;									\
-      C=SNCF_X73900VR2;											\
+      C=SNCF_X73900VR2(|L);										\
       V=14;												\
       F=DPR6;
 
@@ -1901,12 +1980,12 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
       V=16;												\
       F=EPRU6;
 
-    TX=SNCF ZGC  TER LORRAINE (AGC);										\
+    TX=SNCF ZGC  TER LORRAINE (AGC);									\
       C=ZGC4_T2LOR;											\
       V=16;												\
       F=EPRU6;
 
-    TX=SNCF X GC  TER LORRAINE (AGC);										\
+    TX=SNCF X GC  TER LORRAINE (AGC);									\
       C=XGC_T2LOR;											\
       V=16;												\
       F=DPR6;
@@ -1916,39 +1995,39 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
       V=14; W=E;											\
       F=EPR6;
 
-;TER MIDI-PYRÉNÉES
+;TER Midi-Pyrénées
 ;=================
 
-    TX=SNCF BB 9300 + TER MIDI-PYRÉNÉES;								\
+    TX=SNCF BB 9300 + TER Midi-Pyrénées;								\
       C=SNCF_BB9300BC(|L),										\
 	(SNCF_MP_VTU_BI(|L),SNCF_MP_VTU_B4(|L),SNCF_VU_CP2I_B11(|L),SNCF_MP_VTU2_AB5(|L))|		\
-	(SNCF_MP_VTU2_AB6(|L),SNCF_VU_CP2CIC_B11(|L),SNCF_MP_VTU_B4(|L),SNCF_MP_VTU_B7(|L));		\
+	(SNCF_MP_VTU84_AB6(|L),SNCF_VU_CP2CIC_B11(|L),SNCF_MP_VTU_B4(|L),SNCF_MP_VTU_B7(|L));		\
       V=16;												\
       F=EGPR6;
-    TX=SNCF BB 9300 + TER MIDI-PYRÉNÉES;								\
+    TX=SNCF BB 9300 + TER Midi-Pyrénées;								\
       C=SNCF_BB9300CP(|L)|SNCF_BB9300BC(|L),SNCF_MP_VU_B12_4(|L),2*SNCF_MP_VTU_B7(|L),			\
 	SNCF_MP_VTU2_AB5(|L);										\
       V=16;												\
       F=EGPR6;
-    TX=SNCF BB 9300 + TER MIDI-PYRÉNÉES;								\
+    TX=SNCF BB 9300 + TER Midi-Pyrénées;								\
       C=SNCF_BB9300EV(|L),										\
-	(SNCF_MP_VTU2_AB6(|L),3*SNCF_MP_VTU_B7(|L),SNCF_MP_VU_B12_4(|L),SNCF_MP_VTU_B4(|L))|		\
+	(SNCF_MP_VTU84_AB6(|L),3*SNCF_MP_VTU_B7(|L),SNCF_MP_VU_B12_4(|L),SNCF_MP_VTU_B4(|L))|		\
 	(SNCF_MP_VTU_B2(|L),SNCF_MP_VTU_B7(|L),SNCF_VU_CP2I_B11(|L),SNCF_MP_VTU2_AB5(|L))|		\
 	(SNCF_MP_VTU2_AB5(|L),SNCF_MP_VTU_B7(|L),SNCF_MP_VU_B12_2(|L),SNCF_MP_VU_B12_4(|L));		\
       V=16;												\
       F=EGPR6;
-    TX=SNCF BB 7200 + TER MIDI-PYRÉNÉES;								\
+    TX=SNCF BB 7200 + TER Midi-Pyrénées;								\
       C=SNCF_BB7200EV(|L),										\
 	(SNCF_MP_VTU_B4(|L),SNCF_MP_VTU_B7(|L),SNCF_MP_VU_B11P(|L),SNCF_MP_VTU2_AB5(|L))|		\
 	(SNCF_MP_VTU2_AB5(|L),SNCF_MP_VU_B12_4(|L),SNCF_MP_VU_B7UH(|L),SNCF_MP_VTU_B7(|L));		\
       V=16;												\
       F=EGPR6;
-    TX=SNCF BB 7200 + TER MIDI-PYRÉNÉES;								\
+    TX=SNCF BB 7200 + TER Midi-Pyrénées;								\
       C=SNCF_BB7200PFANT(|L),2*SNCF_MP_VTU_B4(|L),2*SNCF_MP_VU_B12_4(|L),SNCF_MP_VU_B7UH(|L),		\
 	SNCF_MP_VTU2_AB5(|L);										\
       V=16;												\
       F=EGPR6;
-    TX=SNCF BB 26000 + TER MIDI-PYRÉNÉES;								\
+    TX=SNCF BB 26000 + TER Midi-Pyrénées;								\
       C=BB26000_OI_DC,SNCF_MP_VTU_B7(|L),SNCF_VTU_CP2TI_B(|L),SNCF_VU_CP2TI_B11(|L),			\
 	SNCF_MP_VTU2_AB5(|L);										\
       V=16;												\
@@ -1959,69 +2038,69 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
 	SNCF_VTU_B_CP2I(|L);										\
       V=16;												\
       F=EGPR6;
-    TX=SNCF BB 8500 + TER MIDI-PYRÉNÉES;								\
+    TX=SNCF BB 8500 + TER Midi-Pyrénées;								\
       C=(<SNCF_BB8500S2CP(|L)|BB25500_2S_EV_DC,RRR3_T2IMP_R)|						\
 	(>SNCF_BB8500S2CP(|L)|BB25500_2S_EV_DC,RRR3_T2IMP_L);						\
       V=12;												\
       F=EGPRU6;
-    TX=SNCF BB 8500 + TER MIDI-PYRÉNÉES;								\
+    TX=SNCF BB 8500 + TER Midi-Pyrénées;								\
       C=>SNCF_BB8500S2BN(|L)|SNCF_BB25500S2CP(|L),RRR4_T2IMP_L;						\
       V=14;												\
       F=EGPRU6;
-    TX=SNCF BB 67400 + TER MIDI-PYRÉNÉES;								\
+    TX=SNCF BB 67400 + TER Midi-Pyrénées;								\
       C=<SNCF_BB67400EVI(|L),RRR3_T2IMP_R;								\
       V=14;												\
       F=DPRU6;
 
-    TX=SNCF Z 7300  TER MIDI-PYRÉNÉES;									\
+    TX=SNCF Z 7300  TER Midi-Pyrénées;									\
       C=Z7300_2S_T1BIMP,Z7300_2S_T1RIPC;								\
       V=14;												\
       F=EGPR6;
-    TX=SNCF Z 7300  TER MIDI-PYRÉNÉES;									\
+    TX=SNCF Z 7300  TER Midi-Pyrénées;									\
       C=Z7300_RG_T2BI,Z7300_2S_T1BIMP;									\
       V=16;												\
       F=EGPR6;
-    TX=SNCF ZGC  TER MIDI-PYRÉNÉES;									\
+    TX=SNCF ZGC  TER Midi-Pyrénées;									\
       C=ZGC_T2MP2PG,ZGC_T2MP2PG|ZGC_T2AU;								\
       V=16;												\
       F=EGPR6;
-    TX=SNCF ZGC  TER MIDI-PYRÉNÉES;									\
+    TX=SNCF ZGC  TER Midi-Pyrénées;									\
       C=ZGC_T2MP2,ZGC4_T2PLR2;										\
       V=16;												\
       F=EGPR6;
-    TX=SNCF BGC  TER MIDI-PYRÉNÉES;									\
+    TX=SNCF BGC  TER Midi-Pyrénées;									\
       C=BGC_T2MP|BGC_T2MP2PG;										\
       V=14;												\
       F=EGPRU6;
-    TX=SNCF BGC  TER MIDI-PYRÉNÉES;									\
+    TX=SNCF BGC  TER Midi-Pyrénées;									\
       C=1-2*BGC_T2MP2;											\
       V=14;												\
       F=EGPRU6;
-    TX=SNCF BGC  TER MIDI-PYRÉNÉES;									\
+    TX=SNCF BGC  TER Midi-Pyrénées;									\
       C=1-2*BGC_T2MP2[PD];										\
       V=12; W=R;											\
       F=DPRU6;
-    TX=SNCF REGIOLIS Z4P/B4P TER MIDI-PYRÉNÉES;								\
+    TX=SNCF REGIOLIS Z4P/B4P TER Midi-Pyrénées;								\
       C=REGIOLIS_Z4PU_TER|REGIOLIS_B4PU_TER;								\
       V=14; W=E;											\
       F=EGPR6;
-    TX=SNCF REGIOLIS B4P TER MIDI-PYRÉNÉES;								\
+    TX=SNCF REGIOLIS B4P TER Midi-Pyrénées;								\
       C=REGIOLIS_B4P_MP;										\
       V=14; W=E;											\
       F=EGPR6;
-    TX=SNCF X 2100  TER MIDI-PYRÉNÉES;									\
+    TX=SNCF X 2100  TER Midi-Pyrénées;									\
       C=SNCF_MP_X2100(|L),SNCF_MP_XR96200I2(|L),SNCF_MP_X2100(|L)|SNCF_MP_X2100E(|L);			\
       V=14;												\
       F=DPR6;
-    TX=SNCF X 2100  TER MIDI-PYRÉNÉES;									\
+    TX=SNCF X 2100  TER Midi-Pyrénées;									\
       C=SNCF_PDL_X2100T1GI(|L),SNCF_MP_XR96200I2(|L),SNCF_MP_X2100E(|L);				\
       V=12;												\
       F=DPR6;
-    TX=SNCF X 72500  TER MIDI-PYRÉNÉES;									\
+    TX=SNCF X 72500  TER Midi-Pyrénées;									\
       C=<SNCF_MP_X72500EL,SNCF_MP_X72500E;								\
       V=16;												\
       F=DPRU6;
-    TX=SNCF X 73500  TER MIDI-PYRÉNÉES;									\
+    TX=SNCF X 73500  TER Midi-Pyrénées;									\
       C=SNCF_MP_X73500I|SNCF_MP_X73500BI;								\
       V=12;												\
       F=DPR6;
@@ -2114,10 +2193,14 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
       V=16;												\
       F=EPR6;
 
-    TX=SNCF REGIO2N Z 55500/Z 56500  TER NORD - PAS-DE-CALAIS;						\
-      C=REGIO2N_M_T2NPC_(R|L);										\
+    TX=SNCF Z 24500   TER NORD - PAS-DE-CALAIS;								\
+      C=Z24500_T2NPC10_AC;										\
       V=16;												\
       F=EPR6;
+    TX=SNCF REGIO2N Z 55500/Z 56500  TER NORD - PAS-DE-CALAIS;						\
+      C=REGIO2N_M_T2NPC;										\
+      V=16;												\
+      F=EPRU6;
 
     TX=SNCF X 73500  TER NORD - PAS-DE-CALAIS;								\
       C=1-2*SNCF_NPC_X73500T2BI;									\
@@ -2261,7 +2344,7 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
       F=DPR6;
 
     TX=SNCF X 73500  TER HAUTE NORMANDIE;								\
-      C=SNCF_HN_X73775,SNCF_HN_X73500B;									\
+      C=SNCF_HN_X73775I,SNCF_HN_X73500B;								\
       V=12;												\
       F=DPR6;
 
@@ -2275,10 +2358,10 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
 
 ;INTERLOIRE (PAYS DE LA LOIRE + CENTRE)
     TX=SNCF BB 26000 + INTERLOIRE (PAYS DE LA LOIRE + CENTRE);						\
-      C=(BB26000_ALS_AC,SNCF_VTU82IL2A(|L),SNCF_VTU82IL2B(|L),SNCF_VTU82IL3B(|L),2*SNCF_VTU82IL2B(|L))|		\
-	(BB26000_OI_AC,2*SNCF_VTU82IL3B(|L),SNCF_VTU82IL2B(|L),SNCF_VTU82IL3B(|L),SNCF_VTU82IL2B(|L),			\
-	SNCF_VTU82IL2A(|L));									\
-  V=20;												\
+      C=(BB26000_ALS_AC,SNCF_VTU82IL2A(|L),SNCF_VTU82IL2B(|L),SNCF_VTU82IL3B(|L),2*SNCF_VTU82IL2B(|L))|	\
+	(BB26000_OI_AC,2*SNCF_VTU82IL3B(|L),SNCF_VTU82IL2B(|L),SNCF_VTU82IL3B(|L),SNCF_VTU82IL2B(|L),	\
+	SNCF_VTU82IL2A(|L));										\
+      V=20;												\
       F=EGPR6;
 
     TX=SNCF BB 26000 + INTERLOIRE (PAYS DE LA LOIRE + CENTRE);						\
@@ -2288,8 +2371,7 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
       F=EGPR6;
 
     TX=SNCF BB 26000 + INTERLOIRE (PAYS DE LA LOIRE + CENTRE);						\
-      C=BB26000_FANT_AC,SNCF_VU_B11_3(|L),SNCF_VTU2_A_CP2I(|L),4*SNCF_VTU2_IL2_B(|L),			\
-	SNCF_VTU82IL3A(|L);										\
+      C=BB26000_FANT_AC,SNCF_VU_B11_3(|L),SNCF_VTU2_A_CP2I(|L),4*SNCF_VTU2_IL2_B(|L),SNCF_VTU82IL3A(|L); \
       V=20;												\
       F=EGPR6;												\
       SNCF_VTU2_IL2_B,SNCF_VTU2_IL2_B,SNCF_VTU2_IL2_B,SNCF_VTU2_IL2_B;
@@ -2304,11 +2386,15 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
 	SNCF_VU_B11_3(|L);										\
       V=20;												\
       F=EGPR6;
-	 
+
     TX=SNCF Z 21500  TER PAYS DE LA LOIRE;								\
-      C=2@(Z21500_T2IPDL_R|Z21500_T2IPDL_L);								\
+      C=1-2*Z21500_T2IPDL_AC;										\
       V=20;												\
-      F=EGPRU6;
+      F=EPRU6;
+    TX=SNCF Z 21500  TER PAYS DE LA LOIRE;								\
+      C=1-2*Z21500_TPPDL_AC;										\
+      V=20;												\
+      F=EPRU6;
     TX=SNCF REGIO2N Z 55500/Z 56500  TER PAYS DE LA LOIRE;						\
       C=REGIO2N_L_PDL_R|REGIO2N_L_PDL_L;								\
       V=20;												\
@@ -2411,7 +2497,7 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
       V=14;												\
       F=EPRU6;
 
-    TX=SNCF BB 16500 + RIO - TER Picardie;									\
+    TX=SNCF BB 16500 + RIO - TER Picardie;								\
       C=(<SNCF_BB16500VP(|L),RIO_T1VPIC2I_3V_R)|(>SNCF_BB16500VP(|L),RIO_T1VPIC2I_3V_L);		\
       V=12;												\
       F=EPRU6;
@@ -2540,7 +2626,7 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
     TX=SNCF AGC  TER POITOU - CHARENTES;								\
       C=AGCBIBI_T2PPC2[PD];										\
       V=12; W=R;											\
-      F=EGPR6;
+      F=DGPR6;
     TX=SNCF BGC  TER POITOU - CHARENTES;								\
       C=BGC_TPLI[PD],AGCBIBI_T2PPC2[PD];								\
       V=12; W=R;											\
@@ -2560,16 +2646,16 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
       F=DPR6;
     TX=SNCF BB 22200 + TER PACA;									\
       C=BB22200_GC_GB1_AC,										\
-	(<SNCF_PACA_VU_B6DU4,SNCF_PACA_VTU_B4,SNCF_USI_T2BPACA_B,SNCF_PACA_VU_B12_3,			\
-	SNCF_PACA_VU_A10_4,SNCF_USI_T2BPACA_B)|								\
+	(<SNCF_PACA_VU_B6DU4,SNCF_PACA_VTU_B4,SNCF_USI_T2BPACA_B,SNCF_PACA_VU_B12_3,SNCF_VU_A10_3,	\
+	SNCF_USI_T2BPACA_B)|										\
 	(>SNCF_PACA_VU_B6DU4L,SNCF_PACA_VTU_B4L,SNCF_USI_T2BPACA_BL,SNCF_PACA_VU_B12_3L,		\
-	SNCF_PACA_VU_A10_4L,SNCF_USI_T2BPACA_BL);							\
+	SNCF_VU_A10_3L,SNCF_USI_T2BPACA_BL);								\
       V=16;												\
       F=EGPR6;
     TX=SNCF BB 22200 + TER PACA;									\
       C=BB22200_GC_EVI_AC,SNCF_PACA_VU_B11_4(|L),SNCF_PACA_VU_B12_4(|L),SNCF_VU_CP2I_B11(|L),		\
 	SNCF_PACA_VTU_B4(|L),SNCF_PACA_VU_B11_4(|L),SNCF_PACA_VU_A10_4(|L);				\
- 	V=16;												\
+      V=16;												\
       F=EGPR6;
     TX=SNCF TER PACA (BB 7200 + CORAIL);								\
       C=<SNCF_BB7200GBC(|L),SNCF_PACA_VTU_B4(|L),2*SNCF_PACA_VU_B11_4(|L),SNCF_PACA_VU_A10_4(|L),	\
@@ -2698,9 +2784,12 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
 ;TER RHÔNE-ALPES
 ;===============
 
- 	TX=SNCF BB 9600 + TER RHÔNE-ALPES;							\
-   V=12;C=SNCF_BB9600BI(|L),SNCF_6USI66B(|L),SNCF_USI66BT(|L),SNCF_6USI66B(|L),$DIR(SNCF_USI66ABT,SNCF_USI66ABTL);F=DPR6;
-	TX=SNCF CC 6500 / BB 22200+ TER RHÔNE-ALPES;							\
+    TX=SNCF BB 9600 + TER RHÔNE-ALPES;									\
+      C=SNCF_BB9600BI(|L),SNCF_6USI66B(|L),SNCF_USI66BT(|L),SNCF_6USI66B(|L),				\
+	$DIR(SNCF_USI66ABT,SNCF_USI66ABTL);								\
+      V=12;												\
+      F=DPR6;
+    TX=SNCF CC 6500 / BB 22200+ TER RHÔNE-ALPES;							\
       C=SNCF_CC6500S2MWL|SNCF_BB22200GEV(|L),SNCF_RA_VU_A4B6_4|SNCF_RA_VU_A4B6_4L,SNCF_RA_USI66B(|L),	\
 	SNCF_USIT2BRA_B(|L),SNCF_UIC_B5DTL;								\
       V=16;												\
@@ -2713,8 +2802,8 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
       F=EGPR6;
     TX=SNCF BB 22200 + TER RHÔNE-ALPES;									\
       C=BB22200_GC_EVI_DC,										\
-	(<SNCF_RA_VU_B6DU4L,SNCF_VTU_CP2_BL,SNCF_VU_CP2_B11(|L),SNCF_PACA_VU_A10_4L)|			\
-	(>SNCF_RA_VU_B6DU4,SNCF_VTU_CP2_B,SNCF_VU_CP2_B11,SNCF_PACA_VU_A10_4);				\
+	(<SNCF_RA_VU_B6DU4L,SNCF_VTU_CP2_BL,SNCF_VU_CP2_B11(|L),SNCF_VU_A10_3L)|			\
+	(>SNCF_RA_VU_B6DU4,SNCF_VTU_CP2_B,SNCF_VU_CP2_B11,SNCF_VU_A10_3);				\
       V=16;												\
       F=EGPR6;
     TX=SNCF BB 25200 + TER RHÔNE-ALPES;									\
@@ -2734,9 +2823,9 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
       V=16;												\
       F=EGPR6;
     TX=SNCF BB 25200 + TER RHÔNE-ALPES LYON – STGERVAIS;						\
-      C=(<BB25200_2S_EVI_DC,2*(SNCF_RA_VTU_B4(|L)|SNCF_RA_VTU_B6(|L)),SNCF_RA_VTU_AB1(|L),		\
+      C=(<BB25200_2S_EVI_DC,2*(SNCF_RA_VTU_B4(|L)|SNCF_RA_VTU_B6(|L)),SNCF_RA_VTU_AB2(|L),		\
 	2*(SNCF_RA_VTU_B4(|L)|SNCF_RA_VTU_B6(|L)),SNCF_VU_CC_B6DX(|L))|					\
-	(>BB25200_2S_EVI_DC,2*(SNCF_RA_VTU_B4(|L)|SNCF_RA_VTU_B6(|L)),SNCF_RA_VTU_AB1(|L),		\
+	(>BB25200_2S_EVI_DC,2*(SNCF_RA_VTU_B4(|L)|SNCF_RA_VTU_B6(|L)),SNCF_RA_VTU_AB2(|L),		\
 	2*(SNCF_RA_VTU_B4(|L)|SNCF_RA_VTU_B6(|L)),SNCF_RA_VU_B6DXL);					\
       V=13;												\
       F=EGPR6;
@@ -2770,7 +2859,7 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
     TX=SNCF CC 6500 MB  + LYON - AVIGNON;								\
       C=SNCF_CC6500S2MW(|L),SNCF_RA_VTU_B2(|L),								\
 	(SNCF_RA_VTU_A2(|L),SNCF_VTU_CP2TI_B(|L),SNCF_VU_CP2TI_B6DU)|					\
-	(SNCF_VTU_A_CP2TI,2*SNCF_VTU_B_CP2I(|L));							\
+	(SNCF_VTU_A_CP2TI(|L),2*SNCF_VTU_B_CP2I(|L));							\
       V=16;												\
       F=EGPR6;
 ;LYON - BOURG-ST-MAURICE
@@ -2799,6 +2888,12 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
 	SNCF_RA_VTU_A4(|L);										\
       V=14;												\
       F=EGPR6;
+;CHAMBÉRY - VALENCE
+    TX=TER Rhône - Alpes, Chambéry - Valence (SNCF BB 67300);						\
+      C=SNCF_BB67300RBC(|L),SNCF_6UIC_A4B5X(|L),SNCF_USI_T2BI_B(|L),SNCF_6UIC_B7D(|L),			\
+	SNCF_RA_USI66BI(|L);										\
+      V=14;												\
+      F=DGPR6;
 ;DIJON - LYON
     TX=SNCF BB 9600 + DIJON - LYON;									\
       C=SNCF_BB9600BI(|L),3*SBB_5UIC1B(|L),SBB_VSE_A9EC(|L),4*SBB_5UIC1B(|L);				\
@@ -2850,7 +2945,7 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
       V=14;												\
       F=EGPR6;
     TX=SNCF Z 23500  TER RHÔNE-ALPES;									\
-      C=Z23500_T2PIRA1_R,Z24500_T2B_AC|Z23500_T2IRA2_R|(3*Z23500_T2IRA2_R);				\
+      C=Z23500_T2PIRA1_R,Z24500_T2B_DC_R|Z24500_T2B_DC_L|Z23500_T2IRA2_R|(3*Z23500_T2IRA2_R);		\
       V=14;												\
       F=EGPRU6;
     TX=SNCF Z 23500  TER RHÔNE-ALPES;									\
@@ -2904,7 +2999,7 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
       V=14;												\
       F=EGPRU6;
     TX=SNCF BGC  TER RHÔNE-ALPES;									\
-      C=BGC_TPRA[PD],(BGC_TPRA[PD]|AGCBIBI_T2IRA[PD]);							\
+      C=BGC_TPRA[PD],(BGC_TPRA[PD]|$DEF AGCBIBI_T2IRA[PD]);						\
       V=12; W=R;											\
       F=DPR6;
     TX=SNCF AGC  TER RHÔNE-ALPES;									\
@@ -3003,9 +3098,9 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
       V=12;												\
       F=DPRU6;
     TX=SNCF XGC - TER Auvergne Rhône-Alpes;								\
-      C=XGC_T2AURA,2*XGC_AURA;											\
+      C=XGC_T2AURA,2*XGC_AURA;										\
       V=12;												\
-      F=DPRU6;  
+      F=DPRU6;
 
 ;TER BOURGOGNE-FRANCHE-COMTÉ
 ;===========================
@@ -3024,10 +3119,9 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
 ;============
 
     TX=TER Bretagne Z21500;										\
-      C=Z21500_BRE|(SNCF_BRE_Z21500E3(|L),Z21500_BRE,SNCF_BRE_Z21500E3(|L));				\
+      C=Z21500_BRE_AC|(Z21500_T2BRE3_AC,Z21500_BRE_AC,Z21500_T2BRE3_AC);				\
       V=20;												\
       F=EPRU6;
-
     TX=TER BRETAGNE (REGIO2N C83);									\
       C=REGIO2N_C83_BRE;										\
       V=14;												\
@@ -3038,7 +3132,7 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
       V=14;												\
       F=EPRU6;
 
-;TER CENTRE-VAL DE LOIRE
+;TER Centre-Val de Loire (Rémi)
 ;========================
 
     TX=SNCF BB 7200 TER PARIS - TOURS "RÉMI";								\
@@ -3093,7 +3187,7 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
 	SNCF_REMI_VU_CARM_B11(|L),SNCF_REMI_VTU82_CARM_B(|L),SNCF_REMI_VTU_CARM_B(|L));			\
       V=20;												\
       F=EGPR6;
-    TX=SNCF Omneo Premium TER Centre-Val de Loire;								\
+    TX=SNCF Omneo Premium TER Centre-Val de Loire;							\
       C=1-2@OMNEOPREM_L_REMI;										\
       V=16;												\
       F=EGPRU6;
@@ -3105,10 +3199,13 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
       F=EGPR6;
 
     TX=SNCF TER CENTRE-VAL-DE-LOIRE (RÉMI) : Z 21500;							\
-      C=Z21500_T2REMI;											\
+      C=Z21500_T2REMI_DC;										\
       V=16;												\
       F=EGPU6;
-
+    TX=SNCF TER Centre-Val-de-Loire (Rémi) : Z 21500;							\
+      C=Z21500_REMI_DC;											\
+      V=16;												\
+      F=EGPR6;
     TX=SNCF Z26500 TER 2N NG CENTRE-VAL-DE-LOIRE (RÉMI);						\
       C=2*Z26500_T2REMI_DC;										\
       V=16;												\
@@ -3144,73 +3241,68 @@ V=14;C=(<SNCF_BB8567,RRR3_T2PBOU_R|RRR4_T2PBOU_R)|(>SNCF_BB8567L,RRR3_T2PBOU_L|R
       V=12;												\
       F=DPRU6;
 
-;TER GRAND EST
+;TER GRAND EST (Fluo)
 ;=============
 
 ;TER200
-TX=SNCF BB26000 TER Grand Est Strasbourg - Mulhouse / Bâle;								\
-  C=(<BB26000_GDEST_AC,SNCF_GE_VTU_ALS_A(|L),				\
-    4*SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU82_ALS_B(|L),SNCF_GE_VTU_ALS_B(|L),	\
-    SNCF_GE_VU_ALS_B5UXH)|										\
-    (>BB26000_GDEST_AC,SNCF_GE_VTU_ALS_A(|L),				\
-    4*SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU82_ALS_B(|L),SNCF_GE_VTU_ALS_B(|L),	\
-    SNCF_GE_VU_ALS_B5UXHL);										\
-  V=20;		F=EPRU6;
-  
-TX=SNCF BB26000 TER Grand Est Strasbourg - Mulhouse / Bâle;								\
-  C=(<BB26000_GDEST_AC,								\
-    (SNCF_GE_VTU82_ALS_A(|L),4*SNCF_GE_VTU_ALS_B(|L),SNCF_VTU_CP2TI_B(|L),\
-    SNCF_GE_VTU_ALS_B(|L))|	\
-    (SNCF_GE_VTU_ALS_A(|L),SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_IB(|L),\
-    2*SNCF_GE_VTU_ALS_B(|L)),SNCF_GE_VU_ALS_B5UXH)|		\
-    (>BB26000_GDEST_AC,								\
-    (SNCF_GE_VTU82_ALS_A(|L),4*SNCF_GE_VTU_ALS_B(|L),SNCF_VTU_CP2TI_B(|L),\
-    SNCF_GE_VTU_ALS_B(|L))|	\
-    (SNCF_GE_VTU_ALS_A(|L),SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_IB(|L),\
-    2*SNCF_GE_VTU_ALS_B(|L)),		\
-    SNCF_GE_VU_ALS_B5UXHL);						\
-  V=20;		F=EPRU6;
+    TX=SNCF BB26000 TER Grand Est Strasbourg - Mulhouse / Bâle;						\
+      C=(<BB26000_GDEST_AC,SNCF_GE_VTU_ALS_A(|L),4*SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU82_ALS_B(|L),	\
+	SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VU_ALS_B5UXH)|							\
+	(>BB26000_GDEST_AC,SNCF_GE_VTU_ALS_A(|L),4*SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU82_ALS_B(|L),	\
+	SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VU_ALS_B5UXHL);							\
+      V=20;												\
+      F=EPRU6;
 
-TX=SNCF BB26000 TER Grand Est Strasbourg - Bâle;								\
-  C=(<BB26000_GDESTFLUO_AC,,SNCF_GE_VTU_ALS_A(|L),\
-  SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_IB(|L),3*SNCF_GE_VTU_ALS_B(|L),		\
-    SNCF_GE_VTU_IB(|L),SNCF_GE_VU_ALS_B5UXH)|					\
-    (>BB26000_GDESTFLUO_AC,SNCF_GE_VTU_ALS_A(|L),\
-    SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_IB(|L),3*SNCF_GE_VTU_ALS_B(|L),		\
-    SNCF_GE_VTU_IB(|L),SNCF_GE_VU_ALS_B5UXHL);					\
-  V=20;	F=EPRU6;     
-    
-TX=SNCF BB26000 TER Grand Est Strasbourg - Bâle;\
-  C=(<BB26000_GDESTFLUO_AC,SNCF_GE_VTU_I2A10(|L),3*SNCF_GE_VTU_ALS_B(|L),	\
-    SNCF_GE_VTU82_ALS_B(|L),2*SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_IB(|L),		\
-    SNCF_GE_VU_ALS_B5UXH)|										\
-    (>BB26000_GDESTFLUO_AC,SNCF_GE_VTU_I2A10(|L),3*SNCF_GE_VTU_ALS_B(|L),	\
-    SNCF_GE_VTU82_ALS_B(|L),2*SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_IB(|L),		\
-    SNCF_GE_VU_ALS_B5UXHL);										\
-  V=20;		F=EPRU6;
-  
-TX=SNCF BB26000 TER Grand Est Strasbourg - Bâle;\
-  C=(<BB26000_GDEST2FLUO_AC,SNCF_GE_VTU_ALS_A(|L),\
-  SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_FLUO_B(|L),SNCF_GE_VTU82_ALS_B(|L),	\
-     2*SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_FLUO_B(|L),SNCF_GE_VTU_IB(|L),		\
-    SNCF_GE_VU_ALS_B5UXH)|										\
-    (>BB26000_GDEST2FLUO_AC,SNCF_GE_VTU_ALS_A(|L),\
-    SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_FLUO_B(|L),SNCF_GE_VTU82_ALS_B(|L),	\
-     SNCF_GE_VU_ALS_B5UXHL);							\
-  V=20;	F=EPRU6;
+    TX=SNCF BB26000 TER Grand Est Strasbourg - Mulhouse / Bâle;						\
+      C=(<BB26000_GDEST_AC,										\
+	(SNCF_GE_VTU82_ALS_A(|L),4*SNCF_GE_VTU_ALS_B(|L),SNCF_VTU_CP2TI_B(|L),SNCF_GE_VTU_ALS_B(|L))|	\
+	(SNCF_GE_VTU_ALS_A(|L),SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_IB(|L),2*SNCF_GE_VTU_ALS_B(|L)),	\
+	SNCF_GE_VU_ALS_B5UXH)|										\
+	(>BB26000_GDEST_AC,										\
+	(SNCF_GE_VTU82_ALS_A(|L),4*SNCF_GE_VTU_ALS_B(|L),SNCF_VTU_CP2TI_B(|L),SNCF_GE_VTU_ALS_B(|L))|	\
+	(SNCF_GE_VTU_ALS_A(|L),SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_IB(|L),2*SNCF_GE_VTU_ALS_B(|L)),	\
+	SNCF_GE_VU_ALS_B5UXHL);										\
+      V=20;												\
+      F=EPRU6;
 
-TX=SNCF BB26000 TER Grand Est Paris – Strasbourg;											\
-  C=BB26000_OI_AC,SNCF_PIC_VTU_B5(|L),SNCF_GE_VTU_IB(|L),SNCF_VTU_T2BI_B(|L),			\
-    SNCF_CA_VU_B9UX54TVM1(|L),SNCF_VTU_T2BITVM_A(|L), SNCF_GE_VTU_IB(|L),SNCF_VTU_CP2TI_B(|L),		\
-    SNCF_GE_VTU_IB(|L);											\
-  V=16;	F=EPRU6;						\
+    TX=SNCF BB26000 TER Grand Est Strasbourg - Bâle;							\
+      C=(<BB26000_GDESTFLUO_AC,,SNCF_GE_VTU_ALS_A(|L),SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_IB(|L),		\
+	3*SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_IB(|L),SNCF_GE_VU_ALS_B5UXH)|				\
+	(>BB26000_GDESTFLUO_AC,SNCF_GE_VTU_ALS_A(|L),SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_IB(|L),		\
+	3*SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_IB(|L),SNCF_GE_VU_ALS_B5UXHL);				\
+      V=20;												\
+      F=EPRU6;
 
-TX=SNCF BB26000 TER Grand Est Paris – Strasbourg;									\
-  C=(<BB26000_GDEST2_AC,SNCF_GE_VTU_ALS_A(|L),				\
-    3*SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_IB(|L),SNCF_GE_VU_ALS_B5UXH)|				\
-    (>BB26000_GDEST2_AC,SNCF_GE_VTU_ALS_A(|L),				\
-    3*SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_IB(|L),SNCF_GE_VU_ALS_B5UXHL);				\
-  V=16;			F=EPRU6;
+    TX=SNCF BB26000 TER Grand Est Strasbourg - Bâle;							\
+      C=(<BB26000_GDESTFLUO_AC,SNCF_GE_VTU_I2A10(|L),3*SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU82_ALS_B(|L),	\
+	2*SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_IB(|L),SNCF_GE_VU_ALS_B5UXH)|				\
+	(>BB26000_GDESTFLUO_AC,SNCF_GE_VTU_I2A10(|L),3*SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU82_ALS_B(|L),	\
+	2*SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_IB(|L),SNCF_GE_VU_ALS_B5UXHL);				\
+      V=20;												\
+      F=EPRU6;
+
+    TX=SNCF BB26000 TER Grand Est Strasbourg - Bâle;							\
+      C=(<BB26000_GDEST2FLUO_AC,SNCF_GE_VTU_ALS_A(|L),SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_FLUO_B(|L),	\
+	SNCF_GE_VTU82_ALS_B(|L),2*SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_FLUO_B(|L),SNCF_GE_VTU_IB(|L),	\
+	SNCF_GE_VU_ALS_B5UXH)|										\
+	(>BB26000_GDEST2FLUO_AC,SNCF_GE_VTU_ALS_A(|L),SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_FLUO_B(|L),	\
+	SNCF_GE_VTU82_ALS_B(|L),SNCF_GE_VU_ALS_B5UXHL);							\
+      V=20;												\
+      F=EPRU6;
+
+    TX=SNCF BB26000 TER Grand Est Paris – Strasbourg;							\
+      C=BB26000_OI_AC,SNCF_PIC_VTU_B5(|L),SNCF_GE_VTU_IB(|L),SNCF_VTU_T2BI_B(|L),			\
+	SNCF_CA_VU_B9UX54TVM1(|L),SNCF_VTU_T2BITVM_A(|L),SNCF_GE_VTU_IB(|L),SNCF_VTU_CP2TI_B(|L),	\
+	SNCF_GE_VTU_IB(|L);										\
+      V=16;												\
+      F=EPRU6;
+    TX=SNCF BB26000 TER Grand Est Paris – Strasbourg;							\
+      C=(<BB26000_GDEST2_AC,SNCF_GE_VTU_ALS_A(|L),3*SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_IB(|L),		\
+	SNCF_GE_VU_ALS_B5UXH)|										\
+	(>BB26000_GDEST2_AC,SNCF_GE_VTU_ALS_A(|L),3*SNCF_GE_VTU_ALS_B(|L),SNCF_GE_VTU_IB(|L),		\
+	SNCF_GE_VU_ALS_B5UXHL);										\
+      V=16;												\
+      F=EPRU6;
 
     TX=CORADIA LINER RÉGION GRAND-EST;									\
       C=CORADIALINER_B6R_CARMGDEST;									\
@@ -3247,7 +3339,10 @@ TX=SNCF BB26000 TER Grand Est Paris – Strasbourg;									\
       C=(<SNCF_BB67400EVI(|L),1-2*RRR3_C_T2GDEST_R)|(>SNCF_BB67400EVI(|L),1-2*RRR3_C_T2GDEST_L);	\
       V=14;												\
       F=DPRU6;
-
+    TX=SNCF TER Grand Est (Fluo) : Z 11500;								\
+      C=Z11500_T2ILORFLUO;										\
+      V=14;												\
+      F=DPRU6;
     TX=SNCF Z24500 ZGC TER GRAND EST 2N NG EX LORRAINE;							\
       C=Z24500_T2LORGDEST_AC;										\
       V=14;												\
@@ -3365,15 +3460,30 @@ TX=SNCF BB26000 TER Grand Est Paris – Strasbourg;									\
       V=14;												\
       F=EPRU6;
 
-    TX=SNCF BGC TER Nouvelle Aquitaine;									\
+    TX=SNCF BGC TER Nouvelle Aquitaine (BGC);								\
       C=BGC_T2NAQ[PD],0-1*(BGC_TPAQ[PD]|BGC_TPLI[PD]|BGC_T2PPC2[PD]);					\
       V=13;												\
       F=DPRU6;
-
-    TX=SNCF TER NOUVELLE AQUITAINE (REGIOLIS);								\
-      C=REGIOLIS_B4R_NAQ[PD];										\
-      V=12;												\
+    TX=SNCF TER Nouvelle Aquitaine (BGC);								\
+      C=BGC_T2NAQ[PD]|BGC_T2NAQEXAQ[PD];								\
+      V=13;												\
+      F=DPRU6;
+    TX=SNCF TER Nouvelle Aquitaine (BGC);								\
+      C=AGCBIBI_T2NAQ[PD];										\
+      V=13;												\
+      F=DPRU6;
+    TX=SNCF TER Nouvelle Aquitaine (REGIOLIS);								\
+      C=REGIOLIS_Z4R_NAQ;										\
+      V=16;												\
       F=EGPRU6;
+    TX=SNCF TER Nouvelle Aquitaine (REGIOLIS);								\
+      C=REGIOLIS_B4R_NAQ[PD];										\
+      V=13;												\
+      F=DPRU6;
+    TX=SNCF TER Nouvelle Aquitaine (X TER);								\
+      C=X72500_NAQ;											\
+      V=13;												\
+      F=DPRU6;
 
     TX=SNCF X73500 TER Nouvelle Aquitaine;								\
       C=1-2*SNCF_NAQ_X73500;										\
@@ -3415,20 +3525,25 @@ TX=SNCF BB26000 TER Grand Est Paris – Strasbourg;									\
       C=REGIO2N_C83_LIO;										\
       V=14;												\
       F=EGPR6;
-	  
-	  TX="SNCF TER Occitanie (ZGC)";										\
-  C=1-2*ZGC_LIO;											\
-  V=14;		F=EGPR6;							\
 
-TX="SNCF TER Occitanie (ZGC)";										\
-  C=(1-2*ZGC4_T2PLR2LIO,ZGC4_LIO)|(ZGC4_LIO,1-2*ZGC4_T2PLR2LIO);					\
-  V=14;	F=EGPR6;							\
+    TX="SNCF TER Occitanie (ZGC)";									\
+      C=1-2*ZGC_LIO;											\
+      V=14;												\
+      F=EGPR6;
+    TX="SNCF TER Occitanie (ZGC)";									\
+      C=(1-2*ZGC4_T2PLR2LIO,ZGC4_LIO)|(ZGC4_LIO,1-2*ZGC4_T2PLR2LIO);					\
+      V=14;												\
+      F=EGPR6;
+    TX="SNCF TER Occitanie (ZGC)";									\
+      C=ZGC4_T2PLR2LIO,ZGC_T2LIO,ZGC_LIO;								\
+      V=14;												\
+      F=EGPR6;
+    TX="SNCF TER Occitanie (BGC)";									\
+      C=BGC_T2Lio[PD];											\
+      V=12; W=R;											\
+      F=DPR6;
 
-TX="SNCF TER Occitanie (ZGC)";										\
-  C=ZGC4_T2PLR2LIO,ZGC_T2LIO,ZGC_LIO;									\
-  V=14;	F=EGPR6;
-
-    TX="SNCF TER Occitanie (BGC)";												\
+    TX="SNCF TER Occitanie (BGC)";									\
       C=BGC_LIO;											\
       V=14;												\
       F=EGPR6;
@@ -3443,6 +3558,14 @@ TX="SNCF TER Occitanie (ZGC)";										\
       V=14;												\
       F=EGPR6;
 
+;TER PAYS DE LA LOIRE (ALÉOP)
+;============================
+
+    TX=SNCF TER Pays de la Loire (Aléop) : Z 21500;							\
+      C=Z21500_ALEOP_AC;										\
+      V=16;												\
+      F=EPR6;
+
 ;TER SUD (PACA)
 ;==============
 
@@ -3450,21 +3573,19 @@ TX="SNCF TER Occitanie (ZGC)";										\
       C=Z23500_T2ZOU,Z23500_T2ZOU|Z23500_T2BPACA4;							\
       V=14;												\
       F=EPRUG6;
-	  TX="SNCF TER Sud (Z 26500)";											\
-  C=Z26500_T2ZOU_AC,|(Z26500_T2ZOU_AC|Z26500_T2IPACA_AC);						\
-  V=12;												\
+    TX="SNCF TER Sud (Z 26500)";									\
+      C=Z26500_T2ZOU_AC,|(Z26500_T2ZOU_AC|Z26500_T2IPACA_AC);						\
+      V=12;												\
       F=EGPR6;
-	  TX="SNCF TER Sud (X 72500)";											\
-  C=1-2*X72500_ZOU;											\
-  V=12;											\
+    TX="SNCF TER Sud (X 72500)";									\
+      C=1-2*X72500_ZOU;											\
+      V=12;												\
       F=EGPR6;
-	  TX="SNCF TER Sud(BGC)";											\
-  C=1-2*BGC4_ZOU[PD];											\
-  V=12; 											\
+    TX="SNCF TER Sud(BGC)";										\
+      C=1-2*BGC4_ZOU[PD];										\
+      V=12;												\
       F=EGPR6;
-	  
-	  
-	  
+
 ;==============
 ;===  FRET  ===
 ;==============
@@ -3472,46 +3593,46 @@ TX="SNCF TER Occitanie (ZGC)";										\
 ;EST
 ;---
 
-    TX=SNCF BB 36000 + Fret Est;							\
+    TX=SNCF BB 36000 + Fret Est;									\
       C=BB36000_RI_AC,25-28*SNCF_BB20011(|L);								\
       V=10;												\
       F=EF6;
 
-    TX=SNCF BB 27000 Fret EST;								\
+    TX=SNCF BB 27000 Fret EST;										\
       C=BB27000_FI_AC,15-20*SNCF_FABOO_EFC;								\
       V=10;												\
       F=EF6;
 
-    TX=SNCF BB 75000 + Fret Est;							\
+    TX=SNCF BB 75000 + Fret Est;									\
       C=2*FRET_BB75000(|L),6*SNCB_SHIMMNS3614D9,3*SNCB_SHIMMNS3614B2(|L),3*SNCB_3614D5_VB,		\
 	SNCB_SHIMMNS3614B2(|L),6*SNCB_SHIMMNS3614D9;							\
       V=10;												\
       F=DF6;
 
-    TX=SNCF 186 Fret  + Fret EST;					\
+    TX=SNCF 186 Fret  + Fret EST;									\
       C=2*SNCF_186_FRET_AC25,										\
 	40*(5:ERMEWA_SHMMNS4785[OB:COIL20H,9,15][OB:COIL16H,48,15][OB:COIL20H,84,15]|			\
 	1:ERMEWA_SHMMNS4766[OB:COIL20H,15,13][OB:COIL20H,53,13][OB:COIL20H,90,13]);			\
       V=10;												\
       F=EF6;
 
-    TX=SNCF BB 61000 + Fret EST;							\
+    TX=SNCF BB 61000 + Fret EST;									\
       C=BB61000_FI,20-21*SNCF_CERG4_TCVE(|L);								\
       V=10;												\
       F=DF6;
-    TX=SNCF BB 69400 + Fret Est;							\
+    TX=SNCF BB 69400 + Fret Est;									\
       C=2*FRET_BB69400I(|L),21*(4:SNCF_CERP_SOUFFLET(|L)|1:SNCF_CERG_SOUFFLET(|L));			\
       V=10;												\
       F=DF6;
 
-    TX=SNCF BB 68500 + Fret Est;							\
+    TX=SNCF BB 68500 + Fret Est;									\
       C=SNCF_68000BN(|L),										\
 	20-22*(SNCF_CERP92_SOUF2(|L)|SNCF_CERP_SOUFFLET(|L)|SNCF_CERP96P2_SOUFFLET2(|L)|		\
 	SNCF_CERG_SOUFFLET(|L));									\
       V=10;												\
       F=DF6;
 
-    TX=SNCF BB 75000 + Fret Est;							\
+    TX=SNCF BB 75000 + Fret Est;									\
       C=2*FRET_BB75000(|L),22*SNCF_E71E;								\
       V=10;												\
       F=DF6;
@@ -3519,9 +3640,9 @@ TX="SNCF TER Occitanie (ZGC)";										\
 ;NORD
 ;----
 
-    TX=SNCF BB 36000 + Fret Nord;							\
+    TX=SNCF BB 36000 + Fret Nord;									\
       C=BB36000_RI_AC,											\
-	20-22*(SNCF_CER94G_TCV(|L)|SNCF_CER94G_CTC2(|L)|SNCF_CERG_ERMEWAG(|L),				\
+	20-22*(SNCF_CER94G_TCV(|L)|SNCF_CERG_CTC(|L)|SNCF_CERG_ERMEWAG(|L),				\
 	SNCF_CER94P(|L)|SNCF_CER94P_CTC(|L));								\
       V=10;												\
       EF6;
@@ -3531,12 +3652,12 @@ TX="SNCF TER Occitanie (ZGC)";										\
       V=10;												\
       EF6;
 
-    TX=SNCF BB 60000 + Fret NORD;							\
+    TX=SNCF BB 60000 + Fret NORD;									\
       C=SNCF_BB60000(|L),10*SNCF_REMMS10_2;								\
       V=9;												\
       F=DF6;
 
-    TX=SNCF BB 75000 + Fret NORD;							\
+    TX=SNCF BB 75000 + Fret NORD;									\
       C=2*FRET_BB75000(|L),11*SNCF_S58,6*SNCF_S32,4*SNCF_S58,10*SNCF_S32;				\
       V=10;												\
       F=DF6;
@@ -3549,12 +3670,12 @@ TX="SNCF TER Occitanie (ZGC)";										\
       V=10;												\
       F=EF6;
 
-    TX=SNCF BB 60000 + Fret OUEST;							\
+    TX=SNCF BB 60000 + Fret OUEST;									\
       C=SNCF_BB60000(|L),3*(SNCF_E78_BS|SNCF_E78_BM),SNCF_E71;						\
       V=9;												\
       F=DF6;
 
-    TX=SNCF BB 75000 + Fret OUEST;							\
+    TX=SNCF BB 75000 + Fret OUEST;									\
       C=FRET_BB75000(|L),20*SNCF_CERFR101T_TC(|L),							\
 	16*(3:SNCF_E78_BS|3:SNCF_E78_BM|5:SNCF_E71|1:SNCF_E74);						\
       V=10;												\
@@ -3562,17 +3683,17 @@ TX="SNCF TER Occitanie (ZGC)";										\
 
 ;SUD-OUEST
 
-    TX=SNCF BB 7200 + Fret SUD-OUEST;							\
+    TX=SNCF BB 7200 + Fret SUD-OUEST;									\
       C=SNCF_BB7200GBC(|L),										\
 	20-22*(SNCF_R54_6[OB:TRONCS100,9,12][OB:TRONCS100,35,12][OB:TRONCS100,61,12]			\
 	[OB:TRONCS100,87,12][OB:TRONCS100,113,12][OB:TRONCS100,139,12][OB:TRONCS100,165,12]);		\
       V=10;												\
       F=EGF6;
-   TX=SNCF BB 22200 + Fret SUD-OUEST;												\
-  C=BB22200_GC_GBI_AC,										\
-    20*RF_LFGSS[O:(4:CM_TRANSFESAFORD_1|2:CM_TRANSFESAFORD_2|1:CM_TRANSFESAFORD_3)];			\
-  V=10;	F=EF6;												\
-TX=SNCF BB 7200 + Fret SUD-OUEST;							\
+    TX=BB 22200 + Fret SUD-OUEST;									\
+      C=BB22200_GC_GBI_AC,20*RF_LFGSS[O:(4:CM_TRANSFESAFORD1|2:CM_TRANSFESAFORD2|1:CM_TRANSFESAFORD3)];	\
+      V=10;												\
+      F=EF6;
+    TX=SNCF BB 7200 + Fret SUD-OUEST;									\
       M=CHANGE;												\
       C=10*SNCF_L42[OB:TRONCS100,8,12][OB:TRONCS100,33,12][OB:TRONCS100,58,12][OB:TRONCS100,83,12]	\
 	[OB:TRONCS100,108,12][OB:TRONCS100,149,12][OB:TRONCS100,174,12][OB:TRONCS100,199,12]		\
@@ -3583,12 +3704,12 @@ TX=SNCF BB 7200 + Fret SUD-OUEST;							\
       C2=SNCF_BB7200GBC(|L);										\
       V2=6; A2=0.04; B2=0.07; V3=8; P=75; T1=1; T2=2; T3=1; W=E;					\
       F=EGFO6;
-	TX=Primeurs Perpignan - Rungis (SNCF BB 26000);								\
-       C=BB26000_OC_DC,8*SNCF_I87F(|L),12*SNCF_GAHKKSS16_6;						\
+    TX=Primeurs Perpignan - Rungis (SNCF BB 26000);							\
+      C=BB26000_OC_DC,8*SNCF_I87F(|L),12*SNCF_GAHKKSS16_6;						\
       V=14;												\
       F=EFG6;
 
-    TX=SNCF BB 26000 + Fret Sud-Ouest;							\
+    TX=SNCF BB 26000 + Fret Sud-Ouest;									\
       C=BB26000_EVI_DC,20*RF_LFGSS[O:(4:CM_TRANSFESAFORD1|2:CM_TRANSFESAFORD2|1:CM_TRANSFESAFORD3)];	\
       V=10;												\
       F=EFG6;
@@ -3600,7 +3721,7 @@ TX=SNCF BB 7200 + Fret SUD-OUEST;							\
       F=EFG6;
 
     TX=FRET SNCF (BB 27000);										\
-      C=BB27000_FPI_DC,CFL_RNSS,SNCF_RES90_6,CFL_RNSS[OB:STEEL33,,12],SNCF_RES90_6[OB:STEEL33,,14],	\
+      C=BB27000_FPI_DC,CFL_RNSS,SNCF_RES90,CFL_RNSS[OB:STEEL33,,12],SNCF_RES90[OB:STEEL33,,14],		\
 	DB_SAMMS710K,2*NACCO_SHIMMNS,4*(DB_SAMMS710K|DB_SAMMS489A(|L)),6*DB_SNS727VR;			\
       V=10;												\
       F=EFG6;
@@ -3610,19 +3731,22 @@ TX=SNCF BB 7200 + Fret SUD-OUEST;							\
       V=10;												\
       F=EFG6;
 
-    TX=SNCF BB 27000 + Fret SUD-OUEST;							\
+    TX=SNCF BB 27000 + Fret SUD-OUEST;									\
       C=BB27000_FPI_DC,											\
 	23*(5:SNCF_CERP_GRANIT(|L)|1:SNCF_CER96P1_GRANIT(|L)|2:SNCF_CERG95PTM_GRANIT(|L)|		\
 	10:SNCF_CER94P(|L)|5:SNCF_CERG95PTM(|L));							\
       V=10;												\
       F=EFG6;
 
-    TX=SNCF BB 27000 + Fret SUD-OUEST;							\
+    TX=SNCF BB 27000 + Fret SUD-OUEST;									\
       C=BB27000_FI_DC,,20*SNCF_CERFR101T_TC(|L);							\
       V=12;												\
       F=EFG6;
-
-    TX=SNCF BB 66000 + Fret SUD-OUEST;							\
+    TX=SNCF Train des primeurs (BB 27000);								\
+      C=BB27000_FI_DC,12*ERMEWA_I87(|L);								\
+      V=14;												\
+      F=EFG6;
+    TX=SNCF BB 66000 + Fret SUD-OUEST;									\
       C=SNCF_BB66000S5(|L),21*(3:NACCO_TADS_Y(|L)|1:NACCO_TADS_E(|L));					\
       V=10;												\
       F=DF6;
@@ -3632,9 +3756,9 @@ TX=SNCF BB 7200 + Fret SUD-OUEST;							\
       V=10;												\
       F=DF6;
 
-#Zusatz	  
-	  
-   TX=SNCF BB 22200 + Fret Sud-Ouest;							\
+#Zusatz
+
+    TX=SNCF BB 22200 + Fret Sud-Ouest;									\
       C=BB22200_GC_GBI_AC,20*RF_LFGSS[O:(4:CM_TRANSFESAFORD1|2:CM_TRANSFESAFORD2|1:CM_TRANSFESAFORD3)];	\
       V=10;												\
       F=EF6;
@@ -3642,74 +3766,79 @@ TX=SNCF BB 7200 + Fret SUD-OUEST;							\
 ;SUD-EST
 ;-------
 
-    TX=SNCF BB 7200 + Fret SUD-EST;							\
+    TX=SNCF BB 7200 + Fret SUD-EST;									\
       C=SNCF_BB7200GBC(|L),20-25*(ERMEWA_RILS20_6|SNCF_RILS20_6_G);					\
       V=10;												\
       F=EGF6;
 
-    TX=SNCF BB 7200 + BB 67000 Fret SUD-EST;						\
+    TX=SNCF BB 7200 + BB 67000 Fret SUD-EST;								\
       C=SNCF_BB7200GBI,SNCF_BB67000RBN(|L),7*SNCF_T11,STVA_TA370WW,2*SNCF_HABISS_EVS,SNCF_HABISS_KRO,	\
 	SNCF_HABISS_EVS,STVA_TA370WW,2*DB_HBBILLS310,5-7*SNCF_RILS319E;					\
       V=10;												\
       F=EGF6;
 
-    TX=SNCF BB 26000 + Fret SUD-EST;							\
+    TX=SNCF BB 26000 + Fret SUD-EST;									\
       C=BB26000_OI_DC,14*RF_LAAGRSS1[O:CM_TRANSFESA_MEGACOMBI,16,9][O:CM_TRANSFESA_MEGACOMBI,162,9];	\
       V=12;												\
       F=EGF6;
 
-    TX=SNCF BB 26000 + Fret SUD-EST;							\
+    TX=SNCF BB 26000 + Fret SUD-EST;									\
       C=BB26000_F4I_AC,10*(SNCF_SHIMMS539SE|SNCF_SHIMMS539ME|SNCF_SHIMMS589E);				\
       V=10;												\
       F=EF6;
 
-    TX=SNCF BB 36000 + Fret SUD-EST;							\
+    TX=SNCF BB 36000 + Fret SUD-EST;									\
       C=BB36000_RI_DC,16*(6:SNCF_ROOS_R58|1:SNCF_ROOS_R54_6S|1:SNCF_R54_6);				\
       V=10;												\
       F=EGF6;
 
-    TX=SNCF BB 36000 + Fret SUD-EST;							\
-      C=BB36000_VI_DC,3*SNCF_E74,2*SNCF_E71,10*(SNCF_RES90_6|SNCF_RES90_6A);				\
+    TX=SNCF BB 36000 + Fret SUD-EST;									\
+      C=BB36000_VI_DC,3*SNCF_E74,2*SNCF_E71,10*(SNCF_RES90|SNCF_RES90_DS);				\
       V=10;												\
       F=EGF6;
 
-    TX=SNCF BB 36000 + Fret SUD-EST;							\
+    TX=SNCF BB 36000 + Fret SUD-EST;									\
       C=2*BB36000_VI_DC,6*SNCF_R80[OB:STEEL33,,12],2*FS_SHIMMNS2(|L),2*SNCF_SHIMMS589E;			\
       V=10;												\
       F=EGF6;
 
-    TX=SNCF BB 36000 + Fret SUD-EST;							\
+    TX=SNCF BB 36000 + Fret SUD-EST;									\
       C=2*BB36000_VI_DC,2*SNCB_SHIMMNS3614D9,SNCB_SHIMMNS3614B2(|L),SNCB_SHIMMNS3614D9A,		\
 	SNCB_SHIMMNS3614B2(|L),2*SNCB_SHIMMNS3614D9,SNCB_SHIMMNS3614B2(|L),2*SNCB_SHIMMNS3614D9;	\
       V=10;												\
       F=EGF6;
-
-    TX=SNCF BB 27000 + Fret SUD-EST;							\
+    TX=SNCF UM BB 67400;										\
+      C=2*FRET_BB67400(|L),SNCF_TAOOS3(|L),3*(VTG_TAOOS_CFMF63E(|L)|VTG_TAOOS_CFMF63K(|L)),		\
+	2*(SNCF_TAOOS3(|L)|SNCF_TAOOS4(|L)),2*(VTG_TAOOS_CFMF63E(|L)|VTG_TAOOS_CFMF63K(|L)),		\
+	2*(SNCF_TAOOS3(|L)|SNCF_TAOOS4(|L));								\
+      V=9;												\
+      F=DF6;
+    TX=SNCF BB 27000 + Fret SUD-EST;									\
       C=2*BB27000_FI_DC,22*(SNCF_FAPS_SIMOTRA(|L)|SNCF_FAPS(|L));					\
       V=10;												\
       F=EGF6;
 
-    TX=SNCF BB 27000 + Fret SUD-EST;							\
+    TX=SNCF BB 27000 + Fret SUD-EST;									\
       C=BB27000_FI_DC,30*(5:PKPC_EANOS5375B|1:PKPC_EANOS5377R|2:PKPC_EANOS5377B);			\
       V=10;												\
       F=EGF6;
 
-    TX=SNCF BB 69200 + Fret SUD-EST;							\
-      C=SNCF_BB69000_FI(|L),STVA_TA381WR,STVA_TA381WW,STVA_TA283W_W,STVA_TA370WW,3*STVA_TAL460WR,		\
+    TX=SNCF BB 69200 + Fret SUD-EST;									\
+      C=SNCF_BB69000_FI(|L),STVA_TA381WR,STVA_TA381WW,STVA_TA283W_W,STVA_TA370WW,3*STVA_TAL460WR,	\
 	3*SNCF_S58;											\
       V=10;												\
       F=DF6;
-    TX=SNCF BB 69400 + Fret SUD-EST;							\
+    TX=SNCF BB 69400 + Fret SUD-EST;									\
       C=(<FRET_BB69400I,FRET_BB69400IL),								\
-	(SNCF_RES90_6,SNCF_E74,SNCF_E71)|(11*SNCF_E71E,2*SNCF_E74,4*SNCF_E71E,4*SNCF_E74);		\
+	(SNCF_RES90,SNCF_E74,SNCF_E71)|(11*SNCF_E71E,2*SNCF_E74,4*SNCF_E71E,4*SNCF_E74);		\
       V=10;												\
       F=DFU6;
-    TX=SNCF BB 69400 + Fret SUD-EST;							\
+    TX=SNCF BB 69400 + Fret SUD-EST;									\
       C=2*FRET_BB69400I(|L),3-8*TWAG_HB6;								\
       V=10;												\
       F=DF6;
 
-    TX=SNCF BB 75000 + Fret SUD-EST;							\
+    TX=SNCF BB 75000 + Fret SUD-EST;									\
       C=2*FRET_BB75000(|L),11*TWAG_HB6;									\
       V=8;												\
       F=DF6;
@@ -3722,23 +3851,23 @@ TX=SNCF BB 7200 + Fret SUD-OUEST;							\
 ;AUTOROUTE FERROVIAIRE ALPINE
     TX=AFA Autoroute Ferroviaire Alpine (BB 36000 + Modalohr);						\
       C=BB36000_VI_DC,SNCF_VTU_SRU_AFA(|L),BB36000_VI_DC,						\
-	$DIR((<SNCF_MODALOHR_WEL(2:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT2),40,5]|		\
+	$DIR((<SNCF_MODALOHR_WEL(2:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT3),40,5]|		\
 	1:[OB:TRAC(2|3),70,5])										\
-	(2:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT2),195,5]|1:[OB:TRAC(2|3),220,5]),		\
-	6*SNCF_MODALOHR_WI(1:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT2),31,5]|			\
+	(2:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT3),195,5]|1:[OB:TRAC(2|3),220,5]),		\
+	6*SNCF_MODALOHR_WI(1:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT3),31,5]|			\
 	1:[OB:TRAC(2|3),61,5])										\
-	(1:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT2),186,5]|1:[OB:TRAC(2|3),201,5]),		\
-	SNCF_MODALOHR_WE(1:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT2),31,5]|1:[OB:TRAC(2|3),61,5])	\
-	(1:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT2),186,5]|1:[OB:TRAC(2|3),2010,5])),		\
-	(<SNCF_MODALOHR_WEL(2:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT2)L,40,5]|			\
+	(1:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT3),186,5]|1:[OB:TRAC(2|3),201,5]),		\
+	SNCF_MODALOHR_WE(1:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT3),31,5]|1:[OB:TRAC(2|3),61,5])	\
+	(1:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT3),186,5]|1:[OB:TRAC(2|3),2010,5])),		\
+	(<SNCF_MODALOHR_WEL(2:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT3)L,40,5]|			\
 	1:[OB:TRAC(2|3)L,70,5])										\
-	(2:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT2)L,195,5]|1:[OB:TRAC(2|3)L,220,5]),		\
-	6*SNCF_MODALOHR_WI(1:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT2)L,31,5]|			\
+	(2:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT3)L,195,5]|1:[OB:TRAC(2|3)L,220,5]),		\
+	6*SNCF_MODALOHR_WI(1:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT3)L,31,5]|			\
 	1:[OB:TRAC(2|3)L,61,5])										\
-	(1:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT2)L,186,5]|1:[OB:TRAC(2|3)L,201,5]),		\
-	SNCF_MODALOHR_WE(1:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT2)L,31,5]|			\
+	(1:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT3)L,186,5]|1:[OB:TRAC(2|3)L,201,5]),		\
+	SNCF_MODALOHR_WE(1:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT3)L,31,5]|			\
 	1:[OB:TRAC(2|3)L,61,5])										\
-	(1:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT2)L,186,5]|1:[OB:TRAC(2|3)L,2010,5])));		\
+	(1:|2:[OB:(VOS_STRAIL_CIT|STRAIL_CIT2|STRAIL_CIT3)L,186,5]|1:[OB:TRAC(2|3)L,2010,5])));		\
       V=10;												\
       F=EGF6;
 
@@ -3749,12 +3878,12 @@ TX=SNCF BB 7200 + Fret SUD-OUEST;							\
       F=EF6;
 
     TX=MVGV 200 (SNCF BB 22200);									\
-      C=BB22200_GC_GBI_AC,12-16*(FWAG_GAHKSS02_6|SNCF_GAHKSS06_6SERNAM);				\
+      C=BB22200_GC_GBI_AC,12-16*(FWAG_GAHKSS02_6|SNCF_G13_SERNAMG2);					\
       V=20;												\
       F=EF6;
 
 ;=====================================
-;===  SPÉCIAUX ET ESSAIS, SERVICE  ===
+;===  Spéciaux et essais, service  ===
 ;=====================================
 
 ;REMONTES
@@ -3792,7 +3921,7 @@ TX=SNCF BB 7200 + Fret SUD-OUEST;							\
       F=DF6;
 
     TX=SNCF BB 67200 + INFRA;										\
-      C=SNCF_BB67200IP(|L),2*SNCF_RES90_6A;								\
+      C=SNCF_BB67200IP(|L),2*SNCF_RES90_DS;								\
       V=9;												\
       F=DF6;
 
@@ -3904,7 +4033,7 @@ TX=SNCF BB 7200 + Fret SUD-OUEST;							\
       F=EF6;
 
     TX=INFRA BB 66000 + INFRA;										\
-      C=INFRA_BB66000S5B(|L),SNCF_MAUZIN213I(|L), SNCF_ARA_AGCBIBI_T2BL;				\
+      C=INFRA_BB66000S5B(|L),SNCF_MAUZIN213I(|L),SNCF_ARA_AGCBIBI_T2BL;					\
       V=6;												\
       F=DF6;
 
@@ -3933,35 +4062,35 @@ TX=SNCF BB 7200 + Fret SUD-OUEST;							\
       F=EF6;
 
 ;TRAINS DE MACHINES
-    TX=SNCF BB 25100 + TRAIN DE MACHINES;								\
-      C=BB25100_2S_FI_AC,(BB25100_2S_FI_AC,3*SNCF_BB25504)[PD];						\
+    TX=SNCF BB 25100 + Train de machines;								\
+      C=BB25100_2S_FI_AC,(BB25100_2S_FI_AC,3*BB25500_1S_CP_AC)[PD];					\
       V=7;												\
       F=EF6;
-    TX=SNCF BB 9200 + TRAIN DE MACHINES;								\
+    TX=SNCF BB 9200 + Train de machines;								\
       C=SNCF_BB9200EVI(|L),SNCF_BB7200GCI(|L)[PD],SNCF_BB7200GBN(|L)[PD];				\
       V=7;												\
       F=EGF6;
-    TX=Infra BB 64600 + TRAIN DE MACHINES;								\
+    TX=Infra BB 64600 + Train de machines;								\
       C=INFRA_BB64600B(|L),SNCF_BB63500S1AN(|L),SNCF_BB63500S2A(|L),SNCF_BB63500S2G(|L),		\
 	SNCF_BB67400INFRA(|L),SNCF_BB63500S2AC(|L);							\
       V=6;												\
       F=DF6;
-    TX=SNCF A1AA1A 68000 + TRAIN DE MACHINES;								\
+    TX=SNCF A1AA1A 68000 + Train de machines;								\
       C=INFRA_68000(|L),2*(SNCF_BB63500S1AC(|L)|SNCF_BB63500S2AC(|L));					\
       V=6;												\
       F=DF6;
-    TX=SNCF BB 75000 + TRAIN DE MACHINES;								\
+    TX=SNCF BB 75000 + Train de machines;								\
       C=INFRA_BB75000(|L),3*SNCF_Y7100AN(|L),SNCF_Y7100GN(|L),2*SNCF_Y7100AN(|L);			\
       V=6;												\
       F=DF6;
 
-    TX=SNCF BB 22200 + TRAIN DE MACHINES;								\
+    TX=SNCF BB 22200 + Train de machines;								\
       C=BB22200_PC_TRANS_DC,([PD]Z20500_1S_TRANS_5V)|([PD]Z8100_STIF)|([PD]2*Z6400_IDFTI);		\
       V=10;												\
       F=EGF6;
 
-    TX=ETF 27000 + TRAIN DE MACHINES;									\
-      C=ETF_27000_B_DC,ETF_27000_REGIORAIL_DC[PD],REGR_27000(|B)(|L)[PD];				\
+    TX=ETF/RegioRail 27000 + Train de machines;								\
+      C=ETF_27000_B_DC,ETF_27000_REGIORAIL_DC[PD],REGIORAIL_27000_L1_DC[PD];				\
       V=10;												\
       F=EGF6;
 
@@ -4027,10 +4156,10 @@ TX=SNCF BB 7200 + Fret SUD-OUEST;							\
 
     TX=COLAS RAIL G1206  + FRET;									\
       C=COLAS_G1206(|L)|COLAS_G2000(|L),								\
-	15-20*(3:GEFCO_TAL489F_B|1:GEFCO_TA379MB2|1:GEFCO_TA370MB2|1:GEFCO_SEKS_B);			\
+	15-20*(3:GEFCO_TAL489F_B|1:GEFCO_TA379MB2|1:GEFCO_TA370MB2|1:GEFCO_SEKS_MB(|L));		\
       V=10;												\
       F=DF6;
-    TX=X;												\
+    TX=COLAS RAIL G1206  + FRET;									\
       C=(COLAS_G1206(|L),										\
 	(15*MILLET_TAGNPPS101AFR_MAIS(|L))|								\
 	(9*(3:MILLET_TAGNPPS101AFR_MAIS(|L)|1:MILLET_TAGNPPS100AFR(|L))))|				\
@@ -4087,17 +4216,17 @@ TX=SNCF BB 7200 + Fret SUD-OUEST;							\
       V=10;												\
       F=DF6;
 
-    TX=ECR 66 + train de Bauxite;											\
+    TX=ECR 66 + train de Bauxite;									\
       C=ECR_66,33*(1:SNCF_FAL_BAUX1(|L)|4:SNCF_FAL_BAUX2|5:SNCF_FAL_BAUX3),ECR_77;			\
       V=10;												\
       F=DF6;
 
-    TX=ECR 77 + train de Bauxite;											\
+    TX=ECR 77 + train de Bauxite;									\
       C=2*ECR_77,39*(SNCF_FAL_BAUX1(|L)|SNCF_FAL_BAUX2|SNCF_FAL_BAUX3),ECR_77;				\
       V=10;												\
       F=DF6;
 
-    TX=ECR 77 + train de Bauxite;											\
+    TX=ECR 77 + train de Bauxite;									\
       C=ECR_77,17*(SNCF_FAL_BAUX1(|L)|SNCF_FAL_BAUX2|SNCF_FAL_BAUX3);					\
       V=10;												\
       F=DF6;
@@ -4157,8 +4286,7 @@ TX=SNCF BB 7200 + Fret SUD-OUEST;							\
 
     TX=EUROPORTE G1000;											\
       C=2*EUP_G1000B(|L),										\
-	19*(16:CEREAL_SOUF2|2:SNCF_CER4P_TMFCITAPL|2:SNCF_CER4P_TMFCITAPLL|1:SNCF_CERP_TMFCITA|		\
-	1:SNCF_CERP_TMFCITAL);										\
+	19*(16:CEREAL_SOUF2|2:SNCF_CER4P_TMFCITAPL|2:SNCF_CER4P_TMFCITAPLL|2:SNCF_CERP_TMFCITA(|L));	\
       V=10;												\
       F=DF6;
     TX=EUROPORTE G2000;											\
@@ -4203,11 +4331,13 @@ TX=SNCF BB 7200 + Fret SUD-OUEST;							\
       V=10;												\
       F=DF6;
     TX=EUROPORTE 4000;											\
-      C=EUP_4000(|L),											\
-	8*(3:SNCF_CER4P_SOUFFLET3|3:SNCF_CER4P_SOUFFLET3L|1:SNCF_CERE2E50B_SOUF2|			\
-	1:SNCF_CERE2E50B_SOUF2L);									\
+      C=EUP_4000(|L),8*(3:SNCF_CER4P_SOUFFLET3|3:SNCF_CER4P_SOUFFLET3L|2:SNCF_CERP_SOUFFLET(|L));	\
       V=10;												\
       F=DF6;
+    C=EUP_4000(|L),8*(3:SNCF_CER4P_SOUFFLET3(|L)|1:SNCF_CERP_SOUFFLET(|L));				\
+      V=10;												\
+      F=DF6;
+
     TX=EUROPORTE 4000;											\
       C=EUP_4000(|L),9*TWAG_850;									\
       V=10;												\
@@ -4239,7 +4369,7 @@ TX=SNCF BB 7200 + Fret SUD-OUEST;							\
       F=EFG6;
 
     TX=ETF SERVICES 75000;										\
-      C=ETF_75000W(|L),18-20*SNCF_RES90_6;								\
+      C=ETF_75000W(|L),18-20*SNCF_RES90;								\
       V=10;												\
       F=DF6;
     TX=ETF SERVICES E4000;										\
@@ -4290,6 +4420,13 @@ TX=SNCF BB 7200 + Fret SUD-OUEST;							\
 	SNCF_CERP96P2_SOUFFLET2|SNCF_CERP96P2_SOUFFLET2L|SNCF_CERG_SOUFFLET|SNCF_CERG_SOUFFLETL|	\
 	SNCF_CER4P_SOUFFLET3|SNCF_CER4P_SOUFFLET3L|SNCF_CER94P_CTC|SNCF_CER94P_CTCL);			\
       V=10;												\
+      F=DF6;
+
+;RAILCOOP
+;--------
+    TX=Railcoop (G1000);										\
+      C=ECR_G1000_RAILCOOP(|L),8*ERMEWA_RILS20_6BS_RAILCOOP;						\
+      V=8;												\
       F=DF6;
 
 ;RDT13
@@ -4387,7 +4524,7 @@ TX=SNCF BB 7200 + Fret SUD-OUEST;							\
       V=10;												\
       F=P;
     TX=VFLI G1206;											\
-      C=VFLI_G1206_MR2(|L),12*SNCF_RES90_6;								\
+      C=VFLI_G1206_MR2(|L),12*SNCF_RES90;								\
       V=10;												\
       F=DF6;
     TX=VFLI G1206 + Train de gadoues;									\
@@ -4422,6 +4559,10 @@ TX=SNCF BB 7200 + Fret SUD-OUEST;							\
       C=VFLI_E4000(|L),19*(ERMEWA_TAMS_T14A(|L)|ERMEWA_TAMS_T14B(|L));					\
       V=10;												\
       F=DF6;
+    TX=Akiem 77500;											\
+      C=AKIEM_77500E(|L),22*(SNCF_UAS_D12_6V(|L)|INFRA_UAS_D12_6(|L));					\
+      V=10;												\
+      F=EF6;
 
 ;COMPIÈGNE - AVIGNON
     TX=VFLI (BB 27000) COMPIÈGNE - AVIGNON;								\

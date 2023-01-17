@@ -1,7 +1,8 @@
-$REQUIRE MLG_DEF.TTT
 ;DANEMARK / DENMARK
 ;==================
-
+{FILELEVEL=1?
+  $INCLUDE SINGLE.TTT
+}
 $REQUIRE MLG_DEF.TTT
 
 %ADDPOOL(POOL_DK,DK_ENV)
@@ -426,6 +427,10 @@ $REQUIRE MLG_DEF.TTT
 	  V=14;												\
 	  F=EPU6;
 
+	TX=DSB ME +IR;											\
+	  C=DSB_ME_L1(|L),DB_ARMZ217VRF(|L),DB_BIMZ264IRK(|L),DB_BIMDZ268IRK(|L);			\
+	  V=16;												\
+	  F=EP6;
 	TX=DSB EA + IR;											\
 	  C=DSB_EA1,DB_ARKIMBZ262IRK(|L),2*DB_BIMZ264IRK(|L);						\
 	  V=14;												\
@@ -544,7 +549,7 @@ $REQUIRE MLG_DEF.TTT
 	  F=EPU6;
 
 	TX=DSB EB + IR;											\
-	  C=(<DSB_EB,3*DSB_DOSTO_B4,DSB_DOSTO_ABS4)|(>DSB_EB,3*DSB_DOSTO_B4L,DSB_DOSTO_ABS4L);		\
+	  C=(<DSB_EB1(|L),3*DSB_DOSTO_B4,DSB_DOSTO_ABS4)|(>DSB_EB,3*DSB_DOSTO_B4L,DSB_DOSTO_ABS4L);	\
 	  V=14;												\
 	  F=EPU6;
 
@@ -637,7 +642,7 @@ $REQUIRE MLG_DEF.TTT
 
 ;LNJ
 	TX=LNJ RegioSprinter;										\
-	  C=LNJ_RS;											\
+	  C=LNJ_RS~MLG;											\
 	  V=10;												\
 	  F=DPR6;
 

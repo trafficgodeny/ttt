@@ -109,6 +109,12 @@ $REQUIRE MLG_DEF.TTT
       C=THALYS_PBKA_L1_AC|THALYS_PBKA_L2_AC;								\
       V=16;												\
       F=EPU6;
+;CISALPINO
+;---------
+    TX=Cisalpino (ETR 610);										\
+      C=CIS_ETR610_ACD;											\
+      V=20;												\
+      F=EPU6;
 
 ;EC
 ;--
@@ -184,6 +190,11 @@ $REQUIRE MLG_DEF.TTT
     TX=DB 101 + IC;											\
       C=<DBAG_101DOCUMENTA,DB_AVMZ207W1(|L),DB_ARKIMBZ262W(|L),DB_BVMZ185W(|L),3*DB_BPMZ291W1(|L),	\
 	DB_BPMBDZF296W;											\
+      V=20;												\
+      F=EPU6;
+    TX=DB 101 + IC;											\
+      C=<DB_101IC,4*DBAG_BPMZ294C(|L),DBAG_BVMZ186E(|L),DB_ARKIMBZ262W(|L),2*DBAG_AVMZ109W1(|L),	\
+	DB_101VRU;											\
       V=20;												\
       F=EPU6;
     TX=DB 120 + IC;											\
@@ -285,7 +296,7 @@ $REQUIRE MLG_DEF.TTT
       V=16;												\
       F=EP6;
     TX=PKP 5370 + Berlin-Warszawa-Express;								\
-      C=PKP_5370IC(|L),PKP_154A_BV_BWX(|L)|PKP_154AA_B_IC(|L),PKP_Z1_BDIMNU_BWE,			\
+      C=PKP_5370_IC_15KV,PKP_154A_BV_BWX(|L)|PKP_154A_B_IC(|L),PKP_Z1_BDIMNU_BWE,			\
 	PKP_Z1_BDMNU_BWE(|L)|PKP_BDMNU6(|L),PKP_Z1_BDMNU_BWE(|L),					\
 	DB_ARMZ211_1BWE(|L)|DB_ARKIMBZ262BWE(|L),DB_AVMZ108_5BWE(|L);					\
       V=16;												\
@@ -418,8 +429,8 @@ $REQUIRE MLG_DEF.TTT
 #--------
 #ROMA - MÜNCHEN
     TX=DB 101 + Nightjet Roma – München;								\
-      C=DB_101VRU,OBB_BCMZ59912NJ(|L),OBB_BCMZ59900NJ(|L),OBB_WLABMZ173NJ(|L),2*OBB_BCMZ59911NJ(|L),	\
-	OBB_BCMZ59912NJ(|L),OBB_WLABMZ173NJ(|L),OBB_BCMZ59911NJ(|L);					\
+      C=DB_101VRU,OBB_BCMZ59912NJ(|L)~MLG,OBB_BCMZ59900NJ(|L),OBB_WLABMZ173NJ(|L),			\
+	2*OBB_BCMZ59911NJ(|L),OBB_BCMZ59912NJ(|L)~MLG,OBB_WLABMZ173NJ(|L),OBB_BCMZ59911NJ(|L);		\
       V=16;												\
       F=EP6;
 #DÜSSELDORF - INNSBRÜCK
@@ -779,7 +790,7 @@ $REQUIRE MLG_DEF.TTT
       V=12;												\
       F=DPRU6;
     TX=DB 632/633;											\
-      C=DB_632_0;											\
+      C=DB_632_0(|L);											\
       V=12;												\
       F=DPRU6;
     TX=DB 632/633;											\
@@ -843,7 +854,7 @@ $REQUIRE MLG_DEF.TTT
       V=12;												\
       F=DPRU6;
     TX=DB 648.3;											\
-      C=1-2*DB_648_3_VRR2;										\
+      C=1-2*DB_648_3_VRR2(|L);										\
       V=12;												\
       F=DPRU6;
 
@@ -855,7 +866,7 @@ $REQUIRE MLG_DEF.TTT
       V=12;												\
       F=EPRU6;
     TX=DB 3442 Baden-Württemberg;									\
-      C=DB_3442_2H_BW;											\
+      C=XDB_3442_2H_BW;											\
       V=12;												\
       F=EPRU6;
     TX=DB 1462 Desiro HC Baden-Württemberg;								\
@@ -889,7 +900,7 @@ $REQUIRE MLG_DEF.TTT
       V=12;												\
       F=DPRU6;
     TX=DB 650 Baden-Württemberg;									\
-      C=(1-2*DB_650_1C(|L))|(DB_650_1C(|L),DB_650_3KB(|L));						\
+      C=(1-2*DB_650_1C(|L))|(DB_650_1C(|L),DB_650_2C(|L));						\
       V=12;												\
       F=DPRU6;
 
@@ -1070,9 +1081,9 @@ $REQUIRE MLG_DEF.TTT
       F=EPRU6;
     TX=DB 146 + RE2 Rhein-Haard-Express;								\
       C=(>3:DB_146_1U(|L)|1:DB_146_0VRU,3*DB_DBPZA781_4VRRNWL(|L),DB_DABPZA786VRRNWL(|L),		\
-	DB_DABPBZFA767_0VRRNWLL)|									\
+	DB_DABPBZFA767_0VRRNWL)|									\
 	(<3:DB_146_1U(|L)|1:DB_146_0VRU,3*DB_DBPZA781_4VRRNWL(|L),DB_DABPZA786VRRNWL(|L),		\
-	DB_DABPBZFA767_0VRRNWL);									\
+	DB_DABPBZFA767_0VRRNWLL);									\
       V=16;												\
       F=EPRU6;
 ;RE42 Niers-Haard-Express
@@ -1138,10 +1149,15 @@ $REQUIRE MLG_DEF.TTT
       C=DB_648_33_VRR2(|L)|DB_648_45NAHSH(|L);								\
       V=12;												\
       F=DPRU6;
-    TX=DB 648 NAH.SH;											\
+    TX=DB 648 Nah.SH;											\
       C=2*(DB_648_33_VRR2(|L)|DB_648_45NAHSH(|L));							\
       V=12;												\
       F=DPRU6;
+    TX=DB 648 Nah.SH;											\
+      C=DB_648_33NAHSH(|L);										\
+      V=12;												\
+      F=DPRU6;
+
 ;MARSCHBAHN
     TX=Dispolok ER 20 + Marschbahn;									\
       C=(<DISP_ER20M(|L),DB_MP6_L1_R)|(>BEAC_ER20(|L),DB_MP6_L1_L);					\
@@ -1226,11 +1242,6 @@ $REQUIRE MLG_DEF.TTT
       V=12;												\
       F=EPR6;
     TX=DB 430;												\
-      M=STOP;												\
-      C=2@DB_430II_VRS;											\
-      V=12; P=>90; T=OPEN,W,2,CLOSE;									\
-      F=EPROUT6;
-    TX=DB 430;												\
       C=1-2@DB_430_1II_VRS;										\
       V=12;												\
       F=EPR6;
@@ -1242,7 +1253,6 @@ $REQUIRE MLG_DEF.TTT
       F=EPRU6;
 
 ;S-BAHN RHEIN-RUHR
-;------#_Zeilen einfügen_*
     TX=DB 111 + S-Bahn Rhein-Ruhr;									\
       C=(<DB_111_PU_VRU(|L),DB_6BX794_2SRR,DB_6ABX791_2SRR,DB_6BX794_2SRR,DB_6BXF796_2SRR)|		\
 	(>DB_111_PU_VRU(|L),DB_6BX794_2SRRL,DB_6ABX791_2SRRL,DB_6BX794_2SRRL,DB_6BXF796_2SRRL);		\
@@ -1250,8 +1260,8 @@ $REQUIRE MLG_DEF.TTT
       F=EPRU6TO;
     TX=DB 143 + S-Bahn Rhein-Ruhr;									\
       M=STOP;												\
-      C=(<DB_143S2K(|L),DB_6BX794_2SRR,DB_6ABX791_2SRR,DB_6BX794_2SRR,DB_6BXF796_2SRR)|			\
-	(>DB_143S2K(|L),DB_6BX794_2SRRL,DB_6ABX791_2SRRL,DB_6BX794_2SRRL,DB_6BXF796_2SRRL);		\
+      C=(<DB_143SRR(|L),DB_6BX794_2SRR,DB_6ABX791_2SRR,DB_6BX794_2SRR,DB_6BXF796_2SRR)|			\
+	(>DB_143SRR(|L),DB_6BX794_2SRRL,DB_6ABX791_2SRRL,DB_6BX794_2SRRL,DB_6BXF796_2SRRL);		\
       P=>90; T=OPEN,W,2,CLOSE;										\
       F=EPRU6TO;
     TX=DB 422 S-Bahn Rhein-Ruhr;									\
@@ -1322,9 +1332,18 @@ $REQUIRE MLG_DEF.TTT
       F=EPRU6;
 
 ;S-BAHN STUTTGART
+    TX=DB 430;												\
+      M=STOP;												\
+      C=2@DB_430II_VRS;											\
+      V=12; P=>90; T=OPEN,W,2,CLOSE;									\
+      F=EPROUT6;
     TX=DB 423  S-Bahn Stuttgart;									\
       C=DB_423_SSTA,1-2@DB_423_AB_VRS;									\
       V=14;												\
+      F=EPRU6;
+    TX=DB S-Bahn Stuttgart (430);									\
+      C=DB_430II_VRS,DB_430II_SST;									\
+      V=12;												\
       F=EPRU6;
 
 ;S-BAHN HAMBURG
@@ -1385,11 +1404,15 @@ $REQUIRE MLG_DEF.TTT
       C=<1-2*(DBAG_481TSL,DBAG_481TS);									\
       V=12; P=>90; T=OPEN,W,2,CLOSE;									\
       F=MPROUT6;
+    TX=DB 481  S-Bahn Berlin;										\
+      C=(<DBAG_481CL,DBAG_481TSL,DBAG_481TS)|(>DBAG_481C,DBAG_481TS,DBAG_481TSL);			\
+      V=9;												\
+      F=MPRU6;
     TX=DB 481 S-Bahn Berlin;										\
       C=1-2*DB_481_5_TRADS;										\
       V=8;
     TX=DB 483  S-Bahn Berlin;										\
-      C=DB_483,DB_483|DB_484;										\
+      C=XDB_483,XDB_483|XDB_484;									\
       V=9;
     TX=DB 484  S-Bahn Berlin;										\
       C=1-2*DB_484;											\
@@ -1497,7 +1520,7 @@ $REQUIRE MLG_DEF.TTT
       F=EF6;
     TX=DB 155  + Güterzug;										\
       C=RAI_155E(|L),											\
-	11*(AAE_SGNSS60|DB_SGNS696|DBS_SGNSS704(|L))[O:C3_DELACHER,8,12][O:C3_DELACHER,99,12];		\
+	11*(XAAE_SGNSS60|DB_SGNS696|DBS_SGNSS704(|L))[O:C3_DELACHER,8,12][O:C3_DELACHER,99,12];		\
       V=10;												\
       F=EF6;
     TX=DB 155  + Güterzug;										\
@@ -1524,15 +1547,15 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=EF6;
     TX=DB 185.2 + Güterzug;										\
-      C=RAI_185_2P2U[PFU],DB_185_0A,25*SBB_5EAOS[O:BETTERAVES1|BETTERAVES2,,34];			\
+      C=DB_185_2P2AU(|L)[PFU],DB_185_0A,25*SBB_5EAOS[O:BETTERAVES1|BETTERAVES2,,34];			\
       V=10;												\
       F=EF6;
     TX=DB 185.2 + Güterzug;										\
-      C=RAI_185_2P2U,20*TWAG_800B;									\
+      C=RAI_185_2P2U(|L),20*TWAG_800B;									\
       V=10;												\
       F=EF6;
     TX=DB 185.2 + Güterzug;										\
-      C=RAI_185_2P2U,32*(3:DB_FALS183K|1:DBC_FALNS183);							\
+      C=RAI_185_2P2U(|L),32*(3:DB_FALS183K|1:DBC_FALNS183);						\
       V=8;												\
       F=EF6;
     TX=DB 185.2 + Güterzug;										\
@@ -1569,7 +1592,7 @@ $REQUIRE MLG_DEF.TTT
       F=EF6;
     TX=DB 185.2 + Güterzug;										\
       C=RAI_185_2P2U(|L),										\
-	DB_SDGGMRS744(|L)[O:BOX745_WALTER5,10,12][O:BOX745_WALTER5,87,12][O:BOX745_WALTER5,178,12]	\
+	DB_SDGGMRS744(|L)~MLG[O:BOX745_WALTER5,10,12][O:BOX745_WALTER5,87,12][O:BOX745_WALTER5,178,12]	\
 	[O:BOX745_WALTER5,255,12],									\
 	14*DB_SGGMRS715[O:BOX745_WALTER5,10,12][O:BOX745_WALTER5,87,12][O:BOX745_WALTER5,178,12]	\
 	[O:BOX745_WALTER5,255,12];									\
@@ -1665,15 +1688,16 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=DF6;
     TX=DB 233  + Güterzug;										\
-      C=DB_232S2VRU(|L),20*DB_EAOS051_Y25K;								\
+      C=DB_233_3S_VRU,20*DB_EAOS051_Y25K;								\
       V=10;												\
       F=DF6;
     TX=DB 233  + Güterzug;										\
-      C=DB_233S1SUL,2*RAI_TANOOS896B(|L),2*DBC_TAOOS894(|L),20*(RAI_TANOOS896B(|L)|DB_TANOOS896VR(|L));	\
+      C=DB_233_1S_VRSLU,2*RAI_TANOOS896B(|L),2*DBC_TAOOS894(|L),					\
+	20*(RAI_TANOOS896B(|L)|DB_TANOOS896VR(|L));							\
       V=10;												\
       F=DF6;
-    TX=DB 232  + Güterzug;										\
-      C=DB_232S2U(|L)|DB_232S2VRU(|L)|DB_232S3U(|L),							\
+    TX=DB 232/233  + Güterzug;										\
+      C=DB_233_2S_VRSLU|DB_233_2S_VRU|DB_232S3U(|L),							\
 	30*(1:PKPC_FALNS441V_R(|L)[O:FR_KO42|FR_KO43|FR_KO44,7,][O:FR_KO42|FR_KO43|FR_KO44,65,40]|	\
 	5:PKPC_FALNS440V_B(|L)[O:FR_KO42|FR_KO43|FR_KO44,7,][O:FR_KO42|FR_KO43|FR_KO44,65,40]|		\
 	2:PKPC_FALNS440V_BY(|L)[O:FR_KO42|FR_KO43|FR_KO44,7,][O:FR_KO42|FR_KO43|FR_KO44,65,40]);	\
@@ -1726,7 +1750,7 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=DF6;
     TX=Colas G1206  + Güterzug;										\
-      C=COLAS_G1206,DB_HBBILLS311K,2*DB_HBBILLS310K,2*DB_HBILLNS303K;					\
+      C=SECO_G1206(|L),DB_HBBILLS311K,2*DB_HBBILLS310K,2*DB_HBILLNS303K;				\
       V=10;												\
       F=DF6;
     TX=DB 294  + Güterzug;										\
@@ -1748,7 +1772,7 @@ $REQUIRE MLG_DEF.TTT
       V=8;												\
       F=DF6;
     TX=DB 298  + Güterzug;										\
-      C=DB_298_0U(|L)|DB_298_0U(|L),3*DB_TADS958K,3*NACCO_TADGS;					\
+      C=DB_298S(|L)|DB_298_0U(|L),3*DB_TADS958K,3*NACCO_TADGS(|L);					\
       V=7;												\
       F=DF6;
     TX=DB 298  + Güterzug;										\
@@ -1913,8 +1937,8 @@ $REQUIRE MLG_DEF.TTT
       V=13;												\
       F=EPRU6;
     TX=MRCE ES 64 +Abellio Ersatzzug Baden-Württemberg;							\
-      C=(<MRCE_ES64U2(|L),TRAIN_BNRZ451_1T,2*TRAIN_BNRZ450_3T,TRAIN_ABNRZ417_6T(|L),NEX_BNRDZF483_1)|	\
-	(>MRCE_ES64U2(|L),TRAIN_BNRZ451_1T,2*TRAIN_BNRZ450_3T,TRAIN_ABNRZ417_6T(|L),NEX_BNRDZF483_1L);	\
+      C=(<MRCE_ES64U2(|L),TRAIN_BNRZ451_1T,2*TRAIN_BNRZ450_3T,TRAIN_ABNRZ417_6T(|L),TRAIN_BNRDZF483_0)|	\
+	(>MRCE_ES64U2(|L),TRAIN_BNRZ451_1T,2*TRAIN_BNRZ450_3T,TRAIN_ABNRZ417_6T(|L),TRAIN_BNRDZF483_0L); \
       V=12;												\
       F=EPRU6;
     TX=Connex 146 + Abellio Ersatzzug Baden-Württemberg;						\
@@ -1978,7 +2002,7 @@ $REQUIRE MLG_DEF.TTT
       V=14;												\
       F=DPR6;
     TX=Allgäu-Express 223;										\
-      C=ALEX_223_A2(|L),ALEX_BND700_A2(|L),ALEX_ABVMZ_A2(|L),ALEX_BM_A2(|L),ALEX_BRDPM_A2(|L),		\
+      C=ALEX_223_A2(|L),ALEX_BND_A2,ALEX_ABVMZ_A2(|L),ALEX_BM_A2(|L),ALEX_BRDPM_A2(|L),			\
 	(ALEX_BOMZ2095_A2(|L),ALEX_ABVMZ_A2(|L))|(ALEX_ABVMZ_A2(|L),ALEX_BM_A2(|L));			\
       V=14;												\
       F=DPR6;
@@ -2024,12 +2048,12 @@ $REQUIRE MLG_DEF.TTT
       V=14;												\
       F=DPR6;
     TX=Allgäu-Express 183;										\
-      C=ALEX_183_A2(|L),ALEX_BOMZ2095_A2(|L),ALEX_BM_A2(|L),ALEX_BOMZ2195_A2(|L),ALEX_BRMZ_A2(|L),	\
+      C=ALEX_183_A2B_15KV,ALEX_BOMZ2095_A2(|L),ALEX_BM_A2(|L),ALEX_BOMZ2195_A2(|L),ALEX_BRMZ_A2(|L),	\
 	ALEX_ABVMDZ_A2(|L)|ALEX_ABVMDZ_SD_A2(|L),ALEX_BOMZ2095_A2(|L);					\
       V=20;												\
       F=EPR6;
     TX=Allgäu-Express 183;										\
-      C=ALEX_183_A2(|L),ALEX_BOMZ2195_A2(|L),ALEX_BM_A2(|L);						\
+      C=ALEX_183_A2B_15KV,ALEX_BOMZ2195_A2(|L),ALEX_BM_A2(|L);						\
       V=16;												\
       F=EPR6;
     TX=Allgäu-Express 183;										\
@@ -2038,24 +2062,24 @@ $REQUIRE MLG_DEF.TTT
       V=16;												\
       F=EPR6;
     TX=Allgäu-Express 183;										\
-      C=ALEX_183_A2(|L),ALEX_ABVMDZ_A2B(|L),ALEX_DBPZ_A2B(|L),ALEX_BRMZ_A2B(|L),ALEX_ABVMZ_A2B(|L),	\
+      C=ALEX_183_A2B_15KV,ALEX_ABVMDZ_A2B(|L),ALEX_DBPZ_A2B(|L),ALEX_BRMZ_A2B(|L),ALEX_ABVMZ_A2B(|L),	\
 	ALEX_DBPZ_A2B(|L);										\
       V=16;												\
       F=EPR6;
     TX=Allgäu-Express 183;										\
-      C=ALEX_183_A2(|L),ALEX_BOMZ2095_A2B(|L),ALEX_BOMZ2195_A2B(|L),					\
+      C=ALEX_183_A2B_15KV,ALEX_BOMZ2095_A2B(|L),ALEX_BOMZ2195_A2B(|L),					\
 	ALEX_ABVMDZ_A2B(|L)|ALEX_ABVMDZ_SD_A2B(|L),ALEX_DBPZ_A2B(|L),ALEX_BRMH_A2B(|L),			\
 	ALEX_ABVMZ_A2B(|L);										\
       V=16;												\
       F=EPR6;
 
     TX=Allgäu-Express 183;										\
-      C=ALEX_183_A2(|L),ALEX_ABVMZ_A2B(|L),ALEX_BRMZ_A2B(|L),ALEX_DBPZ_A2B(|L),ALEX_ABVMDZ_A2B(|L),	\
+      C=ALEX_183_A2B_15KV,ALEX_ABVMZ_A2B(|L),ALEX_BRMZ_A2B(|L),ALEX_DBPZ_A2B(|L),ALEX_ABVMDZ_A2B(|L),	\
 	CD_ARMPEE832W(|L),CD_BDHMSEE448IC(|L),2*CD_BMZ21910_EC(|L);					\
       V=16;												\
       F=EPR6;
     TX=Allgäu-Express 183;										\
-      C=ALEX_183_A2(|L),CD_ARMPEE832W(|L),CD_BBDGMEE236B2(|L),CD_BEE238B(|L),CD_BMZ21910B(|L),		\
+      C=ALEX_183_A2B_15KV,CD_ARMPEE832W(|L),CD_BBDGMEE236B2(|L),CD_BEE238B(|L),CD_BMZ21910B(|L),	\
 	ALEX_BM_A2B(|L);										\
       V=16;												\
       F=EPR6;
@@ -2076,8 +2100,8 @@ $REQUIRE MLG_DEF.TTT
       V=14;												\
       F=DPR6;
     TX=Pressnitztalbahn 218 + Alex Ersatzzug;								\
-      C=(<PRESS_218(|L),TRAIN_BDUU497_2KF(|L),TRAIN_BNRDZF483_1N)|					\
-	(>PRESS_218(|L),TRAIN_BDUU497_2KF(|L),TRAIN_BNRDZF483_1NL);					\
+      C=(<PRESS_218(|L),TRAIN_BDUU497_2KF(|L),TRAIN_BNRDZF483_0)|					\
+	(>PRESS_218(|L),TRAIN_BDUU497_2KF(|L),TRAIN_BNRDZF483_0L);					\
       V=13;												\
       F=DPR6;
 
@@ -2121,6 +2145,10 @@ $REQUIRE MLG_DEF.TTT
 
 ;BOB
 ;---
+    TX=Bodensee-Oberschwaben-Bahn ET 426;								\
+      C=BOD_426(|L);											\
+      V=12;												\
+      F=EPRU6;
     TX=Bodensee-Oberschwaben-Bahn  Regiosprinter 1;							\
       C=2*(BOD_RS1(|L)|BOD_RS1B(|L));									\
       V=12;												\
@@ -2239,7 +2267,6 @@ $REQUIRE MLG_DEF.TTT
       F=DPRU6;
 
 ;EGP
-# # Zeilen einfügen #
     TX=Eisenbahngesellschaft Potsdam VT 504;								\
       C=EGP_VT504(|L);											\
       V=9;												\
@@ -2262,8 +2289,8 @@ $REQUIRE MLG_DEF.TTT
 
 ;EURO EXPRESS
 ;------------
-    TX=Häfen und Güterverkehr Köln AG 145 + Euro Express;						\
-      C=HGK_145CL2(|L)|HGK_185_5_2S4P(|L)|AT_185_S2P4HGK(|L),2*EUEX_BCM(|L),EUEX_WGMH007(|L),		\
+    TX=Häfen und Güterverkehr Köln AG 145/185 + Euro Express;						\
+      C=HGK_145CL2(|L)|HGK_185_5_2S4P_L2_DA|HGK_185_2S4P_ATV_DA,2*EUEX_BCM(|L),EUEX_WGMH007(|L),	\
 	3-6*(EUEX_AM036(|L)|EUEX_AM036SD(|L));								\
       V=14;												\
       F=EPR6;
@@ -2426,7 +2453,6 @@ $REQUIRE MLG_DEF.TTT
       F=EPRU6;
 
 ;HANS
-;----# Zeilen einfügen #
     TX=Hanseatische Eisenbahn-Gesellschaft VT 504;							\
       C=HANS_VT504E(|L)|HANS_VT504(|L);									\
       V=9;												\
@@ -2474,7 +2500,7 @@ $REQUIRE MLG_DEF.TTT
       V=14;												\
       F=EPRU6;
     TX=Hessische Landesbahn GmbH 1440;									\
-      C=HLB_1440_1|HLB_1440_3;										\
+      C=XHLB_1440_1|HLB_1440_3;										\
       V=12;												\
       F=EPRU6;
     TX=Hessische Landesbahn GmbH 1440;									\
@@ -2575,9 +2601,16 @@ $REQUIRE MLG_DEF.TTT
       V=14;												\
       F=EPRU6;
     TX=Metronom (146 + Dosto);										\
-      C=(<METR_ME146_2(|L),3*METR_DBPZAL,METR_DBPZA1RUHEL,METR_DBDPZA1CYCL,METR_DABPBZKFA2MZ)|		\
-	(>METR_ME146_2(|L),3*METR_DBPZA,METR_DBPZA1RUHE,METR_DBDPZA1CYC,METR_DABPBZKFA2MZL)|		\
-	(<METR_ME146_1(|L),METR_DABPZAL,METR_DBPZA1RUHEL,2*METR_DBPZA2L,METR_DBPZAL,METR_DBDPZA1CYCL,	\
+      C=(<METR_ME146_1B(|L),3*METR_DBPZAL,METR_DBPZA1RUHEL,METR_DBDPZA1NL,METR_DABPBZKFA1N)|		\
+	(>METR_ME146_1B(|L),3*METR_DBPZA1N,METR_DBPZA1RUHE,METR_DBDPZA1N,METR_DABPBZKFA1NL);		\
+      V=14;												\
+      F=EPRU6;
+    TX=Metronom (146 + Dosto);										\
+      C=>2:(METR_ME146_2N(|L)|METR_146_5CNX(|L),2*METR_DBPZA2)|						\
+	1:(METR_ME146_2A(|L),2*METR_DBPZA,METR_DBPZA2,METR_DBDPZA,METR_DABPBZKFA2L);			\
+      V=14;												\
+      F=EPRU6;
+    C=(<METR_ME146_1(|L),METR_DABPZAL,METR_DBPZA1RUHEL,2*METR_DBPZA2L,METR_DBPZAL,METR_DBDPZA1CYCL,	\
 	METR_DABPBZKFA2MZ)|										\
 	(>METR_ME146_1(|L),METR_DABPZA,METR_DBPZA1RUHE,2*METR_DBPZA2,METR_DBPZA,METR_DBDPZA1CYC,	\
 	METR_DABPBZKFA2MZL);										\
@@ -2608,8 +2641,8 @@ $REQUIRE MLG_DEF.TTT
 
     C=1-2*METRONOM_1440_4V_ENNO;									\
       V=12;												\
-      F=EPRU6;METRONOM ENNO1440 CORADIA CONTINENTAL;							\
-
+      F=EPRU6;												\
+      METRONOM ENNO1440 CORADIA CONTINENTAL;
 
 ;MRB
 ;---
@@ -2625,8 +2658,12 @@ $REQUIRE MLG_DEF.TTT
       C=1-2*MRB_RS1EY(|L);										\
       V=10;												\
       F=DPR6;
-    TX=Mitteldeutsche Regiobahn VT 610/560;								\
-      C=7:MRB_VT610|1:MRB_VT560(|L);									\
+    TX=Mitteldeutsche Regiobahn VT 610;									\
+      C=MRB_VT610(|L);											\
+      V=12;												\
+      F=DPR6;
+    TX=Mitteldeutsche Regiobahn VT /560;								\
+      C=MRB_VT560(|L);											\
       V=12;												\
       F=DPR6;
     TX=Mitteldeutsche Regiobahn 11;									\
@@ -2659,7 +2696,8 @@ $REQUIRE MLG_DEF.TTT
       F=EPR6;
 
     TX=National Express 110;										\
-      C=<NEX_110B(|L),2*TRAIN_BNRZ451_1N,NEX_BNRZ450_3,NEX_ABNRZ417_6(|L),NEX_BNRDZF483_1;		\
+      C=(<NEX_110B(|L),2*TRAIN_BNRZ451_1N,NEX_BNRZ450_3,NEX_ABNRZ417_6(|L),TRAIN_BNRDZF483_1N)|		\
+	(>NEX_110B(|L),2*TRAIN_BNRZ451_1N,NEX_BNRZ450_3,NEX_ABNRZ417_6(|L),TRAIN_BNRDZF483_1NL);	\
       V=12;												\
       F=EPRU6;
     TX=Railpool 185 + National Express;									\
@@ -2674,7 +2712,7 @@ $REQUIRE MLG_DEF.TTT
       F=EPRU6;
 ;RB48 ERSATZZUG
     TX=National Express 110 + Ersatzzug RB 48;								\
-      C=<NEX_110B1(|L),TRAIN_BNRZ451_1T,TRAIN_BNRZ450_3T,TRAIN_BDUU497_2T(|L),TRAIN_ABNRZ417_6T(|L),	\
+      C=<NEX_110B(|L),TRAIN_BNRZ451_1T,TRAIN_BNRZ450_3T,TRAIN_BDUU497_2T(|L),TRAIN_ABNRZ417_6T(|L),	\
 	DB_BNDZF479VR2;											\
       V=12;												\
       F=EPRU6;
@@ -2798,6 +2836,10 @@ $REQUIRE MLG_DEF.TTT
       C=(XNWB_440_2,XNWB_440_3)|(XNWB_440_3,XNWB_440_2);						\
       V=14;												\
       F=EPRU6;
+    TX=Nordwest-Bahn 440;										\
+      C=NWB_440_3_L2;											\
+      V=14;												\
+      F=EPRU6;
     TX=Nordwest-Bahn VT500;										\
       C=1-3*NWB_VT500B(|L);										\
       V=12;												\
@@ -2876,11 +2918,11 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=DPRU6;
     TX=Regentalbahn Regiosprinter 1 Waldbahn2;								\
-      C=1-4*RBG_RS1WALD1(|L);										\
+      C=1-4*REGENTALBAHN_RS1_WALDBAHN2;									\
       V=10;												\
       F=DPR6;
     TX=Regentalbahn Regiosprinter 1 Waldbahn2;								\
-      C=1-4*RBG_RS1WALD2B(|L);										\
+      C=1-4*REGENTALBAHN_RS1_WALDBAHN2B;								\
       V=9;												\
       F=DPR6;
     TX=Regentalbahn Regiosprinter 1 Waldbahn2;								\
@@ -2889,12 +2931,20 @@ $REQUIRE MLG_DEF.TTT
       F=DPR6;
 
     TX=Oberpfalzbahn RegioSprinter 1;									\
+      C=RBG_RVT;											\
+      V=12;												\
+      F=DPRU6;
+    TX=Oberpfalzbahn RegioSprinter 1;									\
       C=1-2*RBG_VT30(|L);										\
       V=12;												\
       F=DPRU6;
     TX=Oberpfalzbahn RegioSprinter 1;									\
       C=RBG_RS1OP2(|L);											\
       V=12;												\
+      F=DPRU6;
+    TX=Oberpfalzbahn RegioSprinter 1;									\
+      C=RGB_VT30B(|L);											\
+      V=10;												\
       F=DPRU6;
     TX=Oberpfalzbahn 1648;										\
       C=1-2*RBG_1648;											\
@@ -3007,6 +3057,10 @@ $REQUIRE MLG_DEF.TTT
       C=(<SWEG_NE81VT3(|L),SWEG_NE81VS4L,)|(>SWEG_NE81VS4);						\
       V=9;												\
       F=DPRU6;
+    TX=Südwestdeutsche Verkehrs-Aktiengesellschaft NE81 VT5;						\
+      C=2*SWEG_NE81VT5(|L);										\
+      V=9;												\
+      F=DPRU6;
     TX=Südwestdeutsche Verkehrs-Aktiengesellschaft RS1;							\
       C=OSB_RS1_S,SWEG_RS1_A_BW,SWEG_RS1_A2;								\
       V=12;												\
@@ -3052,8 +3106,43 @@ $REQUIRE MLG_DEF.TTT
       V=12;												\
       F=DPRU6;
 
+;VIAS
+;----
+    TX=VIAS (FLIRT);											\
+      C=1:VIAS_ET300|3:VIAS_ET400;									\
+      V=14;												\
+      F=EPRU6;
+    TX=VIAS (FLIRT);											\
+      C=1:(2*VIAS_ET300)|1:(VIAS_ET300,VIAS_ET400)|1:(VIAS_ET400,VIAS_ET300)|3:(2*VIAS_ET400);		\
+      V=14;												\
+      F=EPRU6;
+    TX=VIAS NRW, EX ABELLIO (FLIRT3 ET25);								\
+      C=VIAS_ET25_2200,0-1*(VIAS_ET25_2200|VIAS_ET25_2300_AC);						\
+      V=14;												\
+      F=EPRU6;
+    TX=VIAS Odenwaldbahn (Itino);									\
+      C=1-2*VIAS_ITINO(|L);										\
+      V=12;												\
+      F=DPRU6;
+    TX=VIAS (LINT 54);											\
+      C=VIAS_LINT54;											\
+      V=12;												\
+      F=DPRU6;
+    TX=VIAS NRW (LINT 41H);										\
+      C=VIAS_LINT41H_NRW(|L);										\
+      V=12;												\
+      F=DPRU6;
+    TX=VIAS NRW (LINT 54H);										\
+      C=1-2@VIAS_LINT54H_NRW;										\
+      V=12; W=X;											\
+      F=DPRU6;
+
 ;VLEXX
 ;-----
+    TX=Vlexx 8442 (Talent 3);										\
+      C=Vlexx_8442;											\
+      V=13;												\
+      F=EPRU6;
     TX=Vlexx 620 + 622;											\
       C=VLEXX_620|VLEXX_622;										\
       V=12;												\
@@ -3094,8 +3183,16 @@ $REQUIRE MLG_DEF.TTT
 ;WEBA
 ;----
     TX=Westerwaldbahn GmbH VT 51;									\
-      C=XWEBA_VT51|WEBA_628_4_WEBA;									\
+      C=XWEBA_VT51;											\
       V=12;												\
+      F=DPRU6;
+    TX=Westerwaldbahn GmbH 628.4;									\
+      C=WEBA_628_4_WEBA;										\
+      V=12;												\
+      F=DPRU6;
+    TX=Westerwaldbahn GmbH / Daadetalbahn (GTW 2/6);							\
+      C=WEBA_GTW2_6D(|L);										\
+      V=10;												\
       F=DPRU6;
 
 ;WEG
@@ -3152,7 +3249,7 @@ $REQUIRE MLG_DEF.TTT
 ;BENTHEIMER EISENBAHN
 ;--------------------
     TX=Bentheimer Eisenbahn 211;									\
-      C=BEE_211B(|L),											\
+      C=BEE_211C(|L),											\
 	6*DB_ROOS639VR[OB:WOOD1(88|89|90),10,12][OB:WOOD1(88|89|90),56,12][OB:WOOD1(88|89|90),102,12]	\
 	[OB:WOOD1(88|89|90),147,12];									\
       V=8;												\
@@ -3243,11 +3340,19 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=DF6;
     TX=Captrain 145;											\
-      C=CAPT_145|CAPT_185_4P(|L),8-15*DB_HB8_TW;							\
+      C=CAPT_145,8-15*DB_HB8_TW;									\
       V=10;												\
       F=EF6;
     TX=Captrain 185;											\
-      C=2*CAPT_185_4P(|L),20*TWAG_HB15;									\
+      C=2*CAPTRAIN_185_4P_DA,20*TWAG_HB15;								\
+      V=10;												\
+      F=EF6;
+    TX=Captrain 145;											\
+      C=CAPT_145,8-15*DB_HB8_TW;									\
+      V=10;												\
+      F=EF6;
+    TX=Captrain 185;											\
+      C=2*CAPTRAIN_185_4P_DA,20*TWAG_HB15;								\
       V=10;												\
       F=EF6;
     TX=Captrain 185;											\
@@ -3373,14 +3478,18 @@ $REQUIRE MLG_DEF.TTT
 
 ;EGP
 ;---
+    TX=Eisenbahngesellschaft Potsdam (109);								\
+      C=EGP_109A_PEG,20*DB_FACS124K;									\
+      V=10;												\
+      F=EF6;
     TX=Eisenbahngesellschaft Potsdam 140;								\
       C=EGP_140B2(|L),30*ERR_RES;									\
       V=10;												\
       F=EF6;
     TX=Eisenbahngesellschaft Potsdam 140;								\
       C=EGP_140B2(|L),											\
-	7*TOUAX_SGGRSS80[O:(1:C4I_CMACGM2|6:C4H_CMACGM2|1:C4IH7),8,12]					\
-	[O:(1:C4I_CMACGM2|6:C4H_CMACGM2|1:C4IH7),136,12],						\
+	7*TOUAX_SGGRSS80[O:(1:C4IH_CMACGM5|6:C4H_CMACGM2|1:C4IH7),8,12]					\
+	[O:(1:C4IH_CMACGM5|6:C4H_CMACGM2|1:C4IH7),136,12],						\
 	2*TOUAX_SGGRSS80[O:(1:C2R29|3:C2R_UASC1),7,12][O:(1:C2R29|3:C2R_UASC1),68,12]			\
 	[O:(1:C2R29|3:C2R_UASC1),136,12][O:(1:C2R29|3:C2R_UASC1),197,12],				\
 	TOUAX_SGGRSS80[O:C4I_PONED1,8,12][O:C4IH_MSC1,136,12],						\
@@ -3392,6 +3501,14 @@ $REQUIRE MLG_DEF.TTT
 	TOUAX_SGGRSS80[O:C4R_MSC3,8,12][O:C4IH_MSC1,136,12],						\
 	TOUAX_SGGRSS80[O:C4IH7,8,12][O:C4IH_MSC1,136,12],						\
 	TOUAX_SGGRSS80[O:C4IH7,8,12][O:C4H_CMACGM2,136,12];						\
+      V=10;												\
+      F=EF6;
+    TX=Eisenbahngesellschaft Potsdam 142;								\
+      C=EGP_142_126(|L),12*AAE_SDGGMRSS104[OB:STRAIL_WALTER3L,11,5][OB:STRAIL_WALTER3,188,5];		\
+      V=12;												\
+      F=EF6;
+    TX=Eisenbahngesellschaft Potsdam 142;								\
+      C=2*EGP_142_103B(|L)[PU],20-22*ONRAIL_TALNS169(|L);						\
       V=10;												\
       F=EF6;
     TX=Eisenbahngesellschaft Potsdam 151;								\
@@ -3427,7 +3544,7 @@ $REQUIRE MLG_DEF.TTT
 ;EVB
 ;---
     TX=Eisenbahnen und Verkehrsbetriebe Elbe-Weser 140;							\
-      C=EVB_140_4FPR(|L),20*(BLG_LAAERS700|BLG_LAAERS800);						\
+      C=EVB_140_4FPR(|L)|EVB_140_4FPR2(|L),EVB_140_4FPR(|L),20*(BLG_LAAERS700|BLG_LAAERS800);		\
       V=12;												\
       F=EF6;
     TX=Eisenbahnen und Verkehrsbetriebe Elbe-Weser 420;							\
@@ -3555,6 +3672,10 @@ $REQUIRE MLG_DEF.TTT
 ;ITL
 ;---
     TX=Import Tranport Logistik ES64F Siemens Dispolok;							\
+      C=DISP_ES64F_ITL,22-25*CDC_FALLS401_6(|L);							\
+      V=10;												\
+      F=EF6;
+    TX=Import Tranport Logistik ES64F Siemens Dispolok;							\
       C=DISP_ES64F_ITL,20*STVA_TA370MR;									\
       V=10;												\
       F=EF6;
@@ -3564,18 +3685,49 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=EF6;
     TX=Import Tranport Logistik 232;									\
-      C=ITL_W232,25-20*BLG_LAAERS700;									\
+      C=ITL_W232,20-25*BLG_LAAERS700;									\
       V=10;												\
       F=DF6;
     TX=Import Tranport Logistik 250;									\
-      C=ITL_250(|L),25-20*BLG_LAAERS700;								\
+      C=ITL_250(|L),20-25*BLG_LAAERS700;								\
       V=10;												\
       F=DF6;
+
+    TX=ITL (ES 64 F);											\
+      C=DISP_ES64F_ITL,22-25*CDC_FALLS401_6(|L);							\
+      V=10;												\
+      F=EF6;
+    TX=ITL (ES 64 F);											\
+      C=DISP_ES64F_ITL,20*STVA_TA370MR;									\
+      V=10;												\
+      F=EF6;
+    TX=MRCE/ITL;											\
+      C=1:MRCE_481ITL|1:DISP_ES64F_ITL|1:AT_185S1B(|L)|2:ITL_185_2BLG(|L)|1:ITL_185_2VEO(|L)|		\
+	1:ITL_186_CBR1_AC|1:ITL_186_AKIEM_AC|1:MRCEDL_ES64F4_ITL,25-20*BLG_LAAERS700;			\
+      V=10;												\
+      F=EF6;
+    C=ITL_W232|ITL_250(|L),25-20*BLG_LAAERS700;								\
+      V=10;												\
+      F=EF6;
 
 ;LOCON
 ;-----
     TX=LOCON ES64F4;											\
       C=DISP_ES64F4_LOCON|LOCON_500,15-17*(5:TWAG_HB7|1:TWAG_HB16);					\
+      V=10;												\
+      F=EF6;
+    TX=LOCON (Re 482);											\
+      C=LOCON_482_2_CFFCARGO_DA,14-16@(AAE_HABBINS|TWAG_HB15);						\
+      V=12;												\
+      F=EF6;
+    TX=LOCON (187 309);											\
+      C=RPOOL_187_309_LOCON(|L),14-16*ERMEWA_SGGRSS80;							\
+      V=12;												\
+      F=EF6;
+    TX=LOCON (214);											\
+      C=2*LOCON_214(|L),										\
+	8-10*(AAE_SGGRSS80(|L)[O:C2R_HAMBURG3,8,12][O:C2R_HAMBURG3,69,12][O:C2R_HAMBURG3,138,12]	\
+	[O:C2R_HAMBURG3,199,12]);									\
       V=10;												\
       F=EF6;
     TX=LOCON 201;											\
@@ -3619,7 +3771,14 @@ $REQUIRE MLG_DEF.TTT
 	[OB:(WOOD6|WOOD7|WOOD8),134,12][OB:(WOOD8|WOOD9|WOOD10),160,12];				\
       V=10;												\
       F=DF6;
-
+    TX=MEG 110(V100 DR);										\
+      C=MEG_110(|L),12-15*(4:MEG_UCS909|1:MEG_UCS908);							\
+      V=8;												\
+      F=DF6;
+    TX=MEG 217(G 1206);											\
+      C=MEG_210B(|L),16*DBC_FALNQQS130A;								\
+      V=8;												\
+      F=DF6;
     TX=Mitteldeutsche Eisenbahngesellschaft 210;							\
       C=MEG_210B(|L),16*(DBC_FALNQQS130|DBC_FALNQQS130A);						\
       V=8;												\
@@ -3645,7 +3804,7 @@ $REQUIRE MLG_DEF.TTT
       C=METRANS_386_AC15,										\
 	20*(4:MERA_SGGRS576[O:C4IH_BEACON|C4IH7|C4I_HAPAG2|C4R_EG1,7,12]				\
 	[O:C4IH_BEACON|C4IH7|C4I_HAPAG2|C4R_EG1,135,12]|						\
-	1:AAE_SGNSS60[O:C4I_HAPAG2|C4IH7|C4R_EG1|C4R_MSC3,8,12]						\
+	1:XAAE_SGNSS60[O:C4I_HAPAG2|C4IH7|C4R_EG1|C4R_MSC3,8,12]					\
 	[O:C2R_HAPAG12|C2R33|C20P_CMACGM8,129,12]);							\
       V=10;												\
       F=EF6;
@@ -3864,6 +4023,10 @@ $REQUIRE MLG_DEF.TTT
 	6*AAE_SGMMNS190(|L),12*AAE_SGMMNS190(|L)[O:C2RO_BAUER,7,12][O:C2RO_BAUER,68,12];		\
       V=12;												\
       F=EF6;
+    TX=Rheincargo 185;											\
+      C=HGK_185_2054(|L),28*(1:GATX_FALNS8585A(|L)|2:GATX_FALNS8586(|L));				\
+      V=10;												\
+      F=EF6;
     TX=Rheincargo (Ascendos Class 66);									\
       C=ASCEN_66(|L),20-24*NACCO_TADS0820(|L);								\
       V=8;												\
@@ -3922,7 +4085,7 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=EF6;
     TX=SBB 482;												\
-      C=SBB_482C(|L),22*(1:SNCF_CER94G_CTC2(|L)|1:SNCF_CER94G_TCV(|L)|6:SNCF_CER94P_CTC);		\
+      C=SBB_482C(|L),22*(1:SNCF_CERG_CTC(|L)|1:SNCF_CER94G_TCV(|L)|6:SNCF_CER94P_CTC);			\
       V=10;												\
       F=EF6;
     TX=SBB 482;												\
@@ -3955,7 +4118,7 @@ $REQUIRE MLG_DEF.TTT
 ;SRI RAIL INVEST
 ;---------------
     TX=SRI Rail Invest 151;										\
-      C=SRI_151_170(|L),VTG_CEREALFG94P(|L),SNCF_CER94P(|L),						\
+      C=SRI_151_170(|L)~MLG,VTG_CEREALFG94P(|L),SNCF_CER94P(|L),					\
 	18-22*(SNCF_CER94G_TCV(|L)|SNCF_CER94P_CTC(|L)|SNCF_CERP86_TCV2_CTC(|L)|SNCF_CER94P(|L));	\
       V=10;												\
       F=DF6;
@@ -4074,8 +4237,8 @@ $REQUIRE MLG_DEF.TTT
 
 ##_Zusatz
     TX=DB 146.0 + Regionalexpress;									\
-      C=(>DB_146_0VRU,3*DB_DBPZA781_4VRRNWL(|L),DB_DABPZA786VRRNWL(|L),DB_DABPBZFA767_0VRRNWLL)|	\
-	(<DB_146_0VRU,3*DB_DBPZA781_4VRRNWL(|L),DB_DABPZA786VRRNWL(|L),DB_DABPBZFA767_0VRRNWL);		\
+      C=(>DB_146_0VRU,3*DB_DBPZA781_4VRRNWL(|L),DB_DABPZA786VRRNWL(|L),DB_DABPBZFA767_0VRRNWL)|		\
+	(<DB_146_0VRU,3*DB_DBPZA781_4VRRNWL(|L),DB_DABPZA786VRRNWL(|L),DB_DABPBZFA767_0VRRNWLL);	\
       V=14;
 ;LAHN-EIFEL-BAHN
     TX=DB 640 Lahn-Eifel-Bahn;										\

@@ -296,8 +296,8 @@ $REQUIRE MLG_DEF.TTT
       F=EPR3;
 
     TX=DB E44 +Personenzug;										\
-      C=(<DB_E44_0(|L),DB_AB3YG,DB_B3YGL,DB_B3YG_PAAR,DB_BD4YGF27_54)|				\
-	(>DB_E44_0(|L),DB_AB3YGL,DB_B3YG,DB_B3YG_PAAR,DB_BD4YGF27_54L);				\
+      C=(<DB_E44_0(|L),DB_AB3YG,DB_B3YGL,DB_B3YG_PAAR,DB_BD4YGF27_54)|					\
+	(>DB_E44_0(|L),DB_AB3YGL,DB_B3YG,DB_B3YG_PAAR,DB_BD4YGF27_54L);					\
       V=10;												\
       F=EPRU3;
 
@@ -641,6 +641,12 @@ $REQUIRE MLG_DEF.TTT
 ;====== PRIVATBAHNEN ======
 ;==========================
 
+;BENTHEIMER EISENBAHN
+;--------------------
+    TX=Bentheimer Eisenbahn (T 2);									\
+      C=BEE_T2(|L)~MLG,0-1*BEE_VB24(|L)~MLG;								\
+      V=8;												\
+      F=DPRU3;
 ;HERSFELDER KREISBAHN
 ;--------------------
     TX=Hersfelder Kreisbahn VT 50;									\
@@ -682,6 +688,14 @@ $REQUIRE MLG_DEF.TTT
     TX=Tecklenburger Nordbahn (T5);									\
       C=TECK_T5A(|L);											\
       V=6;												\
-      FG=(VOIE1:..,-6,0-5;);
+      F=DPRU3;
+
+;WD
+;--
+    TX=Kleinbahn Weidenau - Deutz (WD) VT 20;								\
+      C=WD_VT20(|L),|WD_VB20|WD_VB20P(|L);								\
+      V=8; W=X;												\
+      F=DPRU3;
+
   }
 %ENDPOOL;

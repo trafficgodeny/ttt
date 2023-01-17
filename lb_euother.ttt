@@ -531,6 +531,9 @@ $REQUIRE TRAINDEF.TTT
       TX=Rumänien Rompetrol Logistics LDH 125 + Güterzug;						\
 	C=RP_LDH125AL|RP_LDH125A,RO6F2;									\
 	F=DF6;
+      TX=Rumänien Regio Calatori (RCBV) X72500 RE 11031 Bucuresti Nord - Brasov 2023;			\
+	C=RCBV_X72500EL,RCBV_X72500M,RCBV_X72500E,RCBV_X72500EL,RCBV_X72500M,RCBV_X72500E;		\
+	F=DPRU6;
       TX=Rumänien Sudarec 70 + Güterzug;								\
 	C=SDR_LDH70L|SDR_LDH70,RO6F2;									\
 	F=DF6;
@@ -970,6 +973,9 @@ $REQUIRE TRAINDEF.TTT
       TX=HZ 7121;											\
 	C=<HZ_7121_0AL,HZ_7121_0B;									\
 	F=DPU6;
+      TX=HZ 7121 ICN 521 Zagreb GK - Split 2022;							\
+	C=(<HZ_7123A2L,HZ_7123B2)|(>HZ_7123A2,HZ_7123B2L);						\
+	F=DPU6;
 
     }
   %ENDPOOL;
@@ -1072,6 +1078,13 @@ $REQUIRE TRAINDEF.TTT
 
 #E
 
+      TX=JZ 342 + Ex;											\
+	C=JZ_342Y(|L),											\
+	  JZ_PTTZ_POST(1|2)|JZ_POSTAKNSS|JZ_PTTB_POST3|JZ_PTTB_POST1|JZ_POSTABN|JZ_POSTAKNS,		\
+	  JZ_DACKN(|L),2*JZ_BAGKNS(|L),JZ_WR8849KSR(|L)|JZ_WR8808KSR(|L),				\
+	  (<JZ_AAGGKNS,JZ_ABANSL|JZ_ABAKNSL),3*JZ_BANS;							\
+	F=EP4;
+
       TX=JZ 342 + Ex 291 Akropolis, München Hbf - Athina 1986;						\
 	C=JZ_342,											\
 	  (<JZ_ABLGL,ZFBH_BL2010,OSE_2080A,OSE_5980A,DB_BCM243BBS,DB_4ABM223BB,DB_4B_DMS902BB,		\
@@ -1161,8 +1174,14 @@ $REQUIRE TRAINDEF.TTT
 	  (<2*ZFBH_BL2010,2*JZ_ZTPT_AB,JZ_BRLG,2*JZ_ZTPT_AB,JZ_ZTPT_B,JZ_DSG,JZ_ZTOSK_BCL,		\
 	  2*ZSRB_WLA7010A,JZ_ABLGL,ZFBH_BL2010,JZ_GBSZ1A);						\
 	F=EP4;
-    }
 
+# Narrow Gauge
+
+      TX=JZ 802;											\
+	C=<JZ_802L,JZ_802_5(|L),JZ_802;									\
+	F=DPNR4;
+
+    }
     {E5?
       TX=JZ 415;											\
 	C=2*(<JZ_415_1ML,JZ_415_2M,JZ_415_3M);								\
@@ -1263,6 +1282,16 @@ $REQUIRE TRAINDEF.TTT
 	  (<2*SVO_ACBCM4L,SVO_BEELMT3L,ZSRB_SALON9980601L,ZCG_BC1L,2*ZCG_WLABM1L,JZ_DDAM)|		\
 	  (>2*SVO_ACBCM4,SVO_BEELMT3,ZSRB_SALON9980601,ZCG_BC1,2*ZCG_WLABM1,JZ_DDAM);			\
 	F=EP6;
+      TX=Srbija Voz (SV) 441 + B 433 Zemun - Bar 2022;							\
+	C=SVO_441,											\
+	  (<3*SVO_BEELMT3L,SVO_BCL4L,SVO_ACBCM4L,JZ_WLBL,ZCG_BCM1,ZCG_WLABM1L,ZCG_WLABM1,ZCG_WLABM1L,	\
+	  2*JZ_DDAM)|											\
+	  (>3*SVO_BEELMT3,SVO_BCL4,SVO_ACBCM4,JZ_WLBLL,ZCG_BCM1L,ZCG_WLABM1,ZCG_WLABM1L,ZCG_WLABM1,	\
+	  2*JZ_DDAM);											\
+	F=EP6;
+      TX=Srbija Voz (SV) 410 +  IC 543 Novi Sad - Beograd Centar 2022;					\
+	C=<SVO_410EL,SVO_410M,SVO_410ML,SVO_410E;							\
+	F=EPU6;
 
     }
   %ENDPOOL;
@@ -1275,6 +1304,11 @@ $REQUIRE TRAINDEF.TTT
 ##                                                                           ##
 ###############################################################################
     {E6?
+      TX=Montenegro ZCG 461 + B 432 Bar - Zemun 2022;							\
+	C=ZCG_461_(031|035),										\
+	  (<3*ZCG_WLABM1L,3*ZCG_BCM1,JZ_WLBL,SVO_ACBC4,SVO_BCL4,3*ZSRB_BEELMT2070A,2*JZ_DDAM)|		\
+	  (>3*ZCG_WLABM1,3*ZCG_BCM1L,JZ_WLBLL,SVO_ACBC4L,SVO_BCL4L,3*ZSRB_BEELMT2070A,2*JZ_DDAM);	\
+	F=EP6;
       TX=Montenegro ZCG 461 + Schnellzug;								\
 	C=ZCG_461_(031|035),										\
 	  (<ZCG_ACBC4427E,ZCG_WRL8776E,3*ZCG_B2905E)|(<3*ZCG_BLM2110,ZCG_WRL8776,2*ZCG_ALM1000)|	\
@@ -1304,6 +1338,9 @@ $REQUIRE TRAINDEF.TTT
       TX=Mazedonien MZ 411 IR 631 Skopje - Gevgelija 2020;						\
 	C=MZ_411;											\
 	F=EPRU6;
+      TX=Mazedonien MZ 412/416;										\
+	C=<MZ_412OL,MZ_416OL,MZ_416O,MZ_412O;								\
+	F=EPU6;
       TX=Mazedonien MZ 412/416;										\
 	C=<MZ_412_1L,MZ_416_1,MZ_416_2,MZ_412_2;							\
 	F=EPU6;
@@ -1562,6 +1599,9 @@ $REQUIRE TRAINDEF.TTT
       TX=BDZ 44 + MBV 463: Ruse razpredelitelna - Sofia 2018;						\
 	C=BDZ_44R,4*BDZ_6BM2040(|L);									\
 	F=EPR6;
+      TX=BDZ 44 + Nachtzug;										\
+	C=BDZ_44R,4*OTEX_BCM,INTER_WRME_O(|L),2*OTEX_BCM;						\
+	F=EP6;
       TX=BDZ 44 + BV 8632 Varna - Plovdiv 2021;								\
 	C=BDZ_44R,(<BDZ_5BME1A,BDZ_AM1940M,BDZ_5BME1A)|(>BDZ_5BME1AL,BDZ_AM1940ML,BDZ_5BME1AL);		\
 	F=EPR6;
@@ -2143,6 +2183,12 @@ $REQUIRE TRAINDEF.TTT
 	F=EPU6;
       TX=TCDD E140;											\
 	C=(<TCDD_E14000B1L,TCDD_E14000B2,TCDD_E14000B3)|(TCDD_E14000A1L,TCDD_E14000A2,TCDD_E14000A3);	\
+	F=EPU6;
+      TX=TCDD HT 80100;											\
+	C=(<TCDD_HT80100_01L,TCDD_HT80100_02,TCDD_HT80100_03,TCDD_HT80100_04,TCDD_HT80100_05,		\
+	  TCDD_HT80100_06,TCDD_HT80100_01)|								\
+	  (>TCDD_HT80100_01,TCDD_HT80100_02L,TCDD_HT80100_03L,TCDD_HT80100_04L,TCDD_HT80100_05L,	\
+	  TCDD_HT80100_06L,TCDD_HT80100_01L);								\
 	F=EPU6;
     }
   %ENDPOOL;
