@@ -1,5 +1,8 @@
 ;ALLEMAGNE / GERMANY / DEUTSCHLAND Ep. IV
 ;=========================================
+{FILELEVEL=1?
+  $INCLUDE SINGLE.TTT
+}
 $REQUIRE MLG_DEF.TTT
 
 %ADDPOOL(POOL_BRD,DE_ENV)
@@ -573,6 +576,11 @@ $REQUIRE MLG_DEF.TTT
       C=>DB_144_0G(|L),DB_BN719SL1,DB_BDYSLF456GL;							\
       V=10;												\
       F=EPRU4;
+    TX=DB 145 + N;											\
+      C=(<DB_144_0G,DB_AB3YG,DB_B3YGL,DB_B3YG_PAAR,DB_BD4YGF27_54)|					\
+	(>DB_144_0G,DB_AB3YGL,DB_B3YG,DB_B3YG_PAAR,DB_BD4YGF27_54L);					\
+      V=10;												\
+      F=EPR4;
     TX=DB 145 + E/N;											\
       C=DB_145_E44G(|L),2*DB_BYG514_515,DB_ABYG503(|L),$DIR(DB_BDMS272G,DB_BDMS272GL);			\
       V=10;												\
@@ -936,9 +944,17 @@ $REQUIRE MLG_DEF.TTT
       F=DPRU4;
 
     TX=DB 795;												\
-      C=DB_795(|L),0-1*DB_995(|L);									\
-      V=12;												\
-      F=DPRU4;
+      C=DB_795A(|L),|DB_995(|L);									\
+      V=9;												\
+      F=DPR4;
+    TX=DB 795;												\
+      C=DB_795(|L),|DB_995(|L);										\
+      V=9;												\
+      F=DPR4;
+    TX=DB 795;												\
+      C=DB_795(|L),2*DB_995(|L),DB_795A(|L)|DB_795_176(|L)|DB_795(|L);					\
+      V=9;												\
+      F=DPR4;
     TX=DB 798;												\
       C=XDB_798;											\
       V=10;												\
@@ -1067,6 +1083,15 @@ $REQUIRE MLG_DEF.TTT
     TX=DB 150 + Güterzug;										\
       C=DB_150_4VG(|L),15-18*DB_LAAES541;								\
       V=10;												\
+      F=EF4;
+    TX=DB 150 + Güterzug;										\
+      C=DB_150_4VG(|L),15-18*DB_LAAES541;								\
+      V=10;												\
+      F=EF4;
+    TX=DB 150 + Güterzug Coils;										\
+      C=DB_150_4VGE(|L),										\
+	20*DB_RHLMMPS661(|L)[OB:COIL20H,14,13][OB:COIL20H,38,13][OB:COIL20H,86,13][OB:COIL20H,110,13];	\
+      V=9;												\
       F=EF4;
     TX=DB 152 + Güterzug;										\
       C=2*DB_152G(|L),DB_TMS850,5*(DB_GLM202|DB_GS204W2|DB_GS204W|DB_GS213A|DB_GS211|DB_GS216C),	\
@@ -1372,6 +1397,13 @@ $REQUIRE MLG_DEF.TTT
     TX=Südwestdeutsche Eisenbahn-Gesellschaft VT MAN;							\
       C=SWEG_VTMAN,DB_GLMS207A,POT_TW177,DB_GS204A,6*DB_KLMS440;					\
       V=7;												\
+      F=DPRU4;
+
+;VEV
+;---
+    TX=Vorwohle - Emmertal Verkehrsbetriebe T1;								\
+      C=VEV_T1;												\
+      V=6;												\
       F=DPRU4;
 
   }

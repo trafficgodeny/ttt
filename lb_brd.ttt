@@ -1200,6 +1200,9 @@ $ENDPOOL
     TX=DB 55.25 + Güterzug;										\
       C=DB_3A55(4715|3035)(|L),D3FAS,DB_SSKM49RS(|L);							\
       F=SF3;
+    TX=DB 55.25 + Rangierzug;										\
+      C=DB_3A55(4715|3035)(|L),DB_3_SSLM25H(|L)[OB:BOILER_D(|L),,13];					\
+      F=SF3;
     TX=DB 55.25 + Güterzug;										\
       C=DB_3B55(5096|5039|5011|3744|2903|2513)(|L),D3FBK;						\
       F=SF3;
@@ -1411,7 +1414,7 @@ $ENDPOOL
 	DB_3A_LC4IPR09GL|DB_3A_LC4IPR09G|DB_3A_LC4IPR09EL|DB_3A_LC4IPR09E|DB_3A_LC4IPR09EUL|		\
 	DB_3A_LC4IDPR07EL|DB_3A_LC4IDPR07E|DB_3A_LC4IDPR07GL|DB_3A_LC4IDPR07G|DB_3A_LCC4IDPR07EL|	\
 	DB_3A_LCC4IDPR07E|DB_3A_LCC4IDPR07GL|DB_3A_LCC4IDPR07G),					\
-	(DB_3A_LBC4IPR08EL|DB_3A_LBC4IPR08E|DB_3A_LBC4IPR08GL|DB_3A_LBC4IPR08G|DB_3A_LBC4IPR23EL|	\
+	(DB_3A_LBC4IPR08L|DB_3A_LBC4IPR08|DB_3A_LBC4IPR08GL|DB_3A_LBC4IPR08G|DB_3A_LBC4IPR23EL|		\
 	DB_3A_LBC4IPR23E|DB_3A_LBC4IPR23GL|DB_3A_LBC4IPR23G|DB_3A_LBC4IPR14EL|DB_3A_LBC4IPR14E|		\
 	DB_3A_LBC4IPR14GL|DB_3B_LAB4IPR14L|DB_3A_LBC4IPR09EL|DB_3A_LBC4IPR09EUL|DB_3A_LBC4IPR09EU|	\
 	DB_3A_LBC4IPR09GL|DB_3A_LBC4IPR09G),								\
@@ -1430,7 +1433,7 @@ $ENDPOOL
 	D3PNRA(1|2)|(<DB_3A_PWIWU09(|L),3*DB_3A_C3PR11(|L),DB_3A_B3PR10L,3*DB_3A_C3DPR04(|L));		\
       F=SPR3;
     TX=DB 75.0 + Personenzug;										\
-      C=DB_3B750(42|18|46)(|L),Z_D_E3_PDB;								\
+      C=DB_3B750(42|18|46|82)(|L),Z_D_E3_PDB;								\
       F=SPR3;
     TX=DB 75.2-3 + Personenzug;										\
       C=DB_3A75215(|L),											\
@@ -1439,7 +1442,7 @@ $ENDPOOL
 	(DB_3A_PWI29|DB_3A_PWIBAD16(|L)));								\
       F=SPR3;
     TX=DB 75.2-3 + Personenzug;										\
-      C=DB_3B75299(|L),Z_D_E3_PDB;									\
+      C=DB_3B75(299|250)(|L),Z_D_E3_PDB;								\
       F=SPR3;
 #75.4,10
     TX=DB 75.4,10-11 + Personenzug;									\
@@ -1719,12 +1722,12 @@ $ENDPOOL
       F=SF3;
 #92.2
     TX=DB 92.2;												\
-      C=DB_3A92_300L|DB_3A92_300,									\
+      C=DB_3A92(_300|215)(|L),										\
 	3*DB_XF08O10|DB_XF09|DB_X05L|DB_X05|DB_X05BL|DB_X05B|DB_X05HL|DB_X05H|DB_XF08G10L|DB_XF08G10|	\
 	DB_XF08G90H;											\
       F=SF3;
     TX=DB 92.2;												\
-      C=DB_3B92_319L|DB_3B92_319,Z_D_E3_GAK;								\
+      C=DB_3B92(213|247|_319)(|L),Z_D_E3_GAK;								\
       F=SF3;
 #92.4
     TX=DB 92.4;												\
@@ -1840,30 +1843,36 @@ $ENDPOOL
 	(<DB_3B_D4U23(|L),DB_3B_B4Y3150(|L),DB_3B_B4Y3050(|L),DB_3B_AB4Y3755(|L),DB_3B_B4Y3650(|L));	\
       F=EPR3;
 #110.0
-    TX=DB E10 001 + FD-Zug;										\
-      C=DB_E10_001O(|L)|DB_3A_E10_001(|L)|DB_E10_001OB(|L),						\
+    TX=DB E10 001 + E18 + D-Zug nach Salzburg 1953;							\
+      C=DB_3A_E10001H(|L),DB_3A_E1824(|L),								\
+	(<DBP_3A_POST4U20A,DB_3A_C4U3150L,DB_3A_PW4UBAY09L,OBB_3A_PW4U37L,OBB_3A_N28C4U,OBB_3A_C4U38,	\
+	OBB_3A_N28BC4UL,OBB_3A_ABC4U39L,OBB_3A_ABC4U39,OBB_3A_N28C4U,OBB_3A_N28C4UL)|			\
+	(<DBP_3A_POST4U20AL,DB_3A_C4U3150,DB_3A_PW4UBAY09,OBB_3A_PW4U37,OBB_3A_N28C4UL,OBB_3A_C4U38L,	\
+	OBB_3A_N28BC4U,OBB_3A_ABC4U39,OBB_3A_ABC4U39L,OBB_3A_N28C4UL,OBB_3A_N28C4U);			\
+      F=EP3;
+    TX=DB E10 Vorserie + FD-Zug;									\
+      C=DB_3A_E10002_1953(|L)|DB_3A_E10003_1955(|L)|DB_3A_E10004_1953(|L)|DB_3A_E10003_1952(|L),	\
 	(<DB_PW4UE37BL~JMU,DB_PW4UE37B~JMU|DB_3A_AB4UE38B,DB_3B_A4UE38_51B,DSG_WR4UE39L|DSG_WR4UE39,	\
 	DB_3AB_AB4U35,DB_3A_AB4U28B,DB_3B_A4UE38_51BL);							\
       F=EP3;
-
+    TX=DB E10 001 + Nahverkehrszug;									\
+      C=DB_3C_E10001(|L),										\
+	(<DB_3_BDNBF59L,DB_3_B4NRB65A(|L),DB_3_AB4NB59(|L),DB_3_B4NB59(|L))|				\
+	(>DB_3_BDNBF59,DB_3_B4NRB65A(|L),DB_3_AB4NB59(|L),DB_3_B4NB59(|L));				\
+      F=EPR3;
     TX=DB E10 Vorserie + D-Zug;										\
-      C=DB_E10_00(2|3)B2M(|L),D3PDN;									\
+      C=DB_3A_E10004_1957(|L),D3PDN;									\
       F=EP3;
 
     TX=DB E10 001 + Eilzug;										\
       C=DB_3A_E10001|DB_3A_E10_001(|L),D3PEDAN;								\
       F=EP3;
-
-    TX=DB E10 001 + Eilzug;										\
-      C=DB_3B_E10001B|DB_3B_E10_001(|L),D3PERC;								\
+    TX=E10 Vorserie + Eilzug;										\
+      C=DB_3B_E10005_1965(|L)|DB_3C_E10003_1967(|L)|DB_3C_E10002_1966(|L),D3PERC;			\
       F=EP3;
-    TX=DB E10 004;											\
-      C=DB_E10004,DB_4A_DUM902 ,DB_4A_BUM232BL,DB_4A_BUM234C,DB_4_AM203BL,(DB_ARMH216BL|DB_ARMH216B),	\
-	DB_4A_BUM232B,DB_4A_BUM234C,DB_4A_ABUM224L,;							\
-      F=EF3;
-    TX=E10 005;												\
-      C=DB_E10005L;											\
-      F=EF3;
+    TX=E10 Vorserie + Eilzug;										\
+      C=DB_3B_E10005_1960(|L)|DB_3B_E10002_1961(|L)|DB_3B_E10003_1960(|L),D3PERC;			\
+      F=EP3;
 #110.1
     TX=DB E10.1 + Schnellzug;										\
       C=DB_3A_E1010(1|7)(|L),D3PDN5;									\
@@ -1985,11 +1994,15 @@ $ENDPOOL
     TX=DB E16 + Eilzug;											\
       C=DRB_E16CL|DRB_E16C|DB_E16AL|DB_E16A,D3PERC;							\
       F=EF3;
+
 #117
+    TX=DB E17 103 + Erzwagen-Leerzug 1958;								\
+      C=DB_3B_E17103(|L),2*DB_OOT41_73M(|L),13*DB_OOT(50M|Z50A|Z50B|Z50C|Z50D|Z50E|Z50F),		\
+	DB_3B_GLMHS36(|L);										\
+      F=EF3;
     TX=DB E17 + Schnellzug;										\
       C=DB_3A_E1703(|L),D3PDA|D3PDAL;									\
       F=EP3;
-
     TX=DB E17 03 + Schnellzug + E93 02 - 1950;								\
       C=DB_3A_E1703(|L),										\
 	(<DB_3_MD4I50,DB_3A_C4U28L,2*DB_3A_C4UPR08,DB_3A_AB4U23L,DSG_3A_758(|L),DB_3A_C4U26,		\
@@ -2045,17 +2058,15 @@ $ENDPOOL
       F=EP3;
 #119
     TX=DB E19 02;											\
-      C=DB_3A_E19_02|DB_3A_E19_02L;									\
-      F=EF3;
+      C=DB_3A_E19_02(|L),D3PDAL;									\
+      F=EP3;
     TX=DB E19 11 12 + Nachtzug;										\
       C=DB_3A_E19_11,DSG_WL4UE41(|L),DSG_WLAS4UE50G,DB_3WLB4Y36|DB_3WLB4Y36L;				\
-      D=R;												\
       F=EP3;
     TX=DB E19 02 + Schnellzug;										\
       C=DB_3B_E19_02,											\
-	(<DB_3CDPOST4U28,DB_3B_B4U28B,DB_B4UE38_53L,DSG_3A_WR1230L|DSG_3A_WR1230|DSG_3A_WR1234,		\
-	DSG_3A_WR1234L|DB_3C_A4U28JL,DB_3C_AB4UE23L,DB_3C_B4U35_51);					\
-      D=R;												\
+	(<DB_3CDPOST4U28,DB_3B_B4U28B,DB_3B_B4UE38_53GL,DSG_3A_WR1230L|DSG_3A_WR1230|DSG_3A_WR1234,	\
+	DSG_3A_WR1234L,DB_3B_A4UE28S2L,DB_3B_B4UWE23A58L,DB_3B_B4U35_51);				\
       F=EP3;
     TX=DB E19 11_12 + Schnellzug;									\
       C=DB_3B_E19_11,											\
@@ -2677,8 +2688,8 @@ $ENDPOOL
       C=DB_3A_ET8705L|DB_3A_ET8705;									\
       F=EPRU3;
     TX=DB ET 90;											\
-      C=(<DB_3ES8540,DB_3B_EB85B,DB_3B_EB85BL,DB_3ET9002L)|						\
-	(<DB_3ET9002,DB_3B_EB85B,DB_3B_EB85BL,DB_3ES8540L);						\
+      C=(<DB_3B_ES8540L,DB_3B_EB85B,DB_3B_EB85BL,DB_3ET9002L)|						\
+	(<DB_3ET9002,DB_3B_EB85B,DB_3B_EB85BL,DB_3B_ES8540);						\
       F=EPRU3;
     TX=DB ET 91;											\
       C=DB_3(B|C)_ET91(|L);										\
@@ -2944,6 +2955,9 @@ $ENDPOOL
     TX=Deutschland Altona-Kaltenkirchen-Neumünster Eisenbahn VT3 09;					\
       C=AKN_VT3_09;											\
       F=DPR3;
+    TX=Bahnen der Stadt Monheim E-Lok 14;								\
+      C=BSM_E14G,DB_3B_G10D,DB_3B_G10H5,DB_3B_G29;							\
+      F=EGF3;
     TX=Deutschland Butjadinger Bahn T1;									\
       C=BUTJ_T1_1955;											\
       F=DPRU3;
@@ -2953,6 +2967,27 @@ $ENDPOOL
     TX=Deutschland  Delmenhorst - Harpstedter Eisenbahn GmbH T172;					\
       C=DHE_T172L|DHE_T172;										\
       F=DPRU3;
+    TX=Frankfurt-Königsteiner Eisenbahnahn FKE 7 mit Langenschwalbachern Kelkheim 1955;			\
+      C=FKE_3A262(|L),											\
+	(<DB_3A_LPWPOST4IPR11E,3*DB_3A_LC4IPR09EL,DB_3A_LC4IDTRPR11E,DB_3A_LBC4IPR08)|			\
+	(>DB_3A_LPWPOST4IPR11EL,3*DB_3A_LC4IPR09E,DB_3A_LC4IDTRPR11EL,DB_3A_LBC4IPR08L);		\
+      F=SPR3;
+    TX=Frankfurt-Königsteiner Eisenbahnahn 261 + Personenzug Frankfurt - Königsstein 1955;		\
+      C=FKE_3A261(|L),											\
+	(<FKE_3A_PW3I1,FKE_3A_CI2(|L),FKE_3A_CI3(|L),FKE_3A_BCI1(|L),FKE_3A_CI1(|L),FKE_3A_CI1(|L),	\
+	FKE_3A_CI2(|L))|										\
+	(>FKE_3A_PW3I1L,FKE_3A_CI2(|L),FKE_3A_CI3(|L),FKE_3A_BCI1(|L),FKE_3A_CI1(|L),FKE_3A_CI1(|L),	\
+	FKE_3A_CI2(|L));										\
+      F=SP3;
+    TX=Frankfurt-Königsteiner Eisenbahnahn 262 + Personenzug Frankfurt - Königsstein 1958;		\
+      C=FKE_3A262(|L),FKE_3B_BI2(|L),FKE_3B_ABI1(|L),FKE_3B_BI1(|L),FKE_3B_BI2(|L),FKE_3B_BI3(|L),	\
+	FKE_3B_BI1(|L),FKE_3B_D3I1(|L);									\
+      F=SP3;
+    TX=Frankfurt-Königsteiner Eisenbahnahn 261 + Personenzug mit Langenschwalbachern Frankfurt - Königsstein 1958; \
+      C=FKE_3B261(|L),											\
+	(<DB_3B_LDPOST4IPR11U,3*DB_3B_LB4IPR09,DB_3B_LB4IPR11,DB_3B_LB4IPR09L)|				\
+	(>DB_3B_LDPOST4IPR11UL,3*DB_3B_LB4IPR09L,DB_3B_LB4IPR11L,DB_3B_LB4IPR09);			\
+      F=SP3;
     TX=Frankfurt-Königsteiner Eisenbahnahn 262 + Personenzug Frankfurt - Königsstein 1964;		\
       C=FKE_3A262(|L),											\
 	(<DB_3B_B3YG,DB_3B_B3YGL,DB_3B_B3YG,DB_3B_B3YGL,DB_3B_B3YG,DB_3B_BD3YG2)|			\
@@ -3621,6 +3656,23 @@ $ENDPOOL
     TX=DB 104 Museumslok;										\
       C=DB_4_E04_20(|L);										\
       F=EP4;
+# 110.0
+    TX=DB 110.0 + Eilzug;										\
+      C=DB_4_110002(|L)|DB_4A110003_1971(|L),DB_4A_DYE974U(|L),DB_4A_ABNZB703(|L),3*DB_4A_BN719B(|L);	\
+      F=EP4;
+    TX=DB 110 004;											\
+      C=DB_4A110004_1971(|L),DB_4A_DUM902 ,DB_4A_BUM232BL,DB_4A_BUM234C,DB_4_AM203BL,			\
+	(DB_ARMH216BL|DB_ARMH216B),DB_4A_BUM232B,DB_4A_BUM234C,DB_4A_ABUM224L;				\
+      F=EP4;
+    TX=DB 110 004 + Eilzug 1977;									\
+      C=DB_4B110004_1976(|L),(DB_4A_ABNZB703|DB_ABN703B)(|L),						\
+	3*(DB_4A_BN719B|DB_4_BNRZB719|DB_4A_BN724B|DB_4B_BN724)(|L);					\
+      F=EP4;
+    TX=DB 110 005 + D 311 1977;										\
+      C=DB_4A110005(|L),(<DB_4C_BDM271OBL,4*DB_4C_BM232OBL)|(>DB_4C_BDM271OB,4*DB_4C_BM232OB);		\
+      F=EP4;
+# 110.1-5
+
     TX=DB 110 + E 1827 W Bielefeld <- Minden - Bückeburg - Stadthagen - Wunstorf -> Hannover (anno 1969); \
       C=DB_E10259L,DB_4A_N58_DYE973_57_L,DB_4A_BYE(655|667)(|L),DB_4A_ABYSE(617|630)(|L),		\
 	DB_4A_BYE(655|667)(|L),3*DB_41BYG(|L);								\
@@ -3903,7 +3955,7 @@ $ENDPOOL
 	(<DB_DM903_1BB1(|L),DB_4C_BM232OBL,DB_ABN703~HEN~HEN,DB_4_BNRZB719(|L)|DB_4(B|C)_BN724(|L),	\
 	DB_43BDYG532RL);										\
       F=EPR4;
-
+# 111
     TX=DB 111 + Nahverkehrszug;										\
       C=(DB_111_016|DB_111_086),DB_MDI996~LB,DB_DM903BB2T(|L),DB_4_BNRZB719,DB_5_ABNRZB704_V_A,		\
 	DB_4_BYG515,DB_4B_BNRZB719L;									\
@@ -5164,6 +5216,9 @@ $ENDPOOL
     TX=Deutschland Altona-Kaltenkirchen-Neumünster Eisenbahn VT2E;					\
       C=1-2*(AKN_VT2E1M|AKN_VT2E~TG|AKN_VT2E_SH);							\
       F=DPR3;
+    TX=Bahnen der Stadt Monheim E-Lok 1..14;								\
+      C=BSM_ELOK|BSM_E14|BSM_E15,MINOL_7845444,VTG_4_UHS0728261(|L),DB_ZAD_VTG(|L),DB_4A_UHS0025282(|L); \
+      F=EGF4;
     TX=Deutschland Bentheimer Eisenbahn V1-8;								\
       C=BEE_D1B|BEE_D2C|BEE_D3A|BEE_D7|BEE_D8,								\
 	5*(DB_EAOS106AL|DB_EAOS106A|DB_EAOS106AHL|DB_EAOS106AH|DB_EAOS106BL|DB_EAOS106B|DB_EAOS106BHL|	\
@@ -5403,7 +5458,7 @@ $ENDPOOL
       C=BZB_ET1,BZB_EB1;										\
       F=GENPR4;
     TX=Drachenfelsbahn;											\
-      C=DRACH_T(|L);											\
+      C=DRACH_ET2(|L)|DRACH_ET6;									\
       F=GENPR4;
     TX=Tagebauzug;											\
       C=MINE_EL3,6-8*MINE_COAL1;									\
@@ -6152,6 +6207,14 @@ $ENDPOOL
       F=DF5;
 
 # Deutschland DB ET
+    TX=DB 401 ICE 1 1997;										\
+      C=[PU]<DB_401L,(<4*DB_801L,DB_804L,DB_803L,6*DB_802L)|(>4*DB_801,DB_804,DB_803,6*DB_802),		\
+	DB_401[PU];											\
+      F=EPU7;
+    TX=DB 401 ICE 1 1997 Dokumenta;									\
+      C=[PU]<DB_401L,(<4*DB_801L,DB_804L,DB_803L,6*DB_802L)|(>4*DB_801,DB_804,DB_803,6*DB_802),		\
+	DB_401[PU];											\
+      F=EPU6;
     TX=DB 401 ICE I;											\
       C=[PU]<DB_401ORL,DB_801AORL,3*(DB_801ORL),DB_804ORL,DB_803ORL,7*DB_802ORL,DB_401OR;		\
       F=EPU5;
@@ -6681,6 +6744,10 @@ $ENDPOOL
     TX=Deutschland Pressnitztalbahn IV K Wolkenstein - Schmalzgrube 1995;				\
       C=DR_99_51,(<DR_4_KDISA03,2*DR_4_KBI05)|(<DR_4_KDISA03L,2*DR_4_KBI05L);				\
       F=SNPR5;
+    TX=Drachenfelsbahn;											\
+      C=DRACH_ET3_2020|DRACH_ET5_2020;									\
+      F=ENPR5;
+
 # Breitspur
     TX=DB 347 Hafen Mukran Ruegen;									\
       C=DBAG_347140(|L)|DBC_347(079|975|096)(|L),RZD_ZB5651MK4,RZD_104022,RZD_20_58571696,		\
@@ -6860,7 +6927,7 @@ $ENDPOOL
       F=EP6;
     TX=DB 101 + IC ex Metropolitan-Wagen;								\
       C=<DBAG_APMBZF7WB,DBAG_APMKZ6WB,DBAG_APMZ5WB,DBAG_APMZ4WB,DBAG_APMKZ3WB,DBAG_APMZ2WB,		\
-	DBAG_APMZ1WB,DBAG_101_003U|DBAG_101_111U;							\
+	DBAG_APMZ1WB,DBAG_101_003U|DBAG_101_111U|DB_101_066RB;						\
       F=EPU6;
     TX=DB 101 + EN 452: Moskva-Belorusskaja - Paris-Est 2013;						\
       C=DBAG_101_003U|DBAG_101VRUM,									\
@@ -7791,7 +7858,7 @@ $ENDPOOL
 	VTG_TAGNPPS3L|VTG_TAGNPPS4L);									\
       F=EF6;
     TX=DB 185 + Güterzug;										\
-      C=DBAG_185_095U(|L)|RAI_185_142U(|L)|RAI_185_2U1|DB_185_399(|L)~SVE|RAI_185_2U2(|L)|		\
+      C=DB_185_250|DBAG_185_095U(|L)|RAI_185_142U(|L)|RAI_185_2U1|DB_185_399(|L)~SVE|RAI_185_2U2(|L)|	\
 	DBS_185_2U1(|L)|DBS_185_2U2(|L),Z_D_E6_G1;
 
 #186
@@ -7866,6 +7933,9 @@ $ENDPOOL
 	[O:CM_(RAILION(1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16)|R(1|2|3|4|5|6)|DBC(2|3|4|5)),95,8]	\
 	[O:CM_(RAILION(1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16)|R(1|2|3|4|5|6)|DBC(2|3|4|5)),19,8]);	\
       F=EF6;
+    TX=DB Cargo 189 823 + Containerzug;									\
+      C=DBC_189_823,D6FCM;										\
+      F=EF6;
     TX=DB 189 + Güterzug;										\
       C=([PFU]DBAG_189P(|1|2|3)(|L),D6FZM)|(DBAG_189P(|1|2|3)(|L),D6FCM)|				\
 	([PFU]RAI_189P(|1|3)(|L),D6FZM)|(RAI_189P(|1|3)(|L),D6FCM);					\
@@ -7874,14 +7944,14 @@ $ENDPOOL
       C=DBAG_189_(009U|022U|027U|027UL|078U|078UL)|DB_189065|RAI_189P4UL,				\
 	Z_D_E6_G_Stahku|Z_D_E6_G_Fals2|D6FZM|D6FCM|Z_D_E6_G1;						\
       F=EF6;
-    TX=DB 189 + Güterzug;										\
-      C=RAI_189P2AM(|L),Z_D_E6_G_Stahku|Z_D_E6_G_Fals2|D6FZM|D6FCM|Z_D_E6_G1;				\
-      F=EF6;
     TX=DB AG 189 + Erzzug;										\
       C=2*DBAG_1890(42|43|37)AK,9*DBAG_FALRRS152(A|B|C|D|E|F|G|H|I|J);					\
       F=EF6;
     TX=DBAG 189 + Erzzug 2017;										\
       C=DBAG_1890(37|42|43)AK,9*DBAG_FALRRS152(A|B|C|D|E|F|G|H|I|J);					\
+      F=EF6;
+    TX=DB 193 + Güterzug;										\
+      C=DB_193_(361|363|366)[PFU],D6FCM;								\
       F=EF6;
     TX=DB 193 + Güterzug;										\
       C=DBAG_193_3G(|L),										\
@@ -8190,13 +8260,23 @@ $ENDPOOL
       F=DF6;
 # Deutschland DB ET
     TX=DB 401 ICE 1;											\
-      C=[PU]<DB_401L,3*DB_801,DB_804L,DB_803,6*DB_802,DB_401;						\
-      F=EPU6;
-    TX=DB 401 ICE 1;											\
-      C=[PU]<DB_401L,DB_801AORL,2*DB_801,DB_804L,DB_803,6*DB_802,DB_401;				\
+      C=[PU]<DB_401L,3*DB_801,DB_804L,DB_803,6*DB_802,DB_401[PU];					\
       F=EPU6;
     TX=DBAG 401 ICE 1;											\
-      C=[PU]<DB_401L,(4*DB_801L,DB_804L,7*(DB_802L|DB_803L))|(7*(DB_802|DB_803),DB_804,4*DB_801),DB_401; \
+      C=[PU]<DB_401L,(<4*DB_801L,DB_804L,DB_803L,6*DB_802L)|(<6*DB_802,DB_803,DB_804,4*DB_801),DB_401;	\
+      F=EPU6;
+    TX=DBAG 401 ICE 1 / 2020;										\
+      C=[PU]DB_401VRGL,											\
+	(<4*DB_801VRL,DB_804VRL,DB_803VRL,6*DB_802VRL)|(>4*DB_801VR,DB_804VR,DB_803VR,6*DB_802VR),	\
+	DB_401VRG;											\
+      F=EPU6;
+    TX=DBAG 401 ICE 1 / Werder Pokalexpress;								\
+      C=[PU],DB_401VR_WERDER_POKALEXPRESSL,4*DB_801VRL,DB_804VRL,DB_803VRL,6*DB_802VRL,DB_401VR_EXPO;	\
+      F=EPU6;
+    TX=DBAG 401 ICE 1 / Expo 2000;									\
+      C=[PU],DB_401VR_EXPOL,										\
+	(<4*DB_801VRL,DB_804VRL,DB_803VRL,6*DB_802VRL)|(>4*DB_801VR,DB_804VRL,DB_803VR,6*DB_802VR),	\
+	DB_401VR_EXPO;											\
       F=EPU6;
     TX=DBAG 402 ICE 2;											\
       C=(<DBAG_402VL,2*DBAG_805V,DBAG_807V,3*DBAG_806V,DBAG_808V)|					\
@@ -8219,11 +8299,13 @@ $ENDPOOL
       F=EPU6;
     TX=DB 403 ICE 3 Serie 2;										\
       C=(1-2*(<DB_403_2ARL,DB_403_2B,DB_403_2C,DB_403_2D,DB_403_2E,DB_403_2F,DB_403_2G,DB_403_2HR))|	\
-	(1-2*(>DB_403_2AR,DB_403_2BL,DB_403_2CL,DB_403_2DL,DB_403_2EL,DB_403_2FL,DB_403_2G,DB_403_2HRL)); \
+	(1-2*(>DB_403_2AR,DB_403_2BL,DB_403_2CL,DB_403_2DL,DB_403_2EL,DB_403_2FL,DB_403_2GL,		\
+	DB_403_2HRL));											\
       F=EPU6;
     TX=DB 403 ICE 3 Serie 2 2020;									\
       C=(1-2*(<DB_403_2AGL,DB_403_2B,DB_403_2C,DB_403_2D,DB_403_2E,DB_403_2F,DB_403_2G,DB_403_2HG))|	\
-	(1-2*(>DB_403_2AG,DB_403_2BL,DB_403_2CL,DB_403_2DL,DB_403_2EL,DB_403_2FL,DB_403_2G,DB_403_2HGL)); \
+	(1-2*(>DB_403_2AG,DB_403_2BL,DB_403_2CL,DB_403_2DL,DB_403_2EL,DB_403_2FL,DB_403_2GL,		\
+	DB_403_2HGL));											\
       F=EPU6;
     TX=DB 406;												\
       C=<DB_406_0GL,DB_406B12,DB_406B22,DB_406B32,DB_406WR2,DB_406B42,DB_406A2,DB_406_5G,DB_406_5GL,	\
@@ -8235,11 +8317,11 @@ $ENDPOOL
       F=EPU6;
     TX=DB 407 ICE 9550 Alleo 2018 Frankfurt am Main Hbf - Paris Est;					\
       C=(<DB_407ARL,DB_407B,DB_407C,DB_407D,DB_407E,DB_407F,DB_407G,DB_407HR)|				\
-	(>DB_407AR,DB_407BL,DB_407CL,DB_407DL,DB_407EL,DB_407FL,DB_407G,DB_407HRL);			\
+	(>DB_407AR,DB_407BL,DB_407CL,DB_407DL,DB_407EL,DB_407FL,DB_407GL,DB_407HRL);			\
       F=EPU6;
     TX=DB 407 ICE 3 Alleo 2020;										\
-      C=(<DB_407AGL,DB_407B,DB_407C,DB_407D,DB_407E,DB_407F,DB_407G,DB_407HG)|				\
-	(>DB_407AG,DB_407BL,DB_407CL,DB_407DL,DB_407EL,DB_407FL,DB_407G,DB_407HGL);			\
+      C=(<DB_407AGL,DB_407BN,DB_407CN,DB_407DN,DB_407EN,DB_407FN,DB_407GN,DB_407HG)|			\
+	(>DB_407AG,DB_407BNL,DB_407CNL,DB_407DNL,DB_407ENL,DB_407FNL,DB_407GNL,DB_407HGL);		\
       F=EPU6;
     TX=DB 411;												\
       C=(<DBAG_411S2_0L,DBAG_411S2_1L,DBAG_411S2_2L,DBAG_411S2_8L,DBAG_411S2_7L,DBAG_411S2_6L,		\
@@ -8836,7 +8918,7 @@ $ENDPOOL
       C=BUG_01(|L)~SVE,BUG_SAADKMS690L,BUG_SAADKMS690[OB:BUG_UNIMOG(|L),,3];				\
       F=DPRU6;
     TX=CapTrain 285;											\
-      C=CAPTRAIN_285M(|L),D6FZM;									\
+      C=CAPT_285M(|L),D6FZM;										\
       F=DF6;
     TX=CCL Logistik 214 + Güterzug;									\
       C=CCL_214_(004|005|007)(|L),Z_D_E6_G_KK3;								\
@@ -9557,10 +9639,10 @@ $ENDPOOL
       C=NEB_VT735|NEB_OLA0007|NEB_OLA0010|NEB_VT643_20;							\
       F=DF6;
     TX=Deutschland National Express 110 + Ersatzzug;							\
-      C=(<NEX_110B1M(|L),NEX_BOMZ21M,NEX_BOMZ30SM,NEX_BNRZ451_1NM,NEX_BNRZ450_3NM,			\
-	NEX_BNRDZF463NM|NEX_BNRDZF463TM)|								\
-	(<NEX_BNRDZF463NML|NEX_BNRDZF483_1NML,NEX_BNRZ451_1NM,NEX_BNRZ450_3NM,NEX_BOMZ30SML,		\
-	NEX_BOMZ21ML,NEX_110B1M(|L));									\
+      C=(<NEX_110B1M(|L),NEX_BOMZ21M,TRAIN_BOMZ30SM,TRAIN_BNRZ451_1NM,TRAIN_BNRZ450_3NM,		\
+	TRAIN_BNRDZF483_1NM)|										\
+	(<TRAIN_BNRDZF483_1NML,TRAIN_BNRZ451_1NM,TRAIN_BNRZ450_3NM,TRAIN_BOMZ30SML,NEX_BOMZ21ML,	\
+	NEX_110B1M(|L));										\
       F=DPR6;
     TX=Deutschland NETLOG/TXL 1001119;									\
       C=TXL_1001119,Z_D_E6_G_KK1;									\
@@ -9849,8 +9931,8 @@ $ENDPOOL
     TX=Deutschland Rail Center Nürnberg 501 + Güterzug;							\
       C=RCN_0501,Z_D_E6_G_FCS;										\
       F=DF6;
-    TX=Deutschland RDC Autozug Sylt 247;								\
-      C=RDC_247;											\
+    TX=Deutschland RDC Autozug Sylt 247 + Ragierzug;							\
+      C=RDC_247,RDC_WLABMZ7090(|L);									\
       F=DF6;
     TX=Deutschland Railflex 212 + Sonderzug;								\
       C=RFLE_212039(|L),3*RFLE_BM238(|L);								\
@@ -10822,6 +10904,9 @@ $ENDPOOL
 	MRCE_189_209|MRCE_189_092L|MRCE_189_092|MRCE_189_095L~SO|MRCE_189_095~SO|MRCE_189_095L~HSC|	\
 	MRCE_189_095~HSC,VTG_UACNS(1|2)(|L);								\
       F=EF6;
+    TX=Deutschland MRCE ES 64 + Hamburg-Köln-Express;							\
+      C=MRCE_ES64U2_026(|L),2*EUEX_AM_HKX,EUEX_AM1O,EUEX_AM_HKX;					\
+      F=EP6;
     TX=Deutschland MRCE ES 64;										\
       C=MRCE_ES64U2_(099(|L)|021DUF(|L)|070T(|L)|072F(|L)|036I(|L)|036H(|L)|070|002E|008|026|030|034|	\
 	067B|067|071|072|099|002EL|008L|026L|030L|034L|067BL|067L|071L|072L|099L),D6FCM;		\
@@ -11425,11 +11510,9 @@ $ENDPOOL
     TX=DB Museumslok 140 423 + Sonderzug;								\
       C=DBMUS_140423(|L),BEM_B4U17548,BEM_WR1029,BEM_25001,BEM_B4UGEOBB,BEM_AUM,BEM_BUM,DBMUS_AB4U35B;	\
       F=EP6;
-    TX=Überführung DR-175010 durch E40128 nach Lichtenfels April 2018;					\
-      C=DBMUS_E40128KS(|L)[PFU],									\
-	(<DR_4_175AL[NT:C][COBL:1],2*DR_4_175E,DR_4_175C,DR_4_175D,DR_4_175A[NT:C][COBR:1])|		\
-	(>DR_4_175A[NT:C][COBR:1],2*DR_4_175EL,DR_4_175CL,DR_4_175DL,DR_4_175AL[NT:C][COBL:1]);		\
-      F=EF6;
+    TX=DB Museumslok 140 423 + Sonderzug EuroExpress;							\
+      C=DBMUS_E40128KS(|L),EUEX_BM1(|L),EUEX_BM1O,EUEX_AM2O,EUEX_AM1O,EUEX_AM1;				\
+      F=EP6;
     TX=SVG DB 465;											\
       C=(<SVG_465_006L,SVG_865_006,SVG_865_606)|(<SVG_865_606L,SVG_865_006L,SVG_465_006);		\
       F=EPRU6;
