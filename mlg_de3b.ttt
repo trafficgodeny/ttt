@@ -1,5 +1,8 @@
 ;ALLEMAGNE / GERMANY / DEUTSCHLAND EP. IIIB
 ;=========================================
+{FILELEVEL=1?
+  $INCLUDE SINGLE.TTT
+}
 $REQUIRE MLG_DEF.TTT
 
 %ADDPOOL(POOL_BRD,DE_ENV)
@@ -8,17 +11,19 @@ $REQUIRE MLG_DEF.TTT
 ;=============
 
 ;TEE BLAUER ENZIAN
-    TX=DB E03 + TEE;											\
+    TX=DB E03 + TEE Blauer Enzian;									\
       C=DB_E03_ESA(|L),DB_AV4UM62T(|L),DB_AP4UM62T(|L),DB_AV4UM62T(|L),DSG_WR4UM64AR(|L),		\
 	DB_ARD4UM64T(|L),DB_AP4UM62T(|L);								\
       V=16;												\
       F=EP3;
-    TX=DB E03 + TEE;											\
+
+    TX=DB E03 + TEE Blauer Enzian;									\
       C=DB_E03_SSA(|L),DB_AP4UM62T(|L),DB_ARD4UM64T(|L),DSG_WR4UM64AR(|L)|DSG_WR4UM64BR(|L),		\
 	DB_AV4UM62T(|L),DB_AP4UM62T(|L),DB_AV4UM62T(|L);						\
       V=16;												\
       F=EP3;
-    TX=DB E03 + TEE;											\
+
+    TX=DB E03 + TEE Blauer Enzian;									\
       C=DB_E03_ESA(|L),DB_ARD4UM64T(|L),DSG_WR4UM64AT(|L),DB_AP4UM62T(|L),2*DB_AV4UM62T(|L);		\
       V=16;												\
       F=EP3;
@@ -34,7 +39,7 @@ $REQUIRE MLG_DEF.TTT
 	(2*DB_VM11_5CL,DB_VM11_5D,DB_VM11_5E,DB_VM11_5F,2*DB_VM11_5CL),DB_VT11_5;			\
       V=14;												\
       F=DPU3;
-    TX=DB VT 08.5 + TEE Helvetia;									\
+    TX=DB VT 08.5 + VT 11.5 TEE Helvetia;								\
       C=(<DB_VT08_5CL,DB_VM08_5CL,DB_VS08_5C)|(>DB_VT08_5C,DB_VM08_5C,DB_VS08_5CL),			\
 	(<DB_VT11_5L,											\
 	(2*DB_VM11_5C,DB_VM11_5FL,DB_VM11_5EL,DB_VM11_5DL,2*DB_VM11_5C)|				\
@@ -74,26 +79,30 @@ $REQUIRE MLG_DEF.TTT
 	$DIR((DB_WR4UM63BB1L,DB_AD4UM62BB1L),(DB_WR4UM63BB1,DB_AD4UM62BB1),DB_AV4UM62BB1(|L)));		\
       V=16;												\
       F=EP3;
+
     TX=DB E10.12 + F Rheingold;										\
       C=DB_E10_12BB1(|L),3*DB_AV4UM62BB1(|L),								\
 	$DIR((DB_AD4UM62BB1,DB_WR4UM63BB1),(DB_AD4UM62BB1L,DB_WR4UM63BB1L)),DB_AV4UM62BB1(|L),		\
 	DB_AP4UM62BB1(|L),DB_AV4UM62BB1(|L);								\
       V=16;												\
       F=EP3;
+
 ;F7 RHEINBLITZ
-    TX=DB E10.12 + F Rheinblitz;									\
+    TX=DB E10.12 + F 7 Rheinblitz;									\
       C=DB_E10_12_TEE(|L),DB_A4UM61(B|_BL),DSG_WR4UM64BR(|L),2*DB_A4UM61(B|_BL);			\
       V=16;												\
       F=EP3;
+
 ;BLAUER ENZIAN
-    TX=DB V200.0 + F Blauer Enzian;									\
+    TX=DB V200.0 + F 78 Blauer Enzian;									\
       C=DB_V200_0PR1(|L),2*DB_A4UMG54B(|L),DB_WR4U28R(|L),DB_A4UMG54B(|L);				\
       V=14;												\
       F=DP3;
 ;GAMBRINUS
-    TX=DB V200.0 + F Gambrinus;										\
+    TX=DB V200.0 + F 34 Gambrinus;									\
       C=DB_V200_0PR(|L),3*DB_A4UM61(B|_BL),DSG_WR4UM64AR(|L),2*DB_A4UM61(B|_BL);			\
       F=DP3;
+
 ;HANS SACHS
     TX=DB E10 001 + F Hans Sachs;									\
       C=DB_E10_001B2(|L),2*DB_A4UMG54B(|L),DSG_WR4UM64BR(|L),DB_A4UMG54B(|L);				\
@@ -104,14 +113,26 @@ $REQUIRE MLG_DEF.TTT
       C=DB_E18B1(|L),2*DB_A4UMG54B(|L),DB_WR4U39R(|L),DB_A4UMG54B(|L);					\
       V=14;												\
       F=EP3;
+
     TX=DB E10 004 + F-Zug;										\
       C=DB_E10_004B1(|L),2*DB_A4UMG54B(|L),DB_WR4U39R(|L),3*DB_A4UMG54B(|L);				\
       V=14;												\
       F=EP3;
+
     TX=DB E10 + F-Zug;											\
       C=DB_E10K_2FPH_B(|L),2*DB_A4UMG54B(|L),DB_AR4UMG54B(|L),2*DB_A4UMG54B(|L);			\
       V=15;												\
       F=EP3;
+
+    TX=DB VT 04.501;											\
+      C=DB_VT04_501;											\
+      V=14;												\
+      F=EPU3;
+    TX=Helvetia (DB VT12.5 + VT04.501);									\
+      C=<(DB_VT04_501,DB_VT12_5AL,DB_VM12_5AL,DB_VS12_5A)|						\
+	(DB_VS12_5AL,DB_VM12_5A,DB_VT12_5A,DB_VT04_501);						\
+      V=14;												\
+      F=EPU3;
 
 ;KOPENHAGEN-EXPRESS
     TX=DB VT12.5 + VT04.000+ Kopenhagen-Express T04.000TEE Paris-Ruhr / Rhein-Main / Saphir;		\
@@ -154,12 +175,14 @@ $REQUIRE MLG_DEF.TTT
 	NS_DIV_BE3(|L),DB_WR4U39R(|L),DB_AB4UE35(|L),2*DB_B4UM54G(|L);					\
       V=14;												\
       F=EP3;
+
 ;DONAU-KURIER
     TX=DB E50 + D Donau Kurier;										\
       C=DB_E50_2FPH_G(|L),2*DB_B4UM54G(|L),DB_WR4U28R(|L),DB_B4UM54G(|L),DB_A4UMG54B(|L),		\
 	2*DB_B4UM54G(|L),DB_PW4I32A(|L);								\
       V=10;												\
       F=EP3;
+
 ;Frankfurt/Main - Passau
     TX=DB E18 + D-Zug Frankfurt am Main - Passau;							\
       C=DB_E18G(|L),DB_MD4IE50(|L),DB_B4UM54G(|L),DB_A4UWE28(|L),2*DB_B4UM54G(|L);			\
@@ -180,22 +203,26 @@ $REQUIRE MLG_DEF.TTT
 ;===  SCHNELLZÜGE / E-ZÜGE  ===
 ;==============================
 
-    TX=DB E10 +Eilzug;											\
+    TX=DB E10 001 + Eilzug;										\
       C=DB_E10_001B1(|L),DB_PW4I32A(|L),4*DB_B4YM51(|L),DB_AB4YMG51(|L)~MLG;				\
       V=12;												\
       F=EP3;
+
     TX=DB E10 +Eilzug;											\
       C=DB_E10K_4FPV_B(|L),DB_PW4U30(|L),4*DB_B4N59,DB_A4YMG54(|L),DB_B4N59;				\
       V=12;												\
       F=EP3;
+
     TX=DB E10 +Eilzug;											\
       C=DB_E10B_B(|L),$DIR(DB_BD4UM59GL,DB_BD4UM59G),DB_B4YM51(|L),2*DB_AB4YMG51(|L),DB_B4YM51(|L);	\
       V=12;												\
       F=EP3;
+
     TX=DB E10 +Eilzug;											\
       C=DB_E10B_B383(|L),DB_B4N59,DB_AB4N59,2-3*DB_B4N59,DB_PW4U30(|L);					\
       V=12;												\
       F=EP3;
+
     TX=DB V160 + Eilzug;										\
       C=DB_V160PR(|L),DB_D4UM60G(|L),2*DB_B4YM51(|L),DB_AB4YMG51(|L),DB_B4YG58;				\
       V=10;												\
@@ -217,67 +244,93 @@ $REQUIRE MLG_DEF.TTT
       C=DB_E16G(|L),DB_PWI28G(|L),2*DB_B4N59,DB_AB4N59;							\
       V=10;												\
       F=EPR3;
+
     TX=DB E32 +Personenzug;										\
       C=DB_E32(|L),2*DB_B3YG_PAAR,$DIR((DB_AB3YG,DB_BD3YG),(DB_AB3YGL,DB_BD3YGL));			\
       V=9;												\
       F=EPR3;
+
     TX=DB E40 +Personenzug;										\
       C=DB_E40_2FPH_G(|L),$DIR((DB_BD3YGL,DB_AB3YGL),(DB_BD3YG,DB_AB3YG)),DB_B3YG_PAAR;			\
       V=10;												\
       F=EPR3;
+
     TX=DB E40 +Personenzug;										\
       C=DB_E40_4FPV_G(|L),$DIR(DB_BD3YGL,DB_BD3YG),DB_B3YG(|L),$DIR(DB_AB3YG,DB_AB3YGL),DB_B3YG(|L),	\
 	DB_B3YG_PAAR,DB_B3YG(|L),$DIR(DB_AB3YGL,DB_AB3YG);						\
       V=10;												\
       F=EPR3;
+
     TX=DB E40 +Personenzug;										\
       C=DB_E40_2FPH_G(|L),DB_PWI31A(|L),DB_B4YG56WL|DB_B4YG56PY,DB_AB4YG58(|L),DB_B4YG56WL|DB_B4YG56PY;	\
       V=10;												\
       F=EPR3;
+
     TX=DB E41 +Personenzug;										\
       C=>DB_E41_2FPHF_B(|L),2*DB_B3YG_PAAR,$DIR((DB_BD3YGL,DB_AB3YGL),(DB_BD3YG,DB_AB3YG)),		\
 	DB_B3YG_PAAR,DB_B4YMF51;									\
       V=10;												\
       F=EPRU3;
+
     TX=DB E41 +Personenzug;										\
       C=<1:DB_E41_2FPH_B(|L)|2:DB_E41_2FPV_G(|L),DB_B3YG_PAAR,						\
 	$DIR((DB_B3YGL,DB_AB3YGL),(DB_B3YG,DB_AB3YG)),DB_BD4YMF51L;					\
       V=10;												\
       F=EPRU3;
+
     TX=DB E41 +Personenzug;										\
       C=>DB_E41_4FPV_G373(|L),$DIR((DB_B3YGL,DB_AB3YGL),(DB_B3YG,DB_AB3YG)),DB_B3YG_PAAR,DB_BD4YMF51;	\
       V=10;												\
       F=EPRU3;
+
     TX=DB E41 +Personenzug;										\
       C=DB_E41_4FPV_G(|L),$DIR(DB_BD4YG56PYL,DB_BD4YG56PY),DB_B4YG56WL|DB_B4YG56PY,DB_AB4YG58(|L),	\
 	DB_B4YG56WL|DB_B4YG56PY;									\
       V=12;												\
       F=EPRU3;
+
     TX=DB E40 +Personenzug;										\
       C=DB_E40_4FPV_G(|L)[PFU],DB_E41_4FPV_G(|L),DB_B3YG_PAAR,DB_B4YG56WL|DB_B4YG56PY,DB_AB4YG58(|L),	\
 	$DIR(DB_BD4YG56WL|DB_BD4YG56PY,DB_BD4YG56WLL|DB_BD4YG56PYL);					\
       V=10;												\
       F=EPR3;
+
+    TX=DB E44 +Personenzug;										\
+      C=(<DB_E44_0(|L),DB_AB3YG,DB_B3YGL,DB_B3YG_PAAR,DB_BD4YGF27_54)|					\
+	(>DB_E44_0(|L),DB_AB3YGL,DB_B3YG,DB_B3YG_PAAR,DB_BD4YGF27_54L);					\
+      V=10;												\
+      F=EPRU3;
+
     TX=DB E44 +Personenzug;										\
       C=DB_E44_0(|L),2-3*DB_B3YG_PAAR,$DIR((DB_AB3YG,DB_BD3YG),(DB_AB3YGL,DB_BD3YGL));			\
       V=10;												\
       F=EPR3;
+
     TX=DB E44 +Personenzug;										\
       C=DB_E44_0(|L),DB_PWI28G(|L),DB_AB4YG58(|L),2*DB_B4YG58;						\
       V=10;												\
       F=EPR3;
+
     TX=DB E44 +Personenzug;										\
       C=>DB_E44_0(|L),4*DB_B4YM51(|L),DB_AB4YMG51(|L),DB_BD4YMF51;					\
       V=10;												\
       F=EPR3;
+
     TX=DB E44W +Personenzug;										\
       C=DB_E44_10(|L),2*DB_B3YG_PAAR,$DIR((DB_B3YGL,DB_AB3YGL),(DB_B3YG,DB_AB3YG)),DB_PWI28G(|L);	\
       V=10;												\
       F=EPR3;
+
+    TX=DB E44.5 +Personenzug;										\
+      C=DB_E44_5S1(|L),$DIR(DB_PWI31AL,DB_PWI31A),DB_AI29G(|L),4*DB_BI28G;				\
+      V=8;												\
+      F=EPR3;
+
     TX=DB E52 +Personenzug;										\
       C=DB_E52(|L),(<DB_B3YGL,DB_B3YG),DB_AI29G(|L),(<DB_B3YGL,DB_B3YG),DB_PWI30A(|L);			\
       V=9;												\
       F=EPR3;
+
     TX=DB E75 +Personenzug;										\
       C=DB_E75(|L),DB_PWI28G(|L),(<DB_B3YGL,DB_B3YG),$DIR((DB_AB3YG,DB_B3YG),(DB_AB3YGL,DB_B3YGL));	\
       V=7;												\
@@ -290,8 +343,7 @@ $REQUIRE MLG_DEF.TTT
     TX=DB V36 + Personenzug;										\
       C=DB_V36E2(|L),3*DB_BI28R;									\
       V=6;												\
-      F=DPR3;												\
-      V36;
+      F=DPR3;
     TX=DB V36 + Personen-Wendezug;									\
       C=(<DB_V36E2,DB_BI26R(|L),2*DB_BI28R,DB_ABI28R(|L),DB_PWIF4152R)|					\
 	(>DB_V36E2L,DB_BI26R(|L),2*DB_BI28R,DB_ABI28R(|L),DB_PWIF4152RL);				\
@@ -308,6 +360,10 @@ $REQUIRE MLG_DEF.TTT
     TX=DB V80 + Personenzug;										\
       C=(<DB_V80C(|L),3*DB_BI28G,DB_ABI28G(|L),DB_BPWIF29G)|						\
 	(>DB_V80C(|L),3*DB_BI28G,DB_ABI28G(|L),DB_BPWIF29GL);						\
+      V=8;												\
+      F=DPR3;
+    TX=DB V80 + Personenzug;										\
+      C=DB_V80,DB_VS145_228(|L),DB_VS145_057(|L),DB_VS145_228(|L);					\
       V=8;												\
       F=DPR3;
     TX=DB V100 + Personenzug;										\
@@ -334,6 +390,7 @@ $REQUIRE MLG_DEF.TTT
 	$DIR((DB_AB3YGL,DB_BD3YG),(DB_AB3YG,DB_BD3YGL));						\
       V=10;												\
       F=DPR3;
+# Zeilen einfügen #
     TX=DB V160 + Personenzug;										\
       C=DB_V160PR(|L),											\
 	(<2*(DB_B4YG56WL|DB_B4YG56PY|DB_B4YG58),DB_AB4YG58(|L),DB_BD4YG56PY)|				\
@@ -349,23 +406,56 @@ $REQUIRE MLG_DEF.TTT
 	(>DB_V160PR(|L),2*DB_B4N59,DB_AB4N59,2*DB_B4N59,DB_BPW4NF59L);					\
       V=10;												\
       F=DPR3;
-
+    TX=DB Köf 1 + VS;											\
+      C=DB_KOF11(|L),DB_VS145_228(|L),DB_VS145_048(|L);							\
+      V=5;												\
+      F=DPR3;
+    TX=DB ET25;												\
+      C=DB_ET25_RG;											\
+      V=12;												\
+      F=EPRU3;
+    TX=DB ET25;												\
+      C=(<DB_ET25,DB_ES25M)|(>DB_ET25,DB_ES25ML);							\
+      V=12;												\
+      F=EPRU3;
+    TX=DB ET55;												\
+      C=1:(<DB_ET25,DB_ES25M)|1:(>DB_ET25,DB_ES25ML)|2:DB_ET25_RG;					\
+      V=9;												\
+      F=EPRU3;
     TX=DB ET 26;											\
       C=DB_ET26_001(|L)|DB_ET26_002(|L)|DB_ET26_003(|L)|						\
 	(<DB_ET26_001L|DB_ET26_002L,DB_ET26_001|DB_ET26_003);						\
-      F=EPRU3;												\
-      2V=12;
+      V=12;												\
+      F=EPRU3;
+
     TX=DB ET 27;											\
       C=DB_ET27;											\
       V=12;												\
       F=EPRU3;
+
     TX=DB ET 30;											\
       C=DB_ET30;											\
       V=12;												\
       F=EPRU3;
+
     TX=DB ET 56;											\
       C=DB_ET56;											\
       V=11;												\
+      F=EPRU3;
+    TX=DB ET 85;											\
+      C=6:DB_ET85A(|L)|2:(<DB_ET85AL,DB_ES85_0L)|2:(>DB_ET85A,DB_ES85_0)|1:(<DB_ET85AL,DB_ES85_1L)|	\
+	1:(>DB_ET85A,DB_ES85_1);									\
+      V=8;												\
+      F=EPR3;
+    TX=DB ET 85;											\
+      C=(<DB_ET85AL,DB_EB85C(|L)|DB_EB85_2(|L),2:DB_ES85_0L|1:DB_ES85_1L)|				\
+	(>DB_ET85A,DB_EB85C(|L)|DB_EB85_2(|L),2:DB_ES85_0|1:DB_ES85_1)|					\
+	(<DB_ET85A(|L),DB_ES85_0,DB_ET85A);								\
+      V=8;												\
+      F=EPRU3;
+    TX=DB ET 90;											\
+      C=(<DB_ET90_03(|L),|DB_EB85_90(|L),DB_ES85_40)|(>DB_ET90_03(|L),|DB_EB85_90(|L),DB_ES85_40L);	\
+      V=8;												\
       F=EPRU3;
 
     TX=DB ETA 177;											\
@@ -388,14 +478,17 @@ $REQUIRE MLG_DEF.TTT
     TX=ETA 178;												\
       C=DB_ETA178_0(|L)|DB_ETA178_1(|L),0-1*DB_EBA177_B33(|L);						\
       V=7;												\
-      F=DPRU3;												\
-      7;
+      F=DPRU3;
     TX=DB ETA 177 + 178;										\
       C=DB_ETA178_0(|L),2*DB_EBA177_B33(|L),DB_ETA178_0(|L);						\
       V=7;												\
       F=DPRU3;
     TX=DB ETA 178 051;											\
       C=DB_ETA178_051(|L);										\
+      V=7;												\
+      F=DPRU3;
+    TX=DB ETA 180;											\
+      C=DB_ETA180_1S(|L)|DB_ETA180_2S(|L);								\
       V=7;												\
       F=DPRU3;
     TX=DB ETA 180;											\
@@ -440,6 +533,18 @@ $REQUIRE MLG_DEF.TTT
       C=(<DB_VT33_202,DB_VS145_048)|(>DB_VT33_202L,DB_VS145_048L);					\
       V=10;												\
       F=DPRU3;
+    TX=DB VT 25.5;											\
+      C=(<DB_VT25_5(|L),2:DB_VS145_096|1:DB_VS145_004)|(>DB_VT25_5(|L),2:DB_VS145_096L|1:DB_VS145_004L); \
+      V=14;												\
+      F=DPRU3;
+    TX=DB VT 32;											\
+      C=<1-2@((DB_VT32_0(|L),DB_VS145_096)|(>DB_VT32_0(|L),DB_VS145_096L));				\
+      V=10;												\
+      F=DPRU3;
+    TX=DB VT 33.5;											\
+      C=(<DB_VT33_500(|L),DB_VS145_096)|(>DB_VT33_500(|L),DB_VS145_096L);				\
+      V=10;												\
+      F=DPRU3;
     TX=DB VT 45.5;											\
       C=<(DB_VT45_5AL,DB_VT45_5B)|(DB_VT45_5BL,DB_VT45_5A);						\
       V=9;												\
@@ -460,13 +565,46 @@ $REQUIRE MLG_DEF.TTT
       C=DB_VT70_970A(|L),DB_VB140_007(|L);								\
       V=8;												\
       F=DPRU3;
+
     TX=DB VT 75;											\
-      C=3:DB_VT75_900(|L)|2:DB_VT75_914(|L),0-1*DB_VB140_260(|L);					\
+      C=3:DB_VT75_900(|L)|2:DB_VT75_914(|L),0-1*(2:DB_VB140_260(|L)|1:DB_VB140_250A(|L));		\
       V=8;												\
       F=DPRU3;
-    TX=DB VT95 Vorserie;										\
-      C=5:DB_VT95_901(|L)|1:DB_VT95_911C(|L),0-1*DB_VB142P(|L);						\
+    TX=DB VT 75;											\
+      C=3:DB_VT75_900(|L)|2:DB_VT75_914(|L),DB_VB140_097O|DB_VB140_097(|L);				\
       V=8;												\
+      F=DPRU3;
+
+;Schienenbus
+    TX=DB Schienenbus VT 95 Vorserie;									\
+      C=5:DB_VT95_901(|L)|1:DB_VT95_911C(|L),0-1*DB_VB142P(|L);						\
+      V=8; W=X;												\
+      FG=TRBED57:..,-6,0-5;										\
+      F=DPRU3;
+    TX=DB Schienenbus VT 95;										\
+      C=(DB_VT95B(|L),DB_VB142P(|L))|(DB_VT95_901(|L),DB_VB142A(|L))|DB_VT95_9176(|L);			\
+      V=9; W=X;												\
+      FG=TRBED57:..,-6,0-5;										\
+      F=DPRU3;
+    TX=DB Schienenbus VT 95;										\
+      C=DB_VT95A(|L),2:|2:DB_VB142A(|L)|1:DB_VB141_2;							\
+      V=9; W=X;												\
+      FG=TRBED57:..,-6,0-5;										\
+      F=DPRU3;
+    TX=DB Schienenbus VT 95;										\
+      C=DB_VT95B(|L),|DB_VB142A(|L)|(2*DB_VB142A(|L));							\
+      V=9; W=X;												\
+      FG=TRBED57:..,-6,0-5;										\
+      F=DPRU3;
+    TX=DB Schienenbus VT 95;										\
+      C=DB_VT95B(|L),2*DB_VB142A(|L),DB_VT95B(|L);							\
+      V=9; W=X;												\
+      FG=TRBED57:..,-6,0-5;										\
+      F=DPRU3;
+    TX=DB Schienenbus VT 98.9;										\
+      C=DB_VT98_9(|L),DB_VB142A(|L)|DB_VB141_2;								\
+      V=9; W=X;												\
+      FG=TRBED57:..,-6,0-5;										\
       F=DPRU3;
 
 ;STUTTGARTER VORORT
@@ -475,10 +613,12 @@ $REQUIRE MLG_DEF.TTT
 	(>DB_ET65_1S[PDU],3:1|1:2*(DB_EB65A|DB_EB65AL),DB_ES65_6_1SL);					\
       V=8;												\
       F=EPRU3;
+
     TX=DB ET 65 Vorortverkehr Stuttgart;								\
       C=(<DB_ET65_1SRGL[PDU],DB_EM65_0,DB_ES65_6_1SRG)|(>DB_ET65_1SRG[PDU],DB_EM65_0,DB_ES65_6_1SRGL);	\
       V=8;												\
       F=EPRU3;
+
     TX=DB ET 65 Vorortverkehr Stuttgart;								\
       C=(<DB_ET65_031L[PDU],DB_EM65_0,DB_ES65_031)|(>DB_ET65_031[PDU],DB_EM65_0,DB_ES65_031L);		\
       V=8;												\
@@ -486,6 +626,11 @@ $REQUIRE MLG_DEF.TTT
 
 ;===  SPEZIALZÜGE  ===
 ;=====================
+
+    TX=DB E44.5 + Touropa Zug;										\
+      C=DB_E44_5S2(|L),4*DB_BC4UMG53BT(|L);								\
+      V=9;												\
+      F=EP3;
 
     TX=DB ET 91;											\
       C=DB_ET91(|L);											\
@@ -496,6 +641,12 @@ $REQUIRE MLG_DEF.TTT
 ;====== PRIVATBAHNEN ======
 ;==========================
 
+;BENTHEIMER EISENBAHN
+;--------------------
+    TX=Bentheimer Eisenbahn (T 2);									\
+      C=BEE_T2(|L)~MLG,0-1*BEE_VB24(|L)~MLG;								\
+      V=8;												\
+      F=DPRU3;
 ;HERSFELDER KREISBAHN
 ;--------------------
     TX=Hersfelder Kreisbahn VT 50;									\
@@ -511,7 +662,7 @@ $REQUIRE MLG_DEF.TTT
 ;---------------------------------
     TX=HZL (HOHENZOLLERISCHE LANDESBAHN);								\
       C=HZL_VT6(|L),1:HZL_VB16(|L)|3:;									\
-      V=8; W=X;												\
+      V=8;												\
       FG=TRBED57:..,-6,0-5;
 
 ;LSE (LÜBECK-SEGEBERGER-EISENBAHN)
@@ -528,9 +679,23 @@ $REQUIRE MLG_DEF.TTT
       V=7;												\
       F=DF3;
     TX=OHE GDT M519:Esslingen;										\
-      C=OHE_GDT0519A(|L),SNCF_K_STUTTGART_N,SNCF_G_STDA,SNCF_E_UICII_S;					\
+      C=OHE_GDT0519A(|L),SNCF_K_STUTTGART_N,SNCF_G_STDA,SNCF_E_UIC2S;					\
       V=8;												\
       F=DF3;
+
+;TN
+;--
+    TX=Tecklenburger Nordbahn (T5);									\
+      C=TECK_T5A(|L);											\
+      V=6;												\
+      F=DPRU3;
+
+;WD
+;--
+    TX=Kleinbahn Weidenau - Deutz (WD) VT 20;								\
+      C=WD_VT20(|L),|WD_VB20|WD_VB20P(|L);								\
+      V=8; W=X;												\
+      F=DPRU3;
 
   }
 %ENDPOOL;

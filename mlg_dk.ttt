@@ -1,7 +1,8 @@
-$REQUIRE MLG_DEF.TTT
 ;DANEMARK / DENMARK
 ;==================
-
+{FILELEVEL=1?
+  $INCLUDE SINGLE.TTT
+}
 $REQUIRE MLG_DEF.TTT
 
 %ADDPOOL(POOL_DK,DK_ENV)
@@ -400,22 +401,36 @@ $REQUIRE MLG_DEF.TTT
 	  C=DSB_IC3_L3,DSB_IR4_L3;									\
 	  V=14;												\
 	  F=EP6;
+
 	TX=DSB IR4;											\
 	  C=1-2@DSB_IR4_L4;										\
 	  V=14;												\
 	  F=EPU6;
+
 	TX=DSB IR4 + IC3;										\
 	  C=2*DSB_IC3_L4,DSB_IR4_L4;									\
+	  V=14;												\
 	  F=EPU6;
+
 	TX=DSB IR4 + IC3;										\
 	  C=DSB_IC3_L5,3*(DSB_IC3_L4|DSB_IC3_L4B),DSB_IR4_L4;						\
 	  V=16;												\
 	  F=EPU6;
+
 	TX=DSB IR4 + IC3;										\
 	  C=DSB_IR4_L4B,DSB_IC3_L4B;									\
 	  V=14;												\
 	  F=EPU6;
 
+	TX=DSB IR4;											\
+	  C=DSB_IR4_L5,DSB_IR4_L4B;									\
+	  V=14;												\
+	  F=EPU6;
+
+	TX=DSB ME +IR;											\
+	  C=DSB_ME_L1(|L),DB_ARMZ217VRF(|L),DB_BIMZ264IRK(|L),DB_BIMDZ268IRK(|L);			\
+	  V=16;												\
+	  F=EP6;
 	TX=DSB EA + IR;											\
 	  C=DSB_EA1,DB_ARKIMBZ262IRK(|L),2*DB_BIMZ264IRK(|L);						\
 	  V=14;												\
@@ -533,6 +548,11 @@ $REQUIRE MLG_DEF.TTT
 	  V=14;												\
 	  F=EPU6;
 
+	TX=DSB EB + IR;											\
+	  C=(<DSB_EB1(|L),3*DSB_DOSTO_B4,DSB_DOSTO_ABS4)|(>DSB_EB,3*DSB_DOSTO_B4L,DSB_DOSTO_ABS4L);	\
+	  V=14;												\
+	  F=EPU6;
+
 	TX=DSB MR;											\
 	  C=1-2*(DSB_MRMRD_L1|DSB_MRMRD_L2);								\
 	  V=12;												\
@@ -615,10 +635,14 @@ $REQUIRE MLG_DEF.TTT
 	  C=1-2*AR_1000(|L);										\
 	  V=12;												\
 	  F=DPR6;
+	TX=ARRIVA DESIRO;										\
+	  C=AR_DESIRO_EXDSB(|L);									\
+	  V=12;												\
+	  F=DPR6;
 
 ;LNJ
 	TX=LNJ RegioSprinter;										\
-	  C=LNJ_RS;											\
+	  C=LNJ_RS~MLG;											\
 	  V=10;												\
 	  F=DPR6;
 

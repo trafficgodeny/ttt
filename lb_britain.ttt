@@ -110,8 +110,10 @@ $REQUIRE TRAINDEF.TTT
     TX=London Midland and Scottish Railway Coronation 4457;						\
       C=LMS_2_4457(|L),GB2PSLM;										\
       F=SP2;
-    TX=London Midland and Scottish Railway Coronation 4994;						\
-      C=LMS_2_4994(|L),GB2PSLM;										\
+    TX=London Midland and Scottish Railway Coronation 4994 + Coaltrain 1935;				\
+      C=LMS_2_4994(|L),											\
+	30*(1:LMS_2_O2(E|F|G)(|L)[O:FR_KO(39|16|17)(|[M])]|						\
+	4:LMS_2_O2(C|A|B|D)[O:(COAL(61|59)|FR_KO(40|64))(|[M])]),LMS_2_BV3V;				\
       F=SP2;
     TX=London Midland and Scottish Railway Coronation 9399;						\
       C=LMS_2_9399(|L),GB2F1LM;										\
@@ -305,6 +307,9 @@ $REQUIRE TRAINDEF.TTT
     TX=British Rail Coronation Class 14 (Teddy Bear);							\
       C=BR_14D9526(|L),GB3FS1;										\
       F=DF3;
+    TX=British Rail Coronation Class 15 + Coaltrain 1958;						\
+      C=BR_3_15G2(|L),20*LMS_2_O2(C|A|B|D)[O:(COAL(61|59)|FR_KO(40|64))(|[M])],BR_3_BV1;		\
+      F=SP2;
     TX=British Rail Coronation 33;									\
       C=BR_CL33GRSO0(2|1)(|L),GB3F1;									\
       F=DF3;
@@ -462,6 +467,9 @@ $REQUIRE TRAINDEF.TTT
       F=DF4;
     TX=British Rail Coronation Class 14 (Teddy Bear);							\
       C=BR_14_(901|029)(|L),GB4FS1;									\
+      F=DF4;
+    TX=British Rail Coronation Class 20;								\
+      C=BR_20E3M(|L),3*GB4FS1;										\
       F=DF4;
     TX=British Rail Coronation Class 20;								\
       C=BR_20(096|227|132|107),3*GB4FS1;								\
@@ -622,6 +630,12 @@ $REQUIRE TRAINDEF.TTT
     TX=Groﬂbritannien BR 92;										\
       C=BR_CL92SO0(1|2)(|L),GB4FL;									\
       F=EF45;
+    TX=Groﬂbritannien BR 321;										\
+      C=REG_WY321SO01(|L);										\
+      F=EP4;
+    TX=Groﬂbritannien BR 320;										\
+      C=BR_320SO01(|L);											\
+      F=EP4;
     TX=Groﬂbritannien BR IC 225 mit 91;									\
       C=(<BR_CL91L,2*BR_MK4FOSOL,BR_MK4RSBSOL,3*BR_MK4TSOSOL,BR_MK4DVTSO)|				\
 	(<BR_MK4DVTSOL,3*BR_MK4TSOSO,BR_MK4RSBSO,2*BR_MK4FOSO,BR_CL91);					\
@@ -678,6 +692,9 @@ $REQUIRE TRAINDEF.TTT
     TX=Groﬂbritannien NTWR 31;										\
       C=NTWR_CL31SBL|NTWR_CL31SB|NTWR_CL31SAL|NTWR_CL31SA,5*(NTWR_HQAL|NTWR_HQA|NTWR_HQAGL|NTWR_HQAG);	\
       F=DF56;
+    TX=Groﬂbritannien Direct Rail Services 20;								\
+      C=DRS_20CM(|L),GB5F;										\
+      F=DF5;
     TX=Groﬂbritannien Direct Rail Services 33;								\
       C=DRS_CL33SO0(1|2)(|L),GB5F;									\
       F=DF5;
@@ -1156,6 +1173,12 @@ $REQUIRE TRAINDEF.TTT
 	(<VIR_CL91SO2L,2*VIR_MK4FOSO1L,VIR_MK4RSBSO1L,3*VIR_MK4TSOSOL,VIR_MK4DVTSO2)|			\
 	(<VIR_MK4DVTSO2L,3*VIR_MK4TSOSO1,VIR_MK4RSBSO1,2*VIR_MK4FOSO1,VIR_CL91SO2);			\
       F=EPU56;
+    TX=Groﬂbritannien Network South-East 321;								\
+      C=NSE_321SO01(|L);										\
+      F=EP5;
+    TX=Groﬂbritannien SPT 320;										\
+      C=SPT_320SO01(|L);										\
+      F=EP5;
     TX=Groﬂbritannien English Welsh and Scottish Railways 92;						\
       C=EWS_CL92SO0(1|2)(|L),GB5F;									\
       F=EF56;
@@ -1259,7 +1282,7 @@ $REQUIRE TRAINDEF.TTT
       C=WESX_CL31SO01(|L),GB6FRM;									\
       F=DF6;
     TX=GB WCRC 37;											\
-      C=WCRB_CL37SO01(|L),GB6FRM;									\
+      C=WCRC_CL37SO01(|L),GB6FRM;									\
       F=DF6;
     TX=GB West Coast Railway Class 47;									\
       C=WCRC_CL47S(|L),GB6PWC1;										\
@@ -1303,6 +1326,27 @@ $REQUIRE TRAINDEF.TTT
 	GRAN_MK3B_DVT)|											\
 	(<GRAN_MK3B_DVTL,GRAN_MK3AB_FOL,GRAN_MK3A_FODL,GRAN_MK3A_TSOBL|GRAN_MK3A_RFM,6*GRAN_MK3A_TSO,	\
 	GRAN_90A(|L));											\
+      F=EPU6;
+    TX=Groﬂbritannien First Great Eastern Ltd. 321;							\
+      C=FGE_321SO01(|L);										\
+      F=EPU6;
+    TX=Groﬂbritannien First Capital Connect 321;							\
+      C=FCC_321SO01(|L);										\
+      F=EPU6;
+    TX=Groﬂbritannien London Midland Trains 321;							\
+      C=LMC_321SO01(|L);										\
+      F=EPU6;
+    TX=Groﬂbritannien Northern Rail Ltd. 321;								\
+      C=NORR_321SO01(|L);										\
+      F=EPU6;
+    TX=Groﬂbritannien National Express East Coast 321;							\
+      C=NXEC_321SO01(|L);										\
+      F=EPU6;
+    TX=Groﬂbritannien one - London Eastern Railway Ltd. 321;						\
+      C=ONE_321SO01(|L);										\
+      F=EPU6;
+    TX=Groﬂbritannien Silverlink Train Services Ltd. 321;						\
+      C=SILV_321SO01(|L);										\
       F=EPU6;
     TX=GB Great North Eastern Railway Ltd. Eustar 373;							\
       C=(<GNER_EUSTAREL,										\

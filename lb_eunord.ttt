@@ -710,6 +710,9 @@ $REQUIRE TRAINDEF.TTT
       TX=NSB El 18 + Schnellzug;									\
 	C=NSB_6_EL18B,5*NSB_B7VY,2@NSB_WLAB2VY(|L);							\
 	F=EP6;
+      TX=NSB El 18 + Rt 710 Stavanger - Oslo 2023;							\
+	C=GANO_EL18(|L),(<GANO_B53,GANO_FR51,3*GANO_B53)|(>GANO_B53L,GANO_FR51L,3*GANO_B53L);		\
+	F=EP6;
       TX=NSB Di3 602;											\
 	C=NSB_6DI3602(|L),(<NSB_6FR521722(|L),3*NSB_6B526002(|L));					\
 	F=DP6;
@@ -755,6 +758,14 @@ $REQUIRE TRAINDEF.TTT
 	F=EPU6;
       TX=NSB 73;											\
 	C=<NSB_73BFL,NSB_73BEL,NSB_73BM,NSB_73BF;							\
+	F=EPU6;
+      TX=NSB 73 Rt 46 Trondheim S - Oslo 2023;								\
+	C=(<GANO_BM73AL,GANO_BM73B,GANO_BM73C,GANO_BM73D)|						\
+	  (>GANO_BM73A,GANO_BM73BL,GANO_BM73CL,GANO_BM73DL);						\
+	F=EPU6;
+      TX=NSB 73 Rt 708 Stavanger - Oslo 2023;								\
+	C=(<NTOG_BM73_1L,NTOG_BM73_2,NTOG_BM73_3,NTOG_BM73_4)|						\
+	  (>NTOG_BM73_1,NTOG_BM73_2L,NTOG_BM73_3L,NTOG_BM73_4L);					\
 	F=EPU6;
       TX=Baneservice 1411;										\
 	C=BSERV_1411(|L)|BSERV_MZ,N5F;									\
@@ -805,7 +816,7 @@ $REQUIRE TRAINDEF.TTT
 	C=OBA_EL1321(61|25)(|L),									\
 	  (<OBA_B3BDL,OBA_B3WL1L,OBA_B3BL,2*OBA_B3WL2L)|(<2*OBA_B3WL2,OBA_B3B,OBA_B3WL1,OBA_B3BD);	\
 	F=EP6;
-      TX=Norwegen SJ Norge AS EL 18;									\
+      TX=Norwegen Norske Tog EL 18;									\
 	C=NTOG_EL182253,5*NTOG_B5;									\
 	F=EPR6;
       TX=Norwegen Peterson MZ 1409 + Holztransport 2012;						\
@@ -1131,6 +1142,9 @@ $REQUIRE TRAINDEF.TTT
       TX=X-Taget X10;											\
 	C=1-2*((<XT_5X10_3182AL,XT_5X10_3182B)|(<XT_5X10_3182BL,XT_5X10_3182A));			\
 	F=EPRU5;
+      TX=Schweden Tagakeriet i Bergslagen AB T43;							\
+	C=TAGAB_T43,2*S5FS;										\
+	F=DF5;
     }
     {E6?
       TX=SJ Y31;											\
@@ -1142,7 +1156,12 @@ $REQUIRE TRAINDEF.TTT
 	C=SJ_RC5D,S6F1;											\
 	F=EF56;
       TX=SJ RC6 + Schnellzug;										\
-	C=SJ_RC6CB,(<SJ_BFS9C,SJ_B7CB,SJ_AB7C,SJ_A7C,SJ_S12C,3*SJ_BC4C,2*SJ_WL6C);			\
+	C=SJ_RC6CB[BC:-10,-50],(<SJ_BFS9C,SJ_B7CB,SJ_AB7C,SJ_A7C,SJ_S12C,3*SJ_BC4C,2*SJ_WL6C);		\
+	F=EP6;
+      TX=SJ RC6 + Nattåg 346 Hamburg-Altona - Stockholm 2023;						\
+	C=SJ_RC6CB[BC:-10,-50],										\
+	  (>BTE_BVCMZ248SJ,RDC_WLABMZ7090,BTE_BVCMBZ249SJ,BTE_BVCMZ248SJ)|				\
+	  (<BTE_BVCMZ248SJL,RDC_WLABMZ7090L,2*BTE_BVCMZ248SJL);						\
 	F=EP6;
       TX=SJ RM + Güterzug;										\
 	C=SJ_RMA,S6F1;											\
@@ -1193,6 +1212,9 @@ $REQUIRE TRAINDEF.TTT
       TX=Schweden Hectorrail 921;									\
 	C=HECT_921,S6FS;										\
 	F=DF6;
+      TX=Schweden Inlandsbanen 1421;									\
+	C=IBAB_1421(A|B|C)(|L),S6F(1|2);								\
+	F=DF6;
       TX=Schweden VIDA 1406;										\
 	C=VIDA_1406L|VIDA_1406,S6F2;									\
 	F=DF6;
@@ -1208,11 +1230,11 @@ $REQUIRE TRAINDEF.TTT
       TX=Schweden Railcare 4000;									\
 	C=RACA_4000(|L),S6F(1|2);									\
 	F=DF6;
-      TX=Schweden Reaxcer TMZ;										\
-	C=REAX_TMZ,S6F(1|2);										\
+      TX=Schweden Reaxcer TMZ 1409;									\
+	C=REAX_1409(|L),S6F(1|2);									\
 	F=DF6;
-      TX=Schweden Stena TMZ;										\
-	C=STENA_TMZ,S6F(1|2);										\
+      TX=Schweden Stena TMZ 1419;									\
+	C=STENA_1419(|L),S6F(1|2);									\
 	F=DF6;
       TX=Schweden Svensk Tågteknik TMZ;									\
 	C=STT_TMZ,S6F(1|2);										\
@@ -1220,8 +1242,8 @@ $REQUIRE TRAINDEF.TTT
       TX=Schweden Svensk Tågteknik 1421;								\
 	C=STT_1421(|L),S6F(1|2);									\
 	F=DF6;
-      TX=Schweden Svensk Tågteknik 1421;								\
-	C=STT_1421(|L),S6F(1|2);									\
+      TX=Schweden Svensk Tågteknik 1411;								\
+	C=SWTAB_1411(|L),S6F(1|2);									\
 	F=DF6;
       TX=Schweden Tagakeriet i Bergsagen MY;								\
 	C=TAGAB_TMY103|TAGAB_MY_C(|L)~ZS|TAGAB_MY_(A|B|D)(|L),S6F(1|2);					\
@@ -1241,6 +1263,12 @@ $REQUIRE TRAINDEF.TTT
       TX=Schweden Östra Södermansland Järnväg 8;							\
 	C=OSLJ_8,WEM_05A;										\
 	F=SFN5;
+      TX=Schweden Three T TMZ 1400;									\
+	C=THREET_14(07|05)(|L),S6F(1|2);								\
+	F=DF6;
+      TX=Schweden Trafikverket/Pro Train TMZ 1451;							\
+	C=TRVF_1451(|L),S6F(1|2);									\
+	F=DF6;
 
 # privat E
       TX=Schweden Connex RC5 + Nachtzug;								\
@@ -1325,10 +1353,19 @@ $REQUIRE TRAINDEF.TTT
       TX=Schweden Veolia RC6;										\
 	C=VEO_RC6_1324,S6F1;										\
 	F=EF6;
+      TX=Schweden TRVF RC6 + Vygruppen AS Nattåg 95 Narvik -  Luleå 2023;				\
+	C=TRVF_RC6S,TRVF_B2S,TRVF_BFS9S(|L),TRVF_B9S;							\
+	F=EP6;
+      TX=Schweden TRVF RC6 + Vygruppen AS Nattåg 93 Narvik -  Stockholm 2023;				\
+	C=TRVF_RC6S,											\
+	  (TRVF_BC4S,TRVF_WL6,TRVF_BC4S,TRVF_WL4S,TRVF_BF4S,TRVF_R12S,TRVF_B2S,TRVF_BC4S,3*TRVF_BC4S,	\
+	  3*TRVF_WL6)|											\
+	  (TRVF_BC4S,TRVF_WL6,TRVF_BC4SL,TRVF_WL4SL,TRVF_BF4SL,TRVF_R12SL,TRVF_B2S,TRVF_BC4SL,		\
+	  3*TRVF_BC4SL,3*TRVF_WL6);									\
+	F=EP6;
     }
   %ENDPOOL;
 }
-
 ###############################################################################
 ##                                                                           ##
 ##                                  Finland                                  ##

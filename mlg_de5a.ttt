@@ -1,6 +1,9 @@
 ;ALLEMAGNE / GERMANY / DEUTSCHLAND EP VA
 ;=======================================
 
+{FILELEVEL=1?
+  $INCLUDE SINGLE.TTT
+}
 $REQUIRE MLG_DEF.TTT
 
 %ADDPOOL(POOL_GER,DE_ENV)
@@ -32,7 +35,20 @@ $REQUIRE MLG_DEF.TTT
       C=DB_111PU_LH(|L),3*DB_AVMZ207LH(|L);								\
       V=16;												\
       F=EP5;
-
+    TX=DB 403 LufthansaAirportExpress;									\
+      C=XDB_ET403_LH;											\
+      V=20;												\
+      F=EP5;
+    TX=DB 403 LufthansaAirportExpress;									\
+      C=(<$DIR((DB_ET403_LHL[PD],									\
+	(DB_ET404_0LHL,DB_ET404_1LH,DB_ET404_0LHL)|DB_ET404_1LH|DB_ET404_1LHL,DB_ET403_LH[PU]),		\
+	(DB_ET403_LHL[PU],(DB_ET404_0LHL,DB_ET404_1LH,DB_ET404_0LHL)|DB_ET404_1LH|DB_ET404_1LHL,	\
+	DB_ET403_LH[PD])))|										\
+	(<XDB_ET403_LH,											\
+	$DIR((DB_ET403_LHL[PD],4:|1:DB_ET404_1LH|1:DB_ET404_1LHL,DB_ET403_LH[PU]),			\
+	(DB_ET403_LHL[PU],4:|1:DB_ET404_1LH|1:DB_ET404_1LHL,DB_ET403_LH[PD])));				\
+      V=20;												\
+      F=EP5;
     TX=DB 218  + D-Zug;											\
       C=DB_218BB(|L),FS_UICX75_RGPB_DZ(|L),FS_UICX75_C_RG_B,FS_UICX70_SJ_GPB_AB(|L),DB_ABM225BB2(|L);	\
       V=14;												\
@@ -280,6 +296,11 @@ $REQUIRE MLG_DEF.TTT
 	2*DB_BPMZ293IC(|L),DB_BPMZ293IR1(|L),DB_BPMZ293IC(|L);						\
       V=14;												\
       F=DP5;
+    TX=DB 218 + IC 51 Karlstein;									\
+      C=DB_218PR(|L),DB_218T(|L),DB_APMZ117OR(|L),DB_AVMZ107IC(|L),$DIR(DB_ARMZ217OR,DB_ARMZ217ORL),	\
+	2*DB_BVMZ185IC(|L),DB_BPMZ291BB(|L),DB_BPMZ291IC(|L),2*DB_BM234BB2(|L);				\
+      F=DP5;												\
+      CV=14;
     TX=DB 240 + IC;											\
       C=DB_240(|L),											\
 	(DB_AVMZ111_SDT2(|L),DB_APMZ121_SDT2(|L),DB_AVMZ111SDR(|L),$DIR(DB_ARMZ211T2L,DB_ARMZ211T2),	\
@@ -327,7 +348,7 @@ $REQUIRE MLG_DEF.TTT
       F=EP5;
     TX=DB 141 + Wiesbaden-City;										\
       C=DB_141_2FPH_G(|L)|DB_141_4FPR_OR(|L),DB_AVMZ111T2(|L),DB_BPMZ291BB(|L)~MLG,			\
-	DB_141_4FPR_OR(|L)[PD];										\
+	DB_141_4FPH_G(|L)|DB_141_4FPR_OR(|L)[PD];							\
       V=12;												\
       F=EP5;
     TX=DB 141 + Wiesbaden-City;										\
@@ -400,7 +421,11 @@ $REQUIRE MLG_DEF.TTT
 	DB_AM203BB2(|L);										\
       V=14;												\
       F=EP5;
-    TX=DB 110.1 + D-Zug;										\
+    TX=DB 110.3 + D-Zug;										\
+      C=DB_110B_PR_BB(|L),3*DB_BM232BB2(|L),DB_ABM223BB2(|L);						\
+      V=14;												\
+      F=EP5;
+    TX=DB 110.3 + D-Zug;										\
       C=DB_110B_PR_BB(|L),DR_HS_BM200(|L),DR_HS_AM200(|L),DR_WRME84R(|L),DR_HS_AM200(|L),		\
 	5*DR_BOMZ236IC(|L);										\
       V=14;												\
@@ -586,6 +611,11 @@ $REQUIRE MLG_DEF.TTT
       V=12;												\
       F=DP5;
     TX=DB 218 + Eilzug;											\
+      C=DB_218R(|L),DB_AM203BB2(|L),$DIR(DB_BDNF738SL2L,DB_BDNF738SL2),DB_ABN703SL2,DB_BM233BB2(|L),	\
+	2*DB_BN719SL2;											\
+      V=12;												\
+      F=DP5;
+    TX=DB 218 + Eilzug;											\
       C=DB_218R(|L),DB_BM234BB2(|L),DB_ABM224BB2(|L),DB_BM232BB2(|L)|(DB_BM233BB2(|L),DB_BM234BB2(|L));	\
       V=14;												\
       F=DP5;
@@ -625,7 +655,7 @@ $REQUIRE MLG_DEF.TTT
       F=DP5;
 ;TRIER - THIONVILLE
     TX=DB 181 + Zug Trier - ThionvilleE;								\
-      C=DB_181_0_BB_15KV,2*DB_BM234BB2(|L);								\
+      C=DB_181_0BB_15KV,2*DB_BM234BB2(|L);								\
       V=12;												\
       F=DP5;
 ;E+POST
@@ -909,7 +939,7 @@ $REQUIRE MLG_DEF.TTT
       F=EP5;
 
     TX=DB 515;												\
-      C=1:DB_515_1PP_PR(|L)|3:DB_515_5PP_PR(|L)|1:DB_515_5GP_PR(|L);					\
+      C=C=1:DB_515_1PP_PR(|L)|3:DB_515_5PP_PR(|L)|1:DB_515_5GP_PR(|L);					\
       V=12;												\
       F=DPRU5;
     TX=DB 515 + 815;											\
@@ -950,13 +980,19 @@ $REQUIRE MLG_DEF.TTT
       C=<(DB_614BBL,DB_914BB,DB_914BBL,DB_934_56BB2(|L),DB_614BB);					\
       V=12;												\
       F=DPRU5;
+
     TX=DB 624;												\
       C=<(DB_624_5MGL,DB_924_4G(|L),DB_624_6G)|(DB_624_6GL,DB_924_4G(|L),DB_624_5MG);			\
       V=12;												\
       F=DPRU5;
-    TX=DB 634;												\
+
+    TX=DB 624;												\
       C=<(DB_634GL,DB_924_4G,DB_624_6G)|(DB_624_6GL,DB_924_4GL,DB_634G),				\
 	0-1*(DB_624BB2L,DB_924BB2|DB_924BB2L,DB_624BB2);						\
+      V=12;												\
+      F=DPRU5;
+    TX=DB 634;												\
+      C=<DB_634BB2L,DB_934_56BB2(|L),DB_634BB2;								\
       V=12;												\
       F=DPRU5;
 
@@ -1105,7 +1141,7 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=EF5;
     TX=DB 150 + Güterzug;										\
-      C=DB_150_4RG(|L),20-22*(CEREALFP_TC|CEREALFG_TC);							\
+      C=DB_150_4RG(|L),20-22*(SNCF_CERP(|L)|CEREALFG_TC);						\
       V=10;												\
       F=EF5;
     TX=DB 150 + Güterzug;										\
@@ -1125,7 +1161,7 @@ $REQUIRE MLG_DEF.TTT
       V=8;												\
       F=EF5;
     TX=DB 181.0 + Güterzug;										\
-      C=DB_181_0_BB_15KV,										\
+      C=DB_181_0BB_15KV,										\
 	30*(SGW_4MKH63_ARBEL|SGW_MKH61ARBEL|SGW_MKH61ARBEL_SCRC|SNCF_FLBS_MK|SGW_MKARBEL_ARBEL|		\
 	SGW_MK30_STEMI56_STEMI_E4|SGW_MK30_STEMI56_LOTRASID_E4|SGW_MK30EXMH45(|L)|SGW_MKARBEL_ARBEL|	\
 	SNCF_FLBS_MK|SGW_MKH_ARBELLORMAFER);								\
@@ -1160,7 +1196,7 @@ $REQUIRE MLG_DEF.TTT
       V=8;												\
       F=DF5;
     TX=DB 216 + Güterzug;										\
-      C=DB_216BB(|L),2*DB_KBS442M,DB_GBS252;								\
+      C=DB_216BB(|L),2*DB_KBS442M(|L),DB_GBS252;							\
       V=10;												\
       F=DF5;
     TX=DB 216 + Güterzug;										\
@@ -1173,6 +1209,10 @@ $REQUIRE MLG_DEF.TTT
 	[OB:(|COIL20H),72,10][OB:COIL20H,113,10][OB:COIL20H,135,10];					\
       V=10;												\
       F=DF5;
+    TX=DB 216 + Güterzug;										\
+      C=DB_216BB(|L),VTG_TAFHIMNS(|L),3*DB_SAHIMMS900,7*DB_FSZ120;					\
+      V=10;												\
+      F=DF5;
     TX=DB 218 + Güterzug;										\
       C=DB_218R(|L),30*IF_I14M_PH_W;									\
       V=10;												\
@@ -1183,6 +1223,10 @@ $REQUIRE MLG_DEF.TTT
 	5*DB_E037M[O:(BETTERAVES_2E1|BETTERAVES_2E2),,27];						\
       V=10;												\
       F=DF5;
+    TX=DB 218 + Güterzug;										\
+      C=DB_218PR(|L),20*(9:DB_UCS909|1:DB_UCS908);							\
+      V=10;												\
+      F=DF5;
     TX=DB 221 + Güterzug;										\
       C=DB_221_PR(|L),8*DB_UCS909,DB_UCS908,3*DB_UCS909,3*DB_UCS908;					\
       V=10;												\
@@ -1190,10 +1234,6 @@ $REQUIRE MLG_DEF.TTT
     TX=DB 221 + Güterzug;										\
       C=DB_221_BB(|L),DB_HKKSUVZ332(|L);								\
       V=8;												\
-      F=DF5;
-    TX=DB 216 + Güterzug;										\
-      C=DB_216BB(|L),VTG_TAFHIMNS(|L),3*DB_SAHIMMS900,7*DB_FSZ120;					\
-      V=10;												\
       F=DF5;
     TX=DB 221 + Güterzug;										\
       C=DB_221_BB(|L),20-25*DB_SAMMS709A;								\
@@ -1234,16 +1274,24 @@ $REQUIRE MLG_DEF.TTT
       V=8;												\
       F=DF5;
     TX=DB 323 + Güterzug;										\
-      C=DB_333_2PR(|L),DB_EANOS052A,SNCF_G4,DB_GS210;							\
+      C=DB_333_1BB(|L),2*DB_TDGS930(|L),DB_TD925(|L),DB_333_1PR(|L);					\
+      V=3;												\
+      F=DF5;
+    TX=DB 323 + Güterzug;										\
+      C=DB_323B_PR(|L),DB_EANOS052A,SNCF_G4,DB_GS211;							\
+      V=3;												\
+      F=DF5;
+    TX=DB 333 + Güterzug;										\
+      C=DB_333_1BB(|L),2*DB_TDGS930(|L),DB_TD925(|L),DB_333_1PR(|L);					\
       V=5;												\
       F=DF5;
     TX=DB 333 + Güterzug;										\
       C=DB_333_2BB(|L),(4*(DB_EAOS051_Y25|DB_EAOS051_650))|DB_TD925(|L);				\
-      V=6;												\
+      V=5;												\
       F=DF5;
     TX=DB 335 + Güterzug;										\
       C=DB_335_2R(|L),3*(DB_TAEMS890|DB_TAEMS891),DB_TIMS858B,10*(DB_TAEMS890|DB_TAEMS891);		\
-      V=7;												\
+      V=5;												\
       F=DF5;
 
 ;DIENSTZÜGE
@@ -1282,7 +1330,7 @@ $REQUIRE MLG_DEF.TTT
 ;AKN
 ;---
     TX=Altona-Kaltenkirchen-Neumünster Eisenbahn DE 1002;						\
-      C=AKN_DE1002A(|L),DB_GS213,DB_KLS442,DB_TBIS870B;							\
+      C=AKN_DE1002A(|L),DB_GS213,DB_KLS442(|L),DB_TBIS870B;						\
       V=8;												\
       F=DPR5;
     TX=Altona-Kaltenkirchen-Neumünster Eisenbahn VT MAN;						\
@@ -1329,7 +1377,7 @@ $REQUIRE MLG_DEF.TTT
       F=DPRU5;
 
     TX=Hersfelder Kreisbahn V 320;									\
-      C=HEG_V320(|L),DB_TIMS858A|DB_TIMS858B,DB_GS204,3*(DB_TIMS858A|DB_TIMS858B),20*DB_TD925(|L),	\
+      C=HEG_V320(|L),DB_TIMS858A|DB_TIMS858B,DB_GS204W,3*(DB_TIMS858A|DB_TIMS858B),20*DB_TD925(|L),	\
 	HEG_G1300BBO(|L);										\
       V=8;												\
       F=DF5;
@@ -1365,12 +1413,24 @@ $REQUIRE MLG_DEF.TTT
       V=9;												\
       F=DPRU5;
     TX=Hohenzollerische Landesbahn VT MAN;								\
-      C=HZL_VTMAN1(|L),DB_HBIS299,DB_GS204;								\
+      C=HZL_VTMAN1(|L),DB_HBIS299,DB_GS204W;								\
       V=8;												\
       F=DF5;
     TX=Hohenzollerische Landesbahn NE 81;								\
       C=<HZL_NE81VT(|L),HZL_NE81VSL;									\
       V=9;												\
+      F=DPRU5;
+
+;KVG
+;---
+    TX=Kahlgrund Verkehrsgesellschaft (NE 81);								\
+      C=KVGR_VT80A(|L);											\
+      V=10;												\
+      F=DPRU5;
+    TX=Kahlgrund Verkehrsgesellschaft (NE 81);								\
+      C=(<KVGR_VT80A(|L),|KVGR_VS102(|L),KVGR_VS102)|(>KVGR_VT80A(|L),|KVGR_VS102(|L),KVGR_VS102L)|	\
+	(<KVGR_VT80A(|L),KVGR_VS102,KVGR_VS102L,KVGR_VT80A(|L));					\
+      V=10;												\
       F=DPRU5;
 
 ;KBE
@@ -1384,6 +1444,13 @@ $REQUIRE MLG_DEF.TTT
 ;---
     TX=Meppen-Haselünner Eisenbahn D02;									\
       C=MHE_D02M(|L),DB_RS689|DB_FC090(|L);								\
+      V=6;												\
+      F=DF5;
+
+;OHE
+;---
+    TX=OHE (MaK 650D);											\
+      C=OHE_MAK650D1(|L),3*TWAG_800;									\
       V=6;												\
       F=DF5;
 
@@ -1401,7 +1468,7 @@ $REQUIRE MLG_DEF.TTT
 ;SWEG
 ;----
     TX=Südwestdeutsche Verkehrs-Aktiengesellschaft G1203;						\
-      C=SWEG_G1203(|L),DB_FC090(|L),2*DB_HBIS299,DB_GS204;						\
+      C=SWEG_G1203(|L),DB_FC090(|L),2*DB_HBIS299,DB_GS204W;						\
       V=8;												\
       F=DF5;
 
@@ -1443,11 +1510,14 @@ $REQUIRE MLG_DEF.TTT
       C=>NVAG_DL2M(|L),NVAG_B(|L),NVAG_ABDL;								\
       V=10;												\
       F=DPRU5;
+    TX=Nordfriesische Verkehrsbetriebe GDT2;								\
+      C=NVAG_GDT2(|L),DB_ABM224BB2(|L),DB_BM234BB2(|L);							\
+      F=DPR5;
 
 ;Siegener Kreisbahn
 
     TX=Siegener Kreisbahn G 763;									\
-      C=SK_G763_O1,13*(DB_GS210|DB_Gs213);								\
+      C=SK_G763_O1(|L),13*(DB_GS210|DB_Gs213);								\
       V=7;												\
       F=DF5;
 
@@ -1460,11 +1530,33 @@ $REQUIRE MLG_DEF.TTT
       C=TWE_G1300BBO(|L),WEG_V216(|L),7-11*DB_SAMMS710A[OB:STEEL41,,12];				\
       V=8;												\
       F=DF5;
+
 ;WEG
-    TX=Würtembergische Eisenbahn-Gesellschaft VT MAN;							\
-      C=1-2*(WEG_VTMAN|WEG_VTMANL);									\
+    TX=Würtembergische Eisenbahn-Gesellschaft V 216;							\
+      C=WEG_V216(|L),(DB_GBS254,7*(DB_GS204W|DB_GS212C|DB_GS216C))|(DB_HBIS299,DB_GBS254,DB_GLS205C);	\
+      V=9;												\
+      F=DF5;
+    TX=Würtembergische Eisenbahn-Gesellschaft V 320;							\
+      C=HEG_V320(|L),15-16*DB_SAMMS710A[OB:STEEL41,,12];						\
+      V=8;												\
+      F=DF5;
+    TX=Würtembergische Eisenbahn-Gesellschaft TWE G1300BB + V 216;					\
+      C=TWE_G1300BBO(|L),WEG_V216(|L),7-11*DB_SAMMS710A[OB:STEEL41,,12];				\
+      V=8;												\
+      F=DF5;
+    TX=Würtembergische Eisenbahn-Gesellschaft NE 81 + Güterzug;						\
+      C=WEG_NE81A(|L),DB_GS204W|DB_GS212C|DB_GS216C,2*DB_HBIS299,DB_GBS254,				\
+	DB_GS204W|DB_GS212C|DB_GS216C;									\
+      V=8;												\
+      F=DF5;
+    TX=Würtembergische Eisenbahn-Gesellschaft VT MAN 21+22;						\
+      C=2*WEG_VTMAN(|L);										\
       V=9;												\
       F=DPRU5;
+    TX=Würtembergische Eisenbahn-Gesellschaft MAN Schienenbus VT 12;					\
+      C=(<WEG_VT12B,WEG_VS113BL)|(>WEG_VT12BL,WEG_VS113B);						\
+      V=9; W=X;												\
+      FG=TRBED57:..,-6,0-5;
     TX=Würtembergische Eisenbahn-Gesellschaft VT Esslingen;						\
       C=WEG_VT402O(|L);											\
       V=9;												\
@@ -1473,6 +1565,9 @@ $REQUIRE MLG_DEF.TTT
       C=WEG_NE81B(|L),0-1*WEG_VS250(|L);								\
       V=10;												\
       F=DPRU5;
-
+    TX=Würtembergische Eisenbahn-Gesellschaft NE81 + MAN Schienenbus;					\
+      C=WEG_NE81A(|L),WEG_VS220(|L),$DIR((<WEG_VT12B,WEG_VS113BL),(>WEG_VT12BL,WEG_VS113B));		\
+      V=10;												\
+      F=DPRU5;
   }
 %ENDPOOL;

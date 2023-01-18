@@ -14,6 +14,9 @@ $REQUIRE TRAINDEF.TTT
 {IE?
   %ADDPOOL(POOL_IR,GB_ENV)
     {E6?
+      TX=IE 8200 + Freight;										\
+	C=IE_8200,10*IE_CIE_FERT;									\
+	F=EF6;
       TX=Irish Rail DART;										\
 	C=<IE_DART_8621AL[OB:WINDOW_BG,101,15][OB:WINDOW_BG,4,15],					\
 	  IE_DART_8621B[OB:WINDOW_BG,101,15][OB:WINDOW_BG,4,15],					\
@@ -483,6 +486,9 @@ $REQUIRE TRAINDEF.TTT
       TX=Grup Feroviar Roman LDE 2100 + Güterzug;							\
 	C=GFR_LDE2100AL|GFR_LDE2100A|GFR_LDE2100BL|GFR_LDE2100B|GFR_LDE2100ND2L|GFR_LDE2100ND2,RO6F1;	\
 	F=DF6;
+      TX=Rumänien InterRegional Calatori (IRC)57 0569;							\
+	C=IRC_57_0569;											\
+	F=DPRU6;
       TX=Rumänien InterRegional Calatori (IRC)628: IR 15704 Oradea - Cluj Napoca 2017;			\
 	C=<IRC_628L,IRC_628;										\
 	F=DPRU6;
@@ -504,6 +510,18 @@ $REQUIRE TRAINDEF.TTT
       TX=Rumänien Rolling Stock Company 60 + Güterzug;							\
 	C=RSTK_CL60SO01L|RSTK_CL60SO01,RO6F1;								\
 	F=DF6;
+      TX=Rumänien Rolling Stock Company 425 517 + RIB;							\
+	C=<RGTR_425_517,RGTR_57_3350L,RGTR_57_2650,RGTR_57_3355;					\
+	F=EPRU6;
+      TX=Rumänien Rolling Stock Company 25 572 + RIO;							\
+	C=<RGTR_RIO08CL,RGTR_RIO08B,RGTR_RIO08A,RGTR_25_572;						\
+	F=EPRU6;
+      TX=Rumänien Rolling Stock Company 97;								\
+	C=<RGTR_97AL,RGTR_97B;										\
+	F=DPRU6;
+      TX=Rumänien Rolling Stock Company X72575;								\
+	C=<RCBV_X72575EL,RCBV_X72575M,RCBV_X72575E;							\
+	F=DPRU6;
       TX=Rumänien Rompetrol Logistics 60 + Güterzug;							\
 	C=RP_CL60L|RP_CL60,Z_D_E6_G_KK2;								\
 	F=DF6;
@@ -513,6 +531,9 @@ $REQUIRE TRAINDEF.TTT
       TX=Rumänien Rompetrol Logistics LDH 125 + Güterzug;						\
 	C=RP_LDH125AL|RP_LDH125A,RO6F2;									\
 	F=DF6;
+      TX=Rumänien Regio Calatori (RCBV) X72500 RE 11031 Bucuresti Nord - Brasov 2023;			\
+	C=RCBV_X72500EL,RCBV_X72500M,RCBV_X72500E,RCBV_X72500EL,RCBV_X72500M,RCBV_X72500E;		\
+	F=DPRU6;
       TX=Rumänien Sudarec 70 + Güterzug;								\
 	C=SDR_LDH70L|SDR_LDH70,RO6F2;									\
 	F=DF6;
@@ -952,6 +973,9 @@ $REQUIRE TRAINDEF.TTT
       TX=HZ 7121;											\
 	C=<HZ_7121_0AL,HZ_7121_0B;									\
 	F=DPU6;
+      TX=HZ 7121 ICN 521 Zagreb GK - Split 2022;							\
+	C=(<HZ_7123A2L,HZ_7123B2)|(>HZ_7123A2,HZ_7123B2L);						\
+	F=DPU6;
 
     }
   %ENDPOOL;
@@ -1054,6 +1078,13 @@ $REQUIRE TRAINDEF.TTT
 
 #E
 
+      TX=JZ 342 + Ex;											\
+	C=JZ_342Y(|L),											\
+	  JZ_PTTZ_POST(1|2)|JZ_POSTAKNSS|JZ_PTTB_POST3|JZ_PTTB_POST1|JZ_POSTABN|JZ_POSTAKNS,		\
+	  JZ_DACKN(|L),2*JZ_BAGKNS(|L),JZ_WR8849KSR(|L)|JZ_WR8808KSR(|L),				\
+	  (<JZ_AAGGKNS,JZ_ABANSL|JZ_ABAKNSL),3*JZ_BANS;							\
+	F=EP4;
+
       TX=JZ 342 + Ex 291 Akropolis, München Hbf - Athina 1986;						\
 	C=JZ_342,											\
 	  (<JZ_ABLGL,ZFBH_BL2010,OSE_2080A,OSE_5980A,DB_BCM243BBS,DB_4ABM223BB,DB_4B_DMS902BB,		\
@@ -1143,8 +1174,14 @@ $REQUIRE TRAINDEF.TTT
 	  (<2*ZFBH_BL2010,2*JZ_ZTPT_AB,JZ_BRLG,2*JZ_ZTPT_AB,JZ_ZTPT_B,JZ_DSG,JZ_ZTOSK_BCL,		\
 	  2*ZSRB_WLA7010A,JZ_ABLGL,ZFBH_BL2010,JZ_GBSZ1A);						\
 	F=EP4;
-    }
 
+# Narrow Gauge
+
+      TX=JZ 802;											\
+	C=<JZ_802L,JZ_802_5(|L),JZ_802;									\
+	F=DPNR4;
+
+    }
     {E5?
       TX=JZ 415;											\
 	C=2*(<JZ_415_1ML,JZ_415_2M,JZ_415_3M);								\
@@ -1245,6 +1282,16 @@ $REQUIRE TRAINDEF.TTT
 	  (<2*SVO_ACBCM4L,SVO_BEELMT3L,ZSRB_SALON9980601L,ZCG_BC1L,2*ZCG_WLABM1L,JZ_DDAM)|		\
 	  (>2*SVO_ACBCM4,SVO_BEELMT3,ZSRB_SALON9980601,ZCG_BC1,2*ZCG_WLABM1,JZ_DDAM);			\
 	F=EP6;
+      TX=Srbija Voz (SV) 441 + B 433 Zemun - Bar 2022;							\
+	C=SVO_441,											\
+	  (<3*SVO_BEELMT3L,SVO_BCL4L,SVO_ACBCM4L,JZ_WLBL,ZCG_BCM1,ZCG_WLABM1L,ZCG_WLABM1,ZCG_WLABM1L,	\
+	  2*JZ_DDAM)|											\
+	  (>3*SVO_BEELMT3,SVO_BCL4,SVO_ACBCM4,JZ_WLBLL,ZCG_BCM1L,ZCG_WLABM1,ZCG_WLABM1L,ZCG_WLABM1,	\
+	  2*JZ_DDAM);											\
+	F=EP6;
+      TX=Srbija Voz (SV) 410 +  IC 543 Novi Sad - Beograd Centar 2022;					\
+	C=<SVO_410EL,SVO_410M,SVO_410ML,SVO_410E;							\
+	F=EPU6;
 
     }
   %ENDPOOL;
@@ -1257,6 +1304,11 @@ $REQUIRE TRAINDEF.TTT
 ##                                                                           ##
 ###############################################################################
     {E6?
+      TX=Montenegro ZCG 461 + B 432 Bar - Zemun 2022;							\
+	C=ZCG_461_(031|035),										\
+	  (<3*ZCG_WLABM1L,3*ZCG_BCM1,JZ_WLBL,SVO_ACBC4,SVO_BCL4,3*ZSRB_BEELMT2070A,2*JZ_DDAM)|		\
+	  (>3*ZCG_WLABM1,3*ZCG_BCM1L,JZ_WLBLL,SVO_ACBC4L,SVO_BCL4L,3*ZSRB_BEELMT2070A,2*JZ_DDAM);	\
+	F=EP6;
       TX=Montenegro ZCG 461 + Schnellzug;								\
 	C=ZCG_461_(031|035),										\
 	  (<ZCG_ACBC4427E,ZCG_WRL8776E,3*ZCG_B2905E)|(<3*ZCG_BLM2110,ZCG_WRL8776,2*ZCG_ALM1000)|	\
@@ -1335,7 +1387,7 @@ $REQUIRE TRAINDEF.TTT
 	  JZ_ZTOSA_BLM,ZRS_DG9526L|ZRS_DG9526;								\
 	F=EP56;
       TX=Bosnien-Herzegowina ZRS 813;									\
-	C=<ZRS_813AL,ZRS_813;										\
+	C=<ZRS_813L,ZRS_813;										\
 	F=DF56;
 
       TX=Bosnien-Herzegowina ZBH 441 + Schnellzug;							\
@@ -1467,6 +1519,9 @@ $REQUIRE TRAINDEF.TTT
 	F=EP4;
     }
     {E5?
+      TX=BDZ 1801;											\
+	C=<BDZ_1801ML,BDZ_1801A,BDZ_1801M;								\
+	F=DPRU5;
       TX=BDZ 07;											\
 	C=BDZ_4_07065L|BDZ_4_07065,BG5PL1;								\
 	F=DP5;
@@ -1502,11 +1557,14 @@ $REQUIRE TRAINDEF.TTT
       TX=BDZ 10: KPV 18204 Plovdiv - Peshtera 2019;							\
 	C=BDZ_10;											\
 	F=DRPU6;
+      TX=BDZ 55 + KPV 24204: Levski - Svishtov 2022;							\
+	C=BDZ_55_014(|L),BDZ_6BM_RW(|L)|BDZ_BM_M(|L);							\
+	F=DRP6;
       TX=BZK 87 07;											\
 	C=BZK_87,3*BZK_WLABMZ76,BDZ_WLABMZ71,4@BDZ_5080A(|L);						\
 	F=DP6;
       TX=DB Schenker Bulgaria 92;									\
-	C=DBS_92_0(27|34),15*(MARICA_IZTOK_FALLSC|MARICA_IZTOK_FALLSB|MARICA_FALLSA);			\
+	C=LSDB_92_0(27|34),15*(MARICA_IZTOK_FALLSC|MARICA_IZTOK_FALLSB|MARICA_FALLSA);			\
 	F=DF6;
 
 #E
@@ -1544,6 +1602,34 @@ $REQUIRE TRAINDEF.TTT
       TX=BDZ 44 + Nachtzug;										\
 	C=BDZ_44R,4*OTEX_BCM,INTER_WRME_O(|L),2*OTEX_BCM;						\
 	F=EP6;
+      TX=BDZ 44 + BV 8632 Varna - Plovdiv 2021;								\
+	C=BDZ_44R,(<BDZ_5BME1A,BDZ_AM1940M,BDZ_5BME1A)|(>BDZ_5BME1AL,BDZ_AM1940ML,BDZ_5BME1AL);		\
+	F=EPR6;
+      TX=BDZ 44 + BV 9620 Varna - Ruse 2021;								\
+	C=BDZ_44R,(<BDZ_BM2974M,BDZ_BM2974)|(>BDZ_BM2974ML,BDZ_BM2974L);				\
+	F=EPR6;
+      TX=BDZ 44 + BV 9620 Varna - Ruse 2021;								\
+	C=BDZ_44R,(<BDZ_BM2974M,BDZ_BM2974)|(>BDZ_BM2974ML,BDZ_BM2974L);				\
+	F=EPR6;
+      TX=BDZ 45 + BV 7623 Vidin - Sofia 2021;								\
+	C=BDZ_44R,											\
+	  (<BDZ_6BMP1A,BDZ_6AMP1A,BDZ_5BME1A|BDZ_BME_M,BDZ_6BMP1A,BDZ_BIMZ2297M,BDZ_6BYZ,BDZ_BMZ,	\
+	  BDZ_AM1974)|											\
+	  (>BDZ_6BMP1AL,BDZ_6AMP1AL,BDZ_5BME1AL|BDZ_BME_ML,BDZ_6BMP1AL,BDZ_BIMZ2297M,BDZ_6BYZ,BDZ_BMZ,	\
+	  BDZ_AM1974L);											\
+	F=EP6;
+      TX=BDZ 44 + BV 9647 Sofia - Silistra 2022;							\
+	C=BDZ_44R,(<BDZ_BCME_M,2*BDZ_BM2974M,BDZ_6ABY_M)|(>BDZ_BCME_ML,2*BDZ_BM2974ML,BDZ_6ABY_ML);	\
+	F=EP6;
+      TX=BDZ 44 + KPV 10205 Dragoman - Sofia 2022;							\
+	C=BDZ_44R,4*(BDZ_6BY_M(|L)|BDZ_6BYZ(|L));							\
+	F=EPR6;
+      TX=BDZ 1080 + BV 2654 Varna - Vratsa 2021;							\
+	C=BDZ_80A,(<BDZ_6BMP2A,BDZ_AMP1563M,2*BDZ_6BMP2A)|(>BDZ_6BMP2AL,BDZ_AMP1563M,2*BDZ_6BMP2AL);	\
+	F=EP6;
+      TX=BDZ 1080 + BV 1611 Sofia - Svilengrad 2021;							\
+	C=BDZ_80A,BDZ_BMPZ2044MOD,BDZ_6AMP1AL,BDZ_BMPZ2044MOD,2*BDZ_BIMZ2297M;				\
+	F=EP6;
       TX=BDZ 462;											\
 	C=BDZ_462L|BDZ_462,										\
 	  (<BDZ_6AM1950A|BDZ_6AM1950|BDZ_6AM1940W,BDZ_6AM1940,BDZ_ARMZ,4*BDZ_6BM2040L)|			\
@@ -1554,12 +1640,24 @@ $REQUIRE TRAINDEF.TTT
 	C=2*BULM_86003(|L),16*G_Z1BUL(1|2)(|L);								\
 	F=EF6;
       TX=DB Cargo Bulgaria 86;										\
-	C=DB_BG86A,D6FCM;										\
+	C=LSDB_86,D6FCM;										\
 	F=EF6;
+
+# Narrow gauge
+
+      TX=BDZ 75 + PV 16104 Dobrinishte - Septemvri 2021;						\
+	C=BDZ_N75,(BDZ_NCB,BDZ_NCBZ,2*BDZ_NCB)|(2*BDZ_NCBL,BDZ_NCBZL,BDZ_NCBL);				\
+	F=DPRN6;
+      TX=BDZ 77 + PV 16106 Dobrinishte - Septemvri 2021;						\
+	C=BDZ_N77,(3*BDZ_NCBRH,BDZ_NCB4RH,2*BDZ_NCBRH)|(2*BDZ_NCBRHL,BDZ_NCB4RHL,3*BDZ_NCBRHL);		\
+	F=DPRN6;
+      TX=BDZ 77 shunting;										\
+	C=BDZ_N77,BDZ_NCB4(|L);										\
+	F=DFN6;
+
     }
   %ENDPOOL;
 }
-
 ###############################################################################
 ##                                                                           ##
 ##                                  Albania                                  ##
@@ -1577,6 +1675,9 @@ $REQUIRE TRAINDEF.TTT
       TX=Albanien HSH T669 + Schnellzug;								\
 	C=HSH_T669,HSH_FS264AL|HSH_FS264A,HSH_FS264BL,HSH_FS264B;					\
 	F=DP56;
+      TX=Albanien HSH T669 + T 7 Durrës - Elbasan 2021;							\
+	C=HSH_T669G,2*HSH_B_DB438(|L);									\
+	F=DPR6;
     }
   %ENDPOOL;
 }
@@ -2082,6 +2183,12 @@ $REQUIRE TRAINDEF.TTT
 	F=EPU6;
       TX=TCDD E140;											\
 	C=(<TCDD_E14000B1L,TCDD_E14000B2,TCDD_E14000B3)|(TCDD_E14000A1L,TCDD_E14000A2,TCDD_E14000A3);	\
+	F=EPU6;
+      TX=TCDD HT 80100;											\
+	C=(<TCDD_HT80100_01L,TCDD_HT80100_02,TCDD_HT80100_03,TCDD_HT80100_04,TCDD_HT80100_05,		\
+	  TCDD_HT80100_06,TCDD_HT80100_01)|								\
+	  (>TCDD_HT80100_01,TCDD_HT80100_02L,TCDD_HT80100_03L,TCDD_HT80100_04L,TCDD_HT80100_05L,	\
+	  TCDD_HT80100_06L,TCDD_HT80100_01L);								\
 	F=EPU6;
     }
   %ENDPOOL;
