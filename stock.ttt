@@ -162,42 +162,9 @@ $SECTION NAME=ROOTC; UNLIMITED;
 	      }
 	    }
 	    {IMAG?
-	      $DEF IPD1=FS_ABZ64500D,3-7*(FS_4A_B2100TDL|FS_4B_AB3100DL|FS_4B_BR8550L|FS_4B_BR8550TL|FS_BMD)
-	      $DEF IPD2=2-6*FS_PRSD(|L)
-	      $DEF IPD3=2-4*FS_NB2PD,|FS_NB2P_PD($DIR(,[!L]))
-
-	      $POOL N=NIGHTTRAIN1;
-	        C=LIGHT_16,FS_E646D,IPD(1|2|3);
-	        C=FS_E656DLI,IPD(1|2|3);
-	        C=FS_A668_1500N;
-	        C=FS_ETR250N;
-	        TX=FS ETR.250 »Arlecchino« Ansicht bei Nacht;						\
-	          C=FS_ETR250N; F=EPU34;
-	      $ENDPOOL 
-
 	      $SECTION LC=1;
-	        $GROUP LC=2; DX=1600; AB=525; BL=20;							\
-		    BG=(BgPic/SXC1242604.JPG; FL_SNCF_MIDI5:..,-5,#; TRBED25:..,^0);
-	          POOL=NIGHTTRAIN1;
-	        $ENDGROUP 
-
-	        $GROUP LC=2; DX=1600; AB=276; BL=20;							\
-		    BG=(BgPic/SXC1233769.JPG; FL_SNCF_MIDI5:..,-5,#; TRBED25:..,^0);
-	          POOL=NIGHTTRAIN1;
-	        $ENDGROUP 
-
-#       New York Subway at night
-	        $GROUP LC=2; DX=2512; AB=700; BL=90; VM=HEAD;						\
-		    BG=(BgPic/SXC1362701.JPG; BRIDGE4H[BC:-90]:..,^-8; TRBED10[BC:-50]:..,^0;		\
-		    SNCF_3ERAIL_BG:..);
-	          C=3*IND_R1_(1|2)00(L,);
-	        $ENDGROUP 
-
-	        $GROUP LC=2; DX=2922; AB=438; BL=20; VM=HEAD;						\
-		    BG=(BgPic/SXC923817.JPG; FL_SNCF_MIDI5:..,-5,#; TRBED25:..,^0);
-	          POOL=NIGHTTRAIN1;
-	        $ENDGROUP 
-	      $ENDSECTION 
+	        $INCLUDE ZSZ_BG5.TTT
+	      $ENDSECTION
 	    }
           $ENDSECTION 
         }
@@ -269,5 +236,5 @@ $ENDSECTION
  
 {WTR?
   $REQUIRE WTR.TTT
-  $REQUIRE ZSZ_LARGE.TTT
+#  $REQUIRE ZSZ_LARGE.TTT
 }

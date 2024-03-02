@@ -37,7 +37,7 @@ $REQUIRE JMD_EU_DEF.TTT
     {E3?
       C=DSB_P|DSB_R2,3*DSB_3_DB5102(|L);								\
 	F=SP3;
-      C=1|2*DSB_34MO1830(|L);										\
+      C=(1|2)*DSB_34MO1830(|L);										\
 	AP=[TX="Sønderjyden" København <- Sønderborg -> Tønder (anno 1949)]|				\
 	  [TX="Sønderjyden" København <- Sønderborg -> Tinglev (anno 1949)];				\
 	F=PU3;
@@ -834,7 +834,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	F=DP6;
       C=<DSB_DDSL,3*DSB_DDP,DSB_DDW,DSB_MEB~OLE;							\
 	F=DP6;
-      C=(DSB_3002|DSB_3005)(|L),8*DSB_5BC(|L),DB_DMSW,0|1*DB_BOMZ236(|L);				\
+      C=(DSB_3002|DSB_3005)(|L),8*DSB_5BC(|L),DB_DMSW,(0|1)*DB_BOMZ236(|L);				\
 	F=EP6;
       TX=EC 270 Praha <-> Århus H. (anno 2005);								\
 	C=DSB_ME(1|2),(DSB_3002|DSB_3005)(|L),CD_1991(|L),CD_2191(|L),					\
@@ -935,8 +935,8 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=EN 482 "Hans Christian Andersen" München Hauptbahnhof <- Fulda - Hannover Hbf. -> København H. (17.10.2006); \
 	C=(DSB_3002|DSB_3005)(|L),									\
 	  (CNL_WLBM,2*(DBAG_BM235VRL~HEN|DBAG_BM235VR~HEN),2*DBAG_BOMZ236_6N(|L),			\
-	  0|1*(DBAG_BM235VRL~HEN|DBAG_BM235VR~HEN))|							\
-	  (0|1*(DBAG_BM235VRL~HEN|DBAG_BM235VR~HEN),DBAG_BOMZ236_6N(|L),				\
+	  (0|1)*(DBAG_BM235VRL~HEN|DBAG_BM235VR~HEN))|							\
+	  ((0|1)*(DBAG_BM235VRL~HEN|DBAG_BM235VR~HEN),DBAG_BOMZ236_6N(|L),				\
 	  (DBAG_BM235VRL~HEN|DBAG_BM235VR~HEN),CNL_WL2~KMN|CNL_WL3~KMN),CNL_WL1~KMN,			\
 	  (DB_8895002(|L))|2:(DBAG_WRMZ137VRH(|L))|4:(DBAG_WRMZ137W(|L)),				\
 	  3*(DBAG_BM235VRL~HEN|DBAG_BM235VR~HEN),DBAG_BOMZ236_6N(|L);					\
@@ -2098,7 +2098,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	  SJ_AF7,SJ_RC6O~ARN|12:SJ_RC6~ARN|2:SJ_RC6B~ARN;						\
 	F=EP6;
       TX=Stockholm C. <- Karlberg - Solna - Helenelund - Solllentuna -  Häggvik - Norrviken - Rotebro - Upplands Väsby -> Märsta (anno 2004); \
-	C=3|4*SJ_X12;											\
+	C=(3|4)*SJ_X12;											\
 	F=EPU6;
       TX=Tåg 2283 Uppsala C. <- Knivsta - Märsta -> Stockholm C. (anno 2004);				\
 	C=SJ_RC6~ARN,SJ_B9B,SJ_B7C|SJ_B7A,SJ_B8R,SO_R12,SJ_BFS9,SJ_AB9A;				\
@@ -2283,7 +2283,7 @@ $REQUIRE JMD_EU_DEF.TTT
 {SF?
   $SPOOL N=TOLSTOY_2003_SF; SEQ=R;
     {E6?
-      C=VR_SR1(A|N)H(|L),4:0|1*RZD_BAG_TOLSTOY(|L),6*RZD_KRK_TOLSTOY(|L),RZD_SKK_TOLSTOY(|L),		\
+      C=VR_SR1(A|N)H(|L),4:(0|1)*RZD_BAG_TOLSTOY(|L),6*RZD_KRK_TOLSTOY(|L),RZD_SKK_TOLSTOY(|L),		\
 	  3*RZD_KRK_TOLSTOY(|L);									\
 	AP=[TX=P 31 "Tolstoy" Helsinki <- Vainikkala - Vyborg - St. Petersburg - Tver -> Moskva (6.2003)]| \
 	  [TX=P 32 "Tolstoy" Moskva <- Tver - St. Petersburg - Vyborg - Vainikkala -> Helsinki (6.2003)]; \
@@ -2291,7 +2291,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	VH=62;
       TX=P 31 "Tolstoy" Helsinki <- Vainikkala - Vyborg - St. Petersburg - Tver -> Moskva (6.2003);	\
 	M=CHANGE;											\
-	C=<4:0|1*RZD_BAG_TOLSTOY(|L),6*RZD_KRK_TOLSTOY(|L),RZD_SKK_TOLSTOY(|L),3*RZD_KRK_TOLSTOY(|L);	\
+	C=<4:(0|1)*RZD_BAG_TOLSTOY(|L),6*RZD_KRK_TOLSTOY(|L),RZD_SKK_TOLSTOY(|L),3*RZD_KRK_TOLSTOY(|L);	\
 	D=L;												\
 	C1=VR_SR1(A|N)H(|L);										\
 	C2=RZD_VL82M_0(1B|2B|3B);									\
@@ -2301,7 +2301,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	VH=62;
       TX=P 32 "Tolstoy" Moskva <- Tver - St. Petersburg - Vyborg - Vainikkala -> Helsinki (6.2003);	\
 	M=CHANGE;											\
-	C=<4:0|1*RZD_BAG_TOLSTOY(|L),6*RZD_KRK_TOLSTOY(|L),RZD_SKK_TOLSTOY(|L),3*RZD_KRK_TOLSTOY(|L);	\
+	C=<4:(0|1)*RZD_BAG_TOLSTOY(|L),6*RZD_KRK_TOLSTOY(|L),RZD_SKK_TOLSTOY(|L),3*RZD_KRK_TOLSTOY(|L);	\
 	D=L;												\
 	C1=RZD_VL82M_0(1B|2B|3B);									\
 	C2=VR_SR1(A|N)H(|L);										\

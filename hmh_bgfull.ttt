@@ -67,7 +67,7 @@ $REQUIRE POOLDEF2.TTT
   $ENDPOOL
 #------------------------------------------------------------------------------
   $SPOOL N=POOL_DB3N; V=7-9;
-    C=DB_64_289|DR_64_007,DB_DI28KTL|DB_PWI28KT|DB_PWI28|DB_PWI28L,					\
+    C=DB_64_289|DR_64_007,DB_DI28KTL|DB_DI28KT|DB_PWI28|DB_PWI28L,					\
 	((<DB_3B_AB3YGL,DB_3B_B3YG)|(<DB_3B_B3YGL,DB_3B_AB3YG)),(<DB_3B_B3YGL,DB_3B_B3YG),		\
 	(<DB_3B_B3YGL,DB_3B_B3YG);
     C=DB_65_018L|DB_65_018,DB_3C_B4Y42_50A   ,DB_AB4YSE30_55[NL:#P,DRG_28_UL,10][NR:#P,DRG_28_UR,10],	\
@@ -335,22 +335,20 @@ $REQUIRE POOLDEF2.TTT
   $ENDPOOL
 #==============================================================================
   $SECTION LC=1;
-    {%FILEX(BGPIC/EPFEN1.JPG)?
-      $GROUP 												\
-	  NAME=EPFEN1;											\
-	  DX=1600; AB=450; BL=698;									\
-	  BG=BGPIC/EPFEN1.JPG:,-698;									\
-	  FG=BGPIC/EPFEN1.JPG[MSK:BGPIC/EPFEN1M.GIF,#000000,,698]:,-698;
-	POOL=POOL_DPD|(POOL_BRD:#Z&D&F&(5|6));								\
-	  AP=[TX=];
-      $ENDGROUP
-    }
+    $GROUP 												\
+	NAME=EPFEN1;											\
+	DX=1600; AB=450; BL=698;									\
+	BG=EPFEN1:,-698;									\
+	FG=EPFEN1[MSK:EPFEN1M,#000000,,698]:,-698;
+      POOL=POOL_DPD|(POOL_BRD:#Z&D&F&(5|6));								\
+	AP=[TX=];
+    $ENDGROUP
 #.............................................................................
     $GROUP 												\
 	NAME=EPFEN2;											\
 	DX=1600; AB=491; BL=660;									\
-	BG=BGPIC/EPFEN2.JPG:,-660;									\
-	FG=BGPIC/EPFEN2.JPG[MSK:BGPIC/EPFEN2M.GIF,#000000,,660]:,-660;
+	BG=EPFEN2:,-660;									\
+	FG=EPFEN2[MSK:EPFEN2M,#000000,,660]:,-660;
       POOL=POOL_DPD|(POOL_BRD:#Z&D&F&(5|6));								\
 	AP=[TX=];
     $ENDGROUP
@@ -358,8 +356,8 @@ $REQUIRE POOLDEF2.TTT
     $GROUP 												\
 	NAME=EPFEN3;											\
 	DX=1072; AB=289; BL=463;									\
-	BG=BGPIC/EPFEN3.JPG:,-463;									\
-	FG=BGPIC/EPFEN3.JPG[MSK:BGPIC/EPFEN3M.GIF,#000000,,463]:,-463;
+	BG=EPFEN3:,-463;									\
+	FG=EPFEN3[MSK:EPFEN3M,#000000,,463]:,-463;
       POOL=POOL_DPD|(POOL_BRD:#Z&D&F&(5|6));								\
 	AP=[TX=];
     $ENDGROUP
@@ -371,8 +369,19 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=TRIBG1;											\
       DX=1424; AB=497; BL=524;										\
-      BG=BGPIC/TRIBG1.JPG:,-524;									\
-      FG=BGPIC/TRIBG1.JPG[MSK:BGPIC/TRIBG1M.GIF,#000000,,524]:,-524;
+      BG=TRIBG1:,-524;											\
+      FG=TRIBG1[MSK:TRIBG1M,#000000,,524]:,-524;
+    POOL=POOL_DPE;
+  $ENDGROUP
+#-------------------------------------------------------------------------------
+#
+#
+#
+  $GROUP 												\
+      NAME=LTURM1;											\
+      DX=1024; AB=574; BL=124;										\
+      BG=LTURM1:,-124;											\
+      FG=LTURM1[MSK:LTURM1M,#000000,,124]:,-124;
     POOL=POOL_DPE;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -383,16 +392,16 @@ $REQUIRE POOLDEF2.TTT
     $GROUP 												\
 	NAME=HORNB1;											\
 	DX=1056; AB=265; BL=461;									\
-	BG=BGPIC/HORNB1.JPG:,-461;									\
-	FG=BGPIC/HORNB1.JPG[MSK:BGPIC/HORNB1M.GIF,#000000,,451]:,-461;
+	BG=HORNB1:,-461;									\
+	FG=HORNB1[MSK:HORNB1M,#000000,,451]:,-461;
       POOL=POOL_DPE;
     $ENDGROUP
-#.............................................................................
+#-------------------------------------------------------------------------------
     $SCENE 												\
 	NAME=HORNB2;											\
 	DX=1152; DY=855; YDIR=B;									\
-	BG=BGPIC/HORNB2.JPG;										\
-	FG=BGPIC/HORNB2.JPG[MSK:BGPIC/HORNB2M.GIF,#000000,,474];
+	BG=HORNB2;										\
+	FG=HORNB2[MSK:HORNB2M,#000000,,474];
       $PATH Y=484;
 	POOL=POOL_DPE; D=R;
       $ENDPATH
@@ -408,8 +417,8 @@ $REQUIRE POOLDEF2.TTT
   $SCENE 												\
       NAME=HORNB3;											\
       DX=960; DY=714; YDIR=B;										\
-      BG=BGPIC/HORNB3.JPG;										\
-      FG=BGPIC/HORNB3.JPG[MSK:BGPIC/HORNB3M.GIF,#000000,,434];
+      BG=HORNB3;										\
+      FG=HORNB3[MSK:HORNB3M,#000000,,434];
     $PATH Y=450;
       POOL=POOL_DPE; D=R;
     $ENDPATH
@@ -437,16 +446,16 @@ $REQUIRE POOLDEF2.TTT
     $GROUP 												\
 	NAME=GUTACH1;											\
 	DX=1600; AB=533; BL=604;									\
-	BG=BGPIC/GUTAC1.JPG:,-604;									\
-	FG=BGPIC/GUTAC1.JPG[MSK:BGPIC/GUTAC1M.GIF,#000000,,604]:,-604;
+	BG=GUTAC1:,-604;									\
+	FG=GUTAC1[MSK:GUTAC1M,#000000,,604]:,-604;
       POOL=POOL_DPE;
     $ENDGROUP
 #..............................................................................
     $GROUP 												\
 	NAME=GUTACH2;											\
 	DX=1072; AB=352; BL=393;									\
-	BG=BGPIC/GUTAC2.JPG:,-393;									\
-	FG=BGPIC/GUTAC2.JPG[MSK:BGPIC/GUTAC2M.GIF,#000000,,393]:,-393;
+	BG=GUTAC2:,-393;									\
+	FG=GUTAC2[MSK:GUTAC2M,#000000,,393]:,-393;
       POOL=POOL_DBSW; V=8-10;
     $ENDGROUP
   $ENDSECTION
@@ -457,8 +466,8 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=AYING1;											\
       LC=1; DX=896; AB=287; BL=322;									\
-      BG=BGPIC/AYING1.JPG:,-322;									\
-      FG=BGPIC/AYING1.JPG[MSK:BGPIC/AYING1M.GIF,#000000,,321]:,-322;
+      BG=AYING1:,-322;									\
+      FG=AYING1[MSK:AYING1M,#000000,,321]:,-322;
     POOL=POOL_DS;
     POOL=Pool_DB_E_IV; D=L; V=8-10;
   $ENDGROUP
@@ -466,24 +475,24 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=PERLA1;											\
       DX=992; AB=334; BL=352;										\
-      BG=BGPIC/PERLA1.JPG:,-352;									\
-      FG=BGPIC/PERLA1.JPG[MSK:BGPIC/PERLA1M.GIF,#000000,,352]:,-352;
+      BG=PERLA1:,-352;									\
+      FG=PERLA1[MSK:PERLA1M,#000000,,352]:,-352;
     POOL=Pool_DB_E_III; D=L; V=8-10;
   $ENDGROUP
 ;..............................................................................
   $GROUP 												\
       NAME=PERLA3;											\
       DX=800; AB=255; BL=281;										\
-      BG=BGPIC/PERLA3.JPG:,-281;									\
-      FG=BGPIC/PERLA3.JPG[MSK:BGPIC/PERLA3M.GIF,#000000,,281]:,-281;
+      BG=PERLA3:,-281;									\
+      FG=PERLA3[MSK:PERLA3M,#000000,,281]:,-281;
     POOL=POOL_DS;
   $ENDGROUP
 ;..............................................................................
   $GROUP 												\
       NAME=PERLA2;											\
       DX=1541; AB=434; BL=584;										\
-      BG=BGPIC/PERLA2.JPG:,-584;									\
-      FG=BGPIC/PERLA2.JPG[MSK:BGPIC/PERLA2M.GIF,#000000,,583]:,-584;
+      BG=PERLA2:,-584;									\
+      FG=PERLA2[MSK:PERLA2M,#000000,,583]:,-584;
     POOL=POOL_DS;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -493,8 +502,8 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=EICHST1;											\
       DX=1360; AB=456; BL=497;										\
-      BG=BGPIC/EICHST.JPG:,-497;									\
-      FG=BGPIC/EICHST.JPG[MSK:BGPIC/EICHSTM.GIF,#000000,,494]:,-497;
+      BG=EICHST:,-497;									\
+      FG=EICHST[MSK:EICHSTM,#000000,,494]:,-497;
     POOL=POOL_DPE;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -504,8 +513,8 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=WASSERZELL1;											\
       DX=1600; AB=571; BL=568;										\
-      BG=BGPIC/WASSRZ.JPG:,-568;									\
-      FG=BGPIC/WASSRZ.JPG[MSK:BGPIC/WASSRZM.GIF,#000000,,568]:,-568;
+      BG=WASSRZ:,-568;									\
+      FG=WASSRZ[MSK:WASSRZM,#000000,,568]:,-568;
     POOL=POOL_DPE;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -515,8 +524,8 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=DOLNST1;											\
       DX=1600; AB=504; BL=632;										\
-      BG=BGPIC/DOLNST.JPG:,-632;									\
-      FG=BGPIC/DOLNST.JPG[MSK:BGPIC/DOLNSTM.GIF,#000000,,631]:,-632;
+      BG=DOLNST:,-632;									\
+      FG=DOLNST[MSK:DOLNSTM,#000000,,631]:,-632;
     POOL=Pool_DB_E_III; D=L; V=8-10;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -526,8 +535,8 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=SOLNH2;											\
       DX=1600; AB=653; BL=468;										\
-      BG=BGPIC/SOLNH2.JPG:,-468;									\
-      FG=BGPIC/SOLNH2.JPG[MSK:BGPIC/SOLNH2M.GIF,#000000,,466]:,-468;
+      BG=SOLNH2:,-468;									\
+      FG=SOLNH2[MSK:SOLNH2M,#000000,,466]:,-468;
     POOL=Pool_DB_E_IV; D=L; V=8-10;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -537,8 +546,8 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=SOLNH1;											\
       DX=1600; AB=626; BL=484;										\
-      BG=BGPIC/SOLNH1.JPG:,-484;									\
-      FG=BGPIC/SOLNH1.JPG[MSK:BGPIC/SOLNH1M.GIF,#000000,,479]:,-484;
+      BG=SOLNH1:,-484;									\
+      FG=SOLNH1[MSK:SOLNH1M,#000000,,479]:,-484;
     POOL=Pool_DB_E_IV; D=L; V=8-10;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -548,8 +557,8 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=PHEIM1;											\
       DX=1600; AB=514; BL=620;										\
-      BG=BGPIC/PHEIM1.JPG:,-620;									\
-      FG=BGPIC/PHEIM1.JPG[MSK:BGPIC/PHEIM1M.GIF,#000000,,619]:,-620;
+      BG=PHEIM1:,-620;									\
+      FG=PHEIM1[MSK:PHEIM1M,#000000,,619]:,-620;
     POOL=Pool_DB_E_IV; V=8-10;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -559,8 +568,8 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=PHEIM2;											\
       DX=960; AB=304; BL=358;										\
-      BG=BGPIC/PHEIM2.JPG:,-358;									\
-      FG=BGPIC/PHEIM2.JPG[MSK:BGPIC/PHEIM2M.GIF,#000000,,358]:,-358;
+      BG=PHEIM2:,-358;									\
+      FG=PHEIM2[MSK:PHEIM2M,#000000,,358]:,-358;
     POOL=Pool_DB_E_IV; V=8-10;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -570,8 +579,8 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=SCHIE2;											\
       DX=1600; AB=611; BL=74;										\
-      BG=BGPIC/SCHIE2.JPG:,-74;										\
-      FG=BGPIC/SCHIE2.JPG[MSK:BGPIC/SCHIE2M.GIF,#000000,,73]:,-74;
+      BG=SCHIE2:,-74;										\
+      FG=SCHIE2[MSK:SCHIE2M,#000000,,73]:,-74;
     POOL=Pool_DB_D_IV; V=8-10;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -581,8 +590,8 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=SCHIE4;											\
       DX=1106; AB=384; BL=378;										\
-      BG=BGPIC/SCHIE4.JPG:,-378;									\
-      FG=BGPIC/SCHIE4.JPG[MSK:BGPIC/SCHIE4M.GIF,#000000,,377]:,-378;
+      BG=SCHIE4:,-378;									\
+      FG=SCHIE4[MSK:SCHIE4M,#000000,,377]:,-378;
     POOL=POOL_DB3H; V=8-10;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -593,8 +602,8 @@ $REQUIRE POOLDEF2.TTT
     $GROUP 												\
 	NAME=MARKB4;											\
 	DX=2219; AB=432; BL=1104;									\
-	BG=BGPIC/MARKB0.JPG:,-1104;									\
-	FG=BGPIC/MARKB0.JPG[MSK:BGPIC/MARKB0M.GIF,#000000,,1104]:,-1104;
+	BG=MARKB0:,-1104;									\
+	FG=MARKB0[MSK:MARKB0M,#000000,,1104]:,-1104;
       POOL=POOL_DPD|(POOL_BRD:#Z&D&F&(5|6));								\
 	AP=[TX=];
     $ENDGROUP
@@ -602,24 +611,24 @@ $REQUIRE POOLDEF2.TTT
     $GROUP 												\
 	NAME=MARKB1;											\
 	DX=1024; AB=218; BL=475;									\
-	BG=BGPIC/MARKB1.JPG:,-475;									\
-	FG=BGPIC/MARKB1.JPG[MSK:BGPIC/MARKB1M.GIF,#000000,,475]:,-475;
+	BG=MARKB1:,-475;									\
+	FG=MARKB1[MSK:MARKB1M,#000000,,475]:,-475;
       POOL=Pool_DR_III_IV; V=8-10;
     $ENDGROUP
 
     $GROUP 												\
 	NAME=MARKB2;											\
 	DX=1024; AB=207; BL=499;									\
-	BG=BGPIC/MARKB2.JPG:,-499;									\
-	FG=BGPIC/MARKB2.JPG[MSK:BGPIC/MARKB2M.GIF,#000000,,486]:,-499;
+	BG=MARKB2:,-499;									\
+	FG=MARKB2[MSK:MARKB2M,#000000,,486]:,-499;
       POOL=Pool_DR_III_IV; V=8-10;
     $ENDGROUP
 
     $GROUP 												\
 	NAME=MARKB3;											\
 	DX=1024; AB=243; BL=456;									\
-	BG=BGPIC/MARKB3.JPG:,-456;									\
-	FG=BGPIC/MARKB3.JPG[MSK:BGPIC/MARKB3M.GIF,#000000,,450]:,-456;
+	BG=MARKB3:,-456;									\
+	FG=MARKB3[MSK:MARKB3M,#000000,,450]:,-456;
       POOL=POOL_DPD;
     $ENDGROUP
   $ENDSECTION
@@ -630,8 +639,8 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=ELSTR1;											\
       DX=1600; AB=395; BL=739;										\
-      BG=BGPIC/ELSTR3.JPG:,-739;									\
-      FG=BGPIC/ELSTR3.JPG[MSK:BGPIC/ELSTR3M.GIF,#000000,,738]:,-739;
+      BG=ELSTR3:,-739;									\
+      FG=ELSTR3[MSK:ELSTR3M,#000000,,738]:,-739;
     POOL=Pool_DR_III_IV; V=8-10;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -642,8 +651,8 @@ $REQUIRE POOLDEF2.TTT
       NAME=GLTZS2;											\
       LC=1;
     $GROUP DX=1600; AB=289; BL=840;									\
-	BG=BGPIC/GLTZS2.JPG:,-840;									\
-	FG=BGPIC/GLTZS2.JPG[MSK:BGPIC/GLTZS2M.GIF,#000000,,830]:,-840;
+	BG=GLTZS2:,-840;									\
+	FG=GLTZS2[MSK:GLTZS2M,#000000,,830]:,-840;
       POOL=POOL_DPD|(POOL_BRD:#Z&D&F&(5|6));								\
 	AP=[TX=];
     $ENDGROUP
@@ -651,8 +660,8 @@ $REQUIRE POOLDEF2.TTT
     $GROUP 												\
 	NAME=GLTZS3;											\
 	DX=1600; AB=303; BL=825;									\
-	BG=BGPIC/GLTZS3.JPG:,-825;									\
-	FG=BGPIC/GLTZS3.JPG[MSK:BGPIC/GLTZS3M.GIF,#000000,,818]:,-825;
+	BG=GLTZS3:,-825;									\
+	FG=GLTZS3[MSK:GLTZS3M,#000000,,818]:,-825;
       POOL=POOL_DPD|(POOL_BRD:#Z&D&F&(5|6));								\
 	AP=[TX=];
     $ENDGROUP
@@ -660,8 +669,8 @@ $REQUIRE POOLDEF2.TTT
     $GROUP 												\
 	NAME=GLTZS6;											\
 	DX=1600; AB=338; BL=777;									\
-	BG=BGPIC/GLTZS6.JPG:,-777;									\
-	FG=BGPIC/GLTZS6.JPG[MSK:BGPIC/GLTZS6M.GIF,#000000,,773]:,-777;
+	BG=GLTZS6:,-777;									\
+	FG=GLTZS6[MSK:GLTZS6M,#000000,,773]:,-777;
       POOL=POOL_DPD|(POOL_BRD:#Z&D&F&(5|6));								\
 	AP=[TX=];
     $ENDGROUP
@@ -673,50 +682,54 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=OSCHO3;											\
       DX=1392; AB=323; BL=656;										\
-      BG=BGPIC/OSCHO3.JPG:,-656;									\
-      FG=BGPIC/OSCHO3.JPG[MSK:BGPIC/OSCHO3M.GIF,#000000,,650]:,-656;
+      BG=OSCHO3:,-656;									\
+      FG=OSCHO3[MSK:OSCHO3M,#000000,,650]:,-656;
     POOL=Pool_DB_E_V; V=8-10;
   $ENDGROUP
 #-------------------------------------------------------------------------------
   $GROUP 												\
       NAME=OSCHO5;											\
       DX=1343; AB=430; BL=502;										\
-      BG=BGPIC/OSCHO5.JPG:,-502;									\
-      FG=BGPIC/OSCHO5.JPG[MSK:BGPIC/OSCHO5M.GIF,#000000,,494]:,-502;
+      BG=OSCHO5:,-502;									\
+      FG=OSCHO5[MSK:OSCHO5M,#000000,,494]:,-502;
     POOL=POOL_DPE;
   $ENDGROUP
 #-------------------------------------------------------------------------------
   $GROUP 												\
       NAME=OSCHO6;											\
       DX=1107; AB=242; BL=515;										\
-      BG=BGPIC/OSCHO6.JPG:,-515;									\
-      FG=BGPIC/OSCHO6.JPG[MSK:BGPIC/OSCHO6M.GIF,#000000,,502]:,-515;
+      BG=OSCHO6:,-515;									\
+      FG=OSCHO6[MSK:OSCHO6M,#000000,,502]:,-515;
     POOL=POOL_DPE;
   $ENDGROUP
 #-------------------------------------------------------------------------------
   $GROUP 												\
       NAME=OSCHO8;											\
       DX=1584; AB=308; BL=812;										\
-      BG=BGPIC/OSCHO8.JPG:,-812;									\
-      FG=BGPIC/OSCHO8.JPG[MSK:BGPIC/OSCHO8M.GIF,#000000,,802]:,-812;
+      BG=OSCHO8:,-812;									\
+      FG=OSCHO8[MSK:OSCHO8M,#000000,,802]:,-812;
     POOL=POOL_DPE;
   $ENDGROUP
 #-------------------------------------------------------------------------------
 #
 #
 #
-  $GROUP DX=1600; AB=550; BL=588;									\
-      BG=BGPIC/NAUND1.JPG:,-588;									\
-      FG=BGPIC/NAUND1.JPG[MSK:BGPIC/NAUND1M.GIF,#000000,,587]:,-588;
+  $GROUP 												\
+      NAME=NAUND1;											\
+      DX=1600; AB=550; BL=588;										\
+      BG=NAUND1:,-588;											\
+      FG=NAUND1[MSK:NAUND1M,#000000,,587]:,-588;
     POOL=POOL_DN;
   $ENDGROUP
 #-------------------------------------------------------------------------------
 #
 #
 #
-  $GROUP DX=688; AB=167; BL=282;									\
-      BG=BGPIC/RABGR1.JPG:,-282;									\
-      FG=BGPIC/RABGR1.JPG[MSK:BGPIC/RABGR1M.GIF,#000000,,281]:,-282;
+  $GROUP 												\
+      NAME=RABGR1;											\
+      DX=688; AB=167; BL=282;										\
+      BG=RABGR1:,-282;											\
+      FG=RABGR1[MSK:RABGR1M,#000000,,281]:,-282;
     POOL=POOL_DN;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -726,8 +739,8 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=DRESD3;											\
       DX=1440; AB=569; BL=453;										\
-      BG=BGPIC/DRESD3.JPG:,-453;									\
-      FG=BGPIC/DRESD3.JPG[MSK:BGPIC/DRESD3M.GIF,#000000,,441]:,-453;
+      BG=DRESD3:,-453;									\
+      FG=DRESD3[MSK:DRESD3M,#000000,,441]:,-453;
     POOL=POOL_DPE;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -735,8 +748,8 @@ $REQUIRE POOLDEF2.TTT
 #
 #
   $GROUP DX=1024; AB=353; BL=354;									\
-      BG=BGPIC/CWBRK1.JPG:,-354;									\
-      FG=BGPIC/CWBRK1.JPG[MSK:BGPIC/CWBRK1M.GIF,#000000,,348]:,-354;
+      BG=CWBRK1:,-354;									\
+      FG=CWBRK1[MSK:CWBRK1M,#000000,,348]:,-354;
     POOL=POOL_DPD|(POOL_BRD:#Z&D&F&(5|6));								\
       AP=[TX=];
   $ENDGROUP
@@ -745,8 +758,8 @@ $REQUIRE POOLDEF2.TTT
 #
 #
   $GROUP DX=1024; AB=459; BL=251;									\
-      BG=BGPIC/WURMLI.JPG:,-251;									\
-      FG=BGPIC/WURMLI.JPG[MSK:BGPIC/WURMLIM.GIF,#000000,,251]:,-251;
+      BG=WURMLI:,-251;									\
+      FG=WURMLI[MSK:WURMLIM,#000000,,251]:,-251;
     POOL=POOL_DB3H; V=8-10;
   $ENDGROUP
 #------------------------------------------------------------------------------
@@ -754,8 +767,8 @@ $REQUIRE POOLDEF2.TTT
 # Amruner photo - used as general backgrounds
 #
   $GROUP DX=1024; AB=348; BL=362;									\
-      BG=BGPIC/HEIDE1.JPG:,-362;									\
-      FG=BGPIC/HEIDE1.JPG[MSK:BGPIC/HEIDE1M.GIF,#000000,,362]:,-362;
+      BG=HEIDE1:,-362;									\
+      FG=HEIDE1[MSK:HEIDE1M,#000000,,362]:,-362;
     POOL=POOL_DB3N; V=8-10;
   $ENDGROUP
 #------------------------------------------------------------------------------
@@ -773,96 +786,96 @@ $REQUIRE POOLDEF2.TTT
     $GROUP 												\
 	NAME=DUTAL1;											\
 	DX=1024; AB=311; BL=393;									\
-	BG=BGPIC/DUTAL1.JPG:,-393;									\
-	FG=BGPIC/DUTAL1.JPG[MSK:BGPIC/DUTAL1M.GIF,#000000,,393]:,-393;
+	BG=DUTAL1:,-393;									\
+	FG=DUTAL1[MSK:DUTAL1M,#000000,,393]:,-393;
       POOL=POOL_AMRUN;
     $ENDGROUP
 
     $GROUP 												\
 	NAME=DUTAL2;											\
 	DX=1024; AB=293; BL=417;									\
-	BG=BGPIC/DUTAL2.JPG:,-417;									\
-	FG=BGPIC/DUTAL2.JPG[MSK:BGPIC/DUTAL2M.GIF,#000000,,417]:,-417;
+	BG=DUTAL2:,-417;									\
+	FG=DUTAL2[MSK:DUTAL2M,#000000,,417]:,-417;
       POOL=POOL_AMRUN;
     $ENDGROUP
 
     $GROUP 												\
 	NAME=DUTAL3;											\
 	DX=1024; AB=269; BL=410;									\
-	BG=BGPIC/DUTAL3.JPG:,-410;									\
-	FG=BGPIC/DUTAL3.JPG[MSK:BGPIC/DUTAL3M.GIF,#000000,,408]:,-410;
+	BG=DUTAL3:,-410;									\
+	FG=DUTAL3[MSK:DUTAL3M,#000000,,408]:,-410;
       POOL=POOL_AMRUN;
     $ENDGROUP
 
     $GROUP 												\
 	NAME=WITTD1;											\
 	DX=1024; AB=307; BL=349;									\
-	BG=BGPIC/WITTD1.JPG:,-349;									\
-	FG=BGPIC/WITTD1.JPG[MSK:BGPIC/WITTD1M.GIF,#000000,,349]:,-349;
+	BG=WITTD1:,-349;									\
+	FG=WITTD1[MSK:WITTD1M,#000000,,349]:,-349;
       POOL=POOL_AMRUN;
     $ENDGROUP
 
     $GROUP 												\
 	NAME=VKOJE1;											\
 	DX=1024; AB=284; BL=426;									\
-	BG=BGPIC/VKOJE1.JPG:,-426;									\
-	FG=BGPIC/VKOJE1.JPG[MSK:BGPIC/VKOJE1M.GIF,#000000,,426]:,-426;
+	BG=VKOJE1:,-426;									\
+	FG=VKOJE1[MSK:VKOJE1M,#000000,,426]:,-426;
       POOL=POOL_AMRUN;
     $ENDGROUP
 
     $GROUP 												\
 	NAME=NDORF1;											\
 	DX=1024; AB=328; BL=382;									\
-	BG=BGPIC/NDORF1.JPG:,-382;									\
-	FG=BGPIC/NDORF1.JPG[MSK:BGPIC/NDORF1M.GIF,#000000,,382]:,-382;
+	BG=NDORF1:,-382;									\
+	FG=NDORF1[MSK:NDORF1M,#000000,,382]:,-382;
       POOL=POOL_AMRUN;
     $ENDGROUP
 
     $GROUP 												\
 	NAME=RISUM1;											\
 	DX=1024; AB=405; BL=305;									\
-	BG=BGPIC/RISUM1.JPG:,-305;									\
-	FG=BGPIC/RISUM1.JPG[MSK:BGPIC/RISUM1M.GIF,#000000,,287]:,-305;
+	BG=RISUM1:,-305;									\
+	FG=RISUM1[MSK:RISUM1M,#000000,,287]:,-305;
       POOL=POOL_AMRUN;
     $ENDGROUP
 
     $GROUP 												\
 	NAME=RISUM2;											\
 	DX=1024; AB=307; BL=403;									\
-	BG=BGPIC/RISUM2.JPG:,-403;									\
-	FG=BGPIC/RISUM2.JPG[MSK:BGPIC/RISUM2M.GIF,#000000,,403]:,-403;
+	BG=RISUM2:,-403;									\
+	FG=RISUM2[MSK:RISUM2M,#000000,,403]:,-403;
       POOL=POOL_AMRUN;
     $ENDGROUP
 
     $GROUP 												\
 	NAME=HEIDE2;											\
 	DX=1024; AB=294; BL=416;									\
-	BG=BGPIC/HEIDE2.JPG:,-416;									\
-	FG=BGPIC/HEIDE2.JPG[MSK:BGPIC/HEIDE2M.GIF,#000000,,416]:,-416;
+	BG=HEIDE2:,-416;									\
+	FG=HEIDE2[MSK:HEIDE2M,#000000,,416]:,-416;
       POOL=POOL_AMRUN;
     $ENDGROUP
 
     $GROUP 												\
 	NAME=HEIDE3;											\
 	DX=1024; AB=424; BL=275;									\
-	BG=BGPIC/HEIDE3.JPG:,-275;									\
-	FG=BGPIC/HEIDE3.JPG[MSK:BGPIC/HEIDE3M.GIF,#000000,,275]:,-275;
+	BG=HEIDE3:,-275;									\
+	FG=HEIDE3[MSK:HEIDE3M,#000000,,275]:,-275;
       POOL=POOL_AMRUN;
     $ENDGROUP
 
     $GROUP 												\
 	NAME=STEEN1;											\
 	DX=1024; AB=280; BL=430;									\
-	BG=BGPIC/STEEN1.JPG:,-430;									\
-	FG=BGPIC/STEEN1.JPG[MSK:BGPIC/STEEN1M.GIF,#000000,,430]:,-430;
+	BG=STEEN1:,-430;									\
+	FG=STEEN1[MSK:STEEN1M,#000000,,430]:,-430;
       POOL=POOL_AMRUN;
     $ENDGROUP
 
     $GROUP 												\
 	NAME=STEEN2;											\
 	DX=1024; AB=415; BL=295;									\
-	BG=BGPIC/STEEN2.JPG:,-295;									\
-	FG=BGPIC/STEEN2.JPG[MSK:BGPIC/STEEN2M.GIF,#000000,,295]:,-295;
+	BG=STEEN2:,-295;									\
+	FG=STEEN2[MSK:STEEN2M,#000000,,295]:,-295;
       POOL=POOL_AMRUN;
     $ENDGROUP
   $ENDSECTION
@@ -913,16 +926,16 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=MAXJP1;											\
       DX=640; AB=200; BL=218;										\
-      BG=BGPIC/MAXJP1.JPG:,-218;									\
-      FG=BGPIC/MAXJP1.JPG[MSK:BGPIC/MAXJP1M.GIF,#000000,,218]:,-218;
+      BG=MAXJP1:,-218;									\
+      FG=MAXJP1[MSK:MAXJP1M,#000000,,218]:,-218;
     POOL=POOL_MUNT;
   $ENDGROUP
 #-----------------------------------------------------------------------------
   $GROUP 												\
       NAME=NURNBERG1;											\
       DX=1600; AB=547; BL=579;										\
-      BG=BGPIC/NRNBG1.JPG:,-579;									\
-      FG=BGPIC/NRNBG1.JPG[MSK:BGPIC/NRNBG1M.GIF,#000000,,578]:,-579;
+      BG=NRNBG1:,-579;									\
+      FG=NRNBG1[MSK:NRNBG1M,#000000,,578]:,-579;
     POOL=Pool_DB_E_V; V=8-10;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -932,8 +945,8 @@ $REQUIRE POOLDEF2.TTT
   $SCENE 												\
       NAME=FURTH1;											\
       DX=1600; DY=1200; YDIR=B;										\
-      BG=BGPIC/FUERT1.JPG;										\
-      FG=BGPIC/FUERT1.JPG[MSK:BGPIC/FUERT1M.GIF,#000000,,627];
+      BG=FUERT1;										\
+      FG=FUERT1[MSK:FUERT1M,#000000,,627];
     $PATH Y=627;
       POOL=Pool_DB_E_IV; D=R; V=8-10;
     $ENDPATH
@@ -948,8 +961,8 @@ $REQUIRE POOLDEF2.TTT
   $SCENE 												\
       NAME=FURTH2;											\
       DX=640; DY=480; YDIR=B;										\
-      BG=BGPIC/FUERT2.JPG;										\
-      FG=BGPIC/FUERT2.JPG[MSK:BGPIC/FUERT2M.GIF,#000000,,220];
+      BG=FUERT2;										\
+      FG=FUERT2[MSK:FUERT2M,#000000,,220];
     $PATH Y=220;
       POOL=POOL_DPIR; D=R;
     $ENDPATH
@@ -964,8 +977,8 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=NURNBERG2;											\
       DX=893; AB=294; BL=291;										\
-      BG=BGPIC/NRNBG2.JPG:,-291;									\
-      FG=BGPIC/NRNBG2.JPG[MSK:BGPIC/NRNBG2M.GIF,#000000,,290]:,-291;
+      BG=NRNBG2:,-291;									\
+      FG=NRNBG2[MSK:NRNBG2M,#000000,,290]:,-291;
     C=1:1|5:2*N_U1|N_U2;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -974,14 +987,14 @@ $REQUIRE POOLDEF2.TTT
 #
   $SECTION LC=1;
     $GROUP DX=1024; AB=249; BL=439;									\
-	BG=BGPIC/RAVEN2.JPG:,-439;									\
-	FG=BGPIC/RAVEN2.JPG[MSK:BGPIC/RAVEN2M.GIF,#000000,,439]:,-439;
+	BG=RAVEN2:,-439;									\
+	FG=RAVEN2[MSK:RAVEN2M,#000000,,439]:,-439;
       POOL=POOL_DPE;
     $ENDGROUP
 ;..............................................................................
     $GROUP DX=1024; AB=177; BL=525;									\
-	BG=BGPIC/RAVEN3.JPG:,-525;									\
-	FG=BGPIC/RAVEN3.JPG[MSK:BGPIC/RAVEN3M.GIF,#000000,,525]:,-525;
+	BG=RAVEN3:,-525;									\
+	FG=RAVEN3[MSK:RAVEN3M,#000000,,525]:,-525;
       POOL=POOL_DPE;
     $ENDGROUP
   $ENDSECTION
@@ -991,14 +1004,14 @@ $REQUIRE POOLDEF2.TTT
 #
   $SECTION LC=1;
     $GROUP DX=880; AB=247; BL=341;									\
-	BG=BGPIC/FLKST1.JPG:,-341;									\
-	FG=BGPIC/FLKST1.JPG[MSK:BGPIC/FLKST1M.GIF,#000000,,340]:,-341;
+	BG=FLKST1:,-341;									\
+	FG=FLKST1[MSK:FLKST1M,#000000,,340]:,-341;
       POOL=POOL_DPE;
     $ENDGROUP
 ;..............................................................................
     $GROUP DX=800; AB=228; BL=284;									\
-	BG=BGPIC/FLKST2.JPG:,-284;									\
-	FG=BGPIC/FLKST2.JPG[MSK:BGPIC/FLKST2M.GIF,#000000,,284]:,-284;
+	BG=FLKST2:,-284;									\
+	FG=FLKST2[MSK:FLKST2M,#000000,,284]:,-284;
       POOL=POOL_DPE;
     $ENDGROUP
   $ENDSECTION
@@ -1007,8 +1020,8 @@ $REQUIRE POOLDEF2.TTT
 #
 #
   $GROUP DX=880; AB=276; BL=304;									\
-      BG=BGPIC/FLKST3.JPG:,-304;									\
-      FG=BGPIC/FLKST3.JPG[MSK:BGPIC/FLKST3M.GIF,#000000,,302]:,-304;
+      BG=FLKST3:,-304;									\
+      FG=FLKST3[MSK:FLKST3M,#000000,,302]:,-304;
     POOL=POOL_DPE;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -1039,8 +1052,8 @@ $REQUIRE POOLDEF2.TTT
     $SCENE 												\
 	NAME=TITISEE1;											\
 	DX=1024; DY=768; YDIR=B;									\
-	BG=BGPIC/TITIS1.JPG;										\
-	FG=BGPIC/TITIS1.JPG[MSK:BGPIC/TITIS1M.GIF,#000000,,360];
+	BG=TITIS1;										\
+	FG=TITIS1[MSK:TITIS1M,#000000,,360];
       $PATH Y=360; LC=2;
 	POOL=POOL_TITISEE;
       $ENDPATH
@@ -1052,7 +1065,7 @@ $REQUIRE POOLDEF2.TTT
     $SCENE 												\
 	NAME=TITISEE2;											\
 	DX=1024; DY=768; YDIR=B;									\
-	BG=BGPIC/TITIS2.JPG;
+	BG=TITIS2;
       $PATH Y=345; LC=2;
 	POOL=POOL_TITISEE;
       $ENDPATH
@@ -1064,7 +1077,7 @@ $REQUIRE POOLDEF2.TTT
     $SCENE 												\
 	NAME=TITISEE3;											\
 	DX=1024; DY=768; YDIR=B;									\
-	BG=BGPIC/TITIS3.JPG;
+	BG=TITIS3;
       $PATH Y=345;
 	POOL=POOL_TITISEE;
       $ENDPATH
@@ -1076,7 +1089,7 @@ $REQUIRE POOLDEF2.TTT
     $SCENE 												\
 	NAME=TITISEE4;											\
 	DX=1024; DY=768; YDIR=B;									\
-	BG=BGPIC/TITIS4.JPG;
+	BG=TITIS4;
       $PATH Y=300; LC=2;
 	POOL=POOL_TITISEE;
       $ENDPATH
@@ -1092,8 +1105,8 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=ENGEN1;											\
       DX=1024; AB=328; BL=375;										\
-      BG=BGPIC/ENGEN1.JPG:,-375;									\
-      FG=BGPIC/ENGEN1.JPG[MSK:BGPIC/ENGEN1M.GIF,#000000,,375]:,-375;
+      BG=ENGEN1:,-375;									\
+      FG=ENGEN1[MSK:ENGEN1M,#000000,,375]:,-375;
     POOL=POOL_DPE;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -1103,8 +1116,8 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=ENGEN2;											\
       DX=1024; AB=307; BL=403;										\
-      BG=BGPIC/ENGEN2.JPG:,-403;									\
-      FG=BGPIC/ENGEN2.JPG[MSK:BGPIC/ENGEN2M.GIF,#000000,,403]:,-403;
+      BG=ENGEN2:,-403;									\
+      FG=ENGEN2[MSK:ENGEN2M,#000000,,403]:,-403;
     POOL=POOL_DPE;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -1114,8 +1127,8 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=ENGEN3;											\
       DX=800; AB=257; BL=282;										\
-      BG=BGPIC/ENGEN3.JPG:,-282;									\
-      FG=BGPIC/ENGEN3.JPG[MSK:BGPIC/ENGEN3M.GIF,#000000,,282]:,-282;
+      BG=ENGEN3:,-282;									\
+      FG=ENGEN3[MSK:ENGEN3M,#000000,,282]:,-282;
     POOL=POOL_DB3N; V=8-10;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -1125,8 +1138,8 @@ $REQUIRE POOLDEF2.TTT
   $SCENE 												\
       NAME=HTSCH2;											\
       DX=1024; DY=759; YDIR=B;										\
-      BG=BGPIC/HTSCH2.JPG;										\
-      FG=BGPIC/HTSCH2.JPG[MSK:BGPIC/HTSCH2M.GIF,#000000,,199];
+      BG=HTSCH2;										\
+      FG=HTSCH2[MSK:HTSCH2M,#000000,,199];
     $PATH Y=202;
       POOL=Pool_DB_E_III; D=R; V=8-10;
     $ENDPATH
@@ -1141,8 +1154,8 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=NEUMUE;											\
       DX=528; AB=174; BL=164;										\
-      BG=BGPIC/NEUMUE.JPG:,-164;									\
-      FG=BGPIC/NEUMUE.JPG[MSK:BGPIC/NEUMUEM.GIF,#000000,,163]:,-164;
+      BG=NEUMUE:,-164;									\
+      FG=NEUMUE[MSK:NEUMUEM,#000000,,163]:,-164;
     POOL=POOL_DPD;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -1152,8 +1165,8 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=INZIG1;											\
       DX=1024; AB=467; BL=261;										\
-      BG=BGPIC/INZIG1.JPG:,-261;									\
-      FG=BGPIC/INZIG1.JPG[MSK:BGPIC/INZIG1M.GIF,#000000,,260]:,-261;
+      BG=INZIG1:,-261;									\
+      FG=INZIG1[MSK:INZIG1M,#000000,,260]:,-261;
     POOL=POOL_DPD;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -1163,8 +1176,8 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=INZIG2;											\
       DX=800; AB=341; BL=185;										\
-      BG=BGPIC/INZIG2.JPG:,-185;									\
-      FG=BGPIC/INZIG2.JPG[MSK:BGPIC/INZIG2M.GIF,#000000,,185]:,-185;
+      BG=INZIG2:,-185;									\
+      FG=INZIG2[MSK:INZIG2M,#000000,,185]:,-185;
     POOL=POOL_DPD;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -1174,12 +1187,24 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=KONSTANZ1;											\
       DX=2576; AB=898; BL=973; VM=CONT;									\
-      BG=BGPIC/KONSTZ01.JPG:,-973;									\
-      FG=BGPIC/KONSTZ01.JPG[MSK:BGPIC/KONSTZ01M.GIF,#000000,,970]:,-973;
+      BG=KONSTZ01:,-973;										\
+      FG=KONSTZ01[MSK:KONSTZ01M,#000000,,970]:,-973;
     POOL=POOL_DPE;
   $ENDGROUP
 #-------------------------------------------------------------------------------
+#
+#
+#
+  $GROUP DX=1280; AB=242; BL=654;									\
+      BG=GRHLB3_G:,-654;										\
+      FG=GRHLB3_G[MSK:GRHLB3_GM,#000000,,654]:,-654;
+    POOL=POOL_DPE;
+  $ENDGROUP
 }
+#==============================================================================
+#
+#
+#
 {BGCH?
   $SPOOL N=POOL_CH6; AP=[V=7-10];
     C=<1-2*(SBB_ICN_BTL~DEJ,SBB_ICN_B,SBB_ICN_WR~DEJ,SBB_ICN_A~DEJ,SBB_ICN_AD,SBB_ICN_B,SBB_ICN_BT~DEJ);
@@ -1214,15 +1239,11 @@ $REQUIRE POOLDEF2.TTT
 	_102|_110|_112|_IBAE));
   $ENDPOOL
 
-#==============================================================================
-#
-#
-#
   $SCENE 												\
       NAME=CH_BERN1;											\
       DX=1360; DY=989; YDIR=B;										\
-      BG=BGPIC/BERN_01.JPG;										\
-      FG=BGPIC/BERN_01.JPG[MSK:BGPIC/BERN_01M.GIF,#000000,,743];
+      BG=BERN_01;										\
+      FG=BERN_01[MSK:BERN_01M,#000000,,743];
     $PATH Y=747; LC=1;
       POOL=POOL_CH6|(POOL_CH:#Z&6&F); D=R; V=7-9; TB=2-10;
     $ENDPATH
@@ -1240,8 +1261,8 @@ $REQUIRE POOLDEF2.TTT
   $SCENE 												\
       NAME=CH_BERN2;											\
       DX=1072; DY=800; YDIR=B;										\
-      BG=BGPIC/BERN_02.JPG;										\
-      FG=BGPIC/BERN_02.JPG[MSK:BGPIC/BERN_02M.GIF,#000000,,194];
+      BG=BERN_02;										\
+      FG=BERN_02[MSK:BERN_02M,#000000,,194];
     $PATH Y=194;
       POOL=POOL_CH6|(POOL_CH:#Z&6&F); D=R; V=7-9; TB=2-10;
     $ENDPATH
@@ -1256,8 +1277,8 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=CH_OLTEN;											\
       DX=1465; AB=459; BL=476;										\
-      BG=BGPIC/OLTEN02.JPG:,-476;									\
-      FG=BGPIC/OLTEN02.JPG[MSK:BGPIC/OLTEN02M.GIF,#000000,,470]:,-476;
+      BG=OLTEN02:,-476;									\
+      FG=OLTEN02[MSK:OLTEN02M,#000000,,470]:,-476;
     POOL=POOL_CH6R;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -1267,8 +1288,8 @@ $REQUIRE POOLDEF2.TTT
   $SCENE 												\
       NAME=CH_BRUGG1;											\
       DX=1448; DY=914; YDIR=B;										\
-      BG=BGPIC/BRUGG_CH.JPG;										\
-      FG=BGPIC/BRUGG_CH.JPG[MSK:BGPIC/BRUGG_CHM.GIF,#000000,,586];
+      BG=BRUGG_CH;										\
+      FG=BRUGG_CH[MSK:BRUGG_CHM,#000000,,586];
     $PATH Y=589;
       POOL=POOL_CH6|(POOL_CH:#Z&6&F); D=R; V=7-9; TB=2-10;
     $ENDPATH
@@ -1283,8 +1304,8 @@ $REQUIRE POOLDEF2.TTT
   $SCENE 												\
       NAME=CH_GEBENSDORF1;										\
       DX=1324; DY=914; YDIR=B;										\
-      BG=BGPIC/GBSDRF_1.JPG;										\
-      FG=BGPIC/GBSDRF_1.JPG[MSK:BGPIC/GBSDRF_1M.GIF,#000000,,424];
+      BG=GBSDRF_1;										\
+      FG=GBSDRF_1[MSK:GBSDRF_1M,#000000,,424];
     $PATH Y=424;
       POOL=POOL_CH6|(POOL_CH:#Z&6&F); D=R; V=7-9; TB=2-10;
     $ENDPATH
@@ -1322,8 +1343,8 @@ $REQUIRE POOLDEF2.TTT
   $SCENE 												\
       NAME=CH_WASSEN1;											\
       DX=1383; DY=900; YDIR=B;										\
-      BG=BGPIC/WASSEN01.JPG;										\
-      FG=BGPIC/WASSEN01.JPG[MSK:BGPIC/WASSEN01M.GIF,#000000,,421];
+      BG=WASSEN01;										\
+      FG=WASSEN01[MSK:WASSEN01M,#000000,,421];
     $PATH Y=421;
       POOL=Pool_Swiss_1; D=R; V=5-8; TB=2-10;
     $ENDPATH
@@ -1338,8 +1359,8 @@ $REQUIRE POOLDEF2.TTT
   $SCENE 												\
       NAME=CH_WASSEN2;											\
       DX=1506; DY=993; YDIR=B;										\
-      BG=BGPIC/WASSEN02.JPG;										\
-      FG=BGPIC/WASSEN02.JPG[MSK:BGPIC/WASSEN02M.GIF,#000000,,485];
+      BG=WASSEN02;										\
+      FG=WASSEN02[MSK:WASSEN02M,#000000,,485];
     $PATH Y=486;
       POOL=POOL_CH6|(POOL_CH:#Z&6&F); D=R; V=5-8; TB=2-10;
     $ENDPATH
@@ -1355,24 +1376,24 @@ $REQUIRE POOLDEF2.TTT
     $GROUP 												\
 	NAME=CH_SCHAFFHAUSEN1;										\
 	DX=2000; AB=896; BL=503;									\
-	BG=BGPIC/SCHFFH04.JPG:,-503;									\
-	FG=BGPIC/SCHFFH04.JPG[MSK:BGPIC/SCHFFH04M.GIF,#000000,,499]:,-503;
+	BG=SCHFFH04:,-503;									\
+	FG=SCHFFH04[MSK:SCHFFH04M,#000000,,499]:,-503;
       POOL=POOL_CH6R;
     $ENDGROUP
 
     $GROUP 												\
 	NAME=CH_SCHAFFHAUSEN2;										\
 	DX=1440; AB=397; BL=617;									\
-	BG=BGPIC/SCHFFH08.JPG:,-617;									\
-	FG=BGPIC/SCHFFH08.JPG[MSK:BGPIC/SCHFFH08M.GIF,#000000,,615]:,-617;
+	BG=SCHFFH08:,-617;									\
+	FG=SCHFFH08[MSK:SCHFFH08M,#000000,,615]:,-617;
       POOL=POOL_CH6R;
     $ENDGROUP
 
     $GROUP 												\
 	NAME=CH_SCHAFFHAUSEN3;										\
 	DX=1440; AB=473; BL=548;									\
-	BG=BGPIC/SCHFFH10.JPG:,-548;									\
-	FG=BGPIC/SCHFFH10.JPG[MSK:BGPIC/SCHFFH10M.GIF,#000000,,545]:,-548;
+	BG=SCHFFH10:,-548;									\
+	FG=SCHFFH10[MSK:SCHFFH10M,#000000,,545]:,-548;
       POOL=POOL_CH6R;
     $ENDGROUP
   $ENDSECTION
@@ -1383,8 +1404,8 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=CH_SCHAFFHAUSEN4;										\
       DX=1088; AB=333; BL=425;										\
-      BG=BGPIC/SCHFFH21.JPG:,-425;									\
-      FG=BGPIC/SCHFFH21.JPG[MSK:BGPIC/SCHFFH21M.GIF,#000000,,424]:,-425;
+      BG=SCHFFH21:,-425;									\
+      FG=SCHFFH21[MSK:SCHFFH21M,#000000,,424]:,-425;
     POOL=POOL_CH6R;
   $ENDGROUP
 #-------------------------------------------------------------------------------
@@ -1394,8 +1415,8 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=CH_EGLISAU2;											\
       DX=1690; AB=473; BL=596;										\
-      BG=BGPIC/EGLISAU2.JPG:,-596;									\
-      FG=BGPIC/EGLISAU2.JPG[MSK:BGPIC/EGLISAU2M.GIF,#000000,,596]:,-596;
+      BG=EGLISAU2:,-596;									\
+      FG=EGLISAU2[MSK:EGLISAU2M,#000000,,596]:,-596;
     POOL=POOL_CH6|(POOL_CH:#Z&6&F);									\
       AP=[TX=];
   $ENDGROUP
@@ -1406,8 +1427,8 @@ $REQUIRE POOLDEF2.TTT
   $GROUP 												\
       NAME=CH_BIETSCH1;											\
       DX=1954; AB=484; BL=879;										\
-      BG=BGPIC/BIETSCH1.JPG:,-879;									\
-      FG=BGPIC/BIETSCH1.JPG[MSK:BGPIC/BIETSCH1M.GIF,#000000,,876]:,-879;
+      BG=BIETSCH1:,-879;									\
+      FG=BIETSCH1[MSK:BIETSCH1M,#000000,,876]:,-879;
     POOL=POOL_CH6|(POOL_CH:#Z&6&F);									\
       AP=[TX=];
   $ENDGROUP
@@ -1418,8 +1439,8 @@ $REQUIRE POOLDEF2.TTT
   $SCENE 												\
       NAME=CH_RAPPERSWIL1;										\
       DX=1456; DY=1070; YDIR=B;										\
-      BG=BGPIC/RPSWIL02.JPG;										\
-      FG=BGPIC/RPSWIL02.JPG[MSK:BGPIC/RPSWIL02M.GIF,#000000,,498];
+      BG=RPSWIL02;										\
+      FG=RPSWIL02[MSK:RPSWIL02M,#000000,,498];
     $PATH Y=501;
       POOL=POOL_CH6|ZURICH_S|(POOL_CH:#Z&6&F); D=R; TB=2-10;						\
 	AP=[TX=];
@@ -1436,8 +1457,8 @@ $REQUIRE POOLDEF2.TTT
   $SCENE 												\
       NAME=CH_RUTIZH1;											\
       DX=928; DY=693; YDIR=B;										\
-      BG=BGPIC/RUTIZH01.JPG;										\
-      FG=BGPIC/RUTIZH01.JPG[MSK:BGPIC/RUTIZH01M.GIF,#000000,,291];
+      BG=RUTIZH01;										\
+      FG=RUTIZH01[MSK:RUTIZH01M,#000000,,291];
     $PATH Y=292;
       POOL=ZURICH_S|(POOL_CH:#Z&6&F); D=R; TB=2-10;							\
 	AP=[TX=];
@@ -1457,8 +1478,8 @@ $REQUIRE POOLDEF2.TTT
     $GROUP 												\
 	NAME=D_HARZ1;											\
 	LC=2; DX=1360; AB=556; BL=359;									\
-	BG=BGPIC/HSB041.JPG:,-359;									\
-	FG=BGPIC/HSB041.JPG[MSK:BGPIC/HSB041M.GIF,#000000,,359]:,-359;
+	BG=HSB041:,-359;									\
+	FG=HSB041[MSK:HSB041M,#000000,,359]:,-359;
       C=HSB_99_72B,3*HSB_B;
       C=HSB_99_2(22|39)(|L),3-5*HSB_B(4|5|6|7|8);
     $ENDGROUP
@@ -1466,8 +1487,8 @@ $REQUIRE POOLDEF2.TTT
     $GROUP 												\
 	NAME=D_HARZ2;											\
 	LC=2; DX=1200; AB=422; BL=399;									\
-	BG=BGPIC/HSB042.JPG:,-399;									\
-	FG=BGPIC/HSB042.JPG[MSK:BGPIC/HSB042M.GIF,#000000,,399]:,-399;
+	BG=HSB042:,-399;									\
+	FG=HSB042[MSK:HSB042M,#000000,,399]:,-399;
       C=HSB_99_72B,3*HSB_B;
       C=HSB_99_2(22|39)(|L),3-5*HSB_B(4|5|6|7|8);
     $ENDGROUP

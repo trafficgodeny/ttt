@@ -58,7 +58,7 @@ $ENDPOOL
 
 $SPOOL N=TOLSTOY_2003_RU; SEQ=R;
   {E6?
-    C=2:(2:(RZD_VL82M_0(1B|2B|3B))|(SZD_M62(A|AL|B|BL)))|4:RZD_CS6,4:0|1*RZD_BAG_TOLSTOY(|L),		\
+    C=2:(2:(RZD_VL82M_0(1B|2B|3B))|(SZD_M62(A|AL|B|BL)))|4:RZD_CS6,4:(0|1)*RZD_BAG_TOLSTOY(|L),		\
 	6*RZD_KRK_TOLSTOY(|L),RZD_SKK_TOLSTOY(|L),3*RZD_KRK_TOLSTOY(|L);				\
       AP=[TX=P 31 "Tolstoy" Helsinki <- Vainikkala - Vyborg - St. Petersburg - Tver -> Moskva (6.2003)]| \
 	[TX=P 32 "Tolstoy" Moskva <- Tver - St. Petersburg - Vyborg - Vainikkala -> Helsinki (6.2003)];	\
@@ -66,7 +66,7 @@ $SPOOL N=TOLSTOY_2003_RU; SEQ=R;
       VH=62;
     TX=P 31 "Tolstoy" Helsinki <- Vainikkala - Vyborg - St. Petersburg - Tver -> Moskva (6.2003);	\
       M=CHANGE;												\
-      C=<4:0|1*RZD_BAG_TOLSTOY(|L),6*RZD_KRK_TOLSTOY(|L),RZD_SKK_TOLSTOY(|L),3*RZD_KRK_TOLSTOY(|L);	\
+      C=<4:(0|1)*RZD_BAG_TOLSTOY(|L),6*RZD_KRK_TOLSTOY(|L),RZD_SKK_TOLSTOY(|L),3*RZD_KRK_TOLSTOY(|L);	\
       D=L;												\
       C1=VR_SR1(A|N)H(|L);										\
       C2=2:(RZD_VL82M_0(1B|2B|3B))|(SZD_M62(A|AL|B|BL));						\
@@ -77,7 +77,7 @@ $SPOOL N=TOLSTOY_2003_RU; SEQ=R;
       VH=62;
     TX=P 31 "Tolstoy" Helsinki <- Vainikkala - Vyborg - St. Petersburg - Tver -> Moskva (6.2003);	\
       M=CHANGE;												\
-      C=<4:0|1*RZD_BAG_TOLSTOY(|L),6*RZD_KRK_TOLSTOY(|L),RZD_SKK_TOLSTOY(|L),3*RZD_KRK_TOLSTOY(|L);	\
+      C=<4:(0|1)*RZD_BAG_TOLSTOY(|L),6*RZD_KRK_TOLSTOY(|L),RZD_SKK_TOLSTOY(|L),3*RZD_KRK_TOLSTOY(|L);	\
       D=L;												\
       C1=2:(RZD_VL82_0(1|2|3))|(SZD_M62(A|AL|B|BL));							\
       C2=RZD_CS6;											\
@@ -87,7 +87,7 @@ $SPOOL N=TOLSTOY_2003_RU; SEQ=R;
       SW=E;
     TX=P 32 "Tolstoy" Moskva <- Tver - St. Petersburg - Vyborg - Vainikkala -> Helsinki (6.2003);	\
       M=CHANGE;												\
-      C=<4:0|1*RZD_BAG_TOLSTOY(|L),6*RZD_KRK_TOLSTOY(|L),RZD_SKK_TOLSTOY(|L),3*RZD_KRK_TOLSTOY(|L);	\
+      C=<4:(0|1)*RZD_BAG_TOLSTOY(|L),6*RZD_KRK_TOLSTOY(|L),RZD_SKK_TOLSTOY(|L),3*RZD_KRK_TOLSTOY(|L);	\
       D=L;												\
       C1=RZD_CS6;											\
       C2=2:(RZD_VL82_0(1|2|3))|(SZD_M62(A|AL|B|BL));							\
@@ -97,7 +97,7 @@ $SPOOL N=TOLSTOY_2003_RU; SEQ=R;
       SW=E;
     TX=P 32 "Tolstoy" Moskva <- Tver - St. Petersburg - Vyborg - Vainikkala -> Helsinki (6.2003);	\
       M=CHANGE;												\
-      C=<4:0|1*RZD_BAG_TOLSTOY(|L),6*RZD_KRK_TOLSTOY(|L),RZD_SKK_TOLSTOY(|L),3*RZD_KRK_TOLSTOY(|L);	\
+      C=<4:(0|1)*RZD_BAG_TOLSTOY(|L),6*RZD_KRK_TOLSTOY(|L),RZD_SKK_TOLSTOY(|L),3*RZD_KRK_TOLSTOY(|L);	\
       D=L;												\
       C1=2:(RZD_VL82_0(1|2|3))|(SZD_M62(A|AL|B|BL));							\
       C2=VR_SR1(A|N)H(|L);										\
@@ -128,7 +128,7 @@ $ENDPOOL
 	  3*SZD_2OS(4:|2);										\
 	D=R;												\
 	F=S2;
-      C=SZD_OEL7,1|3|4*SZD_KRYTY_12,0|3|5*DRG_2_GR_KSL(|_H)(|L)|(3:DRG_GLR22|DRG_GLR22H(|L)),		\
+      C=SZD_OEL7,1|(3|4)*SZD_KRYTY_12,0|(3|5)*DRG_2_GR_KSL(|_H)(|L)|(3:DRG_GLR22|DRG_GLR22H(|L)),		\
 	  2-7*SZD_KRYTY_12,8-15*SZD_NEFT_12;								\
 	F=DF2;
       TX=Tbilisi <- Batumi - Erevan -> Baku (anno 1947);						\
@@ -1151,7 +1151,7 @@ $ENDPOOL
 	F=DF567;
       C=EE_M62,3-7*SZDKRU,12-14*SZD_19752(A|B|C|D)(|L),3*SZD_119553;					\
 	F=F567;
-      C=EVR_CHME31321(|L),10|20*RZD_104022;								\
+      C=EVR_CHME31321(|L),(10|20)*RZD_104022;								\
 	F=F567;
       C=EE_M62,CISNEFT,SZDOPEN,2*CISCONT_5,SZD_139004,8*SZDOPEN,SZD_MK442477(A|B|C),6*SZDOPEN;		\
 	F=F567;
