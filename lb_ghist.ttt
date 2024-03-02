@@ -27,8 +27,16 @@ $REQUIRE TRAINDEF.TTT
 	(2*BADSTB_C4U07L,3*BADSTB_AB6U08L,BADSTB_C4U07L,DRG_WR6U101E2AL,BADSTB_ABC4U11L);		\
       F=SF1;
     TX=Baden X b;											\
-      C=BADSTB_XB(690|366|216)(|L),WUE_K71SNL,WUE_J66SR2L,WUE_OCSN2L,WUE_NI3SN,WUE_GMLVNL,KPEV_GHL;	\
+      C=BADSTB_XB(690|366|216)(|L),									\
+	3*((BADSTB_O10K[O:((FR_TURNIP|FR_REPA1)(|[M])),,22])|						\
+	(BADSTB_O(10SH|MKH)[O:((FR_TURNIP|FR_REPA1)(|[M])),12,22])|					\
+	(BADSTB_O(10SH|MKH)L[O:((FR_TURNIP|FR_REPA1)(|[M])),18,22])),WUE_K71SN(|L),BAD_Z_HOLZGOIST(|L);	\
       F=SF1;
+    TX=Baden X b;											\
+      C=BADSTB_XB(690|366|216)(|L),									\
+	15*(BADSTB_1D_OMM(KUA10|KUA10H)(|L)[OB:(COAL45|COAL41|COAL56|COAL40|FR_KO13)(|[M]),,28]);	\
+      F=SF1;
+
     TX=Baden VI b;											\
       C=BADSTB_VIB176(|L),WUE_P139L,WUE_PWI09B,2*WUE_D1,WUE_D2B,2*WUE_D1;				\
       F=SPR1;
@@ -52,6 +60,10 @@ $REQUIRE TRAINDEF.TTT
       F=SF1;
     TX=KBayStB G 3/4 H  + Güterzug;									\
       C=BAY_G34H_7(097|210|081)(|L),D1FBL;								\
+      F=SF1;
+    TX=KBayStB G 4/5  + Kohlezug;									\
+      C=BAY_G45_5501L|BAY_G45_5501|BAY_G45_5502L|BAY_G45_5502|BAY_G45_5506L|BAY_G45_5506,		\
+	15*(BAY_1D_OMM(KUA10H|KUA10)(|L)[OB:(COAL45|COAL41|COAL56|COAL40|FR_KO13)(|[M]),,28]);		\
       F=SF1;
     TX=KBayStB G 4/5  + Güterzug;									\
       C=BAY_G45_5501L|BAY_G45_5501|BAY_G45_5502L|BAY_G45_5502|BAY_G45_5506L|BAY_G45_5506,D1FBL;		\
@@ -127,6 +139,10 @@ $REQUIRE TRAINDEF.TTT
     TX=KBayStB R 3/3 Pfalz + Güterzug;									\
       C=BAY_R33PFALZ(|L),BAY_PWG_PFALZ(|L),D1FBS;							\
       F=SF1;
+    TX=KBayStB R 3/3 Pfalz + Kesselwagen;								\
+      C=BAY_R33PFALZ(|L),BAY_PFALZ_Z_BASF(|L),KPEV_Z_STEAUA(|L),KPEV_Z_NOBEL(|L),KPEV_Z_HUBBE(|L),	\
+	KPEV_Z_BASF(|L);										\
+      F=SF1;
     TX=KBayStB R 4/4 Pfalz + Güterzug;									\
       C=BAY_R44PF123(|L),BAY_PWG_PFALZ(|L),D1FBS;							\
       F=SF1;
@@ -154,7 +170,13 @@ $REQUIRE TRAINDEF.TTT
 
 # Mecklenburg
     TX=Mecklenburg T3;											\
-      C=MFFE_T3L|MFFE_T3,D1FPS;										\
+      C=MFFE_T3(|L),D1FPR,										\
+	3*((MFFE_O10[O:((FR_TURNIP|FR_REPA1)(|[M])),,22])|						\
+	(MFFE_O(MKH|10SH)[O:((FR_TURNIP|FR_REPA1)(|[M])),12,22])|					\
+	(MFFE_O(MKH|10SH)L[O:((FR_TURNIP|FR_REPA1)(|[M])),18,22]));					\
+      F=SF1;
+    TX=Mecklenburg T3;											\
+      C=MFFE_T3(|L),D1FPR,;										\
       F=SF1;
 
 # Preußen
@@ -262,6 +284,18 @@ $REQUIRE TRAINDEF.TTT
     TX=KPEV G10 + Güterzug;										\
       C=KPEV_G10KAT5461(|L)|KPEV_G10_6019HAL(|L),Z_D_E1_GP;						\
       F=SF1;
+    TX=KPEV G10 + Kohlezug;										\
+      C=KPEV_G10KAT5461(|L),KPEV_PWG92C(|L)|KPEV_PWG(|L)~CGR,D1FC;					\
+      F=SF1;
+    TX=KPEV G10 + Kohlezug;										\
+      C=KPEV_G10KAT5461(|L),KPEV_PWG92C(|L)|KPEV_PWG(|L)~CGR,						\
+	18*3:(KPEV_1D_OMMKUA10(|H|L)[OB:(COAL45|COAL41|COAL56|COAL40|FR_KO13)(|[M]),13,28])|		\
+	1:(KPEV_1D_OMMKUA10HL[OB:(COAL45|COAL41|COAL56|COAL40|FR_KO13)(|[M]),19,28]);			\
+      F=SF1;
+    TX=KBayStB G 4/5 + Kohlezug;									\
+      C=BAY_G45_5501L|BAY_G45_5501|BAY_G45_5502L|BAY_G45_5502|BAY_G45_5506L|BAY_G45_5506,		\
+	15*(BAY_1D_OMM(KUA10H|KUA10)(|L)[OB:(COAL45|COAL41|COAL56|COAL40|FR_KO13)(|[M]),,28]);		\
+      F=SF1;
     TX=KPEV T3 + Personenzug;										\
       C=KPEV_T3~SKU,KPEV_CI95L,KPEV_BCI95,KPEV_CDI95L,KPEV_BC3I05L,KPEV_CGI96;				\
       F=SPR1;
@@ -337,6 +371,15 @@ $REQUIRE TRAINDEF.TTT
       C=KPEV_KITTEL1;											\
       F=SPRU1;
 
+# E
+
+    TX=KPEV EG 502;											\
+      C=KPEV_1_EG502(|L),KPEV_PWG92C(|L),6*D1FPR;							\
+      F=EG1;
+    TX=KPEV EG 571;											\
+      C=KPEV_2A_EG571(|L),D1FC;										\
+      F=EG1;
+
 # Sachsen
     TX=Sachsen IIIb T;											\
       C=SAX_FLOHA,WUE_OM12SHNL[O:FR_ERZ17,15,27],WUE_OM12SN[O:#FR_ERZ17,,27];				\
@@ -379,12 +422,20 @@ $REQUIRE TRAINDEF.TTT
     TX=Württemberg KL + Personenzug;									\
       C=WUE_KL(|L),WUE_GEP_1870(|L),WUE_VGLBB158OO(|L),WUE_ABI79(|L),WUE_A164(|L),WUE_CI(|L);		\
       F=SF1;
-    TX=Württemberg T3 + Güterzug;									\
-      C=WUE_T3EL|WUE_T3E,D1FWS;										\
+    TX=Württemberg T3 938 + Rangiereinheit um 1914;							\
+      C=WUE_T3_938(L),WUE_NI1SN1,WUE_NI1SG,WUE_NI3SG1,WUE_NI4BH(L),WUE_R10G[OB:TANK1,,12],		\
+	ELOT_WN2SHRS3(|L),WUE_NI3SG1,WUE_R02B(|L)[OB:BOX33,,15];					\
       F=SF1;
-    TX=Württemberg T3 + Güterzug;									\
-      C=(WUE_T3GK0|WUE_T3GK1|WUE_T3GK2|WUE_T3GK3|WUE_T3E0|WUE_T3E1|WUE_T3E2|WUE_T3E3)(|L),D1FWS;	\
-      \ F=SF1;
+    TX=Württemberg T3 979 + Rangiereinheit um 1920;							\
+      C=WUE_T3_979(L),WUE_NI4BH(|L),2*WUE_OMB,WUE_OMKSN(|L),WUE_GMLVN,2*WUE_G10SN,2*WUE_Z2SHBSHM(|L);	\
+      F=SF1;
+    TX=Württemberg T3 968 + Personenzug auf der  Wieslauftalbahn Schorndorf-Welzheim um 1920;		\
+      C=WUE_T3_968(L),WUE_PWI09(|L),WUE_ABI93(|L),WUE_E1(|L),WUE_E4A(|L);				\
+      F=SPR1;
+    TX=Württemberg T3 947 + Güterzug auf der  Wieslauftalbahn Schorndorf-Welzheim um 1920;		\
+      C=WUE_T3_968(L),WUE_PWG09(|L),WUE_OMQVHN(|L)[O:SAND15,,21],2*WUE_G10SN,WUE_G10SHWUL1(|L),		\
+	WUE_R10B,WUE_R02B(|L)[OB:GRANIT2,,15];								\
+      F=SPR1;
     TX=Württemberg T5 + Vorortzug Stuttgart ca. 1920;							\
       C=WUE_T5_1286(|L),WUE_CICIWU18(|L),WUE_BIBI(19|WU19L),2*WUE_CICIWU18(|L);				\
       F=SPR1;
@@ -470,7 +521,7 @@ $REQUIRE TRAINDEF.TTT
 
 # Schmalspur
 # Sachsen
-    TX=K.Sächs.Sts.EB I M + Rollbockzug Reichenbach (Vogtland) - Mylau;					\
+    TX=K.Sächs.Sts.EB I M + Rollbockzug Reichenbach (Vogtland)- Mylau;					\
       C=(SAX_IM(|2)_R[O:KPEV_G10_MBH,6,4][BT:5,8,5,4][BT:99,8,5,4],					\
 	SAX_ROM1000_46[NCL:K,17,6][NCR:K,18,6][O:WUE_G10SHNL,3,4],					\
 	SAX_ROM1000_49[NC:K,15,6][O:KPEV_G10_MBHL,1,4][BT:1,8,5,4][BT:95,8,5,4])|			\
@@ -478,17 +529,20 @@ $REQUIRE TRAINDEF.TTT
 	SAX_ROM1000_46[NCL:K,17,6][NCR:K,18,6][O:WUE_G10SHNL,3,4],					\
 	SAX_ROM1000_49[NC:K,15,6][O:KPEV_G10_MBHL,1,4][BT:1,8,5,4][BT:95,8,5,4]);			\
       F=SFN1;
-    TX=K.Sächs.Sts.EB I M + Personenzug Reichenbach (Vogtland) - Mylau;					\
+    TX=K.Sächs.Sts.EB I M + Personenzug Reichenbach (Vogtland)- Mylau;					\
       C=SAX_IM(|2)_P(|L),SAX_100(6|8);									\
       F=SPN1;
-    TX=K.Sächs.Sts.EB  IV K + Güterzug;									\
-      C=(SAX_IVKG,(5-7*(SAX_NR775L[O:FR_KO3(8|9)[|M],,16]|SAX_NR783L[O:WOOD47[|M],,16]|SAX_NR761L)))|	\
-	(SAX_IVKGL,(5-7*(SAX_NR775[O:FR_KO3(8|9)[|M],,16]|SAX_NR783[O:WOOD47[|M],,16]|SAX_NR761)));	\
-      F=SFN1;
     TX=K.Sächs.Sts.EB  IV K + Personenzug;								\
-      C=(SAX_IVKG,SAX_NR709L,SAX_NR753L,SAX_NR747L,SAX_NR749L)|						\
-	(SAX_IVKGL,SAX_NR709,SAX_NR753,SAX_NR747,SAX_NR749);						\
-      F=SPN1;
+      C=SAX_IVKM,SAX_NR709,2*SAX_S1,SAX_S2,2*SAX_S1;							\
+      F=SPRN1;
+    TX=K.Sächs.Sts.EB  II K + Güterzug;									\
+      C=(SAX_IIK,(5-7*(SAX_NR775L[O:FR_KO3(8|9)[|M],,16]|SAX_NR783L[O:WOOD47[|M],,16]|SAX_NR761L)))|	\
+	(SAX_IIK,(5-7*(SAX_NR775[O:FR_KO3(8|9)[|M],,16]|SAX_NR783[O:WOOD47[|M],,16]|SAX_NR761)));	\
+      F=SFN1;
+    TX=K.Sächs.Sts.EB  I K + Personenzug;								\
+      C=(SAX_IK(|L),SAX_NR709L,SAX_NR753L,SAX_NR747L,SAX_NR749L)|					\
+	(SAX_IK(|L),SAX_NR709,SAX_NR753,SAX_NR747,SAX_NR749);						\
+      F=SPRN1;
 
 # Privat
 # Chiemseebahn
@@ -698,13 +752,13 @@ $REQUIRE TRAINDEF.TTT
       C=(DRG_06001L|DRG_06001|DRG_06002L|DRG_06002),Z_D_E2_PB2;						\
       F=SF2;
 # 13,
-    TX=DRG 13.0 (pr. S3) + Schnellzug EP 2A;								\
+    TX=DRG 13.0 (pr. S3)+ Schnellzug EP 2A;								\
       C=DRG_2A_PRS3(|L),D2PE1;										\
       F=SP2;
     TX=DRG 13.0 + Schnellzug;										\
       C=DRG_13027(|L),D2PE1;										\
       F=SP2;
-    TX=DRG 13.10 (pr. S6) + Schnellzug EP 2A;								\
+    TX=DRG 13.10 (pr. S6)+ Schnellzug EP 2A;								\
       C=KPEV_S6_1920(|L)|DRG_2A_1310G(|L),D2PE1;							\
       F=SP2;
     TX=DRG 13.10 + Schnellzug;										\
@@ -717,7 +771,7 @@ $REQUIRE TRAINDEF.TTT
 	DRG_C4IWU11|DRG_C4IWU11L;									\
       D=L;												\
       F=SP2;
-    TX=DRG 13.18 (old. S3) + Eilzug Oldenburg EP 2A;							\
+    TX=DRG 13.18 (old. S3)+ Eilzug Oldenburg EP 2A;							\
       C=DRG_2A_GOES3(|L),D2PE2;										\
       F=SP2;
     TX=DRG 13.18 + Eilzug Oldenburg;									\
@@ -729,20 +783,20 @@ $REQUIRE TRAINDEF.TTT
 	DRG_AB4UPR93CL,DRG_ABC4UPR02AL,DRG_POST4B12PRL|DRG_POST4B12PR;					\
       F=SP2;
     TX=DRG 14.2 + Schnellzug;										\
-      C=DRG_14_2(13|06|09|14)D,DRG_POST4B12PRL|DRG_POST4B12PR,						\
-	DRG_PW4USA07L|DRG_PW4USA07|DRG_AB4UWU95L,DRG_WR6U_309L|DRG_WR6U_311L,DRG_AB4USA16AL,		\
-	DRG_AB4UWU95L,DRG_AB4UWU03BL|DRG_AB4UWU14BL,DRG_C4UWU11BL|DRG_C4UWU16BL,DRG_ABC4UWU03BL;	\
+      C=DRG_14_2(13|06|09|14)D,DRG_POST4B12PRL|DRG_POST4B12PR,DRG_PW4USA07L|DRG_PW4USA07|DRG_A4UWU95L,	\
+	DRG_WR6U_309L|DRG_WR6U_311L,DRG_AB4USA16AL,DRG_A4UWU95L,DRG_AB4UWU03BL|DRG_AB4UWU14BL,		\
+	DRG_C4UWU11BL|DRG_C4UWU16BL,DRG_ABC4UWU03BL;							\
       D=R;												\
       F=SP2;
 # 15 BAY_BIX734 S 2/6
-    TX=DRG BAY_BIX734 S 2/6 (15.001) + Schnellzug;							\
+    TX=DRG BAY_BIX734 S 2/6 (15.001)+ Schnellzug;							\
       C=BAY_S26_1925(|L),Z_D_E2_PBB;									\
       F=SP2;
     TX=DRG 16.0 (Old. S10);										\
       C=DRG_2A_OLD_S10(|L),D2PDOA;									\
       F=SP2;
 # 17.0 (pr)
-    TX=DRG 17.0 (pr S10-0) + Schnellzug EP 2A;								\
+    TX=DRG 17.0 (pr S10-0)+ Schnellzug EP 2A;								\
       C=DRG_2A_S10_0_191(1|0)(|L),D2PDPA;								\
       F=SP2;
     TX=DRG 17.0 + Schnellzug;										\
@@ -764,7 +818,7 @@ $REQUIRE TRAINDEF.TTT
       F=SP2;
 
 #17.10 pr S10
-    TX=DRG 17.10 (pr S10-1) + Schnellzug EP 2A;								\
+    TX=DRG 17.10 (pr S10-1)+ Schnellzug EP 2A;								\
       C=DRG_2A_S10_1_191(1|3|4)(|L),D2PDPA;								\
       F=SP2;
     TX=DRG 17.10 + Schnellzug;										\
@@ -817,7 +871,7 @@ $REQUIRE TRAINDEF.TTT
     TX=DRG 18.1 + Schnellzug;										\
       C=(DRG_18_1HL|DRG_18_1H),DRP_POST4_A17WUEL|DRP_POST4_A17WUE,DRG_PW4UWU03L|DRG_PW4UWU03,		\
 	DRG_C4UWU16B,DRG_C4UWU11B,DRG_BC4UWU11B,DRG_WR6U_309L|DRG_WR6U_311L,				\
-	DRG_AB4UWU03B|DRG_AB4UWU95|DRG_AB4UWU14B,,,,;							\
+	DRG_AB4UWU03B|DRG_A4UWU95|DRG_AB4UWU14B;							\
       F=SP2;
     TX=DRG 18.1 + Schnellzug;										\
       C=DRG_18_1H|DRG_18_1HL,DRG_POST4_15L|DRG_POST4_15,DRG_PW4UWU03L|DRG_PW4UWU03,			\
@@ -877,7 +931,7 @@ $REQUIRE TRAINDEF.TTT
       F=SP2;
     TX=DRG 18.4 + D bei Regensburg 1938;								\
       C=DRG_18_452(|L),DRG_PW4UBAY06(|L)~LB,								\
-	(<DRG_AB4UBAY02~LB,DRG_AB4UBAY01B,DRG_C4UBAY23AL,DRG_WR6U_414G,DRG_C4UBAY08~LB,DRG_C4UKPR13A,	\
+	(<DRG_AB4UBAY02~LB,DRG_AB4UBAY01B,DRG_C4UBAY23AL,DRG_WR6U_414G,DRG_C4UBAY08B,DRG_C4UKPR13A,	\
 	DRG_ABC4UPR08B,,DRG_ABC4USA08BB);								\
       F=SP2;
     TX=DRG 18.509 + Schnellzug;										\
@@ -937,7 +991,7 @@ $REQUIRE TRAINDEF.TTT
       D=R;												\
       F=SP2;
     TX=DRG 19.1;											\
-      C=(DRB_19165L|DRB_19165|DRB_19128L|DRB_19128),DRG_POST4U_C21L,DRG_WR6U_808L,DRG_PW4U37_2CL,	\
+      C=(DRB_19165L|DRB_19165|DRB_19128L|DRB_19128),DRG_POST4U_C21,DRG_WR6U_808L,DRG_PW4U37_2CL,	\
 	DRG_C4U36_2CL,DRG_BC4U35_2CL,DRG_AB4U38_2C,DRG_AB4U38_2C,2*DRG_C4U38_2CL;			\
       F=SP2;
     TX=DRB 19.10;											\
@@ -994,7 +1048,7 @@ $REQUIRE TRAINDEF.TTT
       D=R;												\
       F=SPR2;
 # 37.0
-    TX=DRG 37.0 (P6) + Personenzug EP 2A;								\
+    TX=DRG 37.0 (P6)+ Personenzug EP 2A;								\
       C=DRG_2A_P6BLN4(|L),D2PR3A;									\
       F=SPR2;
     TX=DRG 37.0 + Personenzug;										\
@@ -1021,13 +1075,17 @@ $REQUIRE TRAINDEF.TTT
       D=R;												\
       F=SPR2;
     TX=DRG BAY_BIX734 P 3/5h + Personenzug 1923;							\
-      C=(DRG_2A_P35H3894|DRG_2A_P35H3915)(|L),Z_D_E2_PB3;						\
+      C=(DRG_2A_P35H3894|DRG_2A_P35H3915)(|L),D2PBYA1|D2PBYI2;						\
       F=SP3;
     TX=DRG 38.4 + Personenzug;										\
-      C=DRG_384(21|01|33)(|L),Z_D_E2_PB3;								\
+      C=DRG_384(21|01|33)(|L),D2PBYI1|D2PBYA2;								\
       F=SPR3;
 # 38.10
-    TX=DRG 38.10 (P8) + Personenzug EP 2A;								\
+    TX=DRG 38 2544 mit P 401 Balduinstein 1927;								\
+      C=DRG_2B_382544G(|L),DRG_2_G_HAN_L1,DRG_PW3PR11(|L),DRG_C21(|L),2*DRG_CD21(|L),			\
+	(<DRG_BC3IPR10,DRG_BC3IPR10L),3*DRG_C3IPR14(|L);						\
+      F=SPR2;
+    TX=DRG 38.10 (P8)+ Personenzug EP 2A;								\
       C=DRG_2A_P8KLN2428(|L)|DRG_2A_P8_2569HAL(|L)|DRG_2A_P8_2770HAN(|L)|DRG_2A_P8_EF2553(|L),D2PR3A;	\
       F=SPR2;
     TX=DRG 38.10 + Personenzug;										\
@@ -1035,7 +1093,8 @@ $REQUIRE TRAINDEF.TTT
       F=SPR2;
     TX=DRG 38.10 + Eilzug Baden;									\
       C=DRG_382019(|L),DRG_PW3I_BAD03(|L),DRG_C4I_BAD(99|02)(|L),					\
-	(DRG_B4I_BAD03(|L),DRG_C4I_BAD(99|02)(|L))|2*DRG_BC4I_BAD(02|9927)(|L),2*DRG_C4I_BAD(99|02)(|L); \
+	(DRG_B4I_BAD03(|L),DRG_C4I_BAD(99|02)(|L))|(2*DRG_BC4I_BAD(02|9927)(|L)),			\
+	2*DRG_C4I_BAD(99|02)(|L);									\
       F=SPR2;
     TX=DRG 38.10 + Personenzug Baden;									\
       C=DRG_38(1016|1024|1117|1182|2310|1340|1310|1360|1574|1662|1793|1803|1890|2019|2489|2950|2954|	\
@@ -1043,6 +1102,10 @@ $REQUIRE TRAINDEF.TTT
 	(DRG_C3PR11TH|DRG_C3PR11THL),2*(DRG_BC3_BAD09L|DRG_BC3_BAD09),					\
 	(DRG_C3PR11H~LB|DRG_C3PR11HL~LB),(DRG_C3_BAD07L|DRG_C3_BAD07),(DRG_PW3_BAD09L|DRG_PW3_BAD09),	\
 	(DRG_POST_B85PRML|DRG_POST_B85PRM);								\
+      F=SPR2;
+    TX=DRG 38 1890 mit P209 Düsseldorf-Hannover um 1933;						\
+      C=DRG_381890(|L),DRG_PW4PR16B(|L),DRG_PW4PR04B(|L),2*DRG_BC4PR05(|L),DRG_C4PR04(|L),		\
+	DRG_C4PR04(|L),DRG_BC4PR05(|L),2*DRG_C4PR12(|L),DRG_C4PR12TH(|L);				\
       F=SPR2;
     TX=DRG 38.10 + Ruhr-Schnellverkehr;									\
       C=DRG_38(1016|1024|1117|1182|2310|1340|1310|1360|1574|1662|1793|1803|1890|2019|2489|2950|2954|	\
@@ -1060,20 +1123,30 @@ $REQUIRE TRAINDEF.TTT
       F=SPR2;
 
     TX=DRG 38 2954 + Eilzug Pfalz;									\
-      C=DRG_382954L,DRP_POST4_A17BAY|DRP_POST4_A17BAYL,(DRG_PW_BAY93L|DRG_PW_BAY93),			\
+      C=DRG_382954L,DRP_POST4_A17BAY|DRP_POST4_A17BAYL,DRG_PW_BAY93(|_2)(|L),				\
 	(DRG_C4_BAY05BL|DRG_C4_BAY05B),									\
 	2*(DRG_B4_BAY04B|DRG_B4_BAY04BL|DRG_B4_BAY04AH|DRG_B4_BAY04AHL),(DRG_C4_BAY05H|DRG_C4_BAY05HL);	\
       F=SP2;
-    TX=DRG 38 2776 + Personenzug Pfalz;									\
-      C=DRG_382950L|DRG_382954L,									\
-	((DRP_POST3_A99_BAYPL|DRP_POST3_A99_BAYP),(DRG_PW3I_BAY11L|DRG_PW3I_BAY11),			\
-	2*(DRG_C3TR_BAY07AH|DRG_C3TR_BAY07AHL|DRG_C3TR_BAY07BBL|DRG_C3TR_BAY07BL),			\
-	(DRG_B3_BAY93L|DRG_B3_BAY93HL|DRG_B3_BAY93|DRG_B3_BAY93H),					\
-	(DRG_C3_BAY96AB|DRG_C3_BAY96A|DRG_C3_BAY96ABL|DRG_C3_BAY96AL),(DRG_C_BAY92AHL|DRG_C_BAY92AH))|	\
-	((DRG_PW_BAY93_2|DRG_PW_BAY93_2L),								\
-	2*(DRG_C3TR_BAY07AL|DRG_C3TR_BAY07A|DRG_C3TR_BAY07BB|DRG_C3TR_BAY07B),				\
-	(DRG_B3_BAY90H,DRG_B3_BAY90HL),2*(DRG_C_BAY92BAL),(DRG_C_BAY92BB,DRG_C_BAY92BBL));		\
+    TX=DRG 38 2954 + Eilzug Pfalz;									\
+      C=DRG_382954L,DRP_POST4_A17BAY|DRP_POST4_A17BAYL,DRG_PW3I_BAY11(|L),				\
+	(DRG_C4_BAY05BL|DRG_C4_BAY05B),									\
+	2*(DRG_B4_BAY04B|DRG_B4_BAY04BL|DRG_B4_BAY04AH|DRG_B4_BAY04AHL),(DRG_C4_BAY05H|DRG_C4_BAY05HL);	\
+      F=SP2;
+    TX=DRG 38 3426 mit E192 bei Witten 1937;								\
+      C=[!A]DRG_383426(|L),DRG_PW4I31,									\
+	(<DRG_C4I30,DRG_BC4I31,2*DRG_C4I30)|(>DRG_C4I30L,DRG_BC4I31L,2*DRG_C4I30L);			\
       F=SPR2;
+    TX=DRG 38 1793 mit Leig Erfurt 1934;								\
+      C=DRG_381793(|L),DRG_GLLH12B(|L),DRG_2_GR_KSL(|L);						\
+      F=SF2;
+    TX=DRG 38 3626 mit Schotterzug Kaub 1937;								\
+      C=DRG_383626(|L),10*DRG_OOM(|L)[O:GRAVEL1(8|3|4|5|6|7)(|[M])];					\
+      F=SF2;
+    TX=DRG 38 3953 mit Dg Niederheimbach 1937;								\
+      C=DRG_383953(|L),DRG_PWGPR14,DRG_2_GBAY_HAN_H(|L),DRG_2_G_HAN_V,DRG_2_GBAY_HAN_H(|L),		\
+	3*DRG_2_G_HAN_V,DRG_TKO_A(|L),2*DRG_TKO02A(|L),2*DRG_2_GL_DSN_VBU2(|L),2*DRG_2_GR_KSL(|L),	\
+	DRG_2_GLPWHS_HAN(|L),DRG_2_G_HAN_L1,DRG_2_G_HAN_L1H(|L),DRG_2_G_HAN_L1;				\
+      F=SF2;
     TX=DRG 38.10 + Personenzug Oldenburg;								\
       C=DRG_382019L|DRG_382950L|DRG_382954L|DRG_382019L|DRG_382310L|DRG_382310L,			\
 	(DRG_PWPOSTI_OLD10(|L),(DRG_C3I_OLD14|DRG_C3I_OLD14L),(DRG_BC3I_OLD95L|DRG_BC3I_OLD95),		\
@@ -1104,7 +1177,7 @@ $REQUIRE TRAINDEF.TTT
 	(<MITR_L4_1922,MITR__L1_1922,MITR_L5_1922L,MITR_L51_1922,MITR_L6_1922,MITR_L2_1922,		\
 	MITR_L3_1922);											\
       F=SP2;
-    TX=DRG 39 (PR P10) + Eilzug ER 2A;									\
+    TX=DRG 39 (PR P10)+ Eilzug ER 2A;									\
       C=DRG_2A_P10ELB2811(|L),D2PE1;									\
       F=SP2;
     TX=DRG 39 + Eilzug;											\
@@ -1121,7 +1194,7 @@ $REQUIRE TRAINDEF.TTT
 
 # 41
     TX=DRG 41;												\
-      C=DRG_41_186A|DRG_41_186AL,Z_D_E2_GC;								\
+      C=DRG_41_186A(|L)|DRG_44451(|L),Z_D_E2_GC;							\
       F=SF2;
     TX=DRG 41;												\
       C=DRG_41_(166|153|188|170|186|306)(|L),								\
@@ -1140,6 +1213,10 @@ $REQUIRE TRAINDEF.TTT
       F=SF2;
     TX=DRG 42;												\
       C=DRG_42_1900,Z_D_E2_GC;										\
+      D=R;												\
+      F=SF2;
+    TX=DRG 42;												\
+      C=DRB_42TF,Z_D_E2_GC;										\
       D=R;												\
       F=SF2;
 # 43
@@ -1240,7 +1317,7 @@ $REQUIRE TRAINDEF.TTT
       C=DRG_55_701|DRG_55_701L,17*DRG_OOT83S(|L);							\
       F=SF2;
 
-    TX=DRG 55.25 (PR G8.1) + Guterzug EP 2A;								\
+    TX=DRG 55.25 (PR G8.1)+ Guterzug EP 2A;								\
       C=DRG_2A_G81A(|L),D2FCAS;										\
       F=SF2;
 
@@ -1368,11 +1445,15 @@ $REQUIRE TRAINDEF.TTT
       C=DRG_57_4BL,Z_D_E2_GB;										\
       D=L;												\
       F=SF2;
-
-    TX=DRG 57.10 (PR G10) + Guterzug EP 2A;								\
+    TX=DRG 57.10 (PR G10)+ Guterzug EP 2A;								\
       C=(DRG_2A_PRG10D2|DRG_2A_6019HAL|DRG_2A_33_2262)(|L),D2FCAL;					\
       F=SF2;
-
+    TX=DRG 57.10 (PR G10)+ Kohlezug;									\
+      C=(DRG_2A_PRG10D2|DRG_2A_6019HAL|DRG_2A_33_2262)(|L),DRG_2A_PWGPR14(|L),				\
+	18*3:(KPEV_2A_OMMKUA10(|H|UH|U|UL|RUH|R|RL|RU|RUL|RH|L)						\
+	[OB:(COAL45|COAL41|COAL56|COAL40|FR_KO13)(|[M]),13,28])|					\
+	1:(KPEV_2A_OMMKUA10(HL|RUHL|UHL|RHL)[OB:(COAL45|COAL41|COAL56|COAL40|FR_KO13)(|[M]),19,28]);	\
+      F=SF1;
     TX=DRG 57.10 + Guterzug;										\
       C=(DRG_2B_57_1250G|DRG_2B_57_3334G)(|L),D2FCAL;							\
       F=SF2;
@@ -1403,7 +1484,7 @@ $REQUIRE TRAINDEF.TTT
       D=R;												\
       F=SF2;
 
-    TX=DRG 58.2-21 (G12) + Guterzug EP 2A;								\
+    TX=DRG 58.2-21 (G12)+ Guterzug EP 2A;								\
       C=DRG_2A_G12_1151HAN(|L),D2FCAL;									\
       F=SF2;
 
@@ -1498,11 +1579,11 @@ $REQUIRE TRAINDEF.TTT
       F=SPR2;
 # 70
     TX=DRG 70 066 + Personenzug;									\
-      C=DRG_70066M,DRG_PWI_BAY10(|L),DRG_BCI_BAY10(|L|U|UL|U[!MF]|UL[!MF]),				\
+      C=DRG_70007P(|L),DRG_PWI_BAY10(|L),DRG_BCI_BAY10(|L|U|UL|U[!MF]|UL[!MF]),				\
 	2*(DRG_CI_BAY10|DRG_CI_BAY14A(|L|U|UL|U[!MF]|UL[!MF]));						\
       F=SPR2;
     TX=DRG 70 066 + Personenzug;									\
-      C=DRG_70066ML,DRG_PWI_BAY07L|DRG_PWI_BAY07,DRG_CI_BAY92(|L),					\
+      C=DRG_70066(|L),DRG_PWI_BAY07L|DRG_PWI_BAY07,DRG_CI_BAY92(|L),					\
 	DRG_B3_BAY92AB(|L)|DRG_BCI_BAY10S|DRG_B3_BAY92H(|L)|DRG_B3_BAY92(|L),DRG_C3I_BAY13(|L),		\
 	DRP_POST_A10BAY|DRP_POST_A10BAYL;								\
       F=SPR2;
@@ -1520,7 +1601,7 @@ $REQUIRE TRAINDEF.TTT
       F=SPR2;
 # 72
     TX=DRG 72.0 + Nebenbahnzug;										\
-      C=DRG_720M,DRG_PWPOSTI84L|DRG_PWPOSTI84,DRG_CIDPR83(|L)|DRG_CIDPR86B(|L),DRG_CIPR83L|DRG_CIPR83,	\
+      C=DRG_720M,DRG_PWPOSTIPR(92|94|01)(|L),DRG_CIDPR83(|L)|DRG_CIDPR86B(|L),DRG_CIPR83L|DRG_CIPR83,	\
 	DRG_BCIPR86BL|DRG_BCIPR86B|DRG_BCIPR86CL|DRG_BCIPR86C|DRG_BCIPR88L|DRG_BCIPR88,			\
 	DRG_BCIPR86L|DRG_BCIPR86,DRG_CIPR86L|DRG_CIPR86;						\
       D=L;												\
@@ -1541,7 +1622,7 @@ $REQUIRE TRAINDEF.TTT
       C=DRG_74_2(23|47|49)(|L),D2PR4B;									\
       F=SPR2;
 # 74.4
-    TX=DRG 74.4-13 (pr. T12) + Personenzug Ep 2a;							\
+    TX=DRG 74.4-13 (pr. T12)+ Personenzug Ep 2a;							\
       C=DRG_2A_T12A(|L),D2PR4A;										\
       F=SPR2;
     TX=DRG 74.4-13 + Berliner Vorortzug;								\
@@ -1608,13 +1689,14 @@ $REQUIRE TRAINDEF.TTT
       C=DRG_2_75_1010,D2PRW1;										\
       F=SPR2;
     TX=DRG 75.4 + Personenzug Pfalz;									\
-      C=DRG_2_75_1010,2*(DRG_C_BAY92BB|DRG_C_BAY92BBL),							\
-	(DRG_B3_BAY92ABL|DRG_B3_BAY92AB|DRG_B3_BAY92AL|DRG_B3_BAY92A),					\
-	(DRG_C_BAY92BA|DRG_C_BAY92|DRG_B3_BAY92A|DRG_C_BAY92L|DRG_C_BAY92BSL|DRG_C_BAY92BL|		\
-	DRG_C_BAY92B|DRG_C_BAY92BSL|DRG_C_BAY92BS),(DRG_PW3IPR96|DRG_PW3IPR96L);			\
+      C=DRG_2_75_1010,DRP_POST3_A99_BAYP(|L),DRG_PW3I(_PR96V|PR96)(|L),					\
+	DRG_C_BAY92BB(|L)|DRG_C3_BAY96AB(|L)|DRG_C3_BAY96A(|L),DRG_C3TR_BAY07(B|BB|A|AH)(|L),		\
+	(DRG_B3_BAY92AB(|L)|DRG_B3_BAY92A(|L)|DRG_B3_BAY90H(|L)|DRG_B3_BAY93(|H)(|L)),			\
+	(DRG_C_BAY92BA(|L)|DRG_C_BAY92(|L)|DRG_B3_BAY92A(|L)|DRG_C_BAY92AH(|L)|DRG_C_BAY92B(|L)|	\
+	DRG_C_BAY92BS(|L));										\
       F=SPR2;
 # 76
-    TX=DRG 76.0 (pr.T10) EP 2A;										\
+    TX=DRG 76.0 (pr.T10)EP 2A;										\
       C=DRG_2A_T10MZ740(|L),D2PR3A;									\
       F=SPR2;
     TX=DRG 76.0;											\
@@ -1639,7 +1721,7 @@ $REQUIRE TRAINDEF.TTT
 	DRG_PWI_BAY10,DRP_POST3_A10BAY|DRP_POST3_A10BAYL;						\
       F=SPR2;
 # 78
-    TX=DRG 78 (pr. T18) + Personenzug EP 2A;								\
+    TX=DRG 78 (pr. T18)+ Personenzug EP 2A;								\
       C=DRG_2A_T18(1912|1920)(|L),D2PR3A;								\
       D=Z;												\
       F=SPR2;
@@ -1679,7 +1761,7 @@ $REQUIRE TRAINDEF.TTT
       D=Z;												\
       F=SPR2;
     TX=DRG 78 + Personenzug;										\
-      C=DRG_78(001M|020M|238M|477)(|L),DRG_PWPOSTI11L|DRG_PWPOSTI11,					\
+      C=DRG_78(001M|020M|238M|477)(|L),DRG_PWPOSTIPR11(|S)(|L),						\
 	2*(DRG_C3DTRPR04HL|DRG_C3DTRPR04H|DRG_C3DTRPR04TH|DRG_C3DTRPR04THL|DRG_C3DTRPR04L|		\
 	DRG_C3DTRPR04|DRG_C3DTRPR04_24TH|DRG_C3DTRPR04_24THL),						\
 	DRG_BC3PR11HL|DRG_BC3PR11L|DRG_BC3PR11|DRG_BC3PR11H,						\
@@ -1698,7 +1780,7 @@ $REQUIRE TRAINDEF.TTT
       D=Z;												\
       F=SF2;
 # 80
-    TX=DRG 80 + Kühlwagen-Rangiereinheit im Wesermünder Hafen, um 1937;					\
+    TX=DRG 80 + Kühlwagen-Rangiereinheit im Wesermünder Hafen,um 1937;					\
       C=<DRG_800(18|10)(|L),2*DRG_BERLIN_TKO02W(|L),DRG_BERLIN_TKO02H(|L),DRG_TKO19(|L),		\
 	2*DRG_BERLIN_GHKSO1(|L);									\
       D=Z;												\
@@ -1715,7 +1797,7 @@ $REQUIRE TRAINDEF.TTT
       F=SF2;
 # 81
     TX=DRG 81;												\
-      C=DRG_810(07|01)(|L),5*(DRG_GBH21H1|DRG_GBH21H1L|DRG_RFH21BHL|DRG_RFH21BH|DRG_TBNHS30B);		\
+      C=DRG_810(07|01|02G)(|L),5*(DRG_GBH21H1|DRG_GBH21H1L|DRG_RFH21BHL|DRG_RFH21BH|DRG_TBNHS30B);	\
       D=Z;												\
       F=SF2;
 # 84
@@ -1795,7 +1877,7 @@ $REQUIRE TRAINDEF.TTT
       F=SF2;
 # 89.0 pr
 
-    TX=DRG 89 070 (PR T8) + Rangierzug EP 2A;								\
+    TX=DRG 89 070 (PR T8)+ Rangierzug EP 2A;								\
       C=DRG_2A_T8G(|L),2*D2FCA;										\
       D=Z;												\
       F=SF2;
@@ -1828,15 +1910,21 @@ $REQUIRE TRAINDEF.TTT
 	DRG_C4USA07A|DRG_ABC4USA08BAL;									\
       D=Z;												\
       F=SF2;
+    TX=DRG 89.3 (württembergische T3)+ Rangierzug;							\
+      C=DRG_89312G(|L),DRG_2_OM_ESNH(|L),DRG_2_OM_ESNU(|L),DRG_O_BSL_VB(|L),DRG_2_OM_KBG(|L),		\
+	DRG_O_NUR_VBH(|L),DRG_SAURE2H(|L);								\
+      F=SF2;
+    TX=DRG 89.3 (württembergische T3)+ Rangierzug;							\
+      C=DRG_89403(|L),DRG_BC4UWU11B(|L),DRG_C4UWU11B(|L);						\
+      F=SPM2;
+    TX=DRG 89.3 (württembergische T3)+ Rangierzug;							\
+      C=DRG_89312(|L),6*(DRG_OOM|DRG_OOM|DRG_OOML|DRG_OOML);						\
+      F=SF2;
     TX=DRG 89.8 + Güterzug;										\
       C=DRG_89_890L|DRG_89_890,3*(DRG_OOT8(|L)[OB:BALLAST35(|[M]),,29]);				\
       D=Z;												\
       F=SF2;
-    TX=DRG 89.3;											\
-      C=(DRG_89_30L|DRG_89_31L),6*(DRG_OOM|DRG_OOM|DRG_OOML|DRG_OOML);					\
-      D=Z;												\
-      F=SF2;
-    TX=DRG 89.70 (PR T3) + Rangierzug EP 2A;								\
+    TX=DRG 89.70 (PR T3)+ Rangierzug EP 2A;								\
       C=DRG_2A_T3A(|L),2*D2FCA;										\
       D=Z;												\
       F=SF2;
@@ -1885,7 +1973,7 @@ $REQUIRE TRAINDEF.TTT
 	DRG_CC4ITRPR12G1L|DRG_CC4ITRPR12G1,DRG_BC4IPR08GL|DRG_BC4IPR08G|DRG_BC4IPR23GL|DRG_BC4IPR23G,	\
 	DRG_C4IDTRPR14G1L|DRG_C4IDTRPR14G1,DRG_C4ITRPR07G1L|DRG_C4ITRPR07G1;				\
       F=SPR2;
-    TX=DRG 91.3 (pr. T9.1) + Güterzug EP 2A;								\
+    TX=DRG 91.3 (pr. T9.1)+ Güterzug EP 2A;								\
       C=DRG_2A_(KASSEL7303|T9ERF7338)(|L),D2FCAS;							\
       D=Z;												\
       F=SF2;
@@ -1934,7 +2022,7 @@ $REQUIRE TRAINDEF.TTT
       C=DRG_2B_92_4G(|L),D2FCA;										\
       D=Z;												\
       F=SF2;
-    TX=DRG 92.5 (pr. T13) EP 2A;									\
+    TX=DRG 92.5 (pr. T13)EP 2A;										\
       C=DRG_2A_T13A(|L),D2FCA;										\
       D=Z;												\
       F=SF2;
@@ -1954,7 +2042,7 @@ $REQUIRE TRAINDEF.TTT
       C=DRG_2A_BAYR44_41(70|85)(|L),D2FC1;								\
       F=SF2;
     TX=DRG 92.20 + Rangierzug;										\
-      C=DRG_9220(48|44|11|23)(|L)|DRG_2B_9220G(1|2)(|L),D2FC1|Z_D_E2_PB3;				\
+      C=DRG_9220(48|44|11|23)(|L)|DRG_2B_9220G(1|2)(|L),D2FC1|D2PBYI2;					\
       F=SF2;
 # 93
     TX=DRG 93.0-4 + Personenzug;									\
@@ -1962,7 +2050,7 @@ $REQUIRE TRAINDEF.TTT
 	DRG_B3IPR96AL|DRG_B3IPR96A,DRG_CID24L|DRG_CID24;						\
       D=Z;												\
       F=SPR2;
-    TX=DRG 93.5-13 (T14.1) + Personenzug EP 2A;								\
+    TX=DRG 93.5-13 (T14.1)+ Personenzug EP 2A;								\
       C=1:DRG_2A_PRT141BLN8976(|L)|4:DRG_2A_T141(MZ8515|MAG8534|KAS8561|HA8551)(|L),			\
 	DRG_PW3IPR89BL|DRG_PW3IPR89B,DRG_CCIDPR94L|DRG_CCIDPR94|DRG_CIDPR94L|DRG_CIDPR94,		\
 	DRG_C3IPR97L|DRG_C3IPR97,DRG_B3IPR91L|DRG_B3IPR91|DRG_B3IPR91AL|DRG_B3IPR91A,			\
@@ -1970,7 +2058,7 @@ $REQUIRE TRAINDEF.TTT
 	DRG_C3IPR92L|DRG_C3IPR92;									\
       D=Z;												\
       F=SPR2;
-    TX=DRG 93.5-13 (wu T14.1) + Personenzug EP 2A;							\
+    TX=DRG 93.5-13 (wu T14.1)+ Personenzug EP 2A;							\
       C=DRG_2A_T14(ST1467|ST1447)(|L),D2PRW1;								\
       D=Z;												\
       F=SPR2;
@@ -2000,7 +2088,7 @@ $REQUIRE TRAINDEF.TTT
 	9*(DRG_2_G_MUEL|DRG_2_G_MUE|DRG_2_G_MUE_HL|DRG_2_G_MUE_H|DRG_2_GR_KSLL|DRG_2_GR_KSL_HL|		\
 	DRG_2_GR_KSL_H|DRG_2_GU_STN|DRG_2_GRHS_OPPL|DRG_2_GRHS_OPP));					\
       F=SF2;
-    TX=DRG 94.5-13 (T16.1) EP 2A;									\
+    TX=DRG 94.5-13 (T16.1)EP 2A;									\
       C=(DRG_2A_T161EFD8187|DRG_2A_T161ELB8138|DRG_2A_T161MAG8118)(|L),DRG_PWGIPR92L,			\
 	(<DRG_H10_HOLZ4,DRG_H10_HOLZ3,DRG_H10_HOLZ2,DRG_H10_HOLZ1,DRG_K_R1H,DRG_K_R1);			\
       D=Z;												\
@@ -2071,7 +2159,7 @@ $REQUIRE TRAINDEF.TTT
       D=R;												\
       F=SPR2;
     TX=DRG 98.671-679 + Lokalbahnzug;									\
-      C=DRG_98_6NL,DRG_PWPOSTL_BAY06|DRG_PWPOSTL_BAY06L,DRG_BL_BAY13L|DRG_BL_BAY13,			\
+      C=DRG_98_6NL,DRG_PWPOSTL_BAY06|DRG_PWPOSTL_BAY06L,DRG_BL_BAY13(|M)(|L),				\
 	DRG_CL_BAY29|DRG_CL_BAY29L,DRG_CL_BAY02|DRG_CL_BAY02L,DRG_GWL_BAY96L|DRG_GWL_BAY96;		\
       F=SPR2;
     TX=DRG 98.7 + Lokalbahnzug;										\
@@ -2094,7 +2182,7 @@ $REQUIRE TRAINDEF.TTT
     TX=DRG 98.861 + Lokalbahnzug;									\
       C=DRG_98_861L,(DRG_CL_BAY96L|DRG_CL_BAY96|DRG_CL_BAY96ML|DRG_CL_BAY96M),				\
 	(DRG_CL_BAY06_21|DRG_CL_BAY06_21L),								\
-	(DRG_BCL_BAY09L|DRG_BCL_BAY09,DRG_PWL_BAY29L|DRG_PWL_BAY29)|					\
+	(DRG_BCL_BAY09(|U)(|L),DRG_PWL_BAY29L|DRG_PWL_BAY29)|						\
 	(DRG_GWL_BAY84L|DRG_GWL_BAY84,DRG_CL_BAY80L|DRG_CL_BAY80,DRG_BL_BAY01L|DRG_BL_BAY01,		\
 	DRG_BL_BAY01L,DRG_BL_BAY01,DRG_CL_BAY90|DRG_CL_BAY90L)|						\
 	(DRG_PWPOSTL_BAY14|DRG_PWPOSTL_BAY14L,DRG_CLU_BAY24B|DRG_CLU_BAY24BL,				\
@@ -2126,7 +2214,7 @@ $REQUIRE TRAINDEF.TTT
       C=DRG_KITTELRCL|DRG_KITTELRC;									\
       F=SPRU2;
     TX=DRG DT 1-13;											\
-      C=DRG_KITTELGL|DRG_KITTELG|DRG_KITTELRC1L|DRG_KITTELRC1;						\
+      C=DRG_KITTELGM(|L)|DRG_KITTELRC1(|L);								\
       F=SPRU2;
     TX=DRG DT 54-58;											\
       C=DRG_DT54A;											\
@@ -2180,7 +2268,7 @@ $REQUIRE TRAINDEF.TTT
     TX=DRG VT 761;											\
       C=DRG_T761L|DRG_T761|DRG_VT761L|DRG_VT761|DRB_VT761L|DRB_VT761;					\
       F=DPRU2;
-    TX=DRG VT 858, 859;											\
+    TX=DRG VT 858,859;											\
       C=DRG_VT859;											\
       F=DPRU2;
     TX=DRG VT 872-874 + VS 145 001;									\
@@ -2207,16 +2295,13 @@ $REQUIRE TRAINDEF.TTT
     TX=DRG VT 133.006;											\
       C=DRG_VT133006;											\
       F=DPRU2;
-    TX=DRG VT 133.009-12;										\
-      C=DRG_VT133525;											\
-      F=DPRU2;
-    TX=DRG VT 135012,VB 140 099, VS 144001;								\
+    TX=DRG VT 135012,VB 140 099,VS 144001;								\
       C=<(DRG_VT135_012L|DRG_VT135_012),(DRG_VB140_099L|DRG_VB140_099),(DRG_VS144_001L|DRG_VS144_001);	\
       F=DPRU2;
     TX=DRG VT 135061,VB 140250;										\
       C=(DRG_VT135_061L|DRG_VT135_061),(DRG_VB140_250L|DRG_VB140_250);					\
       F=DPR2;
-    TX=DRG VT 135.061-064, 067-075, 083-132, VB 135 061...132;						\
+    TX=DRG VT 135.061-064,067-075,083-132,VB 135 061...132;						\
       C=DRG_VT135A,DRG_VS145C;										\
       F=DPRU2;
     TX=DRG VT 137.000-024;										\
@@ -2267,7 +2352,7 @@ $REQUIRE TRAINDEF.TTT
     TX=DRG VT 137.288-295;										\
       C=VT137_288;											\
       F=DPRU2;
-    TX=DRG VT 137.347-366, 377-396;									\
+    TX=DRG VT 137.347-366,377-396;									\
       C=DRG_VT137347;											\
       F=DPRU2;
     TX=DRG VT 137.462;											\
@@ -2291,7 +2376,7 @@ $REQUIRE TRAINDEF.TTT
 #E 00
     TX=DRG E00 02 + Eilzug;										\
       C=DRG_E00_02,(DRG_C4PR02HL|DRG_C4PR02H),(DRG_BC4PR05THL),(DRG_B4PR04H~LB),			\
-	2*(DRG_B4PR04THL,DRG_C4PR04TH,DRG_C4PR04THL),(DRG_POST3C10PRR|DRG_POST3C10PRRL);		\
+	2*(DRG_B4PR04THL,DRG_C4PR04TH,DRG_C4PR04THL),(DRG_POST3C10PR|DRG_POST3C10PRL);			\
       F=EP2;
 #E 01
     TX=DRG E01 + Schnellzug;										\
@@ -2375,11 +2460,11 @@ $REQUIRE TRAINDEF.TTT
 #E 17
     TX=DRG E17 + Schnellzug;										\
       C=DRG_E1707(|L),DRG_POST4UA20_1926L|DRG_POST4UA20_1926,DRG_PW4UBAY06L~LB|DRG_PW4UBAY06~LB,	\
-	(<(DRG_C4UBAY23B|DRG_C4UBAY23A),DRG_C4UBAY08~LB|DRG_C4UBAY08A|DRG_C4UBAY13,			\
+	(<(DRG_C4UBAY23B|DRG_C4UBAY23A),DRG_C4UBAY08B|DRG_C4UBAY08A|DRG_C4UBAY13,			\
 	DRG_BC4UBAY14B|DRG_BC4UBAY14A,DRG_AB4UBAY04|DRG_AB4UBAY04_30,					\
 	DRG_WR6U_222RL|DRG_WR6U_222R|DRG_WR6U_309L|DRG_WR6U_311L,DRG_AB4UBAY08_11BL,			\
 	DRG_BC4UBAY14BL|DRG_BC4UBAY14AL,DRG_C4UBAY23BL|DRG_C4UBAY23AL,					\
-	DRG_C4UBAY08L~LB|DRG_C4UBAY08AL|DRG_C4UBAY11L,DRG_ABC4UBAY11A);					\
+	DRG_C4UBAY08BL|DRG_C4UBAY08AL|DRG_C4UBAY11L,DRG_ABC4UBAY11A);					\
       F=EP2;
     TX=DRG E17 + Karwendel-Express;									\
       C=DRG_E1707(|L),DRG_PW4UK29KARL|DRG_PW4UK29KAR,2*(DRG_ABC4U32L|DRG_ABC4U32),			\
@@ -2490,13 +2575,13 @@ $REQUIRE TRAINDEF.TTT
       C=DRG_E44_10(1|2|5|6),Z_D_E2_GBK;									\
       F=EF2;
     TX=DRG E44.1 / E44.5;										\
-      C=DRG_E4450(1|4|8)(|L),Z_D_E2_PB3;								\
+      C=[!A]DRG_E4450(1|4|8)(|L),D2PBYI1;								\
       F=EPR2;
     TX=DRG E44.1 / E44.5;										\
       C=DRG_E4450(1|4|8)(|L),Z_D_E2_GBK;								\
       F=EF2;
     TX=DRG E44.1 / E44.5;										\
-      C=DRG_E44_10(1|2|5|6),Z_D_E2_PB3;									\
+      C=[!A]DRG_E44_10(1|2|5|6),D2PBYI1;								\
       F=EPR2;
 #E 45
     TX=DRG E45.2;											\
@@ -2511,10 +2596,10 @@ $REQUIRE TRAINDEF.TTT
       F=EPR2;
 #E 52
     TX=DRG EP5 + Personenzug;										\
-      C=BAY_EP5_0|BAY_EP5L_0,Z_D_E2_PB3;								\
+      C=BAY_EP5_0|BAY_EP5L_0,D2PBYI1;									\
       F=EPR2;
     TX=DRG E52 + Personenzug;										\
-      C=DRG_E52L~TMA|DRG_E52~TMA,DRG_POST_B10AL|DRG_POST_B10L,DRG_PW3I_BAY95|DRG_PW3I_BAY95L,		\
+      C=DRG_E52L~TMA|DRG_E52~TMA,DRG_POST_B10(|L),DRG_PW3I_BAY95|DRG_PW3I_BAY95L,			\
 	2*(DRG_C3I_BAY99|DRG_C3I_BAY99L)|DRG_BC3I_BAY94_33L|DRG_BC3I_BAY94_33|DRG_BC3I_BAY97_33|	\
 	DRG_BC3I_BAY97_33L|DRG_BC3I_BAY04_33L|DRG_BC3I_BAY04_33,					\
 	2*(DRG_B3I_BAY99L|DRG_B3I_BAY99|DRG_B3I_BAY00|DRG_B3I_BAY00L|DRG_B3I_BAY09|DRG_B3I_BAY09L),	\
@@ -2522,10 +2607,10 @@ $REQUIRE TRAINDEF.TTT
       F=EPR2;
     TX=DRG E52 + Schnellzug ca. 1930;									\
       C=DRG_EP5N,											\
-	(((DRG_PW3UBAY95L|DRG_PW3UBAY95),2*(DRG_C3UBAY99L|DRG_C3UBAY99_05L),				\
+	(((DRG_PW3UBAY95L|DRG_PW3UBAY95),2*(DRG_C3UBAY99L|DRG_C3UBAY99_05L|DRG_C3UBAY99_30L),		\
 	3*(DRG_AB3UBAY94L|DRG_AB3UBAY97L|DRG_AB3UBAY04L),2*(DRG_C3UBAY99L|DRG_C3UBAY99_05L))|		\
 	((DRG_PW3UBAY95L|DRG_PW3UBAY95),2*(DRG_C3UBAY99|DRG_C3UBAY99_05),				\
-	3*(DRG_AB3UBAY94|DRG_AB3UBAY97|DRG_AB3UBAY04),2*(DRG_C3UBAY99|DRG_C3UBAY99_05)));		\
+	3*(DRG_AB3UBAY94|DRG_AB3UBAY97|DRG_AB3UBAY04),2*(DRG_C3UBAY99|DRG_C3UBAY99_05|DRG_C3UBAY99_30))); \
       F=EP2;
     TX=DRG E52;												\
       C=DRB_E52L|DRB_E52,D2PR2;										\
@@ -2552,7 +2637,7 @@ $REQUIRE TRAINDEF.TTT
 #E 63
     TX=DRG E63.01-04,08 + Rangierzug;									\
       C=DRG_E6302_35(|L),(DRG_POST4_15L|DRG_POST4_15),DRG_POST9_7ST,DRG_B4IWU02,			\
-	DRG_PW3IWU98|DRG_PW3IWU98L,DRG_B3IWU90L|DRG_B3IWU90;						\
+	DRG_PW3IWU98|DRG_PW3IWU98L,DRG_B3IWU90(|L);							\
       F=EF2;
     TX=DRG E63.05-07;											\
       C=DRG_E6306_35(|L),										\
@@ -2587,13 +2672,13 @@ $REQUIRE TRAINDEF.TTT
       F=EF2;
 #E 75
     TX=DRG E75 + Personenzug;										\
-      C=DRG_E75G,DRG_POST_B10L|DRG_POST_B10AL,DRG_PWI31EAL|DRG_PWI31EA,2*(DRG_CI29EAL|DRG_CI29EA),	\
+      C=DRG_E75G,DRG_POST_B10(|L),DRG_PWI31EAL|DRG_PWI31EA,2*(DRG_CI29EAL|DRG_CI29EA),			\
 	DRG_BCID21L|DRG_BCID21,DRG_BI29EAL|DRG_BI29EA,2*(DRG_CI28EAL|DRG_CI28EA),			\
 	DRG_CIBAY30EBL|DRG_CIBAY30EB;									\
       F=EPR2;
 #E 77
     TX=DRG EG3;												\
-      C=DRG_2_EG3_22001,Z_D_E2_PB3;									\
+      C=DRG_2_EG3_22001,D2PBYA1;									\
       F=EPR2;
     TX=DRG E77;												\
       C=DRG_2_E77_28,Z_D_E2_GBK;									\
@@ -2644,6 +2729,9 @@ $REQUIRE TRAINDEF.TTT
       F=EF2;
     TX=DRG E91.9;											\
       C=DRG_E91_9E,Z_D_E2_GB;										\
+      F=EF2;
+    TX=DRG E92.7;											\
+      C=DRG_2_E92_7(|L),Z_D_E2_GB;									\
       F=EF2;
 #E 93
     TX=DRG E93;												\
@@ -2712,7 +2800,7 @@ $REQUIRE TRAINDEF.TTT
       C=<(DRG_ELT1101L|DRG_ELT1101|DRG_ELT1105L|DRG_ELT1105),DRG_ELB2801L,DRG_ELB2801,			\
 	(DRG_ELS2101L|DRG_ELS2101);									\
       F=EPRU2;
-    TX=DRG ET 85 701, 702;										\
+    TX=DRG ET 85 701,702;										\
       C=<DRG_ET701L,DRG_EB6501BAYL,2*DRG_EB6501BAY,DRG_ET701;						\
       F=EPRU2;
     TX=DRG ET 85 1128 + EB 85;										\
@@ -2784,9 +2872,78 @@ $REQUIRE TRAINDEF.TTT
       C=(<DRG_ET171AL,DRG_ET171BL,DRG_ET171C)|(<DRG_ET171CL,DRG_ET171B,DRG_ET171A);			\
       F=MXPU2;
 
+# Privat
+    TX=Braunschweigische Landeseisenbahn 44;								\
+      C=BLE_44(|L),2*Z_D_E2_GBK;									\
+      F=DF2;
+    TX=Lübeck-Büchener Eisenbahn 141/142 + Doppelstockeinheit;						\
+      C=(<LBE_142LL|LBE_141L,LBE_BC6(|L))|(>LBE_142R|LBE_141,LBE_BC6(|L));				\
+      F=DPRU2;
+    TX=Lübeck-Büchener Eisenbahn 60 + Doppelstockeinheit;						\
+      C=(<LBE_60LL|LBE_60RL,LBE_BC6A(|L))|(>LBE_60R|LBE_60L,LBE_BC6A(|L));				\
+      F=DPRU2;
+    TX=Deutschland Westfaelische Landeseisenbahn DT 1;							\
+      C=WLE_2VT1011(|L);										\
+      F=DPR2;
+    TX=Deutschland Westfaelische Landeseisenbahn DT 2 + DS1;						\
+      C=(<WLE_2VT1021,WLE_2VS1521)|(>WLE_2VT1021L,WLE_2VS1521L);					\
+      F=DPRU2;
+
 # Schmalspur
 # DRG
-    TX=DRG 99 162 + Rollbockzug Reichenbach (Vogtland) - Mylau;						\
+    TX=Werklok 1 (ehem. sächs. I K Nr.12)								\
+	der Gießerei "Mühlenbauanstalt und Maschinenfabrik" in Schmiedeberg beim Rangieren im Werksgelände mit Güterzug auf Rollwagen in den 1930er Jahren; \
+      C=MMS_IK_12[#D:R][NT:C],										\
+	DRG_RF480A(|L)[CL:DB_RB_KL,0,0,4][CR:#DR_4_KROW,0,0,][O:DRG_2_OM_KBG,,4][OB:STRAW2,,24]		\
+	[BT:14,8,5,4][O:G_JATI_11_BL,14,4][BT:100,8,5,4][OB:#G_JATI_11_BL,99,4],			\
+	DRG_RF480A(|L)[CL:23,0,0,][CR:#DB_RB_KL,0,0,4][O:DRG_2_OM_KBGHL,,5][OT:G_JATI_11_BL,12,5]	\
+	[OT:#G_JATI_11_BL,104,5];									\
+      F=SFN2;
+    TX=DRG SA I K + Personenzug;									\
+      C=DRG_2B_IK(|L),(DRG_PWTO1|DRG_710POST1)(|L),DRG_742C_C1(|L),DRG_CK747,DRG_731C1(|L);		\
+      F=SFN2;
+    TX=DRG SA II K + Personenzug;									\
+      C=DRG_IIK,DRG_710POST1(|L),DRG_742C_C1(|L),DRG_CK747,DRG_731C1(|L);				\
+      F=SFN2;
+    TX=DRG SA II K + Rollbockzug;									\
+      C=2*DRG_IVK2[#D:R][NT:C],										\
+	DRG_RF480A(|L)[CL:DR_4_KROW,0,0,][CR:DB_RB_KL,0,0,][O:DRG_2_OM_BSLH,,4][BT:7,8,5,4]		\
+	[BT:100,8,5,4][O:G_JATI_11_BL,7,4][O:#G_JATI_11_BL,99,4],					\
+	DRG_RF480A(|L)[CL:DB_RB_KL,0,0,][CR:DB_RB_KL,0,0,][O:DRG_2_OM_ESNH,,4][OT:G_JATI_11_BL,7,4]	\
+	[OT:#G_JATI_11_BL,99,4],									\
+	DRG_RF490A(|L)[CL:DB_RB_KL,0,0,][CR:DB_RB_KL,0,0,][O:DRG_O21JH,,4][BT:7,8,5,4][BT:100,8,5,4]	\
+	[O:G_JATI_11_BL,7,4][O:#G_JATI_11_BL,99,4],							\
+	DRG_RF480AL[CL:DB_RB_KL,0,0,][CR:DB_RB_KL,0,0,][O:DRG_O12BHL,,4][BT:7,8,5,4][BT:100,8,5,4]	\
+	[O:G_JATI_11_BL,7,4][O:#G_JATI_11_BL,99,4],							\
+	DRG_RF490A[CL:DB_RB_KL,0,0,][O:DRG_2_OM_KBG,,4][BT:15,8,5,4][BT:102,8,5,4]			\
+	[O:G_JATI_11_BL,15,4][O:#G_JATI_11_BL,100,4];							\
+      F=SFN2;
+    TX=DRG SA III K + Güterzug;										\
+      C=DRG_2B_IIIK,DRG_7760W1(|L)[O:BOX13,32,15][O:BOX14,6,15][BC:0,-30,6,15,50,10],DRG_762GW1(|L),	\
+	DRG_783OOW_R1(|L),DRG_758GW1(|L),DRG_757GW1(|L),DRG_ZZ1(|L);					\
+      F=SFN2;
+    TX=DRG SA IV K + Güterzug 1939;									\
+      C=DRG_4K_2C,5*DRG_HH1(|L)[OB:(FR_WOOD10|WOOD133|WOOD45|WOOD134)(|[!M]),,8];			\
+      F=SFN2;
+    TX=DRG SA IV K + Personenzug;									\
+      C=DRG_IVK2,DRG_PW4E1(|L),(DRG_708POSTIIB1908A|DRG_708POSTIIB1912A)(|L),2*DRG_C4KSAE(|L),		\
+	DRG_BB1(|L),DRG_C4KSA1(|L);									\
+      F=SPRN2;
+    TX=DRG SA IV K + Personenzug;									\
+      C=DRG_IVK2,(DRG_752PWTODA1|DRG_752PWOLI1)(|L),(DRG_709POSTIB1|DRG_747CPOST1)(|L),DRG_722CC1(|L),	\
+	DRG_749C1(|L),DRG_750D1890A(|L),DRG_750D1888A(|L),DRG_729C4TR1(|L);				\
+      F=SPRN2;
+    TX=DRG SA V K + Personenzug;									\
+      C=DRG_VK1,DRG_PW4A(|L),2*DRG_C4KSA3(|L),DRG_714BCC1(|L),DRG_719BCC1(|L),2*DRG_C4TRKSA4;		\
+      F=SPRN2;
+    TX=DRG SA VI K + Rollbockzug;									\
+      C=DRG_VIK1[#D:L][NT:C],										\
+	100[O:DRG_RF678A(|L),,0][O:DRG_2_GR_KSL_H,,4][OT:BSOD,1,4][OT:#BSOD,94,4][CL:DB_RB_KL,11,0,3]	\
+	[CR:#DR_4_KROW,0,11,][COBL:3],									\
+	100[O:DRG_RF678A(|L),,0][O:DRG_2_GBAY_HAN_H,,4][OT:BSOD,2,4][OT:#BSOD,94,4]			\
+	[CR:#DB_RB_KL,11,0,3][COBR:8];									\
+      F=SFN2;
+    TX=DRG 99 162 + Rollbockzug Reichenbach (Vogtland)- Mylau;						\
       C=(DRG_2B_99162(G|S)_R[O:DRG_2_GW_MGD_HL,3,4][OT:BSOD,2,4][O:#BSOD,86,4][BT:88,7,8,5]		\
 	[BT:89,12,1,1],SAX_ROM1000_45[O:DRG_2_OM_ESNH,4,4][OT:BSOD,4,4][OT:#BSOD,97,4],			\
 	SAX_ROM1000_45[O:DRG_2_G_HAN_L1,4,4][OT:BSOD,4,4][OT:#BSOD,92,4])|				\
@@ -2794,7 +2951,8 @@ $REQUIRE TRAINDEF.TTT
 	[BT:113,12,1,1],SAX_ROM1000_45[O:DRG_2_OM_ESNH,4,4][OT:BSOD,4,4][OT:#BSOD,97,4],		\
 	SAX_ROM1000_45[O:DRG_2_G_HAN_L1,4,4][OT:BSOD,4,4][OT:#BSOD,92,4]);				\
       F=SFN2;
-    TX=DRG 99 162 + Personenzug Reichenbach (Vogtland) - Mylau;						\
+
+    TX=DRG 99 162 + Personenzug Reichenbach (Vogtland)- Mylau;						\
       C=DRG_2B99162(G|S)_P(|L),DRG_DREK100(6|8);							\
       F=SPRN2;
     TX=DRG 99 321 + Personenzug Bad Doberan - Ahrendsee 1933;						\
@@ -2805,22 +2963,25 @@ $REQUIRE TRAINDEF.TTT
 	(<DRG_SN9014,DRG_SN9017,DRG_SN9024,DRG_SN9032,DRG_SN9071,2*DRG_SN9028,DRG_SN9035,DRG_SN9082));	\
       F=SPRN2;
     TX=DRG 99 586;											\
-      C=DR_99_586L|DR_99_586,DRG_752PWU,DRG_C4,DRG_712CC,DRG_727CC,;					\
+      C=DR_99_586L|DR_99_586,DRG_752PWU(|L),DRG_C4A(|L),DRG_712CC1(|L),DRG_727CC1(|L);			\
       F=SNF2;
     TX=DRG 99 542 + GmP;										\
-      C=DRG_IVK1,(<DRG_PW4KU,DRG_C4KU,DRG_715BC4U,DRG_760GW,DRG_775OW,DRG_764GGW);			\
+      C=DRG_IVK2,											\
+	(<DRG_PW4KU(|L),DRG_C4KSA1(|L),DRG_715BCC1,DRG_760GW1(|L),DRG_7750W1(|L),DRG_764GGW1(|L));	\
       F=SNPR2;
     TX=DRG 99 608 + Unkrautsprengwagen;									\
-      C=DRG_IVK,DRG_ZZM;										\
+      C=DRG_IVK2,DRG_ZZM1(|L);										\
       F=SF2;
     TX=DRG 99 535 + GmP von Ortmannsdorf nach Mosel 1935;						\
-      C=DRG_IVK1,(<DRG_PW4KU,DRG_709POSTU,DRG_C4KU,DRG_715BC4U,DRG_761GW,2*DRG_783OOW);			\
+      C=DRG_IVK2,											\
+	(<DRG_PW4KU(|L),DRG_709POSTU(|L),DRG_C4KSA1(|L),DRG_715BCC1(|L),DRG_761GW1(|L),			\
+	2*DRG_783OOW1(|L));										\
       F=SPRN2;
     TX=DRG 99 601 + Güterzug von Löthain nach Lommatzsch;						\
-      C=DRG_IVK1,DRG_752PWU,4*DRG_KKW;									\
+      C=DRG_IVK2,DRG_752PWU(|L),4*DRG_KKW1;								\
       F=SNF2;
     TX=DRG 99 614 + Reisezug von Heidenau nach Altenberg;						\
-      C=DRG_IVK1,(<DRG_708POST4U,DRG_PW4KU,2*DRG_C4KU,DRG_CD4U);					\
+      C=DRG_IVK2,(<DRG_708POST4U(|L),DRG_PW4KU(|L),2*DRG_C4KSA1(|L),DRG_C4TRKSA2(|L));			\
       F=SNPR2;
     TX=DRG 99.63 + Rollbockzug;										\
       C=DRG_99_63,DRG_G3WU,DRG_G3KWU,DRG_RBWUO12[O:OMM_KOHLE_01,13,32,],DRG_RBWUG11,DRG_RBWUG10;	\
@@ -2829,19 +2990,21 @@ $REQUIRE TRAINDEF.TTT
       C=DRG_99_67,(<DRG_PWPOSTWU,2*DRG_C4WU,DRG_CWU2,DRG_CWU);						\
       F=SNPR2;
     TX=DRG 99 691 + Reisezug nach Altenberg;								\
-      C=DRG_VIKFLA,DRG_PW4EU,(<DRG_C4KU,DRG_CD4U,DRG_B42U,DRG_BC42U),DRG_AUSPU;				\
+      C=DRG_VIK1,DRG_PW4EU,(<DRG_C4KSA1(|L),DRG_C4TRKSA2(|L),DRG_B4KSAE(|L),DRG_BC1(|L)),		\
+	$DIR(DRG_AUSSICHT_R1L,DRG_AUSSICHT_R1)|								\
+	$DIR(DRG_715AUSS1[O:AUSSICHT_L1,,17],(DRG_715AUSS1[O:AUSSICHT_R1,,17]));			\
       F=SNPR2;
     TX=DRG 99 734 + PUG nach Frauenstein;								\
-      C=DRG_VIIK~JS,(<(3*DRG_764GGW),DRG_783OOW_K,DRG_CD4U,DRG_PW4KU);					\
+      C=DRG_VIIK~JMU,(<(3*DRG_764GGW1(|L)),DRG_783OOW_K1(|L),DRG_C4TRKSA2,DRG_PW4KU(|L));		\
       F=SNPR2;
     TX=DRG 99 7521 + Reisezug von Herrnhut nach Bernstadt;						\
-      C=DRG_IKKO,DRG_750CDU,DRG_709POSTU;								\
+      C=DRG_IKKO,DRG_750CDU,DRG_709POSTU(|L);								\
       F=SNPR2;
     TX=DRG 99 755;											\
-      C=DRG_IIKNEU,DRG_742C_C,DRG_748C,DRG_749CPOST,DRG_PWTO;						\
+      C=DRG_IIK,DRG_748C1(|L),DRG_731C1(|L),DRG_CK747,DRG_749CPOST1(|L);				\
       F=SNF2;
     TX=DRG VT 137.322-325 Zittau-Oybin;									\
-      C=DRG_VT137,DRG_VT1372;										\
+      C=DRG_VT137A,DRG_VT1372A;										\
       F=DNPU2;
 
 # E Schmalspur
@@ -2864,7 +3027,7 @@ $REQUIRE TRAINDEF.TTT
       C=DRG_ET_197_2,(DRG_EB_197_1|DRG_EB_197_3);							\
       F=GEPN2;
 
-# Privat
+# Schmalspur Privat
 # Chiemseebahn
     TX=Chiemseebahn;											\
       C=(CHIE_2LOK1,CHIE_2E1LL,CHIE_2ABD9GL|CHIE_2ABD9GT|CHIE_2ABD9GV,CHIE_2A1GLL,CHIE_2A1GTL,		\
@@ -2877,23 +3040,12 @@ $REQUIRE TRAINDEF.TTT
 	(CHIE_2LOK1,CHIE_2ABD9OL|CHIE_2ABD9OT|CHIE_2ABD9OV,CHIE_2A1OL,CHIE_2A1OV,CHIE_2A1OT,		\
 	CHIE_2B4OL|CHIE_2B4OT,CHIE_2B4OV,CHIE_2B2OL,CHIE_2B2OT,CHIE_2B2OV);				\
       F=SNPR2;
-    TX=Braunschweigische Landeseisenbahn 44;								\
-      C=BLE_44(|L),2*Z_D_E2_GBK;									\
-      F=DF2;
     TX=Südharzeisenbahn T 02;										\
       C=SHE_2A_T02(|L)|SHE_2B_T02(|L);									\
       F=DNPU2;
-    TX=Lübeck-Büchener Eisenbahn 141/142 + Doppelstockeinheit;						\
-      C=(<LBE_142LL|LBE_141L,LBE_BC6(|L))|(>LBE_142R|LBE_141,LBE_BC6(|L));				\
-      F=DPRU2;
-    TX=Lübeck-Büchener Eisenbahn 60 + Doppelstockeinheit;						\
-      C=(<LBE_60LL|LBE_60RL,LBE_BC6A(|L))|(>LBE_60R|LBE_60L,LBE_BC6A(|L));				\
-      F=DPRU2;
-    TX=Deutschland Westfaelische Landeseisenbahn DT 1;							\
-      C=WLE_2VT1011(|L);										\
-      F=DPR2;
-    TX=Deutschland Westfaelische Landeseisenbahn DT 2 + DS1;						\
-      C=(<WLE_2VT1021,WLE_2VS1521)|(>WLE_2VT1021L,WLE_2VS1521L);					\
+    TX=Prignitzer Kreiskleinbahnen (PKKB)- Triebwagen Nr.702 (späterer DR VT 133 525)			\
+	"Schweineschnäuzchen" auf der Strecke von Lindenberg nach Kyritz in Brandenburg,1939;		\
+      C=DRG_VT133525A;											\
       F=DPRU2;
 
   }

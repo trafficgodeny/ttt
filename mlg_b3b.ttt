@@ -81,6 +81,13 @@ $REQUIRE MLG_DEF.TTT
 ;===  Trains internationaux  ===
 ;===============================
 
+;PARIS - HAMBURG
+    TX=SNCB 205 + PARIS - HAMBURG;									\
+      C=SNCB_205G1(|L),SNCF_UIC_B10G(|L),SNCF_AOC4_A212B6G0(|L),SNCF_DD4SG(|L),SNCF_UIC_B10G(|L),	\
+	SNCF_UIC_A4B5G(|L),2*SNCF_AOC48_B10G(|L);							\
+      V=12;												\
+      F=DP3;
+
 ;Bruxelles - Amsterdam
     TX=NS Mat 57 + Benelux Bruxelles - Amsterdam;							\
       C=NS_MAT57_K_L1;											\
@@ -100,15 +107,26 @@ $REQUIRE MLG_DEF.TTT
 ;Bruxelles navette aéroport
     TX=SNCB 602 +Bruxelles [N=airport shuttle;F=navette aéroport;D=Flughafen Pendelzug];		\
       C=(1-2*SNCB_602G2(|L))|SNCB_602G1(|L);								\
-      V=10;												\
+      V=9;												\
       F=DPRU3;
-
-    TX=SNCB 122;											\
+    TX=SNCB 602 +Bruxelles [N=airport shuttle;F=navette aéroport;D=Flughafen Pendelzug];		\
+      C=SNCB_602G0(|L)|SNCB_602G1(|L)|SNCB_602(|L);							\
+      V=9;												\
+      F=DPRU3;
+    TX=SNCB 120 + M1;											\
+      C=SNCB_120G1(|L),2*SNCB_3M1B1(|L),SNCB_3M1AB1(|L),$DIR(SNCB_3M1BD1,SNCB_3M1BD1L);			\
+      V=12;												\
+      F=EPR3;
+    TX=SNCB 120 + M2;											\
+      C=SNCB_120G1(|L),$DIR(SNCB_3M2GBDL,SNCB_3M2GBD),2*SNCB_3M2GB(|L),SNCB_3M2GA(|L),2*SNCB_3M2GB(|L);	\
+      V=12;												\
+      F=EPR3;
+    TX=SNCB 122 + M1;											\
       C=SNCB_122G2T(|L)[PDU]|SNCB_122G(|L)[PDU],							\
 	1-2*($DIR(SNCB_3M1BD1L,SNCB_3M1BD1),SNCB_3M1AB1(|L),SNCB_3M1B1(|L));				\
       V=10;												\
       F=EPR3;
-    TX=SNCB 122;											\
+    TX=SNCB 122 + M2;											\
       C=SNCB_122G2T(|L)[PDU]|SNCB_122G(|L)[PDU],$DIR(SNCB_3M2GBDL,SNCB_3M2GBD),2*SNCB_3M2GB(|L),	\
 	SNCB_3M2GAB(|L)|(SNCB_3M2GA(|L),3*SNCB_3M2GB(|L));						\
       V=12;												\
@@ -162,6 +180,10 @@ $REQUIRE MLG_DEF.TTT
       C=SNCB_202G1(|L),SNCB_3M2GBD(|L),2*SNCB_3M2GB(|L);						\
       V=11;												\
       F=DPR3;
+    TX=SNCB 205 + M2;											\
+      C=SNCB_205G1(|L),$DIR(SNCB_3M2GBDL,SNCB_3M2GBD),SNCB_3M2GAB(|L),SNCB_3M2GB(|L);			\
+      V=11;												\
+      F=DPR3;
     TX=SNCB 210 Proto + TEE Paris-Ruhr;									\
       C=SNCB_210(|L),$DIR(SNCB_3M1BD1L,SNCB_3M1BD1),SNCB_3M1B1(|L),SNCB_3M1AB1(|L);			\
       V=10;												\
@@ -174,7 +196,23 @@ $REQUIRE MLG_DEF.TTT
       C=SNCB_212(|L),$DIR(SNCB_3M2GBDL,SNCB_3M2GBD),SNCB_3M2GAB(|L),SNCB_3M2GB(|L);			\
       V=10;												\
       F=DPR3;
-; ; ; ;
+    TX=SNCB 213 + L;											\
+      C=SNCB_213G1(|L),$DIR(SNCB_3L_BD1L,SNCB_3L_BD1),SNCB_3L_B1(|L),SNCB_3L_AB1(|L);			\
+      V=10;												\
+      F=DPR3;
+
+    TX=SNCB AM 39;											\
+      C=SNCB_3AM39(|L);											\
+      V=12;												\
+      F=EPRU3;
+    TX=SNCB AM 39 + 50;											\
+      C=SNCB_3AM39(|L),SNCB_3AM50G(|L);									\
+      V=12;												\
+      F=EPRU3;
+    TX=SNCB AM 50;											\
+      C=SNCB_3AM50GG(|L)|SNCB_3AM50G(|L);								\
+      V=12;												\
+      F=EPRU3;
     TX=SNCB AM54;											\
       C=1-2*SNCB_AM54O(|L);										\
       V=12;												\
@@ -187,14 +225,42 @@ $REQUIRE MLG_DEF.TTT
       C=SNCB_AM56O(|L);											\
       V=12;												\
       F=EPRU3;
-    TX=SNCB AM46 + AM54;										\
+    TX=SNCB AM 56 + AM 54;										\
       C=SNCB_AM56O(|L),SNCB_AM54O(|L);									\
       V=12;												\
+      F=EPRU3;
+    TX=SNCB AM 55 + 56;											\
+      C=(1-2*SNCB_AM55O(|L),SNCB_AM56O(|L))|(SNCB_AM56O(|L),1-2*SNCB_AM55O(|L));			\
+      V=13;												\
+      F=EPRU3;
+    TX=SNCB AM 62/63;											\
+      C=1-2@SNCB_AM62_VE3;										\
+      V=13;												\
+      F=EPRU3;
+    TX=SNCB AM 65;											\
+      C=1-2@SNCB_AM65_VE3;										\
+      V=13;												\
+      F=EPRU3;
+    TX=SNCB AM 54 + 65;											\
+      C=(SNCB_AM54O(|L),SNCB_AM65_VE3)|(SNCB_AM65_VE3,SNCB_AM54O(|L));					\
+      V=13;												\
+      F=EPRU3;
+    TX=SNCB AM 66;											\
+      C=SNCB_AM66_VE3;											\
+      V=13;												\
+      F=EPRU3;
+    TX=SNCB AM 55 + 66;											\
+      C=(2*SNCB_AM55O(|L),SNCB_AM66_VE3)|(SNCB_AM66_VE3,2*SNCB_AM55O(|L));				\
+      V=12;												\
+      F=EPRU3;
+    TX=SNCB AM 62 - 66;											\
+      C=SNCB_AM66_VE3,SNCB_AM6(2|5)_VE3;								\
+      V=13;												\
       F=EPRU3;
 
     TX=SNCB 630;											\
       C=1:SNCB_630P_V|3:SNCB_630_V;									\
-      V=10;												\
+      V=8;												\
       F=DPRU3;
     TX=SNCB 603;											\
       C=SNCB_603G1(|L);											\
@@ -204,8 +270,20 @@ $REQUIRE MLG_DEF.TTT
       C=SNCB_603G2(|L),SNCB_R732G2(|L);									\
       V=8;												\
       F=DPRU3;
+    TX=SNCB 603;											\
+      C=1-2@SNCB_603RY(|L);										\
+      V=9;												\
+      F=DPRU3;
+    TX=SNCB 604;											\
+      C=SNCB_604G1(|L)|SNCB_604G2(|L)|SNCB_604RY(|L);							\
+      V=8;												\
+      F=DPRU3;
+    TX=SNCB 605;											\
+      C=SNCB_605G1(|L)|SNCB_605G2(|L)|SNCB_605RY(|L);							\
+      V=8;												\
+      F=DPRU3;
     TX=SNCB 554;											\
-      C=SNCB_554G(|L);											\
+      C=1:SNCB_554G1(|L)|4:SNCB_554G(|L)|1:SNCB_554RY(|L);						\
       V=8;												\
       F=DPRU3;
     TX=SNCB 553;											\
@@ -225,6 +303,9 @@ $REQUIRE MLG_DEF.TTT
       C=SNCB_202G1(|L),SNCB_203G1(|L),20-25*SNCF_FAL;							\
       V=9;												\
       F=DF3;
-
+    TX=SNCB 271;											\
+      C=SNCB_271G1(|L),20-30*SNCB_FD1000G2_INTERCOM;							\
+      V=5;												\
+      F=DF3;
   }
 %ENDPOOL;

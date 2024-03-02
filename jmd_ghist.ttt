@@ -137,12 +137,19 @@ $REQUIRE JMD_DEF.TTT
     C=DRG_38_(1944|2:3111),DRG_PWIPR91|DRG_PWIWU09~LB,8-12*DRG_BC3PR91H|7:DRG_C3PR91H;			\
       D=L; V=7-8.5;											\
       F=SP2;
-    C=DRG_IVK(|1)|DRG_VIK(|FLA)|DRG_VIIK,DRG_PW4E,2*DRG_BB|DRG_720CCBLECH|DRG_C4;			\
+    TX=DRG SA IV K + Personenzug;									\
+      C=DRG_IVK2,DRG_PW4E1,2*DRG_B4KSAE|DRG_720CCBLECH1|DRG_C4KSA1;					\
       V=2.5-4;
-    C=DRG_VIIK|DRG_(IVK|IVK1|VIK|VIKFLA|VK),DRG_B(B|C)|DRG_720CCBLECH|DRG_C4,4@DRG_783OOW(|_K|_R);	\
+    TX=DRG SA VI K + Personenzug;									\
+      C=DRG_VIK1,DRG_PW4E1L,2*DRG_B4KSAEL|DRG_720CCBLECH1L|DRG_C4KSA1L;					\
+      V=2.5-4;
+    TX=DRG SA VII K + Personenzug;									\
+      C=DRG_VIIK~JMU,DRG_B(B|C)1L|DRG_C4KSA1L,4@DRG_783OOW(|_K|_R)1(|L);				\
       V=2.5-4;												\
       F=SPRN2;
-    C=DRG_IVK,DRG_B(B|C),5*DRG_7(57GW|58GW|60GW|61GW|62GW),DRG_783OOW(|_K|_R),2*DRG_764GGW;		\
+    TX=DRG SA IV K + Personenzug;									\
+      C=DRG_IVK2,DRG_B(B|C)1,5*DRG_7(57GW1(|L)|58GW1(|L)|60GW1(|L)|61GW1(|L)|62GW1(|L)),		\
+	DRG_783OOW(|_K|_R)1(|L),2*DRG_764GGW1(|L);							\
       V=2.5-4;												\
       F=SFN2;
     C=DRG_VT708(|L)|DRG_T751;										\
@@ -180,7 +187,7 @@ $REQUIRE JMD_DEF.TTT
       C=DRG_78(001|020|238|477|386)M(|L),LEIGDRG;							\
       V=6-6.5;												\
       F=SF2;
-    TX=DRG 02 + Train 52 "Paris-Berlin-Riga-Varsovie-Express" Köln <-> Warszawa (-> Riga) (anno 1926);	\
+    TX=DRG 02 + Train 52 "Paris-Berlin-Riga-Varsovie-Express" Köln <-> Warszawa (-> Riga)(anno 1926);	\
       C=DRG_02_002,											\
 	DRG_PW4PR04B(|L)|DRG_PW4PR16B(|L)|DRG_PW4UPR02BB(|L)|DRG_PW4UPR07B(|L)|DRG_PW4UPR10B(|L)|	\
 	DRG_PW4UPR16B(|L)|DRG_PWPOST4UPR08B(|L),CIWL_WL3487B[N:#P,BG_NULL][N:#B,BG_NULL],		\
@@ -257,9 +264,9 @@ $REQUIRE JMD_DEF.TTT
       F=SP2;
     C=$DIR(DR_56234L,DR_56234),										\
 	(<DRG_PW3IPR91,DRG_CC3IDPR07L,DRG_C3IDPR08(|L),DRG_BC3IPR92(A|B)(|L),DRG_CC3IDPR07L,		\
-	DRG_C3IDPR08(|L),DRG_BC3IPR10(|L),DRG_PWPOSTI01(|L)|DRG_PWPOSTI11(|L));				\
+	DRG_C3IDPR08(|L),DRG_BC3IPR10(|L),DRG_PWPOSTI01(|L)|DRG_PWPOSTIPR11(|L));			\
       F=SP2;
-    TX=D 126 Gießen <- Limburg - Koblenz - Trier -> Diedenhofen (Abschnitt Gießen - Koblenz) (anno 1927); \
+    TX=D 126 Gießen <- Limburg - Koblenz - Trier -> Diedenhofen (Abschnitt Gießen - Koblenz)(anno 1927); \
       C=DRG_38_(1944|2:3111),										\
 	15:DRG_POST4UA(17(~LB|L(|2|3))|173(|A)(|L))|5:DRG_POST4B17PR(|L)|DRG_POST4UA20_1926(|L),	\
 	DRG_PW4U(20:PR(02B|07|10|16)B|23)(|L),DRG_AB4U23(|A)B(|L),					\
@@ -301,14 +308,14 @@ $REQUIRE JMD_DEF.TTT
       V=10-12;
     C=DRG_56_(503|511|516|601|625),DRG_PWGSA07(|L),16-20*D_EPII_O;					\
       F=SF2;
-    TX=FFD 101/102 "Rheingold-Express" Hoek van Holland <-> Basel (anno 1929) Lokwechsel in Emmerich;	\
+    TX=FFD 101/102 "Rheingold-Express" Hoek van Holland <-> Basel (anno 1929)Lokwechsel in Emmerich;	\
       M=CHANGE;												\
       C=$DIR(DRG_SPW4U28_28AL,DRG_SPW4U28_28A),DRG_2B_SB4U28_28B(|L),DRG_2B_SA4U28K_28(|L),		\
 	DRG_2B_SA4U28_28(|L),DRG_SB4U28K_28A(|L);							\
       D=R;												\
       C1=NS_37(13|37B)|NS_2_3931;									\
       D1=R;												\
-      C2=DRG_18524L|DRG_18509L;										\
+      C2=DRG_18524|DRG_18525;										\
       D2=L; T1=10-20; T2=10-20;										\
       F=SPO2;
     C=DR_75_5(01|15),DRG_PWSA10L~LB|DRG_PWSA10~LB,DRG_C4SA14H(|L),DRG_B4SA97HL~LB,DRG_CSA16~LB,		\
@@ -347,9 +354,8 @@ $REQUIRE JMD_DEF.TTT
 	DRG_CC4IDPR14G1(|L),DRG_C4IPR09G(|L);								\
       F=SP2;
     TX=P 1360 Wittenberge <-> Karow am See (14.6.1930);							\
-      C=$DIR(DRG_86094L,DRG_86094),DRG_PWPOSTI84L|DRG_PWPOSTI84,DRG_BC3IPR10|DRG_BC3IPR10L,		\
-	{NEK?99:DRG_CIE27|}DRG_CID27L,DRG_BCI29~LB{NEK?|99:DRG_BCIE29L},DRG_C3IPR14,DRG_PW3IPR91B,	\
-	D_2_MUENCHEN;											\
+      C=$DIR(DRG_86094L,DRG_86094),DRG_PWPOSTIPR84(|L),DRG_BC3IPR10|DRG_BC3IPR10L,			\
+	{NEK?99:DRG_CIE27|}DRG_CID27L,DRG_BCI29~LB,DRG_C3IPR14,DRG_PW3IPR91B,D_2_MUENCHEN;		\
       F=S2;
     C=DRG_36_(1000|901|928|940),2*LEIGDRG;								\
       V=6.5;												\
@@ -380,7 +386,7 @@ $REQUIRE JMD_DEF.TTT
 	2*DRG_C4UPR13B(|L|SL|2L|S);									\
       V=10-12;												\
       F=SP2;
-    C=DRG_98_70,DRG_PWPOSTI84(|L),DRG_CIPR86(|A|B|C)(|L),DRG_CIPR91(|L),DRG_BCIPR86(|B|C)(|L),		\
+    C=DRG_98_70,DRG_PWPOSTIPR84(|L),DRG_CIPR86(|A|B|C)(|L),DRG_CIPR91(|L),DRG_BCIPR86(|B|C)(|L),	\
 	DRG_BCIPR95(|L);										\
       V=3-4;												\
       F=SP2;
@@ -389,7 +395,7 @@ $REQUIRE JMD_DEF.TTT
       C=DRG_78005(|L),$DIR(DRG_PW3PR11AL,DRG_PW3PR11A),2*$DIR(DRG_C3PR11H~LB,DRG_C3PR11HL~LB),		\
 	$DIR(DRG_BI29~LB,DRG_BI29L~LB),$DIR(DRG_C3DTRPR04HL,DRG_C3DTRPR04H),				\
 	2*$DIR(DRG_C3PR11HL~LB,DRG_C3PR11H~LB),$DIR(DRG_C3PR06HL,DRG_C3PR06H),				\
-	$DIR(DRG_POST9_7L,DRG_POST9_7);									\
+	$DIR(DRG_POST_C85PRML,DRG_POST_C85PRM);									\
       V=6-7;
 
     TX=Boppard (anno 1931);										\
@@ -411,15 +417,15 @@ $REQUIRE JMD_DEF.TTT
       F=S2;
 # Bad Sülze (26.06.1932)
     TX=E 175 bei Altenbeken (05.07.1932);								\
-      C=DRG_24_018,DRG_PW4UPR07BL[<OT:DRG_PW4UPR07B,0,0],DRG_C4I30L[<OT:DRG_C4I30,0,0],			\
-	DRG_BC4I31[<OT:DRG_BC4I31L,0,0],DRG_C4I30L[<OT:DRG_C4I30,0,0],DRG_C4I30[<OT:DRG_C4I30L,0,0];	\
+      C=DRG_24_018,DRG_PW4UPR07BL[<OT:DRG_PW4UPR07B,0,0],$DIR(DRG_C4I30,DRG_C4I30L),			\
+	$DIR(DRG_BC4I31L,DRG_BC4I31),$DIR(DRG_C4I30,DRG_C4I30L),$DIR(DRG_C4I30L,DRG_C4I30);	\
       V=7-9;												\
       F=SP2;
     C=$DIR(DRG_90131L,DRG_90131),DRG_PWPOST4IPR11G(|L),DRG_CC4ITRPR07G1(|L),DRG_B4IPR91G2(|L),		\
 	DRG_CC4ITRPR12G1(|L),DRG_C4ITRPR07G1(|L);							\
       F=SP2;
 #aus EK "Die Baureihe 39" Seite 138, Packwagen wahrscheinlich SNCB;
-    TX=L 176 Köln <- Aachen - Lüttich - Bruxelles -> Oostende (Abschnitt Köln - Aachen) (14.04.1933);	\
+    TX=L 176 Köln <- Aachen - Lüttich - Bruxelles -> Oostende (Abschnitt Köln - Aachen)(14.04.1933);	\
       C=$DIR(DRG_39230L,DRG_39230),CIWL_D1986(|L),CIWL_B4111CB,CIWL_A4158(|L);				\
       V=10-11;												\
       F=S2;
@@ -475,8 +481,8 @@ $REQUIRE JMD_DEF.TTT
 	DRG_C4IPR15(E|EL|G|GL);										\
       F=SP2;
     TX=P 1748 Waldshut <- Oberlauchringen - Ofteringen - Eberfingen - Weizen - Fützen - Epfenhofen - Zollhaus-Blumberg - Leipferdingen - Kirchen-Hausen -> Immendingen (24.06.1934); \
-      C=DR_3_57_2619L,$DIR(DRG_PW_BAD16L,DRG_PW_BAD16),DRG_CI(28|29)[<OT:DRG_CI(28|29)L,0,0],		\
-	DRG_BCI(28|29)L[<OT:DRG_BCI(28|29),0,0],DRG_CI(28|29)L[<OT:DRG_CI(28|29),0,0],			\
+      C=DR_3_57_2619L,$DIR(DRG_PW_BAD16L,DRG_PW_BAD16),$DIR(DRG_CI(28|29)L,DRG_CI(28|29)),		\
+	$DIR(DRG_BCI(28|29)L,DRG_BCI(28|29)),$DIR(DRG_CI(28|29)L,DRG_CI(28|29)),			\
 	$DIR(DRG_CI_BAD01L,DRG_CI_BAD01),$DIR(DRG_CID_BAD10,DRG_CID_BAD10L),				\
 	$DIR(DRG_CI_BAD01,DRG_CI_BAD01L);								\
       V=4-5;												\
@@ -489,7 +495,7 @@ $REQUIRE JMD_DEF.TTT
 
     TX=P 294 bei Neudietendorf (anno 1934);								\
       C=DRG_95_037,$DIR(DRG_POST9_7L,DRG_POST9_7),$DIR(DRG_PWI30,DRG_PWI30L),				\
-	DRG_CI(28|29)L[>OT:DRG_CI(28|29),0,0],DRG_BCI(28|29)[>OT:DRG_BCI(28|29)L,0,0],			\
+	$DIR(DRG_CI(28|29)L,DRG_CI(28|29)),$DIR(DRG_BCI(28|29),DRG_CI(28|29)L),			\
 	$DIR(DRG_CCIDPR94,DRG_CCIDPR94L),$DIR(DRG_CCIDPR05L,DRG_CCIDPR05);				\
       V=5-6;												\
       F=SP2;
@@ -517,9 +523,9 @@ $REQUIRE JMD_DEF.TTT
 	$DIR(DRG_C3IPR14,DRG_C3IPR14L);									\
       F=SP2;
     TX=P 75 Neustrelitz <- Schwaan -> Rostock (07.07.1934);						\
-      C=DRG_2_75_1010[<R],$DIR(DRG_C3IDPR17L,DRG_C3IDPR17),DRG_C3PR11HL~LB[>OT:DRG_C3PR11H~LB,0,0],	\
-	2*DRG_C3PR11H~LB[>OT:DRG_C3PR11HL~LB,0,0],$DIR(DRG_BC3IPR10L,DRG_BC3IPR10),			\
-	$DIR(DRG_C3IPR14,DRG_C3IPR14L),DRG_PWI(28|29)L[>OT:DRG_PWI(28|29),0,0];				\
+      C=DRG_2_75_1010[<R],$DIR(DRG_C3IDPR17L,DRG_C3IDPR17),$DIR(2*DRG_C3PR11HL~LB,2*DRG_C3PR11H~LB),	\
+	$DIR(2*DRG_C3PR11H~LB,2*DRG_C3PR11HL~LB),$DIR(DRG_BC3IPR10L,DRG_BC3IPR10),			\
+	$DIR(DRG_C3IPR14,DRG_C3IPR14L),$DIR(DRG_PWI(28|29)L,DRG_PWI(28|29));				\
       F=SP2;
     C=DRG_SVT877(|L);											\
       V=10-14;												\
@@ -660,7 +666,8 @@ $REQUIRE JMD_DEF.TTT
 	$DIR(DRG_C4U28A,DRG_C4U28AL);									\
       V=9-10;												\
       F=SP2;
-    TX=E 170 Leipzig <- Gera - Saalfeld - Nürnberg - Augsburg -> München (Abschnitt Probstzella - Steinbach (Wald)) (28.05.1936); \
+    TX=E 170 Leipzig <- Gera - Saalfeld - Nürnberg - Augsburg -> München (Abschnitt Probstzella - Steinbach (Wald)) \
+	(28.05.1936);											\
       C=$DIR((DRG_39230L,DRG_POST4UA173,DRG_PW4U29L~LB,DRG_PW4I32,DRG_BC4I33,2*DRG_C4I30,DRG_BC4I33L),	\
 	(DRG_39230,DRG_POST4UA173L,DRG_PW4U29~LB,DRG_PW4I32L,DRG_BC4I33L,2*DRG_C4I30L,DRG_BC4I33)),	\
 	DRG_95_037;											\
@@ -691,7 +698,7 @@ $REQUIRE JMD_DEF.TTT
       D=R;												\
       F=SP2;
 #aus EJ-Sonderausgabe IV/92 "Die E18 und E19" Bild29;
-    TX=Triebwagenersatzzug bei Reibnitz (Niederschlesien) (anno 1936);					\
+    TX=Triebwagenersatzzug bei Reibnitz (Niederschlesien)(anno 1936);					\
       C=$DIR(DRB_E18_08_1936,DRB_E18_08_1936L),$DIR(DRG_PW4I32,DRG_PW4I32L),				\
 	2*$DIR(DRG_C4I30_EL,DRG_C4I30_E);								\
       V=8-10;												\
@@ -718,7 +725,7 @@ $REQUIRE JMD_DEF.TTT
     TX=DRG E 21 02 Hirschberg <-> Görlitz (anno 1936);							\
       C=$DIR(DRG_2_E2102,DRG_2_E2102L),$DIR(DRG_PW4UPR16BL,DRG_PW4UPR16B),DRG_C4UPR06B(|L),		\
 	DRG_BC4UPR09B(|L)|DRG_BC4UPR09A(|L),2*DRG_C4UPR06B(|L)|DRG_C4UPR07B(|L),DRG_BC4UPR09B(|L),	\
-	DRG_C4PR04H~LB[<OT:DRG_C4PR04HL~LB,0,0],DRG_C4PR04~LB[<OT:DRG_C4PR04L~LB,0,0];			\
+	$DIR(DRG_C4PR04HL~LB,DRG_C4PR04H~LB),$DIR(DRG_C4PR04L~LB,DRG_C4PR04~LB);			\
       F=EP2;
     TX=Breslau <-> Hirschberg (anno 1936);								\
       C=DRG_ET25S,0|1*DRG_ET25SB;									\
@@ -728,7 +735,7 @@ $REQUIRE JMD_DEF.TTT
       D=R;												\
       F=SP2;
     C=VT133_006|(DRG_VT135_(012|061)(|L),0-1*D_EPII_G);
-    TX=Reibnitz (bei Hirschberg) (anno 1936);								\
+    TX=Reibnitz (bei Hirschberg)(anno 1936);								\
       C=DRB_E18_04_1936(|L)|DRB_E18_08_1936(|L),DRG_PW4U36B37L[<OT:DRG_PW4U36B37,0,0],DRG_C4U28A(|L),	\
 	DRG_BC4U34A(|L);										\
       F=EP2;
@@ -781,7 +788,7 @@ $REQUIRE JMD_DEF.TTT
 	[TX=Et 1314 Magdeburg <- Dessau -> Leipzig (anno 1937)];
 #    M=SIMPLE|STOP; C=ET65_024; V=6-7.5;
     M=BACK|SIMPLE|STOP;											\
-      C=DRG_VT137(|2);											\
+      C=DRG_VT137(|2)A;											\
       V=2-3;												\
       F=EPRUO2;
     TX=D 186 Berlin Ahb. <- Leipzig - Bad Elster - Radiumbad Brambach - Franzenbad - Eger -> Marienbad (anno 1938); \
@@ -844,7 +851,7 @@ $REQUIRE JMD_DEF.TTT
       V=10-15;												\
       F=DPU2;
 #aus EK "Die Baureihe 93" Seite86, Gepäckwagentür sollte offen sein;
-    TX=P 3682 Saalfeld <- Probstzella -> Coburg (Abschnitt Saalfeld - Probstzella) (03.06.1939);	\
+    TX=P 3682 Saalfeld <- Probstzella -> Coburg (Abschnitt Saalfeld - Probstzella)(03.06.1939);		\
       C=$DIR((DRG_93985L,DRG_PWI31A,DRG_CC3IDPR07L,DRG_BI29~LB,DRG_CI28L,DRG_CC3IDPR07L),		\
 	(DRG_93985,DRG_PWI31AL,DRG_CC3IDPR07,DRG_BI29L~LB,DRG_CI28,DRG_CC3IDPR07));			\
       V=6-6.5;
@@ -860,7 +867,7 @@ $REQUIRE JMD_DEF.TTT
     TX=E 170 x <- Nürnberg - Saalfeld -> y (anno 1939);							\
       C=DRB_E18_08_1936L[<OT:DRB_E18_08_1936,0,0],DRG_PW4UPR07BL[<OT:DRG_PW4UPR07B,0,0],		\
 	DRG_POST4UBII20_1928[<OT:DRG_POST4UBII20_1928L,0,0],DRG_PW4I32L[<OT:DRG_PW4I32,0,0],		\
-	DRG_C4I36L[<OT:DRG_C4I36,0,0],DRG_BC4I34[<OT:DRG_BC4I34L,0,0],DRG_C4I30L[<OT:DRG_C4I30,0,0],	\
+	DRG_C4I36L[<OT:DRG_C4I36,0,0],DRG_BC4I34[<OT:DRG_BC4I34L,0,0],$DIR(DRG_C4I30,DRG_C4I30L),	\
 	DRG_C4I36L[<OT:DRG_C4I36,0,0],DRG_BC4I34[<OT:DRG_BC4I34L,0,0];					\
       F=EP2;
 #aus EK "Die Baureihe 39" Seite101, sollte 38 4046 mit DSD-Dom sein;

@@ -12,33 +12,34 @@
 #==========================================================================
 $OPTSUB N=Multi-line on black screen; G=Mehrere Zeilen vor schwarzem Hintergrund; H=Több pálya fekete háttéren;
 $OPT K=MM; N=MM-Scale (1px=10cm); G=MM-Maßstab (1px=10cm); H=MM méretarány (1px=10cm);
-{%FILEX(19x1.tvl)?
-$OPT K=HAS; N=Hasiru scale (18px); G=Hasiru-Maßstab (18px); H=Hasiru méretarány (18px);
-$OPT K=T30; N=TrainSideView 30 (1px=20cm);
-$OPT K=TB; N=TrainBanner (32px);
-$OPT K=MR; N=Mission Railroad (39px);?
-$SET HAS=0
-$SET T30=0
-$SET TB=0
-$SET MR=0
+{%FILEX(23x1.tvl)?
+  $OPT K=HAS; N=Hasiru scale (18px); G=Hasiru-Maßstab (18px); H=Hasiru méretarány (18px);
+  $OPT K=T30; N=TrainSideView 30 (1px=20cm);
+  $OPT K=TB; N=TrainBanner (32px);
+  $OPT K=MR; N=Mission Railroad (39px);
+?
+  $SET HAS=0
+  $SET T30=0
+  $SET TB=0
+  $SET MR=0
 }
-{%FILEX(19x2.tvl)?
-$OPT K=NSME; N=NSME (95px);?
-$SET NSME=0;
+{%FILEX(23x2.tvl)?
+  $OPT K=NSME; N=NSME (95px);
+  $OPT K=DUP; N=Double scale (110-120px); H=Dupla méretarány (110-120px);
+?
+  $SET NSME=0;
+  $SET DUP=0;
 }
-{%FILEX(19x2.tvl)?
-$OPT K=DUP; N=Double scale (110-120px); H=Dupla méretarány (110-120px);?
-$SET DUP=0;
-}
-{%FILEX(19x3.tvl)?
-$OPT K=LTCMM; N=LTC - triple scale; H=LTC - háromszoros méretarány;?
-$SET LTCMM=0;
+{%FILEX(23x3.tvl)?
+  $OPT K=LTCMM; N=LTC - triple scale; H=LTC - háromszoros méretarány;
+?
+  $SET LTCMM=0;
 }
 $OPT N=-;
 $OPTCMD N=All scales; G=Alle Maßstäbe; H=Mindegyik méretarány; \
-  CMD=MM+,HAS+,T30+,TB+,MR+,NSME+,DUP+;
+  CMD=MM+,HAS+,T30+,TB+,MR+,NSME+,DUP+,LTCMM+;
 $OPTCMD N=No multi-line; G=Keine Mehrfach-Zeilen; H=Egyik sem; \
-  CMD=MM-,HAS-,T30-,TB-,MR-,NSME-,DUP-;
+  CMD=MM-,HAS-,T30-,TB-,MR-,NSME-,DUP-,LTCMM-;
 $OPTEND
         
 $OPTSUB N=Full screen backgrounds; G=Große Hintergrundbilder; H=Nagyméretü háttérképek;
@@ -91,12 +92,14 @@ $OPT N=-;
 $OPT K=OPM; N=Opaku's mini scenes; G=Kleine Szene von Opaku; H=Opaku mini jelenetei;
 $OPT K=TK; N=TrainKit japanese scenes; G=TrainKit japanische Szenen; H=TrainKit japán jelenetek;
 {%FILEX(BgTgif/TGIF_SPRINGGREENB.GIF)?
-$OPT K=TGIF; N=TrainGif scenes; G=TrainGif Szenen; H=TrainGif jelenetek;?
-$SET TGIF=0;
+  $OPT K=TGIF; N=TrainGif scenes; G=TrainGif Szenen; H=TrainGif jelenetek;
+?
+  $SET TGIF=0;
 }
-{%FILEX(BGLTC/LTC_FREIGHT.JPG)&%FILEX(19x3.tvl)?
-$OPT K=LTC; N=LTC scenes; G=LTC Szenen; H=LTC jelenetek;?
-$SET LTC=0;
+{%FILEX(BGLTC/LTC_FREIGHT.JPG)&%FILEX(23x3.tvl)?
+  $OPT K=LTC; N=LTC scenes; G=LTC Szenen; H=LTC jelenetek;
+?
+  $SET LTC=0;
 }  
 $OPT K=LARGE; N=Large scales; G=Große Maßstäbe; H=Nagy méretarányú rajzok;
 $OPT N=-
@@ -203,8 +206,9 @@ $OPTCMD N=All countries; G=Alle Länder; H=Minden ország;						\
 $OPTCMD N=Clear all countries; G=Alle Länder abwählen; H=Egyik ország sem;				\
   CMD=H-,BRD-,DDR-,D-,CH-,A-,GB-,IE-,F-,B-,L-,NL-,DK-,N-,S-,SF-,P-,I-,E-,CS-,CSD-,SK-,PL-,RO-,BG-,GR-,	\
     SLO-,HR-,YU-,ASSD-,HSH-,TR-,SU-,RZD-,UZ-,UZB-,BCH-,EVR-,LDZ-,LG-,MD-,AZ-,KAZ-,GEO-,CN-,J-,USA-,MEX-, \
-    CAN-,IND-.SA-,AF-,AS-,AUS-,PAN-,NE-,FAN-,ARM-;
+    CAN-,IND-,SA-,AF-,AS-,AUS-,PAN-,NE-,FAN-,ARM-;
 $OPTEND 
+$OPT N=-;
 $OPTSUB N=Era;G=Epochen;H=Korszakok;
 $OPT K=E1;H=1850-1920 (1. korszak);G=Epoche 1 (1850-1920);N=Era 1 (1850-1920);
 $OPT K=E2;H=1920-1945 (2. korszak);G=Epoche 2 (1920-1945);N=Era 2 (1920-1945);
@@ -244,7 +248,6 @@ $OPT K=MMCT; N=MM-Lines with Citytraffic
 $OPT K=V3; V=0; N=MM&MM v3.0;
 $OPT K=NEK; V=0; N=NiMo Extension Kit;
 $OPT K=NEU; N=replace older versions; G=Neueste Bildversion verwenden;   
-$OPT K=MLGT; V=0; N=Only MLG timetables;
 $OPT K=MLGS; N=MLG-Style (light); G=MLG-Styl: hell; H=MLG-Stílus: világos;   
 {%FILEX(MM_OWN.ttt)?
 $OPT K=OWN; V=0; N=Only Own timetable MM; G=Nur Eigener Fahrplan MM-Maßstab;

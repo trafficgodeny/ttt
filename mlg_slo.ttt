@@ -1,0 +1,138 @@
+ {FILELEVEL=1?
+   $INCLUDE SINGLE.TTT
+ }
+ $REQUIRE MLG_DEF.TTT
+
+ {SLO?
+   %ADDPOOL(POOL_SLO,SLO_ENV[TX#=SLOVENIA])
+;===================================================
+;=======   SLOVENIE / SLOVENIA / SLOWENIEN   =======
+;===================================================
+     {E5?
+#===============================
+#========   Epoque Vb   ========
+#===============================
+
+;EC 150 Emona
+       TX=SZ 363 + EC 150 Emona;									\
+	 C=SZ_363R1(|L),2*SZ_BEELM2(|L),SZ_AEELMT_EC(|L),SZ_WREELMT_EC(|L),OBB_6ADMPSZ81910E(|L),	\
+	   2*SZ_BEELM2(|L);										\
+	 V=12;												\
+	 F=EP5;
+
+;IC 503 Pohorje
+       TX=SZ 363 + EC 503 Pohorje;									\
+	 C=SZ_363R1(|L),SZ_UICY_DLS1(|L),SZ_ABEELM2(|L),SZ_UICY2_WRL1(|L),SZ_ABEELM2(|L),		\
+	   3*SZ_ABEELMT_EC(|L),SZ_UICY_A1(|L),4*SZ_UICY_B1(|L);						\
+	 V=12;												\
+	 F=EP5;
+
+       TX=SZ 312;											\
+	 C=SZ_312_0|SZ_312_1;										\
+	 V=14;												\
+	 F=EP5;
+
+;-- FREIGHT --
+;-------------
+
+       TX=SZ 363 + Freight;										\
+	 C=SZ_363Y(|L),20-25*SZ_EASZ5952;								\
+	 V=10;												\
+	 F=EF5;
+       TX=SZ 363 + Freight;										\
+	 C=SZ_363Y(|L)[PFU],SZ_363Y(|L)[PBU],25*SZ_FALSZ(|L);						\
+	 V=10;												\
+	 F=EF5;
+
+     }
+     {E6?
+#===============================
+#========   Epoque VI   ========
+#===============================
+
+;EC 210 Sava
+       TX=SZ 541 + EC 210 Sava;										\
+	 C=SZ_541_325KV,ZSRB_UICY_B1(|L),SZ_ABEELMT_EC(|L)|(ZSRB_UICY_WR1(|L),SZ_ABEELM2(|L)),		\
+	   ZSRB_BEELMT1(|L);										\
+	 V=12;												\
+	 F=EP6;
+       TX=Ã–BB 1216 + EC 210 Sava;									\
+	 C=OBB_1216_R2_325KV,										\
+	   (ZSRB_BEELMT1(|L),ZSRB_AEELMT_G1(|L),2*ZSRB_BEELMT1(|L),SZ_UICY_AB1(|L))|			\
+	   (ZSRB_UICY_B1(|L),ZSRB_UICY_WR2(|L),SZ_ABEELMT_EC(|L),2*ZSRB_BEELMT1(|L));			\
+	 V=12;												\
+	 F=EP6;
+;EC 212
+       TX=SZ 541 + EC 212;										\
+	 C=SZ_541_325KV,SZ_UICY_B2(|L),HZ_BEEMT1(|L),OBB_6BMPZ29910(|L),OBB_6BMZ21911(|L),		\
+	   OBB_6AMZ19910(|L);										\
+	 V=12;												\
+	 F=EP6;
+
+;IC 502 Pohorje
+       TX=SZ 363 + EC 502 Pohorje;									\
+	 C=SZ_363R1(|L),3*SZ_ABEELMT_EC2(|L),SZ_BEELM2(|L),SZ_ABEELM2(|L),SZ_WREELMT_EC2(|L),		\
+	   SZ_ABEELM2(|L),SZ_UICY_DLS1(|L),4*SZ_UICY_B2(|L),,4*SZ_UICY_A1(|L);				\
+	 V=12;												\
+	 F=EP6;
+
+;IC 509
+       TX=SZ 363 + EC 509;										\
+	 C=SZ_363Y(|L),SZ_UICY_AB1(|L),2*SZ_UICY_B1(|L);						\
+	 V=12;												\
+	 F=EP6;
+
+       TX=SZ 541 + IC;											\
+	 C=SZ_541_325KV,HZPP_BEE2(|L),HZPP_BEELT(|L),SZ_UICY_B2(|L),SZ_UICY_B1(|L),SZ_UICY_AB2(|L);	\
+	 V=13;												\
+	 F=EP6;
+       TX=SZ 363 + IC;											\
+	 C=SZ_363R1(|L),SZ_UICY_AB2(|L),0-1*SZ_UICY_B1(|L),2*SZ_UICY_B2(|L);				\
+	 V=12;												\
+	 F=EP6;
+
+       TX=SZ 310;											\
+	 C=SZ_310_ICS;											\
+	 V=14;												\
+	 F=EP6;
+
+       TX=SZ 313;											\
+	 C=<XSZ_313;											\
+	 V=12;												\
+	 F=EP6;
+       TX=SZ 510;											\
+	 C=1-2@SZ_510_3KV;										\
+	 V=12;												\
+	 F=EP6;
+       TX=SZ 610;											\
+	 C=SZ_610;											\
+	 V=12;												\
+	 F=EP6;
+
+;-- Freight --
+;-------------
+
+       TX=SZ 363 + Freight;										\
+	 C=SZ_363R1(|L),22-25*SZ_FALSZ(|L);								\
+	 V=10;												\
+	 F=EF6;
+       TX=SZ 363 + Freight;										\
+	 C=SZ_363R1(|L),18-22*SZ_TADDSZ0822(|L);							\
+	 V=10;												\
+	 F=EF6;
+       TX=SZ 541 + Freight;										\
+	 C=$DIR(SZ_541(|L)[P2U],SZ_541(|L)[P3U]),SZ_541_325KV,13*(OBB_Habbins2742B|RCA_Habbins2743),	\
+	   5*RCA_Habbins2740;										\
+	 V=10;												\
+	 F=EF6;
+       TX=SZ 541 + Freight;										\
+	 C=2*SZ_541_325KV,13*(OBB_HABBINS2742B|RCA_HABBINS2743),5*RCA_HABBINS2740;			\
+	 V=10;												\
+	 F=EF6;
+       TX=ÖBB 1216 + SZ 541 + Freight;									\
+	 C=OBB_1216_R2_15KV,SZ_541_15KV,18*SZ_FALSZ(|L);						\
+	 V=10;												\
+	 F=EF6;
+     }
+   }
+ %ENDPOOL;

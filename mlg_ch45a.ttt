@@ -191,6 +191,11 @@ $REQUIRE MLG_DEF.TTT
       C=1-2*CFF_RABDE816_2000_L1;									\
       V=10;												\
       F=EPRU4;
+;Seetal
+    TX=SBB Be 4/4 12001 + Personenzug Seetal;								\
+      C=SBB_BE44_12001(|L),SBB_SEETAL_G1BI(|L),SBB_SEETAL_G1ABD(|L),SBB_B29330;				\
+      V=8;												\
+      F=EPRU4;
 
     TX=SBB Be 4/6;											\
       C=SBB_BE46_3G(|L),SBB_UMBAU_GB(|L),SBB_GMS(|L),SBB_4KS,SBB_GMS(|L);				\
@@ -211,6 +216,10 @@ $REQUIRE MLG_DEF.TTT
       F=EPR4;
     TX=SBB Be 4/6;											\
       C=SBB_BE46_4G(|L),SBB_DD_M(|L),2*SBB_GKLM1(|L),SBB_E1,SBB_UCS290HLB1(|L);				\
+      V=8;												\
+      F=EPR4;
+    TX=SBB Be 4/7;											\
+      C=SBB_BE47_12500(|L),16-25*(SBB_GKLM1(|L)|SBB_GMS(|L)|SBB_HK(|L));				\
       V=8;												\
       F=EPR4;
     TX=SBB Ae 3/6 I;											\
@@ -263,7 +272,13 @@ $REQUIRE MLG_DEF.TTT
       C=BLS_BE44_760G(|L),SBB_GKLM_FGDB(|L),SBB_PTT_4Z810(|L);						\
       V=9;												\
       F=EPR4;
-
+    TX=BLS ABDZe 4/6 731;										\
+      C=BLS_ABDZE46_731;										\
+      V=11;												\
+      F=EPR4;
+    C=(<BLS_ABDE48_749A1L,BLS_ABDE48_746B1,BLS_EW1BC1B,BLS_EW1_BT950G)|					\
+	(>BLS_ABDE48_749A1,BLS_ABDE48_746B1L,BLS_EW1BC1B,BLS_EW1_BT950GL);				\
+      V=11;
     TX=BLS ABDe 4/8 760;										\
       C=(<BLS_ABDE48_749A1L,BLS_ABDE48_746B1,BLS_EW1BC1B,BLS_EW1_BT950G)|				\
 	(>BLS_ABDE48_749A1,BLS_ABDE48_746B1L,BLS_EW1BC1B,BLS_EW1_BT950GL);				\
@@ -279,6 +294,10 @@ $REQUIRE MLG_DEF.TTT
       F=EPUR4;
 
 ;BN
+    TX=BN ABDZe 4/6 736;										\
+      C=BN_ABDZE46_736;											\
+      V=11;												\
+      F=EPR4;
     TX=Bern ü Neuchatel Be 4/4 760;									\
       C=BNB_BE44_760G(|L),BLS_B50R_G(|L),BLS_AB53R_G(|L),SEZ_D2_G(|L);					\
       V=11;												\
@@ -292,6 +311,14 @@ $REQUIRE MLG_DEF.TTT
       C=(<GBS_BE44_760G(|L),BLS_4EW1D(|L),BLS_EW1GAB1(|L),1-2*BLS_4EW1B,BNB_BT990G)|			\
 	(>GBS_BE44_760G(|L),BLS_4EW1D(|L),BLS_EW1GAB1(|L),1-2*BLS_4EW1B,BNB_BT990GL);			\
       V=11;												\
+      F=EPR4;
+    TX=Gürbental-Schwarzenburg-Bahn ABDe 2/8 700;							\
+      C=GBS_ABDE28_700;											\
+      V=10;												\
+      F=EPR4;
+    TX=Gürbental-Schwarzenburg-Bahn BDZe 2/6 711;							\
+      C=GBS_BDZE26_711(|L);										\
+      V=8;												\
       F=EPR4;
     TX=Gürbental-Schwarzenburg-Bahn ABDe 4/8 751;							\
       C=(<GBS_ABDE48_751_BC1,GBS_EW1_B1,GBS_EW1_BT980_1)|						\
@@ -319,6 +346,14 @@ $REQUIRE MLG_DEF.TTT
 ;--
     TX=Chemins de Fer du Jura BDe 4/4;									\
       C=<(CJ_BDE44RCL,CJ_BT121RC)|(CJ_BT121RCL,CJ_BDE44RC);						\
+      V=10;												\
+      F=EPRU4;
+
+;Emmental-Burgdorf-Thun, SMB, VHB
+;-------------
+    TX=Emmental-Burgdorf-Thun (EBT)BDe 4/4;								\
+      C=(<EBT_BDE44_200GCL,EBT_EW1_8T_BGC,EBT_EW18T_ABTGC)|						\
+	(>EBT_BDE44_200GC,EBT_EW1_8T_BGC,EBT_EW18T_ABTGCL);						\
       V=10;												\
       F=EPRU4;
 
@@ -900,15 +935,19 @@ $REQUIRE MLG_DEF.TTT
       F=EF4;
     TX=SBB Ae 3/6 I + Marchandise/Güterzug;								\
       C=SBB_AE36I(|L),SNCF_G4,8*SBB_4EAOS[O:BETTERAVES1|BETTERAVES2];					\
-      V=10;												\
-      F=EF4;
-    TX=SBB Ae 3/6 I + Marchandise/Güterzug;								\
-      C=SBB_AE36I(|L),BLS_GKLM1(|L),SBB_DD_M(|L);							\
-      V=10;												\
+      V=9;												\
       F=EF4;
     TX=SBB Ae 3/6 I + Marchandise/Güterzug;								\
       C=SBB_AE36I(|L),SBB_GKLM_FGDB(|L),SBB_PTT_Z500G2(|L);						\
-      V=10;												\
+      V=9;												\
+      F=EF4;
+    TX=SBB Ae 3/6 I + Marchandise/Güterzug;								\
+      C=SBB_AE36I(|L),BLS_GKLM1(|L),SBB_DD_M(|L);							\
+      V=9;												\
+      F=EF4;
+    TX=SBB Ae 3/6 I + Marchandise/Güterzug;								\
+      C=SBB_AE36I(|L),SBB_GKLM_FGDB(|L),SBB_PTT_Z500G2(|L);						\
+      V=9;												\
       F=EF4;
     TX=SBB Ae 3/6 III + Marchandise/Güterzug;								\
       C=SBB_AE36_3M(|L),SBB_GMS(|L),DB_GS210B(|L),SBB_GMS_FGDB(|L),DB_GS210,2*SBB_4HBIS_2;		\
@@ -988,6 +1027,14 @@ $REQUIRE MLG_DEF.TTT
       V=11;												\
       F=EPRU4;
 
+    TX=BLS De 4/5 790;											\
+      C=BLS_DE45_790B(|L),BLS_ABI53_G(|L),BLS_BI50_G(|L);						\
+      V=10;												\
+      F=EPRU4;
+    TX=BLS ABDZe 4/6 731;										\
+      C=BLS_ABDZE46_731;										\
+      V=11;												\
+      F=EPRU4;
     TX=BLS ABDe 4/8;											\
       C=(<BLS_ABDE48_749AE1L,BLS_ABDE48_746B1,BLS_EW1BC1BT950)|						\
 	(>BLS_ABDE48_749AE1,BLS_ABDE48_746B1L,BLS_EW1BC1BT950L);					\
@@ -1017,23 +1064,31 @@ $REQUIRE MLG_DEF.TTT
       F=EF4;
 
 ;BN
+    TX=Bern - Neuchatel (BN)ABDZe 4/6 736;								\
+      C=BN_ABDZE46_736;											\
+      V=11;												\
+      F=EPRU4;
     C=(<BN_ABDE48_751_BC1,BNB_BT990G|BNB_BT990BC1)|(>BN_ABDE48_751_BC1,BNB_BT990GL|BNB_BT990BC1L);	\
       V=11;												\
       F=EPR4;												\
-      BERN Ü NEUCHATEL ABDE 4/8 751;
+      TX:BERN - NEUCHATELBNABDE 4/8 751;
     C=(<BNB_BE44_760G(|L),BLS_EW1GAB1(|L),BLS_BDT940G)|							\
 	(>BNB_BE44_760G(|L),BLS_EW1GAB1(|L),BLS_BDT940GL);						\
       V=11;												\
       F=EPR4;												\
-      BERN Ü NEUCHATEL BE 4/4 760;
+      TX:BERN - NEUCHATELBNBE 4/4 760;
     C=<(BNB_RBDE565_2L,BNB_B20_33700_2,BNB_ABT960_2)|(BNB_ABT960_2L,BNB_B20_33700_2,BNB_RBDE565_2);	\
       V=11;												\
       F=EPR4;												\
-      BERN Ü NEUCHATEL RBDE 4/4 760;
+      TX:BERN - NEUCHATELBNRBBE 4/4 760;
 
 ;GBS
     TX=Gürbental-Schwarzenburg-Bahn ABDe 2/8 703/704;							\
-      C=SEZ_ABDE28_700;											\
+      C=GBS_ABDE28_700;											\
+      V=11;												\
+      F=EPRU4;
+    TX=Gürbental-Schwarzenburg-Bahn BDZe 2/6 711;							\
+      C=GBS_BDZE26_711RG(|L);										\
       V=11;												\
       F=EPRU4;
     TX=Gürbental-Schwarzenburg-Bahn RBDe 4/4 565;							\
@@ -1093,15 +1148,32 @@ $REQUIRE MLG_DEF.TTT
       F=EPR4;
     TX=Emmental-Burgdorf-Thun 100;									\
       C=EBT_100,SBB_B29330,SBB_4EW1BM,SBB_B20330,2*SBB_5EW1BM;						\
-      V=10;												\
+      V=8;												\
+      F=EPR4;
+    TX=Emmental-Burgdorf-Thun 100;									\
+      C=EBT_100,EBT_BI_SBB(|L),EBT_EW1_8T_BR,EBT_D2922(|L);						\
+      V=8;												\
       F=EPR4;
     TX=Emmental-Burgdorf-Thun Re 4/4 II;								\
       C=EBT_RE442G(|L),2*EBT_BI_SBB(|L),EBT_D2924(|L);							\
       V=10;												\
       F=EPR4;
     TX=Vereinigte Huttwil-Bahnen Re 4/4 II;								\
-      C=VHB_RE442G(|L),2*EBT_LEGOB;									\
+      C=VHB_RE442G(|L),2*EBT_LEGOB(|L);									\
       V=12;												\
+      F=EPR4;
+    TX=Emmental-Burgdorf-Thun BDe 4/4 220;								\
+      C=EBT_BDE24_220(|L),EBT_EW1_8T_BR;								\
+      V=8;												\
+      F=EPR4;
+    TX=Solothurn-Münster Bahn BDe 2/4 271;								\
+      C=SMB_BDE24_271(|L),EBT_EW2B;									\
+      V=8;												\
+      F=EPR4;
+    TX=Emmental-Burgdorf-Thun BDe 4/4 200;								\
+      C=(<EBT_BDE44_200R(|L),EBT_EW1_8T_BR,EBT_EW1_8T_BTR)|						\
+	(>EBT_BDE44_200R(|L),EBT_EW1_8T_BR,EBT_EW1_8T_BTRL);						\
+      V=10;												\
       F=EPR4;
     TX=Emmental-Burgdorf-Thun RBDe 227;									\
       C=<(EBT_RBDE227L,EBT_BT327)|(EBT_BT327L,EBT_RBDE227);						\
@@ -1457,7 +1529,7 @@ $REQUIRE MLG_DEF.TTT
       V=13;												\
       F=EPU5;
 
-;"SWISS EXPRESS"
+;"Swiss Express"
     TX=SBB Re 4/4 II + "Swiss Express";									\
       C=(<SBB_RE442S1SWEX(|L),SBB_EW3_AD2L,3*SBB_EW3_A2,4*SBB_EW3_B2,SBB_EW3_BT3)|			\
 	(>SBB_RE442S1SWEX(|L),SBB_EW3_AD2,3*SBB_EW3_A2,4*SBB_EW3_B2,SBB_EW3_BT3L);			\
@@ -1469,7 +1541,7 @@ $REQUIRE MLG_DEF.TTT
       V=14;												\
       F=EPUU5;
 
-;RüGIONAUX
+;Régionaux
     TX=SBB Ae 3/6 I + Regionalzug;									\
       C=SBB_AE36I(|L),SBB_D92335(|L),2*SBB_UMBAU_GB(|L);						\
       V=11;												\
@@ -1509,6 +1581,10 @@ $REQUIRE MLG_DEF.TTT
       V=12;												\
       F=EPRU5;
     TX=SBB Re 4/4 I + Regionalzug;									\
+      C=(<SBB_AE44IS1R(|L),SBB_4EW2_D(|L),SBB_4EW2BM,SBB_B29330,SBB_4EW1ABTM),DB_GS211;			\
+      V=12;												\
+      F=EPRU5;
+    TX=SBB Re 4/4 I + Regionalzug;									\
       C=<SBB_AE44IS1R(|L),SBB_D92335(|L),2*SBB_B29330,SBB_A18337,SBB_AE44IS1R(|L);			\
       V=12;												\
       F=EPRU5;
@@ -1517,7 +1593,10 @@ $REQUIRE MLG_DEF.TTT
 	(>SBB_AE44IS1R(|L),SBB_D92335(|L),2*SBB_B29330,SBB_5EW1ABTML);					\
       V=12;												\
       F=EPRU5;
-# Zeilen einfügen
+    TX=SBB Re 4/4 I + Regionalzug;									\
+      C=<SBB_AE44IS1R(|L),SBB_DZ91335,2*SBB_B29330,SBB_ABT37039;					\
+      V=11;												\
+      F=EPRU5;
     TX=SBB Re 4/4 I + Regionalzug;									\
       C=(>SBB_AE44IS1R(|L),3*SBB_5EW2B2,SBB_5EW2A2,SBB_5DT92339L)|					\
 	(>SBB_AE44IS1R(|L),3*SBB_5EW2B2,SBB_5EW2A2,2*SBB_5EW2BM,SBB_ABT37039L)|				\
@@ -1745,6 +1824,10 @@ $REQUIRE MLG_DEF.TTT
       F=EPRU5;
 
 ;MANOEUVRES
+    TX=SBB Ee 3/3;											\
+      C=SBB_EE33S3A(|L),SBB_D92335(|L);									\
+      V=6;												\
+      F=EF5;
     TX=SBB Ee 3/3 IV;											\
       C=FS_UICX87_RG_D,SBB_4UIC_B(|L),2*FS_UICX64_RGPB_B,FS_UICX75_RGPB_A,SBB_EE334R1(|L);		\
       V=6;												\
@@ -1992,19 +2075,30 @@ $REQUIRE MLG_DEF.TTT
       C=EBT_100,EBT_EW1_8T_BR;										\
       V=10;												\
       F=EPR5;
+    TX=Emmental-Burgdorf-Thun De 4/4 235;								\
+      C=EBT_DE44_235(|L),EBT_EW1_8T_BR;									\
+      V=8;												\
+      F=EPR5;
+    TX=Emmental-Burgdorf-Thun De 4/4 235;								\
+      C=(<EBT_DE44_235(|L),EBT_BT311)|(>EBT_DE44_235(|L),EBT_BT311L);					\
+      V=8;												\
+      F=EPRU5;
     TX=Emmental-Burgdorf-Thun BDe 4/4 200;								\
       C=EBT_BDE44_200R(|L),3*EBT_EW1_2G_BR,2*EBT_EW1_8T_BR,SBB_4UIC_B(|L),SBB_4EW1BM;			\
       V=11;												\
       F=EPR5;
     TX=Emmental-Burgdorf-Thun BDe 4/4 200;								\
-      C=(<EBT_BDE44_200R(|L),EBT_EW1_8T_BR,EBT_EW1_8T_BTR|EBT_EW1_8T_ABTR)|				\
-	(>EBT_BDE44_200R(|L),EBT_EW1_8T_BR,EBT_EW1_8T_BTRL|EBT_EW1_8T_ABTRL),				\
-	0-1*(EBT_EW1_2G_BR|EBT_EW1_8T_BR);								\
+      C=(<EBT_BDE44_200R(|L),EBT_EW1_8T_BR,EBT_EW1_8T_ABTR)|						\
+	(>EBT_BDE44_200R(|L),EBT_EW1_8T_BR,EBT_EW1_8T_ABTRL),0-1*(EBT_EW1_2G_BR|EBT_EW1_8T_BR);		\
       V=11;												\
       F=EPR5;
     TX=Emmental-Burgdorf-Thun RBDe 227;									\
       C=<(EBT_RBDE227L,EBT_LEGOB,EBT_ABT327)|(EBT_ABT327L,EBT_LEGOB,EBT_RBDE227);			\
       V=12;												\
+      F=EPRU5;
+    TX=Emmental-Burgdorf-Thun RBDe 227;									\
+      C=2*$DIR((EBT_RBDE227L,EBT_ABT327),(EBT_RBDE227,EBT_ABT327L)),EBT_EW2B,EBT_EW1_8T_BR;		\
+      V=11;												\
       F=EPRU5;
 
     TX=Emmental-Burgdorf-Thun 100;									\
@@ -2054,8 +2148,8 @@ $REQUIRE MLG_DEF.TTT
       C=GFM_166B(|L),SBB_PTT_5Z920U(|L),								\
 	|												\
 	(GFM_GMS470(|L),										\
-	SBB_5SPS[OB:WOOD7(1|2|3|4|5|6),8,12][OB:WOOD7(1|2|3|4|5|6),54,12]				\
-	[OB:WOOD7(1|2|3|4|5|6),100,12][OB:WOOD7(1|2|3|4|5|6),146,12]);					\
+	SBB_5SPS[OB:WOOD(15|14|13|12|240|37),8,12][OB:(15|14|13|12|240|37),54,12]				\
+	[OB:(15|14|13|12|240|37),100,12][OB:(15|14|13|12|240|37),146,12]);					\
       V=8;												\
       F=EPR5;
 
