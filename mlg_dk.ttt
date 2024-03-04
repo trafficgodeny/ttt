@@ -24,14 +24,47 @@ $REQUIRE MLG_DEF.TTT
 	C=DSB_MZ_C3(|L),2*DB_AVMZ111T(|L);								\
 	V=13;												\
 	F=DP4;
-
-      TX=DSB Lyntog;											\
+      TX=DSB Lyntog MS;											\
+	C=XDSB_MS;											\
+	V=12;												\
+	F=DP4;
+      TX=DSB Lyntog MA;											\
 	C=<(DSB_LYNTOG_ABR_R1_L,DSB_LYNTOG_AB_R1_R)|(DSB_LYNTOG_AB_R1_L,DSB_LYNTOG_ABR_R1_R);		\
 	V=14;												\
 	F=DPU4;
-      TX=DSB Lyntog;											\
+      TX=DSB Lyntog MA;											\
 	C=<(DSB_LYNTOG_ABR_R1_L|DSB_LYNTOG_AB_R1_R|DSB_LYNTOG_AB_R1_L|DSB_LYNTOG_ABR_R1_R);		\
 	V=14;												\
+	F=DPU4;
+
+      TX=DSB MX;											\
+	C=DSB_MX_BX(|L),DSB_AFH0(|L),4*DSB_BG0(|L);							\
+	V=12;												\
+	F=DP4;
+      TX=DSB MX;											\
+	C=DSB_MX_BX(|L),DSB_ABH0(|L),DSB_BN0(|L),DSB_BN1(|L),2*OHJ_BL(1|2),DSB_BGH0(|L);		\
+	V=12; W=X;											\
+	FG=TRBED57:..,-6,0-5;
+      TX=DSB MX;											\
+	C=DSB_MX_BX(|L),DSB_UIC_B0(|L),DSB_ABH0(|L),DSB_BGH0(|L);					\
+	V=12;												\
+	F=DP4;
+      TX=DSB MY;											\
+	C=DSB_MY_BX(|L),DSB_BDG0(|L),DSB_BG0(|L);							\
+	V=12;												\
+	F=DP4;
+      TX=DSB MY;											\
+	C=DSB_MY_BX(|L),DSB_ABH0(|L),DSB_BG0(|L),DSB_BDG0(|L),DSB_AH0(|L),2*DSB_UIC_B0(|L);		\
+	V=12;												\
+	F=DP4;
+      TX=DSB MZ;											\
+	C=DSB_MZ_BX2(|L),DSB_BGH0(|L),DSB_ABG0(|L);							\
+	V=12;												\
+	F=DP4;
+      TX=DSB MZ;											\
+	C=DSB_MZ_BX2(|L),DSB_UIC_BD0(|L),DSB_UIC_A0(|L),DSB_UIC_B0(|L),DSB_UICX_B1(|L),DSB_BG1(|L),	\
+	  DSB_ABH0(|L);											\
+	V=12;												\
 	F=DPU4;
 
 ;===============================================
@@ -49,22 +82,39 @@ $REQUIRE MLG_DEF.TTT
 	V=12;												\
 	F=DP4;
 
-      TX=DSB Lyntog;											\
+      TX=DSB Lyntog MA;											\
 	C=<(DSB_LYNTOG_ABR_R2_L,DSB_LYNTOG_AB_R2_R)|(DSB_LYNTOG_AB_R2_L,DSB_LYNTOG_ABR_R2_R);		\
 	V=14;												\
 	F=DPU4;
-      TX=DSB Lyntog;											\
+      TX=DSB Lyntog MA;											\
 	C=<(DSB_LYNTOG_ABR_R2_L|DSB_LYNTOG_AB_R2_R|DSB_LYNTOG_AB_R2_L|DSB_LYNTOG_ABR_R2_R);		\
 	V=14;												\
 	F=DPU4;
-      TX=DSB Lyntog;											\
+      TX=DSB Lyntog MA;											\
 	C=<2:(DSB_LYNTOG_ABR_G_L,DSB_LYNTOG_AB_G_R)|2:(DSB_LYNTOG_AB_G_L,DSB_LYNTOG_ABR_G_R)|		\
 	  1:DSB_LYNTOG_AB_G_R|1:DSB_LYNTOG_AB_G_L|1:DSB_LYNTOG_ABR_G_R|1:DSB_LYNTOG_ABR_G_L;		\
 	V=14;												\
 	F=DPU4;
       TX=DSB MX;											\
+	C=DSB_MX1(|L),($DIR(DSB_BDG1L,DSB_BDG1),DSB_ABG1(|L),DSB_BG1(|L))|DSB_ABG1(|L);			\
+	V=11;												\
+	F=DP4;
+      TX=DSB MX;											\
+	C=DSB_MX1(|L),DSB_BV1(|L),DSB_UICX_BD1(|L);							\
+	V=12;												\
+	F=DP4;
+      TX=DSB MX;											\
 	C=DSB_MX1(|L),DSB_UICX_BD1(|L),2*DSB_UICX_B1(|L),DSB_UICX_AB1(|L);				\
 	V=12;												\
+	F=DP4;
+      TX=DSB MY;											\
+	C=DSB_MY_BX(|L),DSB_ABG1(|L),DSB_BG1(|L),DSB_BGH0(|L),DSB_DH10(|L);				\
+	V=12;												\
+	F=DP4;
+      TX=DSB MY;											\
+	C=2*DSB_MY_BX(|L),2*DSB_BV1(|L),DSB_UICX_BD1(|L),DSB_UICX_B1(|L),DSB_UICX_AB1(|L),		\
+	  2*DSB_BFG1(|L);										\
+	V=11;												\
 	F=DP4;
       TX=DSB MY;											\
 	C=DSB_MY_BX(|L),DSB_UICX_A1(|L),3*DSB_UICX_B1(|L);						\
@@ -93,6 +143,10 @@ $REQUIRE MLG_DEF.TTT
 	V=12;												\
 	F=DPU4;
       TX=DSB MY;											\
+	C=DSB_MY1(|L),DSB_BG1(|L),DSB_BGH0(|L),DSB_DH21(|L);						\
+	V=12;												\
+	F=DPU4;
+      TX=DSB MY;											\
 	C=(<DSB_MY_BX(|L),2*DSB_BN1(|L),DSB_AN1(|L),2*DSB_BN1(|L),DSB_BNS1A)|				\
 	  (>DSB_MY_BX(|L),2*DSB_BN1(|L),DSB_AN1(|L),2*DSB_BN1(|L),DSB_BNS1AL);				\
 	V=12;												\
@@ -107,11 +161,27 @@ $REQUIRE MLG_DEF.TTT
 	V=12;												\
 	F=DPU4;
       TX=DSB MZ;											\
+	C=DSB_MZ_BX2(|L),DSB_BG0(|L),DSB_ABG0(|L);							\
+	V=12;												\
+	F=DPU4;
+      TX=DSB MZ;											\
+	C=DSB_MZ_B3(|L),2*DSB_BFH1(|L),DSB_BV1(|L),2*DSB_UICX_B1(|L),DSB_UICX_A1(|L);			\
+	V=12;												\
+	F=DPU4;
+      TX=DSB MZ;											\
 	C=(<DSB_MZ_BX2(|L),6*DSB_BN1(|L),DSB_BNS1A)|(>DSB_MZ_BX2(|L),6*DSB_BN1(|L),DSB_BNS1AL);		\
 	V=12;												\
 	F=DPU4;
       TX=DSB MZ;											\
 	C=(<DSB_MZ_B3(|L),4*DSB_BN1(|L),DSB_BNS1A)|(>DSB_MZ_B3(|L),4*DSB_BN1(|L),DSB_BNS1AL);		\
+	V=12;												\
+	F=DPU4;
+      TX=DSB MZ;											\
+	C=DSB_MZ_C3(|L),DSB_AG3(|L),4*DSB_UICX_B1(|L);							\
+	V=12;												\
+	F=DPU4;
+      TX=DSB MZ;											\
+	C=DSB_MZ_D1(|L),(<DB_ABM224BB2,DB_ABM224BB2L),2*DB_BM234BB2(|L),2*DSB_BG1(|L),DSB_AG1(|L);	\
 	V=12;												\
 	F=DPU4;
       TX=DSB MZ;											\
@@ -274,7 +344,7 @@ $REQUIRE MLG_DEF.TTT
 	  V=12;												\
 	  F=EP5;
 
-	TX=DSB Lyntog;											\
+	TX=DSB Lyntog MA;										\
 	  C=<2:(DSB_LYNTOG_ABR_G_L,DSB_LYNTOG_AB_G_R)|2:(DSB_LYNTOG_AB_G_L,DSB_LYNTOG_ABR_G_R)|		\
 	    1:DSB_LYNTOG_AB_G_R|1:DSB_LYNTOG_AB_G_L|1:DSB_LYNTOG_ABR_G_R|1:DSB_LYNTOG_ABR_G_L;		\
 	  V=14;												\
@@ -325,6 +395,16 @@ $REQUIRE MLG_DEF.TTT
 	  V=16;												\
 	  F=EP6;
 
+;ØRESUNDSTOG
+	TX=DSB Øresundstog;										\
+	  C=2@DSB_ORESUNDTOG_L1;									\
+	  V=14;												\
+	  F=EP6;
+	TX=DSB Øresundstog;										\
+	  C=2@DSB_ORESUNDTOG_L1O;									\
+	  V=14;												\
+	  F=EP6;
+
 	TX=DSB EA + Night train;									\
 	  C=DSB_EA1,											\
 	    (DSB_UICX_B1(|L),DSB_WLABMH_EXTEN(|L),2*DSB_UIC_BC2(|L),DSB_WLABMH_TEN(|L))|		\
@@ -349,6 +429,12 @@ $REQUIRE MLG_DEF.TTT
 	TX=DSB ME + Night train Kobenhavn - Bludenz;							\
 	  C=DSB_ME_L2(|L),2*DB_BVCMZ248VRAZ(|L),DB_WRMH132VRF(|L),DB_BOCMKZ249VRF(|L),			\
 	    CNL_BVCMZ248_5(|L),2*DB_BVCMZ248VRAZ(|L);							\
+	  V=14;												\
+	  F=DP6;
+;NORD-EXPRESS
+	TX=DSB ME Nord-Express;										\
+	  C=DSB_ME_L1(|L),DSB_UIC_BA1(|L),DSB_UICX_B1(|L),DB_DMS90(2_1PNBG|5E)K(|L),			\
+	    DB_DMS90(2_1PBB|5_1P_BB)K(|L),SNCF_MU_F71_TENN(|L),SNCB_I5BC3(|L),3*SNCB_I6BO(|L);		\
 	  V=14;												\
 	  F=DP6;
 ;CNL 472 Aurora
@@ -602,7 +688,10 @@ $REQUIRE MLG_DEF.TTT
 	  C=DSB_MY1(|L),12-16*DSB_HBIS;									\
 	  V=10;												\
 	  F=DF6;
-
+	TX=DSB MY;											\
+	  C=DSB_MY1(|L),2*NSME_DSB_HBIKKS,DSB_HBIS;							\
+	  V=10;												\
+	  F=DF6;
 	TX=DSB MK;											\
 	  C=DSB_MK(|L)~MLG,DB_152[PD];									\
 	  V=4; W=X;											\
@@ -640,10 +729,14 @@ $REQUIRE MLG_DEF.TTT
 	  V=12;												\
 	  F=DPR6;
 
-;LNJ
-	TX=LNJ RegioSprinter;										\
-	  C=LNJ_RS~MLG;											\
-	  V=10;												\
+;LOKALTOG
+	TX=Lokaltog LINT 41;										\
+	  C=LTOG_LINT41_LB(|L);										\
+	  V=11;												\
+	  F=DPR6;
+	TX=Lokaltog LINT 41;										\
+	  C=9:LTOG_LINT41_1S(|L)|2:LTOG_LINT41_EXLB(|L)|5:LTOG_LINT41_2S(|L);				\
+	  V=11;												\
 	  F=DPR6;
 
 ;LOKALBANEN
@@ -651,9 +744,46 @@ $REQUIRE MLG_DEF.TTT
 	  C=LB_RS;											\
 	  V=10;												\
 	  F=DPR6;
-	TX=Lokalbanen 100;										\
-	  C=LB_100;											\
+	TX=Lokalbanen 100 (LINT 27);									\
+	  C=LB_100(|L);											\
 	  V=12;												\
+	  F=DPR6;
+;GDS
+	TX=GDS MF 1000;											\
+	  C=GDS_MF1000_L1;										\
+	  V=11;												\
+	  F=DPR6;
+;LNJ TX=LNJ RegioSprinter;
+	C=LNJ_RS~MLG;											\
+	  V=10;												\
+	  F=DPR6;
+;RTOG
+	TX=RTOG MF 1000;										\
+	  C=RTOG_MF1000_L1|RTOG_MF1000_C_L1;								\
+	  V=11;												\
+	  F=DPR6;
+	TX=RTOG LINT 41;										\
+	  C=9:RTOG_LINT41A(|L)|1:RTOG_LINT41LB(|L)|1:RTOG_LINT41EXLB(|L)|5:RTOG_LINT41B(|L);		\
+	  V=11;												\
+	  F=DPR6;
+;LJ
+	TX=LJ MF 1000;											\
+	  C=LJ_MF1000_L1;										\
+	  V=11;												\
+	  F=DPR6;
+;OHJ
+	TX=OHJ MF 1000;											\
+	  C=OHJ_MF1000_L1;										\
+	  V=11;												\
+	  F=DPR6;
+;VL
+	TX=VL MF 1000;											\
+	  C=VL_MF1000_L1;										\
+	  V=11;												\
+	  F=DPR6;
+	TX=VL LINT 41;											\
+	  C=VLA_LINT41(|L);										\
+	  V=11;												\
 	  F=DPR6;
 
 ;Railion Scandinavia / DB Schenker Denmark
@@ -673,8 +803,8 @@ $REQUIRE MLG_DEF.TTT
 	  F=DF6;
 	TX=DB Cargo Denmark MZ;										\
 	  C=DB_MZ_D1(|L),										\
-	    5*(3:DB_ROOS639|2:DB_ROOS639VR)[OB:WOOD7(1|2|3),8,12][OB:WOOD7(1|2|3),50,12]		\
-	    [OB:WOOD7(1|2|3),92,12][OB:WOOD(6|7|8),134,12][OB:WOOD(6|7|8),160,12];			\
+	    5*(3:DB_ROOS639|2:DB_ROOS639VR)[OB:WOOD(188|189|190),8,12][OB:WOOD(188|189|190),50,12]		\
+	    [OB:WOOD(188|189|190),92,12][OB:WOOD(6|7|8|9|10),134,12][OB:WOOD(6|7|8|9|10),160,12];			\
 	  V=10;												\
 	  F=DF6;
 	TX=DB Cargo Denmark MZ;										\

@@ -114,7 +114,7 @@ $REQUIRE MLG_DEF.TTT
       V=14;												\
       F=EPU4;
 ;TRANSALPIN, ZÜRICHSEE, FRANZ SCHUBERT
-    TX=OBB 1044 + Transalpin, Zürichsee, Franz Schubert;						\
+    TX=OBB 1044 + Transalpin,Zürichsee,Franz Schubert;							\
       C=OBB_1044S1O1(|L),2*OBB_VSE_C1_A(|L),OBB_WRMZ88700O(|L),						\
 	(3*OBB_VSE_C1_B(|L))|(5*OBB_VSE_C1_B(|L))|(7*OBB_VSE_C1_B(|L),OBB_BDMSZ82700O(|L));		\
       V=16;												\
@@ -525,6 +525,10 @@ $REQUIRE MLG_DEF.TTT
 	(>OBB_4030_3B,OBB_7130B,OBB_7030_0A1|OBB_7130A1,OBB_6130BL);					\
       V=12;												\
       F=EPRU4;
+    TX=ÖBB 4060;											\
+      C=OBB_4060(|L),4*OBB_BIHO7A(|L);									\
+      V=8;												\
+      F=EPRU4;
 
     TX=ÖBB 5041;											\
       C=OBB_5041(|L)~MLG;										\
@@ -735,8 +739,7 @@ $REQUIRE MLG_DEF.TTT
       C=MBS_1045(|L),3-4*MBS_B4(|L);									\
       V=6;												\
       F=EPRU4;
-    TX=Montafoner Bahn ET 10;										\
-      C=MBS_ET10_101A(|L);										\
+    C=MBS_ET10_101A(|L);										\
       V=8;												\
       F=EPR4;
     TX=Montafoner Bahn VT 10 110 110;									\
@@ -747,7 +750,10 @@ $REQUIRE MLG_DEF.TTT
       C=<(MBS_VT10_110B,MBS_VS10_210B)|(MBS_VS10_210BL,MBS_VT10_110BL);					\
       V=8;												\
       F=DPRU4;
-
+    TX=Montafoner Bahn ET 10 106;									\
+      C=MBS_ET10_106A(|L),OBB_GS;									\
+      V=8;												\
+      F=EF4;
     TX=Steiermärkische Landesbahnen VT20;								\
       C=<(STLB_VT20(|L),STLB_VS30)|(STLB_VS30L,STLB_VT20(|L));						\
       V=9;												\
@@ -1922,8 +1928,8 @@ $REQUIRE MLG_DEF.TTT
       F=DF5;
     TX=ÖBB 2068;											\
       C=OBB_2068A(|L),											\
-	4*OBB_ROS[OB:WOOD7(1|2|3|4),8,11][OB:WOOD7(1|2|3|4),54,11][OB:WOOD7(1|2|3|4),100,11]		\
-	[OB:WOOD7(1|2|3|4),146,11];									\
+	4*OBB_ROS[OB:WOOD(240|12|13|14)(|[M]),8,11][OB:WOOD(240|12|13|14)(|[M]),54,11]			\
+	[OB:WOOD(240|12|13|14)(|[M]),100,11][OB:WOOD(240|12|13|14),146,11];				\
       V=9;												\
       F=DF5;
 
@@ -1979,6 +1985,10 @@ $REQUIRE MLG_DEF.TTT
       V=6;												\
       F=EF5;
 
+    TX=Steiermärkische Landesbahnen ET14;								\
+      C=STLB_ET14;											\
+      V=7;												\
+      F=EPRU5;
     TX=Steiermärkische Landesbahnen ET15;								\
       C=(<STLB_ET15A,STLB_ES_SZ)|(>STLB_ET15AL,STLB_ES_SZL);						\
       V=10;												\
@@ -2009,15 +2019,21 @@ $REQUIRE MLG_DEF.TTT
 
 #RAILJET
     TX=OBB 1116 Railjet;										\
-      C=1-2@((<OBB_1116_P3RJL,OBB_RAILJET_BE,3*OBB_RAILJET_B,OBB_RAILJET_AR,OBB_RAILJET_A,		\
-	OBB_RAILJET_AS)|										\
-	(>OBB_1116_P3RJ,OBB_RAILJET_BEL,3*OBB_RAILJET_BL,OBB_RAILJET_ARL,OBB_RAILJET_AL,		\
-	OBB_RAILJET_ASL));										\
+      C=1-2@((<OBB_1116_P3RJL,OBB_RAILJET7V_1S_RJ_R)|(>OBB_1116_P3RJ,OBB_RAILJET7V_1S_RJ_L));		\
       V=20;												\
       F=EPU6;
-    TX=OBB 1216 Railjet;										\
-      C=(<OBB_1216_RAILJET_L_15KV,OBB_RAILJET_BE,4*OBB_RAILJET_B,OBB_RAILJET_AR,OBB_RAILJET_AS)|	\
-	(>OBB_1216_RAILJET_R_15KV,OBB_RAILJET_BEL,4*OBB_RAILJET_BL,OBB_RAILJET_ARL,OBB_RAILJET_ASL);	\
+    TX=OBB 1116 Railjet;										\
+      C=(1-2*((<OBB_1116_P3RJL,OBB_RAILJET7V_1S_RJ_R)|(<OBB_1116_P3RJL,OBB_RAILJET7V_1S_RJB_R)))|	\
+	(1-2*((>OBB_1116_P3RJ,OBB_RAILJET7V_1S_RJ_L)|(>OBB_1116_P3RJ,OBB_RAILJET7V_1S_RJB_L)));		\
+      V=20;												\
+      F=EPU6;
+    TX=OBB 1116 Railjet;										\
+      C=1-2@((<OBB_1116_P3RJL,OBB_RAILJET7V_1S_RJB_R)|(<OBB_1116_P3RJL,OBB_RAILJET7V_1S_RJB_R));	\
+      V=20;												\
+      F=EPU6;
+    TX=OBB 1116 Railjet;										\
+      C=((<OBB_1216_Railjet_L_15KV,OBB_RAILJET7V_2S_RJB_R),0-1*(<OBB_1116_P3RJL,OBB_RAILJET7V_1S_RJB_R))| \
+	((>OBB_1216_Railjet_R_15KV,OBB_RAILJET7V_2S_RJB_L),0-1*(>OBB_1116_P3RJL,OBB_RAILJET7V_1S_RJB_L)); \
       V=20;												\
       F=EPU6;
     TX=OBB 1216 Railjet;										\
@@ -2135,8 +2151,8 @@ $REQUIRE MLG_DEF.TTT
       F=EP6;
 #EC 147 WIEN - ZAHONY
     TX=OBB 1116 + EC 147 Wien-Zahony;									\
-      C=OBB_1116_R2(|L),2*ZSSK_BMPEER_RW(|L),ZSSK_B90r_BDGHMEER_RW(|L),				\
-	ZSSK_B90r_WRRMEER_RW(|L),ZSSK_AMPEER_RW(|L),2*UZ_WLABM78A(|L);				\
+      C=OBB_1116_R2(|L),2*ZSSK_BMPEER_RW(|L),ZSSK_B90R_BDGHMEER_RW(|L),ZSSK_B90R_WRRMEER_RW(|L),	\
+	ZSSK_BAUTZEN90R_WRRMEER_RW(|L),ZSSK_AMPEER_RW(|L),2*UZ_WLABM78A(|L);				\
       V=14;												\
       F=EP6;
 ;EC 172 VINDOBONA
@@ -2275,8 +2291,8 @@ $REQUIRE MLG_DEF.TTT
 
 #IC 510 KOSICE - BRATISLAVA - WIEN
     TX=OBB 2016 + IC 510 Kosice – Batislava – Wien;							\
-      C=OBB_2016R2(|L),ZSSK_AMPEER_RW(|L),ZSSK_B90r_WRRMEER_RW(|L),				\
-	ZSSK_B90r_BDGHMEER_RW(|L),2*ZSSK_BMPEER_RW(|L);						\
+      C=OBB_2016R2(|L),ZSSK_AMPEER_RW(|L),ZSSK_B90R_WRRMEER_RW(|L),ZSSK_B90R_BDGHMEER_RW(|L),		\
+	ZSSK_BAUTZEN90R_BDGHMEER_RW(|L),2*ZSSK_BMPEER_RW(|L);						\
       V=14;												\
       F=DP6;
 #REX WIEN - BRATISLAVA
@@ -2329,7 +2345,7 @@ $REQUIRE MLG_DEF.TTT
       F=EP6;
     TX=ÖBB 1044 + IC 404-405 Tatran;									\
       C=OBB_1044S1O1U(|L),2*ZSSK_BMPEER_RW(|L),ZSSK_YB70R_BEER(|L),ZSSK_YB70R_BDSHEER(|L),		\
-	ZSSK_B90r_WRRMEER_RW(|L),ZSSK_YB70R_APEER(|L);						\
+	ZSSK_B90R_WRRMEER_RW(|L),ZSSK_YB70R_APEER(|L);							\
       V=16;												\
       F=EP6;
 ;IC 515 Innsbruck - Graz
@@ -2339,7 +2355,7 @@ $REQUIRE MLG_DEF.TTT
       V=14;												\
       F=EP6;
 
-;D/E-ZÜGEN
+;D/E-ZÜGE
     TX=OBB 1116 + D/E-Zug;										\
       C=OBB_1116_R2(|L),OBB_6VSE_B(|L),OBB_BMZ21705(|L),OBB_6ABMZ30700(|L),OBB_BMZ21705(|L);		\
       V=16;												\
@@ -2580,19 +2596,15 @@ $REQUIRE MLG_DEF.TTT
     TX=OBB 4020 + Regionalzug;										\
       C=1-2@OBB_4020_L1B;										\
       V=12;												\
-      F=DPR6;
+      F=EPR6;
     TX=OBB 4020 + Regionalzug;										\
       C=OBB_4020_CS2,0-1*(OBB_4020_L1B|OBB_4020_CS2);							\
       V=12;												\
-      F=DPR6;
+      F=EPR6;
     TX=OBB 4023 + Regionalzug;										\
       C=OBB_4023_L1;											\
       V=12;												\
-      F=DPR6;
-    TX=OBB 4023 + Regionalzug;										\
-      C=OBB_4024_L1SOO;											\
-      V=12;												\
-      F=DPR6;
+      F=EPR6;
     TX=ÖBB 4023 Cityjet;										\
       C=OBB_4023_CITYJET;										\
       V=12;												\
@@ -2600,11 +2612,7 @@ $REQUIRE MLG_DEF.TTT
     TX=OBB 4024 + Regionalzug;										\
       C=OBB_4024_L1;											\
       V=12;												\
-      F=DPR6;
-    TX=OBB 4024 + Regionalzug;										\
-      C=OBB_4024_SST,0-1*OBB_4024_L1;									\
-      V=12;												\
-      F=DPR6;
+      F=EPR6;
     TX=ÖBB 4024 Cityjet;										\
       C=OBB_4024_CITYJET,0-1*OBB_4024_L1;								\
       V=12;												\
@@ -2616,11 +2624,11 @@ $REQUIRE MLG_DEF.TTT
     TX=OBB 4744 Cityjet;										\
       C=OBB_4744_CITYJET;										\
       V=13;												\
-      F=DPR6;
+      F=EPR6;
     TX=OBB 4746 Cityjet;										\
       C=1-2*OBB_4746_CITYJET;										\
       V=13;												\
-      F=DPR6;
+      F=EPR6;
     TX=GySEV Ventus 4744 + Regionalzug;									\
       C=1-2@GYSEV_VENTUS4744;										\
       V=13;												\
@@ -2663,6 +2671,27 @@ $REQUIRE MLG_DEF.TTT
       V=12;												\
       F=DPRU6;
 
+;S-BAHN Oberösterreich
+    TX=OBB 4024 + S-Bahn Oberösterreich;								\
+      C=OBB_4024_L1SOO;											\
+      V=12;												\
+      F=EPRU6;
+    TX=OBB 4024 + S-Bahn Oberösterreich;								\
+      C=1-2@OBB_4024_CJSOO;										\
+      V=12;												\
+      F=EPRU6;
+
+;S-BAHN STEIERMARK
+    TX=OBB 4024 + S-Bahn Steiermark;									\
+      C=OBB_4024_SST,0-1*OBB_4024_L1;									\
+      V=12;												\
+      F=EPRU6;
+    TX=OBB 4024 + S-Bahn Steiermark;									\
+      C=OBB_4024_SST2;											\
+      V=12;												\
+      F=EPRU6;
+
+;CAT
     TX=OBB 1116 + Regionalzug;										\
       C=(<OBB_1116_CAT2,2*OBB_BMPZ_DL_CAT2,OBB_BMPZ_DS_CAT2)|						\
 	(>OBB_1116_CAT2L,2*OBB_BMPZ_DL_CAT2L,OBB_BMPZ_DS_CAT2L);					\
@@ -2775,10 +2804,10 @@ $REQUIRE MLG_DEF.TTT
       F=DF6;
     TX=ÖBB 2068;											\
       C=OBB_2068B(|L),											\
-	2*RCA_LAAPRS[OB:WOOD7(1|2|3|4),13,11][OB:WOOD7(1|2|3|4),76,11][OB:WOOD7(1|2|3|4),158,11]	\
-	[OB:WOOD7(1|2|3|4),221,11],									\
-	OBB_ROS[OB:WOOD7(1|2|3|4),8,11][OB:WOOD7(1|2|3|4),54,11][OB:WOOD7(1|2|3|4),100,11]		\
-	[OB:WOOD7(1|2|3|4),146,11];									\
+	2*RCA_LAAPRS[OB:WOOD(188|189|190),13,11][OB:WOOD(188|189|190),76,11][OB:WOOD(188|189|190),158,11]	\
+	[OB:WOOD(188|189|190),221,11],									\
+	OBB_ROS[OB:WOOD(240|12|13|14)(|[M]),8,11][OB:WOOD(240|12|13|14)(|[M]),54,11]			\
+	[OB:WOOD(240|12|13|14)(|[M]),100,11][OB:WOOD(240|12|13|14),146,11];				\
       V=9;												\
       F=DF6;
     TX=ÖBB 2070;											\

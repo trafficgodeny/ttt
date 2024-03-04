@@ -191,7 +191,26 @@ $REQUIRE MLG_DEF.TTT
       V=12;												\
       F=EP4;
 
-;F/IC-Züge
+;D233 NORD-EXPRESS (PARIS - COPENHAGUE)
+    TX=DB 221 + D 233 Nord-Express (Paris - Copenhague);						\
+      C=DB_221_PR(|L),DB_BRBUMH282_0GR(|L),DB_ABM223G(|L),SNCF_UIC_A4B5G(|L),SNCF_DD4SG,		\
+	4*SNCF_UIC_B10G(|L);										\
+      V=14;												\
+      F=DP4;
+;D270 ITALIA-EXPRESS (ROME - COPENHAGUE)
+    TX=DB 221 + D 270 Italia-Express (Rome - Copenhague);						\
+      C=DB_221_PR(|L),DB_BCM243B(|L),DB_BM232G(|L),DB_ABM223G(|L),CIWL_4UH(|L),CIWL_MU_F64LJ(|L),	\
+	DB_DMS902G(|L),FS_UICX68E_BC(|L),FS_UICX64_G_B(|L),2*FS_UICX64_G_AB(|L),DB_BM232G(|L);		\
+      V=13;												\
+      F=DP4;
+;DB 220 + D 280 Alpen-Express (Rome - Copenhague)
+    TX=D280 ALPEN-EXPRESS (221);									\
+      C=DB_221_PR(|L),DB_BCM241G(|L),FS_UICX70_GPB_AB(|L),DB_BM232POP(|L),DB_BM232G(|L),		\
+	DB_ABM223G(|L),DB_BM232G(|L),DB_ABM223G(|L),DB_DMS902G(|L)|DB_DMS902G(|L);			\
+      V=14;												\
+      F=DP4;
+;F/IC-ZÜGE
+;---------
 
     TX=DB 103.0 + F/IC;											\
       C=DB_103_0_TEE,2*DB_AM203B(|L),DB_ARMZ217B(|L),2*DB_AM203B(|L);					\
@@ -315,15 +334,25 @@ $REQUIRE MLG_DEF.TTT
 	2*DB_BM232G(|L),DB_ABM223G(|L);									\
       V=14;												\
       F=DP4;
-    TX=DB 221 + D;											\
+
+    TX=DB 221 + D-Zug "Tirol-Express";									\
+      C=DB_221_PR(|L),DB_BCM243B(|L),DB_BCM241G(|L),DSG_WLABM174_1(|L),DB_ABM223G(|L),DB_BCM241G(|L);	\
+      V=14;												\
+      F=DP4;
+    TX=DB 221 + D-Zug;											\
       C=DB_221_PR(|L),2*DB_BM232G(|L),$DIR(DB_BDMS272G,DB_BDMS272GL),DB_WRTM134R(|L),DB_AM203B(|L),	\
 	$DIR(DB_ABM225GL,DB_ABM225G),2*DB_BM232G(|L);							\
       V=14;												\
       F=DP4;
-    TX=DB 221 + D;											\
+    TX=DB 221 + D-Zug;											\
       C=DB_221_PR(|L),DB_BRBUMH282_0GR(|L),2*DB_BM232G(|L),2*DB_BN719SL1,DB_DMS902G(|L);		\
       V=12;												\
       F=DP4;
+    TX=DB 260 Heiligenhafen mit Kurswagen;								\
+      C=DB_260P(|L),DB_AM202B(|L),DB_BCM241G(|L);							\
+      V=9;												\
+      F=DPR4;
+
 ;ISAR-RHÔNE
     TX=DB 219 + D Isar-Rhône;										\
       C=DB_V169P(|L),4-5*DB_BM234G(|L),1-2*DB_ABM225G(|L),2-3*SBB_4UIC_B(|L),SBB_4UIC_A(|L),		\
@@ -610,7 +639,7 @@ $REQUIRE MLG_DEF.TTT
       V=8;												\
       F=EPR4;
     TX=DB 144.5 + E/N;											\
-      C=DB_144_5S2G2(|L),DB_BCM243B(|L),DB_BM234G(|L),DB_ABM225G(|L),2*DB_GOS245A;			\
+      C=DB_144_5S2G2(|L),DB_BCM243B(|L),DB_BM234G(|L),DB_ABM225G(|L),2*DB_GBS245P_U3;			\
       V=8;												\
       F=EPR4;
     TX=DB 150 + E/N;											\
@@ -621,6 +650,11 @@ $REQUIRE MLG_DEF.TTT
       C=DB_152G(|L),(<DB_AB3YG756,DB_B3YG761L,DB_B3YG761,DB_B3YG761L,DB_B3YG761,DB_BD3YG766L);		\
       V=9;												\
       F=EPR4;
+    TX=DB 182 + E/N;											\
+      C=DB_182_011_E320_V_15KV,DB_BN719SL1,DB_ABN703SL1,DB_BN719SL1;					\
+      V=11;												\
+      F=EPR4;												\
+      FL_DB2:..,-6,0-300;
     TX=DB 184 + E/N;											\
       C=DB_184B4,DB_MDI996O(|L),DB_BN719SL1,2*DB_ABN703SL1,2*DB_BN719SL1;				\
       V=12;												\
@@ -665,8 +699,14 @@ $REQUIRE MLG_DEF.TTT
       C=DB_212_PR(|L),DB_BYM421G(|L),DB_ABYM411G(|L),DB_BYM421G(|L),DB_DMS902G(|L);			\
       V=12;												\
       F=DPR4;
-    TX=DB 212 + E/N;											\
-      C=<DB_212_PR(|L),DB_BN719SL1,DB_ABN703SL1,DB_BDNRZF740O1;						\
+    TX=DB 212 + N;											\
+      C=(<DB_212_PR(|L),DB_BN719SL1,DB_ABN703SL1,DB_BN719SL1,DB_BDNF738SL1)|				\
+	(>DB_212_PR(|L),DB_BN719SL1,DB_ABN703SL1,DB_BN719SL1,DB_BDNF738SL1L);				\
+      V=12;												\
+      F=DPRU4;
+    TX=DB 212 + N;											\
+      C=(<DB_212_PR(|L),DB_BN719SL1,DB_ABN703SL1,DB_BDNRZF740O1)|					\
+	(>DB_212_PR(|L),DB_BN719SL1,DB_ABN703SL1,DB_BDNRZF740O1L);					\
       V=12;												\
       F=DPRU4;
     TX=DB 213 + E/N;											\
@@ -759,6 +799,11 @@ $REQUIRE MLG_DEF.TTT
       C=DB_280(|L),DB_ABM223G(|L),DB_BM232G(|L),$DIR(DB_BDMS272G,DB_BDMS272GL);				\
       V=10;												\
       F=DPR4;
+    TX=DB 323 + N;											\
+      C=(DB_323A_PR(|L),DB_B3YG_PAAR)|								\
+	(DB_323B_PR(|L),(<DB_B3YG761,DB_BD3YG766)|(>DB_B3YG761L,DB_BD3YG766L));	\
+      V=5;												\
+      F=DPR4;
 
     TX=DB 169 003 Nahverkehrszug Murnau – Oberammergau;							\
       C=DB_169_003(|L),(<DB_BDYLF457G1,DB_BN719SL1);							\
@@ -768,11 +813,6 @@ $REQUIRE MLG_DEF.TTT
       C=DB_169_004(|L),(>DB_BDNF738SL1|DB_BDYSLF456G,DB_BN719SL1);					\
       V=8;												\
       F=EPRU4;
-
-    TX=DB 323;												\
-      C=DB_323A_PR(|L),DB_B3YG761_PAAR;									\
-      V=5;												\
-      F=DPR4;
 
 ;E+POST
 

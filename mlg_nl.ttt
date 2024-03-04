@@ -678,8 +678,8 @@
       V=13;												\
       F=EP4;
 
-    TX=NS 1300;												\
-      C=NS_1300E1(|L),											\
+    TX=NS 1300 + ICR;											\
+      C=NS_1300(A|E1)(|L),										\
 	(2*NS_IC_B(|L)~MLG,NS_IC_BD(|L)~MLG,NS_IC_A(|L)~MLG,NS_IC_B(|L)~MLG)|				\
 	(NS_IC_A(|L)~MLG,2*NS_IC_B(|L)~MLG,$DIR(NS_IC_BD~MLG,NS_IC_BDL~MLG));				\
       V=13;												\
@@ -1381,8 +1381,12 @@
 
 ;EXPRESSGUT
 ;----------
-    TX=NS 1100 + Expressfreight;									\
-      C=NS_1300A,3*DB_DMS902BB2(|L);									\
+    TX=NS 1100 + [N=Parcels express;F=Colis express;D=Expressgutzug];					\
+      C=NS_1158,DB_DMS902BB2(|L),DB_DMS902NBG(|L),DB_DMS902BB2(|L);					\
+      V=13;												\
+      F=EF5;
+    TX=NS 1300 + [N=Parcels express;F=Colis express;D=Expressgutzug];					\
+      C=NS_1300A,(3*DB_DMS902BB2(|L))|(DB_DMS902NBG(|L),DB_DMS902BB2(|L),DB_DMS905BB2(|L));		\
       V=12;												\
       F=EF5;
 
@@ -1490,7 +1494,7 @@
 ;=========================================================
 ;ICE
 ;---
-    TX=NS ICE 3 – 406 Frankfurt am Main – Amsterdam : ICE 3M;						\
+    TX=NS ICE 3 – 406 Frankfurt am Main – Amsterdam :ICE 3M;						\
       C=NS_ICE3_406_DC;											\
       V=16;
 
@@ -1631,7 +1635,7 @@
       V=14;												\
       F=EP6;
 
-    TX=Railpool 186 + AlpenExpres, BahnTouristikExpress;						\
+    TX=Railpool 186 + AlpenExpres,BahnTouristikExpress;							\
       C=RAILPOOL_E186_B_DC,BTE_BVCMZ(|L),								\
 	DB_BVCMBZ249_1CNLL[B:82,13,6,3,#E8E8E8]|DB_BVCMBZ249_1CNL[B:82,13,6,3,#E8E8E8],BTE_BVCMZ(|L),	\
 	BTE_WLAB33S(|L),3*BTE_BVCMZ(|L),BTE_WGMZ820_ZUGTREFF(|L),4*BTE_BVCMZ(|L),BTE_WLAB33S(|L),	\
@@ -1911,7 +1915,7 @@
       V=14;												\
       F=EPR6;
     TX=NS ICM 4200 + ICM 1;										\
-      C=NS_ICM4200,1-2*NS_ICM1|NS_ICM2;									\
+      C=NS_ICM4200,1-2*XNS_ICM1|NS_ICM2;									\
       V=14;												\
       F=EPRU6;
     TX=NS ICM 1;											\
@@ -1955,6 +1959,10 @@
       F=DPR6;
     TX=NS 2500;												\
       C=NS_2500,NS_2200;										\
+      V=14;												\
+      F=DPR6;
+    TX=NS 2200 (FLIRT);											\
+      C=(NS_2200_L2,NS_2200)|(NS_2200,NS_2200_L2);							\
       V=14;												\
       F=DPR6;
     TX=NS "Stoptrein" (CAF CIVITY 2300);								\
@@ -2090,13 +2098,9 @@
 
 ;ABELLIO
 ;-------
-    TX=Abellio Flirt;											\
-      C=1-2@ABELLIO_FLIRT3_RNET;									\
-      V=14;												\
-      F=EPRU6;
 
     TX=Abellio ET 25 2300;										\
-      C=ABELLIO_ET25_2300;										\
+      C=ABELLIO_ET25_2300_DC;										\
       V=14;												\
       F=EPRU6;
 
@@ -2283,6 +2287,17 @@
       V=10;												\
       F=DPR6;
 
+;Qbuzz
+;-----
+    TX=Abellio Flirt;											\
+      C=1-2@ABELLIO_FLIRT3_RNET;									\
+      V=14;												\
+      F=EPRU6;
+    TX=Qbuzz RNet GTW;											\
+      C=3:RNET_GTW500|1:RNET_GTW400;									\
+      V=12;												\
+      F=EPRU6;
+
 ;VEOLIA
 ;------
     TX=Veolia Mat 64;											\
@@ -2335,6 +2350,15 @@
 
 ;EETC
 ;----
+    TX=EETC 1250 + special train;									\
+      C=EETC_1250(|L),EETC_AB30_EESL(|L),3*EETC_MU_W64M_EESL(|L),EETC_WRM_EESL(|L),			\
+	4*EETC_BCVMH_EESL(|L),4*EETC_DDM_L0,EETC_DDM_EESL,EETC_DDM_L0,2*OBB_DDM1[B:193,15,4,4,#F22B1D];	\
+      V=12;												\
+      F=EP6;
+    TX=EETC 1250 + special train;									\
+      C=EETC_1250(|L),EETC_BCVMH_EESL(|L),EETC_BCVMH_L0NS(|L),EETC_DF_EESL(|L);				\
+      V=12;												\
+      F=EP6;
     TX=EETC 1600 + special train;									\
       C=EETC_1600,2*WST_BCMH244_VRF(|L),EETC_BUFFET_EESL(|L),2*WST_BCMH244_VRF(|L),			\
 	EETC_BCVMH_EESL(|L),2*EETC_MU_W64M_EESL(|L),2*EETC_BCVMH_L0NS(|L),WST_BCMH244_VRF(|L);		\

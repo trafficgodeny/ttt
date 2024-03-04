@@ -52,7 +52,7 @@ $SECTION 												\
 #
 #    Hungary
 #
-#----------------------------- Kaposvár ---------------------------------------
+#----------------------------- Kaposv r ---------------------------------------
   {H?
     {BUS?
       NAME=H_KAPOSVAR;											\
@@ -61,11 +61,11 @@ $SECTION 												\
 	C=(KAPV_IK415;KAP_RC;KAP_RC135;KAP_RC15;KAPV_E94;KAP_E95;KAP_E98;KAPV_N4014NF);			\
 	D=R; %ABG(STBGAU);
     }
-#----------------------------- Pécs -------------------------------------------
+#----------------------------- P cs -------------------------------------------
     {BUS?
       $GROUP 												\
 	  NAME=H_PECS;											\
-	  TX=Pécs;											\
+	  TX=P cs;											\
 	  LC=1; %GBG(STBGAU,ENV_WAYA);
 	M=FOLLOW;											\
 	  C=(PS_IK556;PS_IK556D;PS_IK180;PS_IK246;IK246_ESSO;PS_IK260B;PS_IK260R;PS_IK260DAF;		\
@@ -284,7 +284,8 @@ $SECTION 												\
       $GROUP 												\
 	  NAME=D_BIELEFELD;										\
 	  TX=Bielefeld;											\
-	  LC=2; ENV=$CBG(WT,STBGEU,ENV_WAYT3),$CBG(WA,STBGMD,ENV_WAYA);
+	  LC=2; %GBG(STBGEU,ENV_WAYT3);
+#   LC=2; ENV=$CBG(WT,STBGEU,ENV_WAYT3),$CBG(WA,STBGMD,ENV_WAYA);
 	{TRAM?
 	  TX=Bielefeld GT4 799;										\
 	    C=BIEL_GT4_799B(|L);
@@ -309,7 +310,7 @@ $SECTION 												\
 	}
 	{BUS?
 	  M=FOLLOW;											\
-	    C=4*(BIEL_(2:0530(|N)|N4009|3:N4021(B1|O1|O2)|NG313|NL202|NL262|2:O530G(|N)));
+	    C=4*(BIEL_(2:0530(|N)|N4009|3:N4021(B1|O1|O2)|NG313|NL202|NL262|2:O530G(|N))); %LBG(STBGMD,ENV_WAYA);
 	}
       $ENDGROUP
     }
@@ -394,7 +395,7 @@ $SECTION 												\
 	    C=BONN_SWB_GT6(|L);
 	  TX=Bonn 4xERGrTw 205 - 214 + 4xERGrBw 281 - 289 Bj. 1960/61;					\
 	    C=(BONN_SWB_4T4,BONN_SWB_4B4)|(BONN_SWB_4T4L,BONN_SWB_4B4L);
-	  TX=Bonn Großraumzug;										\
+	  TX=Bonn Gro raumzug;										\
 	    C=(BONN_SWB_4T4AL,BONN_SWB_4B4L)|(BONN_SWB_4T4A,BONN_SWB_4B4);
 	  TX=Bonn NF6;											\
 	    C=BONN_6NF6;
@@ -520,7 +521,7 @@ $SECTION 												\
 	  NAME=D_BREMEN;										\
 	  TX=Bremen;											\
 	  LC=2; %GBG(STBGEU,ENV_WAYT1);
-	TX=Bremen Großraumzug;										\
+	TX=Bremen Gro raumzug;										\
 	  C=(BRE_T4GL,BRE_B4GL)|(BRE_T4G,BRE_B4G);
 	TX=Bremen Hansa-Gelenkzug;									\
 	  C=(BRE_GT4AL,BRE_GB4AL)|(BRE_GT4A,BRE_GB4A);
@@ -778,11 +779,11 @@ $SECTION 												\
 	  D=R;
       $ENDGROUP
     }
-#----------------------------- Döbeln ----------------------------------------
+#----------------------------- D beln ----------------------------------------
     {TRAM?
       $GROUP 												\
 	  NAME=D_DOBELN;
-	TX=Döbeln;											\
+	TX=D beln;											\
 	  C=HORSE(|BTW|DTW|D|GTW|G|4:_TWIN(|2|3|4))_PB,DOBPB_B145;					\
 	  V=1; W=A; %ABG(STBGEU);
       $ENDGROUP
@@ -994,7 +995,7 @@ $SECTION 												\
 	  C=SVF_GT6ML|SVF_GT6M;
       $ENDGROUP
     }
-#----------------------------- Fürstenwalde ----------------------------------
+#----------------------------- F rstenwalde ----------------------------------
     {BUS?
       NAME=D_FURSTENWALDE;										\
 	TX=Fürstenwalde;										\
@@ -1004,7 +1005,7 @@ $SECTION 												\
 #----------------------------- Fürth -----------------------------------------
     {BUS?
       NAME=D_FURTH;											\
-	TX=Fürth;											\
+	TX=F rth;											\
 	C=INFRA_CITARO; %ABG(STBGEU);
     }
 #----------------------------- Gera ------------------------------------------
@@ -1297,14 +1298,6 @@ $SECTION 												\
 	  TX=Kassel Tw 358-366 + Gr. Bw 1995;								\
 	    C=(KVG_GT6EBG,KVG_B4BG)|(KVG_GT6EBGL,KVG_B4BGL);
 
-	$ENDGROUP
-	$GROUP 												\
-	    NAME=D_KASSEL2;										\
-	    TX=Kassel;											\
-	    LC=3; ENV=$EBG(STBGEU),									&\
-	    $EWX(WE,D_CAT),										&\
-	    $EWX(WT,ENV_WAYT1),										&\
-	    $EWX(WA,ENV_WAYA);
 	  TX=Kassel N8;											\
 	    C=[PFU]KVG_5N8C|KVG_5N8;
 	  TX=Kassel N8;											\
@@ -1330,16 +1323,6 @@ $SECTION 												\
 	      KVG_758|KVG_759|KVG_760;
 	  TX=Regionalbahn Kassel DB 451 Citadis;							\
 	    C=DB_451KS|DB_451KS2;
-	$ENDGROUP
-      }
-      {BUS?
-	$GROUP 												\
-	    NAME=D_KASSEL3;										\
-	    TX=Kassel;											\
-	    LC=3; ENV=$EBG(STBGEU),									&\
-	    $EWX(WE,D_CAT),										&\
-	    $EWX(WT,ENV_WAYT1),										&\
-	    $EWX(WA,ENV_WAYA);
 	  C=KVG_N4021L;
 	  C=KVG_N4021;
 	$ENDGROUP
@@ -1377,7 +1360,7 @@ $SECTION 												\
 	  C=KLT_ET54,KLT_EB54;
       $ENDGROUP
     }
-#----------------------------- Köthen ---------------------------------------
+#----------------------------- K then ---------------------------------------
     {BUS?
       NAME=D_KOTHEN;											\
 	TX=Köthen;											\
@@ -1451,7 +1434,7 @@ $SECTION 												\
 #----------------------------- Lübeck ---------------------------------------
     {BUS?
       NAME=D_LUBECK;											\
-	TX=Lübeck;											\
+	TX=L beck;											\
 	C=3:LUB_240|LVG_O305L|LVG_O305|2:LVG_SD202; %ABG(STBGEU);
     }
 #----------------------------- Lüdenscheid ----------------------------------
@@ -1723,9 +1706,9 @@ $SECTION 												\
 	  C=N_700E1,N_1000E1;
 	TX=Nürnberg Tw 901 + BW 1201 ff;								\
 	  C=N_100E3,N_1200E3;
-	TX=Nürnberg Großraumzug 1975;									\
+	TX=Nürnberg Gro raumzug 1975;									\
 	  C=(N_T4_2L,N_B4_2L)|(N_T4_2,N_B4_2L);
-	TX=Nürnberg Großraumzug 1960;									\
+	TX=Nürnberg Gro raumzug 1960;									\
 	  C=(N_T4M,N_B4_2)|(N_T4ML,N_B4_2L);
 	TX=Nürnberg 6x Gelenkwagen + 4x Bw;								\
 	  C=(N_GT6_(4|3),N_B4_2)|(N_GT6_3L,N_B4_2L);
@@ -1904,9 +1887,10 @@ $SECTION 												\
     $GROUP 												\
 	NAME=D_ROSTOCK;											\
 	TX=Rostock;											\
-	LC=3; ENV=$EBG(STBGEU),										&\
-	$EWX(WT,ENV_WAYT1),										&\
-	$EWX(WA,ENV_WAYA);
+	LC=3; %GBG(STBGEU,ENV_WAYT1);
+# LC=3; ENV=$EBG(STBGEU),          &
+# $EWX(WT,ENV_WAYT1),          &
+# $EWX(WA,ENV_WAYA);
       {TRAM?
 	TX=Rostock Tw 26;										\
 	  C=RSAG_26;
@@ -1949,7 +1933,7 @@ $SECTION 												\
 	C=RSAG_(ATWT50|REKOATW);
       }
       {BUS?
-	C=RSAG_(MAN_SL202(|B)|O405(|B)|O405G(|_OZ))(|L);
+	C=RSAG_(MAN_SL202(|B)|O405(|B)|O405G(|_OZ))(|L); %LBG(STBGEU,ENV_WAYA);
       }
     $ENDGROUP
   }
@@ -2007,9 +1991,10 @@ $SECTION 												\
     $GROUP 												\
 	NAME=D_SIEGEN;											\
 	TX=Siegen;											\
-	LC=1; ENV=$EBG(STBGEU),										&\
-	$EWX(WT,ENV_WAYT1),										&\
-	$EWX(WA,ENV_WAYA);
+	LC=3; %GBG(STBGEU,ENV_WAYT1);
+# LC=1; ENV=$EBG(STBGEU),          &
+# $EWX(WT,ENV_WAYT1),          &
+# $EWX(WA,ENV_WAYA);
       {TRAM?
 	TX=Siegen KSW-Zug;										\
 	  C=SIEG_33,SIEG_107;
@@ -2020,7 +2005,7 @@ $SECTION 												\
       }
       {BUS?
 	M=FOLLOW;											\
-	  C=2-4*VWS_(0530|NG272|3:NL202_2(|K|N)|2:S319NF3(|_WDR)|SL202WO);
+	  C=2-4*VWS_(0530|NG272|3:NL202_2(|K|N)|2:S319NF3(|_WDR)|SL202WO); %LBG(STBGEU,ENV_WAYA);
       }
     $ENDGROUP
   }
@@ -2097,15 +2082,16 @@ $SECTION 												\
     $GROUP 												\
 	NAME=D_VESTISCHE;										\
 	TX=Vestische;											\
-	LC=2; ENV=$EBG(STBGEU),										&\
-	$EWX(WT,ENV_WAYT1),										&\
-	$EWX(WA,ENV_WAYA);
+	LC=3; %GBG(STBGEU,ENV_WAYT1);
+# LC=2; ENV=$EBG(STBGEU),          &
+# $EWX(WT,ENV_WAYT1),          &
+# $EWX(WA,ENV_WAYA);
       {TRAM?
 	TX=Vestische Tw 144 1960;									\
 	  C=VEST_3T2_144;
-	TX=Vestische Großraumwagen;									\
+	TX=Vestische Gro raumwagen;									\
 	  C=VEST_T4BGD|VEST_T4AG;
-	TX=Vestische Großraumwagen;									\
+	TX=Vestische Gro raumwagen;									\
 	  C=VEST_4T4J|VEST_4T4_2;
 	TX=Vesische 4x Gel Tw;										\
 	  C=VEST_4GT4;
@@ -2120,18 +2106,18 @@ $SECTION 												\
       }
       {BUS?
 	M=FOLLOW;											\
-	  C=2-3*VEST_(KMS110|LTU7|P13D~AXS|SATURN2|V110SL);
+	  C=2-3*VEST_(KMS110|LTU7|P13D~AXS|SATURN2|V110SL); %LBG(STBGEU,ENV_WAYA);
 	M=FOLLOW;											\
-	  C=3-5*VEST_(200SH110U|260SH110|N416|SG192|SG240H|SG240H_JAGER|SG242H|SL200|SL202);
+	  C=3-5*VEST_(200SH110U|260SH110|N416|SG192|SG240H|SG240H_JAGER|SG242H|SL200|SL202); %LBG(STBGEU,ENV_WAYA);
 	M=FOLLOW;											\
 	  C=4-6*VEST_N(4014A|4014B|4014DE1|4014DE2|4015A|4015B|4015C|4015NF|4020|4021|4021A|8012|G313|	\
-	    L202|L202_2);
+	    L202|L202_2); %LBG(STBGEU,ENV_WAYA);
 	M=FOLLOW;											\
 	  C=4-6*VEST_(N4014CE|N4014S|N4016CE|N4016_VOLKSBANK|N416S|N416_RUHRNACHRICHTEN|N416_WAZ|	\
 	    N4416_VRNET|NL202CE|NL202_KINGSIZEKONTO|NL202_REAL|NL222CE|O530G_LOTTO|O530_LOTTO|		\
-	    SG192CYC|SL200CYC);
+	    SG192CYC|SL200CYC); %LBG(STBGEU,ENV_WAYA);
 	C=VEST_(ABSCHLEPP|N212H|N906|WERKSTATT);							\
-	  TB=ON;
+	  TB=ON; %LBG(STBGEU,ENV_WAYA);
       }
     $ENDGROUP
   }
@@ -2150,11 +2136,12 @@ $SECTION 												\
     $GROUP 												\
 	NAME=D_WEIMAR;											\
 	TX=Weimar;											\
-	ENV=$EBG(STBGEU),										&\
-	$EWX(WT,ENV_WAYO),										&\
-	$EWX(WA,ENV_WAYA);
-      C=WEI_IK260T|WEI_IK280T_216;
-      C=KVWE_IK280_93T|KVWE_FV2530;
+	LC=1;
+# ENV=$EBG(STBGEU),          &
+# $EWX(WT,ENV_WAYO),          &
+# $EWX(WA,ENV_WAYA);
+      C=WEI_IK260T|WEI_IK280T_216; %LBG(STBGEU,ENV_WAYO);
+      C=KVWE_IK280_93T|KVWE_FV2530; %LBG(STBGEU,ENV_WAYA);
     $ENDGROUP
   }
 #----------------------------- Wesel - Rees - Emmerich ----------------------------------
@@ -2256,9 +2243,10 @@ $SECTION 												\
       $GROUP 												\
 	  NAME=CH_GENF;											\
 	  TX=Genf;											\
-	  LC=2; ENV=$EBG(STBGEU),									&\
-	  $EWX(WT,$FLG(X,ENV_WAYO,ENV_WAYT1)),								&\
-	  $EWX(WA,ENV_WAYA);
+	  LC=2; %GBG(STBGEU,ENV_WAYT1);
+#   LC=2; ENV=$EBG(STBGEU),         &
+#   $EWX(WT,$FLG(X,ENV_WAYO,ENV_WAYT1)),        &
+#   $EWX(WA,ENV_WAYA);
 	{TRAM?
 	  TX=Genf Standardwagen;									\
 	    C=TPG_BE44_715|TPG_BE44_704|TPG_CE44_701L;
@@ -2273,17 +2261,17 @@ $SECTION 												\
 	}
 	{BUS?
 	  C=TPG_B25UT;											\
-	    F=X;
+	    F=X; %LBG(STBGEU,ENV_WAYO);
 	  C=TPG_B25UGTL;										\
-	    F=X;
+	    F=X; %LBG(STBGEU,ENV_WAYO);
 	  C=TPG_B25UMT;											\
-	    F=X;
+	    F=X; %LBG(STBGEU,ENV_WAYO);
 	  C=TPG_B25UTL;											\
-	    F=X;
+	    F=X; %LBG(STBGEU,ENV_WAYO);
 	  C=TPG_B25UGT;											\
-	    F=X;
+	    F=X; %LBG(STBGEU,ENV_WAYO);
 	  C=TPG_B25UMTL;										\
-	    F=X;
+	    F=X; %LBG(STBGEU,ENV_WAYO);
 	}
       $ENDGROUP
     }
@@ -2298,33 +2286,34 @@ $SECTION 												\
       $GROUP 												\
 	  NAME=CH_LUZERN;										\
 	  TX=Luzern;											\
-	  LC=2;												\
-	  ENV=$EBG(STBGEU),										&\
-	  $EWX(WT,$FLG(X,ENV_WAYO,ENV_WAYT1)),								&\
-	  $EWX(WL,$FLG(X,ENV_WAYO,ENV_WAYT1)),								&\
-	  $EWX(WA,ENV_WAYA);
+	  LC=2; %GBG(STBGEU,ENV_WAYA);
+#   LC=2;
+#   ENV=$EBG(STBGEU),          &
+#   $EWX(WT,$FLG(X,ENV_WAYO,ENV_WAYT1)),        &
+#   $EWX(WL,$FLG(X,ENV_WAYO,ENV_WAYT1)),        &
+#   $EWX(WA,ENV_WAYA);
 	{TRAM?
 	  TX=Luzern 27;											\
-	    C=VBLZ_TW27B|VBLZ_TW27BW|VBLZ_TW27W;
+	    C=VBLZ_TW27B|VBLZ_TW27BW|VBLZ_TW27W; %LBG(STBGEU,ENV_WAYT1);
 	}
 	{BUS?
 	  C=VBLZ_BT5_25(|A),3:|VBLZ_HESS_BT5T;								\
-	    F=X;
+	    F=X; %LBG(STBGEU,ENV_WAYO);
 	  C=VBLZ_BT5_25(|A)L,3:|VBLZ_HESS_BT5TL;							\
-	    F=X;
+	    F=X; %LBG(STBGEU,ENV_WAYO);
 	  C=VBLZ_SWISSTROLLY3(|L)|VBL_HESS_DGTL|VBLZ_HESS_DGT;						\
-	    F=X;
+	    F=X; %LBG(STBGEU,ENV_WAYO);
 	  C=VBLZ_TR71(|L)|VBLZ_4TP2(|L);								\
-	    F=X;
+	    F=X; %LBG(STBGEU,ENV_WAYO);
 	  C=VBL_201L;											\
-	    F=X;
+	    F=X; %LBG(STBGEU,ENV_WAYO);
 	  C=VBLZ_O530_64(|L)|VBLZ_O530_563(|L)|VBLZ_O530G(|L);
 	  C=VBLZ_B10M(|L);
 	  C=VBLZ_B71UA1(|L)|VBLZ_B71UA2(|L);
 	  C=VBLZ_B58(|L)|VBLZ_B58A(|L);
 	  C=VBL_HESS_DGT_PILATUS(|L)|VBLZ_SWISSTROLLY3_JONAS_MADLEAINEL|				\
 	      VBLZ_SWISSTROLLEY3_PILATUS_MARKT|VBLZ_SWISSTROLLEY3_RAIFFEISEN|VBLZ_HESS_DGT_TERZELWURML;	\
-	    F=X;
+	    F=X; %LBG(STBGEU,ENV_WAYO);
 	}
       $ENDGROUP
     }
@@ -2375,10 +2364,10 @@ $SECTION 												\
       $GROUP 												\
 	  NAME=CH_WINTERTHUR;										\
 	  TX=Winterthur;										\
-	  LC=1; %ETA(STBGEU,ENV_WAYO);
+	  LC=1; %GBG(STBGEU,ENV_WAYO);
 	C=WINT_MBD(|L);
 	C=WINT_MBT(|L);
-	%FAK(Q_WINT)
+	%FAK(Q_WINT)  %LBG(STBGEU,ENV_WAYA);
       $ENDGROUP
     }
   }
@@ -2517,11 +2506,12 @@ $SECTION 												\
       $GROUP 												\
 	  NAME=A_LINZ;											\
 	  TX=Linz;											\
-	  LC=2;												\
-	  ENV=$EBG(STBGAU),										&\
-	  $EWX(WT,$FLG(X,ENV_WAYO,ENV_WAYT2)),								&\
-	  $EWX(WE,ENV_WAYT3)										&\
-	  $EWX(WA,ENV_WAYA);
+	  LC=3; %GBG(STBGAU,ENV_WAYT2);
+#   LC=2;
+#   ENV=$EBG(STBGAU),          &
+#   $EWX(WT,$FLG(X,ENV_WAYO,ENV_WAYT2)),        &
+#   $EWX(WE,ENV_WAYT3)          &
+#   $EWX(WA,ENV_WAYA);
 	{TRAM?
 	  TX=Linz Flexity Outlook 2;									\
 	    C=LINZ_FLEXITYOUT2(|L);
@@ -2544,13 +2534,13 @@ $SECTION 												\
 	}
 	{BUS?
 	  C=LINZ_T2;											\
-	    F=X;
+	    F=X; %LBG(STBGAU,ENV_WAYO);
 	}
 	{CRAIL?
-	  TX=Linzer Lokalbahn Kölner Zug;								\
-	    C=(1-2*(LILO_DT8A[!L]|LILO_DT8B[!L]))|(1-2*(LILO_DT8A|LILO_DT8B));
-	  TX=Linzer Lokalbahn Kölner Zug;								\
-	    C=((LILO_DT8A[!L]|LILO_DT8B[!L])|(LILO_DT8A|LILO_DT8B)),|LILO_T4;
+	  TX=Linzer Lokalbahn K lner Zug;								\
+	    C=(1-2*(LILO_DT8A[!L]|LILO_DT8B[!L]))|(1-2*(LILO_DT8A|LILO_DT8B)); %LBG(STBGDE01O,ENV_WAYT3);
+	  TX=Linzer Lokalbahn K lner Zug;								\
+	    C=((LILO_DT8A[!L]|LILO_DT8B[!L])|(LILO_DT8A|LILO_DT8B)),|LILO_T4; %LBG(STBGDE01O,ENV_WAYT3);
 	}
       $ENDGROUP
     }
@@ -2559,19 +2549,20 @@ $SECTION 												\
       $GROUP 												\
 	  NAME=A_SALZBURG;										\
 	  TX=Salzburg;											\
-	  LC=2; ENV=$EBG(STBGAU),									&\
-	  $EWX(WE,ENV_WAYT3),										&\
-	  $EWX(WT,ENV_WAYO),										&\
-	  $EWX(WA,ENV_WAYA);
+	  LC=2; %GBG(STBGAU,ENV_WAYO);
+#   LC=2; ENV=$EBG(STBGAU),         &
+#   $EWX(WE,ENV_WAYT3),          &
+#   $EWX(WT,ENV_WAYO),          &
+#   $EWX(WA,ENV_WAYA);
 	{CRAIL?
-	  C=SLB_E62,0-3*SLB_GBS151;
-	  C=SLB_ET2,SLB_ET2BC,SLB_ET2C;
-	  C=SLB_ET21;
-	  C=SLB_ET22;
-	  C=(1-2*(SLB_ET41B|SLB_ET41C))|(1-2*(SLB_ET41BL|SLB_ET41CL));
-	  C=1-2@SLB_ET41A(|L);
-	  C=1-2@SLB_ET55(|L);
-	  C=SLB_ET50(|L);
+	  C=SVB_E62,0-3*SVB_GBS151;
+	  C=SVB_ET2,SVB_ET2BC,SVB_ET2C;
+	  C=SVB_ET21;
+	  C=SVB_ET22;
+	  C=(1-2*(SVB_ET41B|SVB_ET41C))|(1-2*(SVB_ET41BL|SVB_ET41CL));
+	  C=1-2@SVB_ET41A(|L);
+	  C=1-2@SVB_ET55(|L);
+	  C=SVB_ET50(|L);
 	}
 	{BUS?
 	  M=FOLLOW;											\
@@ -2879,7 +2870,7 @@ $SECTION 												\
 	    C=GREN_CITADIS402M;
 	}
 	{BUS?
-	  %SAV(GREN_AGORA_ARCTIC_855L)
+	  %SAV(GREN_AGORA_ARCTIC_855L)    %LBG(STBGEU,ENV_WAYA);
 	}
       $ENDGROUP
     }
@@ -2896,35 +2887,41 @@ $SECTION 												\
 	    C=LEMANS_CITADIS302;
 	}
 	{BUS?
-	  %SAV(LEMANS_AGORAL)
+	  %SAV(LEMANS_AGORAL)   %LBG(STBGEU,ENV_WAYA);
 	}
       $ENDGROUP
     }
 #----------------------------- Lille ------------------------------------------
     {TRAM|CRAIL?
-      $GROUP 												\
-	  NAME=F_LILLE;											\
-	  LC=2;												\
-	  ENV=$CBG(WT,STBGEU,$FLG(X,ENV_WAYT12,ENV_WAYT1)),						&\
-	  $CBG(WA,STBGUB,ENV_WAYV),$CBG(WM,STBGUB,ENV_WAYV);
-	{TRAM?
+#   LC=2;
+#   ENV=$CBG(WT,STBGEU,$FLG(X,ENV_WAYT12,ENV_WAYT1)),      &
+#   $CBG(WA,STBGUB,ENV_WAYV),$CBG(WM,STBGUB,ENV_WAYV);
+      {TRAM?
+	$GROUP 												\
+	    NAME=F_LILLE;										\
+	    LC=2; %GBG(STBGEU,ENV_WAYT1);
+	  $CBG(WA,STBGUB,ENV_WAYV)$CBG(WM,STBGUB,ENV_WAYV);
 	  TX=Lille ELRT 350;										\
 	    C=LILLE_350_L1(|L)|LILLE_350_L1B(|L);
 	  TX=Lille ELRT 500;										\
 	    C=LILLE_ELRT500_L(1|2|3)(|L);
 	  TX=Lille Breda;										\
 	    C=LILLE_BREDAM(|[!L]);									\
-	    F=X;
+	    F=X; %LBG(STBGNO,ENV_WAYT12);
 	  C=LILLE_BREDA3M(|[!L]);									\
-	    F=X;
-	}
-	{CRAIL?
+	    F=X; %LBG(STBGNO,ENV_WAYT12);
+	$ENDGROUP
+      }
+      {CRAIL?
+	$GROUP 												\
+	    NAME=F_LILLE_V;										\
+	    LC=2; %GBG(STBGUB,ENV_WAYV);
 	  TX=Lille VAL-Metro206;									\
 	    C=LILLE_VALM|LILLE_VAL206BM;
 	  TX=Lille VAL-Metro208;									\
 	    C=LILLE_VAL208M(|L);
-	}
-      $ENDGROUP
+	$ENDGROUP
+      }
     }
 #----------------------------- Limoges ----------------------------------------
     {BUS?
@@ -2983,14 +2980,12 @@ $SECTION 												\
     }
     {BUS?
       NAME=F_LYON_B;											\
-	 %FAV(LYON_R312_3041,Lyon);
     }
 #----------------------------- Marseille --------------------------------------
     {TRAM|BUS?
       $GROUP 												\
 	  NAME=F_MARSEILLE;										\
 	  TX=Marseille;											\
-	  LC=1; %GBG(STBGEU,[WT=ENV_WAYTF][WA=ENV_WAYA]);
 	{TRAM?
 	  TX=Marseille 1301;										\
 	    C=RTMA_1301;
@@ -3006,7 +3001,6 @@ $SECTION 												\
 	    C=RTMA_FLEXITY7C;
 	}
 	{BUS?
-	  %SAV(RTMA_IVECO_UWAY12HY)
 	}
       $ENDGROUP
     }
@@ -3015,17 +3009,14 @@ $SECTION 												\
       NAME=F_METZ;											\
 	 %SAV(TCRM_PR180_2_3106L,Metz);
     }
-#----------------------------- Montbéliard ------------------------------------
     {BUS?
       NAME=F_MONTBEL;											\
-	 %SAV(CTPM_V7000CNGL,Montbéliard);
     }
 #----------------------------- Montpellier ------------------------------------
     {TRAM|BUS?
       $GROUP 												\
 	  NAME=F_MONTPEL;										\
 	  TX=Montpellier;										\
-	  LC=1; %GBG(STBGEU,[WT=ENV_WAYTF][WA=ENV_WAYA]);
 	{TRAM?
 	  TX=Montpellier 301;										\
 	    C=TAM_301;
@@ -3037,7 +3028,6 @@ $SECTION 												\
 	    C=TAM_CITADIS401;
 	}
 	{BUS?
-	  %SAV(TAM_HEU_O305)
 	}
       $ENDGROUP
     }
@@ -3046,7 +3036,6 @@ $SECTION 												\
       $GROUP 												\
 	  NAME=F_MULH;											\
 	  TX=Mulhouse;											\
-	  LC=1; %GBG(STBGEU,[WT=ENV_WAYTF][WA=ENV_WAYA]);
 	{TRAM?
 	  TX=Mulhouse Citadis;										\
 	    C=MULH_302;
@@ -3058,7 +3047,6 @@ $SECTION 												\
 	    C=MULH_CITADIS_3;
 	}
 	{BUS?
-	  %SAV(MULH_PR180_2_720L)
 	}
       $ENDGROUP
     }
@@ -3188,7 +3176,7 @@ $SECTION 												\
 #----------------------------- Museums ---------------------------------------
     {TRAM?
       $GROUP LC=1;
-	TX=Association pour le Musée des Transports Urbains,Interurbains et Ruraux;			\
+	TX=Association pour le Mus e des Transports Urbains,Interurbains et Ruraux;			\
 	  C=AMT_C2; %LBG(STBGFO,ENV_WAYT1);
 	TX=Association du Musee International des TRAnsports Metropolitains;				\
 	  C=ATR_T74; %LBG(STBGFO,ENV_WAYT1);
@@ -3230,9 +3218,10 @@ $SECTION 												\
       $GROUP 												\
 	  NAME=B_BRUX;											\
 	  TX=Bruxelles;											\
-	  LC=2; ENV=$CBG(WM,STBGUB,ENV_WAYM),								&\
-	  $CBG(WT,STBGNL,ENV_WAYT1),									&\
-	  $CBG(WA,STBGNL,ENV_WAYA);
+	  LC=3; %GBG(STBGNL,ENV_WAYT1);
+#   LC=2; ENV=$CBG(WM,STBGUB,ENV_WAYM),        &
+#   $CBG(WT,STBGNL,ENV_WAYT1),         &
+#   $CBG(WA,STBGNL,ENV_WAYA);
 	{TRAM?
 	  C=<STIB_BN(|5)((FL,F)|(FL,M,F)|(FL,F,FL,M,F)|(FL,M,F,FL,F));
 	  TX=Bruxelles Standardwagen;									\
@@ -3254,16 +3243,15 @@ $SECTION 												\
 	}
 	{CRAIL?
 	  TX=Bruxelles Metro STIB;									\
-	    C=(<STIB_BNFL,2*STIB_BNM,STIB_BNF)|(STIB_BN5FL,2*STIB_BN5M,STIB_BN5F);
+	    C=(<STIB_BNFL,2*STIB_BNM,STIB_BNF)|(STIB_BN5FL,2*STIB_BN5M,STIB_BN5F); %LBG(STBGUB,ENV_WAYM);
 	  TX=Bruxelles Metro ME;									\
 	    C=<1-2@(STIB_METROS1EL,STIB_METROS1E)|(STIB_METROR1EL,STIB_METROR1E);			\
-	    P=>85; T=OPEN,W,1,CLOSE;
+	    P=>85; T=OPEN,W,1,CLOSE; %LBG(STBGUB,ENV_WAYM);
 	  TX=Bruxelles Metro ME;									\
-	    C=<(2*(STIB_METROR2EL,STIB_METROR2E))|(STIB_METROR2EL,STIB_METROR2M,STIB_METROR2E);
+	    C=<(2*(STIB_METROR2EL,STIB_METROR2E))|(STIB_METROR2EL,STIB_METROR2M,STIB_METROR2E); %LBG(STBGUB,ENV_WAYM);
 	}
 	{BUS?
 	  C=BRUX_SD202(|L);
-	  %FAV(STIB_O530C2, STIB Mercedes-Benz O530)
 	}
       $ENDGROUP
     }
@@ -3313,9 +3301,10 @@ $SECTION 												\
       $GROUP 												\
 	  NAME=NL_AMST;											\
 	  TX=Amsterdam;											\
-	  LC=2; ENV=$EBG(STBGNL),									&\
-	  $EWX(WT,ENV_WAYT1),										&\
-	  $EWX(WA,ENV_WAYA);
+	  LC=3; %GBG(STBGNL,ENV_WAYT1);
+#   LC=2; ENV=$EBG(STBGNL),         &
+#   $EWX(WT,ENV_WAYT1),          &
+#   $EWX(WA,ENV_WAYA);
 	{TRAM?
 	  C=AMST_551(|L);
 	  C=AMST_(600|602|700|725)(|L);
@@ -3338,11 +3327,10 @@ $SECTION 												\
 	    C=AMST_COMBINO(|L)(~WSI|~FV|~FLE);
 	}
 	{BUS?
-	  C=AMST_GVB(|L);
-	  C=AMST_D88G2(|L);
+	  C=AMST_GVB(|L); %LBG(STBGNL,ENV_WAYA);
+	  C=AMST_D88G2(|L); %LBG(STBGNL,ENV_WAYA);
 	}
 	{CRAIL?
-	  C=<AMST_M5FL,4*AMST_M5F,AMST_M5M;
 	}
       $ENDGROUP
     }
@@ -3350,9 +3338,10 @@ $SECTION 												\
     {TRAM|BUS?
       $GROUP 												\
 	  NAME=NL_HAAG;											\
-	  LC=2; ENV=$EBG(STBGNL),									&\
-	  $EWX(WT,ENV_WAYT1),										&\
-	  $EWX(WA,ENV_WAYA);
+	  LC=2; %GBG(STBGNL,ENV_WAYT1);
+      $GROUP LC=2; ENV=$EBG(STBGNL),									&\
+#   $EWX(WT,ENV_WAYT1),          &
+#   $EWX(WA,ENV_WAYA);
 	{TRAM?
 	  TX=Den Haag PCC 1000;										\
 	    C=HAAG_1000A(|L)|HAAG_1000B(|L)|HAAG_1003(|L);
@@ -3374,8 +3363,28 @@ $SECTION 												\
 	    C=HAAG_AVENIO_RNETM;
 	}
 	{BUS?
-	  C=HAAG_BUS;
+	  C=HAAG_BUS; %LBG(STBGNL,ENV_WAYA);
 	}
+      $ENDGROUP
+    }
+#----------------------------- Dordrecht --------------------------------------
+    {BUS?
+      NAME=NL_DORD;											\
+	TX=Dordrecht;											\
+	M=FOLLOW;											\
+	C=(SVD_O405O;SVD_O405N)!|L; %ABG(STBGNL);
+    }
+#----------------------------- Limburg ----------------------------------------
+    {TRAM?
+      $GROUP 												\
+	  NAME=NL_LIMBURG;										\
+	  LC=1; %GBG(STBGNL,ENV_WAYT4);
+	TX=Limburg LTM 500 + 700;									\
+	  C=LTM_500_2X,LTM_700;
+	TX=Limburg LTM 500 + 700;									\
+	  C=LTM_500_3X,LTM_700;
+	TX=Limburg LTM 600 + 700;									\
+	  C=LTM_600,LTM_700;
       $ENDGROUP
     }
 #----------------------------- Dordrecht --------------------------------------
@@ -3580,46 +3589,50 @@ $SECTION 												\
 	C=HSS_M(48|48L|51L);
       $ENDGROUP
     }
-#----------------------------- Malmö ------------------------------------------
+#----------------------------- Malm  ------------------------------------------
     {TRAM?
       $GROUP 												\
 	  NAME=S_MALMO;											\
-	  TX=Malmö;											\
+	  TX=Malm;											\
 	  LC=2; %GBG(STBGNO,ENV_WAYT1);
 	C=MSS_100;
 	C=MSS_(42|(42,180))(|L);
 	C=MSS_106,0-2*MSS_KOL;
-	TX=Malmö 12+176;										\
+	TX=Malm  12+176;										\
 	  C=MSS_12,MSS_176;
-	TX=Malmö 53;											\
+	TX=Malm  53;											\
 	  C=MSS_53O(|L)|MSS_53(|L);
-	TX=Malmö 42 + 176;										\
+	TX=Malm  42 + 176;										\
 	  C=(MSS_42L,MSS_180L)|(MSS_42,MSS_180);
-	TX=Malmö 74 + 196;										\
+	TX=Malm  74 + 196;										\
 	  C=(MSS_74VL,MSS_196VL)|(MSS_74V,MSS_196V)|(MSS_74HL,MSS_196HL)|(MSS_74H,MSS_196H);
       $ENDGROUP
     }
-#----------------------------- Norrköping -------------------------------------
+#----------------------------- Norrk ping -------------------------------------
     {TRAM?
       $GROUP 												\
 	  NAME=S_NORRK;											\
-	  TX=Norrköping;										\
+	  TX=Norrk ping;										\
 	  LC=1; %GBG(STBGNO,ENV_WAYT1);
-	TX=Norrköping M 94;										\
+	TX=Norrk ping M 94;										\
 	  C=NORK_M94A|NORK_M94AL|NORK_M94B|NORK_M94BL;
-	TX=Norrköping M 97;										\
+	TX=Norrk ping M 97;										\
 	  C=NORK_M97(|L);
-	TX=Norrköping M 06;										\
+	TX=Norrk ping M 06;										\
 	  C=NORK_M06;
       $ENDGROUP
     }
 #----------------------------- Stockholm --------------------------------------
-    {TRAM?
+    {TRAM|CRAIL|BUS?
       $GROUP 												\
 	  NAME=S_STOCKHOLM1;										\
-	  LC=3; ENV=$EBG(STBGNO),									&\
-	  $EWX(WT,ENV_WAYT1),										&\
-	  $EWX(WA,ENV_WAYA);
+      $GROUP LC=3; ENV=$EBG(STBGNO),									&\
+      $GROUP 												\
+	  NAME=S_STOCKHOLM1;										\
+	  LC=3; %GBG(STBGNO,ENV_WAYT1);
+#   LC=3; ENV=$EBG(STBGNO),         &
+#   $EWX(WT,ENV_WAYT1),          &
+#   $EWX(WA,ENV_WAYA);
 	TX=Stockholm A12;										\
 	  C=SL_A12;
 	TX=Stockholm A24 + B24;										\
@@ -3643,27 +3656,28 @@ $SECTION 												\
 	  NAME=S_STOCKHOLM2;										\
 	  TX=Stockholm;											\
 	  LC=2;
-	C=SL_CN94U(B|A)(|L);
+	C=SL_CN94U(B|A)(|L); %LBG(STBGNO,ENV_WAYA);
       $ENDGROUP
     }
     {CRAIL?
       $GROUP 												\
 	  NAME=S_STOCKHOLM3;										\
-	  LC=3; ENV=$CBG(WM,STBGUB,ENV_WAYM),								&\
-	  $CBG(WR,STBGFO,ENV_WAYT11); $CBGWE,STBGFO,ENV_WAYT10;
+	  LC=3; %GBG(STBGUB,ENV_WAYM);
+	$GROUP LC=3; ENV=$CBG(WM,STBGUB,ENV_WAYM),							&\
+#   $CBG(WR,STBGFO,ENV_WAYT11); $CBGWE,STBGFO,ENV_WAYT10;
 	TX=Stockholm Metro C 1-14;									\
 	  C=(6*(SL_C1|SL_C2|SL_C3))|(6*(SL_C14B))|(6*(SL_C5))|(6*(SL_C4|SL_C14));
 	TX=Stockholm U-Bahn C 20;									\
 	  C=2*SL_C20;
 	TX=Stockholm S-Bahn;										\
-	  C=<SL_CORADIA(F[!L],1-3*M,F);
+	  C=<SL_CORADIA(F[!L],1-3*M,F); %LBG(STBGFO,ENV_WAYT11);
 	TX=Stockholm S-Bahn SX 10;									\
 	  C=1-3*(<SL_5X10_3119AL,SL_5X10_3119B)|(<SL_5X10_3119BL,SL_5X10_3119A)|			\
-	    (<SL_5X10_3120_1989AL,SL_5X10_3120_1989B)|(<SL_5X10_3120_1989BL,SL_5X10_3120_1989A);
+	    (<SL_5X10_3120_1989AL,SL_5X10_3120_1989B)|(<SL_5X10_3120_1989BL,SL_5X10_3120_1989A); %LBG(STBGFO,ENV_WAYT11);
 	TX=Stockholm S-Bahn SX 10;									\
-	  C=1-2*(<SL_5X10_3165AL,SL_5X10_3165B)|(<SL_5X10_3165BL,SL_5X10_3165A);
+	  C=1-2*(<SL_5X10_3165AL,SL_5X10_3165B)|(<SL_5X10_3165BL,SL_5X10_3165A); %LBG(STBGFO,ENV_WAYT11);
 	TX=Stockholm S-Bahn SX 10;									\
-	  C=1-2*(<SL_6X10_3180AL,SL_6X10_3180B)|(<SL_6X10_3180BL,SL_6X10_3180A);
+	  C=1-2*(<SL_6X10_3180AL,SL_6X10_3180B)|(<SL_6X10_3180BL,SL_6X10_3180A); %LBG(STBGFO,ENV_WAYT11);
       $ENDGROUP
     }
   }
@@ -3677,8 +3691,9 @@ $SECTION 												\
       $GROUP 												\
 	  NAME=FI_HELS;											\
 	  TX=Helsinki;											\
-	  LC=1; ENV=$CBG(WT,STBGNO,ENV_WAYT1),								&\
-	  $CBG(WM,STBGFN|STBGUB,ENV_WAYM);
+	  LC=1; %GBG(STBGNO,ENV_WAYT1);
+#   LC=1; ENV=$CBG(WT,STBGNO,ENV_WAYT1),        &
+#   $CBG(WM,STBGFN|STBGUB,ENV_WAYM);
 	{TRAM?
 	  TX=Helsinki GT6;										\
 	    C=HELS_GT6O(|L)|HELS_GT6G(|L);
@@ -3687,7 +3702,7 @@ $SECTION 												\
 	}
 	{CRAIL?
 	  TX=Helsinki Metro;										\
-	    C=3*HELS_METRO;
+	    C=3*HELS_METRO; %LBG((STBGFN|STBGUB),ENV_WAYM);
 	}
       $ENDGROUP
     }
@@ -3708,19 +3723,20 @@ $SECTION 												\
       $GROUP 												\
 	  NAME=E_BARCELONA;										\
 	  TX=Barcelona;											\
-	  LC=1; ENV=$CBG(WL,STBGUB,ENV_WAYTUN1),							&\
-	  $CBG(WT,STBGES,ENV_WAYT1);
+	  LC=1; %GBG(STBGUB,ENV_WAYTUN1);
+#   LC=1; ENV=$CBG(WL,STBGUB,ENV_WAYTUN1),       &
+#   $CBG(WT,STBGES,ENV_WAYT1);
 	{CRAIL?
 	  C=<2*TMB_4000(FL,M,F);
 	  TX=Metro Barcelona;										\
-	    C=<TMB_9000FL,TMB_9000E,TMB_9000M,TMB_9000E[!L],TMB_9000F; %GBG(STBGUB,ENV_WAYM);
+	    C=<TMB_9000FL,TMB_9000E,TMB_9000M,TMB_9000E[!L],TMB_9000F;
 	}
 	{TRAM?
 	  TX=Barcelona Citadis;										\
-	    C=TMB_CITADIS~FLE|TMB_CITADIS~WSI; %LBG(STBGMD,ENV_WAYT2);
+	    C=TMB_CITADIS~FLE|TMB_CITADIS~WSI;								\
+	    $LBGSTBGES,ENV_WAYT3; %LBG(STBGMD,ENV_WAYT2);
 	}
 	{BUS?
-	  %FAV(TMB_IRIZAR_I2E)
 	}
       $ENDGROUP
     }
@@ -3742,8 +3758,9 @@ $SECTION 												\
       $GROUP 												\
 	  NAME=E_MADRID;										\
 	  TX=Madrid;											\
-	  LC=3; ENV=$CBG(WT,STBGMD,$FLG(X,ENV_WAYT2,ENV_WAYT1)),					&\
-	  $CBG(WL,STBGUB,ENV_WAYTUN1);
+	  LC=3; %GBG(STBGMD,ENV_WAYT1);
+#   LC=3; ENV=$CBG(WT,STBGMD,$FLG(X,ENV_WAYT2,ENV_WAYT1)),     &
+#   $CBG(WL,STBGUB,ENV_WAYTUN1);
 	{TRAM?
 	  C=TM_1000|TM_1001~VIA;
 	  TX=Madrid Charleroi;										\
@@ -3752,27 +3769,34 @@ $SECTION 												\
 	    C=TM_1001L~MRT|TM_1001~MRT;
 	  TX=Ligero Citadis;										\
 	    C=TM_CITADIS302|LIGERO_CITADIS;								\
-	    F=X;
+	    F=X; %LBG(STBGMD,ENV_WAYT2);
 	  TX=PARLA CITADIS 302;										\
 	    C=PARLA_CITADIS302|PARLA_CITADIS;								\
-	    F=X;
+	    F=X; %LBG(STBGMD,ENV_WAYT2);
 	}
 	{CRAIL?
 	  TX=Metro Madrid 1000;										\
-	    C=<2*TM_1000A,4*TM_1000B;
+	    C=<2*TM_1000A,4*TM_1000B;									\
+	    $LBGSTBGUB,ENV_WAYTUN1;
 	  TX=Metro Madrid 1000;										\
-	    C=4-6@TM_1000(C|D)[POU];
+	    C=4-6@TM_1000(C|D)[POU];									\
+	    $LBGSTBGUB,ENV_WAYTUN1;
 	  TX=Metro Madrid 2000;										\
-	    C=3@TM_2000A;
+	    C=3@TM_2000A;										\
+	    $LBGSTBGUB,ENV_WAYTUN1;
 	  TX=Metro Madrid 2000;										\
-	    C=3@TM_2000(B|C);
+	    C=3@TM_2000(B|C);										\
+	    $LBGSTBGUB,ENV_WAYTUN1;
 	  TX=Metro Madrid 6000;										\
-	    C=<TM_6000EL,TM_6000M,TM_6000E,TM_6000FL,TM_6000M,TM_6000F;
+	    C=<TM_6000EL,TM_6000M,TM_6000E,TM_6000FL,TM_6000M,TM_6000F;					\
+	    $LBGSTBGUB,ENV_WAYTUN1;
 	  TX=Metro Madrid 7000;										\
-	    C=<TM_7000AL,4*TM_7000M,TM_7000A;
+	    C=<TM_7000AL,4*TM_7000M,TM_7000A;								\
+	    $LBGSTBGUB,ENV_WAYTUN1;
 	  TX=Metro Madrid 8000;										\
-	    C=(<TM_8000AL,4*TM_8000M,TM_8000A)|(<TM_8000BL,4*TM_8000M,TM_8000B);
-	}
+	    C=(<TM_8000AL,4*TM_8000M,TM_8000A)|(<TM_8000BL,4*TM_8000M,TM_8000B);			\
+	  TX=Metro Barcelona;										\
+	    C=<TMB_9000FL,TMB_9000M,TMB_9000E,TMB_9000M,TMB_9000F;
 	{BUS?
 	  %FAV(EMTM_I2E,Madrid)
 	}
@@ -3842,19 +3866,20 @@ $SECTION 												\
       $GROUP 												\
 	  NAME=P_LISBOA;										\
 	  TX=Lisboa;											\
-	  LC=2;												\
-	  ENV=$CBG(WM,STBGUB,ENV_WAYM),									&\
-	  $FLG(X,$CBG(WT,STBGITW,ENV_WAYT2),$CBG(WT,STBGES,ENV_WAYT1));
+	  LC=3; %GBG(STBGES,ENV_WAYT1);
+#   LC=2;
+#   ENV=$CBG(WM,STBGUB,ENV_WAYM),         &
+#   $FLG(X,$CBG(WT,STBGITW,ENV_WAYT2),$CBG(WT,STBGES,ENV_WAYT1));
 	{CRAIL?
 	  TX=Lissabon U-Bahn 90;									\
-	    C=<LIS_ML90FL,3*LIS_ML90M,LIS_ML90F;
+	    C=<LIS_ML90FL,3*LIS_ML90M,LIS_ML90F; %LBG(STBGUB,ENV_WAYM);
 	  TX=Lissabon U-Bahn 97;									\
-	    C=<LIS_ML97FL,3*LIS_ML97M,LIS_ML97F;
+	    C=<LIS_ML97FL,3*LIS_ML97M,LIS_ML97F; %LBG(STBGUB,ENV_WAYM);
 	}
 	{TRAM?
 	  TX=Lissabon - sul Tejo;									\
 	    C=TEJO_TN|TEJO_TN;										\
-	    F=X;
+	    F=X; %LBG(STBGITW,ENV_WAYT2);
 	  TX=Lissabon NF;										\
 	    C=LIS_NFL[#D:L]|LIS_NF[#D:R];
 	  TX=Lissabon 500;										\
@@ -3968,7 +3993,6 @@ $SECTION 												\
 	    C=AMTG_20; %LBG(STBGITW,ENV_WAYT8);
 	}
 	{BUS?
-	  %SAV(AMTG_O520_89, Genova)
 	}
       $ENDGROUP
     }
@@ -3988,9 +4012,11 @@ $SECTION 												\
     {TRAM|CRAIL?
       $GROUP 												\
 	  NAME=I_NAPOLI;										\
-	  LC=2; ENV=$EBG(STBGES),									&\
-	  $EWX(WT,ENV_WAYT1),										&\
-	  $EWX(WL,ENV_WAYT8);
+	  LC=2; %GBG(STBGES,ENV_WAYT1);
+      $GROUP LC=2; ENV=$EBG(STBGES),									&\
+#     $EWX(WT,ENV_WAYT1),          &
+#     $EWX(WL,ENV_WAYT8);
+#   LC=2;
 	{TRAM?
 	  TX=Napoli Sirio;										\
 	    C=NAPOLI_SIRIO|NAPOLI_SIRIO;
@@ -4001,11 +4027,11 @@ $SECTION 												\
 	}
 	{CRAIL?
 	  TX=Napoli Metro;										\
-	    C=3*NAPOLI_1;
+	    C=3*NAPOLI_1; %LBG(STBGUB,ENV_WAYT8);
 	  TX=Napoli Metro;										\
-	    C=NAPOLI_T67;
+	    C=NAPOLI_T67; %LBG(STBGUB,ENV_WAYT8);
 	  TX=Napoli MetroCampania NordEst;								\
-	    C=3*(<MCNE_MA055,MCNE_MA054);
+	    C=3*(<MCNE_MA055,MCNE_MA054); %LBG(STBGUB,ENV_WAYT8);
 	}
       $ENDGROUP
     }
@@ -4041,9 +4067,10 @@ $SECTION 												\
     {TRAM|BUS?
       $GROUP 												\
 	  TX=Brno;											\
-	  LC=2; ENV=$EBG(STBGEU),									&\
-	  $EWX(WT,ENV_WAYT1),										&\
-	  $EWX(WA,ENV_WAYA);
+	  LC=3; %GBG(STBGEU,ENV_WAYT1);
+#   LC=2; ENV=$EBG(STBGEU),         &
+#   $EWX(WT,ENV_WAYT1),          &
+#   $EWX(WA,ENV_WAYA);
 	{TRAM?
 	  TX=Brno T3;											\
 	    C=(DPMB_T3L,DPMB_VV60LFL)|(DPMB_T3,DPMB_VV60LF);
@@ -4068,11 +4095,13 @@ $SECTION 												\
 	    C=DPMB_LF2RE(|L);
 	  TX=Brno Astra;										\
 	    C=DPMB_ANITRA(|L);
+	  TX=Brno Skoda 13T;										\
+	    C=BRNO_SKODA13T_1901[SM:0.322,0.34][BT:254,33,20][OB:BRA_T6P[BC:-10,-80],252,30];
 	}
 	{BUS?
 	  TX=Brno;											\
 	    M=FOLLOW;											\
-	    C=(DPMB_14T;DPMB_15T);
+	    C=(DPMB_14T;DPMB_15T); %LBG(STBGEU,ENV_WAYA);
 	}
       $ENDGROUP
     }
@@ -4143,8 +4172,9 @@ $SECTION 												\
     {TRAM|CRAIL?
       $GROUP 												\
 	  TX=Prag;											\
-	  LC=2; ENV=$CBG(WT,STBGEU,ENV_WAYT1),								&\
-	  $CBG(WM,STBGUB,ENV_WAYM);
+	  LC=2; %GBG(STBGEU,ENV_WAYT1);
+#   LC=2; ENV=$CBG(WT,STBGEU,ENV_WAYT1),        &
+	$CBG(WM,STBGUB,ENV_WAYM);
 	{TRAM?
 	  TX=Praha 2141 + 1084;										\
 	    C=PRAG_2141(|L),PRAG_1084;
@@ -4158,11 +4188,12 @@ $SECTION 												\
 	    C=PRAG_KT8D5A|PRAG_KT8D5B;
 	  TX=Praha 14T;											\
 	    C=PRAG_14T(|L);
+	  TX=Praha RT6N;											\
 	  C=PRAG_RT6N1(|L);
 	}
 	{CRAIL?
 	  C=<3:PRAG_81_(714L,3*717,714)|PRAG_81(FL,3*FM,F)|PRAG_ECS(L,,L,);
-	  C=<PRAG_M1(FL,3*M,F);
+	  C=<PRAG_M1(FL,3*M,F); %LBG(STBGUB,ENV_WAYM);
 	}
       $ENDGROUP
     }
@@ -4176,9 +4207,9 @@ $SECTION 												\
     {TRAM|BUS?
       $GROUP 												\
 	  TX=Bratislava;										\
-	  LC=2; ENV=$EBG(STBGEO),									&\
-	  $EWX(WT,ENV_WAYT1),										&\
-	  $EWX(WA,ENV_WAYA);
+	  LC=2; %GBG(STBGEO,ENV_WAYT1);
+#   LC=2; ENV=$EBG(STBGEO),         &
+	$EWX(WT,ENV_WAYT1), $EWX(WA,ENV_WAYA);
 	{TRAM?
 	  C=PVVV_(0|0A|1|1A|2);
 	  TX=Bratislava T3;										\
@@ -4190,28 +4221,33 @@ $SECTION 												\
 	}
 	{BUS?
 	  M=FOLLOW;											\
-	    C=3-6*DPB_(IK280|IK415~HB|IK415~TOM|IK435A|IK435~HB|IK435~TOM|KAR1|KAR2|KAR3);
+	    C=3-6*DPB_(IK280|IK415~HB|IK415~TOM|IK435A|IK435~HB|IK435~TOM|KAR1|KAR2|KAR3); %LBG(STBGEO,ENV_WAYA);
 	}
       $ENDGROUP
     }
 #----------------------------- Kosice -----------------------------------------
     {TRAM|BUS?
-      $GROUP 												\
-	  TX=Kosice;											\
-	  ENV=$EBG(STBGEO),										&\
-	  $EWX(WT,ENV_WAYT1),										&\
-	  $EWX(WA,ENV_WAYA);
-	{TRAM?
+      {TRAM?
+	$GROUP 												\
+	    TX=Kosice;											\
+	    LC=2; %GBG(STBGEO,WAYT1);
+#   ENV=$EBG(STBGEO),          &
+#   $EWX(WT,ENV_WAYT1),          &
+#   $EWX(WA,ENV_WAYA);
 	  TX=Kosice T6A5;										\
 	    C=DPMK_T6A5(_1|(|_2)|_3)(|L);
 	  TX=Kosice KT8;										\
 	    C=DPMK_KT8D5(A|B|C);
-	}
-	{BUS?
+	$ENDGROUP
+      }
+      {BUS?
+	$GROUP 												\
+	    TX=Kosice;											\
+	    LC=2; %GBG((STBGEO|STBGMD),WAYA);
 	  TX=Kosice;											\
 	    C=DPMK_IK280L;
-	}
-      $ENDGROUP
+	$ENDGROUP
+      }
     }
   }
 #==============================================================================
@@ -4232,14 +4268,27 @@ $SECTION 												\
     {TRAM|BUS?
       $GROUP 												\
 	  TX=Czestochowa;										\
-	  LC=1; %ETA(STBGEO,ENV_WAYT1);
+	  LC=1; %GBG(STBGEO,ENV_WAYT1);
+#   LC=1; %ETA(STBGEO,ENV_WAYT1);
 	{TRAM?
 	  TX=Czestochowa 105N;										\
 	    C=1-2@CZEN_105NA(|2|L);
 	}
 	{BUS?
 	  M=FOLLOW;											\
-	    C=(CZEN_IK280_01;CZEN_IK415_01;CZEN_IK435_01;CZEN_IK412_01);
+	    C=(CZEN_IK280_01;CZEN_IK415_01;CZEN_IK435_01;CZEN_IK412_01); %LBG(STBGEO,ENV_WAYA);
+	}
+      $ENDGROUP
+    }
+#----------------------------- Elblag ------------------------------------
+    {TRAM|BUS?
+      $GROUP 												\
+	  TX=Elblag;										\
+	  LC=1; %GBG(STBGEO,ENV_WAYT1);
+#   LC=1; %ETA(STBGEO,ENV_WAYT1);
+	{TRAM?
+	  TX=Elblag Pesa 121N;										\
+	  C=ELBL_PESA121N_401[SM:0.32][BT:136,34,34][EB:P_CITADIS_NICEM,132];
 	}
       $ENDGROUP
     }
@@ -4247,7 +4296,8 @@ $SECTION 												\
     {TRAM|BUS?
       $GROUP 												\
 	  TX=Gdansk;											\
-	  LC=2; %ETA(STBGEO,ENV_WAYT1);
+	  LC=2; %GBG(STBGEO,ENV_WAYT1);
+#   LC=2; %ETA(STBGEO,ENV_WAYT1);
 	{TRAM?
 	  M=OPEN;											\
 	    C=GDA_105NA|GDA_NGD99;									\
@@ -4256,18 +4306,22 @@ $SECTION 												\
 	    C=[PHU]2@(GDA_(105NA|105NAL|K105NA|K105NA2|K105NAL));
 	  TX=Gdansk NGD99;										\
 	    C=GDA_N(GD99|GD99L);
+    	  TX=Gdansk 114NA;										\
+	    C=GDA_114NA_1502[SM:0.32][BT:201,30,24][EB:#P_CITADIS_NICEM,202,29];
+
+
 	}
 	{BUS?
 	  M=OPEN;											\
 	    C=GDA_IK260_01;										\
-	    V=5-6; T2=3;
+	    V=5-6; T2=3; %LBG(STBGEO,ENV_WAYA);
 	  M=FOLLOW;											\
 	    C=5-7*GDA_IK260_04|GDA_IK260_042|GDA_IK260_01|GDA_IK260_02|GDA_IK260_73A|GDA_IK260_73A2|	\
 	      GDA_IK260_73A3|GDA_IK260_73A4|GDA_IK260_73A5|GDA_IK280_50|GDA_IK280|GDA_IK280_58|		\
 	      GDA_IK280_58_2|GDA_IK280_58_3|GDA_IK280_58_5|GDA_IK280_58_4|GDA_IK280_01|GDA_IK280_58B|	\
-	      GDA_IK280_58B2|GDA_IK280_26A|GDA_IK280_26B|GDA_IK280_26C|GDA_IK280_26D|GDA_IK280_51;
+	      GDA_IK280_58B2|GDA_IK280_26A|GDA_IK280_26B|GDA_IK280_26C|GDA_IK280_26D|GDA_IK280_51; %LBG(STBGEO,ENV_WAYA);
 	  TX=Gdynia;											\
-	    C=GDY_(IK260_01|IK260_02|IK280T_01|IK280_01|IK280_02|IK280_03|JE11_01);
+	    C=GDY_(IK260_01|IK260_02|IK280T_01|IK280_01|IK280_02|IK280_03|JE11_01); %LBG(STBGEO,ENV_WAYA);
 	}
       $ENDGROUP
     }
@@ -4284,7 +4338,7 @@ $SECTION 												\
 #----------------------------- Katowice ---------------------------------------
     {TRAM?
       $GROUP 												\
-	  TX=Katowice;											\
+	  TX=Katowice / Górny Slask;											\
 	  LC=2; %GBG(STBGEO,ENV_WAYT1);
 	TX=Katowice Typ N;										\
 	  C=WPK_(|4)N(|(,D));
@@ -4293,21 +4347,30 @@ $SECTION 												\
 	  C=2@(WPK_105NA(|L));
 	TX=Katowice Typ 116ND;										\
 	  C=WPK_(116ND|CITEK)(|L);
+	TX=Katowice Typ 105NA;										\
+	  C=TSSA_105NA[SM:0.32][BT:89,31,32][EB:#P_CITADIS_NICEM,98,29];
+
+
       $ENDGROUP
     }
 #----------------------------- Krakow -----------------------------------------
     {TRAM|BUS?
       $GROUP 												\
 	  TX=Krakow;											\
-	  LC=2; %ETA(STBGEO,ENV_WAYT1);
+	  LC=2; %GBG(STBGEO,ENV_WAYT1);
+#   LC=2; %ETA(STBGEO,ENV_WAYT1);
 	{TRAM?
 	  M=OPEN;											\
 	    C=(1-2*KRAK_105NA~STO)|(KRAK_T4,|KRAK_B4)|KRAK_GT6|KRAK_102NA|KRAK_NF6~STO|KRAK_IK260_01;	\
 	    T2=3;
 	  C=[PHU]1-2@(KRAK_105NA(|L)~STO);
 	  C=KRAK_(T4|(T4,B4))(|L);
+	  TX=Krakau 102N;										\
 	  C=KRAK_(102NA|102ND|GT6)(|L);
 	  C=KRAK_102N(|A1|A2|A3|AD|AD1)(|L);
+	  TX=Krakau 102N;										\
+	  C=KRAK_102N_106[SM:0.32,0.34][BT:150,31,26][OB:WPK_10NAP[BC:-40,0,0,0,,1],143,30];
+	  TX=Krakau MGT6;										\
 	  C=KRAK_(FLEXITY|MGT6K_2000|MGT6K_2015|NF6)(|L);
 	  TX=Krakau 105N;										\
 	    C=[PHU](2*KRAK_105NAL~FLE)|(2*KRAK_105NA~FLE)|(2*KRAK_105NA2L)|(2*KRAK_105NA2);
@@ -4317,14 +4380,16 @@ $SECTION 												\
 	    C=KRAK_N8SNF;
 	  TX=Krakau MGT6K;										\
 	    C=KRAK_MGT6K_2000L|KRAK_MGT6K_2000|KRAK_MGT6K_2015L|KRAK_MGT6K_2015;
+	  TX=Krakau Pesa;										\
+	    C=KRAK_PESA_KRAKOWIAK[SM:0.322][BT:346,34,20][EB:#P_CITADIS_NICEM,346];
 	}
 	{BUS?
 	  M=FOLLOW;											\
-	    C=(KRAK_IK260_01;KRAK_IK280_01;KRAK_JEM11_01;KRAK_120M);
+	    C=(KRAK_IK260_01;KRAK_IK280_01;KRAK_JEM11_01;KRAK_120M); %LBG(STBGEO,ENV_WAYA);
 	  M=FOLLOW;											\
 	    C=5-7*([SS]											\
 	      X46_KRAK_IK280_(24274|34004|34253|34253A|BK006|BK009|BK011|BK244|BK270|DK004|DK190|	\
-	      DK196|DK224|DK224A|DK234|DK280|DK285|DK578));
+	      DK196|DK224|DK224A|DK234|DK280|DK285|DK578)); %LBG(STBGEO,ENV_WAYA);
 	}
       $ENDGROUP
     }
@@ -4344,13 +4409,18 @@ $SECTION 												\
 	  C=LODZ_CTR(L~FLE|~FLE|~STO);
 	TX=Lodz 122N;											\
 	  C=LODZ_122N(|L);
+	TX=Lodz Pesa 122N;											\
+	  C=LODZ_PESA122N_1853[SM:0.32][BT:252,33,25][EB:P_CITADIS_NICEM,242];
+
+
       $ENDGROUP
     }
 #----------------------------- Poznan -----------------------------------------
     {TRAM|BUS?
       $GROUP 												\
 	  TX=Poznan;											\
-	  LC=2; %ETA(STBGEO,ENV_WAYT1);
+	  LC=2; %GBG(STBGEO,ENV_WAYT1);
+#   LC=2; %ETA(STBGEO,ENV_WAYT1);
 	{TRAM?
 	  C=POZ_5N(|(,D))_(1|2);
 	  M=OPEN;											\
@@ -4359,19 +4429,26 @@ $SECTION 												\
 	  C=POZ_1G(|L);
 	  TX=Poznan 105N;										\
 	    C=[PHU]2@POZ_105NA(|1|2)(|L);
+	TX=Katowice Typ 105NA;										\
+	  C=POZ_MODERUS_ALPHA_150[SM:0.32][BT:89,31,32][EB:#P_CITADIS_NICEM,98,29];
 	  TX=Poznan Gt6 Duewag;										\
 	    C=POZ_GT6(|A)(|L);
 	  TX=Poznan Gt8 Duewag;										\
 	    C=POZ_GT8(|_4T|_5T)(|L);
 	  TX=Poznan RT6;										\
 	    C=POZ_RT6N1(|L)(~FLE|~STO);
+	  TX=Poznan Moderus Beta;										\
+	    C=POZ_MODERUS_BETA[SM:0.32][BT:237,32,25][OB:BRA_T6P[BC:-10,-80],240,30];
+	  TX=Poznan H. Cegielski Fabryka Pojazdów Szynowych 118 NA;										\
+	    C=HCP_118NA[SM:0.35][BT:146,32,35][EB:#P_CITADIS_NICEM,160,29];
+
 	}
 	{BUS?
 	  M=FOLLOW;											\
-	    C=3-6*POZ_(IK160_01|IK260_01|IK260_02|IK280_01|IK280_02|IK280_03|IK280_50|IK435_01|JE11_01);
+	    C=3-6*POZ_(IK160_01|IK260_01|IK260_02|IK280_01|IK280_02|IK280_03|IK280_50|IK435_01|JE11_01); %LBG(STBGEO,ENV_WAYA);
 	  M=OPEN;											\
 	    C=POZ_(IK260_02|IK280_03|RT6N1~STO);							\
-	    T2=3;
+	    T2=3; %LBG(STBGEO,ENV_WAYA);
 	}
       $ENDGROUP
     }
@@ -4391,10 +4468,18 @@ $SECTION 												\
     {TRAM|CRAIL|BUS?
       $GROUP 												\
 	  TX=Warszawa;											\
-	  LC=3; ENV=$CBG(WT,STBGEO,ENV_WAYT1),								&\
-	  $CBG(WM,STBGUB,ENV_WAYM),									&\
-	  $CBG(WA,STBGEO,ENV_WAYA);
+	  LC=3; %GBG(STBGEO,ENV_WAYT1);
+#   LC=3; ENV=$CBG(WT,STBGEO,ENV_WAYT1),        &
+#   $CBG(WM,STBGUB,ENV_WAYM),         &
+#   $CBG(WA,STBGEO,ENV_WAYA);
 	{TRAM?
+	  TX=Warschau 13N;										\
+	    C=2*(WAR_13N_1(|L)|WAR_13N_2(|L));
+	  TX=Warschau 13N;										\
+	  C=2*WAR_13N_407[SM:0.32,0.34][BT:87,32,32][OB:WPK_10NAP[BC:-20,20],79,31];
+	  TX=Warschau N;										\
+	  C=WAR_N_607[SM:0.346][BT:42,32,32][OB:WPK_10NAP[BC:-20,20],35,31];
+	  TX=Warschau N;										\
 	  C=WAR_N(B|G|R|RM);
 	  M=OPEN;											\
 	    C=<(1:1|3:2@WAR_(105NA|105NAW(|B|BUD)|13N))|WAR_111NA(L,);					\
@@ -4411,27 +4496,73 @@ $SECTION 												\
 	    C=2*(WAR_13N_1(|L)|WAR_13N_2(|L));
 	  TX=Warschau 105N;										\
 	    C=[PHU](2*(WAR_105NA(|1|1L|2|2L|L|W)));
+	  TX=Warschau 105N2;										\
+	    C=2*WAR_105N2K_2044[SM:0.325,0.34][BT:97,31,21][EB:#P_CITADIS_NICEM,94];
 	  TX=Warschau 120N;										\
 	    C=WAR_120N_1(|L)|WAR_120N_2(|L);
+ 	    TX=Warschau Pesa 116 NA;										\
+	    C=WAR_116NA1_3017[SM:0.326][BT:201,31,17][EB:#P_CITADIS_NICEM,195];
+	  TX=Warschau Pesa 120N;										\
+	    C=WAR_PESA120NA_3118[SM:0.326][BT:154,34,20][EB:#P_CITADIS_NICEM,149];
+
 	}
 	{CRAIL?
 	  TX=Warschau Metro;										\
-	    C=<WAR_81572PL,3*WAR_81573P,WAR_81572P;
+	    C=<WAR_81572PL,3*WAR_81573P,WAR_81572P; %LBG(STBGUB,ENV_WAYM);
 	}
 	{BUS?
 	  M=FOLLOW;											\
 	    C=5-8*WAR_IK260_02|WAR_IK260O|WAR_IK260_98|WAR_IK260N|WAR_IK260_03|WAR_IK260_01|		\
 	      WAR_IK260_99|WAR_IK280O|WAR_IK280_50|WAR_IK280_52|WAR_IK280N|WAR_IK280_51|WAR_IK280_01|	\
 	      WAR_IK280_02|WAR_JE11_01|WAR_IK411_01|WAR_IK417_01|WAR_IK417_02|WAR_IK435|WAR_IK435_01|	\
-	      WAR_IK405_01|WAR_IK405_02|WAR_IK405_03|WAR_120M|WAR_120M1|WAR_M11;
+	      WAR_IK405_01|WAR_IK405_02|WAR_IK405_03|WAR_120M|WAR_120M1|WAR_M11; %LBG(STBGEO,ENV_WAYA);
 	}
       $ENDGROUP
     }
 #----------------------------- Wroclaw ----------------------------------------
-    {TRAM?
+      $GROUP 												\
+	  TX=Wroclaw;											\
+	  LC=3; %GBG(STBGEO,ENV_WAYT1);
+#   LC=3; ENV=$CBG(WT,STBGEO,ENV_WAYT1),        &
+#   $CBG(WM,STBGUB,ENV_WAYM),         &
+#   $CBG(WA,STBGEO,ENV_WAYA);
+	{TRAM?
       TX=Wroclaw/Breslau 105N;										\
-	C=[PHU](2-3*WROC_105NAL)|(2-3*(WROC_105NA|WROC_105NA1)); %LBG(STBGEO,ENV_WAYT1);
+	C=[PHU](2-3*WROC_105NAL)|(2-3*(WROC_105NA|WROC_105NA1));     
+      TX=Wroclaw/Breslau 102N 2110;										\
+	C=WROC_102N_2110[SM:0.32,0.34][BT:150,31,26][OB:WPK_10NAP[BC:-40,0,0,0,,1],143,30];	
+      TX=Wroclaw/Breslau 102N 2007;										\
+	C=WROC_102NA_2007[SM:0.32,0.34][BT:150,31,26][OB:WPK_10NAP[BC:-40,0,0,0,,1],143,30];	
+      TX=Wroclaw/Breslau 105NA 2222;										\
+	C=WROC_105NA_2222[SM:0.32,0.34][BT:81,31,32][OB:WPK_10NAP[BC:-40,0,0,0,,1],79,31];	
+      TX=Wroclaw/Breslau 105NA 2424;										\
+	C=WROC_105NA_2424[SM:0.32,0.34][BT:81,31,32][OB:WPK_10NAP[BC:-40,0,0,0,,1],79,31];	
+      TX=Wroclaw/Breslau 105N 2276;										\
+	C=WROC_105N_2276[SM:0.32,0.34][BT:81,31,32][OB:WPK_10NAP[BC:-40,0,0,0,,1],79,31];	
+      TX=Wroclaw/Breslau 105NA 2558;										\
+	C=WROC_105NA_2558[SM:0.32,0.34][BT:81,31,32][OB:WPK_10NAP[BC:-40,0,0,0,,1],79,31];	
+      TX=Wroclaw/Breslau 105NA 2558;										\
+	C=WROC_105NA_2558[SM:0.32,0.34][BT:81,31,32][EB:#P_CITADIS_NICEM,96];	
+      TX=Wroclaw/Breslau 105NA 2558;										\
+	C=WROC_105NA_2558[SM:0.32,0.34][BT:81,31,32][EB:#P_CITADIS_NICEM,96];	
+      TX=Wroclaw/Breslau 105NWR 2113;										\
+	C=WROC_105NWR_2313[SM:0.32,0.34][BT:81,31,32][EB:#P_CITADIS_NICEM,96];	
+      TX=Wroclaw/Breslau 105NWR 2602;										\
+	C=WROC_204WRAS_2602[SM:0.32,0.34][BT:81,31,32][EB:#P_CITADIS_NICEM,96];	
+	  TX=Wroclaw/Breslau Moderus Beta;										\
+	    C=(WROC_MODERUS_BETA_2901|WROC_MODERUS_BETA_2801)[SM:0.32,0.34][BT:237,32,25][EB:#P_CITADIS_NICEM,236];
+      TX=Wroclaw/Breslau Skoda 16T;										\
+	C=WROC_SKODA16T_3001[SM:0.322,0.34][BT:254,33,20][EB:#P_CITADIS_NICEM,252];	
+      TX=Wroclaw/Breslau Skoda 19T;										\
+	C=WROC_SKODA19T_3101[SM:0.322,0.34][BT:144,34,21][EB:#P_CITADIS_NICEM,143];	
+      TX=Wroclaw/Breslau 205WRAS;										\
+	C=WROC_205WRAS[SM:0.32,0.33][BT:233,36,29][EB:#P_CITADIS_NICEM,231];	
+      TX=Wroclaw/Breslau Towarzystwo Milosników Wroclawia 102N;										\
+	C=(TMW_102N_2004|TMW_102N_2006)[SM:0.32,0.34][BT:150,31,26][OB:WPK_10NAP[BC:-40,0,0,0,,1],143,30];	
     }
+      $ENDGROUP
+	
+	
 #----------------------------- Zakopane ---------------------------------------
     {BUS?
       TX=Zakopane;											\
@@ -4485,13 +4616,13 @@ $SECTION 												\
     {BUS|TRAM?
       $GROUP 												\
 	  TX=Zagreb;											\
-	  LC=1; %ETA(STBGEU,ENV_WAYT1);
+	  #   LC=1; %ETA(STBGEU,ENV_WAYT1);
 	{BUS?
-	  C=ZAGR_O405(|L);
+	  C=ZAGR_O405(|L); %LBG(STBGEU,ENV_WAYA);
 	}
 	{TRAM?
 	  TX=Zagreb 2200;										\
-	    C=ZAGR_CROTRAM2200(|L);
+	    C=ZAGR_CROTRAM2200(|L); %LBG(STBGEU,ENV_WAYT1);
 	}
       $ENDGROUP
     }
@@ -4512,7 +4643,7 @@ $SECTION 												\
 	  C=[PFU]1-2@BEOG_KT4YU(2|3|_M)(|L);
       $ENDGROUP
     }
-#----------------------------- Novi Sad/Újvidék -------------------------------
+#----------------------------- Novi Sad/ jvid k -------------------------------
     {TRAM?
       $GROUP 												\
 	  TX=Novi Sad;											\
@@ -4533,7 +4664,10 @@ $SECTION 												\
     {TRAM|BUS?
       $GROUP 												\
 	  TX=Sofia;											\
-	  LC=1; ENV=$EBG(STBGEO),$EWX(WT,$FLG(X,ENV_WAYO,ENV_WAYT1)),$EWX(WA,ENV_WAYA);
+	  LC=1; %GBG(STBGEO,ENV_WAYT1);
+# ENV=$EBG(STBGEO),$EWX(WT,$FLG(X,ENV_WAYO,ENV_WAYT1)),$EWX(WA,ENV_WAYA);
+# LC=1;
+
 	{TRAM?
 	  TX=Sofia T4/B4;										\
 	    C=SOFIA_(T,B)4(|L);
@@ -4544,7 +4678,7 @@ $SECTION 												\
 	}
 	{BUS?
 	  C=SOFIA_T2706;										\
-	    F=X;
+	    F=X; %LBG(STBGEO,ENV_WAYO);
 	}
       $ENDGROUP
     }
@@ -4558,7 +4692,8 @@ $SECTION 												\
     {TRAM|BUS?
       $GROUP 												\
 	  TX=Athen;											\
-	  LC=1; %ETA(STBGES,$FLG(X,ENV_WAYO,ENV_WAYT2));
+	  LC=3; %GBG(STBGES,ENV_WAYT2);
+#   LC=1; %ETA(STBGES,$FLG(X,ENV_WAYO,ENV_WAYT2));
 	{TRAM?
 	  TX=Athen Sirio;										\
 	    C=ATHEN_SIRIO;
@@ -4566,10 +4701,10 @@ $SECTION 												\
 	{BUS?
 	  TX=Athen;											\
 	    C=ATHEN_N6216;										\
-	    F=X;
+	    F=X; %LBG(STBGES,ENV_WAYO);
 	  TX=Athen;											\
 	    C=ATHEN_N6016E(|L);										\
-	    F=X;
+	    F=X; %LBG(STBGES,ENV_WAYO);
 	}
       $ENDGROUP
     }
@@ -4583,7 +4718,8 @@ $SECTION 												\
     {TRAM|BUS?
       $GROUP 												\
 	  TX=Istambul;											\
-	  LC=2; %ETA(STBGMD,$FLG(X,ENV_WAYT3,ENV_WAYT2));
+	  LC=3; %GBG(STBGMD,ENV_WAYT2);
+#   LC=2; %ETA(STBGMD,$FLG(X,ENV_WAYT3,ENV_WAYT2));
 	{TRAM?
 	  TX=Istanbul TZ 70;										\
 	    C=IST_201;
@@ -4591,7 +4727,7 @@ $SECTION 												\
 	    C=IST_202;
 	  TX=Istanbul B80;										\
 	    C=1-2*IST_B80(|[!L]);									\
-	    F=X;
+	    F=X; %LBG(STBGMD,ENV_WAYT3);
 	}
 	{BUS?
 	  M=FOLLOW;											\
@@ -4722,14 +4858,15 @@ $SECTION 												\
     {TRAM|CRAIL?
       $GROUP 												\
 	  TX=Samara;											\
-	  ENV=$CBG(WT,STBGRU,ENV_WAYT1),								&\
-	  $CBG(WM,STBGUB,ENV_WAYM);
+	  LC=3; %GBG(STBGRU,ENV_WAYT1);
+#   ENV=$CBG(WT,STBGRU,ENV_WAYT1),        &
+#   $CBG(WM,STBGUB,ENV_WAYM);
 	{TRAM?
 	  C=<SAMARA_81(714L,2*717,714);
 	}
 	{CRAIL?
 	  TX=Samara Metro;										\
-	    C=<SAMARA_81714L,4*SAMARA_81714,SAMARA_81717;
+	    C=<SAMARA_81714L,4*SAMARA_81714,SAMARA_81717; %LBG(STBGUB,ENV_WAYM);
 	}
       $ENDGROUP
     }
@@ -4745,8 +4882,9 @@ $SECTION 												\
     {TRAM|CRAIL?
       $GROUP 												\
 	  TX=Kiev;											\
-	  LC=2; ENV=$CBG(WT,STBGRU,ENV_WAYT1),								&\
-	  $CBG(WM,STBGUB,ENV_WAYM);
+	  LC=3; %GBG(STBGRU,ENV_WAYT1);
+#   LC=2; ENV=$CBG(WT,STBGRU,ENV_WAYT1),        &
+#   $CBG(WM,STBGUB,ENV_WAYM);
 	{TRAM?
 	  C=KIEV_MTV82(T1|(T2,B2)(|L)|T3(|L)|(T4,B4)(|L));
 	  C=KIEV_LM57_5001(|L);
@@ -4758,7 +4896,7 @@ $SECTION 												\
 	}
 	{CRAIL?
 	  TX=Kiev Metro;										\
-	    C=<KIEV_81714L,3*KIEV_81717,KIEV_81714;
+	    C=<KIEV_81714L,3*KIEV_81717,KIEV_81714; %LBG(STBGUB,ENV_WAYM);
 
 	}
       $ENDGROUP
@@ -4813,7 +4951,7 @@ $SECTION 												\
   }
 
 #----------------------------------------------------------
-# Ägypten
+#  Ägypten
 
   {AF?
     {TRAM?
@@ -4886,15 +5024,16 @@ $SECTION 												\
     {TRAM|CRAIL?
       $GROUP 												\
 	  TX=Los Angeles;										\
-	  LC=2; ENV=$CBG(WT,STBGUS,ENV_WAYT1),								&\
-	  $CBG(WM,(STBGUB|STBGITW),ENV_WAYM);
+	  LC=3; %GBG(STBGUS,ENV_WAYT1);
+#   LC=2; ENV=$CBG(WT,STBGUS,ENV_WAYT1),        &
+#   $CBG(WM,(STBGUB|STBGITW),ENV_WAYM);
 	{TRAM?
 	  TX=Los Angeles 5050;										\
-	    C=PE_5050; %LBG(STBGUS,ENV_WAYT1);
+	    C=PE_5050;
 	  TX=Los Angeles PCC;										\
-	    C=PE_PCCL|PE_PCC|PE_PCC1; %LBG(STBGUS,ENV_WAYT1);
+	    C=PE_PCCL|PE_PCC|PE_PCC1;
 	  TX=Lary (Los Angeles Railway)PCC;								\
-	    C=LARY_PCC_P(1A|1B|1C|2A|2B|3A|3B)(|L); %LBG(STBGUS,ENV_WAYT1);
+	    C=LARY_PCC_P(1A|1B|1C|2A|2B|3A|3B)(|L);
 	  TX=Los Angeles P 850;										\
 	    C=<LA_P850_(1|2A|2B|3)([#D:R]|L[#D:LS]|(L,)|(L,L,)|(L,,)); %LBG(STBGMD,ENV_WAYT3);
 	  TX=Los Angeles P 850;										\
@@ -5191,7 +5330,10 @@ $SECTION 												\
 
 # Hiroshima
     {TRAM|BUS?
-      $GROUP LC=1; %ETA(STBGJP05C,ENV_WAYT1);
+      $GROUP                                                                                            \
+	LC=1;												\
+	   %GBG(STBGJP05C,ENV_WAYT1);
+#      LC=1; %ETA(STBGJP05C,ENV_WAYT1);
 	{TRAM?
 	  TX=Hiroshima 651-655;										\
 	    C=HIROD_(651|652|653|655);
@@ -5202,7 +5344,7 @@ $SECTION 												\
 	}
 	{BUS?
 	  TX=Hiroshima;											\
-	    C=BUS_RHIRODEN(|L);
+	    C=BUS_RHIRODEN(|L); %LBG(STBGJP05C,ENV_WAYA);
 	}
       $ENDGROUP
     }

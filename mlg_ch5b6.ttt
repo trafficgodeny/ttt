@@ -300,6 +300,11 @@ $REQUIRE MLG_DEF.TTT
 	(>SBB_RBDE561_EXREGIO,SBB_EW2B_ABV,2*SBB_EW1B_BV(|L),SBB_NPZ_BT5L);				\
       V=12;												\
       F=EPRU5;
+    TX=SBB RBDe 523 Regionalzug;									\
+      C=CFF_RABE523_REGB;										\
+      V=12;												\
+      F=EPRU5;
+
 ;GLARNER SPRINTER
     TX=SBB NPZ + Glarner Sprinter;									\
       C=(<SBB_NPZ_REGGSL,SBB_EW1B_BGS,SBB_EW1B_AGSL,SBB_EW1R_BGSL,SBB_BTNPZ_REGGS)|			\
@@ -543,14 +548,14 @@ $REQUIRE MLG_DEF.TTT
       AV=9;
     TX=BLS Re 4/4;											\
       C=2*BLS_RE44_1A(|L)[PU],										\
-	4*DB_EALOST058K[OB:WOOD7(1|2|3|4|5),7,33|34][OB:WOOD7(1|2|3|4|5),28,33|34]			\
-	[OB:WOOD7(1|2|3|4|5),49,34][OB:WOOD7(1|2|3|4|5),70,33|34][OB:WOOD7(1|2|3|4|5),91,34]		\
-	[OB:WOOD7(1|2|3|4|5),112,33|34],								\
-	DB_ROOS639VR[OB:WOOD7(1|2|3),8,12][OB:WOOD7(1|2|3),50,12][OB:WOOD7(1|2|3),92,12]		\
+	4*DB_EALOST058K[OB:WOOD(199|200|201|202|203),7,33|34][OB:WOOD(199|200|201|202|203),28,33|34]			\
+	[OB:WOOD(199|200|201|202|203),49,33|34][OB:WOOD(199|200|201|202|203),70,33|34][OB:WOOD(199|200|201|202|203),91,34]		\
+	[OB:WOOD(199|200|201|202|203),112,33|34],								\
+	DB_ROOS639VR[OB:WOOD1(88|89|70),8,12][OB:WOOD1(88|89|70),50,12][OB:WOOD1(88|89|70),92,12]		\
 	[OB:WOOD(8|9|10),134,12][OB:WOOD(8|9|10),160,12],						\
-	6*DB_EALOST058K[OB:WOOD7(1|2|3|4|5),7,33|34][OB:WOOD7(1|2|3|4|5),28,33|34]			\
-	[OB:WOOD7(1|2|3|4|5),49,34][OB:WOOD7(1|2|3|4|5),70,33|34][OB:WOOD7(1|2|3|4|5),91,34]		\
-	[OB:WOOD7(1|2|3|4|5),112,33|34],5*(DB_SHIMMNS720B|DB_SHIMMNS722|RAI_SHIMMNS722);		\
+	6*DB_EALOST058K[OB:WOOD(199|200|201|202|203),7,33|34][OB:WOOD(199|200|201|202|203),28,33|34]			\
+	[OB:WOOD(199|200|201|202|203),49,33|34][OB:WOOD(199|200|201|202|203),70,33|34][OB:WOOD(199|200|201|202|203),91,34]		\
+	[OB:WOOD(199|200|201|202|203),112,33|34],5*(DB_SHIMMNS720B|DB_SHIMMNS722|RAI_SHIMMNS722);		\
       V=10;												\
       F=EF5;
     TX=BLS Re 465;											\
@@ -647,19 +652,32 @@ $REQUIRE MLG_DEF.TTT
 
 ;RM
 ;--
+    TX=Regionalverkehr Mittelland EBT 100;								\
+      C=EBT_100[PFU],EBT_100[PBU],RMCH_EW2_NPZI_BD(|L),EBT_EW1_2G_BR;					\
+      V=8;												\
+      F=EPR5;
+    TX=Regionalverkehr Mittelland Re 456;								\
+      C=RMCH_RE456(|L),RMCH_EW2_NPZI_BD(|L),RM_EW1_2G_BR(|L);						\
+      V=10;												\
+      F=EPR5;
     TX=Regionalverkehr Mittelland BDe 4/4 200;								\
       C=(<RMCH_BDE44_200R(|L),EBT_EW1_8T_BR,RMCH_EW1_8T_ABTR)|						\
 	(>RMCH_BDE44_200R(|L),EBT_EW1_8T_BR,RMCH_EW1_8T_ABTRL);						\
       V=11;												\
       F=EPRU5;
     TX=Regionalverkehr Mittelland RBDe 566 II;								\
-      C=<(RMCH_RBDE566IIAL,RMCH_LEGO_1,RMCH_ABT930A)|(RMCH_ABT930AL,RMCH_LEGO_1,RMCH_RBDE566IIA);	\
+      C=<(RMCH_RBDE566IIAL,RMCH_LEGO_1,RMCH_ABT930A)|(RMCH_ABT930AL,RMCH_LEGO_1L,RMCH_RBDE566IIA);	\
       V=12;												\
       F=EPRU5;
     TX=Regionalverkehr Mittelland RBDe 566 II;								\
-      C=<(RMCH_RBDE566IIL,RMCH_LEGO_NPZI|RMCH_LEGO_NPZIIPL|RMCH_JUMBO(|L),RMCH_ABT930)|			\
-	(RMCH_ABT930L,RMCH_LEGO_NPZI|RMCH_LEGO_NPZIIPL|RMCH_JUMBO(|L),RMCH_RBDE566II);			\
+      C=(<RMCH_RBDE566IIL,RMCH_LEGO_NPZI|RMCH_LEGO_NPZIIPL|RMCH_JUMBO(|L),RMCH_ABT930)|			\
+	(>RMCH_RBDE566II,RMCH_LEGO_NPZIL|RMCH_LEGO_NPZIIPLL|RMCH_JUMBO(|L),RMCH_ABT930L);		\
       V=12;												\
+      F=EPRU5;
+    TX=Regionalverkehr Mittelland BT 934;								\
+      C=(<RMCH_BT934AL,RMCH_EW1_2G_NPZI_B(|L),RMCH_RBDE566IIAL,RMCH_LEGO_NPZI(|L),RMCH_ABT930A)|	\
+	(>RMCH_BT934A,RMCH_EW1_2G_NPZI_B(|L),RMCH_RBDE566IIAL,RMCH_LEGO_NPZI(|L),RMCH_ABT930AL);	\
+      V=11;												\
       F=EPRU5;
     TX=Regionalverkehr Mittelland GTW 2/6;								\
       C=RM_GTW26;											\
@@ -905,15 +923,15 @@ $REQUIRE MLG_DEF.TTT
 
 ;TILO
 ;----
-    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia) RABe 524;					\
+    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia)RABe 524;					\
       C=TILO_RABE524_L1;										\
       V=12;												\
       F=EPRU5;
-    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia) NPZ;					\
+    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia)NPZ;					\
       C=(<TILO_NPZ1L,TILO_EW2R1_AB(|L),TILO_BTNPZ1)|(>TILO_NPZ1,TILO_EW2R1_AB(|L),TILO_BTNPZ1L);	\
       V=12;												\
       F=EPRU5;
-    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia) NPZ;					\
+    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia)NPZ;					\
       C=(<TILO_NPZ1L,TILO_EW1R1_AB(|L),2*TILO_EW1R1_B(|L),TILO_BTNPZ1)|					\
 	(>TILO_NPZ1,TILO_EW2R1_AB(|L),2*TILO_EW1R1_B(|L),TILO_BTNPZ1L);					\
       V=12;												\
@@ -964,10 +982,8 @@ $REQUIRE MLG_DEF.TTT
       F=EPU6;
 ;RAILJET
     TX=OBB 1116 Railjet;										\
-      C=1-2@((<OBB_1116_P3RJL,OBB_RAILJET_BE,3*OBB_RAILJET_B,OBB_RAILJET_AR,OBB_RAILJET_A,		\
-	OBB_RAILJET_AS)|										\
-	(>OBB_1116_P3RJ,OBB_RAILJET_BEL,3*OBB_RAILJET_BL,OBB_RAILJET_ARL,OBB_RAILJET_AL,		\
-	OBB_RAILJET_ASL));										\
+      C=(1-2*((<OBB_1116_P3RJL,OBB_RAILJET7V_1S_RJ_R)|(<OBB_1116_P3RJL,OBB_RAILJET7V_1S_RJB_R)))|	\
+	(1-2*((>OBB_1116_P3RJ,OBB_RAILJET7V_1S_RJ_L)|(>OBB_1116_P3RJ,OBB_RAILJET7V_1S_RJB_L)));		\
       V=14;												\
       F=EPU6;
 
@@ -1035,6 +1051,23 @@ $REQUIRE MLG_DEF.TTT
 	SBB_IC2000_BTL);										\
       V=16;												\
       F=EPU6;
+    TX=SBB Re 460 + IC 2000;										\
+      C=(<SBB_RE460,SBB_IC2000_AD,SBB_IC2020_A(|L),4*SBB_IC2020_B(|L),SBB_IC2000_BT)|			\
+	(>SBB_RE460,SBB_IC2000_ADL,SBB_IC2020_A(|L),4*SBB_IC2020_B(|L),SBB_IC2000_BTL);			\
+      V=16;												\
+      F=EPU6;
+    TX=SBB Re 460 + IC 2000;										\
+      C=(<SBB_RE460,SBB_IC2000_AD,SBB_IC2000(|L),SBB_IC2000_BR(|L),3*SBB_IC2000_B(|L),SBB_IC2020_BT)|	\
+	(>SBB_RE460,SBB_IC2020_ADL,SBB_IC2000(|L),SBB_IC2000_BR(|L),SBB_IC2000_B(|L),SBB_IC2020_B(|L),	\
+	SBB_IC2000_B(|L),SBB_IC2020_BTL);								\
+      V=16;												\
+      F=EPU6;
+    TX=SBB Re 460 + IC 2000;										\
+      C=(<SBB_RE460,SBB_EW4NA(|L),SBB_EC3A(|L),SBB_EW4NA(|L),5*SBB_EW4NB(|L),SBB_EW4_IC2_BT)|		\
+	(>SBB_RE460,SBB_EW4NA(|L),SBB_EC3A(|L),SBB_EW4NA(|L),5*SBB_EW4NB(|L),SBB_EW4_IC2_BTL);		\
+      V=16;												\
+      F=EPU6;
+
 ;IR
     TX=SBB Re 460 + IR;											\
       C=SBB_RE460~MLG,SBB_5UIC1B(|L),									\
@@ -1054,6 +1087,23 @@ $REQUIRE MLG_DEF.TTT
     TX=SBB Re 460 + IR;											\
       C=SBB_RE460~MLG,SBB_5UIC1B(|L),SBB_UICZNB(|L),2*SBB_5EW2B2,2*SBB_EC_A(|L),SBB_D_MC76A(|L);	\
       V=14;												\
+      F=EP6;
+    TX=SBB Re 460 + IR;											\
+      C=(<SBB_RE460,3*SBB_EW4NA(|L),5*SBB_EW4NB(|L),SBB_EW4I3SRL,SBB_EW4_IC2_BT)|			\
+	(>SBB_RE460,3*SBB_EW4NA(|L),5*SBB_EW4NB(|L),SBB_EW4I3SR,SBB_EW4_IC2_BTL);			\
+      V=16;												\
+      F=EP6;
+    TX=SBB Re 460 + IR;											\
+      C=(<SBB_RE460,SBB_EW4NASL,SBB_EW4NA(|L),SBB_EW4NB(|L),SBB_EW4I3B(|L),SBB_EW4NB(|L),		\
+	SBB_EW4I3B(|L),SBB_EW4NB(|L),SBB_EW4_IC2_BT)|							\
+	(>SBB_RE460,SBB_EW4NAS,SBB_EW4NA(|L),SBB_EW4NB(|L),SBB_EW4I3B(|L),SBB_EW4NB(|L),		\
+	SBB_EW4I3B(|L),SBB_EW4NB(|L),SBB_EW4_IC2_BTL);							\
+      V=16;												\
+      F=EP6;
+    TX=SBB Re 460 + IR;											\
+      C=<SBB_RE460,SBB_EW4_IC2_BTL,SBB_EW4NB(|L),SBB_EW4NA(|L),SBB_IC2020_BTL,SBB_IC2020_B(|L),		\
+	2*SBB_IC2000_B(|L),SBB_IC2020_BR(|L),SBB_IC2000(|L),SBB_IC2000_ADL,SBB_RE460;			\
+      V=16;												\
       F=EP6;
 
 ;RHEINTAL-EXPRESS
@@ -1233,9 +1283,21 @@ $REQUIRE MLG_DEF.TTT
       C=CFF_RABE511_0_REGIO|CFF_RABE511_1_REGIO;							\
       V=12;												\
       F=EPRU6;
+    TX=SBB RABe 512;											\
+      C=CFF_RABE512_0;											\
+      V=16;												\
+      F=EPRU6;
     TX=SBB RABe 521;											\
       C=1-2*CFF_RABE521_REGIO;										\
       V=14;												\
+      F=EPRU6;
+    TX="SBB RABe 521 (+ RABe 522)";									\
+      C=CFF_RABE521_L2_CH,|CFF_RABE522_2_REGR;								\
+      V=12;												\
+      F=EPRU6;
+    TX=SBB RABe 522;											\
+      C=CFF_RABE522_REGIO;										\
+      V=12;												\
       F=EPRU6;
     TX=SBB RABe 522;											\
       C=1-2*CFF_RABE522_2_REGR;										\
@@ -1246,12 +1308,16 @@ $REQUIRE MLG_DEF.TTT
       V=14;												\
       F=EPRU6;
     TX=SBB RABe 523;											\
+      C=CFF_RABE523_REGBZUG;										\
+      V=12;												\
+      F=EPRU6;
+    TX=SBB RABe 523;											\
       C=1-2*CFF_RABE523_REGR;										\
       V=14;												\
       F=EPRU6;
-    TX=SBB RABe 524;											\
-      C=CFF_RABE524_REGR;										\
-      V=14;												\
+    TX=SBB RABe 524 Genève - La Plaine;									\
+      C=CFF_RABE524_REGR_DC;										\
+      V=11;												\
       F=EPRU6;
     TX=SBB RABe 526;											\
       C=1-2@CFF_RABE526_2;										\
@@ -1262,14 +1328,27 @@ $REQUIRE MLG_DEF.TTT
       V=12;												\
       F=EPRU6;
 ;RER VAUD
+#    TX=SBB RABe 523 RER Vaud;
+#      C=1-3@CFF_RABE523_RERV;
+#      V=12;
+#      F=EPRU6;
+#    TX=SBB RABe 523 RER Vaud;
+#      C=CFF_RABE523_1_RERV,CFF_RABE523_RERV,CFF_RABE523_1_RERV;
+#      V=12;
+#      F=EPRU6;
     TX=SBB RABe 523 RER Vaud;										\
-      C=1-3@CFF_RABE523_REGRERV;									\
+      C=1-3@CFF_RABE523_1_RERV;										\
       V=12;												\
       F=EPRU6;
     TX=SBB RABe 523 RER Vaud;										\
-      C=CFF_RABE523_1_REGRERV,CFF_RABE523_REGRERV,CFF_RABE523_1_REGRERV;				\
+      C=CFF_RABE523_5,|CFF_RABE523_1_RERV;								\
       V=12;												\
       F=EPRU6;
+    TX=SBB RABe 523 RER Vaud;										\
+      C=2-3@CFF_RABE523_5;										\
+      V=12;												\
+      F=EPRU6;
+
 ;SEETAL
     TX=SBB RABe 520 Seetal;										\
       C=CFF_RABE520_AA|CFF_RABE520_LU;									\
@@ -1403,7 +1482,7 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=EF6;
     TX=SBB 193 + Güterzug;										\
-      C=2*CFF_193_RMNT_ACN,14-16*AAE_SGGRSS80(|L)[O:C4I_PO8|C4I_PO9,8,12][O:C4I_PO8|C4I_PO9,138,12];	\
+      C=2*CFF_193_RMNT_ACN,14-16*AAE_SGGMRS90(|L)[O:C4I_PO8|C4I_PO9,7,12][O:C4I_PO8|C4I_PO9,152,12];	\
       V=10;												\
       F=EF6;
     TX=SBB Ae 6/6 Cargo + Güterzug;									\
@@ -1448,10 +1527,32 @@ $REQUIRE MLG_DEF.TTT
 	SBB_HBBILLNS40P_CARGO;										\
       V=8;												\
       F=EF6;
+    TX=SBB Am 841 + Übergabezug;									\
+      C=SBB_AM841R(|L),5*SBB_5EAOS[O:BETTERAVES1|BETTERAVES2],SBB_4RS[OB:C2R29,,13],			\
+	SBB_4RS[OB:C2R_HAPAG12,30,13][OB:C2R_HAPAG12,108,13];						\
+      V=7; W=E;												\
+      F=EF6;
+    TX=SBB Am 841 + Übergabezug;									\
+      C=SBB_AM841R(|L),3*SBB_HBBILLNS40P_CARGO;								\
+      V=7; W=E;												\
+      F=EF6;
     TX=SBB Am 843 Cargo + Güterzug;									\
       C=SBB_AM843CM(|L),SBB_EANOS7,3*SBB_TAGNPPS_CARGO(|L);						\
       V=8;												\
       F=EF6;
+
+;------------------
+;--- REGIONALPS ---
+;------------------
+
+    TX=Region Alps RABe 525;										\
+      C=RA_RABE525;											\
+      V=10;												\
+      F=EPRU6;
+    TX=Region Alps RBDe 560;										\
+      C=RA_DOMINO_RBDE560_4;										\
+      V=12;												\
+      F=EPRU6;
 
 ;-----------
 ;--- BLS ---
@@ -1576,6 +1677,11 @@ $REQUIRE MLG_DEF.TTT
       C=BLS_NINA3_L4,0-1*(BLS_NINA3_L3|BLS_NINA3_L4);							\
       V=12;												\
       F=EPRU6;
+    TX=BLS NINA 4;											\
+      C=BLS_NINA3_W,BLS_NINA3_L3;									\
+      V=12;												\
+      F=EPRU6;
+
     TX=BLS RABe 535;											\
       C=1-3*BLS_RABE535_L;										\
       V=12;												\
@@ -1850,43 +1956,43 @@ $REQUIRE MLG_DEF.TTT
 
 ;TILO
 ;----
-    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia) RABe 523;					\
+    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia)RABe 523;					\
       C=TILO_RABE523_L1S;										\
       V=12;												\
       F=EPRU6;
-    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia) RABe 524;					\
+    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia)RABe 524;					\
       C=1-2@TILO_RABE524_L1,0-1*TILO_RABE524_1_L1;							\
       V=12;												\
       F=EPRU6;
-    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia) RABe 524;					\
+    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia)RABe 524;					\
       C=TILO_RABE524_1_L1;										\
       V=12;												\
       F=EPRU6;
-    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia) RABe 524;					\
+    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia)RABe 524;					\
       C=TILO_RABE524_L2|TILO_RABE524_1_L2;								\
       V=12;												\
       F=EPRU6;
-    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia) RABe 524;					\
+    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia)RABe 524;					\
       C=TILO_RABE524_L2,TILO_RABE524_1_L2;								\
       V=12;												\
       F=EPRU6;
-    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia) RABe 524;					\
+    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia)RABe 524;					\
       C=TILO_RABE524_2_L2T,|TILO_RABE524_L2;								\
       V=12;												\
       F=EPRU6;
-    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia) RABe 524;					\
+    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia)RABe 524;					\
       C=TILO_RABE524_L3,TILO_RABE524_L3|TILO_RABE524_L2;						\
       V=12;												\
       F=EPRU6;
-    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia) RABe 524;					\
+    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia)RABe 524;					\
       C=TILO_RABE524_1_L3,;										\
       V=12;												\
       F=EPRU6;
-    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia) RABe 524;					\
+    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia)RABe 524;					\
       C=TILO_RABE524_2_L3,TILO_RABE524_1_L2;								\
       V=12;												\
       F=EPRU6;
-    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia) RABe 524.3;				\
+    TX=Treni Regionali Ticino Lombardia (SBB and Trenitalia)RABe 524.3;					\
       C=TILO_RABE524_3_L3_AC;										\
       V=12;												\
       F=EPRU6;

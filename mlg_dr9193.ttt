@@ -22,8 +22,8 @@ $REQUIRE MLG_DEF.TTT
 	DB_BM235IC(|L);											\
       F=DP5;
     TX=DR 132 + EC 56 Dresden – Paris;									\
-      C=DR_132S2BX1(|L)|DR_132S2BX2(|L),3*SNCF_VU_CN_B11(|L),2*SNCF_VTU_CN_B(|L),2*SNCF_VU_CN_B11(|L),	\
-	SNCF_GRILLCN(|L),SNCF_VSE_A9N(|L),SNCF_VTU_AN(|L);						\
+      C=DR_132S2BX1(|L)|DR_132S2BX2(|L)|DR_132S2BX2B(|L),3*SNCF_VU_CN_B11(|L),2*SNCF_VTU_CN_B(|L),	\
+	2*SNCF_VU_CN_B11(|L),SNCF_GRILLCN(|L),SNCF_VSE_A9N(|L),SNCF_VTU_AN(|L);				\
       V=12;												\
       F=DP5;
 
@@ -97,7 +97,12 @@ $REQUIRE MLG_DEF.TTT
 	OBB_BM22500AS1(|L),DR_WRME84R(|L),DR_HS_AME_SX(|L),OBB_AM10500S(|L);				\
       V=12;												\
       F=EP5;
-
+;D 464 WARSHAU - MÜNCHEN
+    TX=DR 232 + D 464 Warshau - München;								\
+      C=DR_132S2BX1B(|L),DR_HS_BM(|L),PKP_WLABD78_WARS1(|L),PKP_110A_BCDU_N1(|L),PKP_X91_A(|L),		\
+	3*PKP_G90_B(|_GLVC),SZD_WLABM73(|L);								\
+      V=12;												\
+      F=DP5;
 ;D478 PRIMATOR
     TX=CSD 372 + D478 Primator;										\
       C=CSD_372RY(|L),2*CSD_YB70AG(|L),CSD_YB_WR_B(|L),6*CSD_YB70BG(|L)|CSD_YB70_2S_B_V;		\
@@ -326,7 +331,19 @@ $REQUIRE MLG_DEF.TTT
       V=11;												\
       F=PR5;
     TX=DR 132 + P;											\
-      C=DR_132S2BX1(|L),4*DR_BGHW_G(|L);								\
+      C=(DR_132S2BX1(|L),4*DR_BGHW_G(|L))|(DR_132S3BX2(|L),5*DR_BGHW_G(|L));				\
+      V=10;												\
+      F=DPR5;
+    TX=DR 132 + P;											\
+      C=(DR_132S2BX1(|L),4*DR_BGHW_G(|L))|(DR_132S3BX2(|L),5*DR_BGHW_G(|L));				\
+      V=10; W=X;											\
+      F=DPR5;
+    TX=DR 132 + P;											\
+      C=DR_132S2BX2B(|L),3*DR_BMH1,DR_BGHW_G(|L);							\
+      V=10;												\
+      F=DPR5;
+    TX=DR 132 + P;											\
+      C=DR_132S3BX1(|L),DR_DBVQ4_SBR_(R|L);								\
       V=10;												\
       F=DPR5;
 
