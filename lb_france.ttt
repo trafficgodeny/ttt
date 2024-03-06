@@ -76,7 +76,7 @@ $REQUIRE TRAINDEF.TTT
       F=SP2;
     TX=Frankreich ETAT ZZB 1000;									\
       C=ETAT_ZZB1000TL,ETAT_ZZB1000B|ETAT_ZZB1000T;							\
-      F=SF2;
+      F=DPU2;
     TX=Frankreich ETAT 241;										\
       C=ETAT_241_101L|ETAT_241_101,F2PC;								\
       F=SP2;
@@ -87,6 +87,9 @@ $REQUIRE TRAINDEF.TTT
     TX=Frankreich Nord 2641 75;										\
       C=NORD_2641_75(A|B)(|L),F2PC;									\
       F=SP2;
+    TX=Frankreich Compagnie du chemin de fer Paris et Orléans (PO)5300;\
+      C=PO_5300M(|L),3*F2FPOS;	\
+      F=SF2;    
     TX=Frankreich PLM 241C + Schnellzug;								\
       C=PLM_241C1_1930L[#D:L]|PLM_241C1_1930[#D:R]|PLM_241C1_1932L[#D:L]|PLM_241C1_1932[#D:R]|		\
 	PLM_241C1_1939L[#D:L]|PLM_241C1_1939[#D:R],F2PP;						\
@@ -95,7 +98,8 @@ $REQUIRE TRAINDEF.TTT
       C=PLM_262BD1A,F2PP;										\
       F=SP2;
     TX=Frankreich USTC S160;										\
-      C=USTC_2C_3(379|443|580|675)(|L),10*(NS_88101(E|N)[OB:BOX16,15,13][OB:BOX16,70,13]),USARMY_CAB2;	\
+      C=USTC_2C_3(379|443|580|675)(|L),5*USA_2C_16757(|L),7*USA_2C_22(9174|8075)(|L),\
+      3*(USA_2C_420383(|L)[O:BARREL12,10,24][O:BARREL12,43,24]),USA_2C_900141(|L);	\
       F=SF2;
     TX=Frankreich USTC S160;										\
       C=USTC_2C_2737(|L),10*ACL_FM_7600(|L)[OB:(BOX6|BOX33|BOX28),,11],USARMY_CAB2;			\
@@ -262,10 +266,10 @@ $REQUIRE TRAINDEF.TTT
       F=SF3;
     TX=SNCF 150X + Güterzug;										\
       C=(SNCF_2C150X_1519|SNCF_2C150X_1701|SNCF_3_150X_29|SNCF_3_150X_138|SNCF_3_150X_146|		\
-	SNCF_3_150X_153|SNCF_3_150X_156)(|L),F3FLS;							\
+	SNCF_3_150X_153|SNCF_3_150X_156)(|L),F3FLSA;							\
       F=SF3;
     TX=SNCF 150Y + Güterzug;										\
-      C=(SNCF_3_150Y1993|SNCF_150Y|SNCF_150Y_123)(|L),F3FLS;						\
+      C=(SNCF_3_150Y1993|SNCF_150Y|SNCF_150Y_123)(|L),F3FLSA;						\
       F=SF3;
     TX=SNCF 150Z + Güterzug;										\
       C=SNCF_150Z_2217|SNCF_150ZW,									\

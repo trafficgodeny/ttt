@@ -165,10 +165,11 @@ $SECTION 												\
       }
       {CRAIL?
 	$GROUP 												\
-	    NAME=H_BP_C;										\
-	    LC=1;											\
-	    ENV=$CBG(WT,STBGAU,ENV_WAYT1),$CBG(WR,(STBGAU|STBGFO),ENV_WAY),				\
-	    $CBG(WE,(STBGAU|STBGFO),ENV_WAYT6),$CBG(WM,(STBGUB|STBGFO),ENV_WAYM);
+	    NAME=H_BP_M;										\
+	  LC=1; %GBG((STBGUB|STBGFO),ENV_WAYM);
+#	    LC=1;											\
+#	    ENV=$CBG(WT,STBGAU,ENV_WAYT1),$CBG(WR,(STBGAU|STBGFO),ENV_WAY),				\
+#	    $CBG(WE,(STBGAU|STBGFO),ENV_WAYT6),$CBG(WM,(STBGUB|STBGFO),ENV_WAYM);
 	  TX=Metro M2/M3;										\
 	    C=<BKV_EVXL,3*BKV_EVX,BKV_EVXM;
 	  TX=Metro M2/M3;										\
@@ -177,29 +178,50 @@ $SECTION 												\
 	    C=<BKV_81714EL,3*BKV_81717E;
 	  TX=Metro M2 Alstom Metropolis;								\
 	    C=<BKV_ALSTOMF[!L],3*BKV_ALSTOMM,BKV_ALSTOMF;
+	$ENDGROUP
+	$GROUP 												\
+	    NAME=H_BP_C;										\
+	  LC=1; %GBG((STBGFO),ENV_WAY);
 	  TX=BKV ACSEV;											\
 	    C=BKV_ACSEVM,BKV_ACSEVP;
 	  TX=BKV 448;											\
 	    C=BKV_448;
 	  TX=BKV MIXA;											\
 	    C=(<BKV_MIXA2FL,2*BKV_MIXA2M,BKV_MIXA2F)|(<BKV_MXAFL,BKV_MXAM,BKV_MXAF);
+	$ENDGROUP
+	$GROUP 												\
+	    NAME=H_BP_CE;										\
+	  LC=1; %GBG((STBGFO),ENV_WAYT6);
 	  TX=BKV MX;											\
 	    C=<BKV_MXFL,2*BKV_MXM,BKV_MXF;
 	  TX=Budapesti Helyiérdekû Vasút L07;								\
 	    C=BHEV_L07;
 	  TX=Budapesti Helyiérdekû Vasút M08;								\
 	    C=BHEV_M08J;
+	$GROUP 												\
+	    NAME=H_BP_MF;										\
+	  LC=1; %GBG(STBGUB,ENV_WAYMF);
 	  TX=Milleneumi Földalatti Vasút M1;								\
 	    C=FAVP|FAVS|(<FAVSZ,FAVPOT|MFAVDR);								\
-	    W=F;
+	$ENDGROUP
+	$GROUP 												\
+	    NAME=H_BP_CZS;										\
+	  LC=1; %GBG(STBGFO,ENV_WAY);
 	  TX=[N=Rack railway;G=Zahnradbahn;H=Fogaskerek‡0171;P=Kolej z‡0119bata;			\
 	      F=Chemin de fer ‡0155 cr‡00E9maill‡010Dre;NL=Tandradbaan;];				\
-	    C=(<F_01,FTP1)|(<F_14,FPS1);								\
-	    D=R; V=2;
+	    C=(FTP1[#D:L],F_01)|(FPS1[#D:R],F_14);	 V=2;
+	$ENDGROUP
+	$GROUP 												\
+	    NAME=H_BP_CZE;										\
+	  LC=1; %GBG(STBGFO,ENV_WAYT1);
 	  TX=[N=Rack railway;G=Zahnradbahn;H=Fogaskerek‡0171;P=Kolej z‡0119bata;			\
 	      F=Chemin de fer ‡0155 cr‡00E9maill‡010Dre;NL=Tandradbaan;];				\
 	    C=FOGAS|(<FOGAS,FOGASPOT)|SGP;								\
-	    D=R; V=2;
+	     V=2;
+	  TX=[N=Rack railway;G=Zahnradbahn;H=Fogaskerek‡0171;P=Kolej z‡0119bata;			\
+	      F=Chemin de fer ‡0155 cr‡00E9maill‡010Dre;NL=Tandradbaan;];				\
+	    C=<BKV_SGPM,BKV_SGPP;								\
+	     V=2;
 	$ENDGROUP
       }
       {TRAM?
@@ -3317,9 +3339,9 @@ $SECTION 												\
 	  $GROUP 											\
 	      NAME=D_K_T5;										\
 	      TX=1300;											\
-	      LC=1; SEQ=RSEQ; AB=15; DY=105;
+	      LC=1; SEQ=RSEQ; AB=15; DY=105; %GBG(STBGMD,ENV_WAYT3);
 	    M=1:STOP|2:SIMPLE;										\
-	      C=1-2@KVB_1321L|KVB_1321; %GBG(STBGMD,ENV_WAYT3);
+	      C=1-2@KVB_1321L|KVB_1321; 
 	    M=CUT; D=L;											\
 	      C1=KVB_1321L;										\
 	      D1=L;											\
@@ -4208,7 +4230,7 @@ $SECTION 												\
 	$SECTION 											\
 	    NAME=D_PASSAU;										\
 	    AB=30;											\
-	    W=A; %SECFIN;%TITLE(Passau);
+	     %SECFIN;%TITLE(Passau);
 	  $GROUP 											\
 	      NAME=D_PA_B1;										\
 	      LC=2; %GBG(STBGEU,ENV_WAYA);
@@ -4499,7 +4521,7 @@ $SECTION 												\
 	    AB=30; %SECFIN;%TITLE(Solingen);
 	  $GROUP 											\
 	      NAME=D_SG_O1;										\
-	      LC=1; %GBG(STBGDRM,[WT=ENV_WAYO][WA=ENV_WAYA]);
+	      LC=1; %GBG(STBGDRM,ENV_WAYO);
 	    C=SOL_TS1;
 	    C=SOL_TS2;
 	    C=SOL_TS3;
@@ -4509,7 +4531,7 @@ $SECTION 												\
 	  $ENDGROUP
 	  $GROUP 											\
 	      NAME=D_SG_O2;										\
-	      LC=2; %GBG(STBGDRM,[WT=ENV_WAYO][WA=ENV_WAYA]);
+	      LC=2; %GBG(STBGDRM,ENV_WAYO);
 	    C=SOL_OBUSOL;
 	    C=SOL_OBUSO;
 	    C=SOL_OBUSL;
@@ -4529,7 +4551,7 @@ $SECTION 												\
 	  $ENDGROUP
 	  $GROUP 											\
 	      NAME=D_SG_O3;										\
-	      LC=2; %GBG(STBGDRM,[WT=ENV_WAYO][WA=ENV_WAYA]);
+	      LC=2; %GBG(STBGDRM,ENV_WAYO);
 	    C=SOL_OBUS1L;
 	    C=SOL_OBUS1;
 	    C=SOL_MAN_SG200HONL;
@@ -4545,7 +4567,7 @@ $SECTION 												\
 	  $ENDGROUP
 	  $GROUP 											\
 	      NAME=D_SG_O4;										\
-	      LC=2; %GBG(STBGDRM,[WT=ENV_WAYO][WA=ENV_WAYA]);
+	      LC=2; %GBG(STBGDRM,ENV_WAYO);
 	    C=SOL_175L;
 	    C=SOL_175;
 	    C=SOL_176L;
@@ -4564,7 +4586,8 @@ $SECTION 												\
 	  $ENDGROUP
 	  $GROUP 											\
 	      NAME=D_SG_O5;										\
-	      LC=2; %GBG(STBGDRM,[WT=ENV_WAYO][WA=ENV_WAYA]);
+	      LC=2; %GBG(STBGDRM,ENV_WAYO);
+#	      LC=2; %GBG(STBGDRM,[WT=ENV_WAYO][WA=ENV_WAYA]);  
 	    C=SOL_SL172HO;
 	    C=SOL_SL172HON~AXS;
 	    C=SOL_SG200HO~AXS;
@@ -4573,7 +4596,7 @@ $SECTION 												\
 	  $ENDGROUP
 	  $GROUP 											\
 	      NAME=D_SG_O6;										\
-	      LC=1; %GBG(STBGDRM,[WT=ENV_WAYO][WA=ENV_WAYA]);
+	      LC=1; %GBG(STBGDRM,ENV_WAYO);
 	    C=SOL_SL172OHL;
 	    C=SOL_SL172OH;
 	    C=SOL_SL172HONL~GW;
@@ -4591,7 +4614,7 @@ $SECTION 												\
 	  $ENDGROUP
 	  $GROUP 											\
 	      NAME=D_SG_M1;										\
-	      LC=1; %GBG(STBGDRM,[WT=ENV_WAYO][WA=ENV_WAYA]);
+	      LC=1; %GBG(STBGDRM,ENV_WAYA);
 	    C=SOL_CHEF;											\
 	      TB=ON;
 	    C=SOL_100;											\
@@ -4604,7 +4627,7 @@ $SECTION 												\
 	  $GROUP 											\
 	      NAME=D_SG_M2;										\
 	      TX=Solingen Bus;										\
-	      LC=1; %GBG(STBGDRM,[WT=ENV_WAYO][WA=ENV_WAYA]);
+	      LC=1; %GBG(STBGDRM,ENV_WAYA);
 	    C=SOL_STEIGER1;
 	    C=SOL_STEIGER2;
 	    C=SOL_TURM1;
@@ -5305,7 +5328,7 @@ $SECTION 												\
 # Wien M,N,P,A,B,T;%GBG(STBGAU,ENV_WAYT1);
 	  $GROUP 											\
 	      NAME=A_W_T4;										\
-	      LC=3;
+	      LC=3;  %GBG(STBGAU,ENV_WAYT1);
 	    TX=M + m2;											\
 	      C=(WIEN_MB,2*WIEN_M2)|(WIEN_MBL,2*WIEN_M2L);
 	    TX=M + m2;											\
@@ -5561,7 +5584,7 @@ $SECTION 												\
 	  $GROUP 											\
 	      NAME=GB_L_T1;										\
 	      LC=1;											\
-	      STBGUB; %GBG(STBGGB,ENV_WAYT2);
+	       %GBG(STBGGB,ENV_WAYT2);
 	    TX=Stadtbahn Croydon Flexity;								\
 	      C=LT_FLEXITY;
 	    TX=Z;											\
@@ -5571,7 +5594,7 @@ $SECTION 												\
 	{BUS?
 	  $GROUP 											\
 	      NAME=GB_L_B1920;										\
-	      LC=3;
+	      LC=3; %GBG(STBGGB,ENV_WAYA);
 	    %FAK(H0_LON1920K,(London 1920-30s, Typ: K))
 	    %FAK(H0_LON1920LB,(London 1920-30s, Typ: LB))
 	    %FAK(H0_LON1920S,(London 1920-30s, Typ: S))
@@ -5592,7 +5615,7 @@ $SECTION 												\
 	  $ENDGROUP
 	  $GROUP 											\
 	      NAME=GB_L_B1930;										\
-	      LC=4;
+	      LC=4; %GBG(STBGGB,ENV_WAYA);
 	    %FAK(H0_LON1930LT,(London Transport 1930-40s, Typ: LT))
 	    %FAK(H0_LON1930CC,(London Transport 1930-40s, Typ: CC))
 	    %FAK(H0_LON1930LTL,(London Transport 1930-40s, Typ: LTL))
@@ -5618,7 +5641,7 @@ $SECTION 												\
 	  $ENDGROUP
 	  $GROUP 											\
 	      NAME=GB_L_B1940;										\
-	      LC=2;
+	      LC=2; %GBG(STBGGB,ENV_WAYA);
 	    %FAK(H0_LON1940B,(London Transport 1940-50s, Typ: B))
 	    %FAK(H0_LON1940G,(London Transport 1940-50s, Typ: G))
 	    %FAK(H0_LON1940D,(London Transport 1940-50s, Typ: D))
@@ -5626,7 +5649,7 @@ $SECTION 												\
 	  $ENDGROUP
 	  $GROUP 											\
 	      NAME=GB_L_B1950A;										\
-	      LC=2;
+	      LC=2; %GBG(STBGGB,ENV_WAYA);
 	    %FAK(H0_LON1950RT,(London Transport 1950-70s, Typ: RT))
 	    %FAK(H0_LON1950RTL,(London Transport 1950-70s, Typ: RTL))
 	    %FAV(LT_RTW-LT_SRT,(London Transport 1950-70s))
@@ -5635,7 +5658,7 @@ $SECTION 												\
 	  $ENDGROUP
 	  $GROUP 											\
 	      NAME=GB_L_B1950B;										\
-	      LC=3;
+	      LC=3; %GBG(STBGGB,ENV_WAYA);
 	    %FAK(H0_LON1950RM,(London Transport 1950-90s, RM: Routemaster))
 	    %FAK(H0_LON1950RMC,(London Transport 1950-90s, RMC: Coach Routemaster))
 	    %FAK(H0_LON1950RCL,(London Transport 1950-90s, RCL: Routemaster Long Coach))
@@ -5647,7 +5670,7 @@ $SECTION 												\
 	  $ENDGROUP
 	  $GROUP 											\
 	      NAME=GB_L_B1960;										\
-	      LC=2;
+	      LC=2; %GBG(STBGGB,ENV_WAYA);
 	    %FAK(H0_LON1960XF,(London Transport 1960-70s, XF: Experimental Fleetline, XA: Experimental Atlantean))
 	    %FAK(H0_LON1960MB,(London Transport 1960-70s, MB, MBF: Merlin))
 	    %FAK(H0_LON1960SM,(London Transport 1960-70s, SM: Swift))
@@ -5656,7 +5679,7 @@ $SECTION 												\
 	  $ENDGROUP
 	  $GROUP 											\
 	      NAME=GB_L_B1970;										\
-	      LC=2;
+	      LC=2; %GBG(STBGGB,ENV_WAYA);
 	    %FAK(H0_LON1970MS,(London Transport 1970-90s, MS: MetroScania single-decker))
 	    %FAK(H0_LON1970LS,(London Transport 1970-90s, LS: National))
 	    %FAK(H0_LON1970GLS,(London Transport 1970-90s, GLS: Greenway))
@@ -5665,7 +5688,7 @@ $SECTION 												\
 	  $ENDGROUP
 	  $GROUP 											\
 	      NAME=GB_L_B1980;										\
-	      LC=2;
+	      LC=2; %GBG(STBGGB,ENV_WAYA);
 	    %FAK(H0_LON1980T,(London Transport 1980-00s, T: Leyland Titan))
 	    %FAK(H0_LON1980M,(London Transport 1980-00s, M: Metrobus))
 	    %FAK(H0_LON1980V,(London Transport 1980-00s, V: Volvo Ailsa))
@@ -6514,11 +6537,15 @@ $SECTION 												\
 	  }
 	  {TRAM?
 	    $GROUP 											\
-		NAME=DK_COP_T1; %GBG(STBGEU,[WT=ENV_WAYT1][WA=ENV_WAYA]);
+		NAME=DK_COP_P1; %GBG(STBGEU,ENV_WAYA);
 	      TX=Pferdebahn;										\
 		C=(HORSED_PB,KS_1)|(HORSE_PB,KS_NES1)|(HORSE_TWIN_PB,KS_20)|(HORSE_PB_MM,KS_389L)|	\
 		  (HORSE_PB,KS_389);									\
-		V=3; W=A;
+		V=3;
+	    $ENDGROUP	    											
+	    $GROUP 			\		
+		NAME=DK_COP_T1; %GBG(STBGEU,ENV_WAYT1);
+#		NAME=DK_COP_T1; %GBG(STBGEU,[WT=ENV_WAYT1][WA=ENV_WAYA]);
 	      TX=1;											\
 		C=KS_1E2|KS_1E;
 	      TX=20;											\

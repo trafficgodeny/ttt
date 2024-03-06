@@ -741,6 +741,13 @@ $REQUIRE TRAINDEF.TTT
 
 {SLO?
   %ADDPOOL(POOL_SLO,SLO_ENV[TX#=SLOVENIA])
+
+    {E6?
+       TX=SZ 664;											\
+	C=SZ_664(|L),3*HZ_2417(A|B|C)(|L);								\
+	F=DP5;
+    }
+
     {E6?
       TX=Slovenien 642;											\
 	C=SZ_642L|SZ_642,SLO5F1;									\
@@ -985,7 +992,7 @@ $REQUIRE TRAINDEF.TTT
 }
 ###############################################################################
 ##                                                                           ##
-##                             Serbia/Yugoslavia                             ##
+##                             	Yugoslavia                             	     ##
 ##                                                                           ##
 ###############################################################################
 {YU?
@@ -1014,7 +1021,7 @@ $REQUIRE TRAINDEF.TTT
     {E4?
       TX=JDZ 33;											\
 	C=(JDZ_33_016L|JDZ_33_016|JDZ_33_044|JDZ_33_044L|JDZ_33_087|JDZ_33_087L|JDZ_33_293|JDZ_33_293L), \
-	  YU4FL1;											\
+	  YU4FLA;											\
 	F=SF34;
       TX=JZ 640;											\
 	C=JZ_640A(|L),JZ_ZTPZ_SR1|JZ_AEELMT1070L,JZ_WREELMT8770L;					\
@@ -1039,7 +1046,7 @@ $REQUIRE TRAINDEF.TTT
 	C=JZ_661(|L),(<JZ_DSG,ZSRB_WLB7110A,3*JZ_B2910,3*JZ_ABMZ,2*JZ_B2910,ZSRB_WLB7110A);		\
 	F=DP4;
       TX=JZ 661 + P 162 Kosovo Express,Kosovo Polje - Beograd 1986;					\
-	C=SZ_661_3L,(<3*JZ_ZTPB_BL3,JZ_ZTPB_AL3,JZ_ZTPB_BR3,2*JZ_ZTPB_AL3,2*JZ_ZTPB_BL3);		\
+	C=JZ_661_(3|4)(|L),(<3*JZ_ZTPB_BL3,JZ_ZTPB_AL3,JZ_ZTPB_BR3,2*JZ_ZTPB_AL3,2*JZ_ZTPB_BL3);		\
 	F=DP4;
       TX=JZ 663 + Personenzug 1986;									\
 	C=JZ_663L,(<HZ_DAA,3*HZ_2417(A|B|C)(|L),HZ_AAA,3*HZ_2417(A|B|C)(|L));				\
@@ -1052,8 +1059,14 @@ $REQUIRE TRAINDEF.TTT
 	  JZ_ZTPZ_WR2,5*JZ_ZTPZ_A3);									\
 	F=DP4;
       TX=JZ 664;											\
-	C=SZ_664(|L),3*HZ_2417(A|B|C)(|L);								\
-	F=DP45;
+	C=JZ_664(|_1)L,YU4P1;								\
+	F=DP4;
+      TX=JZ 665;											\
+	C=JZ_665,YU4P1;								\
+	F=DP4;
+      TX=JZ 667;											\
+	C=JZ_667L,YU4FL1;								\
+	F=DF4;
       TX=JZ 664 + P 1134 Kornat Express,Šibenik - Zagreb Gl.Kol. 1986;					\
 	C=SZ_664(|L),											\
 	  (<JZ_DDAM1[OB:VOLVO760WB,11,27][OB:VW_GTIY,154,27][OB:#SKODA_100B,105,27][OB:VW_GTIR,62,27]	\
@@ -1072,6 +1085,12 @@ $REQUIRE TRAINDEF.TTT
       TX=JZ 713;											\
 	C=<JZ_713[!L],JZ_713;										\
 	F=DP45;
+      TX=JZ 742;											\
+	C=JZ_740,2*YU4FSA;										\
+	F=DF4;
+      TX=JZ 742;											\
+	C=JZ_742,2*YU4FSA;										\
+	F=DF4;
 
       TX=JZ 811 + 816,B 165,Beograd - Zajecar 1986;							\
 	C=<JZ_811L,JZ_816A,JZ_816B,JZ_811;
@@ -1185,6 +1204,12 @@ $REQUIRE TRAINDEF.TTT
 	F=DPNR4;
 
     }
+###############################################################################
+##                                                                           ##
+##                        	     Serbia       		             ##
+##                                                                           ##
+###############################################################################
+
     {E5?
       TX=JZ 415;											\
 	C=2*(<JZ_415_1ML,JZ_415_2M,JZ_415_3M);								\
@@ -1530,8 +1555,8 @@ $REQUIRE TRAINDEF.TTT
 	F=EP4;
       TX=BDZ 462;											\
 	C=BDZ_462(|L),											\
-	  (<BDZ_4DLM2B(|L)|BDZ_4DLM1B(|L),2*BDZ_4BM(1|2)B,2*BDZ_4BM1A,2*BDZ_4BM1B,2*BDZ_4BM2A)|	\
-	  (>BDZ_4DLM2B(|L)|BDZ_4DLM1B(|L),2*BDZ_4BM(1|2)L,2*BDZ_4BM1AL,2*BDZ_4BM1BL,2*BDZ_4BM2AL)|	\
+	  (<BDZ_4DLM2B(|L)|BDZ_4DLM1B(|L),3*BDZ_4BM2B,4*BDZ_4B_BM(1|2)A,)|	\
+	  (>BDZ_4DLM2B(|L)|BDZ_4DLM1B(|L),3*BDZ_4BM2BL,4*BDZ_4B_BM(1|2)AL)|	\
 	  (<BDZ_4B_DM2(|L),2*BDZ_4B_BM1B,2*BDZ_4B_BM1A,2*BDZ_4B_BM2A,2*BDZ_4B_BM2A)|			\
 	  (>BDZ_4B_DM2(|L),2*BDZ_4B_BM1BL,2*BDZ_4B_BM1AL,2*BDZ_4B_BM2AL,2*BDZ_4B_BM2AL);		\
 	F=EP4;
@@ -1555,8 +1580,8 @@ $REQUIRE TRAINDEF.TTT
 	C=BDZ_44R,(BDZ_BX,BDZ_AX,BDZ_ABX,2*BDZ_BX,BDZ_WLAB_M);						\
 	F=EP5;
       TX=BDZ 61;											\
-	C=BDZ_61,BDZ_RILS;										\
-	F=EF56;
+	C=BDZ_61,BG5FL;										\
+	F=EF5;
     }
     {E6?
       TX=BDZ 04;											\
@@ -1582,7 +1607,7 @@ $REQUIRE TRAINDEF.TTT
 	C=BZK_87,3*BZK_WLABMZ76,BDZ_WLABMZ71,4@BDZ_5080A(|L);						\
 	F=DP6;
       TX=DB Schenker Bulgaria 92;									\
-	C=LSDB_92_0(27|34),15*(MARICA_IZTOK_FALLSC|MARICA_IZTOK_FALLSB|MARICA_FALLSA);			\
+	C=LSDB_92_0(27|34),BG6FL;			\
 	F=DF6;
 
 #E
@@ -1771,7 +1796,7 @@ $REQUIRE TRAINDEF.TTT
 	C=OSE_A4(11|24),G_RES1,G_RES2,G_RGS(1|2),G_29859_03,GA17;					\
 	F=DP5;
       TX=OSE A400 + Güterzug;										\
-	C=OSE_A411~RON|OSE_A424,G_RGS1,G_RGS2,G_RES1,2-4*G_29859_03;					\
+	C=OSE_A411~RON|OSE_A424,2*GR5FS;					\
 	F=DP5;
       C=$DIR(OSE_A300[M],OSE_A300),3-5*OSE_BRM8580|OSE_5BML|OSE_5BM;					\
 	F=DP5;
@@ -2224,7 +2249,7 @@ $REQUIRE TRAINDEF.TTT
 	C=TCDD_E43041,2*TCDD_B,2*TCDD_A,TCCD_YEMEKLI(|L),2*TCDD_B;					\
 	F=EP6;
       TX=TCDD DH 22005;											\
-	C=TCDD_DE22005L,8-10*(TCDD_FA(2|3|4|1)(|L));							\
+	C=TCDD_DE22005L,TK6F1;							\
 	F=DF6;
       TX=TCDD E 52;											\
 	C=TCDD_E52~KAR|TCDD_E52~SA,									\
