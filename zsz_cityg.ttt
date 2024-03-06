@@ -376,11 +376,12 @@ $SECTION 												\
     }
 #----------------------------- Bonn ------------------------------------------
     {TRAM|BUS?
+	{TRAM?
       $GROUP 												\
 	  NAME=D_BONN;											\
 	  TX=Bonn;											\
-	  LC=4; %ETA(STBGEU,$FLG(X,ENV_WAYT3,ENV_WAYT1));
-	{TRAM?
+	  LC=2; %GBG(STBGEU,ENV_WAYT1);
+#	  LC=4; %ETA(STBGEU,$FLG(X,ENV_WAYT3,ENV_WAYT1));
 	  TX=Bonn 2x Tw + Bw;										\
 	    C=BONN_1T2,BONN_1B2;
 	  TX=Bonn BGM 2xZRTw 1 - 12 + 2xZRBw 31 - 42 und 4xZRBw 43 - 45 Bj.1911/14;			\
@@ -405,6 +406,11 @@ $SECTION 												\
 	    C=(BONN_SWB_4T4AL,BONN_SWB_4B4L)|(BONN_SWB_4T4A,BONN_SWB_4B4);
 	  TX=Bonn NF6;											\
 	    C=BONN_6NF6;
+      $ENDGROUP
+      $GROUP 												\
+	  NAME=D_BONN_T2;											\
+	  TX=Bonn;											\
+	  LC=2; %GBG(STBGEU,ENV_WAYT3);
 	  TX=Bonn B100 / B80;										\
 	    C=1-2*BONN_6B80(|L);									\
 	    F=X;
@@ -421,8 +427,13 @@ $SECTION 												\
 	    C=BONN_VDV;
 	  TX=Bonn A41;											\
 	    C=BONN_A41;
+      $ENDGROUP
 	}
 	{BUS?
+      $GROUP 												\
+	  NAME=D_BONN_B1;											\
+	  TX=Bonn;											\
+	  LC=2; %GBG(STBGEU,ENV_WAYTA);
 	  M=FOLLOW;											\
 	    C=2*SWB_B100(|T_TD1XTRA|T_TMOBILE|_HOTSPOT|_TKOM);
 	  M=FOLLOW;											\
@@ -433,8 +444,8 @@ $SECTION 												\
 	    C=4*SWB_(3:0530(GW|W|WR)|NG312W|NG313W|NL222W|NL232_CNG3|O405N2W);
 	  M=FOLLOW;											\
 	    C=3*SWB_(0530E|NL202E|NL263|2:O405(GNE|N2E));
-	}
       $ENDGROUP
+	}
     }
 #----------------------------- Brandenburg -----------------------------------
     {TRAM?
