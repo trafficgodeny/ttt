@@ -3051,11 +3051,13 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 #
 # 1982 1000 Serie out of service
 #
+      {NEK?
 	C=NSC_1614(|L),DB_BM232(|L),3*SBB_4_BM51(|L),SBB_4_AM51(|L),DB_BM232(|L),DBBM4,			\
 	    DB_4DMS902_1(|L),DB_AM202L~MSL|DB_AM202~MSL,2*DBBM4,DBAM4,DB_WRBUMZ139B(|L);		\
 	AP=[TX=D 407 "Rhein Express" Hoek van Holland <- Rotterdam CS - Venlo - M nchengladbach - K ln - Bonn - Koblenz - Mainz - Darmstadt - Karlsruhe - Freiburg - Basel SBB -> Chur (anno 1982)]| \
 	  [TX=D 406 "Rhein Express" Chur <- Basel SBB - Freiburg - Karlsruhe - Darmstadt - Mainz - Koblenz - Bonn - K ln - M nchengladbach - Venlo - Rotterdam CS -> Hoek van Holland (anno 1982)]; \
 	F=EP4;
+	}
       M=SIMPLE|STOP|BACK;										\
 	C=<3*NS_GS,NS_200B[O:PERS06,25,3];								\
 	V=2;												\
@@ -3199,7 +3201,9 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	D=L;												\
 	C1=5:(DR_112_1|2:DB_112_177|DBAG_112_(008|016|031))|((2:BR|DBAG_)110_3BB|DBAG_110_(328|384|402)); \
 	C2=NS_1603[PFU],NS_IC_BDL~HEN;									\
-	P=100-(700-780); T1=10-20; T2=15-25; T3=20-30;							\			
+	P=100-(700-780); T1=10-20; T2=15-25; T3=20-30;							\
+	FG=(FL_DB_F,(15:FL_DB_M1|1:FL_DB_M2):..,,#;98-100*PLF_DB1:>100,-4;				\
+	  BANK_DB4,LAMP_DB4,BANK_DB4:>100-(20-200),6;TRBED8:..,-10);					\
 	F=EPO5;
       C=<NS_321ABDK8L~EB,NS_321BK8~EB;									\
 	F=EPU5;
@@ -3428,7 +3432,7 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
       M=STOP|SIMPLE|BACK;										\
 	C=NS_500A|NS_500B|NS_500C,NS_HBIS1910|NS_HBIS1940A;						\
 	V=2;												\
-	F=OPRU6;
+	F=O6;
 # ^^ 500 should be class 600
       C=RAI_6400L~EB|RAI_6400~EB,RAI_6400(E|F)L|RAI_6400(E|F),14*ZACGS;					\
 	F=DF6;
@@ -3495,7 +3499,7 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	C=ACTS_1250A(|L),14*CONT00;									\
 	F=EF6;
       C=NS_USO2L~HW|NS_USO2~HW;										\
-	F=DFU6;
+	F=6;
       C=RAI_6400(E|F)L|RAI_6400(E|F),2*NS_HBIS1930,2*FS_HBBILLNS,2*GB15B,				\
 	  $DIR(SBB_HBILS_BGUSSA,SBB_HBILS_BGUSSAL)[<CP:86,25,46,4,23,25][>CP:92,25,46,4,29,25],		\
 	  3*NS_HBIS1930;										\
@@ -3596,11 +3600,11 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	  4*KS[OB:4CONT,,11],LGNSSCONT,3*KS[OB:4CONT,,11];						\
 	F=DF6;
       C=RAI_232,AAE_196SC,4*SGNS,G_SGNNS3,3*SGNS;							\
-	F=DF6;
+	F=F6;
       C=NS_6400L|NS_6400~EB,5*SGNS;									\
 	F=DF6;
       C=SHTL_JT42CWR(|L),13*CONT00;									\
-	F=DF6;
+	F=F6;
       C=NS_6400L|NS_6400~EB,LGNSS;									\
 	F=DF6;
       TX=Museum Buurt Spoorweg Haaksbergen (17.10.2004);						\
@@ -3627,7 +3631,7 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
       C=ACTS_1250B(|L),20*SNCF_EAOS(1|2|3);								\
 	F=EF6;
       C=R4C_JT42CWR(1|2|3)(|L),25*CONT00;								\
-	F=DF6;
+	F=F6;
       C=NS_200~EB,4*NS_FCCPPS;										\
 	F=DF6;
       C=RAI_6400(E|F)L|RAI_6400(E|F),									\
@@ -3665,7 +3669,7 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	F=DF6;
       TX=Eurostar 9116 London-Waterloo <-> Bruxelles Midi (anno 2005);					\
 	C=EUROSTAR1;											\
-	F=EPU6;
+	F=E6;
       TX=IC 634 Amsterdam-Centraal <-> Brussel Zuid (25.01.2006);					\
 	C=<SNCB_1181,2*NS_ICR_BL~HEN|NS_ICR_B~HEN,NS_BNL_BL~HEN|NS_BNL_B~HEN,				\
 	  2*NS_ICR_BL~HEN|NS_ICR_B~HEN,NS_BNL_BL~HEN|NS_BNL_B~HEN,NS_BNL_BS~HEN;			\

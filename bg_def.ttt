@@ -1,7 +1,7 @@
 # { [ (
 ###############################################################################
 #                                                                            ##
-#    Backgrounds                                  ##
+#       Backgrounds                                                          ##
 #                                                                            ##
 ###############################################################################
 
@@ -22,19 +22,19 @@ $DEF STRMOD=$FLG(R,($FLG(S,[C-=[!C]]),[M=STOP][P=*50]))
 
 # Drawn background - hills and sky
 $DEF SKYP =												&\
-    [BG-=BCKGRD_01:..,,<=>,440,1410;]|							&\
-    [BG-=BCKGRD_04:..,,<=>;]|								&\
-    [BG-=BCKGRD_05:..,,<=>,160,470;]|							&\
-    [BG-=BCKGRD_06:..,,<=>,732,1480;]|							&\
-    [BG-=BCKGRD_10:..,,<=>,0,1394;]|							&\
-    [BG-=BCKGRD_15:..,,<=>,598,1101;]|							&\
-    [BG-=BCKGRD_18:..,,<=>,272,1086;]|							&\
-    [BG-=BCKGRD_23:..,,<=>,843,1379;]|							&\
-    [BG-=BCKGRD_31:..;]|									&\
-    [BG-=BCKGRD_32:..,,<=>,200,1182;]|							&\
-    [BG-=BCKGRD_33:..,,<=>,99,1391;]|							&\
-    [BG-=BCKGRD_35:..,,#;]|									&\
-    [BG-=BCKGRD_36:..,,<=>,0,765;]|								&\
+    [BG-=BCKGRD_01:..,,<=>,440,1410;]|									&\
+    [BG-=BCKGRD_04:..,,<=>;]|										&\
+    [BG-=BCKGRD_05:..,,<=>,160,470;]|									&\
+    [BG-=BCKGRD_06:..,,<=>,732,1480;]|									&\
+    [BG-=BCKGRD_10:..,,<=>,0,1394;]|									&\
+    [BG-=BCKGRD_15:..,,<=>,598,1101;]|									&\
+    [BG-=BCKGRD_18:..,,<=>,272,1086;]|									&\
+    [BG-=BCKGRD_23:..,,<=>,843,1379;]|									&\
+    [BG-=BCKGRD_31:..;]|										&\
+    [BG-=BCKGRD_32:..,,<=>,200,1182;]|									&\
+    [BG-=BCKGRD_33:..,,<=>,99,1391;]|									&\
+    [BG-=BCKGRD_35:..,,#;]|										&\
+    [BG-=BCKGRD_36:..,,<=>,0,765;]|									&\
     [BG-=BCKGRD_37:..,,<=>,569,1360;]
 
 # %*DEFINE(SKYDEF(N,Y)=
@@ -2681,7 +2681,7 @@ $DEF STBGNIGHT=$FLG(E,STBGNIGHTE,STBGNIGHTD)
 
 # Hintergrund Streifen für Länderpools
 
-%*DEF(ENVDEF(N,B,C)=$DEF %N=[BG#=@@;],$IF($BGTYPE>=1,($IF($BGTYPE>=3,%B,$IF($BGTYPE==2,TRACK)),%C)))
+%*DEF(ENVDEF(N,B,C)=$DEF %N=[BG#=@@;]($IF($BGTYPE>=3,[C-=[!BBG]])),$IF($BGTYPE>=1,($IF($BGTYPE>=3,%B,$IF($BGTYPE==2,TRACK)),%C)))
 %*DEF(BGPDEF(N)=$DEF BGP%N=$FLG(B,BGP%N;N,$FLG(A,BGP%N;A,$FLG(T,BGP%N;T,$FLG(O,BGP%N;O,$FLG(1,BGP%N;1,\
       $FLG(2,BGP%N;2,$FLG(3,BGP%N;3,$FLG(4,BGP%N;4,$FLG(5,BGP%N;5,BGP%N;6))))))))))
 # Ungarn
