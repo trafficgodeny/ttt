@@ -669,7 +669,7 @@ $REQUIRE JMD_DEF.TTT
 	$DIR(BR_MK1_BRBR1L,BR_MK1_BRBR1),6*BR_MK2D_TSO(|L);						\
       F=DP4;
     TX=Ryecroft Junction (22.09.1978);									\
-      C=BR_25B(3|3L|4|4L),BR_5PLF,BR_TKNB,13*BR_STDVAN(|4);						\
+      C=BR_25B(3|3L|4|4L),BR_5PLF,SBB_4_ZFS7390(|L),13*BR_STDVAN(|4);					\
       F=DF4;
 # ^should be 2-ax isotank
     TX=Ryecroft Junction (22.09.1978);									\
@@ -1346,10 +1346,10 @@ $REQUIRE JMD_DEF.TTT
     TX=Crewe (18.07.2003);										\
       C=<VIR_43BL,VIR_MK3C_TGS,3*VIR_MK3C_TSH,VIR_MK3C_TRFB,VIR_MK3C_TFH,VIR_43B;			\
       V=8-12.5;												\
-      F=P6;
+      F=DPU6;
     TX=6B50 Dollands Moor <-> Wembley (anno 2003);							\
-      C=BR_CL92SO01(|L);										\
-      F=L6;
+      C=BR_CL92SO01(|L),13*CWAG_HFIRRS3;								\
+      F=EPL6;
 ;with 13*Hfirrs
     TX=4M48 Dollands Moor <-> Hams Hall (anno 2003);							\
       C=EWS_CL66(|L)|FL_CL66(|L),2@(MEGAFRET,FL_FIA),2*MEGAFRET,2@FL_FIA,2*MEGAFRET;			\
@@ -1394,17 +1394,11 @@ $REQUIRE JMD_DEF.TTT
       F=DF6;
     TX=7B01 Wembley <-> Dollands Moor (anno 2003);							\
       C=EWS_CL66(|L)|FL_CL66(|L),BR_CL92SO01(|L),2*DB_HBFIS(1CW|2CW|3CW),7*DB_SFINS1(A|B|C|D),		\
-	2*DB_SFINS1(A|B|C|D),DB_HABFISF2TH(1|2),3*DB_SFINS1(A|B|C|D),DB_HBFIS(1CW|2CW|3CW),		\
-	2*DB_SFNPS3(A|B),DB_HABFISF2TH(1|2),DB_SFNPS3(A|B);						\
-      F=F6;
-;23802493001-4 (Hbfills)/ 23802398544-9 (Hbfis)/ 83804741053-8 (Sfins)/ 83804741069-4 (Sfins)/
-;83804741048-8 (Sfins)/ 83804741157-7 (Sfins)/ 83804741125-4 (Sfins)/ 83804741158-5 (Sfins)/
-;83804741135-3 (Sfins)/ 23802929045-5 (Hfirrs)/ 23802929003-4 (Hfirrs)/ 83804741149-4 (Sfins)/
-;23802929091-9 (Hfirrs)/ 83804741155-1 (Sfins)/ 83804741120-5 (Sfins)/ 33802797597-2 (Habfis)/
-;83804741146-0 (Sfins)/ 83804741134-6 (Sfins)/ 83804741127-0 (Sfins)/ 23802929209-7 (Hfirrs)
-;3802398580-3 (Hbfis) / 23802929284-0 (Hfirrs)/ 23802929055-4 (Hfirrs)/ 33804736014-8 (Sfnps)/
-;33804736026-2 (Sfnps)/ 33802797614-5 (Habfis)/ 33804742017-3 (Sfps)
-;
+	2*CWAG_HFIRRS3,DB_SFINS1(A|B|C|D),CWAG_HFIRRS3,2*DB_SFINS1(A|B|C|D),DB_HABFISF2TH(1|2),		\
+	3*DB_SFINS1(A|B|C|D),CWAG_HFIRRS3,DB_HBFIS(1CW|2CW|3CW),2*CWAG_HFIRRS3,2*DB_SFNPS3(A|B),	\
+	DB_HABFISF2TH(1|2),DB_SFNPS3(A|B);								\
+      F=DF6;
+;^ first 2 cars should be DB Hbfills2493 and Hbfis2398
     TX=4V49 Purfleet <-> Cowley (anno 2003);								\
       C=EWS_CL66(|L)|FL_CL66(|L),8*BR_SEFOORSS(1|2|3);							\
       F=DF6;

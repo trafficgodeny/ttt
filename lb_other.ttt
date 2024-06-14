@@ -707,7 +707,25 @@ $REQUIRE TRAINDEF.TTT
 #
 # Australien
 #
+    {E2?
+      TX=Australien New South Wales 1700;								\
+	C=NSW_170(0|1),8*(VIC_B102|VIC_T252|VIC_T457|VIC_IC12137|NSW_RU|VIC_GY7|VIC_I);			\
+	F=SF2;
+    }
     {E3?
+      TX=Australien South Maitland Railways 1 - 30;							\
+	C=SMAR_(18|10|30|22)(|L),8*(VIC_B102|VIC_T252|VIC_T457|VIC_IC12137|NSW_RU|VIC_GY7|VIC_I);	\
+	F=SF3;
+      TX=Australien New South Wales 1700;								\
+	C=NSW_1709_1960,8*(VIC_B102|VIC_T252|VIC_T457|VIC_IC12137|NSW_RU|VIC_GY7|VIC_I);		\
+	F=SF3;
+      TX=Australien New South Wales 5000 - 5400;							\
+	C=NSW_5(074|133|241|367)(|L),									\
+	  NSW_NVMF(|L)25*(VIC_B|VIC_B102|VIC_B102|VIC_T252|VIC_T457|VIC_IC12137|NSW_RU|VIC_GY7|VIC_I);	\
+	F=SF3;
+      TX=Australien New South Wales 6041 + 5412 + coal train;						\
+	C=(NSW_6041L,NSW_5412L[#D:L])|(NSW_6041,NSW_5412[#D:R]),22*NSW_BCH3(|L),NSW_NVMF(|L);		\
+	F=SF3;
       TX=Australien New South Wales 4200;								\
 	C=NSW_4206L[#D:L]|(NSW_4206[#D:R]),								\
 	  6*(NSW_FS(|L)|NSW_FS_CANDY(|L)|NSW_FS_TURU(|L)|NSW_(MFE2|SLP1));				\
@@ -718,6 +736,9 @@ $REQUIRE TRAINDEF.TTT
       TX=Australien New South Wales CPH;								\
 	C=NSW_CPH;											\
 	F=DPU3;
+      TX=Australien Victorian Railay;									\
+	C=(<VIC_SSO01L,VIC_SSO01),25*VIC_FJ(RIV|JAK)(|L),VIC_ZLP(|L);					\
+	F=DF3;
       TX=Australien Victorian Railay B + Personenzug;							\
 	C=VIC_BSO01(|L),VIC_AX20,VIC_AX15,VIC_BCE(|L),VIC_CE2,VIC_CE1,VIC_BE(|L),VIC_ABE(|L),		\
 	  VIC_AE(|L),VIC_AW17,VIC_AW23;									\
@@ -768,6 +789,9 @@ $REQUIRE TRAINDEF.TTT
 	F=DF4;
       TX=Australien Independent Railways of Australia Pts. Class 44;					\
 	C=IRAIL_4458[#D:R]|IRAIL_4458L[#D:L],AUS4F1;							\
+	F=DF4;
+      TX=Australia Nationas Railway class 442;								\
+	C=NSW_44201(|L),AUS4F1;										\
 	F=DF4;
       TX=Australien STVC S;										\
 	C=(<STVC_SSO01L,STVC_SSO01),AUS4F1;								\
@@ -876,6 +900,12 @@ $REQUIRE TRAINDEF.TTT
       TX=Australia FreightCorp Class 422;								\
 	C=2*FRC_422(|L),10*FRC_NHFF1(|L);								\
 	F=DF6;
+      TX=Australia CIAU Class 442;									\
+	C=CIAU_442S5(|L),AUS6F1;									\
+	F=DF6;
+      TX=Australia Greentrains Class 442;								\
+	C=GTAU_442S1(|L),AUS6F1;									\
+	F=DF6;
       TX=Australia FreightCorp Class 81;								\
 	C=FRC_81(|L),AUS6F1;										\
 	F=DF6;
@@ -900,14 +930,54 @@ $REQUIRE TRAINDEF.TTT
       TX=Australien New South Wales 4001;								\
 	C=NSW_4001(|L),AUS6FCNS;									\
 	F=DF6;
+      TX=Australian New South Wales Class 47 + 48;							\
+	C=(<NSW_48(25|36|165)[#D:L],NSW_4716(|L))|(>NSW_4716L[#D:R],NSW_48(25|36|165)(|L)),AUS6F1;	\
+	F=DF6;
       TX=Australien New South Wales 7000;								\
 	C=NSW_700(1|6)(|L),AUS6FCNSS;									\
 	F=DF6;
       TX=Australien New South Wales 49;									\
 	C=NSW_4918(|L),AUS6FCNS;									\
 	F=DF6;
+      TX=Australia R&H Rail Class 47;									\
+	C=RH_4717[#D:L]|RH_4717L[#D:R],AUS6FS;								\
+	F=DF6;
       TX=Australian Rail Corporation New South Wales Class 48;						\
 	C=RCOR_4819(|L),AUS6F1;										\
+	F=DF6;
+      TX=Australia Greentrains Class 48;								\
+	C=GTAU_48S35[#D:L]|GTAU_48S35L[#D:R],AUS6FS;							\
+	F=DF6;
+      TX=Australia Cargill,Inc Class 47;								\
+	C=SSR_4701[#D:L]|SSR_4701L[#D:R],AUS6FS;							\
+	F=DF6;
+      TX=Australian Great Southern Railway Class 48;							\
+	C=CRGX_1[#D:L]|CRGX_1L[#D:R],AUS6FS;								\
+	F=DF6;
+      TX=Australia Chicago Freight Car Leasing Australia Class 442 - JL 406;				\
+	C=CFCLA_JL406(|L),AUS6F1;									\
+	F=DF6;
+      TX=Australia Pacific National Class 442;								\
+	C=PN_44218(|L),PN_44204(|L),AUS6F1;								\
+	F=DF6;
+      TX=Australia R&H Transport Services Class 442 - JL 404;						\
+	C=RH_JL404(|L),AUS6F1;										\
+	F=DF6;
+      TX=Australia BHP + Silverton Rail Class 442;							\
+	C=BHP_101(|L),SILA_442S(1|6)(|L),AUS6F1;							\
+	F=DF6;
+      TX=Australia State Rail Authority of New South Wales Class 442;					\
+	C=SRA_44220(|L),AUS6F1;										\
+	F=DF6;
+      TX=Australia Southern Shorthaul Railroad + New South Wales Class 442;				\
+	C=SSR_44204(|L),NSW_442(23|33)(|L),								\
+	  15*((NSW_NOBX_1[O:KIES_(3|2)(|[M])])|(NSW_NODY1[O:KIES_(3|2)(|[M])]));			\
+	F=DF6;
+      TX=Australia Silverton Rail Class 48;								\
+	C=SILA_29[#D:L]|SILA_29L[#D:R],AUS6FS;								\
+	F=DF6;
+      TX=Australian State Rail Authority of New South Wales Class 47;					\
+	C=SRA_4714[#D:L]|SRA_4714L[#D:R],12*(SRA_NHFF1|PN_NHFF1B)(|L);					\
 	F=DF6;
       TX=Australian State Rail Authority of New South Wales Class 49;					\
 	C=SRA_4906(|L),SRA_4910(|L),SRA_4916(|L),12*(SRA_NHFF1|PN_NHFF1B)(|L);				\
@@ -998,11 +1068,14 @@ $REQUIRE TRAINDEF.TTT
       TX=Australian Railroad Group Class 422;								\
 	C=ARG_422(|L),AUS6FNR;										\
 	F=DF6;
-      TX=Australian Railroad Group Class 830;								\
-	C=ARG_847(|L),AUS6FNR;										\
+      TX=Australian National Railways Comission Class 442;								\
+	C=ANR_70(5|3)(|L),ANR_70(0|2)(|L),AUS6FNR;							\
+	F=DF6;
+      TX=Australian Railroad Group Class 830 + 900;								\
+	C=(<ARG_847[#D:L],ARG_901(|L))|(>ARG_901[#D:R],ARG_847(|L)),AUS6FNR;			\
 	F=DF6;
       TX=Australian Railroad Group Class 900;								\
-	C=ARG_9(01|02|05)(|L),AUS6FNR;									\
+	C=(<ARG_902L[#D:L],ARG_905(|L))|(>ARG_905[#D:R],ARG_902(|L)),AUS6FNR;			\
 	F=DF6;
       TX=Australian Railroad Group Class S;								\
 	C=ARG_SSO(01|02|03|04)(|L),AUS6FNR;								\
@@ -1159,7 +1232,8 @@ $REQUIRE TRAINDEF.TTT
 	C=PN_ASO01(|L)|FA_ASO01(|L),AUS6F1;								\
 	F=DF56;
       TX=Australia Pacific National Class 48;								\
-	C=PN_(48112|48112L|48132|48156|48162|48162L|PL1|PL1L|PL3|PL3L),AUS6F1;				\
+	C=(<PN_48(130|112|132|156|162)[#D:L],PN_(PL1|PL3)(|L))|						\
+	  (>PN_48(130|112|156|162)L[#D:R],PN_(PL1|PL3)(|L)),AUS6F1;					\
 	F=DF56;
       TX=Australia Pacific National Class T5;								\
 	C=PN_T5(|L),AUS6F1;										\

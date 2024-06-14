@@ -168,6 +168,10 @@ $REQUIRE MLG_DEF.TTT
 	(DB_E320_21_V_15KV,SNCF_INOXLO_B10(|L),SNCF_INOXCO_A8(|L));					\
       V=12;												\
       F=EP3;
+    TX=DB E344 + D;											\
+      C=DB_E344_15KV,2*SNCF_3AOC_A8G(|L);								\
+      V=10;												\
+      F=EP3;
 
 ;===  D-ZÜGE  ===
 ;================
@@ -204,7 +208,7 @@ $REQUIRE MLG_DEF.TTT
       V=11;												\
       F=EP3;
     TX=DB E18 + D-Zug;											\
-      C=DB_E18B1(|L),DB_A4UMG54B(|L),DBP_P2151_VE3(|L),$DIR(DB_BD4UM59GL,DB_BD4UM59G),DB_B4UM54G(|L),	\
+      C=DB_E18B1(|L),DB_A4UMG54B(|L),DBP_3_P2151(|L),$DIR(DB_BD4UM59GL,DB_BD4UM59G),DB_B4UM54G(|L),	\
 	(<DB_AB4UM61G,DB_AB4UM61GL),2*DB_B4UM54G(|L);							\
       V=14;												\
       F=EP3;
@@ -302,33 +306,37 @@ $REQUIRE MLG_DEF.TTT
       V=12;												\
       F=EPRU3;
 
-    TX=DB E40 +Personenzug;										\
+    TX=DB E40 + Personenzug;										\
       C=DB_E40_4FPV_G(|L)[PFU],DB_E41_4FPV_G(|L),DB_B3YG_PAAR,DB_B4YG56WL|DB_B4YG56PY,DB_AB4YG58(|L),	\
 	$DIR(DB_BD4YG56WL|DB_BD4YG56PY,DB_BD4YG56WLL|DB_BD4YG56PYL);					\
       V=10;												\
       F=EPR3;
 
-    TX=DB E44 +Personenzug;										\
+    TX=DB E44 + Personenzug;										\
       C=(<DB_E44_0(|L),DB_AB3YG,DB_B3YGL,DB_B3YG_PAAR,DB_BD4YGF27_54)|					\
 	(>DB_E44_0(|L),DB_AB3YGL,DB_B3YG,DB_B3YG_PAAR,DB_BD4YGF27_54L);					\
       V=10;												\
       F=EPRU3;
 
-    TX=DB E44 +Personenzug;										\
+    TX=DB E44 + Personenzug;										\
       C=DB_E44_0(|L),2-3*DB_B3YG_PAAR,$DIR((DB_AB3YG,DB_BD3YG),(DB_AB3YGL,DB_BD3YGL));			\
       V=10;												\
       F=EPR3;
 
-    TX=DB E44 +Personenzug;										\
+    TX=DB E44 + Personenzug;										\
       C=DB_E44_0(|L),DB_PWI28G(|L),DB_AB4YG58(|L),2*DB_B4YG58;						\
       V=10;												\
       F=EPR3;
 
-    TX=DB E44 +Personenzug;										\
+    TX=DB E44 + Personenzug;										\
       C=>DB_E44_0(|L),4*DB_B4YM51(|L),DB_AB4YMG51(|L),DB_BD4YMF51;					\
       V=10;												\
       F=EPR3;
-
+    TX=DB E50 + E44 + Personenzug;									\
+      C=DB_E50_2FPH_G(|L)[PFU],DB_E44_0(|L)[PDU],DB_GMHS53P,DB_PW4U29,DB_B4Y42A,DB_AB4YSE3055,		\
+	DB_B4Y30,DB_B4Y42A;										\
+      V=8;												\
+      F=EPR3;
     TX=DB E44W +Personenzug;										\
       C=DB_E44_10(|L),2*DB_B3YG_PAAR,$DIR((DB_B3YGL,DB_AB3YGL),(DB_B3YG,DB_AB3YG)),DB_PWI28G(|L);	\
       V=10;												\
@@ -339,12 +347,12 @@ $REQUIRE MLG_DEF.TTT
       V=8;												\
       F=EPR3;
 
-    TX=DB E52 +Personenzug;										\
+    TX=DB E52 + Personenzug;										\
       C=DB_E52(|L),(<DB_B3YGL,DB_B3YG),DB_AI29G(|L),(<DB_B3YGL,DB_B3YG),DB_PWI30A(|L);			\
       V=9;												\
       F=EPR3;
 
-    TX=DB E75 +Personenzug;										\
+    TX=DB E75 + Personenzug;										\
       C=DB_E75(|L),DB_PWI28G(|L),(<DB_B3YGL,DB_B3YG),$DIR((DB_AB3YG,DB_B3YG),(DB_AB3YGL,DB_B3YGL));	\
       V=7;												\
       F=EPR3;
@@ -651,9 +659,24 @@ $REQUIRE MLG_DEF.TTT
 ;===  GÜTERZÜGE  ===
 ;===================
 
+    TX=DB E50 + Güterzug;										\
+      C=DB_E50_4VG(|L),DB_GBS254U1,SBB_E1[O:FR_KO42,,27],DB_FC090(|L),DB_FC086(|L),4*DB_FC090(|L),	\
+	2*DB_LBS589[O:DB_3EOSKRT022,8,12][O:DB_3EOSKRT022,31,12][O:DB_3EOSKRT022,54,12]			\
+	[O:DB_3EOSKRT022,77,12][O:DB_3EOSKRT022,100,12],DB_FC090(|L),DB_KLMS440,DB_FC086(|L),		\
+	15*DB_FC090(|L);										\
+      V=8;												\
+      F=EF3;
+    TX=DB E50 + Güterzug;										\
+      C=DB_E50_2FPH_G(|L),30-32*DB_OOTZ50_ERZ3D[O:FER5|FER6|FER7,,];					\
+      V=8;												\
+      F=EF3;
     TX=DB E320 + E40 + Güterzug;									\
       C=$DIR(DB_E320_11G[P1U],DB_E320_21GL[P2U]),DB_E40_2FPH_G(|L)[PBU],36*DB_FAL168A;			\
       V=9;												\
+      F=EF3;
+    TX=DB E344 + Güterzug;										\
+      C=DB_E344_15KV,40*SGW_EF_E3;									\
+      V=8;												\
       F=EF3;
 
 ;===  SPEZIALZÜGE  ===
@@ -668,6 +691,13 @@ $REQUIRE MLG_DEF.TTT
       C=DB_ET91(|L);											\
       V=10;												\
       F=EPU3;
+
+#  LOKZÜGE;
+
+    TX=DB E50-Lokzug;											\
+      C=4*DB_E50_2FPH_G(|L);										\
+      V=9;												\
+      F=EF3;
 
 ;==========================
 ;====== PRIVATBAHNEN ======

@@ -2,7 +2,6 @@
   $INCLUDE SINGLE.TTT
 }
 $REQUIRE JMD_DEF.TTT
-$REQUIRE JMD_EU_DEF.TTT
 #
 # Hungary
 #
@@ -13,7 +12,7 @@ $SPOOL N=PANNONIA_HU1985; SEQ=R;
 	(BDZ_4WLABM1A(|L))|(BDZ_BC(|L))|(BDZ_4A_BM(1|2)A(|L)),BDZ_BC(|L),BDZ_4WLABM1A(|L),		\
 	2*BDZ_BC(|L),(DR_B516D(|L)|DR_B518D(|L)),(CSD_ABM65(A|B)(|L)|CSD_ABM84),			\
 	(CSD_WLABM68(B|C)(|L)|CSD_WLABM78(B|C)(|L)|CSD_WLABM85(|L)),CFR_4BCM5950(|L),CFR_2041CL,	\
-	(0|1)*CFR_2041CL,											\
+	(0|1)*CFR_2041CL,										\
 	((M_1957A(|L)|M_1947A(|L))|(M_2057A(|L)|M_2047A(|L)|M_4B2041(|L)))|				\
 	((CFR_1941C(|L))|(CFR_2041C(|L))),CFR_2041C(|L),CFR_1941C(|L),CFR_WR1(|L);			\
       F=EP4;
@@ -104,6 +103,10 @@ $SPOOL N=VASUT_2006_H; SEQ=R;
     C=M_V43(A|B0|C0),ZSRB_ABLM1A(|L)|ZSRB_ABLM1B(|L),OBB_T2S_7571(|L),OBB_5BCMZ5970(|L)|OBB_5070,	\
 	BDZ_5WLABM(1A|2A)(|L);										\
       V=8-20;												\
+      AP=[TX=Vasut 340 "Beograd" Budapest <-> Beograd (anno 2006)]|					\
+	[TX=Vasut 341 "Beograd" Beograd <-> Budapest (anno 2006)]|					\
+	[TX=Vasut 799 "Beograd" Budapest <-> Beograd (anno 2006)]|					\
+	[TX=Vasut 790 "Beograd" Beograd <-> Budapest (anno 2006)];					\
       F=EP6;
     C=M_V63(|A),2*HZ_BL,M_3957A(|L)|$DIR(M_4AB3941L,M_4AB3941),5*M_2057A(|L)|M_2047A(|L)|M_4B2041(|L);	\
       V=8-20;												\
@@ -347,7 +350,7 @@ $ENDPOOL
       F=EF3;
     C=$DIR(M_3_424009L,M_3_424009),6*M_BAH4700(|L),M_3B_AA1000(|L);
     C=(M_M41(F|G|I)(|L))|(M_M40_(0A|0B|0C|1A|2A|9A)(|L))|M_275|$DIR(M_3_342006L,M_3_342006)|		\
-	$DIR(M_3_4242(47)KL,M_3_424247K),								\
+	$DIR(M_3_424247KL,M_3_424247K),									\
 	(<4-7*10:(M_2026(A|B)(|L)|M_2027(A|B|F|G)(|L))|(M_2027(E|H)(|L)),M_DNZ64000(|L));		\
       F=EP3;
     C=M_V43R,2*M_4A_B2041(|L),M_4A_A1941(|L),$DIR(M_4A_AB3941L,M_4A_AB3941),3*M_4A_B2041(|L);		\
@@ -737,8 +740,9 @@ $ENDPOOL
       F=DF6;
     TX="Orient Express" Paris <-> Budapest (09.06.2001);						\
       C=M_V63(|A),											\
-	(2*M_2071(|L),M_8871(|L),M_61_1991(|L),CFR_WLABMEE,2*SNCF_VU_B11U_CP(|L),SNCF_VU_A4B6U_CP(|L),	\
-	M_61_5091(|L))|(M_61_1991(|L),2*M_2071(|L),SNCF_VU_A4B6U_CP(|L),2*SNCF_VU_B11U_CP(|L));		\
+	(2*M_2071(|L),M_8871(|L),M_61_1991(|L),CFR_WLABMEE,2*SNCF_VU_CP2_B11M(|L),			\
+	SNCF_VU_CP2_A4B6M(|L),M_61_5091(|L))|								\
+	(M_61_1991(|L),2*M_2071(|L),SNCF_VU_CP2_A4B6M(|L),2*SNCF_VU_CP2_B11M(|L));			\
       F=EP6;
     TX="Donau-Spree Kurier" Budapest <-> Berlin (09.06.2001);						\
       C=M_V63(|A),OBB_5D2191(|L),M_61_1991(|L),M_61_5091(|L),2*M_61_2191_1(|L),M_61_8891(|L),M_BPMZ61,	\
@@ -946,7 +950,7 @@ $ENDPOOL
 	[TX=6324 Debrecen <-> Mátészalka (anno 2005)];							\
       F=DPU6;
     TX=Balatonosznod (06.08.2005);									\
-      C=M_V43_1B,2*MAVKS,2*DRTDS,2*MAVTADGS,M_443LGS[O:CONT2_2000,,11],9*MAVEAOSCOAL|MAVEASCOAL;	\
+      C=M_V43_1B,2*MAVKS,2*DRTDS,2*MAVTADGS,M_443LGS[O:2CONT,,11],9*MAVEAOSCOAL|MAVEASCOAL;		\
       F=EF6;
     TX=Vonat 9926 Györ <-> Sopron (11.08.2005);								\
       C=M_V43_1B,3*GY_BYZ(|L);										\

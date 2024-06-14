@@ -158,7 +158,7 @@
        F=EPU5;
 
      TX=FS E424 + D;											\
-       C=FS_E424_ISA2(|L)|FS_E424_ISA3(|L),2*FS_T55T_RF_A(|L),FS_T57_RF_B(|L),FS_UICX75_RGPB_B;		\
+       C=FS_E424_ISA2(|L)|FS_E424_ISA3(|L),2*FS_T55T_A_RF(|L),FS_T57_B_RF(|L),FS_UICX75_RGPB_B;		\
        V=12;												\
        F=EP5;
      TX=FS E424  + D;											\
@@ -166,7 +166,7 @@
        V=12;												\
        F=EP5;
      TX=FS E424 + D;											\
-       C=FS_E424_ISA3(|L),FS_T57_RF_B(|L),2*FS_UICX75_RGPB_B;						\
+       C=FS_E424_ISA3(|L),FS_T57_B_RF(|L),2*FS_UICX75_RGPB_B;						\
        V=12;												\
        F=EP5;
      TX=FS D445 + D;											\
@@ -211,7 +211,7 @@
        V=12;												\
        F=EPR5;
      TX=FS E424 + Regionale;										\
-       C=FS_E424_2X(|L),FS_MDVE_XMPR_NB,3*FS_MDVC_XMPR_NB;						\
+       C=FS_E424_2X(|L),FS_MDVE_NBX,3*FS_MDVC_XMPR_NB;							\
        V=12;												\
        F=EPR5;
      TX=FS E424 + Regionale;										\
@@ -252,8 +252,8 @@
        V=13;												\
        F=EPRU5;
      TX=FS E464 + Regionale;										\
-       C=(<FS_E464_XMPRL,FS_MDVE_XMPR_NB,FS_MDVE_XMPR_NA,3-5*FS_MDVE_XMPR_NB,FS_MDVC_XMPR_NPBD2)|	\
-	 (>FS_E464_XMPR,FS_MDVE_XMPR_NB,FS_MDVE_XMPR_NA,3-5*FS_MDVE_XMPR_NB,FS_MDVC_XMPR_NPBD2L);	\
+       C=(<FS_E464_XMPRL,FS_MDVE_NBX,FS_MDVE_NAX,3-5*FS_MDVE_NBX,FS_MDVC_XMPR_NPBD2)|			\
+	 (>FS_E464_XMPR,FS_MDVE_NBX,FS_MDVE_NAX,3-5*FS_MDVE_NBX,FS_MDVC_XMPR_NPBD2L);			\
        V=13;												\
        F=EPRU5;
      TX=FS E464 + Regionale;										\
@@ -270,7 +270,7 @@
        V=12;												\
        F=EPR5;
      TX=FS E646 + Regionale;										\
-       C=<FS_E646RN1(|L),3*FS_PR73_NBX(|L),FS_MDVE_XMPR_NB,FS_MDVC_XMPR_NB,FS_MDVC_XMPR_NPBD2;		\
+       C=<FS_E646RN1(|L),3*FS_PR73_NBX(|L),FS_MDVE_NBX,FS_MDVC_XMPR_NB,FS_MDVC_XMPR_NPBD2;		\
        V=12;												\
        F=EPRU5;
      TX=FS E646 + Regionale;										\
@@ -399,6 +399,10 @@
        C=FS_ALN663_XMPRT(|L),FS_ALN668_3000XT(|L);							\
        V=12;												\
        F=DPRU5;
+     TX=TX=Trenitalia ATR 220;										\
+       C=1-2*FS_ATR220_DTR1;										\
+       V=11;												\
+       F=DPRU5;
 
 ;FREIGHT
      TX=FS D 636 + FREIGHT;										\
@@ -444,6 +448,17 @@
        V=11;												\
        F=EPRU5;
 
+;FBP Ferrovia Bologna-Portomaggiore
+;---
+     TX=Ferrovia Bologna-Portomaggiore ALN 668;								\
+       C=FBP_ALN668S3B(|L),FBP_LN778B(|L),FBP_ALN668S3B(|L);						\
+       V=9;												\
+       F=DPRU5;
+     TX=Ferrovia Bologna-Portomaggiore ALN 663;								\
+       C=FBP_ALN663B(|L),FBP_LN778B(|L),FBP_ALN663B(|L);						\
+       V=10;												\
+       F=DPRU5;
+
 ;FCU
 ;---
      TX=FCU:FERROVIA CENTRALE UMBRA ALN 776;								\
@@ -462,16 +477,33 @@
        C=FCU_ALN776M_1S_L2;										\
        V=10;												\
        F=DPRU5;
-;FER
-;---
+
+;FER / TPER
+;----------
+     TX=Ferrovia Bologna Vignola E 464 + Vivalto;							\
+       C=(<FER_E464L,1-3*FER_VIVALTO1_NB(|L),FER_VIVALTO1_NPBH)|					\
+	 (>FER_E464,1-3*FER_VIVALTO1_NB(|L),FER_VIVALTO1_NPBHL);					\
+       V=12;												\
+       F=EPRU5;
      TX=Ferrovia Bologna Vignola (FER)220 (ex DB);							\
        C=FER_220,15*FS_SHMMNS[OB:COIL20H,9,13][OB:COIL20H,51,12][OB:COIL20H,92,13];			\
        V=7;												\
        F=DF5;
+     TX=Ferrovia Bologna Vignola ALn 668 ex FBP;							\
+       C=2*FER_ALN668_1000RG_FBP2(|L);									\
+       V=9;												\
+       F=DPR5;
      TX=Ferrovia Bologna Vignola (FER)ALn 663;								\
        C=FER_ALN663S1FP_FP(|L)|FER_ALN663S2FP_FP(|L),FER_LN664(|L);					\
        V=10;												\
        F=DPR5;
+
+;FG - Ferrovia del Gargano
+;--
+     TX=Ferrovia del Gargano ETR 330;									\
+       C=FG_ETR330;											\
+       V=11;												\
+       F=EPRU5;
 
 ;FNM
 ;---
@@ -535,23 +567,37 @@
        C=FNM_ALN668_130(|L),2*FNM_B68B(|L),FNM_ALN668_130(|L);						\
        V=10;												\
        F=DPRU5;
-;FP
+;FP - Ferrovia Padane
 ;--
-     TX=FP 220 (ex DB);											\
+
+     TX=Ferrovia Padane ALN 668;									\
+       C=(<FP_ALN668B2(|L),FP_LN880A2)|(>FP_ALN668B2(|L),FP_LN880A2L);					\
+       V=9;												\
+       F=DPRU5;
+     TX=Ferrovia Padane 220 (ex DB);									\
        C=FP_220(|L),FS_HBILLNS5,DB_HBBILLS310K,FS_HBILLNS5;						\
        V=8;												\
        F=DF5;
-     TX=FP 220 (ex DB);											\
+     TX=Ferrovia Padane 220 (ex DB);									\
        C=FP_220(|L),13*FS_TADGNS2(|L);									\
        V=9;												\
        F=DF5;
 
 ;FSE
 ;---
+     TX=Ferrovie del Sud-Est BB 150;									\
+       C=(<FSE_BB150B(|L),2*FSE_BYG,FSE_ABYG(|L),FSE_BYG)|						\
+	 (>FSE_BB150B(|L),2*FSE_BYG,FSE_ABYG(|L),FSE_BYG);						\
+       V=8;												\
+       F=DPR5;
      TX=Ferrovie del Sud-Est (FSE)DE 122 + DPC;								\
        C=(<FSE_DE122A(|L),2*FSE_DPC_BZ_NAV(|L),FSE_DPC_NPABZ_NAV)|					\
 	 (>FSE_DE122A(|L),2*FSE_DPC_BZ_NAV(|L),FSE_DPC_NPABZ_NAVL);					\
        V=10;												\
+       F=DPRU5;
+     TX=Ferrovie del Sud-Est (FSE)DE 122;								\
+       C=(<FSE_DE122B(|L),5*FSE_ABN_B,FSE_ABN_BP)|(>FSE_DE122B(|L),5*FSE_ABN_B,FSE_ABN_BPL);		\
+       V=8;												\
        F=DPRU5;
 
 ;FSF
@@ -710,10 +756,15 @@
 	 FS_GC70T_B_ESCI(|L);										\
        V=20;												\
        F=EP6;
-     TX=TI 444 + EUROSTAR CITY ITALIA;									\
+     TX=TI 402 + EUROSTAR CITY ITALIA;									\
        C=FS_E402BGET,2*FS_GC86T_A_ESCI(|L),FS_WRSS83T_BHR_ESCI(|L),2*FS_UICZ85_B_ESCI(|L),		\
 	 FS_GC86T_B_ESCI(|L),3*FS_UICZ85_B_ESCI(|L),;							\
        V=20;												\
+       F=EP6;
+     TX=TI 405 + EUROSTAR CITY ITALIA;									\
+       C=FS_E405XT(|L),FS_GC70T_A_ESCI(|L),FS_UICZ85_BEXA_ESCI(|L),4*FS_UICZ85_B_ESCI(|L),		\
+	 FS_GC70T_BHREXA_ESCI(|L);									\
+       V=16;												\
        F=EP6;
      TX=TI 414 + EUROSTAR CITY ITALIA;									\
        C=<FS_E414_ESCIL,										\
@@ -836,6 +887,14 @@
 	 5*(FS_UICZ85_B_ICGIB(|L)|FS_UICZ93_B_ICG))|							\
 	 (5*(FS_UICZ85_B_ICGIB(|L)|FS_UICZ93_B_ICG),FS_GC83T_BHR_ICG(|L),FS_GC86T_AS_ICG(|L),		\
 	 FS_GC86T_A_ICG(|L)),FS_E414_ICG;								\
+       V=20;												\
+       F=EPU6;
+     TX=TI E414 + INTERCITY GIORNO;									\
+       C=(<FS_E414_ICGL,										\
+	 (2*FS_GC70T_A_ICGFS(|L),FS_GC70T_BHR_ICGFS(|L)|FS_WRSS83T_BHR_ICGFS(|L),			\
+	 5*(FS_UICZ85_B_ICGFS(|L)|FS_UICZ85_B_ICGFS(|L))))|						\
+	 ((5*(FS_UICZ85_B_ICGFS(|L)|FS_UICZ85_B_ICGFS(|L)),						\
+	 FS_GC70T_BHR_ICGFS(|L)|FS_WRSS83T_BHR_ICGFS(|L),2*FS_GC70T_A_ICGFS(|L)),FS_E414_ICG);		\
        V=20;												\
        F=EPU6;
 
@@ -1020,17 +1079,17 @@
        V=13;												\
        F=EPUR6;
      TX=TI E 464 + Regionale;										\
-       C=(<FS_E464_XMPRTL,2*FS_MDVC_XMPRT_NB,FS_MDVE_XMPRT_NB,3*FS_MDVC_XMPRT_NB,FS_MDVC_XMPRT_NPBD2)|	\
-	 (>FS_E464_XMPRT,2*FS_MDVC_XMPRT_NB,FS_MDVE_XMPRT_NB,3*FS_MDVC_XMPRT_NB,FS_MDVC_XMPRT_NPBD2L);	\
+       C=(<FS_E464_XMPRTL,2*FS_MDVC_XMPRT_NB,FS_MDVE_NBXT,3*FS_MDVC_XMPRT_NB,FS_MDVC_XMPRT_NPBD2)|	\
+	 (>FS_E464_XMPRT,2*FS_MDVC_XMPRT_NB,FS_MDVE_NBXT,3*FS_MDVC_XMPRT_NB,FS_MDVC_XMPRT_NPBD2L);	\
        V=13;												\
        F=EPRU6;
      TX=TI E 464 + Regionale;										\
-       C=<FS_E464_XMPRTL,3*FS_MDVC_XMPRT_NB,3*(FS_MDVE_XMPRT_NB,FS_MDVC_XMPRT_NB),FS_E464_XMPRT;	\
+       C=<FS_E464_XMPRTL,3*FS_MDVC_XMPRT_NB,3*(FS_MDVE_NBXT,FS_MDVC_XMPRT_NB),FS_E464_XMPRT;		\
        V=13;												\
        F=EPRU6;
      TX=TI E 464 + Regionale;										\
-       C=(<FS_E464_XMPRTL,FS_MDVE_XMPRT_NB,FS_MDVE_NAXT,5*FS_MDVE_XMPRT_NB,FS_MDVC_XMPRT_NPBD2)|	\
-	 (>FS_E464_XMPRT,FS_MDVE_XMPRT_NB,FS_MDVE_NAXT,5*FS_MDVE_XMPRT_NB,FS_MDVC_XMPRT_NPBD2L);	\
+       C=(<FS_E464_XMPRTL,FS_MDVE_NBXT,FS_MDVE_NAXT,5*FS_MDVE_NBXT,FS_MDVC_XMPRT_NPBD2)|		\
+	 (>FS_E464_XMPRT,FS_MDVE_NBXT,FS_MDVE_NAXT,5*FS_MDVE_NBXT,FS_MDVC_XMPRT_NPBD2L);		\
        V=13;												\
        F=EPRU6;
      TX=TI E 464 + Regionale;										\
@@ -1069,8 +1128,8 @@
        V=12;												\
        F=EPRU6;
      TX=TI E 464 + Regionale;										\
-       C=(<FS_E464_XMPRTL,6@(FS_MDVE_XMPRT_NB|FS_MDVC_XMPRT_NB),FS_PR73_RQ_NPBDH_XMPRT)|		\
-	 (>FS_E464_XMPRT,6@(FS_MDVE_XMPRT_NB|FS_MDVC_XMPRT_NB),FS_PR73_RQ_NPBDH_XMPRTL);		\
+       C=(<FS_E464_XMPRTL,6@(FS_MDVE_NBXT|FS_MDVC_XMPRT_NB),FS_PR73_RQ_NPBDH_XMPRT)|			\
+	 (>FS_E464_XMPRT,6@(FS_MDVE_NBXT|FS_MDVC_XMPRT_NB),FS_PR73_RQ_NPBDH_XMPRTL);			\
        V=12;												\
        F=EPRU6;
      TX=TI E 464 + Regionale;										\
@@ -1093,14 +1152,36 @@
 	 (>FS_E464_XMPRT,6*FS_DPC_RB_XMPRT(|L),FS_DPC_RNPB_XMPRTL);					\
        V=12;												\
        F=EPRU6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + Regionale (Vivalto);									\
        C=(<FS_E464_VIVALTOL,2*FS_VIVALTO1_NB1,FS_VIVALTO1_NA1,2*FS_VIVALTO1_NB1,FS_VIVALTO1_NPBH1)|	\
 	 (>FS_E464_VIVALTO,2*FS_VIVALTO1_NB1L,FS_VIVALTO1_NA1L,2*FS_VIVALTO1_NB1L,FS_VIVALTO1_NPBH1L);	\
        V=13;												\
        F=EPRU6;
-     TX=TI E 464 + Regionale;										\
+     TX=TI E 464 + Regionale (Vivalto);									\
        C=(<FS_E464_XMPRTL,5*FS_VIVALTO1_NB1,FS_VIVALTO1_NPBH1)|						\
 	 (>FS_E464_XMPRT,5*FS_VIVALTO1_NB1L,FS_VIVALTO1_NPBH1L);					\
+       V=13;												\
+       F=EPRU6;
+     TX=TI E 464 + Regionale (Vivalto);									\
+       C=(<FS_E464_XMPRTL,2*FS_VIVALTO1_NB_DTR1(|L),FS_VIVALTO1_NPBH1)|					\
+	 (>FS_E464_XMPRT,2*FS_VIVALTO1_NB_DTR1(|L),FS_VIVALTO1_NPBH1L);					\
+       V=13;												\
+       F=EPRU6;
+     TX=TI E 464 + Regionale (Vivalto);									\
+       C=(<FS_E464_XMPRTL,3*FS_VIVALTO1_NB_DTR1(|L),FS_VIVALTO1_NA_DTR1(|L),FS_VIVALTO1_NB_DTR1(|L),	\
+	 FS_VIVALTO1_NPBH_DTR1)|									\
+	 (>FS_E464_XMPRT,3*FS_VIVALTO1_NB_DTR1(|L),FS_VIVALTO1_NA_DTR1(|L),FS_VIVALTO1_NB_DTR1(|L),	\
+	 FS_VIVALTO1_NPBH_DTR1L);									\
+       V=13;												\
+       F=EPRU6;
+     TX=TI E 464 + Regionale (Vivalto);									\
+       C=(<FS_E464DTR1L,7*FS_VIVALTO1_NB_DTR1(|L),FS_VIVALTO1_NPBH_DTR1)|				\
+	 (>FS_E464DTR1,7*FS_VIVALTO1_NB_DTR1(|L),FS_VIVALTO1_NPBH_DTR1L);				\
+       V=13;												\
+       F=EPRU6;
+     TX=TI E 464 + Regionale (Vivalto);									\
+       C=(<FS_E464DTR1L,FS_VIVALTO2_N(|A)B_DTR1(|L),3*FS_VIVALTO2_NB_DTR1(|L),FS_VIVALTO2_NPBH_DTR1)|	\
+	 (>FS_E464DTR1,FS_VIVALTO2_N(|A)B_DTR1(|L),3*FS_VIVALTO2_NB_DTR1(|L),FS_VIVALTO2_NPBH_DTR1L);	\
        V=13;												\
        F=EPRU6;
      TX=TI E 464 + Regionale;										\
@@ -1152,11 +1233,11 @@
        V=12;												\
        F=DPR6;
      TX=TI D 445 + Regionale;										\
-       C=<FS_D445X(|L),FS_MDVC_XMPRT_NB,3*FS_MDVE_XMPRT_NB,FS_MDVC_XMPRT_NB,FS_MDVC_XMPRT_NPBD2;	\
+       C=<FS_D445X(|L),FS_MDVC_XMPRT_NB,3*FS_MDVE_NBXT,FS_MDVC_XMPRT_NB,FS_MDVC_XMPRT_NPBD2;		\
        V=12;												\
        F=DPR6;
      TX=TI D 445 + Regionale;										\
-       C=>FS_D445X(|L),5*FS_MDVE_XMPRT_NB,FS_MDVC_XMPRT_NPBD2L;						\
+       C=>FS_D445X(|L),5*FS_MDVE_NBXT,FS_MDVC_XMPRT_NPBD2L;						\
        V=12;												\
        F=DPR6;
      TX=TI D 445 + Regionale;										\
@@ -1333,23 +1414,27 @@
        V=10;
 ;MERCITALIA
 ;----------
-     TX=MERCITALIA E494;										\
+     TX=Mercitalia E412;										\
+       C=MIR_E412(|L),24*(9:FS_TADGNS3(|L)|1:FS_TADGNS2(|L));						\
+       V=10;												\
+       F=EF6;
+     TX=Mercitalia E494;										\
        C=MIR_E494(|L),18-20*(3:FS_EANOS5377B|1:FS_EANOS5377C|1:FS_EANOS5377T);				\
        V=10;												\
        F=EF6;
-     TX=MERCITALIA 193;											\
+     TX=Mercitalia 193;											\
        C=MIR_193_MRCE_DC,15-18*FS_SHIMMNS3(|L);								\
        V=10;												\
        F=EF6;
-     TX=MERCITALIA 193;											\
+     TX=Mercitalia 193;											\
        C=MIR_193_MRCE_DC,18*FS_SHIMMNS4677_T;								\
        V=10;												\
        F=EF6;
-     TX=MERCITALIA E 652;										\
+     TX=Mercitalia E 652;										\
        C=MIR_E652(|L),8*(2:TWAG_HB7|1:TWAG_HB15),2*SBB_HABBIILLNS_CARGO,8*(2:TWAG_HB7|1:TWAG_HB15);	\
        V=12;												\
        F=EF6;
-     TX=MERCITALIA E 652;										\
+     TX=Mercitalia E 652;										\
        C=MIR_E652(|L),14-16*(FS_SHIMMNS2(|L)|FS_SHIMMNS3(|L));						\
        V=10;												\
        F=EF6;
@@ -1410,6 +1495,18 @@
 	 (>TNOR_E464,2*TNOR_MDVC_NB(|L),0-1*TNOR_MDVC_NA(|L),3*TNOR_MDVC_NB(|L),TNOR_MDVC_NPBD2L);	\
        V=13;												\
        F=EPRU6;
+     TX=TRENORD E464 + Regionale (Vivalto);								\
+       C=(<TNOR_E464L,4*TRENORD_VIVALTO_1S_NB,TNOR_VIVALTO1_NPBH)|					\
+	 (>TNOR_E464,4*TRENORD_VIVALTO_1S_NB,TNOR_VIVALTO1_NPBHL);					\
+       V=13;												\
+       F=EPRU6;
+     TX=TRENORD E464 + Regionale (Vivalto);								\
+       C=(<TNOR_E464L,2*TRENORD_VIVALTO_2S_NB,TRENORD_VIVALTO_2S_NAB,2*TRENORD_VIVALTO_2S_NB,		\
+	 TNOR_VIVALTO2_NPBH)|										\
+	 (>TNOR_E464,2*TRENORD_VIVALTO_2S_NB,TRENORD_VIVALTO_2S_NAB,2*TRENORD_VIVALTO_2S_NB,		\
+	 TNOR_VIVALTO2_NPBHL);										\
+       V=13;												\
+       F=EPRU6;
 
      TX=TRENORD E464 + Regionale;									\
        C=(<TNOR_E464L~MLG,4*TNOR_DPC_B(|L),TNOR_DPC_NPB)|						\
@@ -1446,6 +1543,14 @@
      TX=TRENORD ALE ETR 526;										\
        C=TRENORD_ETR526;										\
        V=14;												\
+       F=EPRU6;
+     TX=Trenord TAF LeNord;										\
+       C=TRENORD_TAF_LENORD;										\
+       V=12;												\
+       F=EPRU6;
+     TX=Trenord TAF LeNord;										\
+       C=TRENORD_TAF,|(TRENORD_TAF(|_LENORD));								\
+       V=12;												\
        F=EPRU6;
 
      TX=TRENORD ALN 668 120 + Regionale;								\
@@ -1528,6 +1633,11 @@
 
 ;FER
 ;---
+     TX=Ferrovia Bologna Vignola (FER)E 464 + Regionale (Vivalto);					\
+       C=(<FER_E464L,1-3*FER_VIVALTO1_NB(|L),FER_VIVALTO1_NPBH)|					\
+	 (>FER_E464,1-3*FER_VIVALTO1_NB(|L),FER_VIVALTO1_NPBHL);					\
+       V=12;												\
+       F=EPRU6;
      TX=Ferrovia Bologna Vignola (FER)ALn 668;								\
        C=(FER_ALN668_2FBP2(|L),FBP_ALN668S2A(|L))|(FBP_ALN668S2A(|L),FER_ALN668_2FBP2(|L));		\
        V=10;												\
@@ -1538,63 +1648,76 @@
        F=DPRU6;
      TX=Ferrovia Bologna Vignola (FER)ALn 663;								\
        C=1-2*(FER_ALN663S1FP(|L)|FER_ALN663S2FP(|L));							\
-       V=10; W=X;											\
+       V=10;												\
        F=DPRU6;
+     TX=Ferrovia Bologna Vignola (FER)ATR 220;								\
+       C=FER_ATR220;											\
+       V=10;												\
+       F=DPRU6;
+
+     TX=Ferrovia Bologna Vignola (FER)E 483;								\
+       C=FER_E483W(|L),15*FS_EANOS5377T;								\
+       V=10;												\
+       F=EF6;
 
 ;FNM / LENORD
 ;------------
-     TX=Ferrovia Milano Nord / LENORD E 620 + Regionale;						\
+     TX=Ferrovia Milano Nord / LeNord E 620 + Regionale;						\
        C=(<FNM_E620G(|L),2*FNM_EB980G(|L),2*FNM_EB950G(|L),FNM_EA870G)|					\
 	 (>FNM_E620G(|L),2*FNM_EB980G(|L),2*FNM_EB950G(|L),FNM_EA870GL);				\
        V=12;												\
        F=EPRU6;
-     TX=Ferrovia Milano Nord / LENORD E 630 + Regionale;						\
+     TX=Ferrovia Milano Nord / LeNord E 630 + Regionale;						\
        C=(<FNM_E630G(|L),FNM_EB960G(|L),FNM_EA970G(|L),FNM_EB980G(|L),2*FNM_EB960G(|L),FNM_EA970G(|L),	\
 	 FNM_EB880G1)|											\
 	 (>FNM_E630G(|L),FNM_EB960G(|L),FNM_EA970G(|L),FNM_EB980G(|L),2*FNM_EB960G(|L),FNM_EA970G(|L),	\
 	 FNM_EB880G1L);											\
        V=12;												\
        F=EPRU6;
-     TX=Ferrovia Milano Nord / LENORD EA 750 + Regionale;						\
+     TX=Ferrovia Milano Nord / LeNord EA 750 + Regionale;						\
        C=(<FNM_EA750AGL,FNM_EB950G(|L),FNM_EB850G)|(>FNM_EA750AG,FNM_EB950G(|L),FNM_EB850GL);		\
        V=12;												\
        F=EPRU6;
-     TX=Ferrovia Milano Nord / LENORD EA 750 + Regionale;						\
+     TX=Ferrovia Milano Nord / LeNord EA 750 + Regionale;						\
        C=(<FNM_EA750AGL,FNM_EB950G(|L),FNM_EA870G)|(>FNM_EA750AG,FNM_EB950G(|L),FNM_EA870GL);		\
        V=12;												\
        F=EPRU6;
-     TX=Ferrovia Milano Nord / LENORD EA 750 + Regionale;						\
+     TX=Ferrovia Milano Nord / LeNord EA 750 + Regionale;						\
        C=(<1-2*(FNM_EA750AGL,FNM_EB950G(|L),FNM_EB950G(|L)|FNM_EB980G(|L),FNM_EA870G))|			\
 	 (>1-2*(FNM_EA750AG,FNM_EB950G(|L),FNM_EB950G(|L)|FNM_EB980G(|L),FNM_EA870GL));			\
        V=12;												\
        F=EPRU6;
-     TX=Ferrovia Milano Nord / LENORD EA 750 + Regionale;						\
+     TX=Ferrovia Milano Nord / LeNord EA 750 + Regionale;						\
        C=(<1-2*(FNM_EA750BGL,2*FNM_EB950G(|L),FNM_EB850G))|						\
 	 (>1-2*(FNM_EA750BG,2*FNM_EB950G(|L),FNM_EB850GL));						\
        V=12;
-     TX=Ferrovia Milano Nord / LENORD EA 750 + Regionale;						\
+     TX=Ferrovia Milano Nord / LeNord EA 750 + Regionale;						\
        C=(<FNM_EA750AGL|(FNM_EA750BGL,FNM_EB950G),FNM_EB950G,FNM_EB850G)|				\
 	 (>FNM_EA750AG|(FNM_EA750BG,FNM_EB950GL),FNM_EB950GL,FNM_EB850GL);				\
        V=12;												\
        F=EPRU6;
-     TX=Ferrovia Milano Nord / LENORD EA 750 + Regionale;						\
+     TX=Ferrovia Milano Nord / LeNord EA 750 + Regionale;						\
        C=(<FNM_EA750ABGL|(FNM_EA750BBGL,FNM_EB950G),FNM_EB950G,FNM_EB850G)|				\
 	 (>FNM_EA750ABG|(FNM_EA750BBG,FNM_EB950GL),FNM_EB950GL,FNM_EB850GL);				\
        V=12;												\
        F=EPRU6;
-     TX=Ferrovia Milano Nord / LENORD ALN 668 120 + Regionale;						\
+     TX=Ferrovia Milano Nord / LeNord TAF;								\
+       C=FNM_TAF_LENORD;										\
+       V=12;												\
+       F=EPRU6;
+     TX=Ferrovia Milano Nord / LeNord ALN 668 120 + Regionale;						\
        C=FNM_ALN668_120ALN(|L);										\
        V=11;												\
        F=DPRU6;
-     TX=Ferrovia Milano Nord / LENORD ALN 668 120 + Regionale;						\
+     TX=Ferrovia Milano Nord / LeNord ALN 668 120 + Regionale;						\
        C=FNM_ALN668_120BG(|L)|FNM_ALN668_120BLN(|L),FNM_B68LN(|L),FNM_ALN668_130LN(|L);			\
        V=11;												\
        F=DPRU6;
-     TX=Ferrovia Milano Nord / LENORD ALN 668 130 + Regionale;						\
+     TX=Ferrovia Milano Nord / LeNord ALN 668 130 + Regionale;						\
        C=FNM_ALN668_130LN(|L)|(FNM_ALN668_130(|L),FNM_B68B(|L),FNM_ALN668_130LN(|L));			\
        V=10;												\
        F=DPRU6;
-     TX=Ferrovia Milano Nord / LENORD  ALN 668 130 + Regionale;						\
+     TX=Ferrovia Milano Nord / LeNord  ALN 668 130 + Regionale;						\
        C=FNM_ALN668_130LN(|L),1-2*FNM_B68LN(|L),FNM_ALN668_130LN(|L);					\
        V=10;												\
        F=DPRU6;
@@ -1604,11 +1727,24 @@
      TX=Ferrovie del Sud-Est (FSE)DE 122 + DP;								\
        C=(<FSE_DE122B(|L),2*FSE_DPC_BZ_NAV(|L),FSE_DPC_NPABZ_NAV)|					\
 	 (>FSE_DE122B(|L),2*FSE_DPC_BZ_NAV(|L),FSE_DPC_NPABZ_NAVL);					\
-       V=10;												\
+       V=9;												\
+       F=DPRU6;
+     TX=Ferrovie del Sud-Est (FSE)(DE 122 + DPC);							\
+       C=(<FSE_DE122B(|L),2*FSE_DPC_BZ_RNB,FSE_DPC_NPABZ_RNB)|						\
+	 (>FSE_DE122B(|L),2*FSE_DPC_BZ_RNB,FSE_DPC_NPABZ_RNBL);						\
+       V=9;												\
        F=DPRU6;
      TX=Ferrovie del Sud-Est (FSE)Ad 30;								\
        C=1:FSE_AD30B(|L)|2:FSE_AD30BR(|L)|4:FSE_AD30BC(|L);						\
        V=9;												\
+       F=DPRU6;
+     TX=Ferrovie del Sud-Est (FSE)ATR 220;								\
+       C=FSE_ATR220_RNB;										\
+       V=10;												\
+       F=DPRU6;
+     TX=Ferrovie del Sud-Est (FSE)ATR 220;								\
+       C=FSE_ATR220_DTR1;										\
+       V=10;												\
        F=DPRU6;
 
 ;FUC
@@ -1783,7 +1919,7 @@
 # ERGÄNZUNG
 
      TX=FS E444 + RAPIDO;										\
-       C=FS_E444_EB2(|L),FS_UICX64_G_A(|L),(FS_UICX75_L_GPB_A|FS_UICX75_L1_GPB_AL),FS_UICX64_G_A(|L),	\
+       C=FS_E444_EB2(|L),FS_UICX64_G_A(|L),(FS_UICX75_L_GPB_A|FS_UICX75_L_GPB_AL),FS_UICX64_G_A(|L),	\
 	 2*FS_UICX64_G_B(|L),XFS_UICX75_GPB_B,FS_UICX64_G_B(|L),XFS_UICX75_GPB_B;			\
        V=16;												\
        F=EP4;

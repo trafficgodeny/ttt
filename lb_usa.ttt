@@ -2114,14 +2114,14 @@ $REQUIRE TRAINDEF.TTT
       TX=USA Southern Pacific Railroad FP9;								\
 	C=(<SP_FP9ASO01L,SP_FP9ASO01),USA4PSP;								\
 	F=DP3;
-      TX=USA Southern Pacific Railroad RS11;								\
-	C=SP_RS11SO0(1|2)(|L),USA4FSP;									\
+      TX=USA Southern Pacific Railroad RS11 + DD35;								\
+	C=(SP_RS11SO0(1|2)L[#D:L],SP_DD35_9902(|L))|(SP_RS11SO0(1|2)[#D:R],SP_DD35_9902(|L)),USA4FSP;									\
 	F=DF3;
       TX=USA Southern Pacific Railroad GP18;								\
 	C=SP_GP18~NEK2,USA4FSP;										\
 	F=DF3;
-      TX=USA Southern Pacific Railroad SD7;								\
-	C=SP_SD7(|L),USA4FSP;										\
+      TX=USA Southern Pacific Railroad U50 + SD7;								\
+	C=(SP_U50_9951[#D:R]|SP_U50_9951L[#D:L]),SP_SD7(|L),USA3FUP;									\
 	F=DF3;
       TX=USA Southern Pacific Railroad SD35;								\
 	C=SP_SD35(|L),USA4FSP;										\
@@ -2195,8 +2195,8 @@ $REQUIRE TRAINDEF.TTT
       TX=USA Union Pacific Railroad F;									\
 	C=(<UP_FA1L,UP_FB1(|L),UP_FA1),USA3FUP;								\
 	F=DF3;
-      TX=USA Union Pacific Railroad SD7;								\
-	C=UP_SD7SO01(|L),USA3FUP;									\
+      TX=USA Union Pacific Railroad U50 + SD7;								\
+	C=(UP_U50_(45|31)[#D:R]|UP_U50_(45|31)L[#D:L]),UP_SD7SO01(|L),USA3FUP;									\
 	F=DF3;
       TX=USA Union Pacific Railroad F3;									\
 	C=(<UP_F3ASO01L,UP_F3BSO01(|L),UP_F3ASO01),USA3FUP;						\
@@ -2208,11 +2208,8 @@ $REQUIRE TRAINDEF.TTT
       TX=USA Union Pacific Railroad F7;									\
 	C=(<UP_F7ASO01L,UP_F7BSO01(|L),UP_F7ASO01),USA3FUP;						\
 	F=DF3;
-      TX=USA Union Pacific Railroad RS27;								\
-	C=UP_RS27SO01(|L),USA3FUP;									\
-	F=DF3;
-      TX=USA Union Pacific Railroad RS27;								\
-	C=UP_RS27SO01(|L),USA3FUP;									\
+      TX=USA Union Pacific Railroad DD35 + RS27;								\
+	C=(UP_DD35_73L[#D:L],EMD_DD35(|L),UP_RS27SO01(|L))|(UP_DD35_73[#D:R],EMD_DD35(|L),UP_RS27SO01(|L)),USA3FUP;									\
 	F=DF3;
       TX=USA Union Pacific Railroad GP7;								\
 	C=UP_GP7SO01(|L),USA3FUP;									\
@@ -5519,6 +5516,10 @@ $REQUIRE TRAINDEF.TTT
 	F=DF4;
       TX=USA Union Pacific Railroad GP30;								\
 	C=UP_GP30SO0(1|2)(|L),USA4FUP;									\
+	F=DF4;
+      TX=USA Union Pacific Railroad DD35;								\
+	C=(UP_DD35_82L,UP_DD35_(78|90)B(|L),UP_DD35_77)|(UP_DD35_77L,UP_DD35_(78|90)B(|L),UP_DD35_82),\
+	USA4FUP;									\
 	F=DF4;
       TX=USA Union Pacific Railroad GP38-2;								\
 	C=UP_GP382SO0(1|2)(|L),USA4FUP;									\

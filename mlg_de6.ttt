@@ -1644,7 +1644,7 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=EF6;
     TX=DB 185.2 + Güterzug;										\
-      C=RAI_185_2P2U(|L),20*SNCF_TANPPS_TRANSENGRAIS1;							\
+      C=RAI_185_2P2U(|L),20*TENG_TANPPS_M;							\
       V=10;												\
       F=EF6;
     TX=DB 185.2 + Güterzug;										\
@@ -1822,7 +1822,7 @@ $REQUIRE MLG_DEF.TTT
       V=9;												\
       F=DF6;
     TX=DB 261 Gravita + Güterzug;									\
-      C=DB_261GR(|L),10-12*(TWAG_HB7|DB_HB8_TW),DB_261GR(|L);						\
+      C=DB_261GR(|L),10-12*(TWAG_HB7|TWAG_HB8),DB_261GR(|L);						\
       V=8;												\
       F=DF6;
     TX=DB 261 Gravita + Güterzug;									\
@@ -2270,7 +2270,7 @@ $REQUIRE MLG_DEF.TTT
       V=13;												\
       F=DPRU6;
 
-;BTE
+;BTEx
 ;---
 ;AUTOZUG HAMBURG - LÖRRACH
     TX=BTE ES64U + Autozug Hamburg - Lörrach;								\
@@ -2297,6 +2297,10 @@ $REQUIRE MLG_DEF.TTT
       C=HECT_DE2700(|L),3*BTE_BVCMZ248_5ASX(|L),BTE_BVCMBZ249_1ASX(|L),BTE_BVCMZ248_5ASX(|L),		\
 	BTE_BIMDZ268ASX(|L),3*BTE_BVCMZ248_5ASX(|L);							\
       V=12;												\
+      F=DP6;
+TX=BahnTouristikExpress 110 + Nachtzug Hamburg - Nürnberg;								\
+  C=BTE_110B(|L),BTE_BIMDZ268ASX(|L),RDC_BIMDZ_ICB,RDC_BVCMZ248,2*RDC_BIMDZ_ICB;			\
+  V=14;												\
       F=DP6;
 
 ;CANTUS
@@ -2567,7 +2571,12 @@ $REQUIRE MLG_DEF.TTT
       V=12;												\
       F=EPRU6;
 
-    TX=BayernBahn 140 + GfF N-Wagen (Go-Ahead Ersatzzug);						\
+  TX=Smart rail GmbH 111 + WFL / Go-Ahead Bayern-Ersatz;									\
+  C=(<ZUG_111R(|L),2*WFL_DBUZ747(|L),WFL_DABPBZF762VRR)|						\
+    (>ZUG_111R(|L),2*WFL_DBUZ747(|L),WFL_DABPBZF762VRRL);						\
+  V=14;												\
+      F=EPRU6;
+  TX=BayernBahn 140 + GfF N-Wagen (Go-Ahead Ersatzzug);						\
       C=(<BYB_140GO(|L),GFF_BN451_4IRG,GFF_ABNIRG,GFF_BNDZF479IRG)|					\
 	(>BYB_140GO(|L),GFF_BN451_4IRG,GFF_ABNIRG,GFF_BNDZF479IRGL);					\
       V=11;												\
@@ -2758,7 +2767,7 @@ $REQUIRE MLG_DEF.TTT
 	METR_DABPBZKFA2MZ)|										\
 	(>METR_246(|L)|METR_246_10Y(|L),METR_DBDPZA1RUHE,2*METR_DBDPZA,METR_DBDPZA1CYC,			\
 	METR_DABPBZKFA2MZL);										\
-      V=14:F=DPRU6;
+      V=14; F=DPRU6;
 
     C=1-2*METRONOM_1440_4V_ENNO;									\
       V=12;												\
@@ -3053,6 +3062,13 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=DPRU6;
 
+;PEG
+;---
+    TX=Prignitzer Eisenbahn GmbH VT504;									\
+      C=PEG_VT504(|L);											\
+      V=12;												\
+      F=DPRU6;
+
 ;PRESS
 ;-----
     TX=TX=Pressnitztalbahn Rügen (RS1);									\
@@ -3060,12 +3076,12 @@ $REQUIRE MLG_DEF.TTT
       V=9;												\
       F=DPRU6;
 
-;PEG
+;RDC
 ;---
-    TX=Prignitzer Eisenbahn GmbH VT504;									\
-      C=PEG_VT504(|L);											\
-      V=12;												\
-      F=DPRU6;
+TX=RDC UEX Hamburg - Lörrach;										\
+  C=RDC_101B,5*RDC_BVCMZ248,2*RDC_MUN,4*BTE_DDM;							\
+  V=14;												\
+      F=EP6;
 
 ;REGENTALBAHN
 ;------------
@@ -3526,7 +3542,7 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=DF6;
     TX=Captrain 145;											\
-      C=CAPT_145,8-15*DB_HB8_TW;									\
+      C=CAPT_145,8-15*TWAG_HB8;									\
       V=10;												\
       F=EF6;
     TX=Captrain 185;											\
@@ -3534,7 +3550,7 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=EF6;
     TX=Captrain 145;											\
-      C=CAPT_145,8-15*DB_HB8_TW;									\
+      C=CAPT_145,8-15*TWAG_HB8;									\
       V=10;												\
       F=EF6;
     TX=Captrain 185;											\
@@ -3546,7 +3562,7 @@ $REQUIRE MLG_DEF.TTT
       V=12;												\
       F=EF6;
     TX=Captrain 193;											\
-      C=CAPTRAIN_193_ACB,15*DB_HB8_TW;									\
+      C=CAPTRAIN_193_ACB,15*TWAG_HB8;									\
       V=12;												\
       F=EF6;
     TX=Captrain 250;											\

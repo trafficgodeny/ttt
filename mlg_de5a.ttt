@@ -121,7 +121,7 @@ $REQUIRE MLG_DEF.TTT
       F=EP5;
 ;D2060/1 PARIS - LINDAU
     TX=DB 218 + D2060/1 Paris - Lindau;									\
-      C=(DB_218PR(|L),OBB_ABMZ30700O(|L),SNCF_UIC_B10C(|L),2*SNCF_UIC_B10(|L))|				\
+      C=(DB_218PR(|L),OBB_ABMZ30700O(|L),SNCF_4B_UIC_B10C(|L),2*SNCF_UIC_B10(|L))|				\
 	(DB_218BB(|L),OBB_ABMZ30700(|L),SNCF_UIC_B10(|L))|						\
 	(DB_218R(|L),SNCF_UIC_B10(|L),OBB_ABMZ30700O(|L));						\
       V=14;												\
@@ -1197,6 +1197,10 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=EF5;
     TX=DB 150 + Güterzug;										\
+  C=DB_150_4RG(|L),7*(2:OHU_FACCS(|L)|1:UHL_FACCS(|L));							\
+  V=10;												\
+      F=EF5;													\
+   TX=DB 150 + Güterzug;										\
       C=DB_150_4RR(|L),25-30*DB_E034;									\
       V=10;												\
       F=EF5;
@@ -1419,7 +1423,7 @@ $REQUIRE MLG_DEF.TTT
 ;BENTHEIMER EISENBAHN
 ;--------------------
     TX=Bentheimer Eisenbahn 211;									\
-      C=BEE_211A(|L),SBB_5GBS1500B(|L),SBB_5GBS1501B(|L),3*DB_GBS254;					\
+      C=BEE_211A(|L),SBB_5GBS1500B(|L),SBB_5GBS1501B(|L),3*DB_GBS254PP;					\
       V=8;												\
       F=DF5;
 
@@ -1605,7 +1609,7 @@ $REQUIRE MLG_DEF.TTT
 
 ;WEG
     TX=Würtembergische Eisenbahn-Gesellschaft V 216;							\
-      C=WEG_V216(|L),(DB_GBS254,7*(DB_GS204W|DB_GS212C|DB_GS216C))|(DB_HBIS299,DB_GBS254,DB_GLS205C);	\
+      C=WEG_V216(|L),(DB_GBS254PP,7*(DB_GS204W|DB_GS212C|DB_GS216C))|(DB_HBIS299,DB_GBS254PP,DB_GLS205C);	\
       V=9;												\
       F=DF5;
     TX=Würtembergische Eisenbahn-Gesellschaft V 320;							\
@@ -1617,7 +1621,7 @@ $REQUIRE MLG_DEF.TTT
       V=8;												\
       F=DF5;
     TX=Würtembergische Eisenbahn-Gesellschaft NE 81 + Güterzug;						\
-      C=WEG_NE81A(|L),DB_GS204W|DB_GS212C|DB_GS216C,2*DB_HBIS299,DB_GBS254,				\
+      C=WEG_NE81A(|L),DB_GS204W|DB_GS212C|DB_GS216C,2*DB_HBIS299,DB_GBS254PP,				\
 	DB_GS204W|DB_GS212C|DB_GS216C;									\
       V=8;												\
       F=DF5;

@@ -165,7 +165,7 @@ $REQUIRE TRAINDEF.TTT
 	  DSB_3B_CPE2987|DSB_3B_CPE2993)|								\
 	  (>DSB_3B_CMR2119L,DSB_3A_CORL,DSB_3B_AV249L,DSB_3B_CR3614L,DSB_3B_CP2872L,DSB_3B_CP2835L,	\
 	  DSB_3B_CPE2987L|DSB_3B_CPE2993L);								\
-	 F=DP3;
+	F=DP3;
       TX=DSB MY Nohab + Skandinavien-Italien-Express 1954;						\
 	C=DSB_3_MY_H(|L),										\
 	  (<CIWL_3WLUHL,DSB_3_BC4UL,FS_3DZ80000BH,DSB_3_B4UL,FS_BZ23010B,FS_AZ13010B2,2*CIWL_3WLUH,	\
@@ -922,7 +922,7 @@ $REQUIRE TRAINDEF.TTT
     }
     {E4?
       TX=SJ V1;												\
-	C=SJ_V1,2-5*(G_SHIM|G_GABS);										\
+	C=SJ_V1,2-5*(G_SHIM|G_GABS);									\
 	F=DF4;
       TX=SJ V3;												\
 	C=SJ_V3~ARN,S4FK1A;										\
@@ -1364,6 +1364,10 @@ $REQUIRE TRAINDEF.TTT
       TX=Schweden Skandinaviska Jernbanor AB 193 922;							\
 	C=SKJB_193922(|L),S6F1;										\
 	F=EF6;
+      TX=Schweden ELL (European Locomotive Leasing)193 + Snälltåget 3901:Storlie - Malmö 2024;		\
+	C=ELL_193_255SNALL,(<SNALL_BC2,3*SNALL_BC2IB,2*SNALL_BC2,SNALL_BBMVZ,SNALL_R7,2*SNALL_B1K,		\
+	  3*SNALL_BC2);											\
+	F=EP6;
       TX=Schweden Skandinaviska Jernbanor EL 13;							\
 	C=SKJB_6EL132(131|124)(|L),S6F1;								\
 	F=EF6;
@@ -1487,9 +1491,14 @@ $REQUIRE TRAINDEF.TTT
 	  (<VR_5_EILFR,VR_5_EILFRL,VR_5_EILF,VR_5_EILFL,VR_5_EILF,VR_5_EILFL)|				\
 	  (<VR_5_EILF,VR_5_EILFL,VR_5_EILF,VR_5_EILFL,VR_5_EILFR,VR_5_EILFRL);				\
 	F=EPR5;
-
     }
+
     {E6?
+      TX=VR DR16 + P 262 Kolari - Oulu (- Helsinki) 2024;						\
+	C=VR_DR16G,											\
+	  (<VR_DE9347,3*VR_CEMT~VW,VR_6_EDBG,VR_6RXG,4*VR_CEMT~VW,5*VR_6GFOT)|				\
+	  (>VR_DE9347,3*VR_CEMTL~VW,VR_6_EDBGL,VR_6RXG,4*VR_CEMTL~VW,5*VR_6GFOT);				\
+	F=DP6;
       TX=VR DR16;											\
 	C=VR_DR16|VR_DR16_2819,FI6FS1;									\
 	F=DF6;
@@ -1511,6 +1520,11 @@ $REQUIRE TRAINDEF.TTT
 	  (<VR_6_EIPTL,VR_6_EIPT,VR_6_IC1RL,VR_6_EFITG,3*VR_6_EDML,VR_6_EDM,VR_6_EDML,VR_6_EDM)|	\
 	  (<VR_6_EDM,VR_6_EDML,VR_6_EDM,VR_6_EDML,3*VR_6_EDM,VR_6_EFITGL,VR_6_IC1R,VR_6_EIPTL,		\
 	  VR_6_EIPT);											\
+	F=EP6;
+      TX=VR Sr2 + IC 273 Helsinki - Rovaniemi 2024;							\
+	C=VR_6_SR2G(|L),										\
+	  (<4*VR_6RXG,VR_6RXG,2*VR_6_EDBG,6*VR_6EDMG,2*VR_6GD,VR_6GFOT)|				\
+	  (>4*VR_6RXG,VR_6RXG,2*VR_6_EDBGL,6*VR_6EDMGL,2*VR_6GD,VR_6GFOT);				\
 	F=EP6;
       TX=VR Sr 3045 + P441 bei Välillä 2017;								\
 	C=VR_6_SR1G(|L),(<VR_5_EFIT,VR_6_IC1EXG,VR_6_IC1EXGL)|(<VR_6_IC1EXG,VR_6_IC1EXGL,VR_5_EFITL);	\

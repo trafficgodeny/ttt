@@ -2,13 +2,11 @@
   $INCLUDE SINGLE.TTT
 }
 $REQUIRE JMD_DEF.TTT
-$REQUIRE JMD_EU_DEF.TTT
 
 $SPOOL N=A_TEE_1969; SEQ=R;
   {E3?
-    C=(<BR601MLL~JD,VM11ML_AP~JD,2*VM11ML_AV~JD,VM11ML_AR~JD,VM11ML_AV~JD,2*VM11ML_AR~JD,VM11ML_AP~JD,	\
-	BR601ML~JD){NEK?|										\
-	99:(<BR601L~NEK,VM11_AP~NEK,VM11_AV~NEK,VM11_AR~NEK,VM11_WR~NEK,VM11_AP~NEK,BR601~NEK)};	\
+    C=(<DB_VT11TEEL,DB_901AP,DB_901AV,DB_901AR,DB_901WR,2*DB_901AV,DB_901AP,DB_VT11TEE)|		\
+	(<DB_VT11TEEL,DB_901APL,2*DB_901AVL,DB_901WRL,DB_901AVL,DB_901ARL,DB_901APL,DB_VT11TEE);	\
       V=10-14; W=3;											\
       AP=[TX=TEE 17 "Mediolanum" Milano C <- Verona PN - Trento - Bolzano/Bozen - Brennero/Brenner - Innsbruck - Kufstein -> München (anno 1969)]| \
 	[TX=TEE 18 "Mediolanum" München <- Kufstein - Innsbruck - Brennero/Brenner - Bolzano/Bozen - Trento - Verona PN -> Milano C (anno 1969)]; \
@@ -39,7 +37,7 @@ $SPOOL N=OBB_Arlbergexpress1973; SEQ=R;
       V=3-7;												\
       F=EP4;
     TX=Zug 469 "Arlberg Express" Paris Est <- Basel - Sargans - Buchs - Innsbruck -> Wien (anno 1973);	\
-      C=OBB_4_1010,SNCF_EST_DD2,OBB_3180,SNCF_UH_TEN(|L),SNCF_AOC4_A2B6(|G);				\
+      C=OBB_4_1010,SNCF_EST_DD2M,OBB_3D3180|OBB_ABMO(|L),SNCF_UH_TENM(|L),SNCF_AOC4_A2B6(M|GM);				\
       F=EP4;
   }
 $ENDPOOL
@@ -131,19 +129,23 @@ $SPOOL N=Rangieren_WienWest_1994; SEQ=R; AP=[SW=E];
       F=O5;
     TX=Rangieren in Wien Westbahnhof (anno 1994);							\
       M=CHANGE;												\
-      C=0-3*OBB_GBS151(P|X)|OBB_4_GBS(S1739|VX1502)(|L)|OBB_4GBKKSVX1535A(1|2|3)(|L)|OBB_4GBS151A1(|L);	\
+      C=0-3*OBB_4_GBS1520(|L)|OBB_4_GBSVX1502(|L)|OBB_4_GBSS1739(|L)|OBB_4GBKKSVX1535A(1|2|3)(|L)|	\
+	OBB_4GBS151A1(|L);										\
       V=2-4;												\
       C1=OBB_2067AL;											\
       C2=OBB_2067AL,											\
-	1-2*OBB_GBS151(P|X)|OBB_4_GBS(S1739|VX1502)(|L)|OBB_4GBKKSVX1535A(1|2|3)(|L)|OBB_4GBS151A1(|L);	\
+	1-2*OBB_4_GBS1520(|L)|OBB_4_GBSVX1502(|L)|OBB_4_GBSS1739(|L)|OBB_4GBKKSVX1535A(1|2|3)(|L)|	\
+	OBB_4GBS151A1(|L);										\
       P=@+(40-60); T2=15-20;										\
       F=DO5;
     TX=Rangieren in Wien Westbahnhof (anno 1994);							\
       M=CHANGE;												\
-      C=1-2*OBB_GBS151(P|X)|OBB_4_GBS(S1739|VX1502)(|L)|OBB_4GBKKSVX1535A(1|2|3)(|L)|OBB_4GBS151A1(|L);	\
+      C=1-2*OBB_4_GBS1520(|L)|OBB_4_GBSVX1502(|L)|OBB_4_GBSS1739(|L)|OBB_4GBKKSVX1535A(1|2|3)(|L)|	\
+	OBB_4GBS151A1(|L);										\
       V=2-4;												\
       C1=OBB_2067AL,											\
-	1-2*OBB_GBS151(P|X)|OBB_4_GBS(S1739|VX1502)(|L)|OBB_4GBKKSVX1535A(1|2|3)(|L)|OBB_4GBS151A1(|L);	\
+	1-2*OBB_4_GBS1520(|L)|OBB_4_GBSVX1502(|L)|OBB_4_GBSS1739(|L)|OBB_4GBKKSVX1535A(1|2|3)(|L)|	\
+	OBB_4GBS151A1(|L);										\
       C2=OBB_2067AL;											\
       P=@+(40-50); T2=15-20;										\
       F=DO5;
@@ -153,15 +155,18 @@ $SPOOL N=Rangieren_WienWest_1994; SEQ=R; AP=[SW=E];
       V=2-4;												\
       C1=OBB_2067;											\
       C2=OBB_2067,											\
-	1-4*OBB_GBS151(P|X)|OBB_4_GBS(S1739|VX1502)(|L)|OBB_4GBKKSVX1535A(1|2|3)(|L)|OBB_4GBS151A1(|L);	\
+	1-4*OBB_4_GBS1520(|L)|OBB_4_GBSVX1502(|L)|OBB_4_GBSS1739(|L)|OBB_4GBKKSVX1535A(1|2|3)(|L)|	\
+	OBB_4GBS151A1(|L);	\
       P=@+(35-45); T2=15-20;										\
       F=DO5;
     TX=Rangieren in Wien Westbahnhof (anno 1994);							\
       M=CHANGE;												\
-      C=1-2*OBB_GBS151(P|X)|OBB_4_GBS(S1739|VX1502)(|L)|OBB_4GBKKSVX1535A(1|2|3)(|L)|OBB_4GBS151A1(|L);	\
+      C=1-2*OBB_4_GBS1520(|L)|OBB_4_GBSVX1502(|L)|OBB_4_GBSS1739(|L)|OBB_4GBKKSVX1535A(1|2|3)(|L)|	\
+	OBB_4GBS151A1(|L);										\
       V=2-4;												\
       C1=OBB_2067AL,0-1*OBB_POSTMN,									\
-	1-2*OBB_GBS151(P|X)|OBB_4_GBS(S1739|VX1502)(|L)|OBB_4GBKKSVX1535A(1|2|3)(|L)|OBB_4GBS151A1(|L);	\
+	1-2*OBB_4_GBS1520(|L)|OBB_4_GBSVX1502(|L)|OBB_4_GBSS1739(|L)|OBB_4GBKKSVX1535A(1|2|3)(|L)|	\
+	OBB_4GBS151A1(|L);										\
       C2=OBB_2067AL,0-1*OBB_POSTMN;									\
       P=@+(50-60); T2=15-20;										\
       F=DO5;
@@ -348,7 +353,7 @@ $SPOOL N=EC_2003_A; SEQ=R;
       C1=CH_RE44RED;											\
       C2=2*DBAG_218(182|410|475)(|L);									\
       AP=SET_E;												\
-      F=PO5;
+      F=EPO5;
   }
 $ENDPOOL
 
@@ -359,7 +364,7 @@ $SPOOL N=International_2003_A; SEQ=R;
 	(<2*HZ_9800,CDWLAB6,2*CDBC6,CDWR6,2*CD_BMEE2(|L)|CD_BMEE1L~JV|CD_BMEE1~JV,			\
 	CD_BDMEE(1L|R1|R2L|R3L));									\
       V=8-14;												\
-      F=E5;
+      F=EP5;
     C=<ICE1A;												\
       V=8-25;												\
       AP=[TX=ICE 90 "Prinz Eugen" Wien Westbf. <-> Hamburg Altona (anno 2003)]|				\
@@ -449,9 +454,9 @@ $SPOOL N=A_MAINT; SEQ=R;
 	OBB_X628013|OBB_X556_001|OBB_X9739805L|OBB_X9739805|OBB_X401_001L|OBB_X401_001|OBB_X880_006|	\
 	OBB_X651L|OBB_X651|OBB_X627_801|OBB_X432;							\
       V=1-4;												\
-      F=56;
+      F=DF56;
     C=<M_BBMOTM,M_9930,M_BBMOTM;									\
-      F=56;
+      F=DF56;
   }
 $ENDPOOL
 
@@ -474,12 +479,9 @@ $ENDPOOL
       F=DPU2;
     C=OBB_1189_05,OBB_BI35072F(|L),KKSTB_CF2~AM,KKSTB_1_LILB(|L);					\
       F=E2;
-    C=OBB_1189_05,2-8*OBB_G3,3*OBB_3_OM7545,2*OBB_G3,3*OBB_3_OM7545|OBB_G3;				\
-      V=4;												\
-      F=EF2;
     C=OBB_1189_05,OBB_BDI47500F,OBB_BI35072F(|L),OBB_BI37710F(|L),OBB_BI35200F(N|NL|R|RL);		\
       F=EP2;
-#alle Wagen BBü, Zug nur bis 3ten Wagen sicher, alle bis dahin als 3te Klasse;
+#alle Wagen BBÖ, Zug nur bis 3ten Wagen sicher, alle bis dahin als 3te Klasse;
     TX=P 313 bei Innsbruck (Inntalstrecke)(13.09.1938);							\
       C=BBO_1029_07[>R],CSD_FA5[CP:148,21,5,9,141,21][B:186,12,10,29][<M],CSD_BI2_2000,CSD_CI4_23,	\
 	CSD_BI2_2000,CSD_BCI2_77,CSD_CI4_23;								\
@@ -492,7 +494,7 @@ $ENDPOOL
 	0-2*GY_SOPRONI|BBO_(FREISTADT|MOHREN|MURAUER|SCHLAGL|SCHWECHATER)|OBB_ZWETTL,1-2*NS_CHDG,	\
 	KKSTB_CF2~AM|KKSTB_DE;										\
       F=Z2;
-# ^ NS CHDG should be BBü gray boxes
+# ^ NS CHDG should be BBÖ gray boxes
     C=OBB_77,2*OBB_SP(1|2),OBB_SPD;									\
       F=SP2;
     TX=Wien <-> Linz (anno 1940);									\
@@ -565,8 +567,8 @@ $ENDPOOL
       C=GURK_199,2*MZEL_GGMB(B1|BL|H1|HL),GURK_D,GURK_P2G(|2);						\
       V=3-4;												\
       F=3;
-#Garsten anno 1965 soll BR29 sein
-    C=OBB_93,OBB_DIHO67300GM,OBB_BIHO7M(|L),3*OBB_BI39200F(|L);						\
+#^^ soll BR29 sein
+    C=OBB_93,OBB_DIHO67300GM,OBB_BI39000FN(|L),3*OBB_BI39200F(|L);					\
       F=SP3;
     POOL=VINDOBONA1964;											\
       F=DPU3;
@@ -641,7 +643,7 @@ $ENDPOOL
       M=BACK|STOP|SIMPLE;										\
       C=OBB2045G~MB|OBB_2045G~ZS,OBB_EILZUGBG,OBB_G3,							\
 	DB_HBIS299A|(NS_HBIS19(10|40A))|(M_HAFHKRS(|L))|(JZ_GDOVG(|L)),					\
-	DB_GMHS53(|B)|D_EPIIIB_G|EUROPPOOLG3;								\
+	DB_3B_GMHS53E(|L)|D_EPIIIB_G|EUROPPOOLG3;							\
       F=O3;
     TX=Kleinreifling (12.09.1968);									\
       C=OBB_77,$DIR(OBB_DIHO67300GML,OBB_DIHO67300GM),$DIR(OBB_2AXN28N_3BR,OBB_2AXN28N_3BRL),		\
@@ -727,7 +729,7 @@ $ENDPOOL
     POOL=OBB_TEE_1973;											\
       F=EP4;
     C=$DIR(OBB_52_3504L,OBB_52_3504)|$DIR(OBB_52_5995KL,OBB_52_5995K),DB_4A_GRS(204|2:212)E(|L),	\
-	CSD_3_ZR(6:|2:_B|_H)(|L),2*G_EAS2A,OBB_3_OM7545,OBB_4GS1200(A|B)1(|L),DR_EL5565B,DB_GLMS38BL,	\
+	CSD_3_ZR(6:|2:_B|_H)(|L),2*G_EAS2A,OBB_3_OM7545,OBB_4GS1200(A|B)1(|L),DR_EL5565B,DB3B_GLMS38,	\
 	4*CSD_NPP,2*OBB_G3,NS_IBES,DB_E036M;								\
       D=L; V=4-7;											\
       F=SF4;
@@ -746,7 +748,7 @@ $ENDPOOL
     TX=Grossraming (30.03.1974);									\
       C=OBB_1080_06,10*OBB_FALNS[B:93,14,11,7];								\
       F=EF4;
-    C=OBB_3_1010,OBB_GBS15(0P|1P),2*OBB_SPD3(|L)|OBB_SPDO(|L),						\
+    C=OBB_3_1010,OBB_4_GBS1520(|L)|OBB_4_GBSS1739(|L),2*OBB_SPD3(|L)|OBB_SPDO(|L),			\
 	OBB_3D22501L|OBB_3D22501|OBB_3D22801|OBB_3D22801L,OBB_A18S(|L)|OBB_SCHLA_J1,			\
 	2*OBB_SCHLB_4|OBB_20715R|OBB_21355R|OBB_4A22801(|L),DBBM4;					\
       F=EP4;
@@ -808,8 +810,8 @@ $ENDPOOL
       F=DP4;
     TX=Üg 77453 Reutte/Tirol <- Garmisch-Partenkirchen -> Mittenwald (Abschnitt Reutte - Garmisch)	\
 	(anno 1976);											\
-      C=$DIR(DB_E44L,DB_E44),$DIR(OBB_BI39000FN,OBB_BI39000FNL),DB_OTMM70J,				\
-	$DIR(OBB_BI39000FNL,OBB_BI39000FN),DB_4A_GLM200(|L),DB_GM(HS53(|B)|MHS56),2*NS_EZ;		\
+      C=$DIR(DB_E44L,DB_E44),$DIR(OBB_BI39000FN,OBB_BI39000FNL),DB_OTMM70,				\
+	$DIR(OBB_BI39000FNL,OBB_BI39000FN),DB_4A_GLM200(|L),DB_GMHS53|DB_GMMHS56,2*NS_EZ;		\
       F=E4;
     TX=R 7435 Dobermannsdorf <-> Zistersdorf (anno 1976);						\
       C=OBB_2143_08(|L),$DIR(OBB_DIHO67300GM,OBB_DIHO67300GML),2*OBB_BI35200FR(|L);			\
@@ -896,7 +898,7 @@ $ENDPOOL
       F=EP4;
 #aus EK 6/80 S52, sollte T1 nach Modernisierung sein;
     TX=Überstellfahrt Feldbach-Landesbahnhof <-> Feldbach (18.03.1980);					\
-      C=STLB_ET1[>M][PU],OBB_GBS150,3*DB_GMMHS56,DB_OTMM70V(E|F),6*CSD_ST(|1),CD_SA1;			\
+      C=STLB_ET1[>M][PU],OBB_4_GBS1502(|L),3*DB_GMMHS56,DB_OTMM70V(E|F),6*CSD_ST(|1),CD_SA1;		\
       F=EF4;
 #aus EJ Sonderausgabe 01/08 S.34, Mai 1980;
     TX=Ex 228 "Johann Strauß" Wien West <-> Frankfurt/M. Hbf (anno 1980);				\
@@ -1008,7 +1010,7 @@ $ENDPOOL
     TX=E 722 Linz <- Neumarkt-Kallham - Ried - Braunau (Inn)-> Simbach (Inn)(18.09.1984);		\
       C=$DIR(OBB_2043_58,OBB_2043_58L),$DIR(OBB_4A2_BDPO8235,OBB_4A2_BDPO8235L),OBB_4A2_BP2935(|L);	\
       F=DP4;
-    C=OBB_1018O,0-1*OBB_GBS15(0X|1G),OBB_POSTM,3-4*OBB_5A22501(|L)|OBB_4B22801D(|L);			\
+    C=OBB_1018O,0-1*OBB_4_GBSVX1502(|L),OBB_POSTM,3-4*OBB_5A22501(|L)|OBB_4B22801D(|L);			\
       F=EP4;
     TX=Übergabe Schneegattern <- Friedburg-Lengau -> Steindorf (anno 1985);				\
       C=OBB_2067AL[<M],											\
@@ -1020,7 +1022,7 @@ $ENDPOOL
       F=DP4;
     C=OBB_4_102027(|L)|OBB_1020010(|L),OBB_SP2,OBB_SPD,DB_HBIS299D,CH_HBILSANY,OBB_HIRRS292(A|B),	\
 	OBB_4GS1200(A|B)1(|L),DB_HBIS299D,G_KS1,3*G_RGS2,M_633FCCPP1L,HABISNORM,DR_UCS9020D|DR_UCSV,	\
-	OBB_GBS150(|A);											\
+	OBB_4_GBS1502(|L);										\
       F=E4;
     TX=D 432 x <- Brennero -> Innsbruck (16.09.1985);							\
       C=$DIR(OBB_2043_26L,OBB_2043_26),$DIR(OBB_4B1_82750L,OBB_4B1_82750),OBB_SCHLB_J3,OBB_SCHLA_J3;	\
@@ -1044,9 +1046,6 @@ $ENDPOOL
       F=EF4;
     TX=D 521 Passau <- Schärding - Taufkirchen a.d. Pram - Riedau - Neumarkt-Kallam - Bad Schallerbach-Wallern - Wels -> Linz (09.07.1986); \
       C=OBB_1018O,$DIR(OBB_4C_BPZ29354L,OBB_4C_BPZ29354),2*$DIR(OBB_4C_2075501L,OBB_4C_2075501),	\
-	$DIR(OBB_3034J3,OBB_3034J3L),$DIR(OBB_8234J3L,OBB_8234J3);
-    TX=D 521 Passau <- Schärding - Taufkirchen a.d. Pram - Riedau - Neumarkt-Kallam - Bad Schallerbach-Wallern - Wels -> Linz (09.07.1986); \
-      C=OBB_1018O,$DIR(OBB_4C_BPZ29354L,OBB_4C_BPZ29354),2*$DIR(OBB_4C_2075501L,OBB_4C_2075501),	\
 	$DIR(OBB_3034J3,OBB_3034J3L),$DIR(OBB_8234J3L,OBB_8234J3);					\
       F=EP4;
     C=OBB_1245BO2M(|L)|OBB_1245BO2UM(|L),OBB_5A2_20751(|L)|OBB_5A3_2975022(|L);				\
@@ -1068,7 +1067,7 @@ $ENDPOOL
 	3*G_ES1,G_HBBILLNS;										\
       F=FZ4;
     C=OBB_4_1110(|5),RIVEAS4,2*G_RGS2[OB:STEEL1,10,11][OB:STEEL1,89,11],				\
-	2*OBB_4GBS151A1(|L)|OBB_GBS150X,OBB_GBS150(|A),3*DRTDS,OBB_1020001(|L);				\
+	2*OBB_4GBS151A1(|L)|OBB_4_GBSVX1502(|L),OBB_4_GBS1502(|L),3*DRTDS,OBB_1020001(|L);		\
       F=E4;
     C=OBB_1020001(|L)[PFU],OBB_1020001(|L),5*G_RGS2[OB:STEEL1,10,11][OB:STEEL1,89,11],			\
 	3*OBB_EAOS_Y25[OB:WOOD16|WOOD187|FR_WOOD9|WOOD54,,24],FS_GABS(1|2)M,				\
@@ -1196,8 +1195,8 @@ $ENDPOOL
 	DB_WLABM175_1TENM(|L)|DB_WLABM175_2TENM(|L);							\
       F=EPZ5;
     TX=G 76255 bei Trautenfels (31.05.1991);								\
-      C=OBB_1245BO2M(|L)|OBB_1245BO2UM(|L),OBB_4GBS151A1(|L),DB_GMMS44,$DIR(DR_FCS1CL,DR_FCS1C),	\
-	2*DB_4_FCS090V(D|E|F),										\
+      C=OBB_1245BO2M(|L)|OBB_1245BO2UM(|L),OBB_4GBS151A1(|L),DB_4B_GS211E(|B)(|L),			\
+	$DIR(DR_FCS1CL,DR_FCS1C),2*DB_4_FCS090V(D|E|F),							\
 	G_RGS2[OB:FR_WOOD10,,13][OB:FR_WOOD10,,23-24][OB:FR_WOOD11,8,23-24][OB:FR_WOOD11,140,13]	\
 	[OB:FR_WOOD11,8,13][OB:FR_WOOD11,140,23-24],OBB_4GBS151A1(|L),					\
 	$DIR(OBB_BI35200FRL,OBB_DGHO)[<B:33,21,11,9],							\
@@ -1277,9 +1276,8 @@ $ENDPOOL
       F=DP5;
     TX=R 3415 (anno 1992);										\
       C=OBB_4_1141,$DIR(OBB_3034J3L,OBB_3034J3),OBB_SCHLB_S1,						\
-	$DIR(OBB_5A1_BDPZ82354,OBB_5A1_BDPZ82354L),$DIR(OBB_5A1_ABP3735L,OBB_5A1_ABP3735),OBB_SCHLB_S1;
-    POOL=EC120_121_1992;										\
-      F=EPU5;
+	$DIR(OBB_5A1_BDPZ82354,OBB_5A1_BDPZ82354L),$DIR(OBB_5A1_ABP3735L,OBB_5A1_ABP3735),OBB_SCHLB_S1;	\
+      F=EP5;
     POOL=EC120_121_1992;										\
       F=EPU5;
     C=OBB_(3:4|5)_1110(|5),15*CONT90;									\
@@ -1325,7 +1323,7 @@ $ENDPOOL
       F=EP5;
     C=OBB_1040CM(|L),OBB_BDI47900F,G_ES1,G_EAS2A;							\
       F=EZ5;
-    TX=R 3410 Abschleppen nach Kurzschluss in Fahrleitung Aurachkirchen <-> Gmunden (16.05.1994);	\
+    TX=R 3410 Abschleppen nach Kurzschluß in Fahrleitung Aurachkirchen <-> Gmunden (16.05.1994);	\
       C=OBB_X629[>M],OBB_5_1141[PD],$DIR(OBB_5A2_BDP8235,OBB_5A2_BDP8235L),2*OBB_SCHLB_S1;		\
       V=3-4;												\
       F=EP5;
@@ -1359,7 +1357,7 @@ $ENDPOOL
       F=E5;
     C=OBB_1044RCA,2*PKP_GBS,2*OBB_245HBBILLNNS,3*HABISNORM;						\
       F=EF5;
-    TX=NahGüterzug Laa/Thaya <-> Mistelbach (anno 1995);						\
+    TX=Nahgüterzug Laa/Thaya <-> Mistelbach (anno 1995);						\
       C=OBB_2050O2UM(|L),EVA_7855631,EVA_GAS|VTG_GAS1|VTG_BUTAN1,2*CSD_RA_LOUH,OBB_FALNS,CD_WAP1,	\
 	CSD_RAJ(1|2|3),CD_WAP1;										\
       F=DF5;
@@ -1391,7 +1389,7 @@ $ENDPOOL
       F=E5;
     C=OBB1044_5,2*OBB_ICA,OBB_ICWR,5*OBB_ICB;								\
       F=EP5;
-    TX=E 1746 Linz <- Wels - Attnang-Puchheim - Neukirchen-Gampern - Vöklamarkt - Seekirchen am Wallersee -> Salzburg (anno 1997); \
+    TX=E 1746 Linz <- Wels - Attnang-Puchheim - Neukirchen-Gampern - Vöcklamarkt - Seekirchen am Wallersee -> Salzburg (anno 1997); \
       C=OBB_5_1042018(|L)|OBB_5_1042036(|L)|OBB_5_1042587(|L)|OBB_5_1042624(|L),			\
 	$DIR(OBB_2173CS3L,OBB_2173CS3),$DIR(OBB_2173CS3,OBB_2173CS3L),$DIR(OBB_8073CS3L,OBB_8073CS3);	\
       F=EP5;
@@ -1558,7 +1556,7 @@ $ENDPOOL
     C=OBBTAURUS,3*G_EAS(2A|3A)|SNCF_EAOS(1|2|3),G_KS1,G_EAS(2A|3A),OBB_245HBBILLNNS,4*HABISNORM,	\
 	3*CONTFLAT,EP5CHEM;										\
       F=EF6;
-    C=OBBTAURUS,OBB_GBS15(0|0A|1|1BL),11*G_EAS(2A|3A),HABISNORM,G_EAS(2A|3A),G_KS1;			\
+    C=OBBTAURUS,OBB_4_GBS1502(|L),11*G_EAS(2A|3A),HABISNORM,G_EAS(2A|3A),G_KS1;				\
       F=EF6;
     TX="Beograd Express" Wien <- Budapest -> Beograd;							\
       C=OBB_6_1142538(|L)|OBB_5_1042018(|L)|OBB_5_1042036(|L)|OBB_5_1042587(|L)|OBB_5_1042624(|L)|	\
@@ -1645,7 +1643,7 @@ $ENDPOOL
     TX=IC937 Wiener Neustadt <-> Csorna (anno 2004);							\
       C=OBB_2143_43(|L),2*GY_2067C;									\
       F=DP6;
-    C=OBB_5047AM(|L),0-1*OBB_GBS15(0X|1F|1R|1S);							\
+    C=OBB_5047AM(|L),0-1*OBB_4_GBSVX1502(|L);								\
       F=DPU6;
     C=2*GKB_VT2E;											\
       F=6;
@@ -1834,8 +1832,6 @@ $ENDPOOL
       F=EP6;
     TX=Irrsdorf (21.04.2009);										\
       C=<OBB_8073CS3L,OBB_2173CS2L,2*OBB_2173ACS1(|L),OBB_1016_011L~MB;
-    C=<OBB_8075CSL,OBB_2975CSL,2*OBB_2173_9,OBB_1016_011L~MB;						\
-      F=EP6;
     TX=Munderfing (21.04.2009);										\
       C=OBB_2016_015(|L),$DIR(OBB_8073CS3L,OBB_8073CS3),3*OBB_2173ACS1(|L);
     TX=Munderfing (21.04.2009);										\

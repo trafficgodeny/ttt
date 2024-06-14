@@ -361,15 +361,15 @@ $REQUIRE MLG_DEF.TTT
 	2*DB_BM234BB2(|L);										\
       V=14;												\
       F=EP4;
-    TX=DB 218 + D Zug;											\
-      C=DB_218BB(|L),2*DB_BM234BB2(|L),DB_AVMZ111_SDT2(|L),DB_ABM225BB2(|L),DB_BM234BB2(|L);		\
-      V=14;												\
-      F=DP4;
     TX=DB 140 + D Zug;											\
       C=DB_140_4FPR_G(|L),2*DR_EWB_BGP(|L),$DIR(DR_EWB_ABGP,DR_EWB_ABGPL),2*DB_BM234BB2(|L),		\
 	DB_BDMS278BB2(|L),DB_BM234BB2(|L),DB_ABM225BB2(|L);						\
       V=12;												\
       F=EP4;
+    TX=DB 218 + D Zug;											\
+      C=DB_218BB(|L),2*DB_BM234BB2(|L),DB_AVMZ111_SDT2(|L),DB_ABM225BB2(|L),DB_BM234BB2(|L);		\
+      V=14;												\
+      F=DP4;
     TX=DB 218 + D Zug;											\
       C=DB_218PR(|L),DB_BM234BB2(|L),DB_ABM224BB2(|L),DB_BM234BB2(|L),DSB_UICX_AB1(|L),			\
 	DSB_UICX_BD1(|L),DSB_UICX_B1(|L),DB_BM234BB2(|L),DB_ABM224BB2(|L),2*DB_BM234BB2(|L);		\
@@ -475,9 +475,14 @@ $REQUIRE MLG_DEF.TTT
       C=DB_110B_PO_B(|L),2*DB_BN719SL1,2*DB_ABN703SL1,DB_BN719SL1,DB_BDMS272G(|L);			\
       V=12;												\
       F=EPR4;
-    TX=DB 112 + E/N Zug;										\
+    TX=DB 112 + Eilug;											\
       C=DB_112_4_POT2(|L),DB_BM232G(|L),DB_BM232BB2(|L),DB_ABM225G(|L),DB_BM232BB2(|L),,DB_BM234G(|L);	\
       V=14;												\
+      F=EPR4;
+    TX=DB 112 + Eilug;											\
+      C=DB_112_4_PRLT2(|L),DB_BN719SL1,DB_ABM223G(|L),4*(DB_BN719SL1|DB_BN719SL2),			\
+	2*(DB_ABN703SL1|DB_ABN703SL2),DB_BN719SL1|DB_BN719SL2;						\
+      V=12;												\
       F=EPR4;
     TX=DB 111 + E/N Zug;										\
       C=DB_111_BB(|L),2*DB_ABYM411BB2(|L),DB_BYM421BB1(|L),DB_BYM421BB2(|L),				\
@@ -711,6 +716,10 @@ $REQUIRE MLG_DEF.TTT
     TX=DB 141 + Karlsruher Zug;										\
       C=(<DB_141_4FPR_KARLSL,DB_BNRZB729K,DB_ABNRZB708K(|L),DB_BNRZF734K)|				\
 	(>DB_141_4FPR_KARLS,DB_BNRZB729K,DB_ABNRZB708K(|L),DB_BNRZF734KL);				\
+      V=12;												\
+      F=EPRU4;
+    TX=DB 141 + Karlsruher Zug;										\
+      C=>DB_141_4FPR_KARLS(|L),DB_BN719SL1,DB_ABN703SL1,DB_BDNRZF740O1L;				\
       V=12;												\
       F=EPRU4;
     TX=DB 141 + E/N Zug;										\
@@ -1216,20 +1225,22 @@ $REQUIRE MLG_DEF.TTT
 
 ;E+POST
 
-    TX=DB 118 + E+Post;											\
+    TX=DB 118 + Eilzug + Post;										\
       C=DB_118B1(|L),DB_POST_HABIQSS1,DB_POST_HBIQSS(|L),DB_POST_HABIQSS1,DB_POSTMRZ_G1(|L),		\
 	DB_POST_2T13,2*DB_BN719SL2,DB_ABN703SL2;							\
       V=12;												\
       F=EPR4;
-    TX=DB 118 + E+Post;											\
+    TX=DB 118 + Eilzug + Post;										\
       C=DB_118BB(|L),2*DB_BM234BB2(|L),DB_BM232G(|L),DB_AM202B(|L),2*DB_ABM225BB2(|L),DB_BM232G(|L),	\
 	DB_POST_HABIQSS1;										\
       V=12;												\
       F=EPR4;
-    TX=DB 218 + E+Post;											\
+    TX=DB 218 + Eilzug + Post;										\
       C=DB_218PR(|L),DB_ABM223BB2(|L),DB_BM232BB2(|L),2*DB_BM234BB2(|L),DB_POST_HABIQSS1;		\
       V=12;												\
-      F=DPR4;
+      FG=TRBED57:..,-6,0-5;										\
+      F=DPR4;												\
+      ABOVE=23;
 
 ;AUTO-ZÜGE
 
@@ -1510,7 +1521,7 @@ $REQUIRE MLG_DEF.TTT
       F=DPRU4;
     TX=DB 795;												\
       C=DB_795(|L),0-1*DB_995(|L);									\
-      V=12;												\
+      V=9;												\
       F=DPRU4;
     TX=DB 798;												\
       C=XDB_798;											\
@@ -1593,11 +1604,12 @@ $REQUIRE MLG_DEF.TTT
 ;GÜTERZÜGE
 
     TX=DB 118 + Güterzug;										\
-      C=DB_118B1(|L),DB_GBS252|DB_GBS254,DB_GS204W,DB_GS210,DB_HBIS299,DB_GS204W,DB_HBIS299,2*DB_GS210;	\
+      C=DB_118B1(|L),DB_GBS252|DB_GBS254PP,DB_GS204W,DB_GS210,DB_HBIS299,DB_GS204W,DB_HBIS299,		\
+	2*DB_GS210;											\
       V=10;												\
       F=EF4;
     TX=DB 118 + Güterzug;										\
-      C=DB_118B2(|L),DB_GS204W,DB_LBUE30_ESSO3(|L),DB_S24_ESSO3(|L),DB_GBS252|DB_GBS254;		\
+      C=DB_118B2(|L),DB_GS204W,DB_LBUE30_ESSO3(|L),DB_S24_ESSO3(|L),DB_GBS252|DB_GBS254PP;		\
       V=10;												\
       F=EF4;
     TX=DB 139 + Güterzug;										\
@@ -1634,7 +1646,7 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=EF4;
     TX=DB 141 + Güterzug;										\
-      C=DB_141_2FPH_G(|L),DB_GBS254,DB_GS204W,DB_GLS205,3*DB_GBS254;					\
+      C=DB_141_2FPH_G(|L),DB_GBS254PP,DB_GS204W,DB_GLS205,3*DB_GBS254PP;				\
       V=10;												\
       F=EF4;
     TX=DB 144 + Güterzug;										\
@@ -1642,7 +1654,7 @@ $REQUIRE MLG_DEF.TTT
       V=6;												\
       F=EF4;
     TX=DB 144 + Güterzug;										\
-      C=DB_144_0_BB71(|L),20*DB_FAL168;									\
+      C=DB_144_0_BB71(|L),20*XDB_FAL168;									\
       V=10;												\
       F=EF4;
     TX=DB 144 + Güterzug;										\
@@ -1659,12 +1671,18 @@ $REQUIRE MLG_DEF.TTT
 	DB_FC090(|L);											\
       V=8;												\
       F=EF4;
+    TX=DB 144.5 + Güterzug;										\
+      C=DB_144_5S1G2(|L),2*DB_EAOS051_650,4*(DB_E032|DB_E034),2*DB_RS689,DB_TD925(|L),DB_SALMMNPS706,	\
+	9*DB_TD925(|L),VTG_LBLHB40_2(|L),DB_FC086(|L),2*DB_GBS252,DB_HBIS299,DB_FC086(|L);		\
+      V=8;												\
+      F=EF4;
     TX=DB 150 + Güterzug;										\
       C=DB_150_4RG(|L),DB_HBILLS302,DB_E037M,DB_FC086(|L),2*(DB_GS204W|DB_GS210|DB_GS213),SNCF_G4,	\
 	DB_TDGS930(|L),3*(DB_GS204W|DB_GS210|DB_GS213),DB_E039,DB_GS210,FS_GABS1,DB_TBIS875,,		\
 	DB_TDGS930(|L),DB_SHIMMS708(|L);								\
       V=10;												\
-      F=EF4;
+      F=EF4;												\
+      \ F=EF4;
     TX=DB 151 + Güterzug;										\
       C=(DB_151G(|L)|DB_151BB1(|L))[PFU],(DB_151G(|L)|DB_151BB1(|L))[PBU],34*DB_FAALS150;		\
       V=8;												\
@@ -1696,7 +1714,7 @@ $REQUIRE MLG_DEF.TTT
       F=EF4;
     TX=DB 182 + Güterzug;										\
       C=$DIR(DB_182_021_E320G2[P1U],DB_182_021_E320G2L[P2U]),DB_140_4FPV_GE(|L)[PBU],			\
-	36*DB_FAL168[O:FR_KO4(4|2|3),,];								\
+	36*XDB_FAL168[O:FR_KO4(4|2|3),,];								\
       V=9;												\
       F=EF4;
     TX=DB 193 + Güterzug;										\
@@ -1766,11 +1784,11 @@ $REQUIRE MLG_DEF.TTT
       V=8;												\
       F=DF4;
     TX=DB 216 + Güterzug;										\
-      C=DB_216P_PR(|L),2*DB_TAL963,2*DB_TD925(|L),6*DB_TAL963,5*DB_FAL168;				\
+      C=DB_216P_PR(|L),2*DB_TAL963,2*DB_TD925(|L),6*DB_TAL963,5*XDB_FAL168;				\
       V=10;												\
       F=DF4;
     TX=DB 216 + Güterzug;										\
-      C=DB_216P(|L),DB_GBS254,DB_GS213,DB_UCS909,DB_HBILLS302,2*DB_FC086(|L),2*DB_UCS909,DB_UCS908,	\
+      C=DB_216P(|L),DB_GBS254PP,DB_GS213,DB_UCS909,DB_HBILLS302,2*DB_FC086(|L),2*DB_UCS909,DB_UCS908,	\
 	3*DB_UCS909;											\
       V=10;												\
       F=DF4;
@@ -1800,7 +1818,7 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=DF4;
     TX=DB 221 + Güterzug;										\
-      C=DB_221_PR(|L),8*DB_FAL168,4*DB_TAL963;								\
+      C=DB_221_PR(|L),8*XDB_FAL168,4*DB_TAL963;								\
       V=10;												\
       F=DF4;
     TX=DB 221 + Güterzug;										\
@@ -1828,7 +1846,7 @@ $REQUIRE MLG_DEF.TTT
       V=8;												\
       F=DF4;
     TX=DB 260 + Güterzug;										\
-      C=DB_260BB1(|L),DB_GBS254,									\
+      C=DB_260BB1(|L),DB_GBS254PP,									\
 	DB_LBS589[O:DB_DDZKR551,8,12][O:DB_DDZKR551,31,12][O:DB_DDZKR551,54,12][O:DB_DDZKR551,77,12]	\
 	[O:DB_DDZKR551,100,12];										\
       V=8;												\
@@ -2008,6 +2026,28 @@ $REQUIRE MLG_DEF.TTT
 ;---
     TX=Meppen-Haselünner Eisenbahn D02;									\
       C=MHE_D02M(|L),DB_GS213,2*DB_TADGS959_661(|L),DB_GS213;						\
+      V=6;												\
+      F=DF4;
+
+;NVAG
+;----
+    TX=NVAG T2;												\
+      C=NVAG_T2A(|L),DB_BM234BB1(|L),DB_ABM224BB2(|L);							\
+      V=9;												\
+      F=DPR4;
+    TX=NVAG GDT1;											\
+      C=NVAG_GDT1(|L),DB_ABM224BB2(|L),DB_BM234BB2(|L);							\
+      V=9;												\
+      F=DPR4;
+
+;OHE
+;---
+    TX=OHE MAK 650D;											\
+      C=OHE_MAK650D0(|L),$DIR(OHE_PWG0138L,OHE_PWG0138),6*(DB_TD925(|L)|DB_TDGS930(|L));	\
+      V=6;												\
+      F=DF4;
+    TX=OHE MAK 800D;											\
+      C=OHE_MAK800D1(|L),DB_EAOS051_Y25;								\
       V=6;												\
       F=DF4;
 
