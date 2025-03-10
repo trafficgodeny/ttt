@@ -2520,7 +2520,7 @@ $SECTION 												\
 	  LC=2;												\
 	  ENV=$EBG(STBGAU),										&\
 	  $EWX(WT,$FLG(X,ENV_WAYO,ENV_WAYT2)),								&\
-	  $EWX(WE,ENV_WAYT3)										&\
+	  $EWX(WE,ENV_WAYT3),										&\
 	  $EWX(WA,ENV_WAYA);
 	{TRAM?
 	  TX=Linz Flexity Outlook 2;									\
@@ -2887,7 +2887,7 @@ $SECTION 												\
       $GROUP 												\
 	  NAME=F_LEMANS;										\
 	  TX=Le Mans;											\
-	  LC=1; %GBG(STBGEU,[WT:ENV_WAYT13][WA=ENV_WAYA]);
+	  LC=1; %GBG(STBGEU,[WT=ENV_WAYT13][WA=ENV_WAYA]);
 	{TRAM?
 	  TX=Le Mans CITADIS 302;									\
 	    C=LEMANS_CITADIS_302;
@@ -4610,15 +4610,24 @@ $SECTION 												\
 #
 #----------------------------- Sofia ------------------------------------------
   {BG?
-    {TRAM|BUS?
-      $GROUP 												\
-	  TX=Sofia;											\
-	  LC=1; ENV=$EBG(STBGEO),$EWX(WT,$FLG(X,ENV_WAYO,ENV_WAYT1)),$EWX(WA,ENV_WAYA);
+    {CRAIL|TRAM|BUS?
+      $GROUP TX=Sofia;											\
+	  LC=1;												\
+	  ENV=$EBG(STBGEO),										&\
+	  $EWX(WT,$FLG(X,ENV_WAYO,ENV_WAYT1)),								&\
+	  $EWX(WA,ENV_WAYA),										&\
+	  $CBG(WM,(STBGUB|STBGFO),ENV_WAYM);
+	{CRAIL?
+	  TX=Sofia 81740+81741l;									\
+	    C=<SOFIM_81740BL,SOFIM_81741B,SOFIM_81740B;
+	  TX=Sofia 81740+81741l;									\
+	    C=<SOFIM_81740OL,SOFIM_81741O,SOFIM_81740O;
+	}
 	{TRAM?
 	  TX=Sofia T4/B4;										\
 	    C=SOFIT_(T,B)4(|L);
 	  TX=Sofia GT6;											\
-	    C=SOFIT_GT6L|SOFIT_GT6;
+	    C=SOFIT_GT6(|L);
 	  TX=Sofia GT8;											\
 	    C=SOFIT_GT8_4405|SOFIT_GT8;
 	}
