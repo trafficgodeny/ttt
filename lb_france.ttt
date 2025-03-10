@@ -184,11 +184,17 @@ $REQUIRE TRAINDEF.TTT
   }
   {E3?
 # D
+    TX=SNCF 030A;											\
+      C=SNCF_5_030A40M(|L),3*F3FSA;		\
+      F=SF3;
     TX=SNCF 030 TA;											\
       C=SNCF_3_040TA_CFGM(|L),2*SNCF_OUEST_B7TM(|L);							\
       F=SF3;
     TX=SNCF 030 TB;											\
       C=SNCF_5_030TBM(|L),CIWL_PCFOM(|L),CIWL_P(FO|CAN)M,CIWL_P(|C)EDNM(|L);				\
+      F=SF3;
+    TX=SNCF 030 TB;											\
+      C=SNCF_2_030TB2M(|L),F3FSA;				\
       F=SF3;
     TX=SNCF 030 TU;											\
       C=SNCF_030TU2(|L),(<SNCF_K_CHAMP2,SNCF_OCEM3D(|L),SNCF_CIT2E_MM1,SNCF_G_OCEM29BL);		\
@@ -1337,13 +1343,13 @@ $REQUIRE TRAINDEF.TTT
       C=DG_BB63000(O2M|O3M|YM)(|L),F5FM;								\
       F=DF5;
     TX=SECO Rail 211;											\
-      C=SECO_211O2M(|L),F5FM|8*SECO_FADSM[O:BALLAST(38|39|40|41|42)(|[M])];				\
+      C=SECO_211O2M(|L),F5FM|(8*(SECO_FADSM[O:BALLAST(38|39|40|41|42)(|[M])]));				\
       F=DF5;
     TX=SECO Rail BB 63000;										\
-      C=SECO_BB63000M(|L),F5FM|(8*SECO_FADSM[O:BALLAST(38|39|40|41|42)(|[M])]);				\
+      C=SECO_BB63000M(|L),F5FM|(8*(SECO_FADSM[O:BALLAST(38|39|40|41|42)(|[M])]));				\
       F=DF5;
     TX=SECO Rail G 1206;										\
-      C=SECO_G1206M(|L),F5FM|(8*SECO_FADSM[O:BALLAST(38|39|40|41|42)(|[M])]);				\
+      C=SECO_G1206M(|L),F5FM|(8*(SECO_FADSM[O:BALLAST(38|39|40|41|42)(|[M])]));				\
       F=DF5;
     TX=ETF 211;												\
       C=ETF_211YM(|L),F5FM;										\

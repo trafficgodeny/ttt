@@ -23,7 +23,9 @@ $DEF OBB1116PWERB=OBB_1116_255(|L)|OBB_1116_112(|L)|OBB_1116_141|OBB_1116_246V(|
     OBB_1116_007S(|L)|OBB_1116_LICHT(|L)~MB|OBB_1116_133(|L)|OBB_1116_021AUDIL|OBB_1116_197(|L)|	\
     OBB_1116_003C|OBB_1116_246(|L)|OBB_1116_BUNDESHEER_STUDIE|OBB_1116_264EM(|L)|OBB_1116_157(|L)|	\
     OBB_1116_158(|L)|OBB_1116_159A(|L)|OBB_1116_159B(|L)|OBB_1116_200F|OBB_1116_119_60J_ROCO(|L)|	\
-    OBB_1116_182BH(|L)|OBB_1116_200DIB(|L)|OBB_1116_248B(|L)|OBB_1116_249A(|L)|OBB_1116_250P
+    OBB_1116_182BH(|L)|OBB_1116_200DIB(|L)|OBB_1116_248B(|L)|OBB_1116_249A(|L)|OBB_1116_250P|		\
+    OBB_1016_020LEHRLING(|L)|OBB_1016_048FV(|L)|OBB_1116_159SPARDA(|L)|OBB_1116_229GREENTEC(|L)|	\
+    OBB_1116_231BIO|OBB_1116_212FCB(|L)
 $DEF OBB1116EM=OBB_1116_(003|005|007|029|031|041|056|075|084|087A|087|108|232|264EM)(|L)
 $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)|OBB_1116_276EU25(|L)
 
@@ -430,6 +432,10 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
       C=OBB_4061_01L,A3PL2;										\
       F=EP3;
 
+    TX=DB ET 11 02 D 308 Villach - München 1952;							\
+      C=(<DB_ET1102B_1953L,DB_ET1102A_1953)|(>DB_ET1102B_1953,DB_ET1102A_1953L);			\
+      F=EPU3;
+
 # Österreich Privat
 
     TX=Österreich 789_837 der Grazer Schleppbahn;							\
@@ -750,8 +756,11 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
       F=EP4;
     TX=ÖBB 1042 + D-Zug;										\
       C=OBB_4_1042(501|015|510|251|542|559)(|L),							\
-	(<OBB_4A9570,OBB_4B1970L,OBB_4A1971L,OBB_8870OL,OBB_4A21701,OBB_2170O,OBB_4A21701L,		\
-	OBB_4A21700,OBB_3071O),OBB_DMSZ95500GM(|L);							\
+	(<OBB_4A9570,OBB_4B1970L,2*OBB_4A1971L~JMU,OBB_8870OL,OBB_4A21701,OBB_2170O,OBB_4A2171B~JMU,	\
+	OBB_4A21700,OBB_3071O),										\
+	OBB_DMSZ95500GM(|L)|										\
+	(<OBB_4A9570L,OBB_4A19701~JMU,OBB_4A1971~JMU,OBB_4A1971,OBB_8870O,OBB_4A21701L,OBB_2170OL,	\
+	OBB_4A2171BL~JMU,OBB_4A21700L,OBB_3071OL),OBB_DMSZ95500GM(|L);					\
       F=EP4;
     TX=ÖBB 1042 + Nachtzzug;										\
       C=OBB_4_1042(251|501|015|559|542|510)(|L),2*OBB_4A2171H(|L),OBB_8270O(|L),			\
@@ -1018,9 +1027,6 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
       C=STH_20_105;											\
       F=GEP4;
     TX=Stern & Hafferl 22 101;										\
-      C=STH_20_105;											\
-      F=GEP4;
-    TX=Stern & Hafferl 22 101;										\
       C=STH_22_101;											\
       F=GEP4;
     TX=Stern & Hafferl 20 001;										\
@@ -1028,6 +1034,9 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
       F=GEP45;
     TX=Stern & Hafferl 20 007;										\
       C=STH_20_007,OBB_GBS151BL,OBB_GBS150,DB_FCS25;							\
+      F=GEP45;
+    TX=Stern & Hafferl 20 112;										\
+      C=STH_20_112;											\
       F=GEP45;
     TX=Stern & Hafferl 20 007;										\
       C=STH_20_001~WSI,OBB_GBS150,OBB_GBS151BL;								\
@@ -1056,11 +1065,7 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
     TX=ÖBB 399 + SchafkasExpress;									\
       C=OBB_399A,OBB_SCHAFKAESBRL,OBB_SCHAFKAESBR,OBB_SCHAFKAESBD;					\
       F=SNP4;
-    TX=ÖBB 999.201 + Personenzug;									\
-      C=<OBB_6_999_201,OBB_BRB1,OBB_BRB2;								\
-      D=R;												\
-      F=SNP4;
-    TX=ÖBB 999.204 + Personenzug;									\
+    TX=ÖBB 999.204 + Personenzug Schafbergbahn;								\
       C=<OBB_999_204,OBB_BRB3,OBB_BRB4;									\
       D=R;												\
       F=SNP4;
@@ -1141,6 +1146,9 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
       F=GEP34;
     TX=Stern & Hafferl 26 105 - 107;									\
       C=STH_26_105|STH_26_106|STH_26_107~WSI;								\
+      F=GEP34;
+    TX=Stern & Hafferl 20 104 + 20 222;									\
+      C=STH_20_104,STH_BI_20_222;									\
       F=GEP34;
     TX=Stern & Hafferl 20 108;										\
       C=STH_20_108,STH_B1,STH_BD1;									\
@@ -1227,8 +1235,11 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
 	OBB_1014_005N|OBB_1014_008L|OBB_1014_010L|OBB_1014_010|OBB_1014_014L|OBB_1014_014|		\
 	OBB_1014_011L|OBB_1014_011,A5F1;								\
       F=EF5;
-    TX=ÖBB 1014;											\
-      C=OBB_1014_005OL|OBB_1014_005O|OBB_1014_007OL|OBB_1014_007O,A5F1;					\
+    TX=ÖBB 1014 + EC 25 1994;										\
+      C=OBB_1014_008(|L)[PFU],OBB_1014_005N(|L)[PBU],							\
+	(<2*DB_BVMZ185RW~JMU,DBAG_BPMZ292_0R,DBAG_BPMZ292_0RL,DB_BPMZ293RKL~JMU,DB_BPMZ292_0R,		\
+	DB_BVMZ185RK~JMU,DB_BVMZ185RW~JMU,DB_WRMZ137RK~JMU,DB_AVMZ107RWL~HEN,DB_APMZ123RHL~JMU,		\
+	DB_5_AVMZ107_DH_A);										\
       F=EF5;
     TX=ÖBB 1020;											\
       C=(OBB_1020003|OBB_1020003L|OBB_1020008|OBB_1020008L),5*OBB_247HBBILLNS;				\
@@ -1300,18 +1311,18 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
     TX=ÖBB 1044 + IC;											\
       C=(OBB_1044_021|OBB_1044_058|OBB_1044_086|OBB_1044_201|OBB_1044_209|OBB_1044_018|OBB_1044_240|	\
 	OBB_1044_240),											\
-	(<(OBB_5A8270L|OBB_5B8270L|OBB_5B8270|OBB_5C8270|OBB_5D8270|OBB_5B8291|OBB_5B8291MDL|		\
+	(<(OBB_5A8270LX~JMU|OBB_5B8270L|OBB_5B8270|OBB_5C8270|OBB_5D8270|OBB_5B8291|OBB_5B8291MDL|	\
 	OBB_5B8291MD|OBB_5C8291|OBB_5C8291MD),								\
 	(4*(OBB_5B2094L|OBB_5B2094|OBB_5B2094A|OBB_5C2094AL|OBB_5C2094A|OBB_5A21700L|OBB_5A21700|	\
 	OBB_5B21700L|OBB_5B21700|OBB_5C21700L|OBB_5C21700|OBB_5D21700|OBB_5A21701L|OBB_5A21701|		\
 	OBB_5B21701L|OBB_5B21701|OBB_5C21701L|OBB_5C21701|OBB_5A21705L|OBB_5A21705|OBB_5B21705L|	\
-	OBB_5B21705|OBB_6A21705L|OBB_6A21705|OBB_5A2171L|OBB_5A2171|OBB_5B2171L|OBB_5C2171L|		\
+	OBB_5B21705|OBB_6A21705L|OBB_6A21705|OBB_5A2171L~JMU|OBB_5A2171~JMU|OBB_5B2171L|OBB_5C2171L|	\
 	OBB_5C2171|OBB_5D2171L|OBB_5D2171|OBB_5A2190L|OBB_5A2190|OBB_5B2190L|OBB_5B2190|OBB_5C2190L|	\
 	OBB_5C2190|OBB_5D2190L|OBB_5D2190|OBB_5C2191L|OBB_5D2191L|OBB_5D2191|OBB_5B21911L|OBB_5B21911|	\
 	OBB_5B21911MDL|OBB_5B21911MD|OBB_5C21911|OBB_5C21911MDL|OBB_5C21911MD|OBB_5B29910L|		\
 	OBB_5B29910|OBB_5B29910MDL|OBB_5C29910L|OBB_5C29910|OBB_5C29910MDL|OBB_5C29910MD|		\
 	OBB_5D29910MDL)),										\
-	OBB_5C8291MD|OBB_5A88700L|OBB_5A88700|OBB_5A88701L|OBB_5A8890200L|OBB_5A8890200|		\
+	OBB_5C8291MD|OBB_5A88700L|OBB_5A88700|OBB_5A88701L~JMU|OBB_5A8890200L|OBB_5A8890200|		\
 	OBB_5B8890200L|OBB_5B8890200|OBB_5C8890200L|OBB_5C8890200|OBB_5D8890200|OBB_5A8890208L|		\
 	OBB_5A8890208|OBB_5B8890208L|OBB_5B8890208|OBB_5C8890208L|OBB_5C8890208|OBB_5A8891L|		\
 	OBB_5A8891|OBB_5B8891L|OBB_5B8891|OBB_5B8891AL|OBB_5C8891L|OBB_5C8891|OBB_5D8891L|OBB_5D8891,	\
@@ -1356,6 +1367,13 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
     TX=BBÖ 1670.0 + Nostalgiezug;									\
       C=OBB_1670_104NL,A6PN;										\
       F=EP5;
+    TX=DB 101 +  EN 262   Orient-Express Wien Westbahnhof - Paris 2005;					\
+      C=DBAG_101_111,											\
+	(<SNCF_VU_CP2_B11M,2*SNCF_VTU_CP2_BM,2*OBB_5BCMZ5991_2L[!WIN],OBB_WLABMZ_7270,OBB_5D19911,	\
+	OBB_6A8291MD1,OBB_WLABMZ7090,OBB_5BCMZ5991_2L[!WIN],OBB_5BCMZ5991_2L,2*OBB_6A2191)|		\
+	(>SNCF_VU_CP2_B11ML,2*SNCF_VTU_CP2_BML,2*OBB_5BCMZ5991_2,OBB_WLABMZ_7270L,OBB_5D19911L,		\
+	OBB_6A8291MD1L,OBB_WLABMZ7090L,OBB_5BCMZ5991_2,OBB_5BCMZ5991_2,2*OBB_6A2191L);			\
+      F=EP5;
 
 # Österreich ET
 
@@ -1377,7 +1395,7 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
       C=GKB_G1700,G_HBINS1,G_HBINS2,G_HBINS3;								\
       F=DF56;
     TX=Österreich Graz-Köflacher Eisenbahn DH 1500 + Bauzug;						\
-      C=GKB_DH1500_1(|L)~MB,GKB_GBS151,GKB_GBS151BL,(SWIE_KRC810T|SWIE_KRC1200T)(|L),			\
+      C=GKB_DH1500_1(|L)~JMU,GKB_GBS151,GKB_GBS151BL,(SWIE_KRC810T|SWIE_KRC1200T)(|L),			\
 	SWIE_KRC1200TB(|L)|SWIE_KRC1200G,SWIE_KLS_CONT|SWIE_KLS_MAT;					\
       F=DF56;
 
@@ -1389,6 +1407,9 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
 
 # Österreich Lokalbahn Gleichstrom Normalspur
 
+    TX=Stern & Hafferl 22 106;										\
+      C=STH_22_106;											\
+      F=GEP5;
     TX=Stern & Hafferl 23 103;										\
       C=STH_ET25_103M(|L);										\
       F=GERP5;
@@ -1413,11 +1434,18 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
     TX=Achenseebahn;											\
       C=(<ACB_2,2*ACB_O[#D:R])|(<ACB_2,2*ACB_C[#D:R]);							\
       F=SNPR5;
+    TX=Stern & Hafferl 23 111;										\
+      C=STH_23_111;											\
+      F=SNPR5;
+    TX=ÖBB 999.201 + Personenzug Schafbergbahn;								\
+      C=<OBB_999_201_199(4|3),(OBB_BRB1,OBB_BRB2);							\
+      D=R;												\
+      F=SNP5;
 
 #Schmalspur elektrisch ÖBB
     TX=ÖBB 1099 + Personenzug;										\
       C=MZEL_6_1099_007(|L)|MZEL_1099008,								\
-	(<OBB_KWG_BUND2,OBB_KWG_BUND1,OBB_KWG_BUND3,OBB_KWG_BUND4,MZEL_CYC1|MZEL_CYC2);			\
+	(<OBB_KWG_BUND2,OBB_KWG_BUND1,OBB_KWG_BUND3,OBB_KWG_BUND4,MZEL_CYC1|MZEL_GGMS168XXB);		\
       F=ENF5;
     TX=ÖBB 1099 + Rollwagenzug;										\
       C=MZEL_6_1099_007(|L)|MZEL_1099008,((OBB_RWKL[#D:L])|(#OBB_RWKL[#D:R])),				\
@@ -1426,7 +1454,7 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
 	MZEL_ROLLWG1[O:OBB_RWB,12,6][OB:SNCB_HABILS_NORDWG,25,5][O:#OBB_RWB,263,6]);			\
       F=ENF5;
     TX=ÖBB 4090;											\
-      C=(<OBB_4090L,2*OBB_7090,OBB_4090),(<OBB_4090L,2*OBB_7090,OBB_6090);				\
+      C=(>OBB_4090V,2*OBB_7090V,OBB_6090VL),(<OBB_4090VL,2*OBB_7090,OBB_6090V);				\
       F=ENF56;
   }
   {E6?
@@ -1450,9 +1478,15 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
 
 # Österreich VT
 
+    TX=ÖBB 5022 Cityjet;										\
+      C=1-2@OBB_5022CJ;											\
+      F=DPRU6;
     TX=ÖBB 5022;											\
       C=1-2@(OBB_5022~KMN|OBB_5022(|L)~MLG);								\
-      F=DPU6;
+      F=DPRU6;
+    TX=ÖBB 5047;											\
+      C=OBB_5047KMB;											\
+      F=DPRU6;
     TX=ÖBB 5047;											\
       C=OBB_5047_90|OBB_5_5047;										\
       F=DPRU6;
@@ -1505,7 +1539,7 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
     TX=ÖBB 1116 + Eurocity;										\
       C=OBB_1116_002|OBB_1116_030,									\
 	(<OBB_5C8291MDL|OBB_5C8291L,OBB_5B8291L,OBB_5D8270L,OBB_5C8270L,OBB_5C2094,OBB_5D21700L,	\
-	OBB_5B88901|OBB_5A88701,OBB_5B29910MD,OBB_5C1971,OBB_5D1971);					\
+	OBB_5B88901|OBB_5A88701~JMU,OBB_5B29910MD,OBB_5C1971,OBB_5D1971);				\
       F=EP6;
     TX=ÖBB 1116 + Railjet Fußballbund;									\
       C=(<OBB_1116_225OFB(|L),OBB_RJ_END_OFB,OBB_RJ_ZW_2KL_OFB1,OBB_RJ_ZW_2KL_OFB2,OBB_RJ_ZW_2KL_OFB3,	\
@@ -1695,6 +1729,13 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
       C=OBB_1116ETCS(|L),OBB_2191NJ2L,OBB_6BMZ2190_5B,OBB_BCMZ5990NJ2L,OBB_BVCMBZNJ2,			\
 	2*OBB_WLABMZ7290NJ,3*OBB_DDM2;									\
       F=EP6;
+    TX=ÖBB 1116 + EC 164 Transalpin:Graz Hbf. - Zürich HB 2025;						\
+      C=OBB_1116ETCS(|L),										\
+	(<OBB_6A21911AB,OBB_WRMZ8891DON,OBB_6B8191MDB,SBB_APM1990_1GPEXM,5*SBB_BPM2090N,OBB_6B2094B,	\
+	OBB_6A21911AB)|											\
+	(>OBB_6A21911ABL,OBB_WRMZ8891DONL,OBB_6B8191MD5L,SBB_APM1990_1GPEXML,5*SBB_BPM2090NL,		\
+	OBB_6B2094BL,OBB_6A21911ABL);									\
+      F=EP6;
     TX=ÖBB 1116 + nightjet 294 Roma Termini  - München Hbf. 2023;					\
       C=OBB1116PWERB,											\
 	(<OBB_BCMZ5991_1NJL,OBB_BCMZ5991_2NJ2L,OBB_WLABMZ_NJ,2*OBB_2191NJL,OBB_BCMZ59912NJ~VW,		\
@@ -1702,13 +1743,29 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
 	(>OBB_BCMZ5991_1NJ,OBB_BCMZ5991_2NJ2,OBB_WLABMZ7290NJL,2*OBB_2191NJ,OBB_BCMZ59912NJL~VW,	\
 	OBB_WLABMZ7290NJ,OBB_2191NJ);									\
       F=EP6;
+    TX=ÖBB 1116 276 + Railjet 2025;									\
+      C=(<1116_276_2025(|L),OBB_BMPZ2290_1RJ_2019L,OBB_BMPZ2290_2RJ_2019L,OBB_BMPZ2290_3RJ_2019L,	\
+	OBB_BMPZ2290_4RJ_2019L,OBB_RAILJET52B,OBB_AMPZ1990_6RJ_2019L,OBB_AFMPZ_7RJ_2019)|		\
+	(>1116_276_2025(|L),OBB_BMPZ2290_1RJ_2019,OBB_BMPZ2290_2RJ_2019,OBB_BMPZ2290_3RJ_2019,		\
+	OBB_RAILJETD15,OBB_RAILJET52BL,OBB_RAILJETB15,OBB_AFMPZ_7RJ_2019L);				\
+      F=EPU6;
     TX=ÖBB 1116 + Railjet 60 Budapest-Keleti - München Hbf 2023;					\
       C=(<OBB_1116_215RJ(|L),OBB_BMPZ2290_1RJ_2019L,OBB_BMPZ2290_2RJ_2019L,OBB_BMPZ2290_3RJ_2019L,	\
 	OBB_BMPZ2290_4RJ_2019L,OBB_RAILJET52B,OBB_AMPZ1990_6RJ_2019L,OBB_AFMPZ_7RJ_2019)|		\
 	(>OBB_1116_215RJ(|L),OBB_BMPZ2290_1RJ_2019,OBB_BMPZ2290_2RJ_2019,OBB_BMPZ2290_3RJ_2019,		\
 	OBB_RAILJETD15,OBB_RAILJET52BL,OBB_RAILJETB15,OBB_AFMPZ_7RJ_2019L);				\
       F=EPU6;
-    TX=OeBB 1216 + Güterzug;										\
+    TX=ÖBB 1116 + rjx 166 Wien Hbf - Zürich HB 2025;							\
+      C=(<OBB_1116_215RJL,OBB_BMPZ2290_1RJ_2019L,OBB_BMPZ2290_2RJ_2019L,OBB_BMPZ2290_3RJ_2019L,		\
+	OBB_BMPZ2290_4RJ_2019L,OBB_RAILJET52B,OBB_AMPZ1990_6RJ_2019L,OBB_AFMPZ_7RJ_2019,		\
+	OBB_1116_208(|L),OBB_BMPZ2290_1RJ_2019L,OBB_BMPZ2290_2RJ_2019L,OBB_BMPZ2290_3RJ_2019L,		\
+	OBB_BMPZ2290_4RJ_2019L,OBB_RAILJET52B,OBB_AMPZ1990_6RJ_2019L,OBB_AFMPZ_7RJ_2019)|		\
+	(>OBB_1116_215RJ,OBB_BMPZ2290_1RJ_2019,OBB_BMPZ2290_2RJ_2019,OBB_BMPZ2290_3RJ_2019,		\
+	OBB_RAILJETD15,OBB_RAILJET52BL,OBB_RAILJETB15,OBB_AFMPZ_7RJ_2019L,OBB_1116_208(|L),		\
+	OBB_BMPZ2290_1RJ_2019,OBB_BMPZ2290_2RJ_2019,OBB_BMPZ2290_3RJ_2019,OBB_RAILJETD15,		\
+	OBB_RAILJET52BL,OBB_RAILJETB15,OBB_AFMPZ_7RJ_2019L);						\
+      F=EPU6;
+    TX=ÖBB 1216 + Güterzug;										\
       C=[PFU]OBB_1216_(226C(|L)|050(|L)~MB)|OBB_1216_004(|L)|OBB_1216_210(|L)|OBB_1216_020(B|L),	\
 	Z_D_E6_G_Kessel|Z_D_E6_C(1|2|3|4|5)|A6F1;							\
       F=EF6;
@@ -1742,6 +1799,13 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
 	(<OBB_6B29910MD[NT:K],OBB_6B29910L,OBB_6B29910MDL,OBB_6B29910L,OBB_6B29910MD,OBB_6B29910L,	\
 	OBB_6A8890200,OBB_6B19915MDL[NT:K]);								\
       F=EP6;
+    TX=ÖBB 1216 + Nightjet 456:Graz Hbf - Decín hl.n. 2024;						\
+      C=OBB_1216_001(|L)~MB,										\
+	(<MAVS_AMZ1991_1M,MAVS_BCMZ5091_2M,MAVS_WLABMZ7191_1M,OBB_WLABMZ7290NJ,2*RDC_BVCMBZ,		\
+	2*OBB_BMZ73_2991_5NJ)|										\
+	(>MAVS_AMZ1991_1ML,MAVS_BCMZ5091_2ML,MAVS_WLABMZ7191_1ML,OBB_WLABMZ7290NJL,2*RDC_BVCMBZL,	\
+	2*OBB_BMZ73_2991_5NJL);										\
+      F=EP6;
     TX=ÖBB 1216 + Nightjet 233/232 Wien Hbf. - La Spezia C.;						\
       C=OBB_1216_001(|L)~MB,										\
 	(<OBB_BBCMVZ5991_3NJ)|										\
@@ -1766,6 +1830,11 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
       C=OBB_1044S1VM(|L),										\
 	(<OBB_DDS5,OBB_6B21701L,OBB_6A2171L,OBB_6B2094,OBB_6B21701,,OBB_6B8191MD3L,OBB_6B1871,		\
 	OBB_6_3090,OBB_5C2094L,OBB_5C21705,OBB_5A8270);							\
+      F=EP6;
+    TX=ÖBB 1144 + IC 503 Pyhrn-Priel Linz Hbf - Graz Hbf 2025;						\
+      C=OBB_1144_2015,											\
+	(<OBB_6B21911,2*OBB_6A2094,OBB_ADMPSZ_012FL)|(>OBB_6B21911L,2*OBB_6A2094L,OBB_ADMPSZ_012F),	\
+	OBB_1144_2015;											\
       F=EP6;
     TX=ÖBB 1044 501;											\
       C=OBB_1044_501MM(|L),A6F1|A6FC;									\
@@ -1835,11 +1904,14 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
       C=OBB_4024SALZBURG(|L),;										\
       F=EPRU6;
     TX=ÖBB 4024 Steiermark;										\
-      C=<OBB_4024A_STMK1L,OBB_4024C_STMK1,OBB_4024D_STMK1,OBB_4024B_STMK1;										\
+      C=<OBB_4024A_STMK1L,OBB_4024C_STMK1,OBB_4024D_STMK1,OBB_4024B_STMK1;				\
       F=EPRU6;
-    TX=ÖBB 4024 113 Kärnten;											\
+    TX=ÖBB 4024 113 Kärnten;										\
       C=(OBB_4024KTN1L,OBB_4024KTN2,OBB_4024KTN2L,OBB_4024KTN4)|					\
 	(>OBB_4024KTN1,OBB_4024KTN2L,OBB_4024KTN2,OBB_4024KTN4L);					\
+      F=EPRU6;
+    TX=ÖBB 4734 KISS;											\
+      C=<OBB_4734CJ1L,(OBB_4734CJ2,OBB_4734CJ3L)|(OBB_4734CJ2L,OBB_4734CJ3L),OBB_4734CJ1;		\
       F=EPRU6;
     TX=ÖBB 4744 Cityjet;										\
       C=(<OBB_4744AEL,OBB_4744AM,OBB_4744AS)|(<OBB_4744ASL,OBB_4744AML,OBB_4744AE);			\
@@ -1853,24 +1925,62 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
 
 # Österreich Privat
 
+    TX=Österreich Adria 1216;										\
+      C=ADRIA_1216_920L|ADRIA_1216_920|LTE_1216_920,Z_D_E6_C5;						\
+      F=EF6;
     TX=Österreich Adria 193;										\
       C=ADRIA_193M(|L),D6FCM;										\
+      F=EF6;
+    TX=Akiem 189/ES64;											\
+      C=AKIEM_ES64F4AKM,D6FCM|D6FZM;									\
       F=EF6;
     TX=Österreich Bahnbau Wels Baumaschine;								\
       C=(BBW_08_475A|BBW_08_475B|BBW_09_32CSM|BBW_09_3X|BBW_09_32DYN)(|L);				\
       F=DF6;
-    TX=Österreich PCT Private Car Train - ARS-Altmann 223;						\
-      C=PCT_223_15(3|4|5|8)(|L),Z_D_E6_G_FalsP;								\
-      F=DF6;
     TX=Österreich Cargo-Serv V100;									\
       C=CSERV_V100L|CSERV_V100,Z_D_E6_G_Stahku;								\
       F=DF6;
-    TX=Österreich ELL (European Locomotive Leasing)Vectron 247;						\
+    TX=Österreich Cargoserv 1193;									\
+      C=CSERV_1193_890(|L)|CSERV_ES64U2(|L)|CSERV_ES64U2_080B(|L)|CSERV_ES64U2_080(|L)|			\
+	CSERV_ES64U2_081(|L),Z_AT_E6_G_COIL|D6FP1K|A6FC|D6FZM;						\
+      F=EF6;
+    TX=Österreich Cargoserv 1216;									\
+      C=CSERV_1216|CSERV_ES64U2(|L)|CSERV_ES64U2_080B(|L)|CSERV_ES64U2_080(|L)|CSERV_ES64U2_081(|L)|	\
+	CSERV_ES64U2_082B(|L)|CSERV_ES64U2_023F(|L),Z_AT_E6_G_COIL|A6FC;				\
+      F=EF6;
+    TX=Österreich DPB Rail Infra Service GmbH 1293 + RegioJet 1034 Praha-Zahradní M{x11B}sto - Wien Hbf. - Budapest-Déli 2025; \
+      C=DPBRI_1293(|L),(<3*RJCZ_ABMZ2L,RJCZ_BMPZ2090,RJCZ_PMPVZ125,RJCZ_BMPZ2090);			\
+      F=EP6;
+    TX=Österreich ELL (European Locomotive Leasing) Vectron 193 433/442 + RegioJet 1035 Budapest-Déli - Wien Hbf. - Praha-Zahradní M{x11B}sto 2025; \
+      C=ELL_193_4(42|33)(|L),(<RJCZ_BMPZ2090,RJCZ_PMPVZ125,RJCZ_BMPZ2090,RJCZ_ABMZ2L,RJCZ_ABMZ3090);	\
+      F=EP6;
+    TX=Österreich ELL (European Locomotive Leasing) Vectron 247;					\
       C=ELL_247DE(4|1|2|3)(|L),Z_AT_E6_G_COIL|D6FP1K|A6FC|D6FZM;					\
       F=DF6;
+    TX=Österreich ELL (European Locomotive Leasing)Vectron;						\
+      C=(ELL_ECCO_VEC|ELL_VEC)(|L)|ELL_193ELL|ELL_193_204(|L)|ELL_193220(|L)|ELL_VECTRON_LTE(|L)|	\
+	ELL_VECTRON_WLB(|L)|ELL_VECTRON_OHE(|L)|ELL_193_219SETG|ELL_193_235GYC(|L)|ELL_193_720LTE|	\
+	ELL_193_736SETG,Z_AT_E6_G_COIL|D6FP1K|A6FC|D6FZM;						\
+      F=EF6;
+    TX=Österreich Ferrovie Udine Cividale + REX MiCoTra von Villach nach Udine;				\
+      C=FUC_E190_301(|L)[PBU],										\
+	(<OBB_6B9570L,OBB_BMPZ2191MIC,OBB_BMPZ2991MICL)|(<OBB_BMPZ2991MIC,OBB_BMPZ2191MICL,OBB_6B9570);	\
+      F=EP6;
+    TX=Österreich FUC E190 +  D 1821 MICOTRA Villach Hbf - Udine 2024;					\
+      C=FUC_E190_301(|L),										\
+	(<2*OBB_DMSZ_MICOTRA,OBB_ADMPSZ_F,2*OBB_BMPZ2991MICOTRA)|					\
+	(>2*OBB_DMSZ_MICOTRAL,OBB_ADMPSZ_FL,2*OBB_BMPZ2991MICOTRAL);					\
+      F=EP6;
     TX=Österreich Graz-Köflacher Eisenbahn 1100 + Bauzug;						\
       C=GKB_1100_(1|2)(|L),(SWIE_MFS40Z|SWIE_MFS100Z(|L)|SWIE_AHM800);					\
       F=DPU6;
+    TX=Österreich Graz-Köflacher Eisenbahn 1500;							\
+      C=(<GKB_DH1500_1L~JMU,GKB_BMPLML,GKB_BMPLL,GKB_BFMPV_D)|						\
+	(>GKB_DH1500_1~JMU,GKB_BMPLM,GKB_BMPL,GKB_BFMPV_DL);						\
+      F=DPRU6;
+    TX=Österreich Graz-Köflacher Eisenbahn 2016;							\
+      C=(<GKB_2016L,2*GKB_BMPLL,GKB_BFMPV_D203)|(>GKB_2016,2*GKB_BMPL,GKB_BFMPV_D203L);			\
+      F=DPRU6;
     TX=Österreich Graz-Köflacher Eisenbahn 1700;							\
       C=GKB_G1700,3*GKB_781;										\
       F=DPU6;
@@ -1882,6 +1992,9 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
       F=DPU6;
     TX=Österreich KCVB 203;										\
       C=KCVB_203,2*A6FS1;										\
+      F=DP6;
+    TX=Österreich KCVB 1116;										\
+      C=KCVB_1116_007,Z_D_E6_G_FalsP;									\
       F=DP6;
     TX=Österreich Logistik und Transport GmbH 2150;							\
       C=LTE_2150_901L|LTE_2150_901|LTE_2150_902L|LTE_2150_902|LTE_2150_902AL|LTE_2150_902A|		\
@@ -1904,8 +2017,32 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
     TX=Österreich Logistik und Transport GmbH 2016;							\
       C=LTE_2016_903D(|L)|LTE_2016(|L)|LTE_2016_903~FBR|LTE_2016_904D(|L),D6FP1K;			\
       F=DF6;
+    TX=Österreich Logistik und Transport GmbH 1216;							\
+      C=LTE_1216_910C(|L),D6FCM;									\
+      F=EF6;
+    TX=Österreich Logistik und Transport GmbH 185;							\
+      C=LTE_185_528,Z_D_E6_C2;										\
+      F=EF6;
+    TX=Österreich Logistik und Transport GmbH 286;							\
+      C=LTE_286_940M(|L),Z_D_E6_C2|D6FCM;								\
+      F=EF6;
+    TX=Logistik und Transport GmbH 1216;								\
+      C=LTE_1216_910L|LTE_1216_910,Z_D_E6_C1;								\
+      F=EF6;
+    TX=Logistik und Transport GmbH 185;									\
+      C=LTE_185GM,D6FCM;										\
+      F=EF6;
     TX=Österreich Montafonerbahn V 10;									\
       C=MBS_V10M(|L),2*A6FS1;										\
+      F=DF6;
+    TX=Österreich Montafonerbahn ET 10 121;								\
+      C=(<MBS_ET10121L,MBS_ES10121)|(<MBS_ES10121L,MBS_ET10121);					\
+      F=ERPU6;
+    TX=Österreich Montafonerbahn 1110;									\
+      C=MBS_1110_5M,D6FCM;										\
+      F=EF6;
+    TX=Österreich PCT Private Car Train - ARS-Altmann 223;						\
+      C=PCT_223_15(3|4|5|8)(|L),Z_D_E6_G_FalsP;								\
       F=DF6;
     TX=Österreich Rail Traction Service GmbH 2143 + Holzzug;						\
       C=RTS_2143_005L|RTS_2143_005|RTS_2143|RTS_2143AL|RTS_2143A,					\
@@ -1925,9 +2062,32 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
     TX=Österreich Rail Traction Service 272 + Güterzug;							\
       C=RTS_272_204(|L)|MRCE_272_407RTS(|L),A6F1;							\
       F=EF6;
+    TX=Österreich Rail Transport Service GmbH 1216;							\
+      C=[PFU]RTS_1216_901L|RTS_1216_901,D6FZM;								\
+      F=EF6;
+    TX=Österreich Regiobahn 2143 + Sonderzug;								\
+      C=OBB_2143_07(|L),										\
+	(<RBAHN_BDP,2*RBAHN_BPK,2*RBAHN_ABP,RBAHN_BPK)|							\
+	(>RBAHN_BDPL,2*RBAHN_BPKL,2*RBAHN_ABPL,RBAHN_BPKL);						\
+      F=DP6;
+    TX=Österreich Salzburger EisenbahnTransportLogistik GmbH 193;					\
+      C=[PFU]ELL_VECTRON_SETG(|L)|SETG_193(812|204)(|L)|SETG_193831DOPPLER,D6FZM;			\
+      F=EF6;
     TX=Österreich Salzbuger Lokalbahn 2048 V83 - 86;							\
       C=SLB_V83(|L)|SLB_2048BM(|L)|SLB_V86(|L),Z_D_E6_G_kurz;						\
       F=DF6;
+    TX=Österreich Salzbuger Lokalbahn 1216;								\
+      C=SLB_1216_940(|L)|SLB_1216BM(|L),Z_D_E6_G_Kessel;						\
+      F=EF6;
+    TX=Österreich Salzburger EisenbahnTransportLogistik GmbH 1116 912;					\
+      C=SETG_1116_912,Z_D_E6_G_Fals2;									\
+      F=EF6;
+    TX=Snälltåget ELL 193 + D 304 Innsbruck Hbf - München - Hamburg - Malmö C 2023;			\
+      C=(<ELL_193_255SNALL,SNALL_BVCMZL,SNALL_BVCMZ,2*SNALL_BVCMZL,SNALL_WRBMZ,SNALL_BVCMZ,		\
+	4*SNALL_BVCMZL,SNALL_BPMZ,ELL_193_255SNALL)|							\
+	(>ELL_193_255SNALL,SNALL_BVCMZ,SNALL_BVCMZL,2*SNALL_BVCMZ,SNALL_WRBMZL,SNALL_BVCMZL,		\
+	4*SNALL_BVCMZ,SNALL_BPMZL,ELL_193_255SNALL);							\
+      F=EF6;
     TX=Österreich Stern & Hafferl 2016;									\
       C=STH_2016_910|STH_2016_910NL|STH_2016_910N|STH_2016_911|STH_2016_910L|STH_2016_911L,		\
 	Z_D_E6_G_Holz;											\
@@ -1948,83 +2108,9 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
     TX=Österreich Steiermärkische Landesbahnen 5047 402;						\
       C=STLB_5047_402M(|L);										\
       F=DPRU6;
-    TX=Österreich Swietelsky GmbH Baumaschine;								\
-      C=SWIE_BDS2000A(|L)|SWIE_BDS2000B(|L)|SWIE_RM76|SWIE_RM80(|L)|SWIE_SSP110SW(|L)|SWIE_SSP110SWA|	\
-	SWIE_USP6000(|L)|SWIE_0916_4S|SWIE_0916U4S(|L)|SWIE_093X|SWIE_08475U4S(|L)|			\
-	SWIE_0932U4SDYN(|L)|SWIE_092XDYN(|L)|SWIE_094XDYN(|L)|(<SWIE_DGS62NB,SWIE_DGS62N)|		\
-	(SWIE_DGS62N2(|L),SWIE_DGS62N2B(|L))|SWIE_SUZ500A|SWIE_SUZ500B|SWIE_0875SPT(|L);		\
-      F=DF6;
-    TX=Österreich Voest 1004;										\
-      C=VOEST_1004L|VO_1004_RE,Z_AT_E6_G_COIL;								\
-      F=DF6;
-    TX=Österreich Voest 1304;										\
-      C=VOEST_1204(|L),Z_AT_E6_G_COIL;									\
-      F=DF6;
-    TX=Österreich Wiener Lokalbahn 81;									\
-      C=WLB_81L|WLB_81,RTRAN_UAS_W;									\
-      F=DF6;
-    TX=Österreich Wiener Lokalbahn 90-92;								\
-      C=WLB_90|WLB_V100L|WLB_92L|WLB_92,DE_FALS_G4|DE_FALS_G4L;						\
-      F=DF6;
-
-# Österreich Privat E
-
-    TX=Akiem 189/ES64;											\
-      C=AKIEM_ES64F4AKM,D6FCM|D6FZM;									\
-      F=EF6;
-    TX=Österreich Adria 1216;										\
-      C=ADRIA_1216_920L|ADRIA_1216_920|LTE_1216_920,Z_D_E6_C5;						\
-      F=EF6;
-    TX=Österreich Cargoserv 1193;									\
-      C=CSERV_1193_890(|L)|CSERV_ES64U2(|L)|CSERV_ES64U2_080B(|L)|CSERV_ES64U2_080(|L)|			\
-	CSERV_ES64U2_081(|L),Z_AT_E6_G_COIL|D6FP1K|A6FC|D6FZM;						\
-      F=EF6;
-    TX=Österreich Cargoserv 1216;									\
-      C=CSERV_1216|CSERV_ES64U2(|L)|CSERV_ES64U2_080B(|L)|CSERV_ES64U2_080(|L)|CSERV_ES64U2_081(|L)|	\
-	CSERV_ES64U2_082B(|L)|CSERV_ES64U2_023F(|L),Z_AT_E6_G_COIL|A6FC;				\
-      F=EF6;
-    TX=Österreich ELL (European Locomotive Leasing)Vectron;						\
-      C=(ELL_ECCO_VEC|ELL_VEC)(|L)|ELL_193_204(|L)|ELL_193220(|L)|ELL_VECTRON_LTE(|L)|			\
-	ELL_VECTRON_WLB(|L)|ELL_VECTRON_OHE(|L)|ELL_193_219SETG|ELL_193_235GYC(|L)|ELL_193_720LTE|	\
-	ELL_193_736SETG,Z_AT_E6_G_COIL|D6FP1K|A6FC|D6FZM;						\
-      F=EF6;
-    TX=Österreich Ferrovie Udine Cividale + REX MiCoTra von Villach nach Udine;				\
-      C=FUC_E190_301(|L)[PBU],										\
-	(<OBB_6B9570L,OBB_BMPZ2191MIC,OBB_BMPZ2991MICL)|(<OBB_BMPZ2991MIC,OBB_BMPZ2191MICL,OBB_6B9570);	\
-      F=EP6;
-    TX=Österreich KCVB 1116;										\
-      C=KCVB_1116_007,Z_D_E6_G_FalsP;									\
-      F=DP6;
-    TX=Österreich Logistik und Transport GmbH 1216;							\
-      C=LTE_1216_910C(|L),D6FCM;									\
-      F=EF6;
-    TX=Österreich Logistik und Transport GmbH 185;							\
-      C=LTE_185_528,Z_D_E6_C2;										\
-      F=EF6;
-    TX=Österreich Logistik und Transport GmbH 286;							\
-      C=LTE_286_940M(|L),Z_D_E6_C2|D6FCM;								\
-      F=EF6;
-    TX=Logistik und Transport GmbH 1216;								\
-      C=LTE_1216_910L|LTE_1216_910,Z_D_E6_C1;								\
-      F=EF6;
-    TX=Logistik und Transport GmbH 185;									\
-      C=LTE_185GM,D6FCM;										\
-      F=EF6;
-    TX=Österreich Montafonerbahn ET 10 121;								\
-      C=(<MBS_ET10121L,MBS_ES10121)|(<MBS_ES10121L,MBS_ET10121);					\
-      F=ERPU6;
-    TX=Österreich Montafonerbahn 1110;									\
-      C=MBS_1110_5M,D6FCM;										\
-      F=EF6;
-    TX=Österreich Salzbuger Lokalbahn 1216;								\
-      C=SLB_1216_940(|L)|SLB_1216BM(|L),Z_D_E6_G_Kessel;						\
-      F=EF6;
-    TX=Snälltåget ELL 193 + D 304 Innsbruck Hbf - München - Hamburg - Malmö C 2023;			\
-      C=(<ELL_193_255SNALL,SNALL_BVCMZL,SNALL_BVCMZ,2*SNALL_BVCMZL,SNALL_WRBMZ,SNALL_BVCMZ,		\
-	4*SNALL_BVCMZL,SNALL_BPMZ,ELL_193_255SNALL)|							\
-	(>ELL_193_255SNALL,SNALL_BVCMZ,SNALL_BVCMZL,2*SNALL_BVCMZ,SNALL_WRBMZL,SNALL_BVCMZL,		\
-	4*SNALL_BVCMZ,SNALL_BPMZL,ELL_193_255SNALL);							\
-      F=EF6;
+    TX=Österreich Steiermärkische Landesbahnen 643;							\
+      C=STLB_643_11(0|3|5);										\
+      F=DPRU6;
     TX=Österreich Steiermärkische Landesbahnen GTW 2/6;							\
       C=STLB_GTW_E26L|STLB_GTW_E26;									\
       F=EPU6;
@@ -2037,21 +2123,24 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
     TX=Österreich Steiermärkische Landesbahnen 1142;							\
       C=STLB_1142BM,D6FP1KC|A6FC|D6FCM;									\
       F=EF6;
-    TX=Österreich Salzburger EisenbahnTransportLogistik GmbH 193;					\
-      C=[PFU]ELL_VECTRON_SETG(|L)|SETG_193(812|204)(|L)|SETG_193831DOPPLER,D6FZM;			\
-      F=EF6;
-    TX=Österreich Salzburger EisenbahnTransportLogistik GmbH 1116 912;					\
-      C=SETG_1116_912,Z_D_E6_G_Fals2;									\
-      F=EF6;
     TX=Österreich Steiermärkische Landesbahnen 1216;							\
       C=STLB_1216_960(|L)[PFU],D6FZM;									\
       F=EF6;
-    TX=Österreich Rail Transport Service GmbH 1216;							\
-      C=[PFU]RTS_1216_901L|RTS_1216_901,D6FZM;								\
-      F=EF6;
+    TX=Österreich Swietelsky GmbH Baumaschine;								\
+      C=SWIE_BDS2000A(|L)|SWIE_BDS2000B(|L)|SWIE_RM76|SWIE_RM80(|L)|SWIE_SSP110SW(|L)|SWIE_SSP110SWA|	\
+	SWIE_USP6000(|L)|SWIE_0916_4S|SWIE_0916U4S(|L)|SWIE_093X|SWIE_08475U4S(|L)|			\
+	SWIE_0932U4SDYN(|L)|SWIE_092XDYN(|L)|SWIE_094XDYN(|L)|(<SWIE_DGS62NB,SWIE_DGS62N)|		\
+	(SWIE_DGS62N2(|L),SWIE_DGS62N2B(|L))|SWIE_SUZ500A|SWIE_SUZ500B|SWIE_0875SPT(|L);		\
+      F=DF6;
     TX=Österreich TecSol 1822;										\
       C=[PFU]TECS_1822_00(1|4)(|L),D6FZM;								\
       F=EF6;
+    TX=Österreich Voest 1004;										\
+      C=VOEST_1004L|VO_1004_RE,Z_AT_E6_G_COIL;								\
+      F=DF6;
+    TX=Österreich Voest 1304;										\
+      C=VOEST_1204(|L),Z_AT_E6_G_COIL;									\
+      F=DF6;
     TX=Westbahn Management GmbH KISS 4010;								\
       C=(<WEST_KISS1L,WEST_KISS2,WEST_KISS3,WEST_KISS4,WEST_KISS5,WEST_KISS1)|				\
 	(<WEST_KISS1L,WEST_KISS5L,WEST_KISS4L,WEST_KISS3L,WEST_KISS2L,WEST_KISS1)|			\
@@ -2068,9 +2157,20 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
 	(<WEST_4110_1L,WEST_4110_3,WEST_4110_4,WEST_4110_6)|						\
 	(>WEST_4110_1,WEST_4110_3L,WEST_4110_4L,WEST_4110_6L);						\
       F=EPU6;
-    TX=Verein 1020 Bludenz 1020 042;									\
-      C=V1020_1020042(|L);										\
+    TX=Österreich Wiener Lokalbahn 81;									\
+      C=WLB_81L|WLB_81,RTRAN_UAS_W;									\
+      F=DF6;
+    TX=Österreich Wiener Lokalbahn 90-92;								\
+      C=WLB_90|WLB_V100L|WLB_92L|WLB_92,DE_FALS_G4|DE_FALS_G4L;						\
+      F=DF6;
+    TX=Österreich Wiener Lokalbahn 1193;								\
+      C=5:(WLB_1193_980(|L),Z_D_E6_G_Holz|D6FP1|D6FCM|A6F1|A6FC)|1:(WLB_1193_980(|L)[PFU],D6FZM);	\
       F=EF6;
+    TX=Österreich Wiener Lokalbahn 1216 +  Kü CRS / D TF2 13001 Semmeringi Kalandok:Mürzzuschlag - Hegyeshalom (- Budapest-Keleti) 2025; \
+      C=WLB_1216_950(|L),										\
+	(<CRSHU_SALON_Z,CRSHU_WRMZ_R,CRSHU_AP1,CRSHU_BRZ,CRSHU_AP1)|					\
+	(>CRSHU_SALON_ZL,CRSHU_WRMZ_R,CRSHU_AP1L,CRSHU_BRZL,CRSHU_AP1L);				\
+      F=EP6;
     TX=Österreich Wiener Lokalbahn 1116/1216;								\
       C=WLB_ES64U2_027(|L)|WLB_1216_954(|L)|WLB_ES64U2_020(|L)|DISP_ES64U2_020|WLB_ES64U2_021(|L)|	\
 	WLB_1116|WLB_ES64U2_023(|L)|WLB_ES64U2_035(|L)|WLB_ES64U2_064(|L)|WLB_ES64U2_066(|L)|		\
@@ -2078,8 +2178,11 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
 	12*(OBB_EANOSL|OBB_EANOS|OBB_EANOS1L|OBB_EANOS1|CSD_UA|CD_EAS1|CTL_EAS|CTL_EAOSL|HZ_EASZ|	\
 	RAI_EAOS1|RAI_EANOS_X052L);									\
       F=EF6;
-    TX=Österreich Wiener Lokalbahn 1193;								\
-      C=5:(WLB_1193_980(|L),Z_D_E6_G_Holz|D6FP1|D6FCM|A6F1|A6FC)|1:(WLB_1193_980(|L)[PFU],D6FZM);	\
+
+# Österreich Museum
+
+    TX=Verein 1020 Bludenz 1020 042;									\
+      C=V1020_1020042(|L);										\
       F=EF6;
 
 # Österreich Lokalbahn Gleichstrom Normalspur
@@ -2090,23 +2193,42 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
     TX=Stern & Hafferl 20 111 Lambach - Vorchdorf;							\
       C=STH_20_111B;											\
       F=GEP6;
+    TX=Stern & Hafferl 22 105 Linzer Lokalbahn;								\
+      C=STH_22_105;											\
+      F=GEP6;
     TX=Stern & Hafferl 22 133 Linzer Lokalbahn;								\
       C=STH_22_133;											\
       F=GEPU6;
     TX=Stern & Hafferl 22 136 Linzer Lokalbahn;								\
       C=STH_22_136;											\
       F=GEPU6;
-    TX=Stern & Hafferl 22 151;										\
-      C=STH_22_151;											\
+    TX=Stern & Hafferl 22 151 Linzer Lokalbahn;								\
+      C=STH_GTW;											\
       F=GERP6;
     TX=Österreich Steiermärkische Landesbahnen Feldbach - Bad Gleichenberg ET 2;			\
       C=STLB_ET2;											\
       F=GERP6;
 
-# Schmalspur privat
+# Schmalspur
 
+    TX=ÖBB 999.201 + Personenzug Schafbergbahn;								\
+      C=<OBB_6_999_201,OBB_BRB1,OBB_BRB2;								\
+      D=R;												\
+      F=SNP6;
+    TX=Zillertalbahn V16;										\
+      C=(<ZIL_D16,ZIL_B4_32_33,ZIL_BD4_40L,ZIL_VS_5_7)|(>ZIL_D16,ZIL_B4_32_33,ZIL_BD4_40,ZIL_VS_5_7L);	\
+      F=DNPUP6;
+    TX=Zillertalbahn VT + VS 3-4;									\
+      C=(<ZIL_VT_3_4L,ZIL_B4_34_38,ZIL_VS_3_4)|(>ZIL_VT_3_4,ZIL_B4_34_38,ZIL_VS_3_4L);			\
+      F=DNPUP6;
+    TX=Zillertalbahn VT 1;										\
+      C=ZIL_VT1;											\
+      F=DNPUP6;
     TX=Zell am See - Krimml - SLB 5090;									\
-      C=SLB_5090_3L|SLB_5090_3;										\
+      C=SLB_5090_3(|L)|OBB_5090_001R|OBB_5090_008R;							\
+      F=DNPUP6;
+    TX=Zell am See - Krimml - SLB 5090;									\
+      C=OBB_5090_008RW;											\
       F=DNPUP6;
     TX=Zell am See - Krimml - SLB VS 2021;								\
       C=(<SLB_VS,SLB_HS1,SLB_VBS201,SLB_VSS)|(>SLB_VS,SLB_HS1,SLB_VBS201,SLB_VSSL)|			\
@@ -2123,5 +2245,9 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
     TX=Österreich Steiermärkische Landesbahnen Tamsweg - Unzmarkt VT 31 + VS 41;			\
       C=<STLB_VS41,STLB_VT31RG;										\
       F=DNPU56;
+    TX=Niederösterreichische Verkehrsorganisationsgesellschaft (Mariazellerbahn) ET1;			\
+      C=NOVOG_ET1(|L);											\
+      F=ENPRU6;
+
   }
 %ENDPOOL;

@@ -3388,7 +3388,7 @@ $SPOOL N=DB_NG19394_1971; SEQ=R;
     TX=Ng 19394 x <- Recklinghausen Rbf Süd -> Wanne-Eickel Rbf (06.10.1971);				\
       C=DRG_E9108,$DIR(DB_4_E040EL,DB_4_E040E),DB_3B_OMM52_08(|L),2*DB_TD928[B:0,40],			\
 	$DIR(DB_PWGHS54BL,DB_PWGHS54B),NS_EZ[B:9,24,8,4],DB_OTMM70(C|VD),CFR_ZES(2|3),			\
-	4*DR_(2:EL_(1|2)|EKKL4(|L)),DB_OTMM70,								\
+	4*DR_(2:EL_(1|2)|EKKL4(|L)),XDB_OTMM70,								\
 	GO45~ROO[O:DB_BEHK,15,13][O:DB_BEHK,39,13][O:DB_BEHK,63,13][O:DB_BEHK,88,13][O:DB_BEHK,112,13],	\
 	DB_OTMM70J;											\
       V=5-5.5;												\
@@ -3397,7 +3397,7 @@ $SPOOL N=DB_NG19394_1971; SEQ=R;
       C=DRG_E9108,DB_OMM52[OB:FR_UHLI,,26],2*DB_OTMM70(C|VD)[OB:FR_UHLI(|[M]),(11-12),(37-38)],		\
 	DB4A_E040[OB:DR_ELOAD,,27],DB_OMM52[OB:DR_ELOAD,,27],DR_EL_(1|2)[OB:DR_ELOAD,,28],		\
 	DB_LBGJS598[O:DB_BEHK,15,13][O:DB_BEHK,39,13][O:DB_BEHK,63,13][O:DB_BEHK,88,13]			\
-	[O:DB_BEHK,112,13],DB_OTMM70[OB:FR_COAL2,6,39];							\
+	[O:DB_BEHK,112,13],XDB_OTMM70[OB:FR_COAL2,6,39];							\
       V=5-5.5;												\
       F=EF4;
   }
@@ -6359,7 +6359,7 @@ $ENDPOOL
 	(1-2*D_EPIIIA_G)|(1-2*DB_3A_CI(27|29)(|L)|DB_3A_CIE(27|29)(|L));				\
       V=3-4.5;												\
       F=SZ3;
-    C=<(DB_3_ET11BBL,DB_3_ET11BA)|(DB_3_ET11BAL,DB_3_ET11BB);						\
+    C=<(<USTC_3AET1101_1948AL,USTC_3AET1101_1948B)|(>USTC_3AET1101_1948A,USTC_3AET1101_1948BL);						\
       V=7.5-9;												\
       AP=[TX=DtUS 716 München <-> Berchtesgarden (anno 1948)]|						\
 	[TX=DtUS 808 Berchtesgarden <-> München (anno 1948)];						\
@@ -6901,7 +6901,7 @@ $ENDPOOL
 ;  C=DB_3V200S1,$DIR((DB_3B_PW4I31L,DB_B4Y43L,DB_B4Y43,2*DB_3B_B4Y42_50AL),(DB_3B_PW4I31,DB_B4Y43,DB_B4Y43L,2*DB_3B_B4Y42_50A));V=9-11;
     TX=P 1105 Emden West <-> Emden Außenhafen (anno 1957);						\
       C=$DIR(DB_3A82017L,DB_3A82017),DB_3B_B4Y3050L,DB_3B_GMHS35NEL,DB_3A_BPW3YG56,DB_3A_BC3YG56,	\
-	2*DB_BI29(L);											\
+	2*DB_BI29(|L);											\
       V=3-4.5;												\
       F=SZ3;
     TX=Ng Schopfheim <-> Lörrach (14.08.1957);								\
@@ -6942,7 +6942,8 @@ $ENDPOOL
       C=<(DB_517,DB_817)|(DB_817,DB_517);								\
       F=3;
     M=2:SIMPLE|BACK;											\
-      C=<1-2*(DB_3_ET11MKAL,DB_3_ET11MKB)|(DB_3_ET11MKBL,DB_3_ET11MKA);					\
+      C=((<DB_3B_ET1101AL,DB_3B_ET1101B)|(>DB_3B_ET1101A,DB_3B_ET1101BL)),\
+	  0-1*((<DB_3B_ET1103BL,DB_3B_ET1103A)|(>DB_3B_ET1103AL,DB_3B_ET1103B));					\
       V=10-14; T=10-15;											\
       AP=[TX=F 29 "Münchener Kindl" München <- Augsburg - Ulm - Stuttgart - Heidelberg - Darmstadt -> Frankfurt/Main (anno 1958)]| \
 	[TX=F 30 "Münchener Kindl" Frankfurt/Main <- Darmstadt - Heidelberg - Stuttgart - Ulm - Augsburg -> München (anno 1958)]; \
@@ -8139,7 +8140,7 @@ $ENDPOOL
       C=DBBR41,(2:0|1:1)*DB_4A_BN719(|L),$DIR(DB_33BDYG56R,DB_33BDYG56RL),DB_33ABYG58(|L),		\
 	2*DB_33BYG5(6R|6S|8)(|L);									\
       F=SPR3;
-  C=$DIR(DB_3B44050L,DB_3B44050),2*NS_Z2A(|L),4*D_EPIIIB_O,3*DB_3OTTM52(|L)|DB_OTMM70,DB_KS446O,	\
+  C=$DIR(DB_3B44050L,DB_3B44050),2*NS_Z2A(|L),4*D_EPIIIB_O,3*DB_3OTTM52(|L)|XDB_OTMM70,DB_KS446O,	\
       D_EPIIIB_G;											\
     F=SF3;
     TX=Trier (24.09.1966);										\
@@ -13242,7 +13243,7 @@ $ENDPOOL
     TX=SE 3529 Wuppertal-Oberbarmen <- Wuppertal Hbf - Solingen-Ohligs -> Köln Hbf (Abnahmefahrt 141 133) \
 	(07.04.1997);											\
       C=DB_4_141424G(|L)[PFU],DB_140RL~TRO[PD],$DIR(DB_BN433GL~KMN,DB_BN433G~KMN),			\
-	$DIR(DB_BN433G~KMN,DB_BN433GL~KMN),DB_BN433G(L)~KMN,DB_ABN402G(L);				\
+	$DIR(DB_BN433G~KMN,DB_BN433GL~KMN),DB_BN433G(|L)~KMN,DB_ABN402G(|L);				\
       F=EP5;
     TX=Ng 65140 Mühldorf <-> München Nord (08.04.1997);							\
       C=$DIR(DBAG_218272,DBAG_218272L),$DIR(DBAG_218272L,DBAG_218272),$DIR(DBAG_218272,DBAG_218272L),	\

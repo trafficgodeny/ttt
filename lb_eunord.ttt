@@ -349,7 +349,7 @@ $REQUIRE TRAINDEF.TTT
 	C=<DSB_BFS100L,5*DSB_BFM100,DSB_MEB~OLE;							\
 	F=DPU6;
       TX=DSB IC4;											\
-	C=DSB_IC4L|DSB_IC4~GOU;										\
+	C=<DSB_IC4_1MGL,(<DSB_IC4_3FH,DSB_IC4_2FG)|(<DSB_IC4_2FGL,DSB_IC4_3FHL),DSB_IC4_1MG;		\
 	F=DPU6;
       TX=DSB IC3;											\
 	C=DSB_IC3~LIP;											\
@@ -383,6 +383,18 @@ $REQUIRE TRAINDEF.TTT
 	C=(<DSB_3005(|L),6*DSB_5BN,DSB_5ADNS)|(<DSB_5ADNSL,6*DSB_5BN(|L),DSB_3020(|L));			\
 	F=EP6;
       TX=DSB EA + Regionalzug;										\
+	C=(<DSB_30(02|05|20)(|L),2*DSB_B_1,DSB_BK_1,DSB_ABS_1)|					\
+	  (>DSB_30(02|05|20)(|L),2*DSB_B_1L,DSB_BK_1L,DSB_ABS_1L);					\
+	F=EPRU6;
+      TX=DSB EA + Regionalzug;										\
+	C=(<DSB_30(02|05|20)(|L),2*DSB_B_2,DSB_BK_2,DSB_ABS_2)|					\
+	  (>DSB_30(02|05|20)(|L),2*DSB_B_2L,DSB_BK_2L,DSB_ABS_2L);					\
+	F=EPRU6;
+      TX=DSB EB + Regionalzug Re 2269 Helsingør - Næstved 2024;										\
+	C=(<DSB_EB2(|L),3*DSB_B_3,DSB_BK_3,DSB_ABS_3)|					\
+	  (>DSB_EB2(|L),3*DSB_B_3L,DSB_BK_3L,DSB_ABS_3L);					\
+	F=EPRU6;
+      TX=DSB EA + Regionalzug;										\
 	C=(<DSB_30(02|05|20)(|L),3*DSB_DOSTO_B4M(|L),DSB_DOSTO_ABS4M)|					\
 	  (<DSB_DOSTO_ABS4ML,3*DSB_DOSTO_B4M(|L),DSB_30(02|05|20)(|L))|					\
 	  (<DSB_30(02|05|20)(|L),3*DSB_DOSTO_B3M(|L),DSB_DOSTO_ABS3M)|					\
@@ -395,9 +407,12 @@ $REQUIRE TRAINDEF.TTT
       TX=DSB EA 3020 + Urlauber-Sonderzug Kopenhagen März 2008;						\
 	C=DSB_3020(|L),8@DSB_5BC(|L);									\
 	F=EP6;
+      TX=DSB EB + Containerzug;										\
+	C=DSB_EB2(|L),D6FCM;										\
+	F=EF6;
       TX=DSB ER;											\
 	C=DSB_6IR4;											\
-	F=EF6;
+	F=EP6;
 
 #Daenemark privat
       TX=DB Cargo Danmark MK 2;										\
@@ -419,10 +434,21 @@ $REQUIRE TRAINDEF.TTT
       TX=Daenemark CFL Cargo 668;									\
 	C=CFLC_66BXL2M(|L),D6FCM;									\
 	F=DF6;
-
+      TX=Daenemark GoCollective A/S LINT 41;									\
+	C=GOCO_DESIRO;									\
+	F=DPR6;
+      TX=Daenemark GoCollective A/S Desiro;									\
+	C=GOCO_DESIRO_EXDSB;									\
+	F=DPR6;
       TX=Daenemark Lokalbanen 41;									\
 	C=LB_41;											\
-	F=DPU6;
+	F=DPRU6;
+      TX=Daenemark Lokaltog A/S MF 1000;						\
+	C=LT_MF1000;											\
+	F=DPRU6;
+      TX=Daenemark Lokaltog A/S Regiosprinter;						\
+	C=LTOG_REGIOSPRINTER;											\
+	F=DPRU6;
       TX=Daenemark Lyngby-Nærum Jernbane Regio Sprinter;						\
 	C=LNJ_RS~LIP;											\
 	F=DPU6;
@@ -793,8 +819,11 @@ $REQUIRE TRAINDEF.TTT
       TX=Cargonet SKD225 + Rangierzug;									\
 	C=CGN_6SKD225236(|L),N6FS;									\
 	F=DF6;
-      TX=Cargonet Di 8000 + Rangierzug;									\
+      TX=CargoNet Di 8000 + Rangierzug;									\
 	C=CGN_6DI8707(|L),3*N6FS;									\
+	F=DF6;
+      TX=CargoNet EURO Dual, Cargo Net, Nr. 2159-004;									\
+	C=CGN_2159004(|L),N6FL;W=R;									\
 	F=DF6;
       TX=Cargolink DE 27000 + Güterzug;									\
 	C=CGLI_6DE270006(|L),N6FL;									\
@@ -823,6 +852,14 @@ $REQUIRE TRAINDEF.TTT
 	C=(<GANO_BM73DL,GANO_BM73C,GANO_BM73B,GANO_BM73A)|						\
 	  (>GANO_BM73D,GANO_BM73CL,GANO_BM73BL,GANO_BM73AL);						\
 	F=DPU6;
+       TX=Norway Grendland Rail EuroDual 2159-008;			\
+        C=GRER_2159(|L)[PD],12*(NSB_6_ROOS(3:1|1:2|1:3)[OB:WOOD2(27|29|33|35|28|37)(|[M]),14,13]\
+        [OB:WOOD2(27|29|33|35|28|37)(|[M]),84,13][OB:WOOD2(27|29|33|35|28|37)(|[M]),151,13]); \
+	F=DF6;
+        TX=Norway Grendland Rail EuroDual 2159-008;			\
+        C=GRER_2159(|L),12*(NSB_6_ROOS(3:1|1:2|1:3)[OB:WOOD2(27|29|33|35|28|37)(|[M]),14,13]\
+        [OB:WOOD2(27|29|33|35|28|37)(|[M]),84,13][OB:WOOD2(27|29|33|35|28|37)(|[M]),151,13]); \
+	F=EF6;
       TX=MTAS DI3;											\
 	C=MTAS_6DI3629(|L),N6FL;									\
 	F=EF6;
@@ -830,6 +867,9 @@ $REQUIRE TRAINDEF.TTT
 	C=OBA_EL1321(61|25)(|L),									\
 	  (<OBA_B3BDL,OBA_B3WL1L,OBA_B3BL,2*OBA_B3WL2L)|(<2*OBA_B3WL2,OBA_B3B,OBA_B3WL1,OBA_B3BD);	\
 	F=EP6;
+      TX=NSB DI4 + Norske Tog Ft 475 Trondheim - Bodø 2025;									\
+	C=NSB_6DI4651(|L),NTOG_FDE,3*NTOG_B5,NTOG_FR51L,NTOG_B5,2*($DIR(NTOG_WLAB2SJNL|NTOG_WLAB2SJN));									\
+	F=DP6;
       TX=Norwegen Norske Tog EL 18;									\
 	C=NTOG_EL182253,5*NTOG_B5;									\
 	F=EPR6;
@@ -846,8 +886,12 @@ $REQUIRE TRAINDEF.TTT
 	C=NSB_6_EL182248(|L),2*VY_B7_4,VY_FR7_3,VY_BFWL1(|L),VY_B7_4,VY_BC7_1,2*VY_B7_4;		\
 	F=EP6;
       TX=Norwegen NSB 18 / Vygruppen AS:Rt 609 Bergen - Oslo 2023;					\
-	C=NSB_6_EL182248(|L),2*VY_B7_4,VY_FR7_3,VY_BFWL1,3*VY_WLAB2,VY_B7_4,VY_B7_4;			\
+	C=NSB_6_EL182248(|L),2*VY_B7_4,VY_FR7_3,VY_BFWL1,3*$DIR(VY_WLAB2|VY_WLAB2L),VY_B7_4,VY_B7_4;	\
 	F=EP6;
+      TX=Norwegen Vygruppen BM 74: Rt 111/387 Oslo - Göteborg C 2025;					\
+	C=(<VY_BM74AL,VY_BM74B,VY_BM74C,VY_BM74D,VY_BM74E)|\
+	(>VY_BM74A,VY_BM74BL,VY_BM74CL,VY_BM74DL,VY_BM74EL);		\
+	F=EPUP6;
     }
   %ENDPOOL;
 }
@@ -1218,6 +1262,10 @@ $REQUIRE TRAINDEF.TTT
 	C=(<SJ_X2L,3*SJ_X2_UA2L,SJ_X2_URB2,2*SJ_X2_UA2,SJ_X2_UA2X)|					\
 	  (>SJ_X2,3*SJ_X2_UA2,SJ_X2_URB2L,2*SJ_X2_UA2L,SJ_X2_UA2XL);					\
 	F=EPU6;
+      TX=SJ X2;												\
+	C=(<SJ_X2CL,3*SJ_X2C_UA2C,SJ_X2C_URB2CL,2*SJ_X2C_UA2CL,SJ_X2C_UB2XC)|\	
+	(>SJ_X2C,3*SJ_X2C_UA2CL,SJ_X2C_URB2C,2*SJ_X2C_UA2C,SJ_X2C_UB2XCL);					\
+	F=EPU6;
       TX=SJ X10;											\
 	C=SJ_X10A|SJ_X10~V3;										\
 	F=EPU6;
@@ -1277,6 +1325,9 @@ $REQUIRE TRAINDEF.TTT
 	F=DF6;
       TX=Schweden MLT Y1;										\
 	C=MLT_Y1~LIP;											\
+	F=DPU6;
+      TX=Schweden Motala Verkstad 1419;										\
+	C=MOTALA_1419(|L),6*DBB_RGS_SCH;											\
 	F=DPU6;
       TX=Schweden Railcare 4000;									\
 	C=RACA_4000(|L),S6F(1|2);									\
@@ -1359,14 +1410,14 @@ $REQUIRE TRAINDEF.TTT
 	C=HECT_161,S6F1;										\
 	F=EF6;
       TX=Schweden Hectorrail 241;									\
-	C=HECT_241,S6F2;										\
+	C=HECT_241~VW,S6F2;										\
 	F=EF6;
       TX=Schweden Skandinaviska Jernbanor AB 193 922;							\
 	C=SKJB_193922(|L),S6F1;										\
 	F=EF6;
       TX=Schweden ELL (European Locomotive Leasing)193 + Snälltåget 3901:Storlie - Malmö 2024;		\
-	C=ELL_193_255SNALL,(<SNALL_BC2,3*SNALL_BC2IB,2*SNALL_BC2,SNALL_BBMVZ,SNALL_R7,2*SNALL_B1K,		\
-	  3*SNALL_BC2);											\
+	C=ELL_193_255SNALL,										\
+	  (<SNALL_BC2,3*SNALL_BC2IB,2*SNALL_BC2,SNALL_BBMVZ,SNALL_R7,2*SNALL_B1K,3*SNALL_BC2);		\
 	F=EP6;
       TX=Schweden Skandinaviska Jernbanor EL 13;							\
 	C=SKJB_6EL132(131|124)(|L),S6F1;								\
@@ -1494,10 +1545,10 @@ $REQUIRE TRAINDEF.TTT
     }
 
     {E6?
-      TX=VR DR16 + P 262 Kolari - Oulu (- Helsinki) 2024;						\
+      TX=VR DR16 + P 262 Kolari - Oulu (- Helsinki)2024;						\
 	C=VR_DR16G,											\
 	  (<VR_DE9347,3*VR_CEMT~VW,VR_6_EDBG,VR_6RXG,4*VR_CEMT~VW,5*VR_6GFOT)|				\
-	  (>VR_DE9347,3*VR_CEMTL~VW,VR_6_EDBGL,VR_6RXG,4*VR_CEMTL~VW,5*VR_6GFOT);				\
+	  (>VR_DE9347,3*VR_CEMTL~VW,VR_6_EDBGL,VR_6RXG,4*VR_CEMTL~VW,5*VR_6GFOT);			\
 	F=DP6;
       TX=VR DR16;											\
 	C=VR_DR16|VR_DR16_2819,FI6FS1;									\
@@ -1511,10 +1562,18 @@ $REQUIRE TRAINDEF.TTT
       TX=VR SM3;											\
 	C=<VR_SM3GF[!L],VR_SM3GB,#VR_SM3GE,VR_SM3GB,VR_SM3GE,VR_SM3GF;					\
 	F=EPU6;
+      TX=VR SM3 - S 33 Helsinki - Oulu 2024;								\
+	C=(<VR_SM3G1L,VR_SM3G2,VR_SM3G4L,VR_SM3G3,VR_SM3G5,VR_SM3G1)|					\
+	  (>VR_SM3G1,VR_SM3G2L,VR_SM3G4,VR_SM3G3L,VR_SM3G5L,VR_SM3G1L);					\
+	F=EPU6;
       TX=VR SM5 Suburban Trains Helsinki;								\
 	C=(<VR_JKOY_SM5AL,VR_JKOY_SM5BL,VR_JKOY_SM5C,VR_JKOY_SM5D)|					\
 	  (<VR_JKOY_SM5DL,VR_JKOY_SM5CL,VR_JKOY_SM5B,VR_JKOY_SM5A);					\
 	F=EPRU6;
+      TX=VR SR2 + IC 65 Helsinki - Oulu 2024 + Gefangenenwagen;						\
+	C=(<VR_6_SR2G,3*VR_6_EDBGL,VR_EDFS,VR_ERD_G,VR_6_EDBGL,VR_6_EDOG,VR_NOM~VW)|			\
+	  (>VR_6_SR2GL,3*VR_6_EDBG,VR_EDFS,VR_ERD_G,VR_6_EDBG,VR_6_EDOGL,VR_NOM~VW);			\
+	F=EPU6;
       TX=VR Sr2 + IC171 Hyvinkää 2010;									\
 	C=VR_6_SR2R(|L),										\
 	  (<VR_6_EIPTL,VR_6_EIPT,VR_6_IC1RL,VR_6_EFITG,3*VR_6_EDML,VR_6_EDM,VR_6_EDML,VR_6_EDM)|	\

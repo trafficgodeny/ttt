@@ -1648,8 +1648,9 @@ $REQUIRE JMD_DEF.TTT
       TX=Faro <-> Barriero (16.08.1995);								\
 	C=CP_1930,$DIR(CP_CORAIL_BR,CP_CORAIL_BRL),3*CP_CORAIL_BL~HW|CP_CORAIL_B~HW;			\
 	F=DP5;
-      TX=Lisboa (28.08.1995);										\
-	C=2*(<CP_2000BEL,CP_2080AML,CP_2000BF);								\
+ # Gegenrichtung ergänzt
+ TX=Lisboa (28.08.1995);										\
+	C=(2*(<CP_2000BEL,CP_2080AML,CP_2000BF))|(2*(>CP_2000BE,CP_2080AM,CP_2000BFL));								\
 	F=EPU5;
       TX=S. Tiago de Cacém (16.08.1995);								\
 	C=$DIR(CP_1320,CP_1320L),8*(CP_SGS(1|2))[OB:C2R15,<8,13][OB:C2R15,>131,13];			\
@@ -1661,7 +1662,10 @@ $REQUIRE JMD_DEF.TTT
       TX=Alfarelos (16.03.1996);									\
 	C=CP_2501~HW,2*CP_EALOS,6*CP_TDGS1,$DIR(CP_1400L,CP_1400),6*CP_TDGS1,2*CP_HIS;			\
 	F=F5;
-      C=CP_1400(|L),(<CP_SCHINDLER_AD,4*CP_SCHINDLER_B(1|2)(|L));					\
+# Gegenrichtung + Text ergänzt
+ TX=CP_1400;										\
+      C=CP_1400(|L),(<CP_SCHINDLER_AD,4*CP_SCHINDLER_B(1|2)(|L))|\
+	  (>CP_SCHINDLER_ADL,4*CP_SCHINDLER_B(1|2)(|L));					\
 	F=DP5;
       TX=Lisboa <-> Sintra (03.1996);									\
 	C=2*(<CP_2300CEL,CP_2300CB,CP_2300CBL,CP_2300CE);						\

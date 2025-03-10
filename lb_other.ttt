@@ -6,8 +6,8 @@ $REQUIRE TRAINDEF.TTT
 
 # {[(
 # Japan
-# Africa + Near East
 # Australia/New Sealand
+# Africa + Near East
 # Asia other
 # China
 # Middle/South America
@@ -317,7 +317,15 @@ $REQUIRE TRAINDEF.TTT
       TX=Japan Rail DC 23;										\
 	C=1-2@(J_DC23_(1|2))(|L);									\
 	F=EPU4;
-      TX=Japan Rail DC 40;										\
+ #      TX=Japan Rail DE 10;									\
+#	C=(JNR_DE10[BB:36,28,19,8,#444])|(JNR_DE10(|A)L[BB:85,28,19,8,#444]),\
+#	5*J4FR;						\
+#	F=DF4;
+       TX=Japan Rail DD 54;									\
+	C=JR_DD54(A|B|C|D|E)(|L),\
+	7*J4FR;						\
+	F=DF4;
+     TX=Japan Rail DC 40;										\
 	C=1-2@(JR_40_100A|JR_40_100A|JR_40_100B|JR_40_2000|JR_40_500A|JR_40_500B|J_DC40_1)(|L);		\
 	F=EPU4;
       TX=Japan Rail Kyushu DC 45;									\
@@ -352,7 +360,7 @@ $REQUIRE TRAINDEF.TTT
       TX=Japan Railway East "Yellow Doctor" 922-20;							\
 	C=(<JR_922_21,JR_922_22,JR_922_23,JR_922_24,JR_922_25,JR_922_26)|				\
 	  (<JNR_021BL,JNR_026B,JNR_025_200,JNR_016G,JNR_015G,JNR_026_200,JNR_035B,JNR_036B(|FJ),	\
-	  JNR_015B,JNR_016B,JNR_015B,JNR_022BL);							\
+	  JNR_015B,JNR_016B,JNR_015B,JNR_022B);							\
 	F=EPU5;
 
 # West
@@ -382,7 +390,12 @@ $REQUIRE TRAINDEF.TTT
 	  3*J6FS1;											\
 	D=DF6;
       TX=Japan Rail Freight DE 10;									\
-	C=JRF_DE10(L|_1582|_2|_2B|_3|_SAPPOROL|_SW2),3*J6FS1;						\
+	C=(JRF_DE10(L|_1582|_2|_2B|_3|_SAPPOROL|_SW2|_4)[BB:85,28,19,8,#444]),\
+	3*J6FS1;						\
+	F=DF6;
+      TX=Japan JRH DE 10;									\
+	C=JRH_DE10_NOROKKO2L[BB:85,28,19,8,#444]|\
+	JRH_DE10_NOROKKO2[BB:38,28,19,8,#444],3*J6FS1;						\
 	F=DF6;
       TX=Japan Rail Freight DF 200;									\
 	C=JRF_DF200(BN|N|NW|_0|_50|_900A|_900B|_901|_901N),J6FLA;					\
@@ -716,12 +729,15 @@ $REQUIRE TRAINDEF.TTT
       TX=Australien South Maitland Railways 1 - 30;							\
 	C=SMAR_(18|10|30|22)(|L),8*(VIC_B102|VIC_T252|VIC_T457|VIC_IC12137|NSW_RU|VIC_GY7|VIC_I);	\
 	F=SF3;
+      TX=Australien East Greta Coal Mining Co. LTD 10;							\
+	C=EGCM_10(|L),10*NSW_BCH(2|1|3|3L);	\
+	F=SF3;
       TX=Australien New South Wales 1700;								\
 	C=NSW_1709_1960,8*(VIC_B102|VIC_T252|VIC_T457|VIC_IC12137|NSW_RU|VIC_GY7|VIC_I);		\
 	F=SF3;
       TX=Australien New South Wales 5000 - 5400;							\
 	C=NSW_5(074|133|241|367)(|L),									\
-	  NSW_NVMF(|L)25*(VIC_B|VIC_B102|VIC_B102|VIC_T252|VIC_T457|VIC_IC12137|NSW_RU|VIC_GY7|VIC_I);	\
+	  NSW_NVMF(|L),25*(VIC_B|VIC_B102|VIC_B102|VIC_T252|VIC_T457|VIC_IC12137|NSW_RU|VIC_GY7|VIC_I);	\
 	F=SF3;
       TX=Australien New South Wales 6041 + 5412 + coal train;						\
 	C=(NSW_6041L,NSW_5412L[#D:L])|(NSW_6041,NSW_5412[#D:R]),22*NSW_BCH3(|L),NSW_NVMF(|L);		\
@@ -757,7 +773,7 @@ $REQUIRE TRAINDEF.TTT
 	C=QR_3_1452(|L),8*QR_QLXSO10;									\
 	F=DF3;
       TX=Australien Queensland Rail 1460;								\
-	C=(QR_3_1461|QR_3_1470)(|L),8*QR_QLXSO10;							\
+	C=(QR_3_1(461|470|473))(|L),8*QR_QLXSO10;							\
 	F=DF3;
       TX=Australien Queensland Rail 1620;								\
 	C=QR_3_1620(|L),8*QR_QLXSO10;									\
@@ -778,7 +794,10 @@ $REQUIRE TRAINDEF.TTT
       TX=Australien GNRS S;										\
 	C=(<GNRS_SSO01L,GNRS_SSO01),AUS4F1;								\
 	F=DF4;
-      TX=Australia Nationas Railway class 830 + grain train;						\
+       TX=Australia Nationas Railway class 830;						\
+	C=ANR_85(1|9)(|L),AUS4F1;				\
+	F=DF4;
+     TX=Australia Nationas Railway class 830 + grain train;						\
 	C=(ANR_865,ANR_830L)|(ANR_830,ANR_865L),20*ANR_AHGX109_(1|2|3|4|5)(|L);				\
 	F=DF4;
       TX=Australien PNC S;										\
@@ -801,6 +820,9 @@ $REQUIRE TRAINDEF.TTT
 	F=DF4;
       TX=Australien State Rail Authority of New South Wales Class 35 + 44;				\
 	C=SRA_4454L[#D:L]|SRA_4454[#D:R],SRA_3532(|L),AUS4F1;						\
+	F=DF4;
+      TX=Australien V/Line Y 159;										\
+	C=VL_Y159(|L),AUS4F1;									\
 	F=DF4;
       TX=Australien V/Line S;										\
 	C=(VL_S302L,VL_S302),AUS4F1;									\
@@ -832,6 +854,9 @@ $REQUIRE TRAINDEF.TTT
 	F=DF4;
       TX=Australien Victorian Railay B + Freight Train;							\
 	C=VIC_BSO01(|L),15*VIC_BLF130(|L);								\
+	F=DF4;
+       TX=Australien Victorian Railay Y 114 + Freight Train;							\
+	C=VIC_Y114(|L),15*VIC_BLF130(|L);								\
 	F=DF4;
 
 # Narrow Gauge
@@ -868,8 +893,8 @@ $REQUIRE TRAINDEF.TTT
 
     }
     {E5|E6?
-      TX=Australian Railroad Group Class 92;								\
-	C=ARG_ACSO01L[#D:L]|ARG_ACSO01[#D:R],AUS6PNR;							\
+      TX=Australian Railroad Group Class 92 + DL 500G;								\
+	C=ARG_ACSO01L[#D:L]|ARG_ACSO01[#D:R],ARG_704(|L),AUS6PNR;							\
 	F=DF6;
       TX=Australien Australian Railway Historic Society Class 44;					\
 	C=ARHS_4403[#D:R]|ARHS_4403L[#D:L],								\
@@ -948,6 +973,9 @@ $REQUIRE TRAINDEF.TTT
       TX=Australia Greentrains Class 48;								\
 	C=GTAU_48S35[#D:L]|GTAU_48S35L[#D:R],AUS6FS;							\
 	F=DF6;
+      TX=Australian Regional Connect Y 151;								\
+	C=RC_Y151(|L),AUS6F1;										\
+	F=DF6;
       TX=Australia Cargill,Inc Class 47;								\
 	C=SSR_4701[#D:L]|SSR_4701L[#D:R],AUS6FS;							\
 	F=DF6;
@@ -957,17 +985,26 @@ $REQUIRE TRAINDEF.TTT
       TX=Australia Chicago Freight Car Leasing Australia Class 442 - JL 406;				\
 	C=CFCLA_JL406(|L),AUS6F1;									\
 	F=DF6;
+      TX=Australia Pacific National Class 80;								\
+	C=PN_(8031|8042)(|L)|PN_(8033|8032)(|L),AUS6F1;								\
+	F=DF6;
       TX=Australia Pacific National Class 442;								\
 	C=PN_44218(|L),PN_44204(|L),AUS6F1;								\
+	F=DF6;
+      TX=Australia Pacific National Class 82;								\
+	C=PN_8256(|L),PN_8245(|L),PN_8242(|L)|PN_8202(|L),AUS6F1;								\
 	F=DF6;
       TX=Australia R&H Transport Services Class 442 - JL 404;						\
 	C=RH_JL404(|L),AUS6F1;										\
 	F=DF6;
-      TX=Australia BHP + Silverton Rail Class 442;							\
-	C=BHP_101(|L),SILA_442S(1|6)(|L),AUS6F1;							\
+      TX=Australia BHP Steel 102 (ex NSWGR 442 class) + 103 (ex NSWGR 45 class) + BXLA coal hoppers - Wongawilli Line Dapto - Wongawilli 1995;							\
+	C=BHP_101(|L)[!N02],BHP_103(|L),23*(BHP_BXLA_(1:1|3:2|10:3|6:4)(|L));							\
 	F=DF6;
-      TX=Australia State Rail Authority of New South Wales Class 442;					\
-	C=SRA_44220(|L),AUS6F1;										\
+      TX=Australia BHP 101 + Silverton Rail Class 442;							\
+	C=BHP_101(|L),SILA_442S(1|6)(|L),AUS6F1;							\
+	F=DF5;
+      TX=Australia State Rail Authority of New South Wales Class 442 + 80;					\
+	C=SRA_44220(|L),SRA_8015(|L),AUS6F1;										\
 	F=DF6;
       TX=Australia Southern Shorthaul Railroad + New South Wales Class 442;				\
 	C=SSR_44204(|L),NSW_442(23|33)(|L),								\
@@ -1010,6 +1047,9 @@ $REQUIRE TRAINDEF.TTT
 	F=DF4;
       TX=Australia Southern Shorthaul Railroad Class 49;						\
 	C=SSR_BSO01(|L),AUS6F1;										\
+	F=DF56;
+      TX=Australia V/Line P11-P18;										\
+	C=VL_P1(8|5)(|L),VL_P1(1|3),AUS6FVL;										\
 	F=DF56;
       TX=Australia V/Line T5;										\
 	C=VL_T5(|L),AUS6FVL;										\
@@ -1176,6 +1216,9 @@ $REQUIRE TRAINDEF.TTT
       TX=Australia Coote Industrial C;									\
 	C=COOT_CSO01(|L),AUS6F1;									\
 	F=DF56;
+      TX=Australia El Zorro Transport Solution Y 145;										\
+	C=(EZ_Y145L|EZT_Y145),AUS6FCF;										\
+	F=DF56;
       TX=Australien FMG C44;										\
 	C=FMG_C449WSO01(|L),15-18*(VIC_VH(C131|C131L|CA16|CA16L|JA));					\
 	F=DF56;
@@ -1185,11 +1228,17 @@ $REQUIRE TRAINDEF.TTT
       TX=Chicago Freight Car Leasing Australia S;							\
 	C=(CFCLA_SSO01L,CFCLA_SSO01),AUS6F1;								\
 	F=DF56;
+      TX=Freight Australia P19;										\
+	C=FA_P19(|L),AUS6F(CF|FA);									\
+	F=DF56;
       TX=Freight Australia T5;										\
 	C=FA_T5(|L),AUS6F(CF|FA);									\
 	F=DF56;
       TX=Freight Australia X;										\
 	C=FA_X(|R|SO02)(|L),AUS6F(CF|FA);								\
+	F=DF56;
+      TX=Freight Australia Y 157;										\
+	C=FA_Y157(|L),AUS6FCF;										\
 	F=DF56;
       TX=Freight Australia FQ;										\
 	C=FA_VSO01(|L),AUS6FCF;										\
@@ -1212,6 +1261,9 @@ $REQUIRE TRAINDEF.TTT
       TX=Australien Hamersley Iron SD 50;								\
 	C=HI_SD50(|L),5-8*VIC_VTGX,5-8*(VIC_VPCX),5-8*(PN_VPBX(|L));					\
 	F=DF56;
+      TX=Australien Independent Railways of Australia Pts. 1440;						\
+	C=IRAIL_1440A(|L),AUS6F1;										\
+	F=DF6;
       TX=Australien Lachlan Valley Railway 5367 + 4486 - Junee shuttle 10-1997;				\
 	C=(LVRF_S5367L,LVRF_D4486L,LVRF_C_MFS2028,LVRF_C_MFS2121L,LVRF_C_2091,2*LVRF_C_MFS2121L)|	\
 	  (LVRF_S5367,LVRF_D4486,LVRF_C_MFS2028L,LVRF_C_MFS2121,LVRF_C_2091L,2*LVRF_C_MFS2121);		\
@@ -1228,7 +1280,10 @@ $REQUIRE TRAINDEF.TTT
       TX=Australia National Rail Corporation Class NR_DL41;						\
 	C=NR_NR(|SO02)L[#D:L]|NR_NR(|SO02)[#D:R],AUS6F1;						\
 	F=DF6;
-      TX=Australia Pacific National B;									\
+       TX=Australia Pacific National P22;									\
+	C=PN_P22(|L)|FA_ASO01(|L),AUS6F1;								\
+	F=DF56;
+     TX=Australia Pacific National B;									\
 	C=PN_ASO01(|L)|FA_ASO01(|L),AUS6F1;								\
 	F=DF56;
       TX=Australia Pacific National Class 48;								\
@@ -1250,8 +1305,11 @@ $REQUIRE TRAINDEF.TTT
       TX=Australia Pacific National Class NR_DL41;							\
 	C=PN_NR(1|2|3)L[#D:L]|PN_NR(1|2|3)[#D:R],AUS6F(CP|PNC)|AUS6FPNC;				\
 	F=DF56;
+      TX=Australia Pacific National Class NR_;							\
+	C=(NR_14L[BC:-10,10],NR_29L[BC:-10,10][#D:L])|(NR_8[BC:-10,10],NR_28[BC:-10,10])[#D:R],AUS6F(CP|PNC)|AUS6FPNC;				\
+	F=DF56;
       TX=Australia Pacific National Class 92;								\
-	C=<PN_92SO01L,PN_92SO01,10*PN_NHFF1;								\
+	C=<PN_92SO01L,PN_92SO01,10*PN_NHFF(1|1B|2B|2B2|2B3)(|L);								\
 	F=DF56;
       TX=Australia Pacific National Class 4000;								\
 	C=PN_92SO01L[#D:L]|PN_92SO01[#D:R],AUS6F(CP|PNC)|AUS6FPNC;					\
@@ -1267,7 +1325,7 @@ $REQUIRE TRAINDEF.TTT
 	F=DF6;
       TX=Australian Railroad Group Class 900;								\
 	C=ARG_9(01|02|05)(|L),AUS6FNR;									\
-	F=DF6;
+	F=DF6;                                  
       TX=Australien Rio Tinto ES44;									\
 	C=RTO_ES44DCISO0(1|2)(|L),AUS6F1;								\
 	F=DF56;
@@ -1275,7 +1333,7 @@ $REQUIRE TRAINDEF.TTT
 	C=RTO_RSO01(|L),AUS6F1;										\
 	F=DF56;
       TX=Australien Pilbara Rail C44;									\
-	C=PILB_C449W(|L),15-18*(FA_JCF|VL_VHCX(|L));							\
+	C=PILB_C449W(|L),15-18*((FA_JCF|VL_VHCX)(|L));							\
 	F=DF56;
       TX=Australien New South Wales Class 45;								\
 	C=NSW_4531(|L),AUS6F1;										\
@@ -1287,13 +1345,13 @@ $REQUIRE TRAINDEF.TTT
 	C=NSW_422(|L),AUS6F1;										\
 	F=DF6;
       TX=Australien New South Wales Class 442;								\
-	C=NSW_442(23|33)(|L)|NSW_442,AUS6F1;								\
+	C=NSW_44223(|L),NSW_44233(|L)|NSW_442,AUS6F1;								\
 	F=DF6;
       TX=Australien New South Wales Class 80;								\
-	C=NSW_8005(|L)|NSW_8029(|L),AUS6F1;								\
+	C=(NSW_8005|NSW_GR8001)(|L),NSW_8029(|L),AUS6F1;								\
 	F=DF6;
       TX=Australien New South Wales Class 81;								\
-	C=NSW_81(20|26)(|L),AUS6F1;									\
+	C=NSW_8120(|L),NSW_8126(|L),AUS6F1;									\
 	F=DF6;
       TX=Australien New South Wales Class 73;								\
 	C=NSW_7350(|L),8*NSW_NGTY(|L);									\
@@ -1319,7 +1377,7 @@ $REQUIRE TRAINDEF.TTT
 	F=DP56;
       TX=Australia National Railway class 48 + grain train;						\
 	C=(<PN_48138L,PN_48211L,PN_48103,PN_48204)|(>PN_48138,PN_48211,PN_48103L,PN_48204L),		\
-	  24*(FC_NGVF(2|1)(|L)|PN_NGVF(2|1)(|L));							\
+	  24*(FC_NGVF(2|1)(|L)|PN_NGVF(2|1)(|L)|PN_NPEF_1(|L));							\
 	F=DF6;
       TX=Australien Great Northern Railway T5;								\
 	C=GNRS_T5(|L),AUS6F1;										\
@@ -2070,6 +2128,33 @@ $REQUIRE TRAINDEF.TTT
 	F=EP6;
     }
 #---------------------------------------------------------------------------
+#
+# Iraq
+#
+
+    {E5?
+      TX=Iraq LDH 125;											\
+	C=IRR_LDH125,2*IRR_GASNIESKY(|L),2*IRR_GASKOLMEX(|L),2*IRR_TANK1[BC:-15,35][BT:0,0,4,8][BT:155,0,4,8][NB:B,BA8],4*IRR_FALLS[NB:B,BA8];						\
+	F=DF5;
+    }
+#---------------------------------------------------------------------------
+#
+# Saudi Arabia
+#
+
+    {E6?
+     TX=Saudi Arabia Talgo;											\
+	C=(<SRO_TALGO350_01L,SRO_TALGO350_02L,8*SRO_TALGO350_03L,SRO_TALGO350_10L,SRO_TALGO350_11L,2*SRO_TALGO350_12L,SRO_TALGO350_14,SRO_TALGO350_01)|\
+	(>SRO_TALGO350_01,SRO_TALGO350_02,8*SRO_TALGO350_03L,SRO_TALGO350_10,SRO_TALGO350_11,2*SRO_TALGO350_12,SRO_TALGO350_14L,SRO_TALGO350_01L);						\
+	F=EPU6;
+      TX=Saudi Arabia SD70;											\
+	C=$DIR(SRO_SD70ACSSO01L,SRO_SD70ACSSO01),5*RIA_EANOS,5*RIA_GAGSSO,3*RIA_HABILS,7*RIA_ZACTS;\
+	F=EF6;
+    }
+
+        
+
+#---------------------------------------------------------------------------
   %ENDPOOL;
 }
 
@@ -2103,6 +2188,9 @@ $REQUIRE TRAINDEF.TTT
       TX=Indien INR BWN WDM2;										\
 	C=INR_BWN_WDM2_16402(|L),INDF2L;								\
 	F=DF6;
+      TX=Indien INR SD WDM2;										\
+	C=INR_SR_WDM2_16293(|L),INDF2L;									\
+	F=DF6;
       TX=Indien INR CR WDM2;										\
 	C=INR_CR_WDM2_17904(|L),INDF2L;									\
 	F=DF6;
@@ -2112,7 +2200,7 @@ $REQUIRE TRAINDEF.TTT
       TX=Indien INR GN WDM2;										\
 	C=INR_GN_WDM3A_16062(|L),INDF2L;								\
 	F=DF6;
-      TX=Indien INR GSC WDM2;										\
+       TX=Indien INR GSC WDM2;										\
 	C=INR_GSC_WDM2(A_18337|_18597)(|L),INDF2L;							\
 	F=DF6;
       TX=Indien INR GTK WDM2;										\
@@ -2631,6 +2719,12 @@ $REQUIRE TRAINDEF.TTT
       TX=EFCB:Estrada de Ferro Central do Brasil 511;							\
 	C=EFSJ_511(|L),SAM4F1;										\
 	F=DF4;
+      TX=Brasil Companhia Paulista de Trens Metropolitanos São Paulo 6001;							\
+	C=CPTM_6001(|L),SAM4F1;										\
+	F=DF4;
+	
+	
+	
 
 # elektrisch
       TX=EFCB:Estrada de Ferro Central do Brasil V8;							\
@@ -2752,7 +2846,7 @@ $REQUIRE TRAINDEF.TTT
 	C=ALL_6235(L|R),BRA6NA;										\
 	F=DF56;
       TX=América Latina Logística 2100;									\
-	C=ALL_21(26|55),BRA6NA;										\
+	C=ALL_21(26|55)(|L),BRA6NA;										\
 	F=DF56;
       TX=América Latina Logística 6400;									\
 	C=ALL_6429(|L),BRA6NA;										\
@@ -2761,7 +2855,7 @@ $REQUIRE TRAINDEF.TTT
 	C=ALL_84(10|14)(|L),BRA6NA;									\
 	F=DF56;
       TX=América Latina Logística AC8500;								\
-	C=ALL_85(00|08),BRA6NA;										\
+	C=ALL_85(00|08)(|L),BRA6NA;										\
 	F=DF56;
       TX=Estrada de Ferro Vitoria a Minas BB40;								\
 	C=EFVM_BB40_2(N|O)L,BRA6F;									\
@@ -2779,8 +2873,8 @@ $REQUIRE TRAINDEF.TTT
 	C=LBS_1401,BRA6F;										\
 	F=DF6;
       TX=Linea San Martin 1440;										\
-	C=LSM_1440(|L),BRA6F;										\
-	F=DF6;
+	C=LSM_1440(|L),4*LSM_P1(|L);										\
+	F=DP6;
       TX=Linea San Martin B 816;									\
 	C=LSM_B816(|L),BRA6F;										\
 	F=DF6;
@@ -2838,6 +2932,17 @@ $REQUIRE TRAINDEF.TTT
 # Argentina
 #
 
+
+    {E5?
+      TX=Argentinien Trenes de Buenos Aires 1409 +  Special service run between Plaza Constitución (Buenos Airres) and Quequén 2001;							\
+	C=TBA_1467(|L),3*FBA_P1(|L);									\
+	F=DP5;
+	      TX=Argentinien Trenes de Buenos Airres 655 + Train Buenos Aires - Merlo 2008;							\
+	C=TBA_655(|L),3*TBA_P1(|L);									\
+	F=DP5;	
+    }
+
+
     {E6?
       TX=Argentinien Empresa Ferrocarriles del Estado Argentino 4001;					\
 	C=EFEA_4001(|L),BRA6F;										\
@@ -2887,6 +2992,9 @@ $REQUIRE TRAINDEF.TTT
       TX=Argentinien Ferrocarrille San Roca 6000;							\
 	C=FCSR_60(22|36)(|L),SAM6F1;									\
 	F=DF6;
+      TX=Ferrobaires 1207 + local service Bragado - Mechita 2010;										\
+	C=FBA_1207(|L),FBA_P1(|L);										\
+	F=DPR6;
       TX=Ferrobaires 7928;										\
 	C=FBA_7928(|L),SAM6F1;										\
 	F=DF6;
@@ -2916,7 +3024,10 @@ $REQUIRE TRAINDEF.TTT
       TX=Argentinien Linea Belgrano Norte 645E3;							\
 	C=LBN_EMD645E3,(<LBN_FU4987,3*LBN_FU4988);							\
 	F=DP6;
-      TX=Metropolitano 600;										\
+       TX=Metropolitano 319 315 linea-roca 2010;										\
+	C=(<MPO_319315(|L),3*MPO_U1M_1,MPO_FU1M_1L)|(>MPO_319315(|L),3*MPO_U1M_1,MPO_FU1M_1);		\
+	F=DP6;
+     TX=Metropolitano 600;										\
 	C=MPO_A62(6|8)(|L),BRA6F;									\
 	F=DF6;
       TX=Metropolitano 626;										\
@@ -2976,6 +3087,10 @@ $REQUIRE TRAINDEF.TTT
 	  (<SEFEPA_9729M4L,SEFEPA_9729M4)|(<SEFEPA_9717R4L,SEFEPA_9717R4)|				\
 	  (<SEFEPA_ESTEPAML,SEFEPA_ESTEPAM)|(<SEFEPA_ESTEPARL,SEFEPA_ESTEPAR);				\
 	F=DPU6;
+      TX=Argentinien Trenes de Buenos Aires 214 Switching a couple of passenger cars in Haedo, Buenos Aires 2010; \
+	M=BACK;												\
+	C=TBA_214(|L),3*TBA_P2(|L);									\
+	F=DPO6;
       TX=Argentinien Trenes de Buenos Aires 214;							\
 	C=TBA_214(|L),5*TBA_SOREFAME;									\
 	F=DP6;
@@ -3088,6 +3203,9 @@ $REQUIRE TRAINDEF.TTT
 	F=DF6;
       TX=Chile Ferrocarril Del Pacifico S.A. D6100;							\
 	C=FEPASA_D61(17|25)(|L),SAM6F1;									\
+	F=DF6;
+      TX=Chile Ferrocarril Del Pacifico S.A. D7151;							\
+	C=FEPASA_D7151(|L),SAM6F1;									\
 	F=DF6;
       TX=Chile Ferrocarril Del Pacifico S.A. D5100;							\
 	C=FEPASA_5108(|L),SAM6F1;									\
