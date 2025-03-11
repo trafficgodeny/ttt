@@ -20,12 +20,16 @@ $REQUIRE JMD_DEF.TTT
 
 # Deutschland DR Dampf
 #01-0
-    TX=DR 01.0 + Schnellzug;										\
-      C=DR_3_01(018|036|050|084|114|118|120|137|165|204)(|L),DR3PD;					\
-      F=SP3;
-    TX=DR 01.0 + Eilzug;										\
-      C=DR_3B01005(|L),DR3PE;										\
-      F=SP3;
+TX=DR 01 156 + Kühlzug 1960;										\
+  C=DR_01156_1960(|L),5*DR_TTNS_KMZ_K(|L),								\
+    ((<DR_TTNS_KMZ_WL,DR_TTNS_KMZ_M)|(>DR_TTNS_KMZ_W,DR_TTNS_KMZ_ML)),5*DR_TTNS_KMZ_K(|L);		\
+  F=SF3;
+TX=DR 01.0 + Schnellzug;										\
+  C=DR_3_01(018|036|050|084|114|118|120|137|165|204)(|L),DR3PD;						\
+  F=SP3;
+TX=DR 01.0 + Eilzug;											\
+  C=DR_3B01005(|L),DR3PE;										\
+  F=SP3;
 #01-5
     TX=DR 01.501 Prototyp + 22 + Schnellzug D49 Meiningen - Halle 30.04.1962;				\
       C=DR_3_01501BGL|DR_3_01501BG2L,DR_3_22L,								\
@@ -616,6 +620,9 @@ $REQUIRE JMD_DEF.TTT
     TX=DR V 180 Vorserie + Schnellzug;									\
       C=DR_V180_00(3|4|5)_1964(|L),DR3PDB;								\
       F=DP3;
+    TX=DR V 180 013 + Personenzug;									\
+      C=DR_V180_013_1964(|L),DR_3B_DC1361GZ1|DR_3B_DC13GZ(1|2);								\
+      F=DP3;
     TX=DR V 180 Vorserie + Personenzug Berlin - Frankfurt/Oder 1967;					\
       C=DR_V180_00(6|5)_1967(|L),DR_3B4GWLS(|L),DR_3B4GWL(|L),2*DR_3B4GWLS(|L);				\
       F=DPR3;
@@ -950,6 +957,10 @@ $REQUIRE JMD_DEF.TTT
       C=LEUNA_203|LEUNA_205,Z_DR_E4_Kessel;								\
       F=DF4;
 # Deutschland DR Dampf
+    TX=DR 01 066 + D 83 Leipzig - Dresden 1970;										\
+      C=DR_4_012(029|050|018|036|084|114|118|120|137|165|204)(|L),					\
+	2*(<DR_4B_DGBGQE1L,DR_4B_DGBGQE2,DR_4B_DGBGQE3,DR_4B_DGBGQE2,DR_4B_DGBGQE3[B:3,27,4,2][B:161,27,4,2],DR_4B_DGBGQE2,DR_4B_DGBGQE3,DR_4B_DGBGQE2,DR_4B_DGBGQE1);								\
+      F=SP4;
     TX=DR 01.20 + Schnellzug;										\
       C=DR_4_012(029|050|018|036|084|114|118|120|137|165|204)(|L),					\
 	(<(3*(DR_B516AZ|DR_B518AZ|DR_B516B|DR_B518B|DR_B519B)),						\
@@ -1388,7 +1399,7 @@ $REQUIRE JMD_DEF.TTT
       F=DF4;
     TX=DR 111 + Personenzug;										\
       M=OPEN;												\
-      C=DR_111P,DR_4B_DBVQE61GZRR;									\
+      C=DR_111P(|L),DR_4B_DBVQE61GZRR;									\
       F=DPR4;
 
 #112
@@ -1471,18 +1482,19 @@ $REQUIRE JMD_DEF.TTT
 	DR_4AB4UME,DR_A4U28L,DR_4BGHWER[NM:P,0,0],DR_4BGHWERL,						\
 	DR_4D4U37[BC:-55,-40,2,11,212][OT:GWUL,0,12][OT:GWUR,>,12]);					\
       F=DPR4;
-     TX=DR 118 072 + Schnellzug 1978;									\
-      C=DR_118_072_1978(|L),
+    TX=DR 118 072 + Schnellzug 1978;									\
+      C=DR_118_072_1978(|L),										\
 	(<DR_4B_BME2940L,DR_4B_AME1940L,DR_4WRGE_EX1,DR_4B_AME1980L,DR_4B_ABME3980L,DR_4B_BME2080L)|	\
 	(>DR_4B_BME2940,DR_4B_AME1940,DR_4WRGE_EX1L,DR_4B_AME1980,DR_4B_ABME3980,DR_4B_BME2080);	\
       F=DP4;
-   TX=DR 118 533 + Personenzug Doppelstockwagen 1987;									\
-      C=DR_118_533_1987(|L),
-      (<DR_4C_DGBGQE1L,DR_4C_DGBGQE2,DR_4C_DGBGQE3L,DR_4C_DGBGQE2,DR_4C_DGBGQE3L,DR_4C_DGBGQE2,	\
+    TX=DR 118 533 + Personenzug Doppelstockwagen 1987;							\
+      C=DR_118_533_1987(|L),										\
+	(<DR_4C_DGBGQE1L,DR_4C_DGBGQE2,DR_4C_DGBGQE3L,DR_4C_DGBGQE2,DR_4C_DGBGQE3L,DR_4C_DGBGQE2,	\
 	DR_4C_DGBGQE3L,DR_4C_DGBGQE2,DR_4C_DGBGQE4)|							\
 	(<DR_4C_DGBGQE1,DR_4C_DGBGQE2,DR_4C_DGBGQE3,DR_4C_DGBGQE2,DR_4C_DGBGQE3,DR_4C_DGBGQE2,		\
-	DR_4C_DGBGQE3,DR_4C_DGBGQE2,DR_4C_DGBGQE4L);	\
+	DR_4C_DGBGQE3,DR_4C_DGBGQE2,DR_4C_DGBGQE4L);							\
       F=DP4;
+
     TX=DR 118 520 + Personenzug Doppelstockwagen 1989;							\
       M=OPEN;												\
       C=(<DR_4B_DBVQE61GZ(R|S)L,DR_118_520_1989(|L))|(>DR_4B_DBVQE61GZ(R|S)R,DR_118_520_1989(|L));	\
@@ -1954,6 +1966,9 @@ $REQUIRE JMD_DEF.TTT
 %ADDPOOL(POOL_GER,DR_ENV)
 
   {E5?
+TX=DR 01 137 + N 7119 Gera - Saalfeld 1993 (Plandampf);										\
+  C=DR_01137_1993(|L),DR_4B_DBVQE61GZS(R|L);		\
+  F=SP5;
     TX=DR 01.1531 + Sonderzug;										\
       C=DR_5_01_1531(|L),(DR_BDS275DL,2*DR_B519D,DR_WRMAZ,2*DR_B519DL,2*DR_B518D,2*DR_B518DL);		\
       F=SP5;
@@ -1978,7 +1993,7 @@ $REQUIRE JMD_DEF.TTT
       C=(<DR_204BR,DR_4B_DC7GZVSRR)|(<DR_4B_DC7GZVSRL,DR_204BR);					\
       F=DPRU5;
     TX=DR 202 + Personenzug 1992;									\
-      C=DR_202_646_1992,DR_5BYU2145GP(|L),DR_4BMH2140(|L);						\
+      C=DR_202_646_1992(|L),DR_5BYU2145GP(|L),DR_4BMH2140(|L);						\
       F=DPR5;
     TX=DR 201 + Güterzug;										\
       C=DR_201_005_1993(|L),3*DR4FRB;									\
