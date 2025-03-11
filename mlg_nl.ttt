@@ -1,10 +1,10 @@
 ;PAYS-BAS / NETHERLANDS / NIEDERLANDEN
 ;=====================================
-
-$REQUIRE MLG_DEF.TTT
-
 {FILELEVEL=1?
   $INCLUDE SINGLE.TTT
+
+  $REQUIRE MLG_DEF.TTT
+
 }
 %ADDPOOL(POOL_NL,NL_ENV)
   {E4?
@@ -72,13 +72,13 @@ $REQUIRE MLG_DEF.TTT
       F=EP4;
 
     TX=NS 1300 + Paris-Amsterdam;									\
-      C=NS_1300B1,SNCF_4A_UIC_A9(|L),SNCF_AOC4_A212B6G0(|L),SNCF_4A_UIC_B10(|L),SNCF_TOR_D(|L),		\
+      C=NS_1300B2(|L),SNCF_4A_UIC_A9(|L),SNCF_AOC4_A212B6G0(|L),SNCF_4A_UIC_B10(|L),SNCF_TOR_D(|L),	\
 	SNCF_AOC4_B10G0(|L),SNCF_AOC50_B10G0(|L);							\
       V=13;												\
       F=EP4;
 
     TX=NS 1300 + Paris-Amsterdam;									\
-      C=NS_1313,CIWL_4WRT3341(|L),SNCF_4A_UIC_A9(|L),SNCF_AOC4_A212B6G0(|L),SNCF_UIC_B10G(|L),		\
+      C=NS_1313(|L),CIWL_4WRT3341(|L),SNCF_4A_UIC_A9(|L),SNCF_AOC4_A212B6G0(|L),SNCF_UIC_B10G(|L),	\
 	4*SNCF_AOC50_B10G0(|L),SNCF_AOC52_A8G0(|L);							\
       V=13;												\
       F=EP4;
@@ -96,7 +96,7 @@ $REQUIRE MLG_DEF.TTT
       F=EP4;
 
     TX=NS 1300 + Paris-Amsterdam;									\
-      C=NS_1313,SNCF_VTU_1B|SNCF_VTU_1BL,SNCF_VU_1B6D|SNCF_VU_1B6DL,SNCF_VTU_1B|SNCF_VTU_1BL,		\
+      C=NS_1313(|L),SNCF_VTU_1B|SNCF_VTU_1BL,SNCF_VU_1B6D|SNCF_VU_1B6DL,SNCF_VTU_1B|SNCF_VTU_1BL,	\
 	2*(SNCF_VSE_2A9|SNCF_VSE_2A9L);									\
       V=14;												\
       F=EP4;
@@ -121,7 +121,7 @@ $REQUIRE MLG_DEF.TTT
 
 ;BRUXELLES - AMSTERDAM
     TX=NS 1300 + Bruxelles - Amsterdam;									\
-      C=NS_1300B1,SNCB_I2_A(|L),$DIR(SNCB_I1_V_AB8GL,SNCB_I1_V_AB8G),NS_W_B1_B,2*NS_W_B5;		\
+      C=NS_1300B2(|L),SNCB_I2_A(|L),$DIR(SNCB_I1_V_AB8GL,SNCB_I1_V_AB8G),NS_W_B1_B,2*NS_W_B5;		\
       V=13;												\
       F=EP4;
 
@@ -134,7 +134,7 @@ $REQUIRE MLG_DEF.TTT
 
 ;ITALIE-HOLLAND EXPRESS
     TX=NS 1300 + Italie-Holland Express;								\
-      C=NS_1300B1|NS_1300B2,2*DB_POSTMRZ_G1(|L),NS_D_BSB(|L),DB_ABM225G(|L),NS_DIV_B(|L),		\
+      C=NS_1300B6(|L)|NS_1300B2(|L),2*DB_POSTMRZ_G1(|L),NS_D_BSB(|L),DB_ABM225G(|L),NS_DIV_B(|L),	\
 	FS_UICX64_G_AB(|L),FS_UICX64_G_B(|L),NS_N_BBC(|L),NS_D_BSB(|L),CIWL_4U_N(|L),DB_BM234G(|L),	\
 	NS_N_BBC(|L),CIWL_4U_N(|L),NS_N_BBC(|L),CIWL_4U_N(|L);						\
       V=13;												\
@@ -207,14 +207,16 @@ $REQUIRE MLG_DEF.TTT
 	(2*(2:NS_E_B_B|1:NS_E_B2_B),NS_D_BSB(|L),NS_K_BAB(|L))|(NS_D_BSB(|L),2*(2:NS_E_B_B|1:NS_E_B2_B)); \
       V=12;												\
       F=EPR4;
-
     TX=NS 1300 + Regional;										\
-      C=NS_1300B1,NS_E_B2_RD(|L),NS_D_BSA(|L),3*NS_D_BSB(|L);						\
+      C=NS_1300B1(|L),NS_E_B2_RD(|L),NS_D_BSA(|L),3*NS_D_BSB(|L);					\
       V=12;												\
       F=EPR4;
-
+    TX=NS 1300 + Regional;										\
+      C=NS_1300B2(|L),NS_E_B2_RD(|L),NS_D_BSA(|L),3*NS_D_BSB(|L);					\
+      V=12;												\
+      F=EPR4;
     TX=NS 1313 + Regional;										\
-      C=NS_1313,NS_E_B2_B,NS_E_B2_A,$DIR(NS_E_B2_RDL,NS_E_B2_RD),2*NS_E_B2_B;				\
+      C=NS_1313(|L),NS_E_B2_B,NS_E_B2_A,$DIR(NS_E_B2_RDL,NS_E_B2_RD),2*NS_E_B2_B;			\
       V=14;												\
       F=EPR4;
 
@@ -222,13 +224,28 @@ $REQUIRE MLG_DEF.TTT
       C=NS_1500EY(|L),NS_DIV_B(|L),$DIR(NS_K_BAB,NS_K_BABL),NS_D_BSA(|L),2*NS_N_BBC(|L);		\
       V=14;												\
       F=EPR4;
-#
+    TX="NS MAT'40";											\
+      C=NS_MAT40ELD2_V2;										\
+      V=12;												\
+      F=EPRU4;
+    TX="NS MAT'40 + Pec";										\
+      C=NS_MAT40ELD2_V2,NS_PEC1907A(|L);								\
+      V=12;												\
+      F=EPRU4;
+    TX="NS MAT'40 + MAT'54";										\
+      C=NS_MAT40ELD2_V2,NS_MAT54PLQ2_J;									\
+      V=12;												\
+      F=EPRU4;
 
     TX=NS Mat 46;											\
       C=3:NS_MAT46_2_V2B_(R|L)|1:NS_MAT46_2_V3_(R|L)|1:NS_MAT46_2_J_(R|L);				\
       V=12;												\
       F=EPRU4;
 
+    TX="NS MAT'40 + Pec";										\
+      C=NS_MAT46_2_V2B|NS_MAT46_2_V3,NS_PEC1907A(|L);							\
+      V=12;												\
+      F=EPRU4;
     TX=NS Mat 46;											\
       C=(2:NS_MAT46_4_V2B_(R|L)|1:NS_MAT46_4_V3_(R|L)),(2:NS_MAT46_2_V2B_(R|L)|1:NS_MAT46_2_V3_(R|L));	\
       V=12;												\
@@ -279,7 +296,10 @@ $REQUIRE MLG_DEF.TTT
 	(NS_MAT54_1970_IC1,NS_MAT54PLG4_IC);								\
       V=14;												\
       F=EPRU4;
-
+    TX="NS MAT'54 + PEC";										\
+      C=NS_MAT54PLP4_IC,NS_PEC1901B(|L);								\
+      V=12;												\
+      F=EPRU4;
     TX=NS Mat 64;											\
       C=NS_MAT64_T_V|NS_MAT64_T_VB;									\
       V=14;												\
@@ -329,7 +349,7 @@ $REQUIRE MLG_DEF.TTT
       V=12;												\
       F=DPRU4;
     TX=NS DE3;												\
-      C=1-2*(3:NS_DE3_R|1:NS_DE3_J);									\
+      C=1-2*(NS_DE3_RB|NS_DE3_J);									\
       V=12;												\
       F=DPRU4;
 
@@ -361,7 +381,7 @@ $REQUIRE MLG_DEF.TTT
 ;SERVICE
 
     TX=NS 1200 + Service;										\
-      C=NS_1200B2(|L)~MLG,NS_1100_B3[PD],NS_1300B1[PD];							\
+      C=NS_1200B2(|L)~MLG,NS_1100_B3[PD],NS_1300B2(|L)[PD];						\
       V=10;												\
       F=EF4;
 #
@@ -387,7 +407,7 @@ $REQUIRE MLG_DEF.TTT
 
 ;BENELUX
     TX=NS Mat 57 Benelux;										\
-      C=2-3@NS_MAT57;											\
+      C=2-3*(NS_MAT57_K_L2|NS_MAT57_L2);								\
       V=14;												\
       F=EPU4;
 
@@ -417,8 +437,8 @@ $REQUIRE MLG_DEF.TTT
       V=14;												\
       F=EP4;
 
-    TX=NS 1158 + TEE Rheingold;										\
-      C=NS_122(3|2L)|NS_1300A|NS_1611,DB_APMZ122T2RG(|L),DB_AVMZ111_SDWT2RG(|L),DB_WRMZ132BT2(|L),	\
+    TX=NS 1200 / 1300 / 1600 + TEE Rheingold;								\
+      C=NS_122(3|2L)|NS_1300A(|L)|NS_1611,DB_APMZ122T2RG(|L),DB_AVMZ111_SDWT2RG(|L),DB_WRMZ132BT2(|L),	\
 	DB_AVMZ111_SDWT2RG(|L);										\
       V=14;												\
       F=EP4;
@@ -430,7 +450,7 @@ $REQUIRE MLG_DEF.TTT
       V=13;												\
       F=EP4;
     TX=NS 1300 + EC 2 Rembrandt;									\
-      C=NS_1300A,DB_APMZ122T2(|L),DB_AVMZ111_SDT2(|L),DB_WRMH132T2(|L),DB_BM234BB2(|L),			\
+      C=NS_1300A(|L),DB_APMZ122T2(|L),DB_AVMZ111_SDT2(|L),DB_WRMH132T2(|L),DB_BM234BB2(|L),		\
 	2*DB_BPMZ291BB(|L)~MLG;										\
       V=14;												\
       F=EP4;
@@ -439,15 +459,15 @@ $REQUIRE MLG_DEF.TTT
 
 ;IC VAN BEETHOVEN
     TX=NS 1300 + IC Van Beethoven;									\
-      C=NS_1300B2,2*DB_BM234BB1(|L),DB_BM234BB2(|L),DB_WRMH132T(|L),DB_AVMZ111_SDT2(|L),		\
+      C=NS_1300B6(|L),2*DB_BM234BB1(|L),DB_BM234BB2(|L),DB_WRMH132T(|L),DB_AVMZ111_SDT2(|L),		\
 	DB_APMZ121_SDT(|L);										\
       V=14;												\
       F=EP4;
 #
 
 ;BÂLE - AMSTERDAM
-    TX=NS 1200 + Bâle - Amsterdam;									\
-      C=(NS_1223|NS_1222L)|NS_1158|NS_1300A,$DIR(SNCF_VU_B6DL,SNCF_VU_B6D),SBB_4UIC_B(|L),		\
+    TX=NS 1200 / 1100 / 1300 + Bâle - Amsterdam;							\
+      C=(NS_1223|NS_1222L)|NS_1158|NS_1300A(|L),$DIR(SNCF_VU_B6DL,SNCF_VU_B6D),SBB_4UIC_B(|L),		\
 	SBB_5UIC_AB(|L),CFL_B7(|L);									\
       V=12;												\
       F=EP4;
@@ -467,12 +487,12 @@ $REQUIRE MLG_DEF.TTT
       F=EP4;
 
     TX=NS 1300 + Amsterdam - Köln;									\
-      C=NS_1313,DB_BM232BB2(|L),DB_ABM225BB2(|L),DB_BM232BB1(|L);					\
+      C=NS_1313(|L),DB_BM232BB2(|L),DB_ABM225BB2(|L),DB_BM232BB1(|L);					\
       V=14;												\
       F=EP4;
 
     TX=NS 1300 + Amsterdam - Köln;									\
-      C=NS_1300A,2*DB_BM232BB2(|L),DB_BM234BB2(|L),DB_BM232G(|L),DB_AM203BB2(|L);			\
+      C=NS_1300A(|L),2*DB_BM232BB2(|L),DB_BM234BB2(|L),DB_BM232G(|L),DB_AM203BB2(|L);			\
       V=14;												\
       F=EP4;
 
@@ -643,23 +663,23 @@ $REQUIRE MLG_DEF.TTT
       F=EP4;
 
     TX=NS 1300;												\
-      C=NS_1300A[PDU],NS_E_B2_B,NS_E_B2_A,4*NS_E_B2_B,NS_E_B2_RD(|L),NS_E_B2_A;				\
+      C=NS_1300A(|L)[PDU],NS_E_B2_B,NS_E_B2_A,4*NS_E_B2_B,NS_E_B2_RD(|L),NS_E_B2_A;			\
       V=13;												\
       WP=50,[PFD];											\
       F=EP4;
 
     TX=NS 1300;												\
-      C=NS_1300A,NS_W_B5,2*NS_W_B6,2*NS_E_B2_A,3*NS_W_B6;						\
+      C=NS_1300A(|L),NS_W_B5,2*NS_W_B6,2*NS_E_B2_A,3*NS_W_B6;						\
       V=13;												\
       F=EP4;
 
     TX=NS 1300;												\
-      C=NS_1313,NS_W_B2_B,NS_N_BBC(|L),NS_DIV_B(|L),2*NS_K_BAB(|L),2*NS_N_BBC(|L);			\
+      C=NS_1313(|L),NS_W_B2_B,NS_N_BBC(|L),NS_DIV_B(|L),2*NS_K_BAB(|L),2*NS_N_BBC(|L);			\
       V=13;												\
       F=EP4;
 
-    TX=NS 1300;												\
-      C=NS_1300E1,											\
+    TX=NS 1300 + ICR;											\
+      C=NS_1300(A|E1)(|L),										\
 	(2*NS_IC_B(|L)~MLG,NS_IC_BD(|L)~MLG,NS_IC_A(|L)~MLG,NS_IC_B(|L)~MLG)|				\
 	(NS_IC_A(|L)~MLG,2*NS_IC_B(|L)~MLG,$DIR(NS_IC_BD~MLG,NS_IC_BDL~MLG));				\
       V=13;												\
@@ -767,12 +787,13 @@ $REQUIRE MLG_DEF.TTT
       C=NS_MAT54_1970_IC|(<NS_MAT54F4BDKIL,NS_MAT54F4BYL,NS_MAT54F4AY,NS_MAT54F4BKY);			\
       V=14;												\
       F=EPRU4;
-
     TX=NS Mat 57;											\
-      C=2-3*NS_MAT57,NS_MAT54PLFG4_J|NS_MAT54PLF4_IC|NS_MAT54PLQ2_J;					\
+      C=3@NS_MAT57_L2;											\
       V=14;												\
       F=EPRU4;
-
+    TX=NS MAT' 57 + MAT'54;										\
+      C=2-3@NS_MAT57_L2,NS_MAT54PLFG4_J|NS_MAT54PLF4_IC|NS_MAT54PLQ2_J;					\
+      V=14;
     TX=NS Mat 64;											\
       C=NS_MAT64_T_J;											\
       V=14;												\
@@ -871,23 +892,23 @@ $REQUIRE MLG_DEF.TTT
       F=EF4;
 
     TX=NS 1300  + Freight train;									\
-      C=NS_1300B1,20*DB_FAL168;										\
+      C=NS_1300B2(|L),20*XDB_FAL168;									\
       V=10;												\
       F=EF4;
 
     TX=NS 1300  + Freight train Alpen Express;								\
-      C=NS_1313,25*NS_E_UICI[O:BETTERAVES_2E1|BETTERAVES_2E2,,];					\
+      C=NS_1313(|L),25*NS_E_UICI[O:BETTERAVES_2E1|BETTERAVES_2E2,,];					\
       V=10;												\
       F=EF4;
 
     TX=NS 1300  + Freight train;									\
-      C=NS_1300A,											\
+      C=NS_1300A(|L),											\
 	18-25*(1:NS_EANOS4[O:BETTERAVES1|BETTERAVES2,,]|3:NS_E_UICI[O:BETTERAVES_2E1|BETTERAVES_2E2,,]); \
       V=10;												\
       F=EF4;
 
     TX=NS 1300  + Freight train;									\
-      C=NS_1300A,12*NS_TADS_MESTSTOFFEN_O(|L);								\
+      C=NS_1300A(|L),12*NS_TADS_MESTSTOFFEN_O(|L);							\
       V=9;												\
       F=EF4;
 
@@ -918,7 +939,7 @@ $REQUIRE MLG_DEF.TTT
       V=8;												\
       F=DF4;
     TX=NS 2400  + Freight train;									\
-      C=NS_2400BX(|L),DB_GBS254,DB_GS210,3*DB_GBS254;							\
+      C=NS_2400BX(|L),DB_GBS254,DB_GS210,3*DB_GBS254PP;							\
       V=10;												\
       F=DF4;
     TX=NS 2500  + Freight train;									\
@@ -982,7 +1003,7 @@ $REQUIRE MLG_DEF.TTT
       F=EP5;
 
     TX=NS 1300 + Colonia Express Köln – Amsterdam;							\
-      C=NS_1300A,2*DB_BM234BB2(|L),NS_ICR1_A(|L),NS_ICR1_BD(|L);					\
+      C=NS_1300A(|L),2*DB_BM234BB2(|L),NS_ICR1_A(|L),NS_ICR1_BD(|L);					\
       V=14;												\
       F=EP5;
 
@@ -1018,7 +1039,7 @@ $REQUIRE MLG_DEF.TTT
 
 ;AMSTERDAM - BERLIN
     TX=NS 1300 + Amsterdam - Berlin;									\
-      C=NS_1300A|(NS_1611|NS_1606L),DB_AIMZ261IRK(|L),DB_ARKIMBZ262IRK(|L),5*DB_BIMZ264_4IRK(|L),	\
+      C=NS_1300A(|L)|(NS_1611|NS_1606L),DB_AIMZ261IRK(|L),DB_ARKIMBZ262IRK(|L),5*DB_BIMZ264_4IRK(|L),	\
 	NS_IC_B(|L)~MLG;										\
       V=14;												\
       F=EP5;
@@ -1068,7 +1089,7 @@ $REQUIRE MLG_DEF.TTT
       F=EP5;
 
     TX=NS 1300 + IR;											\
-      C=NS_1300A,DB_AIM260IRK(|L),3*DB_BM235ICK(|L);							\
+      C=NS_1300A(|L),DB_AIM260IRK(|L),3*DB_BM235ICK(|L);						\
       V=14;												\
       F=EP5;
 
@@ -1089,7 +1110,7 @@ $REQUIRE MLG_DEF.TTT
 
 ;HOLLAND-WIEN EXPRESS
     TX=NS 1300 + Night train Holland-Wien Express;							\
-      C=NS_1300A,SBB_MU_TEN1(|L),2*DB_BCMH246BB2(|L),OBB_VSE_C1_B(|L),OBB_VSE_B(|L),OBB_VSE_A(|L),	\
+      C=NS_1300A(|L),SBB_MU_TEN1(|L),2*DB_BCMH246BB2(|L),OBB_VSE_C1_B(|L),OBB_VSE_B(|L),OBB_VSE_A(|L),	\
 	OBB_BCMZ59800(|L),OBB_DMSZ95700O(|L),FS_UICX75_RG_BC(|L);					\
       V=14;												\
       F=EP5;
@@ -1103,7 +1124,7 @@ $REQUIRE MLG_DEF.TTT
 
 ;DONAUWALZER AMSTERDAM - WIEN
     TX=NS 1300 + Night train Donauwalzer Amsterdam – Wien;						\
-      C=NS_1300E1,OBB_VSE_B(|L),OBB_BCMZ59700B(|L),OBB_BCMZ59700(|L),OBB_AB30_TEN(|L),			\
+      C=NS_1300E1(|L),OBB_VSE_B(|L),OBB_BCMZ59700B(|L),OBB_BCMZ59700(|L),OBB_AB30_TEN(|L),		\
 	OBB_WLABM174_1TEN(|L),NS_BCM_CO(|L),NS_BCVMH_CO(|L),NS_BCM_BB(|L);				\
       V=13;												\
       F=EP5;
@@ -1116,13 +1137,13 @@ $REQUIRE MLG_DEF.TTT
 
 ;ALPENEXPRESS
     TX=NS 1300 + Night train Alpen Express;								\
-      C=NS_1300A,DB_WLABM175_2TEN(|L),DB_BCM243BB2(|L),DB_BCTMH257BB2(|L),DB_BCMH246BB2(|L),		\
+      C=NS_1300A(|L),DB_WLABM175_2TEN(|L),DB_BCM243BB2(|L),DB_BCTMH257BB2(|L),DB_BCMH246BB2(|L),	\
 	2*DB_BM234BB2(|L),NS_UICXBUF_BY(|L),NS_UICXWR_BY(|L),4*DB_BCM243BB2(|L),DB_WLABM175_2TENTB(|L);	\
       V=14;												\
       F=EP5;
 
     TX=NS 1300 + Night train Alpen Express;								\
-      C=NS_1300A,DB_BCM241G(|L),DB_BM233BB2(|L),2*DB_BCM243BB2(|L),DB_WGM840B(|L),NS_WRMZ(|L),		\
+      C=NS_1300A(|L),DB_BCM241G(|L),DB_BM233BB2(|L),2*DB_BCM243BB2(|L),DB_WGM840B(|L),NS_WRMZ(|L),	\
 	3*DB_BCM243BB2(|L),2*DB_WLABM175_2TEN(|L);							\
       V=14;												\
       F=EP5;
@@ -1164,7 +1185,7 @@ $REQUIRE MLG_DEF.TTT
 ;IC
 ;--
     TX=NS 1300 + IC;											\
-      C=NS_1300A,$DIR(NS_E_BY_DFPL,NS_E_BY_DFP),NS_ICR1_B(|L),NS_ICR1_BD(|L),NS_ICR1_B(|L),		\
+      C=NS_1300A(|L),$DIR(NS_E_BY_DFPL,NS_E_BY_DFP),NS_ICR1_B(|L),NS_ICR1_BD(|L),NS_ICR1_B(|L),		\
 	NS_ICR1_A(|L),2*NS_W_B6,NS_ICR1_A(|L),NS_ICR1_B(|L);						\
       V=14;												\
       F=EP5;
@@ -1234,7 +1255,7 @@ $REQUIRE MLG_DEF.TTT
       F=EPR5;
 
     TX=NS 1300 + Paris-Amsterdam;									\
-      C=NS_1313,SNCF_VTU_1B|SNCF_VTU_1BL,SNCF_VU_1B6D|SNCF_VU_1B6DL,SNCF_VTU_1B|SNCF_VTU_1BL,		\
+      C=NS_1313(|L),SNCF_VTU_1B|SNCF_VTU_1BL,SNCF_VU_1B6D|SNCF_VU_1B6DL,SNCF_VTU_1B|SNCF_VTU_1BL,	\
 	2*(SNCF_VSE_2A9|SNCF_VSE_2A9L);									\
       V=14;												\
       F=EP5;
@@ -1250,12 +1271,12 @@ $REQUIRE MLG_DEF.TTT
       F=EPR5;
 
     TX=NS 1300 + Regional;										\
-      C=NS_1300A,3*NS_M2B(|L),NS_M2A(|L),$DIR(NS_M2BD,NS_M2BDL);					\
+      C=NS_1300A(|L),3*NS_M2B(|L),NS_M2A(|L),$DIR(NS_M2BD,NS_M2BDL);					\
       V=14;												\
       F=EPR5;
 
     TX=NS 1300 + Regional;										\
-      C=NS_1300A,3*NS_W_B6,NS_IC_B(|L)~MLG,NS_IC_A(|L)~MLG,NS_W_B6,NS_IC_B(|L)~MLG,NS_IC_BD(|L)~MLG;	\
+      C=NS_1300A(|L),3*NS_W_B6,NS_IC_B(|L)~MLG,NS_IC_A(|L)~MLG,NS_W_B6,NS_IC_B(|L)~MLG,NS_IC_BD(|L)~MLG; \
       V=14;												\
       F=EPR5;
 
@@ -1360,8 +1381,12 @@ $REQUIRE MLG_DEF.TTT
 
 ;EXPRESSGUT
 ;----------
-    TX=NS 1100 + Expressfreight;									\
-      C=NS_1300A,3*DB_DMS902BB2(|L);									\
+    TX=NS 1100 + [N=Parcels express;F=Colis express;D=Expressgutzug];					\
+      C=NS_1158,DB_DMS902BB2(|L),DB_DMS902NBG(|L),DB_DMS902BB2(|L);					\
+      V=13;												\
+      F=EF5;
+    TX=NS 1300 + [N=Parcels express;F=Colis express;D=Expressgutzug];					\
+      C=NS_1300A,(3*DB_DMS902BB2(|L))|(DB_DMS902NBG(|L),DB_DMS902BB2(|L),DB_DMS905BB2(|L));		\
       V=12;												\
       F=EF5;
 
@@ -1403,7 +1428,7 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=DF5;
     TX=NS 2400 + Freight train;										\
-      C=NS_2400Y(|L),2*FS_GABS2,TWAG_HB6,6*NS_FCCPPS1(|L),4*DB_KBS442M;					\
+      C=NS_2400Y(|L),2*FS_GABS2,TWAG_HB6,6*NS_FCCPPS1(|L),4*DB_KBS442M(|L);				\
       V=10;												\
       F=DF5;
     TX=NS 2400 + Freight train;										\
@@ -1435,7 +1460,9 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=DF5;
     TX=NS 6400 + Freight train;										\
-      C=(<NS_6400EYL,NS_6400EY),10-15*(SNCF_CERP|SNCF_CERPL);						\
+      C=(<NS_6400EYL,NS_6400EY),									\
+	10-15*(SNCF_CERP(|L)|SNCF_CERP_CTC(|L)|SNCF_CERP_ESMERY(|L)|SNCF_CERP_SHGT(|L)|			\
+	SNCF_CERP_STEMI(|L));										\
       V=10;												\
       F=DF5;
 
@@ -1467,7 +1494,7 @@ $REQUIRE MLG_DEF.TTT
 ;=========================================================
 ;ICE
 ;---
-    TX=NS ICE 3 – 406 Frankfurt am Main – Amsterdam : ICE 3M;						\
+    TX=NS ICE 3 – 406 Frankfurt am Main – Amsterdam :ICE 3M;						\
       C=NS_ICE3_406_DC;											\
       V=16;
 
@@ -1587,7 +1614,7 @@ $REQUIRE MLG_DEF.TTT
       V=14;												\
       F=EP6;
 
-    TX=Rail Experts9900+ AlpenExpress;									\
+    TX=Rail Experts 9900+ AlpenExpress;									\
       C=RXP_9900,											\
 	(OBB_6WLAB33S[B:206,12,11,4,#E3E3E3]|OBB_6WLAB33SL[B:48,12,11,4,#E3E3E3],			\
 	DB_BVCMZ248_5CNL[B:82,13,6,3,#E8E8E8]|DB_BVCMZ248_5CNLL[B:82,13,6,3,#E8E8E8],			\
@@ -1608,13 +1635,31 @@ $REQUIRE MLG_DEF.TTT
       V=14;												\
       F=EP6;
 
-    TX=Railpool 185 + AlpenExpres, BahnTouristikExpress;						\
-      C=RPOOL_185_2(|L)~MLG,BTE_BVCMZ(|L),								\
+    TX=Railpool 186 + AlpenExpres,BahnTouristikExpress;							\
+      C=RAILPOOL_E186_B_DC,BTE_BVCMZ(|L),								\
 	DB_BVCMBZ249_1CNLL[B:82,13,6,3,#E8E8E8]|DB_BVCMBZ249_1CNL[B:82,13,6,3,#E8E8E8],BTE_BVCMZ(|L),	\
 	BTE_WLAB33S(|L),3*BTE_BVCMZ(|L),BTE_WGMZ820_ZUGTREFF(|L),4*BTE_BVCMZ(|L),BTE_WLAB33S(|L),	\
 	3*BTE_BVCMZ(|L);										\
       V=14;												\
       F=EP6;
+
+;NIGHTJET
+    TX=NIGHTJET (NS 193);										\
+      C=NS_193_DCB,OBB_BMZ21911NJ(|L),OBB_WLABMZ173NJ(|L),OBB_BVCMBZ_NJ(|L),OBB_BCMZ59912NJ(|L)~MLG,	\
+	OBB_BMZ21911NJ(|L),2*OBB_WLABMZ173NJ(|L),2*OBB_BMZ21911NJ(|L),OBB_WLABMZ173NJ(|L),		\
+	OBB_BVCMBZ_NJ(|L),OBB_BCMZ59912NJ(|L)~MLG;							\
+      V=14;												\
+      FG=TRBED57:..,-6,0-5;										\
+      ABOVE=37;												\
+      FL_NS2:..,-6,0-300;
+    TX=NIGHTJET (NS 193);										\
+      C=NS_193_DCB,OBB_WLAB33S_NJSBB(|L),2*SBB_EC_IC2B(|L),SBB_EC_IC2A(|L),DBAG_BVMZ186E(|L),		\
+	2*DBAG_BPMZ294C(|L),2*OBB_BVCMZ_NJSBB(|L);							\
+      V=14;												\
+      FG=TRBED57:..,-6,0-5;										\
+      ABOVE=37;												\
+      FL_NS2:..,-6,0-300;
+
 #
 ;NIGHTJET
     TX=Nightjet (NS 193);										\
@@ -1623,7 +1668,11 @@ $REQUIRE MLG_DEF.TTT
 	OBB_BVCMBZ_NJ(|L),OBB_BCMZ59912NJ(|L);								\
       V=14;												\
       F=EP6;
-
+    TX=Nightjet (NS 193);										\
+      C=NS_193_DCB,OBB_WLAB33S_NJSBB(|L),2*SBB_EC_IC2B(|L),SBB_EC_IC2A(|L),DBAG_BVMZ186E(|L),		\
+	2*DBAG_BPMZ294C(|L),2*OBB_BVCMZ_NJSBB(|L);							\
+      V=14;												\
+      F=EP6;
 ;BENELUX
     TX=SNCB HLE 11 + Benelux;										\
       C=SNCB_11(|L)~MLG,(<NS_BNL1_BSL,NS_HSP2_A,NS_HSP3_A,NS_HSP4_BDL,NS_HSP3_B,NS_HSP2_B,NS_HSP1_B);	\
@@ -1853,43 +1902,43 @@ $REQUIRE MLG_DEF.TTT
       C=2*NS_ICM4200,0-1*NS_ICM2;									\
       V=14;												\
       F=EPR6;
-
     TX=NS ICM4200;											\
       C=NS_ICM4200,1-2*XNS_ICM1|NS_ICM2;								\
       V=14;												\
       F=EPR6;
-
     TX=NS ICM4200;											\
       C=NS_ICM4200|NS_ICM2,3*NS_ICM2;									\
       V=14;												\
       F=EPR6;
-
     TX=NS ICM4200;											\
       C=2*NS_ICM4200,0-1*NS_ICM2;									\
       V=14;												\
       F=EPR6;
-
+    TX=NS ICM 4200 + ICM 1;										\
+      C=NS_ICM4200,1-2*XNS_ICM1|NS_ICM2;								\
+      V=14;												\
+      F=EPRU6;
     TX=NS ICM 1;											\
       C=NS_ICM1_RG|NS_ICM2_RG,1-2*NS_ICM4200;								\
       V=14;												\
       F=EPR6;
-
-    TX=NS ICM4200;											\
+    TX=NS ICM 4200 + ICM 1;										\
+      C=NS_ICM4200|NS_ICM2,3*NS_ICM2;									\
+      V=14;												\
+      F=EPR6;
+    TX=NS ICM4200 + ICM 1/2;										\
       C=NS_ICM4200_RG,NS_ICM1_RG|NS_ICM2_RG;								\
       V=14;												\
       F=EPR6;
-
     TX=NS ICM 1;											\
       C=(NS_ICM1_RG|NS_ICM2_RG,NS_ICM4200_RG,NS_ICM1_RG|NS_ICM2_RG)|					\
 	(2*(NS_ICM1_RG|NS_ICM2_RG),NS_ICM4200_RG);							\
       V=14;												\
       F=EPR6;
-
     TX=NS SGM;												\
       C=NS_SGM2_RG|NS_SGM3_RG;										\
       V=12;												\
       F=EPR6;
-
     TX=NS SGM;												\
       C=2*(NS_SGM2_RG|NS_SGM3_RG);									\
       V=12;												\
@@ -1912,6 +1961,10 @@ $REQUIRE MLG_DEF.TTT
       C=NS_2500,NS_2200;										\
       V=14;												\
       F=DPR6;
+    TX=NS 2200 (FLIRT);											\
+      C=(NS_2200_L2,NS_2200)|(NS_2200,NS_2200_L2);							\
+      V=14;												\
+      F=DPR6;
     TX=NS "Stoptrein" (CAF CIVITY 2300);								\
       C=1-2@NS_CIVITY_2700;										\
       V=13;												\
@@ -1929,7 +1982,7 @@ $REQUIRE MLG_DEF.TTT
 ;---
     TX=NS 1700 + CNL;											\
       C=(NS_1772|NS_1756L),										\
-	(CNL_WLABSM166(|L),CNL_BCVMH(|L),CNL_BVCMBZ249_1(|L)|CNL_BVCMBZ249_1(|L),CNL_BPM(|L),		\
+	(CNL_WLABSM166(|L),CNL_BCVMH(|L),CNL_BVCMBZ249_1(|L)|CNL_BVCMBZ249_1_CNLGL,CNL_BPM(|L),		\
 	CNL_WLABSM166(|L),CNL_BCVMH(|L),CNL_BVCMBZ249_1(|L)|CNL_BVCMBZ249_1(|L),CNL_BPM(|L),		\
 	CNL_WRNS(|L))|											\
 	(CNL_WRM035_1C(|L),CNL_BCVMH(|L),CNL_BPM(|L),CNL_BVCMBZ249_1(|L)|CNL_BVCMBZ249_1(|L),		\
@@ -1987,14 +2040,13 @@ $REQUIRE MLG_DEF.TTT
 
     TX=Railion NL / DB Schenker 1600;									\
       C=DBS_1612,2*DB_SHIMMS708K(|L),									\
-	3*(DBC_SHIMMNS718B|DBC_SHIMMNS718A|DB_SHIMMNS718A|RAI_SHIMMNS718A|RAI_SHIMMNS718|		\
-	DB_SHIMMNS720A|DB_SHIMMNS724A),2*DB_SHIMMS708K(|L),						\
-	2*(DBC_SHIMMNS718B|DBC_SHIMMNS718A|DB_SHIMMNS718A|RAI_SHIMMNS718A|RAI_SHIMMNS718|		\
-	DB_SHIMMNS720A|DB_SHIMMNS724A),DB_SHIMMS708K(|L),						\
-	7*(DBC_SHIMMNS718B|DBC_SHIMMNS718A|DB_SHIMMNS718A|RAI_SHIMMNS718A|RAI_SHIMMNS718|		\
-	DB_SHIMMNS720A|DB_SHIMMNS724A),2*DB_SHIMMS708K(|L),						\
-	7*(DBC_SHIMMNS718B|DBC_SHIMMNS718A|DB_SHIMMNS718A|RAI_SHIMMNS718A|RAI_SHIMMNS718|		\
-	DB_SHIMMNS720A|DB_SHIMMNS724A);									\
+	3*(DBC_SHIMMNS718C|DBC_SHIMMNS718|DB_SHIMMNS718A|RAI_SHIMMNS723|DB_SHIMMNS720B|DB_SHIMMNS724A),	\
+	2*DB_SHIMMS708K(|L),										\
+	2*(DBC_SHIMMNS718C|DBC_SHIMMNS718|DB_SHIMMNS718A|RAI_SHIMMNS723|DB_SHIMMNS720B|DB_SHIMMNS724A),	\
+	DB_SHIMMS708K(|L),										\
+	7*(DBC_SHIMMNS718C|DBC_SHIMMNS718|DB_SHIMMNS718A|RAI_SHIMMNS723|DB_SHIMMNS720B|DB_SHIMMNS724A),	\
+	2*DB_SHIMMS708K(|L),										\
+	7*(DBC_SHIMMNS718C|DBC_SHIMMNS718|DB_SHIMMNS718A|RAI_SHIMMNS723|DB_SHIMMNS720B|DB_SHIMMNS724A);	\
       V=10;												\
       F=EF6;
 
@@ -2008,14 +2060,14 @@ $REQUIRE MLG_DEF.TTT
       F=DF6;
     TX=Railion NL / DB Schenker 6400;									\
       C=RAI_6400H(|L)|NS_6400I(|L)|DBS_6400A(|L)|DBS_6400(|L),						\
-	8-12*AAE_SGNSS60[O:(9:C3_UBC1|1:C3_IFF2),8,12][O:(9:C3_UBC1|1:C3_IFF2),99,12],			\
-	AAE_SGNSS60[O:C2R_MAERSK9,8,12],								\
-	AAE_SGNSS60[O:(C2R_MAERSK9|C2R_MAERSK8),8,12][O:(C2R_MAERSK9|C2R_MAERSK8),69,12]		\
+	8-12*XAAE_SGNSS60[O:(9:C3_UBC1|1:C3_IFF2),8,12][O:(9:C3_UBC1|1:C3_IFF2),99,12],			\
+	XAAE_SGNSS60[O:C2R_MAERSK9,8,12],								\
+	XAAE_SGNSS60[O:(C2R_MAERSK9|C2R_MAERSK8),8,12][O:(C2R_MAERSK9|C2R_MAERSK8),69,12]		\
 	[O:(C2R_MAERSK8|C2R_TRITON1),130,12];								\
       V=10;												\
       F=DF6;
     TX=Railion NL / DB Schenker 6400;									\
-      C=NS_6400I(|L)|(6454|RAI_6513L)|DBS_6400A(|L)|DBS_6400(|L),2-6*SBB_TAGNPPS_CARGO(|L);		\
+      C=NS_6400I(|L)|RAI_(6454|6513L)|DBS_6400A(|L)|DBS_6400VR(|L),2-6*SBB_TAGNPPS_CARGO(|L);		\
       V=8;												\
       F=DF6;
     TX=Railion NL / DB Schenker Railpro 6400;								\
@@ -2046,13 +2098,9 @@ $REQUIRE MLG_DEF.TTT
 
 ;ABELLIO
 ;-------
-    TX=Abellio Flirt;											\
-      C=1-2@ABELLIO_FLIRT3_RNET;									\
-      V=14;												\
-      F=EPRU6;
 
     TX=Abellio ET 25 2300;										\
-      C=ABELLIO_ET25_2300;										\
+      C=ABELLIO_ET25_2300_DC;										\
       V=14;												\
       F=EPRU6;
 
@@ -2239,6 +2287,17 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=DPR6;
 
+;Qbuzz
+;-----
+    TX=Abellio Flirt;											\
+      C=1-2@ABELLIO_FLIRT3_RNET;									\
+      V=14;												\
+      F=EPRU6;
+    TX=Qbuzz RNet GTW;											\
+      C=3:RNET_GTW500|1:RNET_GTW400;									\
+      V=12;												\
+      F=EPRU6;
+
 ;VEOLIA
 ;------
     TX=Veolia Mat 64;											\
@@ -2291,6 +2350,15 @@ $REQUIRE MLG_DEF.TTT
 
 ;EETC
 ;----
+    TX=EETC 1250 + special train;									\
+      C=EETC_1250(|L),EETC_AB30_EESL(|L),3*EETC_MU_W64M_EESL(|L),EETC_WRM_EESL(|L),			\
+	4*EETC_BCVMH_EESL(|L),4*EETC_DDM_L0,EETC_DDM_EESL,EETC_DDM_L0,2*OBB_DDM1[B:193,15,4,4,#F22B1D];	\
+      V=12;												\
+      F=EP6;
+    TX=EETC 1250 + special train;									\
+      C=EETC_1250(|L),EETC_BCVMH_EESL(|L),EETC_BCVMH_L0NS(|L),EETC_DF_EESL(|L);				\
+      V=12;												\
+      F=EP6;
     TX=EETC 1600 + special train;									\
       C=EETC_1600,2*WST_BCMH244_VRF(|L),EETC_BUFFET_EESL(|L),2*WST_BCMH244_VRF(|L),			\
 	EETC_BCVMH_EESL(|L),2*EETC_MU_W64M_EESL(|L),2*EETC_BCVMH_L0NS(|L),WST_BCMH244_VRF(|L);		\
@@ -2363,7 +2431,7 @@ $REQUIRE MLG_DEF.TTT
       F=EF6;
 
     TX=Captrain 1600;											\
-      C=CAPT_1600B(|L),10*AAE_SGNSS60[O:(C3_UBC1|C3_INTERBULK),8,12][O:(C3_UBC1|C3_INTERBULK),99,12];	\
+      C=CAPT_1600B(|L),10*XAAE_SGNSS60[O:(C3_UBC1|C3_INTERBULK),8,12][O:(C3_UBC1|C3_INTERBULK),99,12];	\
       V=10;												\
       F=EF6;
 
@@ -2399,7 +2467,7 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=EF6;
     TX=Captrain 203.1;											\
-      C=CAPT_203_1(|L),12*AAE_SGNSS60[O:C3_(1:UBC1|3:INTERBULK),8,12][O:C3_(1:UBC1|3:INTERBULK),99,12];	\
+      C=CAPT_203_1(|L),12*XAAE_SGNSS60[O:C3_(1:UBC1|3:INTERBULK),8,12][O:C3_(1:UBC1|3:INTERBULK),99,12]; \
       V=10;												\
       F=EF6;
 
@@ -2460,7 +2528,7 @@ $REQUIRE MLG_DEF.TTT
       V=8;												\
       F=DF6;
     TX=LOCON 9800;											\
-      C=LOCON_9800(|L),20*(TWAG_HB15|TWAG_HB16|DB_HB8_TW|TWAG_HB7);					\
+      C=LOCON_9800(|L),20*(TWAG_HB15|TWAG_HB16|TWAG_HB8|TWAG_HB7);					\
       V=10;												\
       F=DF6;
 

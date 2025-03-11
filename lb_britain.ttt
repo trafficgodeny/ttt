@@ -20,13 +20,32 @@ $REQUIRE TRAINDEF.TTT
       C=HARTON_E(1|2|3|5|6)S,10*HARTON_CHALDRON(|2|3|4)[O:FR_SZ03(|[M])[BT:,,,2],,17];			\
       AP2=[W=X][FG=TRBED25:..,^0;DUP_HARTON116_FL_M1[SM:0.505],DUP_HARTON116_FL_F1[SM:0.5]:..,-5,#;];	\
       F=EFO1;
-
   }
   {E2?
-    TX=Great Western Railway 12;									\
+
+    TX=Furness Railway class 116;									\
+      C=FUR_1_116(|L),GB2PSLM;										\
+      F=SP2;
+    TX=Great Central Railway 165;									\
+      C=GCR_165(|L),GB2PSGCR;										\
+      F=SP2;
+    TX=Great Central Railway 1153;									\
+      C=GCR_1153(|L),GB2PSGCR;										\
+      F=SP2;
+    TX=Great Central Railway 501;									\
+      C=GCR_501(|L),GB2PSGCR;										\
+      F=SP2;
+
+    TX=Great Eastern Railway 501;									\
+      C=GER_564(|L),5*GB2FS1,										\
+	GER_CCT1[BC:-35,0,,,,11][BT:0,6,3,5][BT:104,6,3,5][OT:BUFFER4R,>,8][OT:BUFFER4L,0,8][NB:B,BA8];	\
+      F=SF2;
+
+    TX=GreatWestern Railway 12;										\
       C=GW_12(|L),2*GB2FS1;										\
       F=SF2;
-    C=GW_2A_1369(|L),GW_SIPHONC[NB:B,BA8],								\
+    TX=Great Western Railway 1369;									\
+      C=GW_2A_1369(|L),GW_SIPHONC[NB:B,BA8],								\
 	2*(GW_22DIAC35[OB:WINDOW_BG,16,17][OB:WINDOW_BG,77,16][NB:B,BA8]);				\
       F=SP2;
     TX=Great Western Railway 1450;									\
@@ -68,13 +87,13 @@ $REQUIRE TRAINDEF.TTT
 	70|61|53)[BT:0,0,3][BT:49,0,3][OT:BUFFER3L,0,8][OT:BUFFER3R,>,8]);				\
       F=SF2;
     TX=Great Western Railway 4707;									\
-      C=GW_4707(|L),GB2PSGW;										\
+      C=GW_4707(|L),GB2F1GW;										\
+      F=SF2;
+    TX=Great Western Railway 4900;									\
+      C=GW_4900HALL[BC:-25,25][OB:WIN_16_12,89,22][NM:#B,5,3,6][NM:#B,3,1,5],GB2PSGW;			\
       F=SP2;
     TX=Great Western Railway 4936;									\
       C=GW_4936(|L),GB2PSGW;										\
-      F=SP2;
-    TX=Great Western Railway 4900;									\
-      C=GW_4900HALL[BC:-25,25][OB:WIN_16_12,89,22][NM:#B,5,3,6][NM:#B,3,1,5],GB2PSGW;			\
       F=SP2;
     TX=Great Western Railway 5403;									\
       C=GW_2A_5403(|L),GW_SIPHONF[NB:B,BA8],								\
@@ -92,11 +111,11 @@ $REQUIRE TRAINDEF.TTT
     TX=Great Western Railway 5754;									\
       C=GW_2A_5754(|L),GB2PSGW;										\
       F=SP2;
-    TX=Great Western Railway 6002;									\
-      C=GW_6002(|L),GB2PSGW;										\
-      F=SP2;
     TX=Great Western Railway 94;									\
       C=GW_94(|L)[BC:-30,40],GB2PSGW;									\
+      F=SP2;
+    TX=Great Western Railway 6002;									\
+      C=GW_6002(|L),GB2PSGW;										\
       F=SP2;
     TX=Great Western Railway 7202;									\
       C=GW_2A_7202(|L),GW_SIPHONF[NB:B,BA8],								\
@@ -121,8 +140,10 @@ $REQUIRE TRAINDEF.TTT
     TX=London Midland and Scottish Railway Coronation 4457;						\
       C=LMS_2_4457(|L),GB2PSLM;										\
       F=SP2;
-    TX=London Midland and Scottish Railway Coronation 4994;						\
-      C=LMS_2_4994(|L),GB2PSLM;										\
+    TX=London Midland and Scottish Railway Coronation 4994 + Coaltrain 1935;				\
+      C=LMS_2_4994(|L),											\
+	30*(1:LMS_2_O2(E|F|G)(|L)[O:FR_KO(39|16|17)(|[M])]|						\
+	4:LMS_2_O2(C|A|B|D)[O:(COAL(61|59)|FR_KO(40|64))(|[M])]),LMS_2_BV3V;				\
       F=SP2;
     TX=London Midland and Scottish Railway Coronation 9399;						\
       C=LMS_2_9399(|L),GB2F1LM;										\
@@ -133,23 +154,29 @@ $REQUIRE TRAINDEF.TTT
     TX=London Midland and Scottish Railway Coronation F3 7619;						\
       C=LMS_2_7619(|L),GB2FS1;										\
       F=SP2;
+    TX=London Midland and Scottish Railway Coronation 7953;						\
+      C=LMS_7953(|L),GB2PSLM;										\
+      F=SP2;
     TX=London Midland and Scottish Railway Coronation F3 16410;						\
       C=LMS_2_16410(|L),GB2FS1;										\
+      F=SF2;
+    TX=London Midland and Scottish Railway Coronation class 3P 11100-11104;				\
+      C=(LMS_2A11102|LMS_2_11100)(|L),GB2PSLM;								\
       F=SP2;
     TX=Somerset and Dorset Joint Railway F3 19-25;							\
       C=SDJR_2_19(|L),GB2FS1;										\
-      F=SP2;
+      F=SF2;
     TX=London and North Eastern Railway 5373;								\
       C=LNER_2_5373(|L),3*GB2FS1;									\
       F=SF2;
     TX=London and North Eastern Railway 2395;								\
       C=LNER_2B2395(|L),GB2F1LN;									\
       F=SF2;
+    TX=London and North Eastern Railway 3418;								\
+      C=LNER_3418(|L),GB2F1LN;										\
+      F=SF2;
     TX=London and North Eastern Railway 6172;								\
       C=LNER_2A6172(|L),3*GB2FS1;									\
-      F=SF2;
-    TX=London and North Eastern Railway 45;								\
-      C=LNER_45(|L),GB2FS1;										\
       F=SF2;
     TX=London and North Eastern Railway 9905;								\
       C=LNER_2B9905(|L),3*GB2FS1;									\
@@ -166,21 +193,36 @@ $REQUIRE TRAINDEF.TTT
     TX=London and North Eastern Railway 635;								\
       C=LNER_2_635(|L),GB2PSLNER;									\
       F=SPR2;
+    TX=London and North Eastern Railway class G5;							\
+      C=LNER_2_(1096|7289)(|L),GB2PSLNER;								\
+      F=SPR2;
     TX=London and North Eastern Railway 4591;								\
       C=LNER_2_4591(|L),GB2PSLNER;									\
       F=SPR2;
     TX=London and North Eastern Railway 5317;								\
       C=LNER_2_5317(|L),GB2PSLNER;									\
       F=SPR2;
-    TX=London and North Eastern Railway 5015;								\
-      C=LNER_2_5015(|L),GB2PSLNER;									\
+    TX=London and North Eastern Railway 6153;								\
+      C=LNER_6153(|L),GB2FSLN;										\
+      F=SF2;
+    TX=London and North Eastern Railway 6384;								\
+      C=LNER_6384(|L),GB2PSLNER;									\
       F=SPR2;
-    TX=London and North Eastern Railway 5332;								\
-      C=LNER_2_5332(|L),GB2PSLNER;									\
+    TX=London and North Eastern Railway 7962;								\
+      C=LNER_7942(|L),GB2FSLN;										\
+      F=SF2;
+    TX=London and North Eastern Railway class N7 8009;							\
+      C=LNER_2_8009(|L),GB2PSLNER,GB2FSLN;								\
+      F=SF2;
+    TX=London and North Eastern Railway 8217;								\
+      C=LNER_8217,GB2FSLN;										\
+      F=SF2;
+    TX=London and North Eastern Railway 8500;								\
+      C=LNER_85(22|25|72)(|L),GB2PSLNER;								\
       F=SPR2;
-    TX=London and North Eastern Railway 3418;								\
-      C=LNER_3418(|L),GB2PSLNER;									\
-      F=SPR2;
+    TX=London and North Eastern Railway 45;								\
+      C=LNER_45(|L),2*GB2FS1;										\
+      F=SF2;
     TX=London and North Eastern Railway A3;								\
       C=LNER_A3FS(1|2)[BC:-30,40][OB:WIN_16_12,75,19]|LNER_A3FS(1|2)L[BC:-30,40][OB:WIN_16_12,57,19],	\
 	GB2PSLNER;											\
@@ -188,9 +230,15 @@ $REQUIRE TRAINDEF.TTT
     TX=London and North Eastern Railway A4;								\
       C=LNER_A4B[BC:-30,40][OB:WIN_16_12,75,19]|LNER_A4BL[BC:-30,40][OB:WIN_16_12,57,19],GB2PSLNER;	\
       F=SPR2;
+    TX=London and North Eastern Railway C12;								\
+      C=LNER_C12(|L),3*GB2FS1;										\
+      F=SPR2;
     TX=London and North Eastern Railway O4;								\
       C=LNER_2_5(332|015)(|L),GB2F1LN;									\
       F=SPR2;
+    TX=North Eastern Railway class O 2037;								\
+      C=NER_2_2037(|L),2*GB2FS1;									\
+      F=SF2;
     TX=Southern Railway 953;										\
       C=SR_2_953(|L),GB2PSSR1;										\
       F=SPR2;
@@ -210,137 +258,172 @@ $REQUIRE TRAINDEF.TTT
     TX=Harton Railway E 1...4;										\
       C=HARTON_E(1|2|4)G,8*HARTON_10TON_HOPPER(3|1|2)[O:FR_KO(39|38)(|[M]),,22];			\
       AP2=[W=X][FG=TRBED25:..,^0;DUP_HARTON116_FL_M1[SM:0.505],DUP_HARTON116_FL_F1[SM:0.5]:..,-5,#;];	\
-      F=EFO3;
+      F=EFO2;
+    TX=Longmoor Military Railway 196;									\
+      C=LMR_2C196(|L),GB2FS1;										\
+      F=SF2;
 
   }
   {E3?
 # Steam
 
-    TX=GB British Rail Coronation A4;									\
+    TX=GB BR A4;											\
       C=BR_A4BL,											\
 	(<BR_CC1BGL,BR_CE1TOL,BR_CE1TO3L,BR_CE1TO2L,BR_CE2RCL,BR_CE3BTK2L,BR_CE1CK2L,BR_CE1FKL,		\
 	BR_CE1FSOL,BR_CE1FSO);										\
       F=SP3;
-    TX=British Rail Coronation 47181;									\
-      C=BR_47181(|L),GB3FS1;										\
-      F=SF3;
     TX=British Rail Coronation Class 1300;								\
-      C=BR_3_1367(|L),GB3PS2;										\
-      F=SP3;
+      C=BR_3_1367(|L),GB3PS2;
     TX=British Rail Coronation Class 1400;								\
       C=BR_3_14(44|30)(|L),GB3PS1;									\
       F=SP3;
-    TX=British Rail Coronation Class 2253;								\
+    TX=British Rail Coronation 2253;									\
       C=BR_3_2253(|L),GB3PS(1|2);									\
       F=SP3;
-    TX=British Rail Coronation Class 3205;								\
+    TX=British Rail Coronation 3036;									\
+      C=BR_3_3036(|L),GB3F1;										\
+      F=SF3;
+    TX=British Rail Coronation 3205;									\
       C=BR_3_3205(|L),GB3PS(1|2);									\
       F=SP3;
+    TX=British Rail Coronation 3794;									\
+      C=BR_3A_3794(|L),GB3FS1;										\
+      F=SF3;
+    TX=British Rail Coronation 3850;									\
+      C=BR_3_3850(|L),GB3F1;										\
+      F=SF3;
     TX=British Rail Coronation Class 41xx;								\
       C=BR_3_41(60|56)(|L),GB3PS1;									\
       F=SP3;
-    TX=British Rail Coronation Class 4410;								\
+    TX=British Rail Coronation 4410;									\
       C=BR_3A_4410(|L),GB3PS1;										\
       F=SP3;
-    TX=British Rail Coronation Class 4561;								\
+    TX=British Rail Coronation 4561;									\
       C=BR_3A_4561(|L),GB3PS2;										\
+      F=SP3;
+    TX=British Rail Coronation 4705;									\
+      C=BR_4705(|L),GB3F1;										\
+      F=SF3;
+    TX=British Rail Coronation 5410;									\
+      C=BR_3A_5410(|L),GB3FS1;										\
+      F=SF3;
+    TX=British Rail Coronation 5786;									\
+      C=BR_3A_5786(|L),GB3FS1;										\
+      F=SF3;
+    TX=British Rail Coronation 6015;									\
+      C=BR_GW6015(|L),GB3PS(1|2);									\
       F=SP3;
     TX=British Rail Coronation Class 6600;								\
       C=BR_3_66(95|19)(|L),GB3PS2;									\
       F=SP3;
+    TX=British Rail Coronation 7220;									\
+      C=BR_3_7220(|L),											\
+	(<BR_CDIAD95L[OB:WINDOW_BG,74,17][NB:B,BA8],							\
+	BR_CDIAC59[OB:WINDOW_BG,12,17][OB:WINDOW_BG,77,16][NB:B,BA8],					\
+	BR_CDIAC73[OB:WINDOW_BG,12,17][OB:WINDOW_BG,77,16][NB:B,BA8]);					\
+      F=SP3;
+    TX=British Rail Coronation Class 9400;								\
+      C=(BR_3A_9466|BR_3B_9405)(|L),GB3FS1;								\
+      F=SF3;
+    TX=British Rail Coronation 9700;									\
+      C=BR_3A_9700(|L),GB3FS1;										\
+      F=SF3;
+    TX=British Rail Coronation 30952;									\
+      C=BR_3_30952(|L),GB3PS(1|2);									\
+      F=SPR3;
+    TX=British Rail Coronation 34081;									\
+      C=BR_34081,GB3PS(1|2);										\
+      F=SPR3;
     TX=British Rail Coronation 31913;									\
       C=BR_3_31913(|L),GB3PS2;										\
       F=SPR3;
     TX=British Rail Coronation Class 44000;								\
       C=BR_3_440(27|81)(|L),GB3PS2;									\
       F=SPR3;
-    TX=British Rail Coronation 30952;									\
-      C=BR_3_30952(|L),GB3PS(1|2);									\
-      F=SPR3;
-    TX=British Rail Coronation Class 69808;								\
-      C=BR_69808(|L),GB3PS2;										\
-      F=SP3;
-    TX=British Rail Coronation Class 699xx;								\
-      C=BR_3A6990(2|4)(|L),GB3PS(1|2);									\
-      F=SP3;
-    TX=British Rail Coronation Class 9400;								\
-      C=(BR_3A_9466|BR_3B_9405)(|L),GB3FS1;								\
+    TX=British Rail Coronation 47181;									\
+      C=BR_47181(|L),3*GB3FS1;										\
       F=SF3;
-    TX=British Rail Coronation Class 47406;								\
+    TX=British Rail Coronation 47406;									\
       C=BR_3_47406(|L),GB3FS1;										\
       F=SF3;
-    TX=British Rail Coronation Class 3036;								\
-      C=BR_3_3036(|L),GB3F1;										\
-      F=SF3;
-    TX=British Rail Coronation Class 63802;								\
-      C=BR_3_63802(|L),GB3F1;										\
-      F=SF3;
-    TX=British Rail Coronation Class 63443;								\
-      C=BR_63443(|L),GB3FS1;										\
-      F=SF3;
-    TX=British Rail Coronation 6015;									\
-      C=BR_GW6015(|L),GB3PS(1|2);									\
-      F=SPR3;
-    TX=British Rail Coronation Class 4705;								\
-      C=BR_4705(|L),GB3FS1;										\
-      F=SF3;
-    TX=British Rail Coronation Class 5410;								\
-      C=BR_3A_5410(|L),GB3FS1;										\
-      F=SF3;
-    TX=British Rail Coronation Class 3794;								\
-      C=BR_3A_3794(|L),GB3FS1;										\
-      F=SF3;
-    TX=British Rail Coronation Class 5786;								\
-      C=BR_3A_5786(|L),GB3FS1;										\
-      F=SF3;
-    TX=British Rail Coronation Class 7220;								\
-      C=BR_3_7220(|L),											\
-	(<BR_CDIAD95L[OB:WINDOW_BG,74,17][NB:B,BA8],							\
-	BR_CDIAC59[OB:WINDOW_BG,12,17][OB:WINDOW_BG,77,16][NB:B,BA8],					\
-	BR_CDIAC73[OB:WINDOW_BG,12,17][OB:WINDOW_BG,77,16][NB:B,BA8]);					\
+    TX=British Rail Coronation 47877;									\
+      C=BR_3_47877(|L),GB3PS(1|2);									\
       F=SP3;
-    TX=British Rail Coronation Class 3850;								\
-      C=BR_3_3850(|L),GB3F1;										\
+    TX=British Rail Coronation Class 479xx;								\
+      C=BR_3_479(68|96)(|L),GB3F1;									\
       F=SF3;
     TX=British Rail Coronation Class 49xxx;								\
       C=BR_3_49(395|064)(|L),GB3F1;									\
       F=SF3;
-    TX=British Rail Coronation Class 90708;								\
-      C=BR_3_90708(|L),GB3F1;										\
-      F=SF3;
-    TX=British Rail Coronation Class 479xx;								\
-      C=BR_3_479(68|96)(|L),GB3F1;									\
-      F=SF3;
-    TX=British Rail Coronation Class 49624;								\
+    TX=British Rail Coronation 49624;									\
       C=BR_49624(|L),GB3F1;										\
       F=SF3;
-    TX=British Rail Coronation Class 68917;								\
-      C=BR_68917(|L),GB3PS(1|2);									\
+    TX=British Rail Coronation 61512;									\
+      C=BR_3_61512(|L),GB3PS(1|2);									\
       F=SP3;
-    TX=British Rail Coronation Class 69434;								\
-      C=BR_69434(|L),GB3PS(1|2);									\
+    TX=British Rail Coronation 62669;									\
+      C=BR_3_62669(|L),GB3PS(1|2);									\
       F=SP3;
-    TX=British Rail Coronation Class 64354;								\
+    TX=British Rail Coronation 63443;									\
+      C=BR_63443(|L),GB3F1;										\
+      F=SF3;
+    TX=British Rail Coronation 63802;									\
+      C=BR_3_63802(|L),GB3F1;										\
+      F=SF3;
+    TX=British Rail Coronation 64354;									\
       C=BR_64354(|L),GB3PS(1|2);									\
       F=SP3;
-    TX=British Rail Coronation Class 69594;								\
+    TX=British Rail Coronation Class 654xx;								\
+      C=BR_3_654(24|20)(|L),GB3PS(1|2);									\
+      F=SP3;
+    TX=British Rail Coronation 65534;									\
+      C=(BR3_65534R|BR_3_65534L),GB3PS(1|2);								\
+      F=SP3;
+    TX=British Rail Coronation 67281;									\
+      C=BR_3_67281(|L),GB3PS(1|2);									\
+      F=SPR3;
+    TX=British Rail Coronation 67366;									\
+      C=BR_3_67366(|L),GB3PS(1|2);									\
+      F=SP3;
+    TX=British Rail Coronation 68016;									\
+      C=BR_3C_68016(|L),3*GB3FS1;									\
+      F=SF3;
+    TX=British Rail Coronation 68917;									\
+      C=BR_68917(|L),GB3PS(1|2);									\
+      F=SP3;
+    TX=British Rail Coronation 69434;									\
+      C=BR_69434(|L),GB3PS(1|2);									\
+      F=SP3;
+    TX=British Rail Coronation 69594;									\
       C=BR_3_69594(|L),GB3PS(1|2);									\
       F=SP3;
-    TX=British Rail Coronation Class 69883;								\
+    TX=British Rail Coronation 69635;									\
+      C=BR_3_69635(|L),GB3PS(1|2);									\
+      F=SPR3;
+    TX=British Rail Coronation 69808;									\
+      C=BR_69808(|L),GB3PS2;										\
+      F=SP3;
+    TX=British Rail Coronation 69883;									\
       C=BR_69883(|L),GB3PS(1|2);									\
       F=SP3;
-    TX=British Rail Coronation Class 69999;								\
+    TX=British Rail Coronation Class 699xx;								\
+      C=BR_3A6990(2|4)(|L),GB3PS(1|2);									\
+      F=SP3;
+    TX=British Rail Coronation 69999;									\
       C=BR_3B69999(|L),GB3F1;										\
       F=SF3;
-    TX=British Rail Coronation Class 90775;								\
+    TX=British Rail Coronation 90775;									\
       C=BR_3_90775(|L),GB3F1;										\
       F=SF3;
-    TX=British Rail Coronation Class 9700;								\
-      C=BR_3A_9700(|L),GB3FS1;										\
+    TX=British Rail Coronation 90708;									\
+      C=BR_3_90708(|L),GB3F1;										\
       F=SF3;
     TX=British Rail Coronation Class 14 (Teddy Bear);							\
       C=BR_14D9526(|L),GB3FS1;										\
       F=DF3;
+    TX=British Rail Coronation Class 15 + Coaltrain 1958;						\
+      C=BR_3_15G2(|L),20*LMS_2_O2(C|A|B|D)[O:(COAL(61|59)|FR_KO(40|64))(|[M])],BR_3_BV1;		\
+      F=SP2;
     TX=British Rail Coronation 33;									\
       C=BR_CL33GRSO0(2|1)(|L),GB3F1;									\
       F=DF3;
@@ -397,6 +480,15 @@ $REQUIRE TRAINDEF.TTT
     TX=British Rail Coronation 11001;									\
       C=BR_3_11001(|L),2-3*GB3FS1;									\
       F=DF3;
+    TX=British Rail Coronation 10800;									\
+      C=BR_3A10800(|L),2-3*GB3FS1;									\
+      F=DF3;
+    TX=British Rail Coronation 10800;									\
+      C=BR_3B_10800(|L),2-3*GB3FS1;									\
+      F=DF3;
+    TX=British Rail Coronation 968002;									\
+      C=BR_3A_DB968002(|L),2-3*GB3FS1;									\
+      F=DF3;
     TX=British Rail Coronation Class 03;								\
       C=BR_3_D2133(|L),2-3*GB3FS1;									\
       F=DF3;
@@ -410,7 +502,7 @@ $REQUIRE TRAINDEF.TTT
       C=BR_3_D2420(|L),2-3*GB3FS1;									\
       F=DF3;
     TX=British Rail Coronation Class 07;								\
-      C=BR_3_D2991(|L),2-3*GB3FS1;									\
+      C=BR_3_D2991(|L),BR_3B_FLATROLEAC[OB:FAN_LOAD,,4];						\
       F=DF3;
     TX=British Rail Coronation 37;									\
       C=BR_CL37GRSO01(|L),GB3F1;									\
@@ -442,6 +534,12 @@ $REQUIRE TRAINDEF.TTT
       C=BR_55_01(5|6),											\
 	(<(2*BR_MK1_SK_C(R|HO)(|L)),BR_MK1_CK_C(R|HO),2*BR_MK1_SK_C(R|HO)(|L),BR_MK1_BCK_C(R|HO));	\
       F=DP3;
+    TX=British Rail Coronation D8234;									\
+      C=BR_3_D8234(|L),2-3*GB3FS1;									\
+      F=DF3;
+    TX=British Rail Coronation Class D84xx;								\
+      C=BR_3_D840(7|5)(|L),2-3*GB3FS1;									\
+      F=DF3;
     TX=Longmoor Military Railway 600;									\
       C=LMR_2C600(|L),											\
 	5*BR_BOGBOL30TR[BC:-20,20,0,0,,9][BT:0,7,4,2][BT:136,7,4,2][OT:BUFFER4R,>,8][OT:BUFFER4L,0,8]	\
@@ -453,6 +551,9 @@ $REQUIRE TRAINDEF.TTT
       F=SF3;
 
 # Harton Railway
+    TX=National Coal Board Harton 14;									\
+      C=NACB_14(|L),4*NACB_21T(HOP368|ON_HOPPER_81|HOP196)[O:COAL(43|45|57)([M]),,31];			\
+      F=SF3;
     TX=National Coal Board Harton E 6...15;								\
       C=NACB_E(6|8|11|15)W,8*NACB_21T(HOP368|ON_HOPPER_81|HOP196)[O:COAL(43|45|57)([M]),,31];		\
       AP2=[W=X][FG=TRBED25:..,^0;DUP_NCB_90_FL_M1[SM:0.4950],DUP_NCB_90_FL_F1[SM:0.5]:..,-4,#;];	\
@@ -475,9 +576,6 @@ $REQUIRE TRAINDEF.TTT
 	8*NACB_21T(HOP368|ON_HOPPER_81|HOP196)[O:COAL(43|45|57)([M]),,31];				\
       AP2=[W=X][FG=TRBED25:..,^0;DUP_NCB_90_FL_M2[SM:0.495],DUP_NCB_90_FL_F1[SM:0.5]:..,-5,#;];		\
       F=EFO3;
-    TX=National Coal Board 14;										\
-      C=NACB_14(|L),5*BR_5PLK(1|2)[NT:B];								\
-      F=SF3;
 
   }
   {E4?
@@ -501,6 +599,9 @@ $REQUIRE TRAINDEF.TTT
       F=DF4;
     TX=British Rail Coronation Class 14 (Teddy Bear);							\
       C=BR_14_(901|029)(|L),GB4FS1;									\
+      F=DF4;
+    TX=British Rail Coronation Class 20;								\
+      C=BR_20E3M(|L),3*GB4FS1;										\
       F=DF4;
     TX=British Rail Coronation Class 20;								\
       C=BR_20(096|227|132|107),3*GB4FS1;								\
@@ -544,9 +645,10 @@ $REQUIRE TRAINDEF.TTT
 	4-5*BR_OBA0(4|6)S(|L)[OB:TARP_BBC|TARP(16|17|13)|STRAW(1|2),,15];				\
       F=DF4;
     TX=GB BR 08;											\
-      C=BR_CL08SEL|BR_CL08SE|BR_CL08SBL|BR_CL08SB|BR_CL08SAL|BR_CL08SA|BR_CL08SDL|BR_CL08SD|		\
-	BR_CL08STRL|BR_CL08STR|BR_CL08SIL|BR_CL08SI|BR_CL08SCL|BR_CL08SC|BR_CL08NSEL|BR_CL08NSE,	\
-	9*(BR_JNA_MRLO(|L)|BR_JNA_MRL);									\
+      C=BR_CL08(STR|SI|SC|NSE)(|L),9*(BR_JNA_MRLO(|L)|BR_JNA_MRL);					\
+      F=DF45;
+    TX=GB BR 08;											\
+      C=BR_CL08(SE|SB|SA|SD)(|L),2*BR_4A_FLATROLEAC(1|2)(|W)[OB:(FAN_LOAD|STEELSHAPE1),,4];		\
       F=DF45;
     TX=British Rail Coronation 40;									\
       C=BR_CL40BSO0(1|2)(|L),GB4PI;									\
@@ -604,6 +706,9 @@ $REQUIRE TRAINDEF.TTT
 	BR_CL56BL|BR_CL56B|BR_CL56DL|BR_CL56D|BR_CL56CL|BR_CL56C|BR_CL56FAL|BR_CL56FA|BR_CL56FBL|	\
 	BR_CL56FB|BR_CL56FCL|BR_CL56FC,10*(BR_SDFFGSS);							\
       F=DF45;
+    TX=GB BR Class 58;											\
+      C=BR_CL58SO0(4|3)(|L),GB4FL;									\
+      F=DF4;
     TX=GB BR 60;											\
       C=BR_CL60AL|BR_CL60A|BR_CL60CL|BR_CL60C|BR_CL60BL|BR_CL60B|BR_CL60|BR_60_FU|BR_CL60LH2L|		\
 	BR_CL60LH2|BR_CL60LH1L|BR_CL60LH1|BR_CL60ML|BR_CL60M|BR_CL60M2L|BR_CL60M2|BR_CL60TL|BR_CL60T,	\
@@ -624,6 +729,10 @@ $REQUIRE TRAINDEF.TTT
       C=(<BR_150SO1AL,BR_150SO1A)|(<BR_150SO1BL,BR_150SO1B)|(<BR_150SO2AL,BR_150SO2A)|			\
 	(<BR_150SO2BL,BR_150SO2B)|(<BR_150SO3AL,BR_150SO3A)|(<BR_150SO3BL,BR_150SO3B)|			\
 	(<BR_150SO4AL,BR_150SO4A)|(<BR_150SO4BL,BR_150SO4B);						\
+      F=DPU45;
+    TX=GB BR MK3;											\
+      C=(<BR_CL43HSTICL,3*BR_MK3TSOL,BR_MK3TGSL,BR_MK3RFML,BR_MK3FOL,BR_MK3DTV)|			\
+	(<BR_MK3DTVL,BR_MK3FO,BR_MK3RFM,BR_MK3TGS,3*BR_MK3TSO,BR_CL43HSTIC);				\
       F=DPU45;
     TX=GB BR MK3;											\
       C=(<BR_CL43HSTISL,3*BR_MK3TSOL,BR_MK3TGSL,BR_MK3RFML,BR_MK3FOL,BR_MK3DTV)|			\
@@ -661,6 +770,12 @@ $REQUIRE TRAINDEF.TTT
     TX=Groﬂbritannien BR 92;										\
       C=BR_CL92SO0(1|2)(|L),GB4FL;									\
       F=EF45;
+    TX=Groﬂbritannien BR 321;										\
+      C=REG_WY321SO01(|L);										\
+      F=EP4;
+    TX=Groﬂbritannien BR 320;										\
+      C=BR_320SO01(|L);											\
+      F=EP4;
     TX=Groﬂbritannien BR IC 225 mit 91;									\
       C=(<BR_CL91L,2*BR_MK4FOSOL,BR_MK4RSBSOL,3*BR_MK4TSOSOL,BR_MK4DVTSO)|				\
 	(<BR_MK4DVTSOL,3*BR_MK4TSOSO,BR_MK4RSBSO,2*BR_MK4FOSO,BR_CL91);					\
@@ -676,6 +791,9 @@ $REQUIRE TRAINDEF.TTT
       C=NACB_E(13|12)G,8*NACB_21T(HOP368|ON_HOPPER_81|HOP196)[O:COAL(43|45|57)([M]),,31];		\
       AP2=[W=X][FG=TRBED25:..,^0;DUP_NCB_90C_FL_M1[SM:0.505],DUP_NCB_90C_FL_F1[SM:0.5]:..,-5,#;];	\
       F=EFO4;
+    TX=Foster Yeoman Limited Class 08;									\
+      C=YEO_CL08S(|L),GB4FS1;										\
+      F=DF45;
 
   }
   {E5?
@@ -699,7 +817,7 @@ $REQUIRE TRAINDEF.TTT
     TX=GB GNER 08;											\
       C=GNER_CL08SL|GNER_CL08S,GB5FR;									\
       F=DF56;
-    TX=GB GB Railfreigt 08;										\
+    TX=GB Railfreigt 08;										\
       C=GBRF_CL08SL|GBRF_CL08S,GB5FR;									\
       F=DF56;
     TX=GB REX 08;											\
@@ -717,6 +835,9 @@ $REQUIRE TRAINDEF.TTT
     TX=Groﬂbritannien NTWR 31;										\
       C=NTWR_CL31SBL|NTWR_CL31SB|NTWR_CL31SAL|NTWR_CL31SA,5*(NTWR_HQAL|NTWR_HQA|NTWR_HQAGL|NTWR_HQAG);	\
       F=DF56;
+    TX=Groﬂbritannien Direct Rail Services 20;								\
+      C=DRS_20CM(|L),GB5F;										\
+      F=DF5;
     TX=Groﬂbritannien Direct Rail Services 33;								\
       C=DRS_CL33SO0(1|2)(|L),GB5F;									\
       F=DF5;
@@ -727,27 +848,36 @@ $REQUIRE TRAINDEF.TTT
       C=WCR_CL33SO01(|L),GB5F;										\
       F=DF5;
     TX=Groﬂbritannien Cross Country Trains 43 IC;							\
-      C=<XC_CL43HSTSL,XC_MK3TSOL,XC_MK3TSOL,XC_MK3TSOL,XC_MK3TGSL,XC_MK3RFML,XC_MK3FOL,XC_CL43HSTS;	\
+      C=(<XC_CL43HSTSL,XC_MK3TSOL,XC_MK3TSOL,XC_MK3TSOL,XC_MK3TGSL,XC_MK3RFML,XC_MK3FOL,XC_CL43HSTS)|	\
+	(>XC_CL43HSTS,XC_MK3TSO,XC_MK3TSO,XC_MK3TSO,XC_MK3TGS,XC_MK3RFM,XC_MK3FO,XC_CL43HSTSL);		\
       F=DPU56;
     TX=Groﬂbritannien East Coast Main Line Company 43 IC;						\
-      C=<ECML_CL43HSTSL,ECML_MK3TSL,ECML_MK3TSL,ECML_MK3TSL,ECML_MK3TRFBL,ECML_MK3TGSL,ECML_MK3TFL,	\
-	ECML_CL43HSTS;											\
+      C=(<ECML_CL43HSTSL,ECML_MK3TSL,ECML_MK3TSL,ECML_MK3TSL,ECML_MK3TRFBL,ECML_MK3TGSL,ECML_MK3TFL,	\
+	ECML_CL43HSTS)|											\
+	(>ECML_CL43HSTS,ECML_MK3TS,ECML_MK3TS,ECML_MK3TS,ECML_MK3TRFB,ECML_MK3TGS,ECML_MK3TF,		\
+	ECML_CL43HSTSL);										\
       F=DPU56;
     TX=GB First Great Western 43 IC;									\
-      C=(<FGW_CL43HSTGL,3*FGW_MK3TSOL,FGW_MK3TGS,FGW_MK3RFML,FGW_MK3FOL,FGW_CL43HSTG,FGW_CL43HSTS)|	\
-	(<FGW_CL43HSTSL,FGW_MK3FO,FGW_MK3RFM,FGW_MK3TGSL,3*FGW_MK3TSO,FGW_CL43HSTS)|			\
-	(<FGW_CL43HSTGL,GW_MK3A_FO,GW_MK3A_RFM,GW_MK3A_TGS,3*GW_MK3A_TSO,FGW_CL43HSTS)|			\
-	(<FGW_CL43HSTGL,3*GW_MK3A_TSOL,GW_MK3A_TGSL,GW_MK3A_RFML,GW_MK3A_FOL,FGW_CL43HSTS)|		\
+      C=(<FGW_CL43HSTSL,3*FGW_MK3TSOL,FGW_MK3TGS,FGW_MK3RFML,FGW_MK3FOL,FGW_CL43HSTG,FGW_CL43HSTS)|	\
+	(>FGW_CL43HSTS,3*FGW_MK3TSO,FGW_MK3TGSL,FGW_MK3RFM,FGW_MK3FO,FGW_CL43HSTGL,FGW_CL43HSTSL)|	\
+	(<FGW_CL43HSTGL,GW_MK3A_FO,GW_MK3A_RFM,GW_MK3A_TGS,3*GW_MK3A_TSO,FGW_CL43HSTG)|			\
+	(>FGW_CL43HSTG,GW_MK3A_FOL,GW_MK3A_RFML,GW_MK3A_TGSL,3*GW_MK3A_TSOL,FGW_CL43HSTGL)|		\
 	(<FIRST_CL43HST2L,FGW_MK3TF2L,FGW_MK3TF2,FGW_MK3TRFB2|FGW_MK3TRFB2L,FGW_MK3TGS2|FGW_MK3TGS2L,	\
 	FGW_MK3TS2L,3*FGW_MK3TS2,FIRST_CL43HST2)|							\
+	(>FIRST_CL43HST2,FGW_MK3TF2,FGW_MK3TF2L,FGW_MK3TRFB2L|FGW_MK3TRFB2,FGW_MK3TGS2L|FGW_MK3TGS2,	\
+	FGW_MK3TS2,3*FGW_MK3TS2L,FIRST_CL43HST2L)|							\
+	(<FIRST_CL43HST1L,FGW_MK3TF2L,FGW_MK3TF2,FGW_MK3TRFB2|FGW_MK3TRFB2L,FGW_MK3TGS2|FGW_MK3TGS2L,	\
+	FGW_MK3TS2L,3*FGW_MK3TS2,FIRST_CL43HST1)|							\
+	(>FIRST_CL43HST1,FGW_MK3TF2,FGW_MK3TF2L,FGW_MK3TRFB2L|FGW_MK3TRFB2,FGW_MK3TGS2L|FGW_MK3TGS2,	\
+	FGW_MK3TS2,3*FGW_MK3TS2L,FIRST_CL43HST1L)|							\
 	(<FGW_CL43HSTS2L,FGW_MK3TF2L,FGW_MK3TF2,FGW_MK3TRFB2|FGW_MK3TRFB2L,FGW_MK3TGS2|FGW_MK3TGS2L,	\
 	FGW_MK3TS2L,3*FGW_MK3TS2,FGW_CL43HSTS2)|							\
-	(<FGW_CL43HSTAL,FGW_MK3TSN,FGW_MK3TFNL,3*FGW_MK3TFN,FGW_MK3TGSNL|FGW_MK3TGSN,			\
-	FGW_MK3TRFBNL|FGW_MK3TRFBN,FGW_MK3TSNL,FGW_MK3TSN,FGW_CL43HSTA)|				\
-	(<FGW_CL43HSTBL,FGW_MK3TSN,FGW_MK3TFNL,3*FGW_MK3TFN,FGW_MK3TGSNL|FGW_MK3TGSN,			\
-	FGW_MK3TRFBNL|FGW_MK3TRFBN,FGW_MK3TSNL,FGW_MK3TSN,FGW_CL43HSTB)|				\
-	(<FGW_CL43HSTNL,FGW_MK3TSN,FGW_MK3TFNL,3*FGW_MK3TFN,FGW_MK3TGSNL|FGW_MK3TGSN,			\
-	FGW_MK3TRFBNL|FGW_MK3TRFBN,FGW_MK3TSNL,FGW_MK3TSN,FGW_CL43HSTN);				\
+	(>FGW_CL43HSTS2,FGW_MK3TF2,FGW_MK3TF2L,FGW_MK3TRFB2L|FGW_MK3TRFB2,FGW_MK3TGS2L|FGW_MK3TGS2,	\
+	FGW_MK3TS2,3*FGW_MK3TS2L,FGW_CL43HSTS2L)|							\
+	(<FGW_CL43HSTAL,FGW_MK3TSN,FGW_MK3TFNL,3*FGW_MK3TFN,FGW_MK3TGSNL,FGW_MK3TRFBNL,FGW_MK3TSNL,	\
+	FGW_CL43HSTA)|											\
+	(>FGW_CL43HSTA,FGW_MK3TSNL,FGW_MK3TFN,3*FGW_MK3TFNL,FGW_MK3TGSN,FGW_MK3TRFBN,FGW_MK3TSN,	\
+	FGW_CL43HSTAL);											\
       F=DPU56;
     TX=GB Great North Eastern Railway 43 IC;								\
       C=(<GNER_CL43HSTSL,GNER_MK3FOL,GNER_MK3FO,GNER_MK3TRFBL|GNER_MK3TRFB,GNER_MK3RFML|GNER_MK3RFM,	\
@@ -882,9 +1012,6 @@ $REQUIRE TRAINDEF.TTT
     TX=GB DBS 59;											\
       C=DBS_59L|DBS_59,GB5F;										\
       F=DF56;
-    TX=GB DBS 66;											\
-      C=DBS_CL66SO0(4|2|5)(|L),GB6FRM;									\
-      F=DF6;
     TX=GB EWS 59;											\
       C=EWS_59SL|EWS_59S,8*(EWS_HOA1SL|EWS_HOA1S|EWS_HOA2SL|EWS_HOA2S);					\
       F=DF56;
@@ -921,8 +1048,7 @@ $REQUIRE TRAINDEF.TTT
       C=FSTL_JT42CWR(|L),10*(FL_MJAS|TIPH_JRAL|TIPH_JRA|EWS_MBASL);					\
       F=DF56;
     TX=GB Freigtliner 66;										\
-      C=(FL_CL66SO02|FL_CL66SO04|FL_JT42CWRSO2|FL_JT42CWRAG|FL_JT42CWR,FL_CL66)(|L),7*(FL_FIA|FL_FEA);	\
-      F=DF56;
+      C=FL_CL66SO0(2|4)(|L)|(FL_JT42CWRSO2|FL_JT42CWR|FL_CL66)(|L),7*(FL_FIA|FL_FEA); F=DF56;;
     TX=GB EWS 66;											\
       C=(1:EWS_CL66(|L)|10:EWS_66(001|243|010|249|081|077|067|250)(|L)),10*(EWS_HOA1SL|EWS_HOA1S);	\
       F=DF56;
@@ -1112,6 +1238,9 @@ $REQUIRE TRAINDEF.TTT
     TX=Groﬂbritannien Freigtliner 86;									\
       C=FL_CL86L|FL_CL86,5*(FL_HIA1L|FL_HIA1),4*(FL_MJASL|FL_MJAS),FL_HHAL;				\
       F=EF56;
+    TX=GB EWS Class 86;											\
+      C=EWS_CL86SO,GB5FL;										\
+      F=EF5;
     TX=Groﬂbritannien NTWR 86;										\
       C=NTWR_CL86SOL|NTWR_CL86SO,GB5F;									\
       F=EF56;
@@ -1139,6 +1268,14 @@ $REQUIRE TRAINDEF.TTT
     TX=Groﬂbritannien Virgin 87;									\
       C=VIR_CL87L|VIR_CL87,GB5F;									\
       F=EF56;
+    TX=Groﬂbritannien Virgin 43;									\
+      C=(<VIR_CL43HSTXL,VIR_MK3FOL,VIR_MK3RFM,2*VIR_MK3TGS,2*VIR_MK3TSO,VIR_CL43HSTX)|			\
+	(>VIR_CL43HSTX,VIR_MK3FO,VIR_MK3RFML,2*VIR_MK3TGSL,2*VIR_MK3TSOL,VIR_CL43HSTXL)|		\
+	(<VIR_CL43HSTSL,VIR_MK3FOL,VIR_MK3RFM,2*VIR_MK3TGS,2*VIR_MK3TSO,VIR_CL43HSTS)|			\
+	(>VIR_CL43HSTS,VIR_MK3FO,VIR_MK3RFML,2*VIR_MK3TGSL,2*VIR_MK3TSOL,VIR_CL43HSTSL)|		\
+	(<VIR_CL43HSTTL,VIR_MK3FOL,VIR_MK3RFM,2*VIR_MK3TGS,2*VIR_MK3TSO,VIR_CL43HSTT)|			\
+	(>VIR_CL43HSTT,VIR_MK3FO,VIR_MK3RFML,2*VIR_MK3TGSL,2*VIR_MK3TSOL,VIR_CL43HSTTL);		\
+      F=EPU56;
     TX=Groﬂbritannien Virgin 90;									\
       C=(<VIR_MK3DTVL,VIR_MK3FOL,VIR_MK3RFM,VIR_MK3TGS,VIR_MK3TSO,VIR_90L~SOP)|				\
 	(<VIR_90~SOP,VIR_MK3TSOL,VIR_MK3TGSL,VIR_MK3RFML,VIR_MK3FOL,VIR_MK3DTV);			\
@@ -1195,6 +1332,15 @@ $REQUIRE TRAINDEF.TTT
 	(<VIR_CL91SO2L,2*VIR_MK4FOSO1L,VIR_MK4RSBSO1L,3*VIR_MK4TSOSOL,VIR_MK4DVTSO2)|			\
 	(<VIR_MK4DVTSO2L,3*VIR_MK4TSOSO1,VIR_MK4RSBSO1,2*VIR_MK4FOSO1,VIR_CL91SO2);			\
       F=EPU56;
+    TX=Groﬂbritannien Network South-East 321;								\
+      C=NSE_321SO01(|L);										\
+      F=EP5;
+    TX=GB EWS Rail Express Systems Class 90;								\
+      C=REX_90,GB5FL;											\
+      F=EF5;
+    TX=Groﬂbritannien SPT 320;										\
+      C=SPT_320SO01(|L);										\
+      F=EP5;
     TX=Groﬂbritannien English Welsh and Scottish Railways 92;						\
       C=EWS_CL92SO0(1|2)(|L),GB5F;									\
       F=EF56;
@@ -1254,6 +1400,11 @@ $REQUIRE TRAINDEF.TTT
     TX=GB DB Schenker Rail 37;										\
       C=DBS_CL37SO01(|L),GB6FRM;									\
       F=DF6;
+    TX=GB DB Cargo UK 66;										\
+      C=DBS_CL66SO0(4|2|5|3)(|L),									\
+	15*(VTG_JNA4SO01|VTG_JNA4SO02|VTG_JNA4SO03|VTG_JNA4SO04|WASCO_JNA4SO01|DBS_MMASO01)(|L)		\
+	[OB:SCRAP(21|20|_15|_14)(|[M]),,27];								\
+      F=DF6;
     TX=GB Colas Rail Ltd. 56;										\
       C=COLAS_CL56S(|L),GB6FMO;										\
       F=DF6;
@@ -1267,7 +1418,13 @@ $REQUIRE TRAINDEF.TTT
       C=DCR_CL56SO0(1|2|3)(|L),GB6FRM;									\
       F=DF6;
     TX=GB DRS 37;											\
-      C=DRS_CL37SO0(1|2)(|L),GB6FRM;									\
+      C=DRS_CL37SO0(1|2)(|L),										\
+	15*(GERS_IIA1SO01|GERS_IIA1SO02|TOUAX_IIA1SO02|VTG_IIA1SO01|VTG_IIA1SO02|VTG_IIA1SO03)(|L);	\
+      F=DF6;
+    TX=GB Freigtliner 66;										\
+      C=FL_CL66SO07(|L)|FL_JT42CWRAG(|L),								\
+	15*(VTG_JNA4SO01|VTG_JNA4SO02|VTG_JNA4SO03|VTG_JNA4SO04|WASCO_JNA4SO01|FL_MJASO03|FL_MJASO04)	\
+	(|L)[OB:SCRAP(21|20|_15|_14)(|[M]),,27];							\
       F=DF6;
     TX=GB Harry Needle Rail 37;										\
       C=HNRC_CL37SO01(|L),GB6FRM;									\
@@ -1291,13 +1448,25 @@ $REQUIRE TRAINDEF.TTT
     TX=Fertis Class 56;											\
       C=FRTS_CL56S(|L),GB6FRM;										\
       F=DF6;
+    TX=GB Great Western Rail Class 57;											\
+      C=GW_57(|L),(<GW_MK3B_RFML,2*GW_MK3B_BSO,GW_MK3B_TSOL),(>GW_MK3B_RFM,2*GW_MK3B_BSOL,GW_MK3B_TSO);						\
+      F=DP6;
+    TX=GB GB Railfreight 66;										\
+      C=GBRF_CL66SO2(4|5|6)(|L),									\
+	15*(VTG_HOA1SO01|GBRF_HYASO03|GBRF_HYASO04|GERS_HYASO01|NACCO_HYASO01|TOUAX_HYASO02)(|L);	\
+      F=DF6;
+    TX=GB GB Railfreight 66;										\
+      C=GBRF_CL66SO2(7|8|9)(|L),									\
+	15*(VTG_JNA4SO01|VTG_JNA4SO02|VTG_JNA4SO03|VTG_JNA4SO04|WASCO_JNA4SO01|GBRF_MJASO01)(|L)	\
+	[OB:SCRAP(21|20|_15|_14)(|[M]),,27];								\
+      F=DF6;
     TX=Vossloh Class 68;										\
       C=VSFT_CL68SO01(|L),GB6FRM;									\
       F=DF6;
     TX=GB Wessex Trains 31;										\
       C=WESX_CL31SO01(|L),GB6FRM;									\
       F=DF6;
-    TX=GB West Coast Railway Class 37;									\
+    TX=GB WCRC 37;											\
       C=WCRC_CL37SO01(|L),GB6FRM;									\
       F=DF6;
     TX=GB West Coast Railway Class 47;									\
@@ -1311,6 +1480,9 @@ $REQUIRE TRAINDEF.TTT
       F=DF6;
 
 # EP 6 E
+    TX=GB Colas Rail Class 56;										\
+      C=COLAS_CL56SO02(|L),GB6FRM;									\
+      F=EF6;
     TX=GB DB Schenker Rail UK 90;									\
       C=DBS_CL90SO1(|L),GB6FRM;										\
       F=EF6;
@@ -1343,6 +1515,27 @@ $REQUIRE TRAINDEF.TTT
 	(<GRAN_MK3B_DVTL,GRAN_MK3AB_FOL,GRAN_MK3A_FODL,GRAN_MK3A_TSOBL|GRAN_MK3A_RFM,6*GRAN_MK3A_TSO,	\
 	GRAN_90A(|L));											\
       F=EPU6;
+    TX=Groﬂbritannien First Great Eastern Ltd. 321;							\
+      C=FGE_321SO01(|L);										\
+      F=EPU6;
+    TX=Groﬂbritannien First Capital Connect 321;							\
+      C=FCC_321SO01(|L);										\
+      F=EPU6;
+    TX=Groﬂbritannien London Midland Trains 321;							\
+      C=LMC_321SO01(|L);										\
+      F=EPU6;
+    TX=Groﬂbritannien Northern Rail Ltd. 321;								\
+      C=NORR_321SO01(|L);										\
+      F=EPU6;
+    TX=Groﬂbritannien National Express East Coast 321;							\
+      C=NXEC_321SO01(|L);										\
+      F=EPU6;
+    TX=Groﬂbritannien one - London Eastern Railway Ltd. 321;						\
+      C=ONE_321SO01(|L);										\
+      F=EPU6;
+    TX=Groﬂbritannien Silverlink Train Services Ltd. 321;						\
+      C=SILV_321SO01(|L);										\
+      F=EPU6;
     TX=GB Great North Eastern Railway Ltd. Eustar 373;							\
       C=(<GNER_EUSTAREL,										\
 	(GNER_EUSTARE2L,4*GNER_EUSTARML,GNER_EUSTARWRL,2*GNER_EUSTARML,4*GNER_EUSTARM,GNER_EUSTARWR,	\
@@ -1359,13 +1552,11 @@ $REQUIRE TRAINDEF.TTT
       C=<(TGV_TMS1_ML,EUST_R1L,2*EUST_R2L,(EUST_R6L|EUST_R6),2*EUST_R2,EUST_R9),			\
 	(EUST_R9L,2*EUST_R2L,(EUST_R6L|EUST_R6),2*EUST_R2,EUST_R1,TGV_TMS1_M);				\
       F=EPU6;
-    TX=Island Line, Isle of Wight class 483;								\
-      C=(<IWIG_483007RAP_BL,IWIG_483007RAP_A)|(<IWIG_483007RAP_AL,IWIG_483007RAP_B)|			\
-	(<IWIG_483002RAP_BL,IWIG_483002RAP_A)|(<IWIG_483002RAP_AL,IWIG_483002RAP_B);			\
+    TX=Island Line,Isle of Wight class 483;								\
+      C=(<IWIG_483007RAP_BL,IWIG_483007RAP_A)|(<IWIG_483007RAP_AL,IWIG_483007RAP_B);			\
       F=DPRU6;
-    TX=Island Line, Isle of Wight class 484;								\
-      C=(<IWIG_484001_AL,IWIG_484001_B)|(<IWIG_484001_BL,IWIG_484001_A)|				\
-	(<IWIG_484005_AL,IWIG_484005_B)|(<IWIG_484005_BL,IWIG_484005_A);				\
+    TX=Island Line,Isle of Wight class 484;								\
+      C=(<IWIG_484001_AL,IWIG_484001_B)|(<IWIG_484001_BL,IWIG_484001_A);				\
       F=DPRU6;
 
   }

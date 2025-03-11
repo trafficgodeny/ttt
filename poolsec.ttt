@@ -26,13 +26,18 @@ $SPOOL N=RWMODE; SEQ=RSEQ;
   }
   {RW5?
     AB=340;												\
-      VM=HEAD,JUMP; DX=5000; VAR=BGTYPE=5,BGUP=398; DIS=50;
+      VM=CONT,JUMP; DX=5000; VAR=BGTYPE=5,BGUP=398; DIS=50;
   }
-$ENDPOOL 
+$ENDPOOL
 
-$SECTION NAME=POOLSEC; LC=1; POOL=RWMODE;
+$SECTION 												\
+    NAME=POOLSEC;											\
+    LC=1;												\
+    POOL=RWMODE;
   {D|BRD|DDR?
-    $SECTION NAME=P_D; LC=1;
+    $SECTION 												\
+	NAME=P_D;											\
+	LC=1;
       {D?
 	{E1|E2?
 	  %PSEC(POOL_GHIST,P_GHIST)
@@ -56,13 +61,15 @@ $SECTION NAME=POOLSEC; LC=1; POOL=RWMODE;
       {E5|E6?
 	%PSEC(POOL_GER,P_GER)
       }
-    $ENDSECTION 
+    $ENDSECTION
   }
   {F?
     %PSEC(POOL_F,P_F)
   }
   {CH|A|I?
-    $SECTION NAME=P_CH_A_I; LC=1;
+    $SECTION 												\
+	NAME=P_CH_A_I;											\
+	LC=1;
       {CH?
 	%PSEC(POOL_CH,P_CH1)
       }
@@ -78,12 +85,16 @@ $SECTION NAME=POOLSEC; LC=1; POOL=RWMODE;
       {I?
 	%PSEC(POOL_I,P_I2)
       }
-    $ENDSECTION 
+    $ENDSECTION
   }
   {DK|N|S|SF|B|L|NL|GB|IE|HR|SLO?
-    $SECTION NAME=P_MIX1; LC=1;
+    $SECTION 												\
+	NAME=P_MIX1;											\
+	LC=1;
       {GB|DK?
-	$SECTION NAME=P_GB_DK; LC=1;
+	$SECTION 											\
+	    NAME=P_GB_DK;										\
+	    LC=1;
 	  {GB?
 	    %PSEC(POOL_GB,P_GB1)
 	  }
@@ -93,7 +104,7 @@ $SECTION NAME=POOLSEC; LC=1; POOL=RWMODE;
 	  {GB?
 	    %PSEC(POOL_GB,P_GB2)
 	  }
-	$ENDSECTION 
+	$ENDSECTION
       }
       {B?
 	%PSEC(POOL_B,P_B)
@@ -102,7 +113,9 @@ $SECTION NAME=POOLSEC; LC=1; POOL=RWMODE;
 	%PSEC(POOL_NL,P_NL)
       }
       {L|S|N|SF|HR|SLO?
-	$SECTION NAME=P_N_HR; LC=1;
+	$SECTION 											\
+	    NAME=P_N_HR;										\
+	    LC=1;
 	  {HR?
 	    %PSEC(POOL_HR,P_HR)
 	  }
@@ -124,12 +137,14 @@ $SECTION NAME=POOLSEC; LC=1; POOL=RWMODE;
 	  {SF?
 	    %PSEC(POOL_SF; VH=62,P_SF)
 	  }
-	$ENDSECTION 
+	$ENDSECTION
       }
-    $ENDSECTION 
+    $ENDSECTION
   }
   {P|E|H|CSD|CS|SK|PL|RO|BG|GR|YU|HSH|TR|ASSD|IE?
-    $SECTION NAME=P_MIX2; LC=1;
+    $SECTION 												\
+	NAME=P_MIX2;											\
+	LC=1;
       {E?
 	%PSEC(POOL_E,P_E)
       }
@@ -143,7 +158,9 @@ $SECTION NAME=POOLSEC; LC=1; POOL=RWMODE;
 	%PSEC(POOL_PL,P_PL)
       }
       {RO|GR|P?
-	$SECTION NAME=P_RO_GR_P; LC=1;
+	$SECTION 											\
+	    NAME=P_RO_GR_P;										\
+	    LC=1;
 	  {RO?
 	    %PSEC(POOL_RO,P_RO)
 	  }
@@ -153,10 +170,12 @@ $SECTION NAME=POOLSEC; LC=1; POOL=RWMODE;
 	  {P?
 	    %PSEC(POOL_P,P_P)
 	  }
-	$ENDSECTION 
+	$ENDSECTION
       }
       {SK|BG|YU|HSH|TR|IE|ASSD?
-	$SECTION NAME=P_MIX2_1; LC=1;
+	$SECTION 											\
+	    NAME=P_MIX2_1;										\
+	    LC=1;
 	  {SK?
 	    %PSEC(POOL_SK,P_SK)
 	  }
@@ -170,7 +189,9 @@ $SECTION NAME=POOLSEC; LC=1; POOL=RWMODE;
 	    %PSEC(POOL_BG,P_BG)
 	  }
 	  {HSH|IE|ASSD?
-	    $SECTION NAME=P_MIX2_1_1; LC=14; %SECFIN; BL=20; SEQ=D;
+	    $SECTION 											\
+		NAME=P_MIX2_1_1;									\
+		LC=14; SEQ=D; BL=20; %SECFIN;
 	      {HSH?
 		POOL=POOL_HSH;
 	      }
@@ -180,14 +201,16 @@ $SECTION NAME=POOLSEC; LC=1; POOL=RWMODE;
 	      {IE?
 		POOL=POOL_IR;
 	      }
-	    $ENDSECTION 
+	    $ENDSECTION
 	  }
-	$ENDSECTION 
+	$ENDSECTION
       }
-    $ENDSECTION 
-  }  
+    $ENDSECTION
+  }
   {USA|J?
-    $SECTION NAME=P_USA_J; LC=1;
+    $SECTION 												\
+	NAME=P_USA_J;											\
+	LC=1;
       {USA?
 	%PSEC(POOL_USA,P_USA1)
       }
@@ -197,10 +220,12 @@ $SECTION NAME=POOLSEC; LC=1; POOL=RWMODE;
       {USA?
 	%PSEC(POOL_USA,P_USA2)
       }
-    $ENDSECTION    
+    $ENDSECTION
   }
   {SU|RZD|UZ|BCH|EVR|LDZ|LG|GEO|AZ|KAZ|MD|SA|AS|NE|AF|CN|IND|FAN|AUS?
-    $SECTION NAME=P_SU_AUS_WORLD; LC=1;
+    $SECTION 												\
+	NAME=P_SU_AUS_WORLD;										\
+	LC=1;
       {SU|RZD|UZ|BCH|EVR|LDZ|LG|GEO|AZ|KAZ|MD?
 	%PSEC(POOL_SU,P_SU)
       }
@@ -208,7 +233,9 @@ $SECTION NAME=POOLSEC; LC=1; POOL=RWMODE;
 	%PSEC(POOL_AUS,P_AUS)
       }
       {SA|AS|NE|AF|CN|FAN|IND?
-        $SECTION NAME=P_WORLD; LC=1;
+	$SECTION 											\
+	    NAME=P_WORLD;										\
+	    LC=1;
 	  {SA?
 	    %PSEC(POOL_SA)
 	  }
@@ -233,31 +260,34 @@ $SECTION NAME=POOLSEC; LC=1; POOL=RWMODE;
 	  {FAN?
 	    %PSEC(POOL_PHA)
 	  }
-	$ENDSECTION 
+	$ENDSECTION
       }
-    $ENDSECTION 
+    $ENDSECTION
   }
 
   {MMCT?
     {OWN??
-      $SECTION NAME=P_CITY; LC=1;
-	{MLGT??
-	  $INCLUDE ZSZ_CITYS.TTT
+      $SECTION 												\
+	  NAME=P_CITY;											\
+	  LC=1;
+	$INCLUDE ZSZ_CITYS.TTT
 
-	  $SECTION NAME=P_CITYG; SEQ=D; AB=30; POOL=CYMODE; %SECFIN;
-	    $INCLUDE ZSZ_CITYG.TTT
-	  $ENDSECTION 
-	}
+	$SECTION 											\
+	    NAME=P_CITYG;										\
+	    SEQ=D; AB=30; POOL=CYMODE; %SECFIN;
+	  $INCLUDE ZSZ_CITYG.TTT
+	$ENDSECTION
 
-	{MLGT?
-	  $SECTION NAME=P_MLGCITY; LC=1; VAR=BGTYPE=1;
-	    $INCLUDE MLG_URBAN.TTT
-	  $ENDSECTION 
-	}
-      $ENDSECTION 
+#	$SECTION 											\
+#	    NAME=P_MLGCITY;										\
+#	    LC=1;											\
+#	    VAR=BGTYPE=1;
+#	  $INCLUDE MLG_URBAN.TTT
+#	$ENDSECTION
+      $ENDSECTION
     }
   }
 
-$ENDSECTION 
+$ENDSECTION
 
 # ) ] }

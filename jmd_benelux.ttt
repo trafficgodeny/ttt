@@ -2,7 +2,6 @@
   $INCLUDE SINGLE.TTT
 }
 $REQUIRE JMD_DEF.TTT
-$REQUIRE JMD_EU_DEF.TTT
 
 {B?
   $SPOOL N=SNCB_TEE_1969; SEQ=R;
@@ -10,164 +9,169 @@ $REQUIRE JMD_EU_DEF.TTT
       C=(<DB_VT11TEEL,DB_901APL,DB_VT115WRL,DB_901BARL,DB_901AP,DB_901AV,DB_VT11TEE)|			\
 	  (<DB_VT11TEEL,DB_901AV,DB_901APL,DB_901BAR,DB_VT115WR1,DB_901AP,DB_VT11TEE);			\
 	V=10-14;											\
-	AP=[TX=TEE 19 "Saphir" Frankfurt/M. <- Kï¿½ln - Aachen - Liï¿½ge -> Bruxelles (anno 1969)],		\
-	  [TX=TEE 20 "Saphir" Bruxelles <- Liï¿½ge -  Aachen - Kï¿½ln -> Frankfurt/M. (anno 1969)];		\
+	AP=[TX=TEE 19 "Saphir" Frankfurt/M. <- Köln - Aachen - Liège -> Bruxelles (anno 1969)],		\
+	  [TX=TEE 20 "Saphir" Bruxelles <- Liège -  Aachen - Köln -> Frankfurt/M. (anno 1969)];		\
 	F=DPU3;
       C=(<DB_VT11TEEL,2*DB_901APL,DB_VT115WRL,DB_901BARL,2*DB_901AP,DB_901AV,DB_VT11TEE)|		\
 	  (<DB_VT11TEEL,DB_901AV,2*DB_901APL,DB_901BAR,DB_VT115WR1,2*DB_901AP,DB_VT11TEE);		\
 	V=10-14;											\
-	AP=[TX=TEE 25 "Diamant" Kï¿½ln <- Aachen - Liï¿½ge -> Bruxelles (anno 1969)],			\
-	  [TX=TEE 26 "Diamant" Bruxelles <- Liï¿½ge - Aachen -> Kï¿½ln (anno 1969)];			\
+	AP=[TX=TEE 25 "Diamant" Köln <- Aachen - Liège -> Bruxelles (anno 1969)],			\
+	  [TX=TEE 26 "Diamant" Bruxelles <- Liège - Aachen -> Köln (anno 1969)];			\
 	F=DPU3;
       TX=TEE 42 "Ruhr-Paris" Dortmund <- Aachen -> Paris (21.09.1969);					\
-	  C=SNCB_55G1MM(|L)[B:14,25,9,5],SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_RM,		\
-	    2*SNCF_TEEM69_AM;										\
+	C=SNCB_55G1MM(|L)[B:14,25,9,5],SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_RM,2*SNCF_TEEM69_AM;	\
 	V=10-12;											\
-	F=DP3;
+	AP=[FG-=FL_SNCB_F,FL_SNCFC_M1:..,-4,#;][BG+=TRBED(1|11|12|5|7|8):..,^0][W=X;];
     }
-  $ENDPOOL 
+  $ENDPOOL
 
   $SPOOL N=SNCB_TEE_1970; SEQ=R;
     {E4?
-      TX=TEE 41 "Paris-Ruhr" Paris <-> Dï¿½sseldorf (01.1970);						\
-	  C=SNCB_15B~GOU,SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_RM,SNCF_TEEM69_AM,			\
-	    $DIR(SNCF_TEEM69_ADM,SNCF_TEEM69_ADML);							\
+      TX=TEE 41 "Paris-Ruhr" Paris <-> Düsseldorf (01.1970);						\
+	C=SNCB_15B~GOU,SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_RM,SNCF_TEEM69_AM,			\
+	  $DIR(SNCF_TEEM69_ADM,SNCF_TEEM69_ADML);							\
 	F=EP4;
-      TX=TEE 41 "Paris-Ruhr" Paris <-> Dï¿½sseldorf (01.1970);						\
-	  C=SNCF_CC40100~JMD[P3U]|SNCF_CC40100L[P4U],SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_RM,	\
-	    SNCF_TEEM69_AM,$DIR(SNCF_TEEM69_ADM,SNCF_TEEM69_ADML);					\
+      TX=TEE 41 "Paris-Ruhr" Paris <-> Düsseldorf (01.1970);						\
+	C=SNCF_CC40100~JMD[P3U]|SNCF_CC40100L[P4U],SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_RM,	\
+	  SNCF_TEEM69_AM,$DIR(SNCF_TEEM69_ADM,SNCF_TEEM69_ADML);					\
 	F=EPX4;
-      TX=TEE 41 "Paris-Ruhr" Paris <-> Dï¿½sseldorf (01.1970);						\
+      TX=TEE 41 "Paris-Ruhr" Paris <-> Düsseldorf (01.1970);						\
 	M=CHANGE;											\
-	  C=SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_RM,SNCF_TEEM69_AM,				\
-	    $DIR(SNCF_TEEM69_ADM,SNCF_TEEM69_ADML);							\
+	C=SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_RM,SNCF_TEEM69_AM,				\
+	  $DIR(SNCF_TEEM69_ADM,SNCF_TEEM69_ADML);							\
 	C1=SNCF_CC40100~JMD[P3U];									\
 	C2=SNCB_15B~GOU;										\
 	V2=2-3; V3=2-3; P=@+35-45; T1=8-12; T2=15-20; T3=5-8,PD,15-20,PBU,10-15;			\
 	F=EPOX4;
-      TX=TEE 41 "Paris-Ruhr" Paris <-> Dï¿½sseldorf (01.1970);						\
+      TX=TEE 41 "Paris-Ruhr" Paris <-> Düsseldorf (01.1970);						\
 	M=CHANGE;											\
-	  C=SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_RM,SNCF_TEEM69_AM,				\
-	    $DIR(SNCF_TEEM69_ADM,SNCF_TEEM69_ADML);							\
+	C=SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_RM,SNCF_TEEM69_AM,				\
+	  $DIR(SNCF_TEEM69_ADM,SNCF_TEEM69_ADML);							\
 	C1=SNCB_15B~GOU;										\
 	C2=SNCF_CC40100L[P4U];										\
 	V2=2-3; V3=2-3; P=@+35-45; T1=8-12; T2=15-20; T3=5-8,PD,15-20,P4U,10-15;			\
 	F=EPOX4;
-      TX=TEE 41 "Paris-Ruhr" Paris <-> Dï¿½sseldorf (01.1970);						\
+      TX=TEE 41 "Paris-Ruhr" Paris <-> Düsseldorf (01.1970);						\
 	M=CHANGE;											\
-	  C=SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_RM,SNCF_TEEM69_AM,				\
-	    $DIR(SNCF_TEEM69_ADM,SNCF_TEEM69_ADML);							\
+	C=SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_RM,SNCF_TEEM69_AM,				\
+	  $DIR(SNCF_TEEM69_ADM,SNCF_TEEM69_ADML);							\
 	C1=SNCB_15B~GOU;										\
 	C2=BR112RB1[PFU]|BR112RB2[PFU];									\
 	V2=2-3; V3=2-3; P=@+35-45; T1=8-12; T2=15-20; T3=5-8,PD,15-20,PBU,10-15;			\
 	F=EPO4;
-      TX=TEE 41 "Paris-Ruhr" Paris <-> Dï¿½sseldorf (01.1970);						\
-	  C=BR112RB1[PFU]|BR112RB2[PFU],SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_RM,SNCF_TEEM69_AM,	\
-	    $DIR(SNCF_TEEM69_ADM,SNCF_TEEM69_ADML);							\
+      TX=TEE 41 "Paris-Ruhr" Paris <-> Düsseldorf (01.1970);						\
+	C=BR112RB1[PFU]|BR112RB2[PFU],SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_RM,SNCF_TEEM69_AM,	\
+	  $DIR(SNCF_TEEM69_ADM,SNCF_TEEM69_ADML);							\
 	F=EP4;
-      TX=TEE 42 "Ruhr-Paris" Dortmund <- Aachen -> Paris (Abschnitt Aachen - Lï¿½ttich) (19.09.1970);	\
-	  C=DB_E410002[P2U],2*SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_RM,2*SNCF_TEEM69_AM;		\
+      TX=TEE 42 "Ruhr-Paris" Dortmund <- Aachen -> Paris (Abschnitt Aachen - Lüttich)(19.09.1970);	\
+	C=DB_E410002[P2U],2*SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_RM,2*SNCF_TEEM69_AM;		\
 	V=10-12;											\
 	F=EP4;
     }
-  $ENDPOOL 
+  $ENDPOOL
 
   $SPOOL N=B_F_1970; SEQ=R;
     {E4?
-      TX=TEE 41 "Paris-Ruhr" Paris <-> Dï¿½sseldorf (01.1970);						\
-	  C=SNCF_CC40100~JMD[P3U]|SNCF_CC40100L[P4U],SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_RM,	\
-	    SNCF_TEEM69_AM,$DIR(SNCF_TEEM69_ADM,SNCF_TEEM69_ADML);					\
-	  AP=F_CAT;
-	TX=TEE 41 "Paris-Ruhr" Paris <-> Dï¿½sseldorf (01.1970);						\
+      TX=TEE 41 "Paris-Ruhr" Paris <-> Düsseldorf (01.1970);						\
+	C=SNCF_CC40100~JMD[P3U]|SNCF_CC40100L[P4U],SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_RM,	\
+	  SNCF_TEEM69_AM,$DIR(SNCF_TEEM69_ADM,SNCF_TEEM69_ADML);					\
+	AP=F_CAT;
+      TX=TEE 41 "Paris-Ruhr" Paris <-> Düsseldorf (01.1970);						\
 	M=CHANGE;											\
-	  C=SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_RM,SNCF_TEEM69_AM,				\
-	    $DIR(SNCF_TEEM69_ADM,SNCF_TEEM69_ADML);							\
+	C=SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_RM,SNCF_TEEM69_AM,				\
+	  $DIR(SNCF_TEEM69_ADM,SNCF_TEEM69_ADML);							\
 	C1=SNCF_CC40100~JMD[P3U];									\
 	C2=SNCB_15B~GOU;										\
 	V2=2-3; V3=2-3; P=@+35-45; T1=8-12; T2=15-20; T3=5-8,PD,15-20,PBU,10-15; W=E;			\
 	F=EPOX4;
-      TX=TEE 41 "Paris-Ruhr" Paris <-> Dï¿½sseldorf (01.1970);						\
+      TX=TEE 41 "Paris-Ruhr" Paris <-> Düsseldorf (01.1970);						\
 	M=CHANGE;											\
-	  C=SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_RM,SNCF_TEEM69_AM,				\
-	    $DIR(SNCF_TEEM69_ADM,SNCF_TEEM69_ADML);							\
+	C=SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_RM,SNCF_TEEM69_AM,				\
+	  $DIR(SNCF_TEEM69_ADM,SNCF_TEEM69_ADML);							\
 	C1=SNCB_15B~GOU;										\
 	C2=SNCF_CC40100L[P4U];										\
 	V2=2-3; V3=2-3; P=@+35-45; T1=8-12; T2=15-20; T3=5-8,PD,15-20,P4U,10-15; W=E;			\
 	F=EPOX4;
     }
-  $ENDPOOL 
+  $ENDPOOL
 
   $SPOOL N=SNCB_B2D_1990; SEQ=R;
     {E5?
-      TX=D 310 Kï¿½ln Hbf. -> Oostende (anno 1990);							\
-	  C=HLE16_B5,2*SNCB_DMSOM(|L)|SNCB_9570(|BR)(|L),2*SNCB_1971O(|L),SNCB_4_I4A4B6SO(|L),		\
+      TX=D 310 Köln Hbf. -> Oostende (anno 1990);							\
+	C=HLE16_B5,2*SNCB_DMSOM(|L)|SNCB_9570(|BR)(|L),2*SNCB_1971O(|L),SNCB_4_I4A4B6SO(|L),		\
 	  4*SNCB_2171O(|L),DBBM4;									\
 	V=10-12;											\
 	F=EP5;
-      TX=D 311 Oostende -> Kï¿½ln Hbf. (anno 1990);							\
+      TX=D 311 Oostende -> Köln Hbf. (anno 1990);							\
 	C=HLE16_B5|HLE18_B,4*DBBM4,4*SNCB_2171O(|L),SNCB_4_I4A4B6SO(|L),2*SNCB_1971O(|L);		\
 	V=10-12;											\
 	F=EP5;
-      TX=D 312 Kï¿½ln Hbf. -> Oostende (anno 1990);							\
-	C=HLE16_B5|HLE18_B,RZD_WL2L~HEN|RZD_WL2~HEN,PKP_B_4,DB_WLABMH174CD[BC:-20,-20](|L),		\
-	    2*SNCB_DMSOM(|L)|SNCB_9570(|BR)(|L),2*SNCB_1971O(|L),SNCB_4_I4A4B6SO(|L),4*SNCB_2171O(|L),	\
-	    DBBM4;											\
+      TX=D 312 Köln Hbf. -> Oostende (anno 1990);							\
+	C=HLE16_B5|HLE18_B,RZD_WL2L~HEN|RZD_WL2~HEN,PKP_B_4,DB_WLABMH174CD(|L),				\
+	  2*SNCB_DMSOM(|L)|SNCB_9570(|BR)(|L),2*SNCB_1971O(|L),SNCB_4_I4A4B6SO(|L),4*SNCB_2171O(|L),	\
+	  DBBM4;											\
 	V=10-12;											\
 	F=EP5;
     }
-  $ENDPOOL 
+  $ENDPOOL
 
   $SPOOL N=SNCB_INT413_1993; SEQ=R;
     {E5?
-      TX=INT 413 Oostende <- Brugge - Gent-St.-Pieters - Bruxelles - Leuven - Liï¿½ge (G) - Verviers-Central - Aachen - Dï¿½ren -> Kï¿½ln Hbf. (anno 1993); \
-	  C=SNCB_1806(|L)[P1U],5*SNCB_I10BOM(|L),SNCB_4_I4A4B6SOL,2*SNCB_I10AOM(|L);			\
+      TX=INT 413 Oostende <- Brugge - Gent-St.-Pieters - Bruxelles - Leuven - Liège (G)			\
+	  - Verviers-Central - Aachen - Düren -> Köln Hbf. (anno 1993);					\
+	C=SNCB_1806(|L)[P1U],5*SNCB_I10BOM(|L),SNCB_4_I4A4B6SOL,2*SNCB_I10AOM(|L);			\
 	D=R; V=10-14;											\
 	F=EP5;
-      TX=INT 413 Oostende <- Brugge - Gent-St.-Pieters - Bruxelles - Leuven - Liï¿½ge (G) - Verviers-Central - Aachen - Dï¿½ren -> Kï¿½ln Hbf. (anno 1993); \
-	  C=SNCB_1806(|L)[P1U],5*SNCB_I10BOM(|L),SNCB_4_I4A4B6SO,2*SNCB_I10AOM(|L);			\
+      TX=INT 413 Oostende <- Brugge - Gent-St.-Pieters - Bruxelles - Leuven - Liège (G)			\
+	  - Verviers-Central - Aachen - Düren -> Köln Hbf. (anno 1993);					\
+	C=SNCB_1806(|L)[P1U],5*SNCB_I10BOM(|L),SNCB_4_I4A4B6SO,2*SNCB_I10AOM(|L);			\
 	D=L; V=10-14;											\
 	F=EP5;
-      TX=INT 413 Oostende <- Brugge - Gent-St.-Pieters - Bruxelles - Leuven - Liï¿½ge (G) - Verviers-Central - Aachen - Dï¿½ren -> Kï¿½ln Hbf. (anno 1993); \
-	  C=HLE18_B,5*SNCB_I10BOM(|L)|SNCB_I10C_BOM(|L),SNCB_4_I4A4B6SOL,2*SNCB_I10AOM(|L),		\
-	    SNCB_DMSOM(|L),2*SNCB_M4B11R(|L);								\
+      TX=INT 413 Oostende <- Brugge - Gent-St.-Pieters - Bruxelles - Leuven - Liège (G)			\
+	  - Verviers-Central - Aachen - Düren -> Köln Hbf. (anno 1993);					\
+	C=HLE18_B,5*SNCB_I10BOM(|L)|SNCB_I10C_BOM(|L),SNCB_4_I4A4B6SOL,2*SNCB_I10AOM(|L),		\
+	  SNCB_DMSOM(|L),2*SNCB_M4B11R(|L);								\
 	D=R; V=10-14;											\
 	F=EP5;
-      TX=INT 413 Oostende <- Brugge - Gent-St.-Pieters - Bruxelles - Leuven - Liï¿½ge (G) - Verviers-Central - Aachen - Dï¿½ren -> Kï¿½ln Hbf. (anno 1993); \
-	  C=HLE18_B,5*SNCB_I10BOM(|L)|SNCB_I10C_BOM(|L),SNCB_4_I4A4B6SO,2*SNCB_I10AOM(|L),		\
-	    SNCB_DMSOM(|L),2*SNCB_M4B11R(|L);								\
+      TX=INT 413 Oostende <- Brugge - Gent-St.-Pieters - Bruxelles - Leuven - Liège (G)			\
+	  - Verviers-Central - Aachen - Düren -> Köln Hbf. (anno 1993);					\
+	C=HLE18_B,5*SNCB_I10BOM(|L)|SNCB_I10C_BOM(|L),SNCB_4_I4A4B6SO,2*SNCB_I10AOM(|L),		\
+	  SNCB_DMSOM(|L),2*SNCB_M4B11R(|L);								\
 	D=L; V=10-14;											\
 	F=EP5;
-      TX=INT 413 Oostende <- Brugge - Gent-St.-Pieters - Bruxelles - Leuven - Liï¿½ge (G) - Verviers-Central - Aachen - Dï¿½ren -> Kï¿½ln Hbf. (23.05.1993); \
-	  C=SNCB_1806L[P1U],OBB_5BCMZ5970(|L),4*SNCB_I10BOML,SNCB_I10BOM,SNCB_4_I4A4B6SOL,		\
-	    SNCB_I10AOML,SNCB_I10AOM;									\
+      TX=INT 413 Oostende <- Brugge - Gent-St.-Pieters - Bruxelles - Leuven - Liège (G)			\
+	  - Verviers-Central - Aachen - Düren -> Köln Hbf. (23.05.1993);				\
+	C=SNCB_1806L[P1U],OBB_5BCMZ5970(|L),4*SNCB_I10BOML,SNCB_I10BOM,SNCB_4_I4A4B6SOL,SNCB_I10AOML,	\
+	  SNCB_I10AOM;											\
 	D=R; V=10-14;											\
 	F=EP5;
-      TX=INT 413 Oostende <- Brugge - Gent-St.-Pieters - Bruxelles - Leuven - Liï¿½ge (G) - Verviers-Central - Aachen - Dï¿½ren -> Kï¿½ln Hbf. (23.05.1993); \
-	  C=SNCB_1806[P1U],OBB_5BCMZ5970(|L),4*SNCB_I10BOM,SNCB_I10BOML,SNCB_4_I4A4B6SO,SNCB_I10AOM,	\
-	    SNCB_I10AOML;										\
+      TX=INT 413 Oostende <- Brugge - Gent-St.-Pieters - Bruxelles - Leuven - Liège (G)			\
+	  - Verviers-Central - Aachen - Düren -> Köln Hbf. (23.05.1993);				\
+	C=SNCB_1806[P1U],OBB_5BCMZ5970(|L),4*SNCB_I10BOM,SNCB_I10BOML,SNCB_4_I4A4B6SO,SNCB_I10AOM,	\
+	  SNCB_I10AOML;											\
 	D=L; V=10-14;											\
 	F=EP5;
     }
-  $ENDPOOL 
+  $ENDPOOL
 
   $SPOOL N=B_INT_2003; SEQ=R;
     {E6?
-      TX=ICE 10 Frankfurt (M.) Hbf. <-> Bruxelles Br. (anno 2003);					\
+      TX=ICE 10 Frankfurt (M.)Hbf. <-> Bruxelles Br. (anno 2003);					\
 	C=<ICE3;											\
 	V=12-30;											\
 	F=EPU6;
     }
-  $ENDPOOL 
+  $ENDPOOL
 
   $SPOOL N=B_EC_2006; SEQ=R;
     {E6?
-	C=SNCB_20B~JMD|SNCB_20B2,SNCB_I10_2170N(|L),SNCB_I6_1970N2(|L),SNCB_I6_2170N(|L);		\
+      C=SNCB_20B~JMD|SNCB_20B2,SNCB_I10_2170N(|L),SNCB_I6_1970N2(|L),SNCB_I6_2170N(|L);			\
 	V=10-14;											\
 	AP=[TX=EC 295 "Jean Monnet" Basel <- Luxembourg -> Bruxelles Midi (anno 2006)]|			\
 	  [TX=EC 296 "Jean Monnet" Bruxelles Midi <- Luxembourg -> Basel (anno 2006)];			\
 	F=EP6;
     }
-  $ENDPOOL 
+  $ENDPOOL
 
 #
 # Belgium
@@ -178,9 +182,10 @@ $REQUIRE JMD_EU_DEF.TTT
       C=SNCB_HLV62L,4*SNCB_I1_3(|L),SNCB_I1_12(|L),2*SNCB_I1_3(|L);					\
 	D=L;												\
 	F=SP2;
-      TX=Train 52 "Paris-Berlin-Riga-Varsovie-Express" Liï¿½ge <-> Kï¿½ln (anno 1924);			\
-	C=SNCB_HLV62,SNCB_I1_DLML|SNCB_I1_DML,CIWL_WL3487B,DRG_ABC6U07,DRG_AB6U06[B:106,23,8,9],	\
-	  CIWL_WR2871B,CIWL_WL3487B,CIWL_WR2871B,(<PLM_AB4ULLSL,PLM_AB4ULS),2*CIWL_WL3487B;		\
+      TX=Train 52 "Paris-Berlin-Riga-Varsovie-Express" Liège <-> Köln (anno 1924);			\
+	C=SNCB_HLV62,SNCB_I1_DLML|SNCB_I1_DML,CIWL_WL3487B,DRG_ABC6UPR07B[B:102,23,8,9][B:102,32,8,1],	\
+	  DRG_AB6UPR06B[B:85,23,8,9][B:85,32,8,1],CIWL_WR2871B,CIWL_WL3487B,CIWL_WR2871B,		\
+	  (<PLM_AB4ULLSL,PLM_AB4ULS),2*CIWL_WL3487B;							\
 	D=R;												\
 	F=SP2;
       C=<SNCB_65(2|2_1|3|3_1|4)(|A);									\
@@ -197,20 +202,24 @@ $REQUIRE JMD_EU_DEF.TTT
 	F=SF2;
     }
     {E3?
+      C=SNCB_98016(|L),12*BEL_RIVG3A;									\
+	V=1-3;												\
+	F=SF3;
       C=SNCB_HLV90L,22*SNCB_3A_410000(|L)|SNCB_3A_420000(|L);						\
 	F=SF3;
       C=<SNCB_AR630BKL,SNCB_AR630AB,SNCB_630001ABL,SNCB_AR630DM;					\
 	F=DPU3;
 #
 # 1956 Red freight car color introduced
-#
-      C=<SNCB_29C,SNCB_34_M1B8DL,SNCB_34_M1B10(|L),SNCB_34_M1B8DX;					\
+# Gegenrichtung ergänzt
+      C=(<SNCB_29C,SNCB_34_M1B8DL,SNCB_34_M1B10(|L),SNCB_34_M1B8DX)|\
+	  (>SNCB_29C,SNCB_34_M1B8D,SNCB_34_M1B10(|L),SNCB_34_M1B8DXL);					\
 	F=EP3;
       C=SNCB_212M(|L),(<SNCB_2_M1B5C4(|L),SNCB_2_M1C10(|L),SNCB_2_M1C8P);				\
 	F=DP3;
       C=2*SNCB_64;
 # ^ Lokzug ort unbekannt 1957.
-      TX=TEE 155 "Parsifal" Paris <- Lï¿½ttich - Aachen - Kï¿½ln -> Dortmund (17.10.1957);			\
+      TX=TEE 155 "Parsifal" Paris <- Lüttich - Aachen - Köln -> Dortmund (17.10.1957);			\
 	C=$DIR(SNCF_RGP1TEEXML,SNCF_RGP1TEEXM)[N:#P,BG_NULL],						\
 	  $DIR(SNCF_RGP1TEEXRML,SNCF_RGP1TEEXRM)[N:#P,BG_NULL],						\
 	  $DIR(SNCF_RGP1TEEXM,SNCF_RGP1TEEXML)[N:#P,BG_NULL];						\
@@ -227,7 +236,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	F=SP3;
       C=SNCB_212M(|L),(<SNCB_3LB8(|L),SNCB_3LA6D(|L),2*SNCB_3LB8(|L));					\
 	F=DP3;
-      TX=Int 84 Kï¿½ln-Deutz <- Kï¿½ln Hbf. - Dï¿½ren - Aachen - Herbesthal - Liï¿½ge - Bruxelles - Gent-St.-Pieters - Brugge -> Oostende (April 1966); \
+      TX=Int 84 Köln-Deutz <- Köln Hbf. - Düren - Aachen - Herbesthal - Liège - Bruxelles - Gent-St.-Pieters - Brugge -> Oostende (April 1966); \
 	C=SNCB_4_52(01|02|06|12)(|L),SNCB_I1_B5DR(|L),2*SNCB_4_I1B11A(|L),2*SNCB_4_I1B8A(|L),		\
 	  2*SNCB_4_I1A4B4A(|L);										\
 	F=DP3;
@@ -242,11 +251,6 @@ $REQUIRE JMD_EU_DEF.TTT
 	F=SF3;
       C=<SNCB_212M(|L),SNCB_34_M1B10(|L),SNCB_34_M1A5B4(|L),1-2*SNCB_34_M1B10(|L),SNCB_34_M1B8DX;	\
 	F=DP3;
-      C=<SNCB_AR4001DML,SNCB_AR4001AB(|L),SNCB_AR4001BK;						\
-	F=DPU3;
-      C=SNCB_122_001(|L)|SNCB_2205(|L)|SNCB_123_001(|L),SNCB_I1_B(10|10L|8|8L),SNCB_4_I1A4B4B(|L),	\
-	  2*SNCB_I1_B(10|10L|7R|7RL|8|8L);								\
-	F=EP3;
       C=SNCB_29G2M,16*NS_Z2A(|L);									\
 	F=EF3;
       C=(<SNCB_MW40MML,SNCB_MW40RABM,SNCB_MW40RBXM)|(<SNCB_MW40RBXML,SNCB_MW40RABML,SNCB_MW40MM);	\
@@ -272,11 +276,11 @@ $REQUIRE JMD_EU_DEF.TTT
 #=-=-=-=-=
 # 1973 - Railtour livery with blue bands introduced
 #=-=-=-=-=
-      TX=TEE 40 "Moliï¿½re" Paris <-> Dï¿½sseldorf (06.1973);						\
+      TX=TEE 40 "Molière" Paris <-> Düsseldorf (06.1973);						\
 	C=SNCB_15B~GOU,SNCF_INOXL_A9M,									\
 	  (<SNCF_TEEM69_ADML,SNCF_TEEM69_AM,SNCF_TEEM69_RM,SNCF_TEEM69_BARM,2*SNCF_TEEM69_AM);		\
 	F=EP4;
-      TX=Brï¿½ssel <-> Amsterdam (anno 1973);								\
+      TX=Brüssel <-> Amsterdam (anno 1973);								\
 	C=<NS_PLAN_DRSTL,2-3*NS_W1_B3(|L),SNCB_4_I4A9SB(|L),SNCB_4_I4A4B6BL,				\
 	  SNCB_255BY1M(|L)|SNCB_25_5(|L);								\
 	F=EP4;
@@ -289,12 +293,12 @@ $REQUIRE JMD_EU_DEF.TTT
 	F=DP4;
       C=SNCB_SABENA2(|L);										\
 	F=EPU4;
-      TX=E 325 Oostende <-> Kï¿½ln (anno 1975);								\
+      TX=E 325 Oostende <-> Köln (anno 1975);								\
 	C=SNCB_23GM(|L),SNCB_4_I1A8B(|L),SNCB_4_I2A8B(|L),SNCB_I1_B5DR(|L),				\
 	  2*SNCB_4_I1B8B(|L)|SNCB_4_I1B8C(|L),SNCB_4_I2B11B(|L),SNCB_4_I2B8C(|L),			\
 	  SNCB_4_I1B8B(|L)|SNCB_4_I1B8C(|L);								\
 	F=EP4;
-      TX=TEE 40 "Moliï¿½re" Paris <-> Dï¿½sseldorf (09.1975);						\
+      TX=TEE 40 "Molière" Paris <-> Düsseldorf (09.1975);						\
 	C=SNCB_15B~GOU,SNCF_INOXL_A9M,(<SNCF_TEEM69_AM,SNCF_TEEM69_RM,2*SNCF_TEEM69_AM,SNCF_TEEM69_ADM); \
 	F=EP4;
       TX=Libramont (18.09.1976);									\
@@ -315,9 +319,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	  SNCB_I1_B7R(|L),FS_MU_F64M_W(|L)ML,SNCB_4_I5B10B1(|L),FS_4A_UICX68BC1(|L),			\
 	  SNCB_I1_DLML|SNCB_I1_DML,SNCB_4_I1A4B4B(|L),SNCB_I2_A4RGM(|L)|SNCB_I2_A4ROM(|L);		\
 	F=EP4;
-#in Namur 8.1978
-#FS X64 should be BC's. Baggage should be long RIC old style. Buffet and dancing cars should be I2.
-      TX=D 218/219 "Tauern-Express" Split <- Zagreb Gl. - Villach - Salzburg - Mï¿½nchen - Stuttgart - Kï¿½ln - Aachen - Liï¿½ge-G. - Bruxelles/Brussel -> Oostende (anno 1978); \
+      TX=D 218/219 "Tauern-Express" Split <- Zagreb Gl. - Villach - Salzburg - München - Stuttgart - Köln - Aachen - Liège-G. - Bruxelles/Brussel -> Oostende (anno 1978); \
 	C=HLE23,											\
 	  (DB_4POSTMRABB(|L)|DB_4POSTMRAPBB(|L)|DB_4POSTMRZBB(|L))|					\
 	  3:(DB_4POSTMRZG(|L)|DB_4POSTMRAG(|L)|DB_4POSTMRAPG(|L)),DBABM4,				\
@@ -327,13 +329,15 @@ $REQUIRE JMD_EU_DEF.TTT
 	  (OBB_4A2171(|L))|(SNCB_I10BOM(|L)|SNCB_I10C_BOM(|L)),OBB_4A2171(|L);				\
 	V=8-12;												\
 	F=EP4;
-# substituted GOSA-built OSE coaches for JZ as no green JZ GOSA coaches available yet
-      TX=Trein 8512 Liï¿½ge-Guillemins <-> Jemelle (anno 1979);						\
+      TX=Trein 8512 Liège-Guillemins <-> Jemelle (anno 1979);						\
 	C=SNCB_55V70EM(|L),(<SNCB_M2GBDML,SNCB_M2GABM,SNCB_M2GBM(|L)|SNCB_M2GBM[B:45,20,13,13,#18392D]); \
 	F=DP4;
-      TX=Oostende <- Aachen -> Kï¿½ln (anno 1979);							\
+      TX=Oostende <- Aachen -> Köln (anno 1979);							\
 	C=HLE16_B4,SNCB_DMSOM(|L),SNCB_4_I4A9PGB(|L),$DIR(SNCB_4_I4A4B6C9C,SNCB_4_I4A4B6C9CL),		\
-	  SNCB_I1_B5DRL,4*SNCB_4_I2B8C(|L),3*SNCB_K1B1M(|L),SNCB_K1A1M(|L);						\
+	  SNCB_I1_B5DRL,4*SNCB_4_I2B8C(|L),3*SNCB_K1B1M(|L),SNCB_K1A1M(|L);				\
+	W=X;												\
+	BG=TRBED(1|11|12|5|7|8|31|42|45):..,^0;								\
+	FG=FL_SNCB_F,FL_SNCFC_M1:..,-4,#;								\
 	F=EP4;
       TX=Turnhout <-> Antwerpen Centraal (29.09.1979);							\
 	C=SNCB_62G4M(|L),$DIR(SNCB_M2GABM,SNCB_M2GABML),3*SNCB_M2GBM(|L);				\
@@ -348,7 +352,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	C=SNCB_62G4M(|L)|SNCB_62G70M(|L),								\
 	  (<SNCB_34_M1B10(|L),SNCB_34_M1A5B4,SNCB_3_M1B8DP|SNCB_34_M1B8D);				\
 	F=DP4;
-      TX=IC 148 "Saphir" Kï¿½ln <-> Oostende (anno 1980);							\
+      TX=IC 148 "Saphir" Köln <-> Oostende (anno 1980);							\
 	C=HLE16_B4|HLE18_B,DB_APMZ121_0(|L)|DB_APMZ121(|L),DB_4AVMZ111_(0|1|2)(|L),SNCB_I2_A3ROM(|L),	\
 	  3-4*DBBM4;											\
 	F=EP4;
@@ -373,7 +377,7 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=Antwerpen <-> Brussel (21.10.1980);								\
 	C=SNCB_AM46(|L);										\
 	F=EPU4;
-      TX=IC 45 Liï¿½ge <-> Aachen (anno 1980);								\
+      TX=IC 45 Liège <-> Aachen (anno 1980);								\
 	C=HLE27,2*SNCF_VSE_2A9M(|L),DB_41WRMH(|L)|DB_41WRMH132(|L)|DB_42WRMH132(|L),			\
 	  5*SNCF_VTU_1BM(|L)|3:SNCF_VTU_BM(|L),SNCF_VU_1B6DM(|L);					\
 	F=EP4;
@@ -389,7 +393,7 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=TT 8662 Geraardsbergen <-> Gent-St.-Pieters (anno 1981);					\
 	C=SNCB_AR43RYM(|L);										\
 	F=PU4;
-      TX=TEE 92 "Iris" Zï¿½rich <- Luxembourg -> Bruxelles (12.05.1981);					\
+      TX=TEE 92 "Iris" Zürich <- Luxembourg -> Bruxelles (12.05.1981);					\
 	C=<RAETEECH;											\
 	V=10-15;											\
 	F=EPU4;
@@ -408,7 +412,6 @@ $REQUIRE JMD_EU_DEF.TTT
 	C=SNCB_65YGM(|L),D_4A_GLM200,DR_4RGS3910RA(|L),SNCB_GBSM,2*DRFCS,ESLOADED,4*DRFCS,		\
 	  4*DB_4A_ZACES_SOGEFA(|A|_A2),RIVEPIVH;							\
 	F=DF4;
-#NS GBS sollte SNCB sein, SNCB HLD55 sollte HLD65 sein
       C=SNCB_AR49(|L);											\
 	F=DPU4;
       C=SNCB_20A[PFU],SNCB_29G2M,18*SNCF_MINM;								\
@@ -420,13 +423,12 @@ $REQUIRE JMD_EU_DEF.TTT
 	C=SNCB_22YB2M(|L)|SNCB_22YB3M(|L),SNCB_RESTOBREDA_OML,SNCB_1971O(|L),				\
 	  $DIR(SNCB_4_I4A4B6SO,SNCB_4_I4A4B6SOL),3*SNCB_2171O(|L);					\
 	F=EP4;
-      TX=Tournai <-> Liï¿½ge (09.02.1982);								\
+      TX=Tournai <-> Liège (09.02.1982);								\
 	C=SNCB_23GM(|L),2*SNCB_4_I2B11B(|L),SNCB_4_I2B8C(|L),SNCB_4_I2A8B(|L);				\
 	F=EP4;
       TX=Feluy (12.02.1982);										\
 	C=SNCB_29G2M[PU],20*GT_ISO_X;									\
 	F=EF4;
-# Feluy 12.02.1982
       TX="Freccia del Sole" Bruxelles Midi <-> Rimini (anno 1982);					\
 	C=SNCB_20A|HLD53|(SNCB_15O~GOU),SNCB_4_I5B10B1(|L),SNCB_AB30_V1M(|L),SNCB_4_I5B10B1(|L),	\
 	  SNCB_DISCO_RT2M(|L)|SNCB_DISCO_RTM(|L),2*SNCB_4_I5B10B1(|L),SNCB_AB30_V1M(|L),		\
@@ -445,10 +447,11 @@ $REQUIRE JMD_EU_DEF.TTT
 	AP=[TX=Train 296 "Edelweiss" Bruxelles Midi <- Luxembourg -> Basel SBB (anno 1982)]|		\
 	  [TX=Train 297 "Edelweiss" Basel SBB <- Luxembourg -> Bruxelles Midi (anno 1982)];		\
 	F=EP4;
-      TX=Liï¿½ge <-> Maastricht (05.05.1982);								\
+      TX=Liège <-> Maastricht (05.05.1982);								\
 	C=NS_DE1R2M(|L);										\
 	F=PU4;
-      TX=D 240/241 "Ost-West Express"  Moskwa <- Minsk - Warszawa - Poznan Gl. - Frankfurt (Oder) - Berlin Ostbf. - Berlin Zoo. - Hannover - Kï¿½ln - Aachen - Liï¿½ge-G. -> Paris-Nord (06.06.1982); \
+      TX=D 240/241 "Ost-West Express"  Moskwa <- Minsk - Warszawa - Poznan Gl. - Frankfurt (Oder)	\
+	  - Berlin Ostbf. - Berlin Zoo. - Hannover - Köln - Aachen - Liège-G. -> Paris-Nord (06.06.1982); \
 	C=SNCB_23GM(|L),3*RZD_WL2L~HEN|RZD_WL2~HEN,2*PKP_BC_4,PKP_B_4,PKP_ABDU4;			\
 	V=9-12;												\
 	F=EP4;
@@ -456,12 +459,12 @@ $REQUIRE JMD_EU_DEF.TTT
 	  2*SNCF_UAGPPS1U(|L),7*SNCF_EAOS(1|2|3),2*SNCF_S58M|G_SHIMMNSP_Y25(2:A|B|C|4:D)(|L),		\
 	  8*SNCB_TADS(1|2);										\
 	F=F4;
-      TX=Oostende <- Aachen -> Kï¿½ln (anno 1982);							\
+      TX=Oostende <- Aachen -> Köln (anno 1982);							\
 	C=HLE16_B4,SNCB_DMSOM(|L),SNCB_4_I4A9PGB(|L),$DIR(SNCB_4_I4A4B6C9C,SNCB_4_I4A4B6C9CL),		\
 	  SNCB_I1_B5DRL,SNCB_4_I1B8B(|L)|SNCB_4_I1B8C(|L),2*SNCB_4_I2B8C(|L),				\
 	  SNCB_4_I1B8B(|L)|SNCB_4_I1B8C(|L),SNCB_4_I2B8C(|L);						\
 	F=EP4;
-      TX=Namur <-> Liï¿½ge (04.10.1982);									\
+      TX=Namur <-> Liège (04.10.1982);									\
 	C=SNCB_AM50G1M(|L);										\
 	F=EPU4;
       TX=Henripont (22.10.1982);									\
@@ -470,11 +473,11 @@ $REQUIRE JMD_EU_DEF.TTT
       C=HLD53,SNCB_20B~JMD[PD]|SNCB_20B2[PD],SNCB_I10BOM(|L)|SNCB_I10C_BOM(|L),SNCB_1971O(|L),		\
 	  SNCB_T2_3L,SNCB_1971O(|L),SNCB_2171O(|L),SNCB_I10BOM(|L)|SNCB_I10C_BOM(|L);			\
 	F=P4;
-      TX=P 3161 Mouscron <-> Liï¿½ge (12.11.1982);							\
+      TX=P 3161 Mouscron <-> Liège (12.11.1982);							\
 	C=SNCB_23GM(|L),2*SNCB_M2GBM(|L),$DIR(SNCB_M2GABML,SNCB_M2GABM),$DIR(SNCB_M2GBDM,SNCB_M2GBDML);	\
 	F=EP4;
       TX=Bastogne <-> Gouvy (08.12.1982);								\
-	C=SNCB_AR43RY(|L);										\
+	C=SNCB_AR43RYM(|L);										\
 	F=DPU4;
       C=SNCB_AR553_VG(|L)|SNCB_AR554G(|L);								\
 	F=DPU4;
@@ -485,8 +488,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	F=DP4;
       TX=Saint-Vincent-Bellefontaine (02.03.1983);							\
 	C=2*SNCB_AR43RYM(|L);										\
-	F=DPU4;
-# Saint-Vincent-Bellefontaine (02.03.1983)
+	F=PU4;
       C=HLD59,2*SNCB_4_I5B10B2(|L),SNCB_4_I5B10R1(|L),SNCB_4_I5B10B1(|L),2*SNCB_4_I5B10R1(|L),		\
 	  2*SNCB_4_I5B10B2(|L);										\
 	F=DP4;
@@ -501,33 +503,31 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=Bruges (16.05.1983);										\
 	C=SNCB_AM54G2M(|L),(<SNCB_AM73G2BML,SNCB_AM73G2ABM);						\
 	F=EPU4;
-# Houthem 20.04.1983
       C=(<NS_BNLX_ABK1L~EB,NS_BNLX_BDK1~EB)|(<NS_BNLX_BDK1L~EB,NS_BNLX_ABK1~EB)|			\
 	  (<NS_BNLX_ABK2L~GOU,NS_BNLX_BDK2~GOU)|(<NS_BNLX_BDK2L~GOU,NS_BNLX_ABK2~GOU);			\
 	F=EPU4;
       TX=Dinant <-> Bertrix (28.06.1983);								\
-	C=SNCB_AR43RY(|L),SNCB_R732R(|L),SNCB_AR43RY(|L);						\
-	F=DPU4;
+	C=SNCB_AR43RYM(|L),SNCB_R732M(|L),SNCB_AR43RYM(|L);						\
+	F=PU4;
       TX="Freccia del Sole" Bruxelles Midi <-> Rimini (anno 1983);					\
-	C=SNCB_2024|(SNCB_16AL[P3U]|SNCB_16A[P3U]),2*SNCB_I5_5070_RT1(|L),				\
-	  SNCB_4_I5B10B3(|L)|SNCB_I5_5080RT(1|1L|2L),SNCB_9070|SNCB_9570(|L);				\
+	C=SNCB_2024|(SNCB_16AL[P3U]|SNCB_16A[P3U]),2*SNCB_4_I5B10R1(|L),				\
+	  SNCB_4_I5B10B3(|L)|SNCB_I5_5080RT(1|1L|2L),SNCB_DMSOM(|L);					\
 	F=EP4;
       TX=Bertrix <-> Libramont (15.07.1983);								\
 	C=SNCB_9150(|L),9*G_KS2;									\
 	V=4;												\
 	F=DF4;
 # ^^some of the Ks should be old SNCB style
-      TX=Quiï¿½vrain (21.07.1983);									\
-	C=SNCB_AR44RYML;											\
-	F=DPU4;
-# Quiï¿½vrain 21.07.1983
+      TX=Quiévrain (21.07.1983);									\
+	C=SNCB_AR44RYML;										\
+	F=PU4;
       TX=Train 6534 Namur <-> Givet (19.08.1983);							\
 	C=SNCB_59YG3M(|L),SNCB_62G70M(|L),3*SNCB_K1B1M(|L),$DIR(SNCB_K1ARDML,SNCB_K1ARDM);		\
 	F=DP4;
       TX=Train 4608 Dinant <-> Bertrix (26.09.1983);							\
 	C=SNCB_4_5206(|L),3*SNCB_K1B1M(|L),$DIR(SNCB_K1ARDML,SNCB_K1ARDM);				\
 	F=DP4;
-      TX=IC 321 Oostende <-> Kï¿½ln (29.10.1983);								\
+      TX=IC 321 Oostende <-> Köln (29.10.1983);								\
 	C=SNCB_16CL[P3U],DB_4A_BUM233(|L),2*SNCB_4_I2B11B(|L),SNCB_2171O(|L),SNCB_DMSOM(|L),		\
 	  4*SNCB_2171O(|L);										\
 	F=EP4;
@@ -544,7 +544,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	F=DP4;
       C=<NS_PLAN_DRSTL,3*NS_W1_B3(|L),SNCB_4_I4A4B6B,SNCB_4_I4A9SB(|L),SNCB_255BY1M(|L)|SNCB_25_5(|L);	\
 	F=EP4;
-      TX=IC 3111 Liï¿½ge <-> Mouscron (12.03.1984);							\
+      TX=IC 3111 Liège <-> Mouscron (12.03.1984);							\
 	C=SNCB_26YBM,$DIR(SNCB_M4RADM,SNCB_M4RADML),4*SNCB_M4B11R(|L);					\
 	F=EP4;
       TX=Train 7327 Bascoup <-> Charleroi (anno 1984);							\
@@ -569,7 +569,6 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=Tavigny (23.04.1984);										\
 	C=SNCB_AR43RYM(|L);										\
 	F=DPU4;
-# Tavigny 23.04.1984
       C=SNCB_5_5519(|L),ZACGS,GT21|VTG_6,RIVEAS4,G_ES1,HUPAC_5,G_SGS4,ZACGS,RIVEPIVH,8*SNCB_TADS(1|2);	\
 	F=DF4;
       TX=Braine-le-Comte <-> Enghien (27.04.1984);							\
@@ -581,12 +580,12 @@ $REQUIRE JMD_EU_DEF.TTT
       C=SNCB_55G1MM(|L)|,(<3*SNCB_M2GBM|SNCB_M2GBM[B:45,20,13,13,#18392D],SNCB_M2GABM,SNCB_M2GBDM);	\
 	F=DP4;
       C=SNCB_AR43RYM(|L);										\
-	AP=[TX=Trein 4972 Gouvy <-> Libramont (anno 1984)]|[TX=Trein 8592 Gouvy <-> Liï¿½ge (anno 1984)];	\
+	AP=[TX=Trein 4972 Gouvy <-> Libramont (anno 1984)]|[TX=Trein 8592 Gouvy <-> Liège (anno 1984)];	\
 	F=DPU4;
       TX=Geraardsbergen <-> Enghien (06.1984);								\
 	C=SNCB_62G4M(|L),SNCB_M3_ADM(|L),3*SNCB_M3_BM(|L);						\
 	F=DP4;
-      TX=Vonï¿½che (21.08.1984);										\
+      TX=Vonêche (21.08.1984);										\
 	C=SNCB_5_5310(|L),SNCB_4_5403(|L),20*SNCF_MINM;							\
 	F=DF4;
 # ^^ Should be SNCB ore wagons
@@ -598,7 +597,7 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=Ath <-> Geraardsbergen (08.01.1985);								\
 	C=SNCB_MW46M(|L);										\
 	F=DPU4;
-      TX=Liï¿½ge <-> Luxembourg (20.01.1985);								\
+      TX=Liège <-> Luxembourg (20.01.1985);								\
 	C=SNCB_4_5518(|L),CFL_4_1816(|L),20*DB_4FAD167(A|B|C|D|E|F);					\
 	F=DF4;
       TX=L 8061 Brussel <-> Nivelles (10.02.1985);							\
@@ -609,9 +608,9 @@ $REQUIRE JMD_EU_DEF.TTT
 	F=DF4;
 # ^^ second reefer should be white, ribbed, ferry boat
 # Belgische Spoorwegen in kleur p. 99
-      TX=NT 297 Amsterdam CS <- Liï¿½ge-G. - Luxembourg - Strasbourg - Basel SBB - Milano C. - Bologna -> Ancona (anno 1985); \
+      TX=NT 297 Amsterdam CS <- Liège-G. - Luxembourg - Strasbourg - Basel SBB - Milano C. - Bologna -> Ancona (anno 1985); \
 	C=SNCB_3_5512(|L)|SNCB_4_5518(|L),SNCB_I5BCOM(|L)|SNCB_4_I5B10B2(|L),				\
-	  0-1*(4:1|3:0*CFL_B5(|L),7:0|1*CFL_AB5(|L)|CFL_AB15(|L)),SBB_4_DMS51(|L),			\
+	  (0-1)*(4:1|3:0*CFL_B5(|L),(7:0|1)*CFL_AB5(|L)|CFL_AB15(|L)),SBB_4_DMS51(|L),			\
 	  (SBB_4_AB51,FS_4B_AB3100(KT|KTL|T|TL)),							\
 	  2*FS_4A_BZ2102(|K)(|L)|FS_4A_BZ2103(|K)(|L)|FS_4A_B2100(KT|T)(|L);				\
 	D=L; V=10-12;											\
@@ -651,7 +650,7 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=Brussel <-> Luxembourg (anno 1985);								\
 	C=2*(<SNCB_AM80_ABDXRML,SNCB_AM80_BXRM)|(<SNCB_AM80_BXRML,SNCB_AM80_ABDXRM);			\
 	F=EPU4;
-      TX=Welkenraedt <-> Liï¿½ge (10.09.1985);								\
+      TX=Welkenraedt <-> Liège (10.09.1985);								\
 	C=<SNCB_AM56_2PML,SNCB_AM56_2PM;								\
 	F=EPU4;
       TX=Voneche (23.09.1985);										\
@@ -715,7 +714,6 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=Erpe-Mere (20.06.1986);									\
 	C=<SNCB_AR44RYM(|L),SNCB_R734M(|L),SNCB_AR44RYM(|L);						\
 	F=DPU4;
-# Erpe-Mere 20.06.1986
       TX=INT 190 "Benelux" Bruxelles <-> Amsterdam (anno 1986);						\
 	C=HLE255,SNCB_T2TENM(|L),SNCB_DMSOM(|L),2*SNCB_4_I4A9SB(|L),3*DBBM4,DB_4BM234(|L);		\
 	D=R;												\
@@ -730,19 +728,21 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=Dinant <-> Bertrix (12.07.1986);								\
 	C=SNCB_AR44RYM(|L);										\
 	F=DPU4;
-      TX=Gent <-> Quï¿½vy (17.07.1986);									\
+      TX=Gent <-> Quévy (17.07.1986);									\
 	C=2*SNCB_59G70M(|L),SNCB_DMSOM(|L),3*SNCF_AMBGM(|L),SNCF_DD4SM,SNCF_UIC_B10GM,			\
 	  3*SNCF_UIC_B10M(|L),SNCF_UIC_A9M(|L),3*SNCF_UIC_B10M(|L),SNCF_UIC_B10GM(|L);			\
 	F=DP4;
-      TX=IR 115 Liï¿½ge <-> Luxembourg (03.08.1986);							\
+      TX=IR 115 Liège <-> Luxembourg (03.08.1986);							\
 	C=SNCB_4_5518(|L),$DIR(SNCB_I2_A4RGML[B:140,13,24,6],SNCB_I2_A4RGM[B:56,13,26,6]),		\
 	  2*SNCB_4_I2B11B(|L);										\
 	F=DP4;
       TX=IC 159 Amsterdam <-> Brussel (05.09.1986);							\
 	C=2*(<NS_BNLX_BDK1L~EB,NS_BNLX_ABK1~EB);							\
 	F=EPU4;
-      TX=Antwerpen <-> Mouscron (11.09.1986);								\
-	C=<SNCB_1181,5*SNCB_M4B11R(|L),SNCB_M4A6DXR;							\
+# Gegenrichtung ergänzt 
+ TX=Antwerpen <-> Mouscron (11.09.1986);								\
+	C=(<SNCB_1181,5*SNCB_M4B11R(|L),SNCB_M4A6DXR)|\
+	(>SNCB_1181,5*SNCB_M4B11R(|L),SNCB_M4A6DXRL);							\
 	F=EP4;
       TX=Charleroi <-> Couvin (25.09.1986);								\
 	C=SNCB_AR551B(|L);										\
@@ -763,10 +763,10 @@ $REQUIRE JMD_EU_DEF.TTT
       C=SNCB_5_5519(|L),SNCB_4_I2B8C(|L),SNCB_4_I2B11B(|L),FS_4B_A1100(KT|T)(|L),			\
 	  FS_4A_BZ2102(|K)(|L)|FS_4A_BZ2103(|K)(|L),3*SNCB_PBA_BM;					\
 	F=DP4;
-      TX=IR 2288 Liï¿½ge <- Rivage - Trois-Points - Gouvy -> Luxembourg (anno 1986);			\
+      TX=IR 2288 Liège <- Rivage - Trois-Points - Gouvy -> Luxembourg (anno 1986);			\
 	C=CFL_4_1816(|L),(<B_M2BD,B_M2ABR,B_M2ABL,B_M2B,SNCB_K1B1M(|L)|SNCB_K3B1M(|L),B_M2B);		\
 	F=DP4;
-      TX=L163 Derniï¿½re Desserte Gouvy <-> Bastogne (05.12.1986);					\
+      TX=L163 Dernière Desserte Gouvy <-> Bastogne (05.12.1986);					\
 	C=SNCB_80G70M(|L),2*SNCF_ROOS516M,G_ES1;							\
 	V=3;												\
 	F=DF4;
@@ -787,8 +787,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	C=SNCB_80G70M(|L),2*G_015|G_016;								\
 	V=3;												\
 	F=DF4;
-# Cierreux 08.05.1987
-      TX=IR 2288 Liï¿½ge <-> Gouvy (09.05.1987);								\
+      TX=IR 2288 Liège <-> Gouvy (09.05.1987);								\
 	C=CFL_4_1816(|L),$DIR(SNCB_M2GBDML,SNCB_M2GBDM),$DIR(SNCB_M2GABML,SNCB_M2GABM),			\
 	  $DIR(SNCB_M2GABM,SNCB_M2GABML),SNCB_M2GBM[B:45,20,13,13,#18392D]|SNCB_M2GBM(|L);		\
 	F=DP4;
@@ -810,7 +809,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	  $DIR(SNCB_M2GABML,SNCB_M2GABM),								\
 	  2*$DIR(SNCB_M2GBM[B:45,20,13,13,#18392D]|SNCB_M2GBML,SNCB_M2GBM);				\
 	F=DP4;
-      TX=Hastiï¿½re (10.08.1987);										\
+      TX=Hastière (10.08.1987);										\
 	C=SNCB_4_5518(|L),SNCB_TMS(|L),2*DRTDS,2*SNCB_TMS(|L);						\
 	F=DF4;
       TX=Train 42175 Zeebrugge <-> Neuss (10.08.1987);							\
@@ -819,7 +818,7 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=Tournai <-> Schaerbeek (14.08.1987);								\
 	C=<SNCB_1210(|L),3*SNCB_M5R1BM(|L),2*SNCB_M5R2AM(|L),3*SNCB_M5R1BM(|L),SNCB_M5R2BDXM;		\
 	F=EP4;
-      TX=Trein 45874 Antwerpen <-> Quï¿½vy (20.08.1987);							\
+      TX=Trein 45874 Antwerpen <-> Quévy (20.08.1987);							\
 	C=SNCB_25_5(|L),OBB_4GBS151A1(|L),G_RES2,18*AUTOLOADEDFIAT2;					\
 	F=EF4;
       TX=IC 82 "Etoile du Nord" Paris <- Bruxelles -> Amsterdam (20.08.1987);				\
@@ -857,7 +856,7 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=Cendron-Celles <-> Hoyet (27.04.1988);								\
 	C=SNCB_5204,4*SNCB_K2B2M(|L),$DIR(SNCB_K1AD2M,SNCB_K1ARDML);					\
 	F=DP4;
-      TX=IR c Anvers <-> Liï¿½ge;										\
+      TX=IR c Anvers <-> Liège;										\
 	C=2-3*(<SNCB_AM66RABML,SNCB_AM66RBM)|(<SNCB_AM66RBML,SNCB_AM66RABM);				\
 	F=EPU4;
       TX=Bourcy (12.05.1988);										\
@@ -910,10 +909,9 @@ $REQUIRE JMD_EU_DEF.TTT
 	C=SNCB_20B~JMD[PFU]|SNCB_20B2[PFU],D_DDM(|LOADED),4*B_DDMLOADED,TEN,7*FS_5270(|B|BL|L),		\
 	  SNCB_I10_2170(M|ML|N|NL|O|O2|O2L|OL);								\
 	F=E4;
-      TX=Hastiï¿½re (28.05.1989);										\
+      TX=Hastière (28.05.1989);										\
 	C=<SNCB_AR44RYML,SNCB_R734M,SNCB_AR44RYM;							\
-	F=DPU4;
-# Hastiï¿½re 28.05.1989
+	F=PU4;
       C=SNCB_20B~JMD|4:SNCB_20B2|1:SNCB_20A,2*SNCB_M5R1BM(|L),SNCB_M5R2AM(|L),2*SNCB_M5R1BM(|L),	\
 	  SNCB_M5R2BDXM;										\
 	D=L;												\
@@ -930,7 +928,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	F=DPU4;
       C=2*HLD53,21*EVA_GAS|VTG_GAS1|WASC_MECHL|VTG_GAS|VTG_BUTAN1;					\
 	F=DF4;
-      TX=Intercity F Quiï¿½vrain - Bruxelles - Liï¿½ge (Verviers);						\
+      TX=Intercity F Quiévrain - Bruxelles - Liège (Verviers);						\
 	C=<HLE21,SNCB_M4A9(|L|R|RL),5*SNCB_M4B11(|L|R|RL),SNCB_M4A6DX(|R|R25);				\
 	F=EP4;
       C=SNCB_5_5310(|L),SNCB_R3514G1M,G_SHIMMNSP_Y25(2:A|B|C|4:D)(|L),SNCF_RILS266SBM,SNCB_R3514G1M,	\
@@ -947,10 +945,10 @@ $REQUIRE JMD_EU_DEF.TTT
 	  2*SBB_1971O(|L)|SBB_1090(|L),5*SBB_2171O(|L)|SBB_2090(|L),					\
 	  SNCB_2171O(|L)|SNCB_I10_2170(M|ML|N|NL|O|O2|O2L|OL);						\
 	F=EP4;
-      TX=Train 2288 Liï¿½ge Guillemins <-> Gouvy (02.10.1989);						\
+      TX=Train 2288 Liège Guillemins <-> Gouvy (02.10.1989);						\
 	C=CFL_4_1816(|L),SNCB_M2GBM(|L),SNCB_M2RBM(|L),$DIR(SNCB_M2RFABML,SNCB_M2RFABM),SNCB_M2RBM(|L);	\
 	F=DP4;
-      TX=Luxembourg <-> Lï¿½ttich (11.10.1989);								\
+      TX=Luxembourg <-> Lüttich (11.10.1989);								\
 	C=SNCB_5_5519(|L),B_M2BD,SNCB_M2GABML,SNCB_M2GBM[B:45,20,13,13,#18392D]|SNCB_M2GBM(|L),B_M2B;	\
 	F=DP4;
       TX=Trois-Points (11.10.1989);									\
@@ -961,11 +959,11 @@ $REQUIRE JMD_EU_DEF.TTT
 	V=2;												\
 	F=DF4;
 # ^^ should be blue Fehring woodchip double box
-      TX=Luxembourg <-> Lï¿½ttich (11.10.1989);								\
+      TX=Luxembourg <-> Lüttich (11.10.1989);								\
 	C=CFL_4_1816(|L),SNCB_M2GBM[B:45,20,13,13,#18392D]|SNCB_M2GBM(|L),SNCB_M2GABML,B_M2B,		\
 	  SNCB_M2GBM[B:45,20,13,13,#18392D]|SNCB_M2GBM(|L);						\
 	F=DP4;
-      TX=IC A Oostende <-> Kï¿½ln;									\
+      TX=IC A Oostende <-> Köln;									\
 	C=<SNCB_I11_BDXL,2*SNCB_I11_A(|L),5*SNCB_I11_B(|L),SNCB_13~ZS;					\
 	F=EP4;
       C=SNCB_4_5518(|L),B_M2B,3*SNCB_34_M1B10(|L);							\
@@ -1001,7 +999,7 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=Train 7614 Dinant <-> Bertrix (04.05.1990);							\
 	C=$DIR(SNCB_AR45RYML,SNCB_AR45RYM),SNCB_R734M(|L),$DIR(SNCB_AR45RYM,SNCB_AR45RYML);		\
 	F=DPU5;
-      TX=Train 116 Luxembourg <-> Liï¿½ge Guillemins (05.05.1990);					\
+      TX=Train 116 Luxembourg <-> Liège Guillemins (05.05.1990);					\
 	C=SNCB_4_5518(|L),CFL_3WEGB(|L),$DIR(CFL_AB15,CFL_AB15L),CFL_3WEGB(|L);				\
 	F=DP5;
       POOL=SNCB_B2D_1990;										\
@@ -1021,7 +1019,7 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=Signeulx (31.07.1990);										\
 	C=SNCB_4_5302(|L),SBB_GBS_0(|L),G_ES1;								\
 	F=DF5;
-      TX=E90610 Gand St. Piï¿½rre-Forest (anno 1990);							\
+      TX=E90610 Gand St. Pièrre-Forest (anno 1990);							\
 	C=HLE27,SNCB_4_I5B10B2(|L),SNCB_I5BC3M(|L),SNCB_4_I5B10R1(|L),2*SNCB_I5BC3M(|L);		\
 	D=L; V=8-12;											\
 	F=EP5;
@@ -1035,7 +1033,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	C=25*SNCF_MINM;											\
 	C1=CFL_3600M,CFL_4_1816(|L);									\
 	C2=2*HLD55;											\
-	F=FO5;
+	F=DFO5;
       TX=Roosendaal (anno 1991);									\
 	C=SNCB_AM75VTM;											\
 	F=EPU5;
@@ -1053,7 +1051,7 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=Trein 693 Maastricht <-> Knokke (02.08.1991);							\
 	C=2*(<SNCB_AM80_ABDXRML,SNCB_AM80_BXRM);							\
 	F=EPU5;
-      TX=EC45 "Parsifal" Paris <- Lï¿½ttich - Aachen -> Kï¿½ln (25.08.1991);				\
+      TX=EC45 "Parsifal" Paris <- Lüttich - Aachen -> Köln (25.08.1991);				\
 	C=SNCB_18M[P1U],$DIR(SNCF_VU_B6DM,SNCF_VU_B6DML),2*SNCF_VTU2_BM(|L),SNCF_VU2_C_B11M(|L),	\
 	  2*SNCF_VTU82_C_AM(|L),3*SNCF_VTU2_BM(|L)|SNCF_VU2_C_B11M(|L);					\
 	F=EP5;
@@ -1082,12 +1080,12 @@ $REQUIRE JMD_EU_DEF.TTT
 	C=SNCB_22BM(|L),PKP_4_DS209C1(|L),PKP_BDMNU5,PKP_4_BC2(|L),PKP_5_WLABD3(|L),			\
 	  RZD_WL2L~HEN|RZD_WL2~HEN,$DIR(DB_WLABMH174CDL,DB_WLABMH174CD),DBBM4;				\
 	F=EP5;
-      TX=EC 40 Liï¿½ge-G. <-> Paris N. (anno 1993);							\
+      TX=EC 40 Liège-G. <-> Paris N. (anno 1993);							\
 	C=SNCF_CC40100L[P4U]|SNCF_CC40100~JMD[P3U],2*DB_4AVMZ111_(0|1)(|L),DB_4F_WRMH132_2(|L),		\
 	  4*DB_BPMZ291_2(|L),PKP_WLAB_(4|5),RZD_WL2L~HEN|RZD_WL2~HEN,DRWLAB,				\
 	  SNCF_T2_TENNM(|L)|SNCF_T2_NNM;								\
 	F=EPZ5;
-      TX=EC 46/47 "Alexander von Humboldt" Berlin Zoo. <- Magdeburg - Braunschweig - Hannover - Dortmund - Essen - Dï¿½sseldorf - Kï¿½ln - Aachen - Liï¿½ge-G. - Bruxelles/Brussel (anno 1993); \
+      TX=EC 46/47 "Alexander von Humboldt" Berlin Zoo. <- Magdeburg - Braunschweig - Hannover - Dortmund - Essen - Düsseldorf - Köln - Aachen - Liège-G. - Bruxelles/Brussel (anno 1993); \
 	C=5:HLE16_B5|HLE18_B,DB_AVMZ111_(0RK|1RK)(|L),DB_APMZ121_0RK(|L)|DB_APMZ121RK(|L),		\
 	  2*DB_AVMZ111_(0RK|1RK)(|L),DB_ARMH217R(|L),4*(DBAG_BPMZ293RK(|L)|DBAG_BPMZ293RS(|L)),		\
 	  BM235RL~HEN|BM235R~HEN|(DBAG_BPMZ293RK(|L)|DBAG_BPMZ293RS(|L)),				\
@@ -1113,7 +1111,8 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=Berzee (28.07.1993);										\
 	C=SNCB_62G70M(|L),B_M2BD,SNCB_M2GBM[B:45,20,13,13,#18392D]|SNCB_M2GBML|SNCB_M2GBM,B_M2AB(L|R);	\
 	F=DP5;
-      TX=D 240/241 "Ost-West Express"  Moskwa <- Minsk - Warszawa - Poznan Gl. - Frankfurt (Oder) - Berlin Ostbf. - Berlin Zoo. - Hannover - Kï¿½ln - Aachen - Liï¿½ge-G. -> Paris-Nord (anno 1993); \
+      TX=D 240/241 "Ost-West Express"  Moskwa <- Minsk - Warszawa - Poznan Gl. - Frankfurt (Oder)	\
+	  - Berlin Ostbf. - Berlin Zoo. - Hannover - Köln - Aachen - Liège-G. -> Paris-Nord (anno 1993); \
 	C=HLE27,2*RZD_WL1L~HEN|RZD_WL1~HEN|RZD_WL2L~HEN|RZD_WL2~HEN|4:RZD_WLABME(|L),			\
 	  UZ_WLL~HEN|UZ_WL~HEN|UZ_WLABME(|L)|UZ_WLABM(1|1L|2|_C),					\
 	  RZD_WL1L~HEN|RZD_WL1~HEN|RZD_WL2L~HEN|RZD_WL2~HEN|RZD_WLABME(|L),PKP_WLAB_(4|5),PKP_BC_5,	\
@@ -1157,7 +1156,7 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=Althus <- Virton - Bertrix -> Namur (09.08.1995);						\
 	C=SNCB_AR44RYM(|L),SNCB_R734M(|L),SNCB_AR44RYM(|L);						\
 	F=DPU5;
-      TX=D 232 Aachen <- Verviers - Liï¿½ge-G. - Leuven - Bruxelles/Brussel - Gent-St.-Pieters - Brugge -> Oostende (anno 1995); \
+      TX=D 232 Aachen <- Verviers - Liège-G. - Leuven - Bruxelles/Brussel - Gent-St.-Pieters - Brugge -> Oostende (anno 1995); \
 	C=HLE27,SNCB_T2TENM(|L)|SNCB_T2TEN1M|SNCB_T2_RTM(|L),						\
 	  SNCB_I5_5080T(|L)|SNCB_4_I5B10B3(|L)|SNCB_4_I5B10B1(|L)|SNCB_I5BC3M(|L),SNCB_I6_2170N(|L),	\
 	  5*SNCB_I10C_BOM(|L)|SNCB_I10BOM(|L),2*SNCB_I10AOM(|L);					\
@@ -1167,11 +1166,11 @@ $REQUIRE JMD_EU_DEF.TTT
 	  2*SNCB_I6_1970M(|L);										\
 	D=R; V=8-10;											\
 	F=EP5;
-      TX=IC 415 Kï¿½ln <-> Oostende (anno 1996);								\
+      TX=IC 415 Köln <-> Oostende (anno 1996);								\
 	C=HLE16_B5,SNCB_9570NB(|L),2*SNCB_I11_A(|L),7*SNCB_I11_B(|L);					\
 	D=R; V=8-16;											\
 	F=EP5;
-      TX=IR 110 Luxembourg <-> Liï¿½ge-Guillemins (anno 1996);						\
+      TX=IR 110 Luxembourg <-> Liège-Guillemins (anno 1996);						\
 	C=HLD55,3*SNCB_M4B11R(|L),SNCB_M4A9R(|L),SNCB_9570B(|L);					\
 	D=R; V=8-16;											\
 	F=DP5;
@@ -1180,7 +1179,7 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=IR 1689 Antwerpen <-> Boeghout (anno 1996);							\
 	C=<SNCB_6221,B_M2ABL(|S),B_M2B,B_M2BS,B_M2B,SNCB_M2RBDXDM|SNCB_M2RBDXEM;			\
 	F=DP5;
-      TX=IR 119 Liï¿½ge-Guillemins <-> Luxembourg (anno 1996);						\
+      TX=IR 119 Liège-Guillemins <-> Luxembourg (anno 1996);						\
 	C=HLD55,SNCB_DMSOM(|L),2*SNCB_I10BOM(|L)|SNCB_I10C_BOM(|L),SNCB_I10AOM(|L);			\
 	D=R; V=8-16;											\
 	F=DP5;
@@ -1202,25 +1201,26 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=Ath (15.11.1996);										\
 	C=EUROSTAR1;											\
 	F=E5;
-      TX=E 415 Oostende <-> Kï¿½ln (anno 1996);								\
+      TX=E 415 Oostende <-> Köln (anno 1996);								\
 	C=HLE18_B,SNCB_9570N(|L)|SNCB_DMSOM(|L),2*SNCB_I10AOM(|L),SNCB_4_I4A4B6SO,			\
 	  4*SNCB_I10BOM(|L)|SNCB_I10C_BOM(|L);								\
 	D=R; V=8-16;											\
 	F=EP5;
-      TX=EC 36 "Felix Timmermans" Kï¿½ln <- Aachen - Verviers - Liï¿½ge-G. -> Bruxelles/Brussel (anno 1997); \
+      TX=EC 36 "Felix Timmermans" Köln <- Aachen - Verviers - Liège-G. -> Bruxelles/Brussel (anno 1997); \
 	C=6:HLE16_B5|HLE18_B,DBAG_AVMZ111_0(|L)|DBAG_AVMZ111_1(|L),					\
 	  5:DBAG_APMZ121R(|L)|DBAG_APMZ121VR(|L),DBAG_AVMZ111_0(|L)|DBAG_AVMZ111_1(|L),			\
 	  DBAG_ARMH217R(|L),										\
 	  2*(DBAG_BPMZ291_2RK(|L)|DBAG_BPMZ291_3R(|L))|(DBAG_BPMZ293RK(|L)|DBAG_BPMZ293RS(|L));		\
 	F=EP5;
-      TX=IR 113 Liï¿½ge <-> Luxembourg (anno 1997);							\
-	C=SNCB_4_5518(|L),(<SNCB_DMSOM(|L),SNCB_M4A7DL,3*SNCB_M4B11R(|L));				\
+# Gegenrichtung ergänzt
+      TX=IR 113 Liège <-> Luxembourg (anno 1997);							\
+	C=SNCB_4_5518(|L),(<SNCB_DMSOM(|L),SNCB_M4A7DL,3*SNCB_M4B11R(|L))|\
+	(>SNCB_DMSOM(|L),SNCB_M4A7D,3*SNCB_M4B11R(|L));				\
 	F=DP5;
       TX=Sclaigneaux (01.09.1997);									\
 	C=SNCB_15B~GOU,2*SNCF_VTU2_AM(|L),$DIR(SNCF_RESTOCML,SNCF_RESTOCM),2*SNCF_VU_B11M(|L),		\
 	  5*SNCF_VTU_CN_BM(|L),SNCF_UIC_B10CHM(|L),$DIR(SNCF_MU_JL_TENNM,SNCF_MU_JL_TENNML);		\
 	F=EP5;
-# Sclaigneaux 01.09.1997
       TX=IC 1922 Mouscron <- Ath -> Schaerbeek (anno 1997);						\
 	C=<HLE21,3*SNCB_M4B11R(|L),SNCB_M4A6DXR(|25);							\
 	F=EP5;
@@ -1237,12 +1237,12 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=Wachtebeke (17.11.1998);									\
 	C=$DIR(SNCB_51S1BML,SNCB_51S1BM),30*DB_4_EAOS106(A|AL|B|BL)[O:SUGARBEET(1|2|3)];		\
 	F=DF5;
-      TX=IR 113 Liï¿½ge <-> Luxembourg (anno 1998);							\
+      TX=IR 113 Liège <-> Luxembourg (anno 1998);							\
 	C=SNCB_5_5519(|L),SNCB_DMSOM(|L),SNCB_I10AOM(|L),2*SNCB_I10BOM(|L)|SNCB_I10C_BOM(|L);		\
 	F=DP5;
       C=SNCB_5_5519(|L),(<SNCB_M4A7DL,3*SNCB_M4B11R(|L));						\
 	F=DP5;
-      TX=Rhode-St-Genï¿½se <-> Berchem-Anvers (anno 1999);						\
+      TX=Rhode-St-Genèse <-> Berchem-Anvers (anno 1999);						\
 	C=HLE27,SNCB_9570N(|L),SNCB_9570B(|L),6*SNCB_M4B11R(|L);					\
 	D=L; V=8-12;											\
 	F=EP5;
@@ -1269,10 +1269,10 @@ $REQUIRE JMD_EU_DEF.TTT
 	  3*SNCB_I5BC3M(|L);										\
 	D=R; V=8-12;											\
 	F=E5;
-      TX=INT 112 Liï¿½ge-Guillemins <-> Luxembourg (anno 1999);						\
+      TX=INT 112 Liège-Guillemins <-> Luxembourg (anno 1999);						\
 	C=HLD55,SNCB_I5BC3M(|L),2*SNCB_I10BOM(|L)|SNCB_I10C_BOM(|L),SNCB_9570B(|L);			\
 	F=DP5;
-      TX=INT 117 Luxembourg <-> Liï¿½ge-Guillemins (anno 1999);						\
+      TX=INT 117 Luxembourg <-> Liège-Guillemins (anno 1999);						\
 	C=SNCB_13~ZS,SNCB_9570B(|L),2*SNCB_I10BOM(|L)|SNCB_I10C_BOM(|L),SNCB_I10AOM(|L);		\
 	V=8-16;												\
 	F=EP5;
@@ -1331,7 +1331,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	  2@RBB_SILO(1|2|3),3*ZACGS;									\
 	F=EF5;
       C=2*SNCB_23B2M(|L)|SNCB_23B2BM|SNCB_23BM(|L)|SNCB_23B4BM|SNCB_23B3M(|L)|SNCB_23B1M(|L),		\
-	  4*OBB_SHIMMNSM(|L)|G_SHIMMNSP_Y25(2:A|B|C|4:D)(|L),GT21|GT27|VTG_6,G_LGS1,DBAG_HBBILLNS305,	\
+	  4*(OBB_SHIMMNSM(|L)|G_SHIMMNSP_Y25(2:A|B|C|4:D)(|L)),GT21|GT27|VTG_6,G_LGS1,DBAG_HBBILLNS305,	\
 	  G_RGS1;											\
 	F=EF5;
       C=SNCB_25B3M(|L)|SNCB_25BM(|L),23*CONT00;								\
@@ -1451,7 +1451,7 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=L 5987 Virton <-> Libramont (18.05.2001);							\
 	C=2*SNCB_AR44RYM(|L);										\
 	F=DPU6;
-      TX=IC 415 Oostende <-> Kï¿½ln (anno 2001);								\
+      TX=IC 415 Oostende <-> Köln (anno 2001);								\
 	C=HLE16_B5,SNCB_I11_BDXL,5*SNCB_I11_B(|L),2*SNCB_I11_A(|L);					\
 	D=L; V=8-12;											\
 	F=EP6;
@@ -1491,7 +1491,7 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=Pendeldienst Montzen <-> Aachen (anno 2001);							\
 	C=2*DBC_5_212VR(|L)|DB_5_212R(|L),DB_GBS258,2*CONT00,SNCF_IFRIG3,3*CONT00;			\
 	F=DF6;
-#^^Kï¿½hlwagen sollte SNCF/INTERFRIGO Ialps sein
+#^^Kühlwagen sollte SNCF/INTERFRIGO Ialps sein
       C=2*SNCB_6221,2*DB_ZANS_VTG(1|2)|NS_ZANS_VTG|OBB_ZANS_VTG,EP5CHEM,2*KVG_ZACS(|1|1L|2|2L|L),	\
 	  HABISNORM,2*ZACGS,3*IF_IM2(|L),3*ZACGS,EP5CHEM,G_RES1,G_SGS(2|3|4),G_RES1,			\
 	  4*DB_ZANS_VTG(1|2)|NS_ZANS_VTG|OBB_ZANS_VTG;							\
@@ -1512,7 +1512,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	F=DF6;
       C=2*SNCB_6221,13*G_SHIMMNSP_Y25(2:A|B|C|4:D)(|L),8*G_RGS1,G_KS1,G_RES1,G_RGS1;			\
 	F=DF6;
-      TX=IR 3937 Louvain la-Neuve Universitï¿½ <-> Binche (anno 2002);					\
+      TX=IR 3937 Louvain la-Neuve Université <-> Binche (anno 2002);					\
 	C=3*(<SNCB_AM75RXARML,SNCB_AM75M1RML,SNCB_AM75M2RML,SNCB_AM75RXBRM)|				\
 	  (<SNCB_AM75RXBRML,SNCB_AM75M2RM,SNCB_AM75M1RM,SNCB_AM75RXARM);				\
 	F=EPU6;
@@ -1527,7 +1527,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	F=EF6;
       C=SNCB_6221,5*G_KS2,3*SBB_UCS0(0|1|2),RBB_SILO(2|3|4),3*G_KS2,SNCB_R3514G1M;			\
 	F=DF6;
-      TX=Maastricht <-> Liï¿½ge (anno 2002);								\
+      TX=Maastricht <-> Liège (anno 2002);								\
 	C=<SNCB_AM62R,(<SNCB_AM66WBML,SNCB_AM66WABM);							\
 	F=EPU6;
       TX=Leuven <-> Ans (27.10.2002);									\
@@ -1587,7 +1587,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	F=EPU6;
       C=<SNCB_HLE21(|L),SNCB_M4A9(|L),4*SNCB_M4B11(|L),SNCB_M4A6DX;					\
 	F=EP6;
-      C=<HLE27,4|5*SNCB_M4B11L,SNCB_M4A6DX;								\
+      C=<HLE27,(4|5)*SNCB_M4B11L,SNCB_M4A6DX;								\
 	AP=[TX=IC 1936 Schaarbeek <-> Moeskroen (anno 2004)]|						\
 	  [TX=IC 1909 Moeskroen <-> Schaarbeek (anno 2004)];						\
 	F=EP6;
@@ -1642,11 +1642,11 @@ $REQUIRE JMD_EU_DEF.TTT
 	F=DF6;
       C=SNCB_20B~JMD|SNCB_20B2,35*RGSCONT|CONT00;							\
 	F=EF6;
-      TX=Le Prï¿½alle (18.05.2004);									\
+      TX=Le Préalle (18.05.2004);									\
 	C=CFL_3000~ZS[PFU],SNCB_I6_1970N2(|L),SNCB_2171O(|L),SNCB_I6_2170N(|L),SNCB_DMSOM(|L),		\
 	  SNCB_I6_1970M(|L),SNCB_I10BOM(|L),SNCB_I6_2170N(|L);						\
 	F=EP6;
-      TX=Le Prï¿½alle (18.05.2004);									\
+      TX=Le Préalle (18.05.2004);									\
 	C=2*(<SNCB_AM62R1BML,SNCB_AM62R1BM);								\
 	F=EPU6;
       C=SNCB_23B2M(|L)|SNCB_23B2BM|SNCB_23BM(|L)|SNCB_23B4BM|SNCB_23B3M(|L)|SNCB_23B1M(|L),		\
@@ -1687,7 +1687,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	F=DF6;
       C=HLE27[PFU],19*AUTOLOADEDFIAT2;									\
 	F=EF6;
-      TX=Villiers Saint Simï¿½on (13.07.2004);								\
+      TX=Villiers Saint Siméon (13.07.2004);								\
 	C=<SNCB_M5R2BDXML,2*SNCB_M5R1BM(|L),SNCB_M5R2AM(|L),3*SNCB_M5R1BM(|L),SNCB_HLE21(|L);		\
 	F=EP6;
       C=SNCB_23B2M(|L)|SNCB_23B2BM|SNCB_23BM(|L)|SNCB_23B4BM|SNCB_23B3M(|L)|SNCB_23B1M(|L),		\
@@ -1776,7 +1776,7 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=IC 805 Oostende <- Kortrijk -> Lille (anno 2004);						\
 	C=<SNCB_M4A6DXL,3*SNCB_M4B11(|L),HLE21;								\
 	F=EP6;
-      TX=IC 1729 Quiï¿½vrain <- Bruxelles -> Liï¿½ge (anno 2004);						\
+      TX=IC 1729 Quiévrain <- Bruxelles -> Liège (anno 2004);						\
 	C=<HLE21,SNCB_M4A9(|L),5*SNCB_M4B11(|L),SNCB_M4A6DX;						\
 	F=EP6;
       C=SNCB_23B2M(|L)|SNCB_23B2BM|SNCB_23BM(|L)|SNCB_23B4BM|SNCB_23B3M(|L)|SNCB_23B1M(|L),SNCB_26BM,	\
@@ -1793,11 +1793,11 @@ $REQUIRE JMD_EU_DEF.TTT
 	F=EP6;
       C=SNCB_13~ZS[PFU],SNCB_13~ZS,5*G_RMMS,FS_KGPS,G_RMMS,G_RGS2,G_RMMS,3*G_RGS2;			\
 	F=EF6;
-      TX=ICN 242/243 Paris Nord <- Bruxelles Midi - Liï¿½ge Guillemins - Bielefeld - Hannover Hbf -> Berlin Spandau/Zoo/Ost (anno 2004); \
+      TX=ICN 242/243 Paris Nord <- Bruxelles Midi - Liège Guillemins - Bielefeld - Hannover Hbf -> Berlin Spandau/Zoo/Ost (anno 2004); \
 	C=HLE27,2*DB_5WLABMH175L~KMN|DB_5WLABMH175~KMN,3*DB_BCVMZ248_1(|L),DBAG_6ARMZ211(|L),		\
 	  3*DBAG_BIM263VR(|L),3*DB_BCVMZ248_1(|L),DB_5WLABMH175L~KMN|DB_5WLABMH175~KMN;			\
 	F=EP6;
-      C=1|2*DLC_C66(|L)~SOP,20*CONT00;									\
+      C=(1|2)*DLC_C66(|L)~SOP,20*CONT00;								\
 	F=F6;
       C=DLC_C66(|L)~SOP,8*SJ_LAAIS921;									\
 	F=F6;
@@ -1813,8 +1813,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	F=EPU6;
       TX=Halle (09.02.2005);										\
 	C=SNCF_BB22200BNM,SNCF_MAUZIN211M(|L),SNCF_SU_RESTOM,SNCF_HELENEBM,SNCF_BB22200BNM;		\
-	F=EX6;
-#9.2.2005 in Halle (B)
+	F=E6;
       TX=Z 76061 Stockem <-> Libramont (04.04.2005);							\
 	C=SNCB_7771(|L),SNCF_UAS_D12M,SNCF_ROOS516M,SNCF_R57M,4*SNCF_EAOS(2|3);				\
 	F=DF6;
@@ -1850,8 +1849,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	F=DF6;
       TX=Neuville (30.12.2005);										\
 	C=2*(<SNCB_41ABML,SNCB_41BM)|(<SNCB_41BML,SNCB_41ABM);						\
-	F=DPU6;
-# Neuville (30.12.2005)
+	F=PU6;
       POOL=B_EC_2006;											\
 	F=EP6;
       TX=L 3265 Brussel Zuid <-> Antwerpen Centraal (07.01.2006);					\
@@ -1879,7 +1877,7 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=Leuven (05.07.2006);										\
 	C=(<SNCB_AM66WABML,SNCB_AM66WBM)|(<SNCB_AM66WBML,SNCB_AM66WABM);				\
 	F=EPU6;
-      TX=Liï¿½ge Gullemins <-> Welkenraedt (09.07.2006);							\
+      TX=Liège Gullemins <-> Welkenraedt (09.07.2006);							\
 	C=<SNCB_AM62R;											\
 	F=EPU6;
       TX=Bruxelles-Nord (11.07.2006);									\
@@ -1888,7 +1886,7 @@ $REQUIRE JMD_EU_DEF.TTT
       TX=Train 4606 Bruxelles <-> Luxembourg (08.2006);							\
 	C=2*(<SNCB_AM96_5(|L));										\
 	F=EPU6;
-      TX=Brï¿½ssel <-> Antwerp (08.2006);									\
+      TX=Brüssel <-> Antwerp (08.2006);									\
 	C=<SNCB_HLE2(1|7)(|L),3*10:(SNCB_M6_B(|L))|SNCB_M6_BL_GR,SNCB_M6_ABDL|SNCB_M6_ABD,		\
 	  10:(SNCB_M6_A(|L))|SNCB_M6_AL_GR,3*10:(SNCB_M6_B(|L))|SNCB_M6_BL_GR,SNCB_HLE2(1|7)(|L);	\
 	F=EP6;
@@ -1906,12 +1904,13 @@ $REQUIRE JMD_EU_DEF.TTT
 	C=<SNCB_HLE2(1|7)(|L),2*10:(SNCB_M6_B(|L))|SNCB_M6_BL_GR,SNCB_M6_ABDL|SNCB_M6_ABD,		\
 	  10:(SNCB_M6_A(|L))|SNCB_M6_AL_GR,2*10:(SNCB_M6_B(|L))|SNCB_M6_BL_GR,SNCB_HLE2(1|7)(|L);	\
 	F=EP6;
-      TX=Pï¿½pinstï¿½r (08.08.2006);									\
+      TX=Pépinstèr (08.08.2006);									\
 	C=SNCB_AM62RL;											\
 	F=EPU6;
       TX=L 2780 Roosendaal <-> Antwerpen Centraal (18.12.2006);						\
-	<SNCB_AM75RXBRML,SNCB_AM75M2RM,SNCB_AM75M1RM,SNCB_AM75RXARM;      \
-	F=EPU6;												\
+	C=(<SNCB_AM75RXARML,SNCB_AM75M1RML,SNCB_AM75M2RML,SNCB_AM75RXBRM)|				\
+	  (<SNCB_AM75RXBRML,SNCB_AM75M2RM,SNCB_AM75M1RM,SNCB_AM75RXARM);				\
+	F=EPU6;
       TX=Nieuwkerken (09.02.2007);									\
 	C=(<SNCB_AM75RXARML,SNCB_AM75M1RML,SNCB_AM75M2RML,SNCB_AM75RXBRM)|				\
 	  (<SNCB_AM75RXBRML,SNCB_AM75M2RM,SNCB_AM75M1RM,SNCB_AM75RXARM);				\
@@ -1970,527 +1969,530 @@ $REQUIRE JMD_EU_DEF.TTT
   %ENDPOOL;
 }
 
-##########################################################################################
+###############################################################################
 
 {NL?
-    $SPOOL N=NS_MAT24_24; SEQ=R;
-      {E2?
-	TX=Amsterdam <-> Rotterdam (anno 1924);								\
-	  C=(<NS_MBD5_9001GYL,NS_BEC_8501GYL,NS_AEC_8501GYL,NS_CEC_8501GYL,NS_MC_9001GY)|		\
-	    (<NS_MC_9001GYL,NS_CES_8101GY,NS_AEC_8501GY,NS_BEC_8501GYL,NS_MBD5_9001GY);
-	TX=Amsterdam <-> Rotterdam (anno 1924);								\
-	  C=(<NS_MBD5_9001GL,NS_BEC_8501GL,NS_AEC_8501GL,NS_CEC_8501GL,NS_MC_9001G)|			\
-	    (<NS_MC_9001GL,NS_CEC_8501G,NS_AEC_8501G,NS_BEC_8501G,NS_MBD5_9001G);
+  $SPOOL N=NS_MAT24_24; SEQ=R;
+    {E2?
+      TX=Amsterdam <-> Rotterdam (anno 1924);								\
+	C=(<NS_MBD5_9001GYL,NS_BEC_8501GYL,NS_AEC_8501GYL,NS_CEC_8501GYL,NS_MC_9001GY)|			\
+	  (<NS_MC_9001GYL,NS_CES_8101GY,NS_AEC_8501GY,NS_BEC_8501GYL,NS_MBD5_9001GY);
+      TX=Amsterdam <-> Rotterdam (anno 1924);								\
+	C=(<NS_MBD5_9001GL,NS_BEC_8501GL,NS_AEC_8501GL,NS_CEC_8501GL,NS_MC_9001G)|			\
+	  (<NS_MC_9001GL,NS_CEC_8501G,NS_AEC_8501G,NS_BEC_8501G,NS_MBD5_9001G);
     }
-  $ENDPOOL 
+  $ENDPOOL
 
   $SPOOL N=NS_MAT24_27; SEQ=R;
     {E2?
-	TX=IJmuiden <-> Haarlem;									\
-	  C=($DIR(NS_MABD_9001GYL,NS_MABD_9001GY),$DIR(NS_CES_8101GY,NS_CES_8101GYL))|			\
-	    ($DIR(NS_MABD_9001GL,NS_MABD_9001G),$DIR(NS_CES_8101G,NS_CES_8101GL)); \
+      TX=IJmuiden <-> Haarlem;										\
+	C=($DIR(NS_MABD_9001GYL,NS_MABD_9001GY),$DIR(NS_CES_8101GY,NS_CES_8101GYL))|			\
+	  ($DIR(NS_MABD_9001GL,NS_MABD_9001G),$DIR(NS_CES_8101G,NS_CES_8101GL));			\
 	F=EPU2;
       TX=IJmuiden <-> Haarlem;										\
-	  C=(<NS_MABD_9001GYL,NS_CES_8101GY,NS_MC_9001GYS)|						\
-	    (<NS_MC_9001GYSL,NS_CES_8101GYL,NS_MABD_9001GY);       \
+	C=(<NS_MABD_9001GYL,NS_CES_8101GY,NS_MC_9001GYS)|						\
+	  (<NS_MC_9001GYSL,NS_CES_8101GYL,NS_MABD_9001GY);						\
 	F=EPU2;
       TX=IJmuiden <-> Haarlem;										\
-	  C=(<NS_MABD_9001GL,NS_CES_8101G,NS_MC_9001GS)|(<NS_MC_9001GSL,NS_CES_8101GL,NS_MABD_9001G);  \
+	C=(<NS_MABD_9001GL,NS_CES_8101G,NS_MC_9001GS)|(<NS_MC_9001GSL,NS_CES_8101GL,NS_MABD_9001G);	\
 	F=EPU2;
       TX=Haarlem <-> Rotterdam;										\
-	  C=(<NS_MBD5_9001GL,NS_BEC_8501GL,NS_CEC_8501GL,NS_MC_9001G)|					\
-	    (<NS_MC_9001GL,NS_CEC_8501G,NS_BEC_8501G,NS_MBD5_9001G);     \
+	C=(<NS_MBD5_9001GL,NS_BEC_8501GL,NS_CEC_8501GL,NS_MC_9001G)|					\
+	  (<NS_MC_9001GL,NS_CEC_8501G,NS_BEC_8501G,NS_MBD5_9001G);					\
 	F=EPU2;
       TX=Haarlem <-> Rotterdam;										\
-	  C=(<NS_MBD5_9001GYL,NS_BEC_8501GYL,NS_CEC_8501GYL,NS_MC_9001GY)|				\
-	    (<NS_MC_9001GYL,NS_CEC_8501GYL,NS_BEC_8501GYL,NS_MBD5_9001GY);
+	C=(<NS_MBD5_9001GYL,NS_BEC_8501GYL,NS_CEC_8501GYL,NS_MC_9001GY)|				\
+	  (<NS_MC_9001GYL,NS_CEC_8501GYL,NS_BEC_8501GYL,NS_MBD5_9001GY);
     }
-  $ENDPOOL 
+  $ENDPOOL
 
   $SPOOL N=NS_MAT24_28; SEQ=R;
     {E2?
-	TX=Sneltrein Amsterdam <-> Rotterdam (anno 1928);						\
-	  C=(<NS_MBD5_9029GL,NS_BEC_8501GVL,NS_AEC_8501VL,NS_MCD_9425GL,NS_CEC_8501GVL,NS_MCD_9101GV)|	\
-	    (<NS_MC_9001GSVL,NS_CEC_8501GVL,NS_MCD_9425G,NS_AEC_8501VL,NS_BEC_GVL,NS_MBD5_9101GV);  \
+      TX=Sneltrein Amsterdam <-> Rotterdam (anno 1928);							\
+	C=(<NS_MBD5_9029GL,NS_BEC_8501GVL,NS_AEC_8501VL,NS_MCD_9425GL,NS_CEC_8501GVL,NS_MCD_9101GV)|	\
+	  (<NS_MC_9001GSVL,NS_CEC_8501GVL,NS_MCD_9425G,NS_AEC_8501VL,NS_BEC_GVL,NS_MBD5_9101GV);	\
 	F=EPU2;
       TX=Sneltrein Amsterdam <-> Rotterdam (anno 1928);							\
-	  C=(<NS_MBD5_9029GYL,NS_BEC_8501GYL,NS_AEC_8501GYL,NS_MCD_9425GYL,NS_CEC_8501GYL,		\
-	    NS_MC_9001GYS)|										\
-	    (<NS_MC_9001GYSL,NS_CEC_8501GYL,NS_MCD_9425GY,NS_AEC_8501GYL,NS_BEC_8501GYL,NS_MBD5_9029GY);  \
+	C=(<NS_MBD5_9029GYL,NS_BEC_8501GYL,NS_AEC_8501GYL,NS_MCD_9425GYL,NS_CEC_8501GYL,NS_MC_9001GYS)|	\
+	  (<NS_MC_9001GYSL,NS_CEC_8501GYL,NS_MCD_9425GY,NS_AEC_8501GYL,NS_BEC_8501GYL,NS_MBD5_9029GY);	\
 	F=EPU2;
       TX=Sneltrein Amsterdam <-> Rotterdam (anno 1928);							\
-	  C=(<NS_MBD5_9029GL,2*NS_BEC_8501GVL,NS_AEC_8501VL,NS_MCD_9425GL,NS_CEC_8501GVL,NS_MCD_9101GV)| \
-	    (<NS_MC_9001GSVL,NS_CEC_8501GVL,NS_MCD_9425G,NS_AEC_8501VL,2*NS_BEC_GVL,NS_MBD5_9101GV);
-	TX=Sneltrein Amsterdam <-> Rotterdam (anno 1928);						\
-	  C=(<NS_MBD5_9029GL,NS_BEC_8501GVL,NS_MAT24_BZ,NS_AEC_8501VL,NS_MCD_9425GL,NS_CEC_8501GVL,	\
-	    NS_MCD_9101GV)|										\
-	    (<NS_MC_9001GSVL,NS_CEC_8501GVL,NS_MCD_9425G,NS_AEC_8501VL,NS_MAT24_BZL,NS_BEC_GVL,		\
-	    NS_MBD5_9101GV);										\
+	C=(<NS_MBD5_9029GL,2*NS_BEC_8501GVL,NS_AEC_8501VL,NS_MCD_9425GL,NS_CEC_8501GVL,NS_MCD_9101GV)|	\
+	  (<NS_MC_9001GSVL,NS_CEC_8501GVL,NS_MCD_9425G,NS_AEC_8501VL,2*NS_BEC_GVL,NS_MBD5_9101GV);
+      TX=Sneltrein Amsterdam <-> Rotterdam (anno 1928);							\
+	C=(<NS_MBD5_9029GL,NS_BEC_8501GVL,NS_MAT24_BZ,NS_AEC_8501VL,NS_MCD_9425GL,NS_CEC_8501GVL,	\
+	  NS_MCD_9101GV)|										\
+	  (<NS_MC_9001GSVL,NS_CEC_8501GVL,NS_MCD_9425G,NS_AEC_8501VL,NS_MAT24_BZL,NS_BEC_GVL,		\
+	  NS_MBD5_9101GV);										\
 	F=EPU2;
     }
-  $ENDPOOL 
+  $ENDPOOL
 
   $SPOOL N=NS_MAT24_32; SEQ=R;
     {E2?
       TX=Stoptrein Amsterdam <-> Rotterdam;								\
-	  C=(<NS_MBD5_9101GVL,NS_BEC_8501GVL,NS_CEC_8501GVL,NS_AEC_8501VL,NS_MBD5_9101GV[PBU])|		\
-	    (<NS_MBD5_9101GVL,NS_AEC_8501V,NS_CEC_8501GV,NS_BEC_8501GVL,NS_MBD5_9101GV[PBU]);   \
+	C=(<NS_MBD5_9101GVL,NS_BEC_8501GVL,NS_CEC_8501GVL,NS_AEC_8501VL,NS_MBD5_9101GV[PBU])|		\
+	  (<NS_MBD5_9101GVL,NS_AEC_8501V,NS_CEC_8501GV,NS_BEC_8501GVL,NS_MBD5_9101GV[PBU]);		\
 	F=EPU2;
       TX=Stoptrein Amsterdam <-> Rotterdam;								\
-	  C=(<NS_MBD5_9101GVL[PFU],NS_BEC_8501GVL,NS_AEC_8501VL,NS_CEC_8501GVL,NS_MCD_9401GV,		\
-	    NS_MC_9001GSV)|										\
-	    (<NS_MC_9001GSVL,NS_MCD_9401GVL,NS_CEC_8501GV,NS_AEC_8501V,NS_BEC_8501GVL,			\
-	    NS_MBD5_9101GV[PBU]); \
+	C=(<NS_MBD5_9101GVL[PFU],NS_BEC_8501GVL,NS_AEC_8501VL,NS_CEC_8501GVL,NS_MCD_9401GV,		\
+	  NS_MC_9001GSV)|										\
+	  (<NS_MC_9001GSVL,NS_MCD_9401GVL,NS_CEC_8501GV,NS_AEC_8501V,NS_BEC_8501GVL,NS_MBD5_9101GV[PBU]); \
 	F=EPU2;
       TX=Amersterdam <-> Alkmaar;									\
-	  C=(<NS_MBD4_9151GVL,NS_ABECM_8551GVL,NS_CEC_8501GVL,NS_MCD_9401GV)|				\
-	    (<NS_MCD_9401GVL,NS_CEC_8501GV,NS_ABECM_8551GV,NS_MBD4_9151GV);				\
+	C=(<NS_MBD4_9151GVL,NS_ABECM_8551GVL,NS_CEC_8501GVL,NS_MCD_9401GV)|				\
+	  (<NS_MCD_9401GVL,NS_CEC_8501GV,NS_ABECM_8551GV,NS_MBD4_9151GV);				\
 	F=EPU2;
     }
-  $ENDPOOL 
+  $ENDPOOL
 
   $SPOOL N=NS_MAT24_33; SEQ=R;
     {E2?
       TX=Stoptrein Amsterdam <-> Rotterdam;								\
-	  C=(<NS_MBD5_9101GVL[PFU],NS_BEC_8501GVL,NS_AEC_8501VL,NS_CEC_8501GVL,NS_MCD_9401GV,		\
-	    NS_CEC_8501GVL,NS_MC_9001GSV)|								\
-	    (<NS_MC_9001GSVL,NS_CEC_8501GVL,NS_MCD_9401GVL,NS_CEC_8501GV,NS_AEC_8501V,NS_BEC_8501GVL,	\
-	    NS_MBD5_9101GV[PBU]);										\
+	C=(<NS_MBD5_9101GVL[PFU],NS_BEC_8501GVL,NS_AEC_8501VL,NS_CEC_8501GVL,NS_MCD_9401GV,		\
+	  NS_CEC_8501GVL,NS_MC_9001GSV)|								\
+	  (<NS_MC_9001GSVL,NS_CEC_8501GVL,NS_MCD_9401GVL,NS_CEC_8501GV,NS_AEC_8501V,NS_BEC_8501GVL,	\
+	  NS_MBD5_9101GV[PBU]);										\
 	F=EPU2;
     }
-  $ENDPOOL 
+  $ENDPOOL
 
   $SPOOL N=NS_MAT24_42; SEQ=R;
     {E2?
-	TX=Stoptrein Amsterdam <-> Rotterdam;								\
-	  C=(<NS_MBD_9801GVL,NS_BEC_8501GVL,NS_AEC_8501VL,2*NS_CEC_8501GVL,NS_MCD_9425GV,		\
-	    NS_MCD_9425GVL,NS_CEC_8501GVL,NS_MC_9001GSV)|						\
-	    (<NS_MC_9001GSVL,NS_CEC_8501GVL,NS_MCD_9425GV,NS_MCD_9425GVL,2*NS_CEC_8501GVL,		\
-	    NS_AEC_8501VL,NS_BEC_8501GVL,NS_MBD_9801GV);F=EPU2;
-	TX=Stoptrein Amsterdam <-> Rotterdam;								\
-	  C=(<NS_MBD_9801GVL,NS_BEC_8501GVL,NS_AEC_8501VL,2*NS_CEC_8501GVL,NS_MCD_9425GV,		\
-	    NS_MCD_9425GVL),NS_P7011(|L);F=EPU2;
-	TX=Amsterdam <-> Amersfoort;									\
-	  C=(<NS_MBD4_9151GVL,NS_ABECM_8551GVL,2*NS_CEC_8501GVL,NS_MCD_9425GV,NS_CEC_8501GVL,		\
-	    NS_MC_9001GSV),0|1*NS_P7011(|L);F=EPU2;
-	TX=Amersfoort <-> Amsterdam;									\
-	  C=(<NS_MC_9001GSVL,NS_CEC_8501GV,NS_MCD_9425GVL,2*NS_CEC_8501GV,NS_ABECM_8551GV,		\
-	    NS_MBD4_9151GV),0|1*NS_P7011(|L);F=EPU2;
-	TX=Amsterdam <-> Amersfoort;									\
-	  C=<NS_MBD4_9151GVL,NS_ABECM_8551GVL,2*NS_CEC_8501GVL,NS_MCD_9425GV,NS_MABD_9001GVL,		\
-	    NS_CEC_8501GVL,NS_MC_9001GSV;F=EPU2;
-	TX=Amersfoort <-> Amsterdam;									\
-	  C=<NS_MC_9001GSVL,NS_CEC_8501GV,NS_MABD_9001GV,NS_MCD_9425GVL,2*NS_CEC_8501GV,		\
-	    NS_ABECM_8551GV,NS_MBD4_9151GV;F=EPU2;
-	TX=Rotterdam <-> Hoek van Holland;								\
-	  C=(<NS_MBD_9801GVL,NS_MC_9001GS,NS_MC_9001G,NS_MC_9001GSL,NS_MC_9001GS),6*NS_CEC_8501GV(|L);F=EPU2;
-      }
-  $ENDPOOL 
+      TX=Stoptrein Amsterdam <-> Rotterdam;								\
+	C=(<NS_MBD_9801GVL,NS_BEC_8501GVL,NS_AEC_8501VL,2*NS_CEC_8501GVL,NS_MCD_9425GV,NS_MCD_9425GVL,	\
+	  NS_CEC_8501GVL,NS_MC_9001GSV)|								\
+	  (<NS_MC_9001GSVL,NS_CEC_8501GVL,NS_MCD_9425GV,NS_MCD_9425GVL,2*NS_CEC_8501GVL,NS_AEC_8501VL,	\
+	  NS_BEC_8501GVL,NS_MBD_9801GV);								\
+	F=EPU2;
+      TX=Stoptrein Amsterdam <-> Rotterdam;								\
+	C=(<NS_MBD_9801GVL,NS_BEC_8501GVL,NS_AEC_8501VL,2*NS_CEC_8501GVL,NS_MCD_9425GV,NS_MCD_9425GVL),	\
+	  NS_P7011(|L);											\
+	F=EPU2;
+      TX=Amsterdam <-> Amersfoort;									\
+	C=(<NS_MBD4_9151GVL,NS_ABECM_8551GVL,2*NS_CEC_8501GVL,NS_MCD_9425GV,NS_CEC_8501GVL,		\
+	  NS_MC_9001GSV),(0|1)*NS_P7011(|L);								\
+	F=EPU2;
+      TX=Amersfoort <-> Amsterdam;									\
+	C=(<NS_MC_9001GSVL,NS_CEC_8501GV,NS_MCD_9425GVL,2*NS_CEC_8501GV,NS_ABECM_8551GV,NS_MBD4_9151GV), \
+	  (0|1)*NS_P7011(|L);										\
+	F=EPU2;
+      TX=Amsterdam <-> Amersfoort;									\
+	C=<NS_MBD4_9151GVL,NS_ABECM_8551GVL,2*NS_CEC_8501GVL,NS_MCD_9425GV,NS_MABD_9001GVL,		\
+	  NS_CEC_8501GVL,NS_MC_9001GSV;									\
+	F=EPU2;
+      TX=Amersfoort <-> Amsterdam;									\
+	C=<NS_MC_9001GSVL,NS_CEC_8501GV,NS_MABD_9001GV,NS_MCD_9425GVL,2*NS_CEC_8501GV,NS_ABECM_8551GV,	\
+	  NS_MBD4_9151GV;										\
+	F=EPU2;
+      TX=Rotterdam <-> Hoek van Holland;								\
+	C=(<NS_MBD_9801GVL,NS_MC_9001GS,NS_MC_9001G,NS_MC_9001GSL,NS_MC_9001GS),6*NS_CEC_8501GV(|L);	\
+	F=EPU2;
+    }
+  $ENDPOOL
 
   $SPOOL N=NS_MAT24_47; SEQ=R;
     {E2?
-	C=<NS_MBD4_9151GVL,NS_ABECM_8551GVL,2*NS_CEC_8501GVL,NS_MCD_9425GV;F=EPU2;				\
-	  AP=[TX=Amsterdam <-> Amersfoort]|[TX=Amsterdam <-> Hilversum]|[TX=Amsterdam <-> Utrecht]|	\
-	    [TX=Amsterdam <-> Baarn];
-	TX=Amsterdam <-> Utrecht;									\
-	  C=<NS_MBD4_9151GVL,NS_CEC_8501GVL,NS_MCD_9425GV;F=EPU2;
-	TX=Amsterdam <-> Utrecht;									\
-	  C=<NS_MBD4_9151GVL,NS_CEC_8501GVL,NS_ABECM_8551GVL,NS_CEC_8501GVL,NS_MCD_9425GV;F=EPU2;
-	TX=Rotterdam <-> Hoek van Holland;								\
-	  C=<NS_MBD4_9151GVL,2*NS_CEC_8501GVL,NS_MCD_9425GV;F=EPU2;
-      }
-  $ENDPOOL 
+      C=<NS_MBD4_9151GVL,NS_ABECM_8551GVL,2*NS_CEC_8501GVL,NS_MCD_9425GV;				\
+	AP=[TX=Amsterdam <-> Amersfoort]|[TX=Amsterdam <-> Hilversum]|[TX=Amsterdam <-> Utrecht]|	\
+	  [TX=Amsterdam <-> Baarn];									\
+	F=EPU2;
+      TX=Amsterdam <-> Utrecht;										\
+	C=<NS_MBD4_9151GVL,NS_CEC_8501GVL,NS_MCD_9425GV;						\
+	F=EPU2;
+      TX=Amsterdam <-> Utrecht;										\
+	C=<NS_MBD4_9151GVL,NS_CEC_8501GVL,NS_ABECM_8551GVL,NS_CEC_8501GVL,NS_MCD_9425GV;		\
+	F=EPU2;
+      TX=Rotterdam <-> Hoek van Holland;								\
+	C=<NS_MBD4_9151GVL,2*NS_CEC_8501GVL,NS_MCD_9425GV;						\
+	F=EPU2;
+    }
+  $ENDPOOL
 
-    $SPOOL N=NS_MAT24_49; SEQ=R;
-      {E2?
-	C=<NS_MCD_9101GVL,NS_ABECM_8551GVL,NS_CEC_8501GVL,NS_MCD_9425GV;				\
-	  AP=[TX=Amsterdam <-> Amersfoort]|[TX=Amsterdam <-> Hilversum];
-	C=<NS_MBD5_9101GVL|NS_MABD_9001GL,2*NS_CEC_8501GVL,NS_MCD_9425GV;				\
-	  AP=[TX=Amsterdam <-> Amersfoort]|[TX=Utrecht <-> Hilversum]|[TX=Haarlem <-> IJmuiden];
-	TX=Rotterdam <-> Hoek van Holland;								\
-	  C=<NS_MC_9001GSVL,NS_ABECM_8551GVL,SS_E129,NS_CEC_8501GVL,NS_MCD_9425GV;
-      }
-    $ENDPOOL 
+  $SPOOL N=NS_MAT24_49; SEQ=R;
+    {E2?
+      C=<NS_MCD_9101GVL,NS_ABECM_8551GVL,NS_CEC_8501GVL,NS_MCD_9425GV;					\
+	AP=[TX=Amsterdam <-> Amersfoort]|[TX=Amsterdam <-> Hilversum];
+      C=<NS_MBD5_9101GVL|NS_MABD_9001GL,2*NS_CEC_8501GVL,NS_MCD_9425GV;					\
+	AP=[TX=Amsterdam <-> Amersfoort]|[TX=Utrecht <-> Hilversum]|[TX=Haarlem <-> IJmuiden];
+      TX=Rotterdam <-> Hoek van Holland;								\
+	C=<NS_MC_9001GSVL,NS_ABECM_8551GVL,SS_E129,NS_CEC_8501GVL,NS_MCD_9425GV;
+    }
+  $ENDPOOL
 
-    $SPOOL N=NS_MAT24_55; SEQ=R;
-      {E2?
-	C=<NS_MCD_9101GVL,NS_ABECM_8551GVL,NS_CEC_8501GVL,NS_MCD_9425GV;				\
-	  AP=[TX=Amsterdam <-> Zandvoort]|[TX=Amsterdam <-> Amersfoort];
-	TX=Velsen <-> IJmuiden;										\
-	  C=<NS_MBD_9801GVL,NS_MC_9001GS;
-	TX=Amsterdam <-> Amersfoort;									\
-	  C=<NS_MBD_9801GVL,NS_BEC_8501GVL,NS_CEC_8501GVL,NS_MCD_9425G,NS_CEC_8501GVL,NS_MC_9001GS;
-      }
-    $ENDPOOL 
+  $SPOOL N=NS_MAT24_55; SEQ=R;
+    {E2?
+      C=<NS_MCD_9101GVL,NS_ABECM_8551GVL,NS_CEC_8501GVL,NS_MCD_9425GV;					\
+	AP=[TX=Amsterdam <-> Zandvoort]|[TX=Amsterdam <-> Amersfoort];
+      TX=Velsen <-> IJmuiden;										\
+	C=<NS_MBD_9801GVL,NS_MC_9001GS;
+      TX=Amsterdam <-> Amersfoort;									\
+	C=<NS_MBD_9801GVL,NS_BEC_8501GVL,NS_CEC_8501GVL,NS_MCD_9425G,NS_CEC_8501GVL,NS_MC_9001GS;
+    }
+  $ENDPOOL
 
-    $SPOOL N=NL_EXPRESS_1934; SEQ=R;
-      {E2?
-	TX=Utrecht <-> Amsterdam Muiderpoort (anno 1934);						\
-	  C=$DIR(NS_3713L|NS_3737BL,NS_3713|NS_3737B),NS_D6061G(|L),2*NS_AB7C_6021(|L),			\
-	    4*NS_C10C_6101(|L);
-	TX=Rotterdam <-> Vlissingen (anno 1934);							\
-	  C=$DIR(NS_3713L|NS_3737BL,NS_3713|NS_3737B),NS_D6061G(|L),2*NS_AB7C_6021(|L),			\
-	    NS_BC9C_6001(|L),5*NS_C10C_6101(|L);
-	TX=Utrecht <-> Groningen (anno 1934);								\
-	  C=$DIR(NS_3713L|NS_3737BL,NS_3713|NS_3737B),NS_D6061G(|L),2*NS_C10C_6101(|L),			\
-	    NS_BC9C_6001(|L),NS_AB7C(|L),NS_AB7C_6021(|L),NS_C10C_6101(|L);
-	TX=Utrecht <-> Den Haag (anno 1934);								\
-	  C=$DIR(NS_3713L|NS_3737BL,NS_3713|NS_3737B),NS_D6061G(|L),NS_AB7C_6021(|L),			\
-	    3*NS_C10C_6101(|L),NS_BC9C_6001(|L),NS_AB7C(|L),NS_D6061G(|L);
-      }
-    $ENDPOOL 
+  $SPOOL N=NL_EXPRESS_1934; SEQ=R;
+    {E2?
+      TX=Utrecht <-> Amsterdam Muiderpoort (anno 1934);							\
+	C=$DIR(NS_3713L|NS_3737BL,NS_3713|NS_3737B),NS_D6061G(|L),2*NS_AB7C_6021(|L),4*NS_C10C_6101(|L);
+      TX=Rotterdam <-> Vlissingen (anno 1934);								\
+	C=$DIR(NS_3713L|NS_3737BL,NS_3713|NS_3737B),NS_D6061G(|L),2*NS_AB7C_6021(|L),NS_BC9C_6001(|L),	\
+	  5*NS_C10C_6101(|L);
+      TX=Utrecht <-> Groningen (anno 1934);								\
+	C=$DIR(NS_3713L|NS_3737BL,NS_3713|NS_3737B),NS_D6061G(|L),2*NS_C10C_6101(|L),NS_BC9C_6001(|L),	\
+	  NS_AB7C(|L),NS_AB7C_6021(|L),NS_C10C_6101(|L);
+      TX=Utrecht <-> Den Haag (anno 1934);								\
+	C=$DIR(NS_3713L|NS_3737BL,NS_3713|NS_3737B),NS_D6061G(|L),NS_AB7C_6021(|L),3*NS_C10C_6101(|L),	\
+	  NS_BC9C_6001(|L),NS_AB7C(|L),NS_D6061G(|L);
+    }
+  $ENDPOOL
 
-    $SPOOL N=NL_EXPRESS_1951; SEQ=R;
-      {E3?
-	C=NS_1200N|NS_1200NL,2*NS_D_C9(|L),NS_D_AB8(|L),2*NS_D_RD0(|L),NS_D_AB8(|L),3*NS_D_C9(|L);	\
-	  AP=[TX=Amsterdam <- Utrecht - Meppel -> Groningen (anno 1951)]|				\
-	    [TX=Amsterdam <- Utrecht - Meppel -> Leeuwarden (anno 1951)];
-	C=NS_1100_1(|L),2*NS_D_C9(|L),NS_D_AB8(|L),2*NS_D_RD0(|L),NS_D_AB8(|L),3*NS_D_C9(|L);		\
-	  AP=[TX=Amsterdam <- Utrecht - Meppel -> Groningen (anno 1951)]|				\
-	    [TX=Amsterdam <- Utrecht - Meppel -> Leeuwarden (anno 1951)]|				\
-	    [TX=Den Haag <- Utrecht - Meppel -> Leeuwarden (anno 1951)];
-	C=NS_1200T~GOU|NS_1200TL~GOU,2*NS_D_C9(|L),NS_D_AB8(|L),2*NS_D_RD0(|L),NS_D_AB8(|L),		\
-	    3*NS_D_C9(|L);										\
-	  AP=[TX=Rotterdam <- Utrecht - Meppel -> Groningen (anno 1951)]|				\
-	    [TX=Rotterdam <- Utrecht - Meppel -> Leeuwarden (anno 1951)];
-	C=NS_3900,NS_D_RD0(|L),NS_D_AB8(|L),3*NS_D_C9(|L);						\
-	  D=R;												\
-	  AP=[TX=Rotterdam <- Utrecht - Meppel -> Groningen (anno 1951)]|				\
-	    [TX=Den Haag <- Utrecht - Meppel -> Groningen (anno 1951)]|					\
-	    [TX=Amsterdam <- Utrecht - Meppel -> Groningen (anno 1951)];
-	C=NS_3780|NS_3785(BL|CL|DL),2*NS_D_C9(|L),NS_D_AB8(|L),NS_D_RD0(|L);				\
-	  D=L;												\
-	  AP=[TX=Rotterdam <- Utrecht - Meppel -> Leeuwarden (anno 1951)]|				\
-	    [TX=Den Haag <- Utrecht - Meppel -> Leeuwarden (anno 1951)]|				\
-	    [TX=Amsterdam <- Utrecht - Meppel -> Leeuwarden (anno 1951)];
-	TX=Expresstrein Amsterdam <-> Maastricht (anno 1951);						\
-	  C=NS_1100_1(|L),2*NS_D_C9(|L),NS_D_AB8(|L),NS_D_RD0(|L),NS_D_AB8(|L),2*NS_D_C9(|L),		\
-	    NS_D7521G(|L);
-	TX=Expresstrein Amsterdam <-> Enschede (anno 1951);						\
-	  C=NS_1100_1(|L),2*NS_D_AB8(|L),NS_D_RD0(|L),3*NS_D_C9(|L);
-	TX=Espresstrein Rotterdam <-> Maastricht (anno 1951);						\
-	  C=NS_1100_1(|L),NS_D_AB8(|L),NS_D_RD0(|L),4*NS_D_C9(|L),NS_P7011(|L);
-      }
-    $ENDPOOL 
+  $SPOOL N=NL_EXPRESS_1951; SEQ=R;
+    {E3?
+      C=NS_1200N|NS_1200NL,2*NS_D_C9(|L),NS_D_AB8(|L),2*NS_D_RD0(|L),NS_D_AB8(|L),3*NS_D_C9(|L);	\
+	AP=[TX=Amsterdam <- Utrecht - Meppel -> Groningen (anno 1951)]|					\
+	  [TX=Amsterdam <- Utrecht - Meppel -> Leeuwarden (anno 1951)];
+      C=NS_1100_1(|L),2*NS_D_C9(|L),NS_D_AB8(|L),2*NS_D_RD0(|L),NS_D_AB8(|L),3*NS_D_C9(|L);		\
+	AP=[TX=Amsterdam <- Utrecht - Meppel -> Groningen (anno 1951)]|					\
+	  [TX=Amsterdam <- Utrecht - Meppel -> Leeuwarden (anno 1951)]|					\
+	  [TX=Den Haag <- Utrecht - Meppel -> Leeuwarden (anno 1951)];
+      C=NS_1200T~GOU|NS_1200TL~GOU,2*NS_D_C9(|L),NS_D_AB8(|L),2*NS_D_RD0(|L),NS_D_AB8(|L),3*NS_D_C9(|L); \
+	AP=[TX=Rotterdam <- Utrecht - Meppel -> Groningen (anno 1951)]|					\
+	  [TX=Rotterdam <- Utrecht - Meppel -> Leeuwarden (anno 1951)];
+      C=NS_3900,NS_D_RD0(|L),NS_D_AB8(|L),3*NS_D_C9(|L);						\
+	D=R;												\
+	AP=[TX=Rotterdam <- Utrecht - Meppel -> Groningen (anno 1951)]|					\
+	  [TX=Den Haag <- Utrecht - Meppel -> Groningen (anno 1951)]|					\
+	  [TX=Amsterdam <- Utrecht - Meppel -> Groningen (anno 1951)];
+      C=NS_3780|NS_3785(BL|CL|DL),2*NS_D_C9(|L),NS_D_AB8(|L),NS_D_RD0(|L);				\
+	D=L;												\
+	AP=[TX=Rotterdam <- Utrecht - Meppel -> Leeuwarden (anno 1951)]|				\
+	  [TX=Den Haag <- Utrecht - Meppel -> Leeuwarden (anno 1951)]|					\
+	  [TX=Amsterdam <- Utrecht - Meppel -> Leeuwarden (anno 1951)];
+      TX=Expresstrein Amsterdam <-> Maastricht (anno 1951);						\
+	C=NS_1100_1(|L),2*NS_D_C9(|L),NS_D_AB8(|L),NS_D_RD0(|L),NS_D_AB8(|L),2*NS_D_C9(|L),		\
+	  NS_D7521G(|L);
+      TX=Expresstrein Amsterdam <-> Enschede (anno 1951);						\
+	C=NS_1100_1(|L),2*NS_D_AB8(|L),NS_D_RD0(|L),3*NS_D_C9(|L);
+      TX=Espresstrein Rotterdam <-> Maastricht (anno 1951);						\
+	C=NS_1100_1(|L),NS_D_AB8(|L),NS_D_RD0(|L),4*NS_D_C9(|L),NS_P7011(|L);
+    }
+  $ENDPOOL
 
-    $SPOOL N=NL_EXPRESS_1954; SEQ=R;
-      {E3?
-	TX=Expresstrein Amesterdam <-> Maastricht (anno 1954);						\
-	  C=NS_1200N|NS_1200NL,NS_D_B9(|L),NS_D_C9(|L),NS_D_AB8(|L),NS_D_RD3(|L),NS_D_A8(|L),		\
-	    NS_D_C9(|L),NS_D_B9(|L),NS_D7521G(|L);
-	TX=Expresstrein Amsterdam <-> Enschede (anno 1954);						\
-	  C=NS_1100_2A(|L),2*NS_D_A8(|L),NS_D_RD3(|L),3*NS_D_B9(|L);
-	TX=Expresstrein Rotterdam <-> Maastricht (anno 1954);						\
-	  C=NS_1100_2A(|L),NS_D_A8(|L),NS_D_RD3(|L),4*NS_D_B9(|L),NS_D_P2(|L);
-      }
-    $ENDPOOL 
+  $SPOOL N=NL_EXPRESS_1954; SEQ=R;
+    {E3?
+      TX=Expresstrein Amesterdam <-> Maastricht (anno 1954);						\
+	C=NS_1200N|NS_1200NL,NS_D_B9(|L),NS_D_C9(|L),NS_D_AB8(|L),NS_D_RD3(|L),NS_D_A8(|L),		\
+	  NS_D_C9(|L),NS_D_B9(|L),NS_D7521G(|L);
+      TX=Expresstrein Amsterdam <-> Enschede (anno 1954);						\
+	C=NS_1100_2A(|L),2*NS_D_A8(|L),NS_D_RD3(|L),3*NS_D_B9(|L);
+      TX=Expresstrein Rotterdam <-> Maastricht (anno 1954);						\
+	C=NS_1100_2A(|L),NS_D_A8(|L),NS_D_RD3(|L),4*NS_D_B9(|L),NS_D_P2(|L);
+    }
+  $ENDPOOL
 
-    $SPOOL N=NL_D2542_1991; SEQ=R;
-      {E5?
-	C=NS_1144(|L)[PU],3*DB_4BM235(|L),DB_4AM203S(|L);						\
-	  V=10-14;											\
-	  AP=[TX=D 2544 Braunschweig <- Hannover - Osnabrï¿½ck - Bad Bentheim -> Hengelo (Abschnitt Bad Bentheim - Hengelo)(anno 1992)]| \
-	    [TX=D 2542 Braunschweig <- Hannover - Osnabrï¿½ck - Bad Bentheim -> Hengelo (Abschnitt Bad Bentheim - Hengelo)(anno 1992)];
-	C=NS_1144(|L)[PU],DB_4AM203S(|L),3*DB_4BM235(|L);						\
-	  V=10-14;											\
-	  AP=[TX=D 2545 Hengelo <- Bad Bentheim - Osnabrï¿½ck - Hannover -> Braunschweig (Abschnitt Hengelo - Bad Bentheim)(anno 1992)]| \
-	    [TX=D 2549 Hengelo <- Bad Bentheim -> Osnabrï¿½ck (Abschnitt Hengelo - Bad Bentheim)(anno 1992)];
-      }
-    $ENDPOOL 
+  $SPOOL N=NL_D2542_1991; SEQ=R;
+    {E5?
+      C=NS_1144(|L)[PU],3*DB_4BM235(|L),DB_4AM203S(|L);							\
+	V=10-14;											\
+	AP=[TX=D 2544 Braunschweig <- Hannover - Osnabrück - Bad Bentheim -> Hengelo (Abschnitt Bad Bentheim - Hengelo)(anno 1992)]| \
+	  [TX=D 2542 Braunschweig <- Hannover - Osnabrück - Bad Bentheim -> Hengelo (Abschnitt Bad Bentheim - Hengelo)(anno 1992)];
+      C=NS_1144(|L)[PU],DB_4AM203S(|L),3*DB_4BM235(|L);							\
+	V=10-14;											\
+	AP=[TX=D 2545 Hengelo <- Bad Bentheim - Osnabrück - Hannover -> Braunschweig (Abschnitt Hengelo - Bad Bentheim)(anno 1992)]| \
+	  [TX=D 2549 Hengelo <- Bad Bentheim -> Osnabrück (Abschnitt Hengelo - Bad Bentheim)(anno 1992)];
+    }
+  $ENDPOOL
 
-    $SPOOL N=NL_RHEINGOLD_1963; SEQ=R;
-      {E3?
-	TX=F 9/10 "Rheingold" Amsterdam - Utrecht/Hoek van Holland - Utrecht - Arnhem - Duisburg - Dï¿½sseldorf - Kï¿½ln - Mainz - Mannheim - Basel  (anno 1963); \
-	  C=NS_1100_2A(|L),2*DBAM3,(<DB_AD4UM63RGB(|L),DB_WR4UM62B)|(<DB_WR4UM62BL,DB_AD4UM63RGB(|L)),	\
-	    2*DBAM3;
-	TX=F 9/10 "Rheingold" Amsterdam - Utrecht/Hoek van Holland - Utrecht - Arnhem - Duisburg - Dï¿½sseldorf - Kï¿½ln - Mainz - Mannheim - Basel  (anno 1963); \
-	  M=ECHG;											\
-	  C=DB_WR4UM62B(|L),2*DBAM3;									\
-	  D=L; A=1;											\
-	  C1=NS_1100_2A(|L);										\
-	  C2=DB_3B_KOF2(|L)|DB_V60;									\
-	  C3=BR220A;											\
-	  P=40; T1=5; T4=10,PD,W,3,PBU,W,10-20;								\
-	  WP=(55,TB:C1.PD;2,TB:C3.PBU);
-	TX=F 9/10 "Rheingold" Amsterdam - Utrecht/Hoek van Holland - Utrecht - Arnhem - Duisburg - Dï¿½sseldorf - Kï¿½ln - Mainz - Mannheim - Basel  (anno 1963); \
-	  M=CHANGE;											\
-	  C=DB_WR4UM62B(|L),2*DBAM3;									\
-	  D=L;												\
-	  C1=BR220A;											\
-	  C2=DB_E10_(299|340)(|L),2*DBAM3,DB_AD4UM63RGB(|L);						\
-	  P=<70; T3=10,PD,W,3,PBU,W,10-20;								\
-	  AP=CATENARY;
-      }
-    $ENDPOOL 
+  $SPOOL N=NL_RHEINGOLD_1963; SEQ=R;
+    {E3?
+      TX=F 9/10 "Rheingold" Amsterdam - Utrecht/Hoek van Holland - Utrecht - Arnhem - Duisburg - Düsseldorf - Köln - Mainz - Mannheim - Basel  (anno 1963); \
+	C=NS_1100_2A(|L),2*DBAM3,(<DB_AD4UM63RGB(|L),DB_WR4UM62B)|(<DB_WR4UM62BL,DB_AD4UM63RGB(|L)),	\
+	  2*DBAM3;
+      TX=F 9/10 "Rheingold" Amsterdam - Utrecht/Hoek van Holland - Utrecht - Arnhem - Duisburg - Düsseldorf - Köln - Mainz - Mannheim - Basel  (anno 1963); \
+	M=ECHG;												\
+	C=DB_WR4UM62B(|L),2*DBAM3;									\
+	D=L; A=1;											\
+	C1=NS_1100_2A(|L);										\
+	C2=DB_3B_KOF2(|L)|DB_V60;									\
+	C3=BR220A;											\
+	P=40; T1=5; T4=10,PD,W,3,PBU,W,10-20;								\
+	WP=(55,TB:C1.PD;2,TB:C3.PBU);
+      TX=F 9/10 "Rheingold" Amsterdam - Utrecht/Hoek van Holland - Utrecht - Arnhem - Duisburg - Düsseldorf - Köln - Mainz - Mannheim - Basel  (anno 1963); \
+	M=CHANGE;											\
+	C=DB_WR4UM62B(|L),2*DBAM3;									\
+	D=L;												\
+	C1=BR220A;											\
+	C2=DB_E10_(299|340)(|L),2*DBAM3,DB_AD4UM63RGB(|L);						\
+	P=<70; T3=10,PD,W,3,PBU,W,10-20;								\
+	AP=CATENARY;
+    }
+  $ENDPOOL
 
-    $SPOOL N=NL_INTL_2003; SEQ=R;
-      {E6?
-	C=<ICE3;											\
-	  V=12-30;											\
-	  AP=[TX=ICE 10 Frankfurt (M.)Hbf. <-> Bruxelles Br. (anno 2003)]|				\
-	    [TX=ICE 120 "ICE International" Frankfurt (M.)Hbf. <-> Amsterdam C. (anno 2003)]|		\
-	    [TX=ICE 121 "ICE International" Amsterdam C. <-> Frankfurt (M.)Hbf. (anno 2003)]|		\
-	    [TX=ICE 122 "ICE International" Frankfurt (M.)Hbf. <-> Amsterdam C. (anno 2003)]|		\
-	    [TX=ICE 123 "ICE International" Amsterdam C. <-> Frankfurt (M.)Hbf. (anno 2003)]|		\
-	    [TX=ICE 126 "ICE International" Frankfurt (M.)Hbf. <-> Amsterdam C. (anno 2003)]|		\
-	    [TX=ICE 127 "ICE International" Amsterdam C. <-> Frankfurt (M.)Hbf. (anno 2003)]|		\
-	    [TX=ICE 128 "ICE International" Frankfurt (M.)Hbf. <-> Amsterdam C. (anno 2003)]|		\
-	    [TX=ICE 129 "ICE International" Amsterdam C. <-> Frankfurt (M.)Hbf. (anno 2003)]|		\
-	    [TX=ICE 220 "ICE International" Frankfurt (M.)Hbf. <-> Amsterdam C. (anno 2003)]|		\
-	    [TX=ICE 221 "ICE International" Amsterdam C. <-> Frankfurt (M.)Hbf. (anno 2003)]|		\
-	    [TX=ICE 222 "ICE International" Frankfurt (M.)Hbf. <-> Amsterdam C. (anno 2003)]|		\
-	    [TX=ICE 223 "ICE International" Amsterdam C. <-> Frankfurt (M.)Hbf. (anno 2003)];
-	C=NS_1784(|L),DBAG_AVMZ111_1W(|L),DBAG_ARKIMBZ2622W(|L),DB_BVSMZW(|L),2*DBAG_BPMZ293WH(|L),	\
-	    DB_BPMBKZ291W(|L),2*DBAG_BIMZ2647W(|L);							\
-	  V=8-20;											\
-	  AP=[TX=IC 140 Berlin Ostbf. <-> Schiphol (anno 2003)]|					\
-	    [TX=IC 142 Berlin Ostbf. <-> Schiphol (anno 2003)]|						\
-	    [TX=IC 144 Leipzig Hbf. <-> Amsterdam C. (anno 2003)]|					\
-	    [TX=IC 146 Hannover Hbf. <-> Schiphol (anno 2003)];
-	C=NS_1784(|L),2*DBAG_BIMZ2647W(|L),DB_BPMBKZ291W(|L),2*DBAG_BPMZ293WH(|L),DB_BVSMZW(|L),	\
-	    DBAG_ARKIMBZ2622W(|L),DBAG_AVMZ111_1W(|L);							\
-	  V=8-20;											\
-	  AP=[TX=IC 141 Schiphol <-> Berlin Ostbf. (anno 2003)]|					\
-	    [TX=IC 143 Schiphol <-> Leipzig Hbf. (anno 2003)]|						\
-	    [TX=IC 145 Schiphol <-> Berlin Ostbf. (anno 2003)]|						\
-	    [TX=IC 147 Schiphol <-> Hannover Hbf. (anno 2003)];
-      }
-    $ENDPOOL 
+  $SPOOL N=NL_INTL_2003; SEQ=R;
+    {E6?
+      C=<ICE3;												\
+	V=12-30;											\
+	AP=[TX=ICE 10 Frankfurt (M.)Hbf. <-> Bruxelles Br. (anno 2003)]|				\
+	  [TX=ICE 120 "ICE International" Frankfurt (M.)Hbf. <-> Amsterdam C. (anno 2003)]|		\
+	  [TX=ICE 121 "ICE International" Amsterdam C. <-> Frankfurt (M.)Hbf. (anno 2003)]|		\
+	  [TX=ICE 122 "ICE International" Frankfurt (M.)Hbf. <-> Amsterdam C. (anno 2003)]|		\
+	  [TX=ICE 123 "ICE International" Amsterdam C. <-> Frankfurt (M.)Hbf. (anno 2003)]|		\
+	  [TX=ICE 126 "ICE International" Frankfurt (M.)Hbf. <-> Amsterdam C. (anno 2003)]|		\
+	  [TX=ICE 127 "ICE International" Amsterdam C. <-> Frankfurt (M.)Hbf. (anno 2003)]|		\
+	  [TX=ICE 128 "ICE International" Frankfurt (M.)Hbf. <-> Amsterdam C. (anno 2003)]|		\
+	  [TX=ICE 129 "ICE International" Amsterdam C. <-> Frankfurt (M.)Hbf. (anno 2003)]|		\
+	  [TX=ICE 220 "ICE International" Frankfurt (M.)Hbf. <-> Amsterdam C. (anno 2003)]|		\
+	  [TX=ICE 221 "ICE International" Amsterdam C. <-> Frankfurt (M.)Hbf. (anno 2003)]|		\
+	  [TX=ICE 222 "ICE International" Frankfurt (M.)Hbf. <-> Amsterdam C. (anno 2003)]|		\
+	  [TX=ICE 223 "ICE International" Amsterdam C. <-> Frankfurt (M.)Hbf. (anno 2003)];
+      C=NS_1784(|L),DBAG_AVMZ111_1W(|L),DBAG_ARKIMBZ2622W(|L),DB_BVSMZW(|L),2*DBAG_BPMZ293WH(|L),	\
+	  DB_BPMBKZ291W(|L),2*DBAG_BIMZ2647W(|L);							\
+	V=8-20;												\
+	AP=[TX=IC 140 Berlin Ostbf. <-> Schiphol (anno 2003)]|						\
+	  [TX=IC 142 Berlin Ostbf. <-> Schiphol (anno 2003)]|						\
+	  [TX=IC 144 Leipzig Hbf. <-> Amsterdam C. (anno 2003)]|					\
+	  [TX=IC 146 Hannover Hbf. <-> Schiphol (anno 2003)];
+      C=NS_1784(|L),2*DBAG_BIMZ2647W(|L),DB_BPMBKZ291W(|L),2*DBAG_BPMZ293WH(|L),DB_BVSMZW(|L),		\
+	  DBAG_ARKIMBZ2622W(|L),DBAG_AVMZ111_1W(|L);							\
+	V=8-20;												\
+	AP=[TX=IC 141 Schiphol <-> Berlin Ostbf. (anno 2003)]|						\
+	  [TX=IC 143 Schiphol <-> Leipzig Hbf. (anno 2003)]|						\
+	  [TX=IC 145 Schiphol <-> Berlin Ostbf. (anno 2003)]|						\
+	  [TX=IC 147 Schiphol <-> Hannover Hbf. (anno 2003)];
+    }
+  $ENDPOOL
 
-    $SPOOL N=NS_TKC_Rotterdam_Dillingen; SEQ=R;
-      {E7?
-	TX=TKC 48109 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
-	  C=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
-	    (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=6-8;
-	TX=TKC 48111 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
-	  C=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
-	    (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=6-8;
-	TX=TKC 48113 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
-	  C=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
-	    (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=6-8;
-	TX=TKC 48115 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
-	  C=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
-	    (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=6-8;
-	TX=TKC 48117 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
-	  C=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
-	    (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=6-8;
-	TX=TKC 48119 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
-	  C=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
-	    (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=6-8;
-	TX=TKC 48123 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
-	  C=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
-	    (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=6-8;
-	TX=TKC 48108 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
-	  C=(6:2|1:3)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
-	    (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=9-10;
-	TX=TKC 48112 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
-	  C=(6:2|1:3)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
-	    (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=9-10;
-	TX=TKC 48114 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
-	  C=(6:2|1:3)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
-	    (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=9-10;
-	TX=TKC 48116 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
-	  C=(6:2|1:3)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
-	    (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=9-10;
-	TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
-	  C=(6:2|1:3)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
-	    (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=9-10;
-	TX=TKC 48120 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
-	  C=(6:2|1:3)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
-	    (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=9-10;
-	TX=TKC 48109 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
-	  M=CHANGE;											\
-	  C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=3-4;											\
-	  C1=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O;	\
-	  V1=3-4; B1=0.008;										\
-	  C2=DB151AK_6,DB151AK_6[PFU];									\
-	  V2=3-4; A2=0.008; V3=5-6;									\
-	  AP=CATENARY;
-	TX=TKC 48111 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
-	  M=CHANGE;											\
-	  C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=3-4;											\
-	  C1=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O;	\
-	  V1=3-4; B1=0.008;										\
-	  C2=DB151AK_6,DB151AK_6[PFU];									\
-	  V2=3-4; A2=0.008; V3=5-6;									\
-	  AP=CATENARY;
-	TX=TKC 48113 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
-	  M=CHANGE;											\
-	  C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=3-4;											\
-	  C1=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O;	\
-	  V1=3-4; B1=0.008;										\
-	  C2=DB151AK_6,DB151AK_6[PFU];									\
-	  V2=3-4; A2=0.008; V3=5-6;									\
-	  AP=CATENARY;
-	TX=TKC 48115 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
-	  M=CHANGE;											\
-	  C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=3-4;											\
-	  C1=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O;	\
-	  V1=3-4; B1=0.008;										\
-	  C2=DB151AK_6,DB151AK_6[PFU];									\
-	  V2=3-4; A2=0.008; V3=5-6;									\
-	  AP=CATENARY;
-	TX=TKC 48117 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
-	  M=CHANGE;											\
-	  C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=3-4;											\
-	  C1=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O;	\
-	  V1=3-4; B1=0.008;										\
-	  C2=DB151AK_6,DB151AK_6[PFU];									\
-	  V2=3-4; A2=0.008; V3=5-6;									\
-	  AP=CATENARY;
-	TX=TKC 48119 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
-	  M=CHANGE;											\
-	  C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=3-4;											\
-	  C1=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O;	\
-	  V1=3-4; B1=0.008;										\
-	  C2=DB151AK_6,DB151AK_6[PFU];									\
-	  V2=3-4; A2=0.008; V3=5-6;									\
-	  AP=CATENARY;
-	TX=TKC 48123 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
-	  M=CHANGE;											\
-	  C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=3-4;											\
-	  C1=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O;	\
-	  V1=3-4; B1=0.008;										\
-	  C2=DB151AK_6,DB151AK_6[PFU];									\
-	  V2=3-4; A2=0.008; V3=5-6;									\
-	  AP=CATENARY;
-	TX=TKC 48108 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
-	  M=ECHANGE;											\
-	  C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=3-4; B=0.008;										\
-	  C1=DB151AK_6[PD],DB151AK_6[PD];								\
-	  V1=2-3;											\
-	  C2=(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L);				\
-	  V2=2-3;											\
-	  C3=NS_FALS2520O,(9:2|1:3)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L);	\
-	  V3=2-3; T1=8-12; T2=5-10; T3=12-18; T4=15-25; W=3;						\
-	  AP=CATENARY;											\
-	  V4=5-6;											\
-	  A4=0.01;
-	TX=TKC 48112 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
-	  M=ECHANGE;											\
-	  C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=3-4; B=0.008;										\
-	  C1=DB151AK_6[PD],DB151AK_6[PD];								\
-	  V1=2-3;											\
-	  C2=(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L);				\
-	  V2=2-3;											\
-	  C3=NS_FALS2520O,(9:2|1:3)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L);	\
-	  V3=2-3; T1=8-12; T2=5-10; T3=12-18; T4=15-25; W=3;						\
-	  AP=CATENARY;											\
-	  V4=5-6;											\
-	  A4=0.01;
-	TX=TKC 48114 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
-	  M=ECHANGE;											\
-	  C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=3-4; B=0.008;										\
-	  C1=DB151AK_6[PD],DB151AK_6[PD];								\
-	  V1=2-3;											\
-	  C2=(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L);				\
-	  V2=2-3;											\
-	  C3=NS_FALS2520O,(9:2|1:3)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L);	\
-	  V3=2-3; T1=8-12; T2=5-10; T3=12-18; T4=15-25; W=3;						\
-	  AP=CATENARY;											\
-	  V4=5-6;											\
-	  A4=0.01;
-	TX=TKC 48116 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
-	  M=ECHANGE;											\
-	  C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=3-4; B=0.008;										\
-	  C1=DB151AK_6[PD],DB151AK_6[PD];								\
-	  V1=2-3;											\
-	  C2=(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L);				\
-	  V2=2-3;											\
-	  C3=NS_FALS2520O,(9:2|1:3)*(NSC_6400|RAI_6400|RAI_6400Y|RAI_6400(E|F))(|L)~EB;			\
-	  V3=2-3; T1=8-12; T2=5-10; T3=12-18; T4=15-25; W=3;						\
-	  AP=CATENARY;											\
-	  V4=5-6;											\
-	  A4=0.01;
-	TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
-	  M=ECHANGE;											\
-	  C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=3-4; B=0.008;										\
-	  C1=DB151AK_6[PD],DB151AK_6[PD];								\
-	  V1=2-3;											\
-	  C2=(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L);				\
-	  V2=2-3;											\
-	  C3=NS_FALS2520O,(9:2|1:3)*(NSC_6400|RAI_6400|RAI_6400Y|RAI_6400(E|F))(|L)~EB;			\
-	  V3=2-3; T1=8-12; T2=5-10; T3=12-18; T4=15-25; W=3;						\
-	  AP=CATENARY;											\
-	  V4=5-6;											\
-	  A4=0.01;
-	TX=TKC 48120 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
-	  M=ECHANGE;											\
-	  C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=3-4; B=0.008;										\
-	  C1=DB151AK_6[PD],DB151AK_6[PD];								\
-	  V1=2-3;											\
-	  C2=(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L);				\
-	  V2=2-3;											\
-	  C3=NS_FALS2520O,(9:2|1:3)*(NSC_6400|RAI_6400|RAI_6400Y|RAI_6400(E|F))(|L)~EB;			\
-	  V3=2-3; T1=8-12; T2=5-10; T3=12-18; T4=15-25; W=3;						\
-	  AP=CATENARY;											\
-	  V4=5-6;											\
-	  A4=0.01;
-TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
-	  M=ECHANGE;											\
-	  C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
-	    (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
-	  V=3-4; B=0.008;										\
-	  C1=DB151AK_6[PD],DB151AK_6[PD];								\
+  $SPOOL N=NS_TKC_Rotterdam_Dillingen; SEQ=R;
+    {E7?
+      TX=TKC 48109 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
+	C=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
+	  (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=6-8;												\
+	F=DF5;
+      TX=TKC 48111 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
+	C=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
+	  (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=6-8;												\
+	F=DF5;
+      TX=TKC 48113 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
+	C=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
+	  (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=6-8;												\
+	F=DF5;
+      TX=TKC 48115 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
+	C=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
+	  (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=6-8;												\
+	F=DF5;
+      TX=TKC 48117 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
+	C=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
+	  (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=6-8;												\
+	F=DF5;
+      TX=TKC 48119 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
+	C=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
+	  (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=6-8;												\
+	F=DF5;
+      TX=TKC 48123 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
+	C=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
+	  (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=6-8;												\
+	F=DF5;
+      TX=TKC 48108 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
+	C=(6:2|1:3)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
+	  (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=9-10;												\
+	F=DF5;
+      TX=TKC 48112 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
+	C=(6:2|1:3)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
+	  (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=9-10;												\
+	F=DF5;
+      TX=TKC 48114 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
+	C=(6:2|1:3)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
+	  (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=9-10;												\
+	F=DF5;
+      TX=TKC 48116 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
+	C=(6:2|1:3)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
+	  (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=9-10;												\
+	F=DF5;
+      TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
+	C=(6:2|1:3)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
+	  (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=9-10;												\
+	F=DF5;
+      TX=TKC 48120 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
+	C=(6:2|1:3)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O,	\
+	  (19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=9-10;												\
+	F=DF5;
+      TX=TKC 48109 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
+	M=CHANGE;											\
+	C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=3-4;												\
+	C1=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O;	\
+	V1=3-4; B1=0.008;										\
+	C2=DB151AK_6,DB151AK_6[PFU];									\
+	V2=3-4; A2=0.008; V3=5-6;									\
+	AP=CATENARY;											\
+	F=EFO5;
+      TX=TKC 48111 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
+	M=CHANGE;											\
+	C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=3-4;												\
+	C1=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O;	\
+	V1=3-4; B1=0.008;										\
+	C2=DB151AK_6,DB151AK_6[PFU];									\
+	V2=3-4; A2=0.008; V3=5-6;									\
+	AP=CATENARY;											\
+	F=EFO5;
+      TX=TKC 48113 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
+	M=CHANGE;											\
+	C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=3-4;												\
+	C1=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O;	\
+	V1=3-4; B1=0.008;										\
+	C2=DB151AK_6,DB151AK_6[PFU];									\
+	V2=3-4; A2=0.008; V3=5-6;									\
+	AP=CATENARY;											\
+	F=EFO5;
+      TX=TKC 48115 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
+	M=CHANGE;											\
+	C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=3-4;												\
+	C1=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O;	\
+	V1=3-4; B1=0.008;										\
+	C2=DB151AK_6,DB151AK_6[PFU];									\
+	V2=3-4; A2=0.008; V3=5-6;									\
+	AP=CATENARY;											\
+	F=EFO5;
+      TX=TKC 48117 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
+	M=CHANGE;											\
+	C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=3-4;												\
+	C1=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O;	\
+	V1=3-4; B1=0.008;										\
+	C2=DB151AK_6,DB151AK_6[PFU];									\
+	V2=3-4; A2=0.008; V3=5-6;									\
+	AP=CATENARY;											\
+	F=EFO5;
+      TX=TKC 48119 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
+	M=CHANGE;											\
+	C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=3-4;												\
+	C1=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O;	\
+	V1=3-4; B1=0.008;										\
+	C2=DB151AK_6,DB151AK_6[PFU];									\
+	V2=3-4; A2=0.008; V3=5-6;									\
+	AP=CATENARY;											\
+	F=EFO5;
+      TX=TKC 48123 Rotterdam-Maasvlakte <- Venlo - Koblenz-Mosel Gbf - Ehrang -> Dillingen Hochofen (anno 2001); \
+	M=CHANGE;											\
+	C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=3-4;												\
+	C1=(7:3|1:4)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L),NS_FALS2520O;	\
+	V1=3-4; B1=0.008;										\
+	C2=DB151AK_6,DB151AK_6[PFU];									\
+	V2=3-4; A2=0.008; V3=5-6;									\
+	AP=CATENARY;											\
+	F=EFO5;
+      TX=TKC 48108 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
+	M=ECHANGE;											\
+	C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=3-4; B=0.008;											\
+	C1=DB151AK_6[PD],DB151AK_6[PD];									\
+	V1=2-3;												\
+	C2=(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L);				\
+	V2=2-3;												\
+	C3=NS_FALS2520O,(9:2|1:3)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L);	\
+	V3=2-3; T1=8-12; T2=5-10; T3=12-18; T4=15-25; W=3;						\
+	AP=CATENARY;											\
+	F=EFO5;												\
+	V4=5-6;												\
+	A4=0.01;
+      TX=TKC 48112 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
+	M=ECHANGE;											\
+	C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=3-4; B=0.008;											\
+	C1=DB151AK_6[PD],DB151AK_6[PD];									\
+	V1=2-3;												\
+	C2=(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L);				\
+	V2=2-3;												\
+	C3=NS_FALS2520O,(9:2|1:3)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L);	\
+	V3=2-3; T1=8-12; T2=5-10; T3=12-18; T4=15-25; W=3;						\
+	AP=CATENARY;											\
+	F=EFO5;												\
+	V4=5-6;												\
+	A4=0.01;
+      TX=TKC 48114 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
+	M=ECHANGE;											\
+	C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=3-4; B=0.008;											\
+	C1=DB151AK_6[PD],DB151AK_6[PD];									\
+	V1=2-3;												\
+	C2=(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L);				\
+	V2=2-3;												\
+	C3=NS_FALS2520O,(9:2|1:3)*(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L);	\
+	V3=2-3; T1=8-12; T2=5-10; T3=12-18; T4=15-25; W=3;						\
+	AP=CATENARY;											\
+	F=EFO5;												\
+	V4=5-6;												\
+	A4=0.01;
+      TX=TKC 48116 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
+	M=ECHANGE;											\
+	C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=3-4; B=0.008;											\
+	C1=DB151AK_6[PD],DB151AK_6[PD];									\
 	V1=2-3;												\
 	C2=(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L);				\
 	V2=2-3;												\
 	C3=NS_FALS2520O,(9:2|1:3)*(NSC_6400|RAI_6400|RAI_6400Y|RAI_6400(E|F))(|L)~EB;			\
 	V3=2-3; T1=8-12; T2=5-10; T3=12-18; T4=15-25; W=3;						\
 	AP=CATENARY;											\
-	F=FO7;												\
+	F=EFO5;												\
+	V4=5-6;												\
+	A4=0.01;
+      TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
+	M=ECHANGE;											\
+	C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=3-4; B=0.008;											\
+	C1=DB151AK_6[PD],DB151AK_6[PD];									\
+	V1=2-3;												\
+	C2=(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L);				\
+	V2=2-3;												\
+	C3=NS_FALS2520O,(9:2|1:3)*(NSC_6400|RAI_6400|RAI_6400Y|RAI_6400(E|F))(|L)~EB;			\
+	V3=2-3; T1=8-12; T2=5-10; T3=12-18; T4=15-25; W=3;						\
+	AP=CATENARY;											\
+	F=EFO7;												\
 	V4=5-6;												\
 	A4=0.01;
       TX=TKC 48120 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
@@ -2505,21 +2507,21 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	C3=NS_FALS2520O,(9:2|1:3)*(NSC_6400|RAI_6400|RAI_6400Y|RAI_6400(E|F))(|L)~EB;			\
 	V3=2-3; T1=8-12; T2=5-10; T3=12-18; T4=15-25; W=3;						\
 	AP=CATENARY;											\
-	F=FO7;												\
+	F=EFO5;												\
 	V4=5-6;												\
 	A4=0.01;
     }
-  $ENDPOOL 
+  $ENDPOOL
 
-    $SPOOL N=NS_MAINT; SEQ=R;
-      {E4|E5|E6?
-	C=NS_SIK;											\
-	  V=1-4;
-	C=NS_MPJULES1L~EB|NS_MPJULES1~EB|NS_MPJULES1ATBL~EB|NS_MPJULES1ATB~EB|MP_3000_JULES~EB|		\
-	    MP_3000_RAILINFRA|MP_3000_ERTMS|NS_USO2L~HW|NS_USO2~HW|EURS_UFM120(|L)|NS_UST76(|L);	\
-	  V=3-5;
-      }
-    $ENDPOOL 
+  $SPOOL N=NS_MAINT; SEQ=R;
+    {E4|E5|E6?
+      C=NS_SIK;												\
+	V=1-4;
+      C=NS_MPJULES1L~EB|NS_MPJULES1~EB|NS_MPJULES1ATBL~EB|NS_MPJULES1ATB~EB|MP_3000_JULES~EB|		\
+	  MP_3000_RAILINFRA|MP_3000_ERTMS|NS_USO2L~HW|NS_USO2~HW|EURS_UFM120(|L)|NS_UST76(|L);		\
+	V=3-5;
+    }
+  $ENDPOOL
 
   %ADDPOOL(POOL_NL,NL_ENV)
 #
@@ -2600,6 +2602,7 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	F=O2;
       C=NS_OMBC2900(|L);										\
 	F=PU2;
+##
 # silbernes Dach normal bis 1939...evt. bis 1949 anzutreffen
 ##
       TX=Amsterdam (anno 1940);										\
@@ -2611,7 +2614,7 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
       POOL=NS_MAT24_42;											\
 	F=EPU2;
       C=NS_8700(|L),NS_G3A,D_EPII_G1943,3*D_EPII_O|NS_2_O(2H|2HL|3:6),					\
-	  0|2*CSD_R5D|CSD_R8(|A)|CSD_R56(|A);								\
+	  (0|2)*CSD_R5D|CSD_R8(|A)|CSD_R56(|A);								\
 	V=2-4;												\
 	F=SF2;
       POOL=NS_MAT24_42;											\
@@ -2767,7 +2770,7 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	F=DF3;
       TX=Expresstrein Amsterdam <-> Enschede (anno 1955 - 1962);					\
 	C=NS_1100_2A(|L),NS_D7521B(|L),NS_D_A8(|L),NS_D_RD3(|L),4*NS_D_B9(|L),				\
-	  0|1*(NS_D_A8(|L),NS_B6111(|L),NS_D_A8(|L));							\
+	  (0|1)*(NS_D_A8(|L),NS_B6111(|L),NS_D_A8(|L));							\
 	F=EP3;
       C=2*NS_2400_3,20*NS_3_O7|NS_3_O4|NS_3_O3|NS_3_O2|NS_3_O1;						\
 	F=DF3;
@@ -2796,8 +2799,8 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	F=PU3;
       C=<(SNCF_RGP1TEEXML,SNCF_RGP1TEEXRML)|(SNCF_RGP1TEEXRM,SNCF_RGP1TEEXM);				\
 	V=10-12; W=3E;											\
-	AP=[TX=TEE 103 "Ile de France" Paris <- Brï¿½ssel - Rotterdam -> Amsterdam (anno 1958)]|		\
-	  [TX=TEE 148 "Ile de France" Amsterdam <- Rotterdam - Brï¿½ssel -> Paris (anno 1958)];		\
+	AP=[TX=TEE 103 "Ile de France" Paris <- Brüssel - Rotterdam -> Amsterdam (anno 1958)]|		\
+	  [TX=TEE 148 "Ile de France" Amsterdam <- Rotterdam - Brüssel -> Paris (anno 1958)];		\
 	F=DPU3;
       C=NS_2200_3,NS_E(|Z)[B:9,24,8,4],NS_G3B,2*NL3A_SCHR|NL3B_SCHR,NS_G3B,				\
 	  3*40:(NS_E(|Z)[B:9,24,8,4])|(D_EPIIIB_O);							\
@@ -2834,7 +2837,7 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
       C=NS_1000M,25*NS_G3B;										\
 	F=EF3;
 #
-# 1963 blaue Blinklichter eingefï¿½hrt
+# 1963 blaue Blinklichter eingeführt
 #
       TX=Nijmegen <-> Rotterdam (anno 1963);								\
 	C=NS_1200B1~GOU|NS_1200B1L~GOU,3*NS_E_B(2|3)(|L),NS_E_A(2|3)(|L),NS_E_BKD(|L),5*NS_E_B(2|3)(|L); \
@@ -2847,7 +2850,7 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 # Militairentrein 1963
       TX=Sneltrein Amsterdam <-> Enschede (anno 1963);							\
 	C=NS_1100_2A(|L),NS_D_A8(|L),NS_D_RD3(|L),4*NS_E_B(2|3)(|L),					\
-	  0|1*(NS_A6001(|L),NS_AB6202(|L),2*NS_MAT24_B(|L));						\
+	  (0|1)*(NS_A6001(|L),NS_AB6202(|L),2*NS_MAT24_B(|L));						\
 	F=EP3;
 # ^^ Type E should be 6150 Ovaalramers, AB should be 6230 D-trein 1932 class
       C=(<NS_MAT36_GRASSO_CDKL~EB,NS_MAT36_GRASSO_CEL~EB,NS_MAT36_GRASSO_BCK~EB)|			\
@@ -2874,7 +2877,7 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	F=EPU3;
       TX=Sneltrein Amsterdam <-> Enschede (anno 1964 - 1968);						\
 	C=NS_1100_2A(|L),3*NS_B6111(|L),NS_E_BKD(|L),NS_E_A(2|3)(|L),					\
-	  0|1*(NS_AB6202(|L),2*NS_MAT24_B(|L));								\
+	  (0|1)*(NS_AB6202(|L),2*NS_MAT24_B(|L));							\
 	F=EP3;
 # ^^ AB should be 6230 without skirts
       TX=Amsterdam <-> Enschede (anno 1967);								\
@@ -2892,7 +2895,8 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
       C=NS_1100_2A(|L)|NS_1100_2B(|L),NS_UBCS3830(A|B)(|L)[CP:58,23,10,5,25,23],6*G_KS(1|2),DRFCS,	\
 	  RIVEPIVGBS;											\
 	F=EF3;
-      TX=TEE 11 "Rembrandt" Mï¿½nchen <- Stuttgart - Mannheim - Mainz - Kï¿½ln - Emmerich -> Amsterdam (Abschnitt Emmerich - Amsterdam) (03.06.1969); \
+      TX=TEE 11 "Rembrandt" München <- Stuttgart - Mannheim - Mainz - Köln - Emmerich -> Amsterdam (Abschnitt Emmerich - Amsterdam) \
+	  (03.06.1969);											\
 	C=NS_1100_2B(|L),$DIR(DB_4AVUMZ111_1,DB_4AVUMZ111_1L),$DIR(DB_AUM202DL,DB_AUM202D),		\
 	  $DIR(DB_APUMZ121L,DB_APUMZ121),								\
 	  $DIR(DB_4B_WRUMH132_1DL|DB_4B_WRUMH132_1TL,DB_4B_WRUMH132_1D|DB_4B_WRUMH132_1T);		\
@@ -2902,7 +2906,7 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
     }
     {E4?
 #
-# 1970 neues NS Logo eingefï¿½hrt
+# 1970 neues NS Logo eingeführt
 #
       C=NS_1200B1~GOU|NS_1200B1L~GOU|NS_1200B2~GOU|NS_1200B2L~GOU,3*NS_E_B(6|7),NS_W2_B2(|L),		\
 	  NS_E_B(6|7);											\
@@ -2986,7 +2990,7 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	F=DP4;
       C=2*NS_2456(|L),NS_2200_4,G_SGS4|DR_RGS3917(|L),NS_UBCS3830(A|B)(|L),16*DRTDS;			\
 	F=DF4;
-      TX=IC Rotterdam <-> Kï¿½ln (anno 1977);								\
+      TX=IC Rotterdam <-> Köln (anno 1977);								\
 	C=NS_1500E(|L),NS_D6061BS(|L),2*NS_K_AB3(|L),2*NS_N_BL|NS_N_B;					\
 	F=EP4;
       C=NS_1000MS,NS_GS,NS_E|NS_EZ,9*NS_G4|NS_GS,3*DB_RS657,4*NS_G4;					\
@@ -3049,10 +3053,9 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
       {NEK?												\
 	C=NSC_1614(|L),DB_BM232(|L),3*SBB_4_BM51(|L),SBB_4_AM51(|L),DB_BM232(|L),DBBM4,			\
 	  DB_4DMS902_1(|L),DB_AM202L~MSL|DB_AM202~MSL,2*DBBM4,DBAM4,DB_WRBUMZ139B(|L);			\
-	AP=[TX=D 407 "Rhein Express" Hoek van Holland <- Rotterdam CS - Venlo - Mï¿½nchengladbach - Kï¿½ln - Bonn - Koblenz - Mainz - Darmstadt - Karlsruhe - Freiburg - Basel SBB -> Chur (anno 1982)]| \
-	  [TX=D 406 "Rhein Express" Chur <- Basel SBB - Freiburg - Karlsruhe - Darmstadt - Mainz - Koblenz - Bonn - Kï¿½ln - Mï¿½nchengladbach - Venlo - Rotterdam CS -> Hoek van Holland (anno 1982)]; \
-	F=EP4;
-	}
+	AP=[TX=D 407 "Rhein Express" Hoek van Holland <- Rotterdam CS - Venlo - Mönchengladbach - Köln - Bonn - Koblenz - Mainz - Darmstadt - Karlsruhe - Freiburg - Basel SBB -> Chur (anno 1982)]| \
+	  [TX=D 406 "Rhein Express" Chur <- Basel SBB - Freiburg - Karlsruhe - Darmstadt - Mainz - Koblenz - Bonn - Köln - Mönchengladbach - Venlo - Rotterdam CS -> Hoek van Holland (anno 1982)]; \
+	F=EP4;}
       M=SIMPLE|STOP|BACK;										\
 	C=<3*NS_GS,NS_200B[O:PERS06,25,3];								\
 	V=2;												\
@@ -3070,7 +3073,7 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	C=2*NS_MP3000NY;										\
 	W=E;												\
 	F=E4;
-      TX=NT 297 Amsterdam CS <- Liï¿½ge-G. - Luxembourg - Strasbourg - Basel SBB - Milano C. - Bologna -> Ancona (anno 1982); \
+      TX=NT 297 Amsterdam CS <- Liège-G. - Luxembourg - Strasbourg - Basel SBB - Milano C. - Bologna -> Ancona (anno 1982); \
 	C=NS_1784(|L),FS_4A_B2100(|K)(|L),FS_4B_AB3100(KT|KTL|T|TL),SBB_34EW2AB,			\
 	  SBB_9233500|SBB_9233050|SBB_9233530|SBB_9133500,DBBM4;					\
 	F=EP4;
@@ -3093,12 +3096,12 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
       C=NS_1100_2D(|L)|NS_1100_2C(|L)|NS_1144(|L),14@NS_FALS2510|NS_FALS2520|NS_FALS2520O;		\
 	F=EF4;
 #
-# 1984 rote Blinklichter eingefï¿½hrt
+# 1984 rote Blinklichter eingeführt
 #
       C=NS_KAMEEL~EB|10:(NS_DE2Y(|L)|((<NS_BK366L,NS_AB365,NS_BK367)|(<NS_BK367L,NS_AB365L,NS_BK366)));	\
 	F=EPU4;
       C=NS_1784L|NS_1784[PFU],NS_1305(|L)|NS_1304(|L)|(NS_1316~HW|NS_1316L~HW|NS_1312(|L)),		\
-	  14*(NS_TDS(2|3)M(|L)),3*14:NS_EAOS(L)|8:G_KS1|6:G_KS2,NS_G4,G_KS1,2*G_GGS|NS_G4;		\
+	  14*(NS_TDS(2|3)M(|L)),3*14:NS_EAOS(|L)|8:G_KS1|6:G_KS2,NS_G4,G_KS1,2*G_GGS|NS_G4;		\
 	F=EF4;
       TX=Feijenoord (anno 1984);									\
 	C=<NS_BNLX_ABK2L~GOU,NS_BNLX_BDK2~GOU,NS_BNLX_BDK2L~GOU,NS_BNLX_ABK2~GOU,NS_321BK8L~EB,		\
@@ -3110,9 +3113,9 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	F=F4;
       C=NS_1305(|L)|NS_1304(|L)|(NS_1316~HW|NS_1316L~HW|NS_1312(|L)),D_ROLA;				\
 	F=EF4;
-      TX=NT 297 Amsterdam CS <- Liï¿½ge-G. - Luxembourg - Strasbourg - Basel SBB - Milano C. - Bologna -> Ancona (anno 1985); \
+      TX=NT 297 Amsterdam CS <- Liège-G. - Luxembourg - Strasbourg - Basel SBB - Milano C. - Bologna -> Ancona (anno 1985); \
 	C=NS_1784(|L),2*FS_4A_B2100(|K)(|L),(FS_3070GAL,CH_RIC_B4),SBB_9233530|SBB_9133500,		\
-	  0-1*(4:1|3:0*CFL_B(2|3)(|L),7:0|1*CFL_AB(2|3)(|L));						\
+	  0-1*(4:1|3:0*CFL_B(2|3)(|L),7:(0|1)*CFL_AB(2|3)(|L));						\
 	D=L; V=10-12;											\
 	F=EP4;
       TX=Tiel <-> Kesteren (anno 1985);									\
@@ -3160,12 +3163,12 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	C=NS_1304(|L),3*DBDM4;										\
 	F=EP5;
       C=NS_1100_2D(|L)|NS_1100_2C(|L)|NS_1144(|L),3*CD_UTZ,DR_LAAS,					\
-	  G_HBBILLNS|SJ_HBBILLNS1|FS_HBBILLNS2|SBB_HBBILLNS|OBB_247HBBILLNS,5*NS_EAOS(L),		\
+	  G_HBBILLNS|SJ_HBBILLNS1|FS_HBBILLNS2|SBB_HBBILLNS|OBB_247HBBILLNS,5*NS_EAOS(|L),		\
 	  2*(G_KS2|G_RES2,ZACGS);									\
 	F=EF5;
       C=NS_1212~GOU|NS_1212L~GOU|NS_1220~GOU|NS_1220L~GOU,3*KS;						\
 	F=EF5;
-      C=NS_2200_4,HABISNORM,SJ_LGNS2,G_EAS(2A|3A)|5:NS_EAOS(L),VTG_13,SJ_HBBINS;			\
+      C=NS_2200_4,HABISNORM,SJ_LGNS2,G_EAS(2A|3A)|5:NS_EAOS(|L),VTG_13,SJ_HBBINS;			\
 	V=5-8;												\
 	F=DF5;
       C=NS_2200_4,3*SNCF_GABSS50M,DB_HBIS299B|DB_HBIS299C|DB_HBIS299D,G_HBBILLNS;			\
@@ -3189,7 +3192,7 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	  4*G_SHIMMNSP_Y25(2:A|B|C|4:D)(|L),KVG_ISO|VTG_V2A|BASF_ISOH,5*KVG_ZACS(|1|1L|2|2L|L),		\
 	  15*HABIS(CW|TW);										\
 	F=EF5;
-      TX=IR 2342 Berlin Zoo <- Stendal - Wolfsburg - Hannover - Osnabrï¿½ck - Bad Bentheim - Hengelo - Amsterdam CS -> Schiphol (anno 1994); \
+      TX=IR 2342 Berlin Zoo <- Stendal - Wolfsburg - Hannover - Osnabrück - Bad Bentheim - Hengelo - Amsterdam CS -> Schiphol (anno 1994); \
 	M=CHANGE;											\
 	C=DBAG_BIMZ264_7L,DBAG_BIMZ264_7,DBAG_BIMDZ268(|L),2*DBAG_BIMZ264_7(|L),DBAG_ARKIMBZ262_2,	\
 	  DBAG_AIMZ261_7(|L);										\
@@ -3247,7 +3250,7 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	  2*CONT90,6*HABISNORM,ZACGS,6*G_RGS(1|2)|DB_RS657|DR_RGS3917(|L),5*ZACGS;			\
 	F=EF5;
       C=NS_6400L{(E6|E7)?|RAI_6400~EB|RAI_6400D|RAI_6400(E|F)~EB},					\
-	  (15*DB_RMS31)|(13*G_EAS(2A|3A)|DBC_EANOS|7:NS_EAOS(L));					\
+	  (15*DB_RMS31)|(13*G_EAS(2A|3A)|DBC_EANOS|7:NS_EAOS(|L));					\
 	F=DF5;
       POOL=NS_MAINT;											\
 	F=E5;
@@ -3346,7 +3349,7 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	C=NS_1784L[T:"1757",42,15,ABC_NS1600][PU];							\
 	V=2.5-3; P=(20-80):; T=15-25;									\
 	F=O6;
-      TX=Trein 31045 Almelo <-> Mariï¿½nberg (anno 2001);							\
+      TX=Trein 31045 Almelo <-> Mariënberg (anno 2001);							\
 	C=SY_DE2L;											\
 	F=6;
       TX=Trein 7244 Hengelo <-> Zutphen (anno 2001);							\
@@ -3360,7 +3363,7 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
       C=<NS_DDM_BVKL~HEN,NS_MDDM~HEN,NS_MDDML~HEN,NS_DDM_BVK~HEN;					\
 	F=EPU6;
       TX=Trein 95201D Groningen <-> Leeuwarden (anno 2002);						\
-	C=MP_3000_JULES~EB,0|1*EURS_UFM120(|L);								\
+	C=MP_3000_JULES~EB,(0|1)*EURS_UFM120(|L);							\
 	W=E;												\
 	F=E6;
       TX=Train 288/289 Paris <-> Amsterdam;								\
@@ -3458,7 +3461,6 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
       TX=Trein 4567 Enkhuizen <-> Almere Buiten (anno 2003);						\
 	C=NS_1784,5*NS_DDM_BV~HEN;									\
 	F=EPU6;
-#first 189 should have Railion-Logo, 2nd 189 should have little DB logo;
       TX=Trein 98029 Helmond <-> Horst Sevenum (anno 2003);						\
 	C=RAI_189P(1|3)L[PFIU][PBIU],NS_1603[PD],							\
 	  $DIR(NS_L_DCYC[>CP:36,9,23,23,153,9][>B:151,31,27,1],						\
@@ -3584,7 +3586,7 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	  8*G_SGNS16|M_457SGNS2|M_457SGNS4|AAE_SGNNS1|G_SGNNS1|AAE_SGNNS|AAE_196SC|G_SGS2|G_SGS3,	\
 	  3*CONT00,BEE_D23L|BEE_D23;									\
 	F=F6;
-#^^soll D22 der Bentheimer Eisenbahn. Kï¿½hlwagen sollen weiss (SNCF Iahs) sein.
+#^^soll D22 der Bentheimer Eisenbahn. Kühlwagen sollen weiss (SNCF Iahs) sein.
       C=RAI_232,22*CONT00;										\
 	F=F6;
       C=NS_6400L|NS_6400~EB,5*DB_HABBIILLNS2802004|DB_HABBINS350_2770257L|3:DB_HABBIINS352_2740514(|L);	\
@@ -3605,7 +3607,6 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
       TX=Museum Buurt Spoorweg Haaksbergen (17.10.2004);						\
 	C=NS_450C,NS_179023E,NS_DG2421NL|NS_DG2421N,NS_87101E,NS_CHHP1;					\
 	F=DF6;
-# Museum Buurt Spoorweg Haaksbergen 17.10.2004
       C=RAI_6400D|RAI_6400DL|RAI_6400(E|F)|RAI_6400(E|F)L|RAI_6400~EB|RAI_6400L~EB,RAI_232,SGGMRSS,	\
 	  SGNS,SGS,SGNS,3*SGS,SGNS,SGS,SGNS;								\
 	F=DF6;
@@ -3619,7 +3620,7 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	F=EPU6;
       C=NS_6400L|NS_6400~EB,9*KS,3*G_RGS1,3*DR_LAADS;							\
 	F=DF6;
-      TX=Zug der Museum Buurt Spoorweg (MBS) Haaksbergen <-> Boekelo (anno 2005);			\
+      TX=Zug der Museum Buurt Spoorweg (MBS)Haaksbergen <-> Boekelo (anno 2005);			\
 	C=MBUS_6,NS_21001E;										\
 	V=3-4;												\
 	F=F6;
@@ -3713,7 +3714,6 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	C=2*RAI_6400L~EB|RAI_6400~EB,3*M_277HABIS(|2)[B:21,22,9,7],2*HABISTW,VTG_2SAEURE|GT26,		\
 	  KVG_KALKSILO(|L),2*AUTO0(A|B|C|D|E);								\
 	F=DF6;
-# Willemsdorp 08.01.2007
       TX=Trein 5140 Roosendaal <-> Den Haag Centraal (08.01.2007);					\
 	C=<NS_DDM_BVKL~HEN,NS_DDM_BVNL,NS_MDDM~HEN;							\
 	F=EPU6;
@@ -3857,169 +3857,175 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	F=EPU6;
       TX=Trein 5742 Utrecht Centraal <-> Leiden Centraal (11.12.2009);					\
 	C=<NS_501BK5BL,NS_501B5,NS_501AB5,NS_501BK5B,NS_V4ABKL~EB,NS_V4BK1~EB;
-      C=RHCA_DE60M(|L),50*VTG_FALNS(1|2|3)(|L)|VTG_HGK_FALNS(1|2|3|4)(|L);F=FD6;
+      C=RHCA_DE60M(|L),50*VTG_FALNS(1|2|3)(|L)|VTG_HGK_FALNS(1|2|3|4)(|L);				\
+	F=FD6;
 
     }
   %ENDPOOL;
 }
 ###############################################################################
 {L?
-  
-    $SPOOL N=CFL_D2050_2059_1987; SEQ=R;
-      {E4?
-	TX=D 2050 Koblenz <- Treis-Karden - Cochem (Mosel) - Bullay - Wittlich Hbf. - Trier - Igel - Wasserbillig -> Luxembourg (anno 1987); \
-	  C=DB181_4F,$DIR(DB_4BDMS273(|S)L,DB_4BDMS273(|S)),DB_4BM235(|L),DB_4AM203S(|L),		\
-	    2*DB_4BM235(|L);										\
-	  V=10-12;
-	TX=D 2051 Luxembourg <- Wasserbillig - Igel - Trier - Wittlich Hbf. - Bullay - Cochem (Mosel) - Treis-Karden -> Koblenz (anno 1987); \
-	  C=DB181_4F,2*DB_4BM235(|L),DB_4AM203S(|L),DB_4BM235(|L),					\
-	    $DIR(DB_4BDMS273(|S),DB_4BDMS273(|S)L),(2:0|5:1)*DB_4BM235(|L);				\
-	  V=10-12;
-	TX=D 2052 Koblenz <- Cochem (Mosel) - Bullay - Wittlich Hbf. - Trier - Igel - Wasserbillig -> Luxembourg (anno 1987); \
-	  C=DB181_4F,$DIR(DB_4BDMS273(|S)L,DB_4BDMS273(|S)),DB_4BM235(|L),DB_4AM203S(|L),		\
-	    2*DB_4BM235(|L);										\
-	  V=10-12;
-	TX=D 2053 Luxembourg <- Wasserbillig - Igel - Trier - Wittlich Hbf. - Bullay - Cochem (Mosel) - Treis-Karden -> Koblenz (anno 1987); \
-	  C=DB181_4F,2*DB_4BM235(|L),DB_4AM203S(|L),DB_4BM235(|L),					\
-	    $DIR(DB_4BDMS273(|S),DB_4BDMS273(|S)L);							\
-	  V=10-12;
-	TX=D 2054 Koblenz <- Cochem (Mosel) - Bullay - Wittlich Hbf. - Trier - Igel - Wasserbillig -> Luxembourg (anno 1987); \
-	  C=DB181_4F,$DIR(DB_4BDMS273(|S)L,DB_4BDMS273(|S)),DB_4BM235(|L),DB_4AM203S(|L),		\
-	    2*DB_4BM235(|L);										\
-	  V=10-12;
-	TX=D 2055 Luxembourg <- Wasserbillig - Igel - Trier - Wittlich Hbf. - Bullay - Cochem (Mosel) - Kobern-Gondorf -> Koblenz (anno 1987); \
-	  C=DB181_4F,2*DB_4BM235(|L),DB_4AM203S(|L),DB_4BM235(|L),					\
-	    (6:0|1:1)*$DIR(DB_4BDMS273(|S),DB_4BDMS273(|S)L);						\
-	  V=10-12;
-	TX=D 2056 Koblenz <- Cochem (Mosel) - Bullay - Wittlich Hbf. - Trier - Igel - Wasserbillig -> Luxembourg (anno 1987); \
-	  C=DB181_4F,(6:0|1:1)*$DIR(DB_4BDMS273(|S)L,DB_4BDMS273(|S)),DB_4BM235(|L),DB_4AM203S(|L),	\
-	    2*DB_4BM235(|L);										\
-	  V=10-12;
-	TX=D 2057 Luxembourg <- Wasserbillig - Igel - Trier - Wittlich Hbf. - Bullay - Cochem (Mosel) -> Koblenz (anno 1987); \
-	  C=DB181_4F,2*DB_4BM235(|L),DB_4AM203S(|L),DB_4BM235(|L),					\
-	    $DIR(DB_4BDMS273(|S),DB_4BDMS273(|S)L);							\
-	  V=10-12;
-	TX=D 2058 Koblenz <- Cochem (Mosel) - Bullay - Wittlich Hbf. - Trier - Igel - Wasserbillig -> Luxembourg (anno 1987); \
-	  C=DB181_4F,(5:0|2:1)*DB_4BM235(|L),$DIR(DB_4BDMS273SL,DB_4BDMS273S),DB_4BM235(|L),		\
-	    DB_4AM203S(|L),2*DB_4BM235(|L);								\
-	  V=10-12;
-	TX=D 2059 Luxembourg <- Wasserbillig - Igel - Trier - Wittlich Hbf. - Bullay - Cochem (Mosel) -> Koblenz (anno 1987); \
-	  C=DB181_4F,2*DB_4BM235(|L),DB_4AM203S(|L),DB_4BM235(|L),					\
-	    $DIR(DB_4BDMS273(|S),DB_4BDMS273(|S)L);							\
-	  V=10-12;          \
- 	F=EP4;
+
+  $SPOOL N=CFL_D2050_2059_1987; SEQ=R;
+    {E4?
+      TX=D 2050 Koblenz <- Treis-Karden - Cochem (Mosel)						\
+	  - Bullay - Wittlich Hbf. - Trier - Igel - Wasserbillig -> Luxembourg (anno 1987);		\
+	C=DB181_4F,$DIR(DB_4BDMS273(|S)L,DB_4BDMS273(|S)),DB_4BM235(|L),DB_4AM203S(|L),2*DB_4BM235(|L);	\
+	V=10-12;
+      TX=D 2051 Luxembourg <- Wasserbillig - Igel - Trier - Wittlich Hbf. - Bullay - Cochem (Mosel)	\
+	  - Treis-Karden -> Koblenz (anno 1987);							\
+	C=DB181_4F,2*DB_4BM235(|L),DB_4AM203S(|L),DB_4BM235(|L),					\
+	  $DIR(DB_4BDMS273(|S),DB_4BDMS273(|S)L),(2:0|5:1)*DB_4BM235(|L);				\
+	V=10-12;
+      TX=D 2052 Koblenz <- Cochem (Mosel)								\
+	  - Bullay - Wittlich Hbf. - Trier - Igel - Wasserbillig -> Luxembourg (anno 1987);		\
+	C=DB181_4F,$DIR(DB_4BDMS273(|S)L,DB_4BDMS273(|S)),DB_4BM235(|L),DB_4AM203S(|L),2*DB_4BM235(|L);	\
+	V=10-12;
+      TX=D 2053 Luxembourg <- Wasserbillig - Igel - Trier - Wittlich Hbf. - Bullay - Cochem (Mosel)	\
+	  - Treis-Karden -> Koblenz (anno 1987);							\
+	C=DB181_4F,2*DB_4BM235(|L),DB_4AM203S(|L),DB_4BM235(|L),$DIR(DB_4BDMS273(|S),DB_4BDMS273(|S)L);	\
+	V=10-12;
+      TX=D 2054 Koblenz <- Cochem (Mosel)								\
+	  - Bullay - Wittlich Hbf. - Trier - Igel - Wasserbillig -> Luxembourg (anno 1987);		\
+	C=DB181_4F,$DIR(DB_4BDMS273(|S)L,DB_4BDMS273(|S)),DB_4BM235(|L),DB_4AM203S(|L),2*DB_4BM235(|L);	\
+	V=10-12;
+      TX=D 2055 Luxembourg <- Wasserbillig - Igel - Trier - Wittlich Hbf. - Bullay - Cochem (Mosel)	\
+	  - Kobern-Gondorf -> Koblenz (anno 1987);							\
+	C=DB181_4F,2*DB_4BM235(|L),DB_4AM203S(|L),DB_4BM235(|L),					\
+	  (6:0|1:1)*$DIR(DB_4BDMS273(|S),DB_4BDMS273(|S)L);						\
+	V=10-12;
+      TX=D 2056 Koblenz <- Cochem (Mosel)								\
+	  - Bullay - Wittlich Hbf. - Trier - Igel - Wasserbillig -> Luxembourg (anno 1987);		\
+	C=DB181_4F,(6:0|1:1)*$DIR(DB_4BDMS273(|S)L,DB_4BDMS273(|S)),DB_4BM235(|L),DB_4AM203S(|L),	\
+	  2*DB_4BM235(|L);										\
+	V=10-12;
+      TX=D 2057 Luxembourg <- Wasserbillig - Igel - Trier - Wittlich Hbf. - Bullay - Cochem (Mosel)	\
+	  -> Koblenz (anno 1987);									\
+	C=DB181_4F,2*DB_4BM235(|L),DB_4AM203S(|L),DB_4BM235(|L),$DIR(DB_4BDMS273(|S),DB_4BDMS273(|S)L);	\
+	V=10-12;
+      TX=D 2058 Koblenz <- Cochem (Mosel)								\
+	  - Bullay - Wittlich Hbf. - Trier - Igel - Wasserbillig -> Luxembourg (anno 1987);		\
+	C=DB181_4F,(5:0|2:1)*DB_4BM235(|L),$DIR(DB_4BDMS273SL,DB_4BDMS273S),DB_4BM235(|L),		\
+	  DB_4AM203S(|L),2*DB_4BM235(|L);								\
+	V=10-12;
+      TX=D 2059 Luxembourg <- Wasserbillig - Igel - Trier - Wittlich Hbf. - Bullay - Cochem (Mosel)	\
+	  -> Koblenz (anno 1987);									\
+	C=DB181_4F,2*DB_4BM235(|L),DB_4AM203S(|L),DB_4BM235(|L),$DIR(DB_4BDMS273(|S),DB_4BDMS273(|S)L);	\
+	V=10-12;											\
+	F=EP4;
     }
-  $ENDPOOL 
+  $ENDPOOL
 
   $SPOOL N=CFL_D2650_2659_1990; SEQ=R;
     {E5?
-	TX=D 2650 Koblenz <- Treis-Karden - Cochem (Mosel) - Bullay - Wittlich Hbf. - Trier - Igel - Wasserbillig -> Luxembourg (anno 1990); \
-	  C=DB181_4F,$DIR(DB_4BDMS273(|S)L,DB_4BDMS273(|S)),DB_4BM235(|L),DB_4AM203S(|L),		\
-	    2*DB_4BM235(|L);										\
-	  V=11-14;
-	TX=D 2651 Luxembourg <- Wasserbillig - Igel - Trier - Wittlich Hbf. - Bullay - Cochem (Mosel) - Treis-Karden -> Koblenz (anno 1990); \
-	  C=DB181_4F,2*DB_4BM235(|L),DB_4AM203S(|L),DB_4BM235(|L),					\
-	    $DIR(DB_4BDMS273(|S),DB_4BDMS273(|S)L);							\
-	  V=11-14;
-	TX=D 2652 Koblenz <- Cochem (Mosel) - Bullay - Wittlich Hbf. - Trier - Igel - Wasserbillig -> Luxembourg (anno 1990); \
-	  C=DB181_4F,$DIR(DB_4BDMS273(|S)L,DB_4BDMS273(|S)),DB_4BM235(|L),DB_4AM203S(|L),		\
-	    2*DB_4BM235(|L);										\
-	  V=11-14;
-	TX=D 2653 Luxembourg <- Wasserbillig - Igel - Trier - Wittlich Hbf. - Bullay - Cochem (Mosel) - Treis-Karden -> Koblenz (anno 1990); \
-	  C=DB181_4F,2*DB_4BM235(|L),DB_4AM203S(|L),DB_4BM235(|L),					\
-	    $DIR(DB_4BDMS273(|S),DB_4BDMS273(|S)L);							\
-	  V=11-14;
-	TX=D 2654 Koblenz <- Cochem (Mosel) - Bullay - Wittlich Hbf. - Trier - Igel - Wasserbillig -> Luxembourg (23.07.1990); \
-	  C=DB181BL_4F_LRL,$DIR(DB_4BDMS273SL,DB_4BDMS273S),$DIR(DB_4BM235,DB_4BM235L),			\
-	    $DIR(DB_4AM203S,DB_4AM203SL),$DIR(DB_4BM235,DB_4BM235L),$DIR(DB_4BM235L,DB_4BM235);		\
-	  V=11-14;
-	TX=D 2655 Luxembourg <- Wasserbillig - Igel - Trier - Wittlich Hbf. - Bullay - Cochem (Mosel) -> Koblenz (anno 1990); \
-	  C=DB181_4F,2*DB_4BM235(|L),DB_4AM203S(|L),DB_4BM235(|L);					\
-	  V=11-14;
-	TX=D 2656 Koblenz <- Cochem (Mosel) - Bullay - Wittlich Hbf. - Trier - Igel - Wasserbillig -> Luxembourg (anno 1990); \
-	  C=DB181_4F,DB_4BM235(|L),DB_4AM203S(|L),2*DB_4BM235(|L);					\
-	  V=11-14;
-	TX=D 2657 Luxembourg <- Wasserbillig - Igel - Trier - Wittlich Hbf. - Bullay - Cochem (Mosel) -> Koblenz (anno 1990); \
-	  C=DB181_4F,2*DB_4BM235(|L),DB_4AM203S(|L),DB_4BM235(|L),					\
-	    $DIR(DB_4BDMS273(|S),DB_4BDMS273(|S)L);							\
-	  V=11-14;
-	TX=D 2658 Koblenz <- Cochem (Mosel) - Bullay - Wittlich Hbf. - Trier - Igel - Wasserbillig -> Luxembourg (anno 1990); \
-	  C=DB181_4F,$DIR(DB_4BDMS273SL,DB_4BDMS273S),DB_4BM235(|L),DB_4AM203S(|L),2*DB_4BM235(|L);	\
-	  V=11-14;              \
+      TX=D 2650 Koblenz <- Treis-Karden - Cochem (Mosel)						\
+	  - Bullay - Wittlich Hbf. - Trier - Igel - Wasserbillig -> Luxembourg (anno 1990);		\
+	C=DB181_4F,$DIR(DB_4BDMS273(|S)L,DB_4BDMS273(|S)),DB_4BM235(|L),DB_4AM203S(|L),2*DB_4BM235(|L);	\
+	V=11-14;
+      TX=D 2651 Luxembourg <- Wasserbillig - Igel - Trier - Wittlich Hbf. - Bullay - Cochem (Mosel)	\
+	  - Treis-Karden -> Koblenz (anno 1990);							\
+	C=DB181_4F,2*DB_4BM235(|L),DB_4AM203S(|L),DB_4BM235(|L),$DIR(DB_4BDMS273(|S),DB_4BDMS273(|S)L);	\
+	V=11-14;
+      TX=D 2652 Koblenz <- Cochem (Mosel)								\
+	  - Bullay - Wittlich Hbf. - Trier - Igel - Wasserbillig -> Luxembourg (anno 1990);		\
+	C=DB181_4F,$DIR(DB_4BDMS273(|S)L,DB_4BDMS273(|S)),DB_4BM235(|L),DB_4AM203S(|L),2*DB_4BM235(|L);	\
+	V=11-14;
+      TX=D 2653 Luxembourg <- Wasserbillig - Igel - Trier - Wittlich Hbf. - Bullay - Cochem (Mosel)	\
+	  - Treis-Karden -> Koblenz (anno 1990);							\
+	C=DB181_4F,2*DB_4BM235(|L),DB_4AM203S(|L),DB_4BM235(|L),$DIR(DB_4BDMS273(|S),DB_4BDMS273(|S)L);	\
+	V=11-14;
+      TX=D 2654 Koblenz <- Cochem (Mosel)								\
+	  - Bullay - Wittlich Hbf. - Trier - Igel - Wasserbillig -> Luxembourg (23.07.1990);		\
+	C=DB181BL_4F_LRL,$DIR(DB_4BDMS273SL,DB_4BDMS273S),$DIR(DB_4BM235,DB_4BM235L),			\
+	  $DIR(DB_4AM203S,DB_4AM203SL),$DIR(DB_4BM235,DB_4BM235L),$DIR(DB_4BM235L,DB_4BM235);		\
+	V=11-14;
+      TX=D 2655 Luxembourg <- Wasserbillig - Igel - Trier - Wittlich Hbf. - Bullay - Cochem (Mosel)	\
+	  -> Koblenz (anno 1990);									\
+	C=DB181_4F,2*DB_4BM235(|L),DB_4AM203S(|L),DB_4BM235(|L);					\
+	V=11-14;
+      TX=D 2656 Koblenz <- Cochem (Mosel)								\
+	  - Bullay - Wittlich Hbf. - Trier - Igel - Wasserbillig -> Luxembourg (anno 1990);		\
+	C=DB181_4F,DB_4BM235(|L),DB_4AM203S(|L),2*DB_4BM235(|L);					\
+	V=11-14;
+      TX=D 2657 Luxembourg <- Wasserbillig - Igel - Trier - Wittlich Hbf. - Bullay - Cochem (Mosel)	\
+	  -> Koblenz (anno 1990);									\
+	C=DB181_4F,2*DB_4BM235(|L),DB_4AM203S(|L),DB_4BM235(|L),$DIR(DB_4BDMS273(|S),DB_4BDMS273(|S)L);	\
+	V=11-14;
+      TX=D 2658 Koblenz <- Cochem (Mosel)								\
+	  - Bullay - Wittlich Hbf. - Trier - Igel - Wasserbillig -> Luxembourg (anno 1990);		\
+	C=DB181_4F,$DIR(DB_4BDMS273SL,DB_4BDMS273S),DB_4BM235(|L),DB_4AM203S(|L),2*DB_4BM235(|L);	\
+	V=11-14;											\
 	F=EP5;
-	TX=D 2659 Luxembourg <- Wasserbillig - Igel - Trier - Wittlich Hbf. - Bullay - Cochem (Mosel) -> Koblenz (13.07.1990); \
-	  C=DB181BL_4F_LR,$DIR(DB_4BM235L,DB_4BM235),$DIR(DB_4BM235,DB_4BM235L),			\
-	    $DIR(DB_4AM203SL,DB_4AM203S),DB_4BM235(|L),$DIR(DB_4BDMS273(|S),DB_4BDMS273(|S)L);		\
-	  V=11-14;                     \
+      TX=D 2659 Luxembourg <- Wasserbillig - Igel - Trier - Wittlich Hbf. - Bullay - Cochem (Mosel)	\
+	  -> Koblenz (13.07.1990);									\
+	C=DB181BL_4F_LR,$DIR(DB_4BM235L,DB_4BM235),$DIR(DB_4BM235,DB_4BM235L),				\
+	  $DIR(DB_4AM203SL,DB_4AM203S),DB_4BM235(|L),$DIR(DB_4BDMS273(|S),DB_4BDMS273(|S)L);		\
+	V=11-14;											\
 	F=EP5;
     }
-  $ENDPOOL 
+  $ENDPOOL
 
   $SPOOL N=L_IC_2003; SEQ=R;
-      {E5?
-	TX=IC 330 Norddeich Mole <-> Luxembourg (anno 2003);						\
-	  C=DB181(3:BL|OB|OBN|4:OR|15:VR)_6F,2*DBAG_BIMZ259(|L),5*DBAG_BIMZ2647W(|L),			\
-	    DBAG_ARKIMBZ2622W(|L),DBAG_AVMZ207RK(|L)|DBAG_AVMZ207VRH(|L);				\
-	  V=8-20;
-	TX=IC 350 Frankfurt (M) Hbf. <-> Luxembourg (anno 2003);					\
-	  C=DB181(3:BL|OB|OBN|4:OR|15:VR)_6F,								\
-	    (<DBAG_AVMZ207RK(|L)|DBAG_AVMZ207VRH(|L),DBAG_ARKIMBZ2622W(|L),7*DBAG_BIMZ2647W(|L),	\
-	    2*DBAG_BIMZ259(|L));									\
-	  V=8-16;
-	TX=IC 430 Emden <-> Luxembourg (anno 2003);							\
-	  C=DB181(3:BL|OB|OBN|4:OR|15:VR)_6F,DBAG_AVMZ207WH(|L),DBAG_ARKIMBZ2622W(|L),			\
-	    7*DBAG_BIMZ2647W(|L);									\
-	  V=8-20;
-      }
-  $ENDPOOL 
+    {E5?
+      TX=IC 330 Norddeich Mole <-> Luxembourg (anno 2003);						\
+	C=DB181(3:BL|OB|OBN|4:OR|15:VR)_6F,2*DBAG_BIMZ259(|L),5*DBAG_BIMZ2647W(|L),			\
+	  DBAG_ARKIMBZ2622W(|L),DBAG_AVMZ207RK(|L)|DBAG_AVMZ207VRH(|L);					\
+	V=8-20;
+      TX=IC 350 Frankfurt (M)Hbf. <-> Luxembourg (anno 2003);						\
+	C=DB181(3:BL|OB|OBN|4:OR|15:VR)_6F,								\
+	  (<DBAG_AVMZ207RK(|L)|DBAG_AVMZ207VRH(|L),DBAG_ARKIMBZ2622W(|L),7*DBAG_BIMZ2647W(|L),		\
+	  2*DBAG_BIMZ259(|L));										\
+	V=8-16;
+      TX=IC 430 Emden <-> Luxembourg (anno 2003);							\
+	C=DB181(3:BL|OB|OBN|4:OR|15:VR)_6F,DBAG_AVMZ207WH(|L),DBAG_ARKIMBZ2622W(|L),			\
+	  7*DBAG_BIMZ2647W(|L);										\
+	V=8-20;
+    }
+  $ENDPOOL
 
   $SPOOL N=L_EC_2006; SEQ=R;
     {E6?
-	C=SNCF_BB15000S1CM,2*SBB_1090200(|L),4*SBB_2090200(|L),SNCB_I6_2170M(|L);			\
-	  V=10-14;											\
-	  AP=[TX=EC 96 "Iris" Zï¿½rich <- Basel - Luxembourg -> Bruxelles Midi (anno 2006)]|		\
-	    [TX=EC 97 "Iris" Bruxelles Midi <- Luxembourg - Basel -> Zï¿½rich (anno 2006)];
-	C=(SNCB_20B~JMD|SNCB_20B2,SNCB_I10_2170N(|L),SNCB_I6_1970N2(|L),SNCB_I6_2170N(|L))|		\
-	    (SNCF_BB15000S1CM,SNCB_I6_2170N(|L),SNCB_I6_1970N2(|L),SNCB_I10_2170N(|L));			\
-	  V=10-14;											\
-	  AP=[TX=EC 295 "Jean Monnet" Basel <- Luxembourg -> Bruxelles Midi (anno 2006)]|		\
-	    [TX=EC 296 "Jean Monnet" Bruxelles Midi <- Luxembourg -> Basel (anno 2006)];
-	M=HEAD;												\
-	  C=SNCB_I10_2170N(|L),SNCB_I6_1970N2(|L),SNCB_I6_2170N(|L);					\
-	  D=L;												\
-	  C1=SNCB_20B~JMD|SNCB_20B2;									\
-	  C2=SNCF_BB15000S1CM;										\
-	  P=0; T1=5,C1.PD,W,10; T2=2,W; T3=1,PLU,W,5; W=4;						\
-	C2=SNCF_BB15000S1C;										\
+      C=SNCF_BB15000S1CM,2*SBB_1090200(|L),4*SBB_2090200(|L),SNCB_I6_2170M(|L);				\
+	V=10-14;											\
+	AP=[TX=EC 96 "Iris" Zürich <- Basel - Luxembourg -> Bruxelles Midi (anno 2006)]|		\
+	  [TX=EC 97 "Iris" Bruxelles Midi <- Luxembourg - Basel -> Zürich (anno 2006)];
+      C=(SNCB_20B~JMD|SNCB_20B2,SNCB_I10_2170N(|L),SNCB_I6_1970N2(|L),SNCB_I6_2170N(|L))|		\
+	  (SNCF_BB15000S1CM,SNCB_I6_2170N(|L),SNCB_I6_1970N2(|L),SNCB_I10_2170N(|L));			\
+	V=10-14;											\
+	AP=[TX=EC 295 "Jean Monnet" Basel <- Luxembourg -> Bruxelles Midi (anno 2006)]|			\
+	  [TX=EC 296 "Jean Monnet" Bruxelles Midi <- Luxembourg -> Basel (anno 2006)];
+      M=HEAD;												\
+	C=SNCB_I10_2170N(|L),SNCB_I6_1970N2(|L),SNCB_I6_2170N(|L);					\
+	D=L;												\
+	C1=SNCB_20B~JMD|SNCB_20B2;									\
+	C2=SNCF_BB15000S1CM;										\
 	P=0; T1=5,C1.PD,W,10; T2=2,W; T3=1,PLU,W,5; W=4;						\
-	  AP=[TX=EC 295 "Jean Monnet" Basel <- Luxembourg -> Bruxelles Midi (anno 2006)]|		\
-	    [TX=EC 296 "Jean Monnet" Bruxelles Midi <- Luxembourg -> Basel (anno 2006)];
-	M=HEAD;												\
-	  C=SNCB_I6_2170N(|L),SNCB_I6_1970N2(|L),SNCB_I10_2170N(|L);					\
-	  D=L;												\
-	  C1=SNCF_BB15000S1CM;										\
-	  C2=SNCB_20B~JMD|SNCB_20B2;									\
-	  P=0; T1=5,C1.PD,W,10; T2=2,W; T3=1,PLU,W,5; W=4;						\
+	AP=[TX=EC 295 "Jean Monnet" Basel <- Luxembourg -> Bruxelles Midi (anno 2006)]|			\
+	  [TX=EC 296 "Jean Monnet" Bruxelles Midi <- Luxembourg -> Basel (anno 2006)];
+      M=HEAD;												\
+	C=SNCB_I6_2170N(|L),SNCB_I6_1970N2(|L),SNCB_I10_2170N(|L);					\
+	D=L;												\
+	C1=SNCF_BB15000S1CM;										\
+	C2=SNCB_20B~JMD|SNCB_20B2;									\
 	P=0; T1=5,C1.PD,W,10; T2=2,W; T3=1,PLU,W,5; W=4;						\
-	  AP=[TX=EC 295 "Jean Monnet" Basel <- Luxembourg -> Bruxelles Midi (anno 2006)]|		\
-	    [TX=EC 296 "Jean Monnet" Bruxelles Midi <- Luxembourg -> Basel (anno 2006)];
-	C=SNCF_BB15000S1CM,3*SNCF_VTU_CP(2_B|_B)M(|L),SNCF_VU_CP2_B11M(|L),SNCF_VSE_A9_CP2M(|L),	\
-	    SNCF_VTU_CP_AM(|L);										\
-	  V=10-14;											\
-	  AP=[TX=EC 309 "Robert Schuman" Paris Est <-> Luxembourg (anno 2006)]|				\
-	    [TX=EC 308 "Robert Schuman" Luxembourg <-> Paris Est (anno 2006)]|				\
-	    [TX=EC 323 "Robert Schuman" Paris Est <-> Luxembourg (anno 2006)]|				\
-	    [TX=EC 322 "Robert Schuman" Luxembourg <-> Paris Est (anno 2006)];
-      }
-  $ENDPOOL 
+	AP=[TX=EC 295 "Jean Monnet" Basel <- Luxembourg -> Bruxelles Midi (anno 2006)]|			\
+	  [TX=EC 296 "Jean Monnet" Bruxelles Midi <- Luxembourg -> Basel (anno 2006)];
+      C=SNCF_BB15000S1CM,3*SNCF_VTU_CP(2_B|_B)M(|L),SNCF_VU_CP2_B11M(|L),SNCF_VSE_A9_CP2M(|L),		\
+	  SNCF_VTU_CP_AM(|L);										\
+	V=10-14;											\
+	AP=[TX=EC 309 "Robert Schuman" Paris Est <-> Luxembourg (anno 2006)]|				\
+	  [TX=EC 308 "Robert Schuman" Luxembourg <-> Paris Est (anno 2006)]|				\
+	  [TX=EC 323 "Robert Schuman" Paris Est <-> Luxembourg (anno 2006)]|				\
+	  [TX=EC 322 "Robert Schuman" Luxembourg <-> Paris Est (anno 2006)];
+    }
+  $ENDPOOL
 
   %ADDPOOL(POOL_L,L_ENV)
-
     {E3?
       C=5:CFL_5519|CFL_5519[!C]|CFL_5519[!E],CFL_3_TTOWB(|L)[OB:FR_KO(12|13|14|15|17),,28],		\
 	  DB_SSKM49RA(|L),CSD_ST,SNCF_K_OCEM29_UFRM,CFL_3_TTOWB(|L)[OB:FR_KO(12|13|14|15|17),,28],	\
-	  3*SNCF_ELO,CFL_G3,3*D_EPIIIA_O,CFL_G3,DRG_RMMS33A,2*CFL_G3;
-      C=5:CFL_5519|CFL_5519[!C]|CFL_5519[!E],1-3*SNCF_G3|EUROPPOOLG3|CFL_G3,CFL_G3,			\
+	  3*SNCF_ELO,CFL_G3A,3*D_EPIIIA_O,CFL_G3A,DRG_RMMS33A,2*CFL_G3A;
+      C=5:CFL_5519|CFL_5519[!C]|CFL_5519[!E],1-3*SNCF_G3|EUROPPOOLG3|CFL_G3A,CFL_G3A,			\
 	  2-7*3:CFL_3_TTOWB(|L)|D_EPIIIB_O|SNCF_3E1B(|L),8*DB_ZAD_VTG(|L);
       TX=Colmar-Usines <-> Luxembourg (anno 1957);							\
 	C=CFL_Z150M(|L),CFL_RZ1050M(|L);
@@ -4028,15 +4034,16 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
       C=CFL_850AM(|L),SBB_UAAI82R;									\
 	V=4;
 #^^ sollte wirklich CFL Schnabelwagen sein
-      TX=D 227 "Montan-Expreï¿½" Luxembourg <- Wasserbillig - Trier - Bullay-Bad-Bertrich -> Koblenz (Abschnitt Luxembourg - Trier) (anno 1961); \
+      TX=D 227 "Montan-Expreß" Luxembourg <- Wasserbillig - Trier - Bullay-Bad-Bertrich -> Koblenz (Abschnitt Luxembourg - Trier) \
+	  (anno 1961);											\
 	C=$DIR(CFL_850AM,CFL_850AML),$DIR(SNCF_METSO46_B5DML,SNCF_METSO46_B5DM),CFL_3_B4U200X(|L),	\
 	  SNCF_3AOC_A8GM;										\
 	V=8-10;
-      C=5:CFL_5519|CFL_5519[!C]|CFL_5519[!E],CFL_G3,4*CFL_3WEGB(|L);					\
+      C=5:CFL_5519|CFL_5519[!C]|CFL_5519[!E],CFL_G3A,4*CFL_3WEGB(|L);					\
 	FG=8*TRBED12,BRIDGE10,8*TRBED12:..,-20;								\
 	AB=60;												\
 	BL=100;
-# TX=Zï¿½rich <-> Luxembourg (anno 1962);
+# TX=Zürich <-> Luxembourg (anno 1962);
 #  C=RAETEEC;
       TX=Kautenbach <-> Woltz (anno 1964);								\
 	C=(<CFL_3_201L,CFL_3_211)|(<CFL_3_204L,CFL_3_214);
@@ -4051,7 +4058,7 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
       TX=Luxembourg <-> Troisverges (anno 1975);							\
 	C=CFL_4_1602,2*CFL_3WEGB(|L),CFL_3WEGBD(|L);							\
 	F=DP4;
-      C=(<CFL_250EML,CFL_250EM)|(<CFL_250FML,CFL_250FM);											\
+      C=(<CFL_250EML,CFL_250EM)|(<CFL_250FML,CFL_250FM);						\
 	F=EPU4;
       C=CFL_3600M,CFL_3WEGB,CFL_3WEGBDL,CFL_ABD1L,CFL_3WEGABL,CFL_B5(|L),CFL_BD5(|L),CFL_B5(|L);	\
 	F=EP4;
@@ -4060,9 +4067,9 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	F=EP4;
       TX=Luxembourg <-> Bettembourg (17.09.1980);							\
 	C=(<CFL_250EML,CFL_250EM)|(<CFL_250FML,CFL_250FM);
-      C=CFL_Z150M(|L);									\
+      C=CFL_Z150M(|L);											\
 	F=DPU4;
-# TX=Letzte Fahrt TEE "Iris" Zï¿½rich <- Luxembourg -> Bruxelles (anno 1981);
+# TX=Letzte Fahrt TEE "Iris" Zürich <- Luxembourg -> Bruxelles (anno 1981);
 #  C=RAETEECH;
       C=CFL_4_1602,3*CFL_3WEGB(|L),CFL_3WEGBD(|L)|CFL_ABD1(|L),CFL_3WEGAB(|L);
       C=(<CFL_250EML,CFL_250EM)|(<CFL_250FML,CFL_250FM);
@@ -4084,25 +4091,25 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	C=(<CFL_4_211L,CFL_4_211)|(<CFL_4_202L,CFL_4_202)|(<CFL_4_212L,CFL_4_212);			\
 	F=DPU4;
       TX=Brussel <-> Luxembourg (anno 1985);								\
-	C=2*(<SNCB_AM80_BXRML,SNCB_AM80_ABDXRM)|(<SNCB_AM80_ABDXRM,SNCB_AM80_BXRML);								\
+	C=2*(<SNCB_AM80_BXRML,SNCB_AM80_ABDXRM)|(<SNCB_AM80_ABDXRM,SNCB_AM80_BXRML);			\
 	F=EPU4;
-      TX=Train 1718 Ettelbrï¿½ck <-> Luxembourg (15.07.1985);						\
+      TX=Train 1718 Ettelbr ck <-> Luxembourg (15.07.1985);						\
 	C=CFL_4_1602,CFL_3WEGB(|L),$DIR(CFL_3WEGBD,CFL_3WEGBDL),$DIR(CFL_3WEGAB,CFL_3WEGABL),		\
 	  CFL_3WEGB(|L);										\
 	F=DP4;
       C=CFL_4_1602,CFL_GKKS,CFL_BR1(|L),CFL_AB5(|L),3*CFL_B5(|L);					\
 	F=DP4;
-      TX=IR 115 Liï¿½ge <-> Luxembourg (03.08.1986);							\
-	C=SNCB_4_5518(|L),$DIR(SNCB_I2_A4RGML,SNCB_I2_A4RGM),2*SNCB_4_I2B11B(1|2);				\
+      TX=IR 115 Liège <-> Luxembourg (03.08.1986);							\
+	C=SNCB_4_5518(|L),$DIR(SNCB_I2_A4RGML,SNCB_I2_A4RGM),2*SNCB_4_I2B11B(|L);			\
 	F=DP4;
       TX=Train 6969 Luxembourg <-> Esch-sur-Alzette (05.08.1986);					\
 	C=DB_4_181_213L[P2U]|DB_4_181_213[P1U],4*CFL_3WEGB(|L),$DIR(CFL_3WEGAB,CFL_3WEGABL);		\
 	F=EP4;
       TX=Train 6951 Luxembourg <-> Belvaux-Soleuvre (05.08.1986);					\
-	C=CFL_3600M,CFL_3WEGBL|CFL_3WEGB,$DIR(CFL_3WEGAB,CFL_3WEGABL),2*CFL_3WEGBL|CFL_3WEGB;	\
+	C=CFL_3600M,CFL_3WEGBL|CFL_3WEGB,$DIR(CFL_3WEGAB,CFL_3WEGABL),2*CFL_3WEGBL|CFL_3WEGB;		\
 	F=EP4;
       TX=Wasserbillig <-> Bettembourg (06.08.1986);							\
-	C=CFL_3600M,20*DB_4FAD167(A|B|C|D|E|F);							\
+	C=CFL_3600M,20*DB_4FAD167(A|B|C|D|E|F);								\
 	F=EF4;
       TX=Train 46683 Bettembourg <-> Ehrang (06.08.1986);						\
 	C=DB_4_181_202L[P2U]|DB_4_181_202[P1U],2*DB_4B_GS211E(|L),					\
@@ -4115,7 +4122,7 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	C=CFL_911(|L),DB_4_FCS090(A|B|C|D),CFL_HIS1,DB_4B_GS211E(|L),G_007,CFL_HIS1;			\
 	F=DF4;
       M=BACK|SIMPLE;											\
-	C=CFL_800~RC,CFL_3WEGAB(|L)|CFL_ABD1(|L)|CFL_3WEGB(|L)|CFL_3WEGBD(|L);			\
+	C=CFL_800~RC,CFL_3WEGAB(|L)|CFL_ABD1(|L)|CFL_3WEGB(|L)|CFL_3WEGBD(|L);				\
 	F=O4;
       POOL=CFL_D2050_2059_1987;										\
 	F=EP4;
@@ -4128,10 +4135,11 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	C=CFL_4_1602,2*CFL_3WEGB(|L),CFL_ABD1(|L);							\
 	F=DP4;
 # Wilwerwiltz 28.07.1989
-      C=CFL_4_1602|CFL_3600M,2*CFL_GS(1|2),3-6*CFL_HIS(1|2),6*CFL_GS(1|2),VTG_2SAEURE,	\
+      C=CFL_4_1602|CFL_3600M,2*(CFL_4_GS120(|L)|CFL_4_GS121(|L)|CFL_4_GS120SL|CFL_GS1),			\
+	  3-6*CFL_HIS(1|2),6*(CFL_4_GS120(|L)|CFL_4_GS121(|L)|CFL_4_GS120SL|CFL_GS1),VTG_2SAEURE,	\
 	  DR_ZACNS(|L)|GT_ISO_X|NITZER_ISO,								\
-	  3-7*GBS4_I|D_4B_G|OBB_247HBBILLNS|SNCF_GAS4|M_246HBBILLNNS(2|3|4)|FS_GABS|		\
-	  SBB_HABILS,6*CONT90|LCONT;									\
+	  3-7*GBS4_I|D_4B_G|OBB_247HBBILLNS|SNCF_GAS4|M_246HBBILLNNS(2|3|4)|FS_GABS(1|2)M|SBB_HABILS,	\
+	  6*CONT90|LCONT;										\
 	F=F4;
     }
     {E5?
@@ -4139,24 +4147,24 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	F=EP5;
       C=CFL_850M(|L),											\
 	  DB_LBGJS598[O:DB_BEH,>36,12][O:DB_BEH,<39,12][O:DB_BEH,,12][O:DB_BEH,<87,12]			\
-	  [O:DB_BEH,<111,12];F=DF5;
+	  [O:DB_BEH,<111,12];										\
+	F=DF5;
       TX=Wiltz <-> Kautenbach (28.06.1990);								\
 	C=(<CFL_4_211L,CFL_4_211)|(<CFL_4_202L,CFL_4_202)|(<CFL_4_212L,CFL_4_212);
-      TX=Berchem (18.08.1993); F=DPU5;										\
-	C=CFL_4_1816(|L),G_KS1,2*FS_GABS(1|2)M,VTG_859823;							\
+      TX=Berchem (18.08.1993);										\
+	C=CFL_4_1816(|L),G_KS1,2*FS_GABS(1|2)M,VTG_859823;						\
 	F=DF5;
-# Berchem 18.08.1993
       TX=Berchem <-> Luxembourg (18.08.1993);								\
 	C=(<CFL_260EML,CFL_260MM,CFL_260FM)|(<CFL_260FML,CFL_260MML,CFL_260EM);
-      C=(<CFL_2000M1ML,CFL_2000R1M)|(<CFL_2000R1ML,CFL_2000M1M);											\
+      C=(<CFL_2000M1ML,CFL_2000R1M)|(<CFL_2000R1ML,CFL_2000M1M);					\
 	F=EPU5;
 #
-#  1998 Baureihe 3000 eingefï¿½hrt
+#  1998 Baureihe 3000 eingeführt
 #
-      TX=Omnibus 4941 Waasserbï¿½lleg <-> Rodange (anno 1999);						\
+      TX=Omnibus 4941 Waasserbëlleg <-> Rodange (anno 1999);						\
 	C=CFL_3000~ZS,CFL_AB5(|L)|CFL_AB15(|L)|CFL_ABD5(|L)|CFL_ABD15(|L),CFL_B5(|L)|CFL_B5M(|L);	\
 	F=EP5;
-      C=2*(<CFL_2000M2ML,CFL_2000R2M)|(<CFL_2000R2ML,CFL_2000M2M);										\
+      C=2*(<CFL_2000M2ML,CFL_2000R2M)|(<CFL_2000R2ML,CFL_2000M2M);					\
 	F=EPU5;
       TX=Train 298/299 Bruxelles Midi <-> Venezia;							\
 	C=CFL_3000~ZS,SNCB_I6_1970(M|ML|N|NL)|SNCB_1971O(|L),TEN,2*FS_5270(|B|BL|L),			\
@@ -4164,40 +4172,41 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
 	  2*FS_4B2071EU(|L)|FS_6B2071(|L)|FS_5B2071(|L),3*SNCB_2171O(|L),B_DDMLOADED;			\
 	F=E5;
       TX=IC 116 Luxembourg <-> Trois-Ponts (anno 1999);							\
-	C=CFL_3000~ZS,2*SNCB_I10BOM(|L)|SNCB_I10C_BOM(|L),CFL_ABD5M(|L);						\
+	C=CFL_3000~ZS,2*SNCB_I10BOM(|L)|SNCB_I10C_BOM(|L),CFL_ABD5M(|L);				\
 	F=EP5;
       C=CFL_3000~ZS,3*SNCB_I6_1970(M|ML|N|NL),CFL_AB5(|L)|CFL_AB15(|L),CFL_K3,7*CFL_B5(|L);		\
 	F=EP5;
-    } 
-    
+    }
+
     {E6?
       TX=Betebuerg <-> Diddeleng (anno 2000);								\
 	C=CFL_2101M;											\
 	F=DPU6;
       C=CFL_3000~ZS,16-25*CONT00;									\
 	F=EF6;
-      TX=Lï¿½tzebuerg <-> Waasserbï¿½lleg (anno 2000);							\
-	C=2*CFL_256(|L);										\
+      TX=Lëtzebuerg <-> Waasserbëlleg (anno 2000);							\
+	C=2*(<CFL_250EML,CFL_250EM)|(<CFL_250FML,CFL_250FM);						\
 	F=EPU6;
       C=CFL_850M(|L)|CFL_850NM(|L),2-3*RTRAN_PLC2;							\
 	F=DF6;
       C=<(CFL_5_505A,CFL_5_505B)|(CFL_6_505A,CFL_6_505B);						\
 	F=DPU6;
-      TX=Lï¿½tzebuerg <-> Diddeleng (anno 2000);								\
+      TX=L tzebuerg <-> Diddeleng (anno 2000);								\
 	C=CFL_2101M;											\
-	F=DPU6; 
+	F=DPU6;
       TX=Jemelle <-> Luxembourg (30.07.2002);								\
-	C=(<SNCB_AM66WABML,SNCB_AM66WBM)|(<SNCB_AM66WBML,SNCB_AM66WABM);										\
+	C=(<SNCB_AM66WABML,SNCB_AM66WBM)|(<SNCB_AM66WBML,SNCB_AM66WABM);				\
 	F=EPU6;
-      TX=Waasserbï¿½lleg <-> Trier (anno 2002);								\
+      TX=Waasserbëlleg <-> Trier (anno 2002);								\
 	C=<CFL_6_505A,CFL_6_505B;									\
 	F=DPU6;
       TX=Leudelingen <-> Dippach (anno 2002);								\
-	C=(<CFL_2000M1L,CFL_2000R1)|(<CFL_2000M2L,CFL_2000R2),(<CFL_2000R2ML,CFL_2000M2M),SNCF_Z7300YM; \
+	C=<(<CFL_2000M1ML,CFL_2000R1M)|(<CFL_2000R1ML,CFL_2000M1M)|(<CFL_2000M2ML,CFL_2000R2M)|		\
+	  (<CFL_2000R2ML,CFL_2000M2M),SNCF_Z7300YM;							\
 	F=EP6;
-      TX=RE 22043 Luxembourg <-> Trï¿½ves (anno 2003);							\
+      TX=RE 22043 Luxembourg <-> Trèves (anno 2003);							\
 	C=CFL_4_1812,(<CFL_AB15L,CFL_B5(|L));								\
-	F=DP6;	
+	F=DP6;
       POOL=L_IC_2003;											\
 	F=EP6;
       C=CFL_800~RC,7*ZAS5;										\
@@ -4207,14 +4216,14 @@ TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterd
       TX=RE 33207 Longwy <-> Luxembourg (anno 2003);							\
 	C=CFL_4_1812,(<2*CFL_B5(|M)(|L),CFL_AB5(|L)|CFL_AB5M(|L),CFL_B5(|M)(|L));			\
 	F=DP6;
-      C=CFL_4_1812,12*ACTSBLUE;									\
+      C=CFL_4_1812,12*ACTSBLUE;										\
 	F=DF6;
       POOL=L_IC_2003;
-      TX=Petange (16.07.2003);         \
-      C=CFL_3600M,2*CFL_B5M(|L),$DIR(CFL_BD5ML,CFL_BD5M);						\
+      TX=Petange (16.07.2003);										\
+	C=CFL_3600M,2*CFL_B5M(|L),$DIR(CFL_BD5ML,CFL_BD5M);						\
 	F=EP6;
-TX=Trois Points (18.07.2003);									\
-      C=CFL_3000~ZS,CFL_B5(|L),SNCB_I10_2170N(|L),SNCB_I10_2170O(|L),SNCB_I6_1970NL,SNCB_9570(|L);	\
+      TX=Trois Points (18.07.2003);									\
+	C=CFL_3000~ZS,CFL_B5(|L),SNCB_I10_2170N(|L),SNCB_I10_2170O(|L),SNCB_I6_1970NL,SNCB_9570(|L);	\
 	F=EP6;
 # A should be I10 not I6.
 # Trois Points 18.07.2003
@@ -4226,19 +4235,21 @@ TX=Trois Points (18.07.2003);									\
 	C=CFL_3000~ZS,SNCB_DMSOM(|L),SNCB_1971O(|L),2*SNCB_I10_2170N(|L),9*CFL_B5(|M)(|L);		\
 	F=EP6;
       TX=Diddeleng-Usines <-> Volmerange-les-Mines (anno 2004);						\
-	C=(<CFL_260EML,CFL_260MM,CFL_260FM)|(<CFL_260FML,CFL_260MML,CFL_260EM);									\
+	C=(<CFL_260EML,CFL_260MM,CFL_260FM)|(<CFL_260FML,CFL_260MML,CFL_260EM);				\
 	F=EPU6;
       C=CFL_3600M,2*CFL_B5(|M)(|L),CFL_BD5(|M)(|L);							\
 	F=EP6;
       TX=Luxembourg <-> Bettembourg (anno 2004);							\
 	C=2*(<CFL_2000M2ML,CFL_2000R2M)|(<CFL_2000R2ML,CFL_2000M2M);
       C=CFL_3600M,2*SNCF_RILS206SEM,SNCF_S58M|G_SHIMMNSP_Y25(2:A|B|C|4:D)(|L),4*SNCF_SHIMMS50_1M(|L),	\
-	  3*SNCF_S58M|SNCF_S53M;	\
+	  3*SNCF_S58M|SNCF_S53M;									\
 	F=EF6;
       TX=Paris <-> Luxembourg (anno 2004);								\
-	C=TGVRESEAU;F=EPU6;
+	C=TGVRESEAU;											\
+	F=EPU6;
       TX=Special train to Paris (23.06.2004);								\
-     V=10-20;C=CFL_3600M,$DIR(CFL_ABD15M,CFL_ABD15ML),2*CFL_B5M(|L),CFL_BR1(|L),$DIR(CFL_BR2L,CFL_BR2);	\
+	C=CFL_3600M,$DIR(CFL_ABD15M,CFL_ABD15ML),2*CFL_B5M(|L),CFL_BR1(|L),$DIR(CFL_BR2L,CFL_BR2);	\
+	V=10-20;											\
 	F=EP6;
       TX=Kleinbettingen <-> Troisvierges (anno 2004);							\
 	C=CFL_3000~ZS,2*CFL_B5(|M)(|L),CFL_AB5(|L)|CFL_AB5M(|L),CFL_B5(|M)(|L);				\
@@ -4248,7 +4259,7 @@ TX=Trois Points (18.07.2003);									\
       TX=RB 6915 Noertzange <-> Athus (anno 2004);							\
 	C=CFL_3600M,CFL_AB5(|M)(|L),CFL_B5(|M)(|L),CFL_AB5(|L)|CFL_AB5M(|L),CFL_B5(|M)(|L);
       C=1-2*CFL_1502L~SO;
-      C=(<CFL_2000M2ML,CFL_2000R2M)|(<CFL_2000R2ML,CFL_2000M2M);											\
+      C=(<CFL_2000M2ML,CFL_2000R2M)|(<CFL_2000R2ML,CFL_2000M2M);					\
 	F=EPU6;
       C=SNCB_AM96_5(|L);										\
 	AP=[TX=Train 4640 Bruxelles <-> Luxembourg (08.2006)]|						\
@@ -4262,5 +4273,64 @@ TX=Trois Points (18.07.2003);									\
     }
   %ENDPOOL;
 }
-	
+
+# -------------------------------- Ergänzung -----------------------------------
+
+{B?
+  %ADDPOOL(POOL_B,B_ENV)
+    {E3?
+      TX=SNCB AR 4001;											\
+	C=<SNCB_AR4001DML,SNCB_AR4001AB(|L),SNCB_AR4001BK;						\
+	F=DPU3;
+      TX=SNCB 122;											\
+	C=SNCB_122_001(|L)|SNCB_2205(|L)|SNCB_123_001(|L),SNCB_I1_B(10|10L|8|8L),SNCB_4_I1A4B4B(|L),	\
+	  2*SNCB_I1_B(10|10L|7R|7RL|8|8L);								\
+	F=EP3;
+    }
+    {E6?
+
+      TX=SNCB AM75;											\
+	C=<SNCB_AM75RXBRML,SNCB_AM75M2RM,SNCB_AM75M1RM,SNCB_AM75RXARM;					\
+	F=EPU6;
+
+    }
+  $ENDPOOL
+}
+{NL?
+  %ADDPOOL(POOL_NL,NL_ENV)
+    {E5?
+
+      TX=TKC 48118 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
+	M=ECHANGE;											\
+	C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=3-4; B=0.008;											\
+	C1=DB151AK_6[PD],DB151AK_6[PD];									\
+	V1=2-3;												\
+	C2=(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L);				\
+	V2=2-3;												\
+	C3=NS_FALS2520O,(9:2|1:3)*(NSC_6400|RAI_6400|RAI_6400Y|RAI_6400(E|F))(|L)~EB;			\
+	V3=2-3; T1=8-12; T2=5-10; T3=12-18; T4=15-25; W=3;						\
+	AP=CATENARY;											\
+	F=EF5O;												\
+	V4=5-6;												\
+	A4=0.01;
+      TX=TKC 48120 Dillingen Hochofen <- Ehrang - Koblenz-Mosel Gbf - Venlo -> Rotterdam-Maasvlakte (anno 2001); \
+	M=ECHANGE;											\
+	C=(19-20*RAI_FALRRS_153)|(37-40*RAI_FAALS(150A|_150B|_150C))|					\
+	  (20*(RAI_FALRRS_153|((9:2|1:1)*RAI_FAALS(150A|_150B|_150C))));				\
+	V=3-4; B=0.008;											\
+	C1=DB151AK_6[PD],DB151AK_6[PD];									\
+	V1=2-3;												\
+	C2=(NSC_6400~EB)|(RAI_6405|RAI_6400C|RAI_6400Y|RAI_6400(E|F))(|L);				\
+	V2=2-3;												\
+	C3=NS_FALS2520O,(9:2|1:3)*(NSC_6400|RAI_6400|RAI_6400Y|RAI_6400(E|F))(|L)~EB;			\
+	V3=2-3; T1=8-12; T2=5-10; T3=12-18; T4=15-25; W=3;						\
+	AP=CATENARY;											\
+	F=EF5O;												\
+	V4=5-6;												\
+	A4=0.01;
+    }
+  $ENDPOOL
+}
 

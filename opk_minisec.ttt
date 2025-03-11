@@ -17,14 +17,14 @@ $DEF CJ3=C1017|C1018|C1019|C1021|C1022|C1023|C1026|C1027|C1028|C1030|C1031|C1_JO
 # 37 x 25
 $DEF CJ4=C1020|C1024|C1025|C1029|C1030|C1032|C1_JOT1|C1_JOT10|C1_JOT11|C1_JOT12|C1_JOT13|C1_JOT2|	\
     C1_JOT3|C1_JOT4|C1_JOT5|C1_JR1|C1_JR10|C1_JR14|C1_JR15|C1_JR2|C1_JR3|C1_JR4|C1_JR5|C1_JR6|C1_JR7|	\
-    C1_JR8|C1_JR9|C1_JRF1|C1_JRF10|C1_JRF11|C1_JRF12|C1_JRF13|C1_JRF14|C1_JRF15|C1_JRF2|C1_JRF3|C1_JRF4| \
-    C1_JRF5|C1_JRF6|C1_JRF7|C1_JRF8|C1_JRF9
+    C1_JR8|C1_JR9|C1_JRF1|C1_JRF10|C1_JRF11|C1_JRF12|C1_JRF13|C1_JRF14|C1_JRF15|C1_JRF2|C1_JRF3|	\
+    C1_JRF4|C1_JRF5|C1_JRF6|C1_JRF7|C1_JRF8|C1_JRF9
 
 # 61 x 25
 $DEF CJ5=C2_JR(|F)1
 
 $DEF KOKI1=JR_KOKI(104(|L)~OP|106(|BA)L~OP|110BL~OP|50000NL|50000GL)					\
-    (6:[C1:CJ4][C2:CJ4][C3:CJ4][C4:CJ4][C5:CJ4]| 2:[C1:CJ5][C3:CJ4][C5:CJ5]|				\
+    (6:[C1:CJ4][C2:CJ4][C3:CJ4][C4:CJ4][C5:CJ4]|2:[C1:CJ5][C3:CJ4][C5:CJ5]|				\
     1:[C1:CJ4][C2:CJ4][C4:CJ4][C5:CJ4])
 
 $DEF STRAIL_US1=STRAIL_(02|03|04|05|06|07|08|09|10|11|12|13)
@@ -62,25 +62,25 @@ $POOL N=POOL_ENODEN;
   C=ENODEN_1500;
   C=ENODEN_1501_2007;
   C=ENODEN_2000;
-$ENDPOOL 
+$ENDPOOL
 
 $POOL N=POOL_KAGOSHIMA;
   C=KAGO_1000;
   C=KAGO_1014;
   C=KAGO_1017;
-$ENDPOOL 
+$ENDPOOL
 #----------------------------------------------------------------------
 $POOL N=POOL_JD1;
   C=<JR_485(KUHAL,MOHA1,MOHA2,MOHA1,MOHA2,SARO,SASHI,MOHA1,MOHA2,KUHA);
-$ENDPOOL 
+$ENDPOOL
 
 $POOL N=POOL_JP1;
   C=JR_EF57~OP,JR_SUHA(FU42B,43NL,2*43BL,2*FU42BL)~OP;
-$ENDPOOL 
+$ENDPOOL
 
 $POOL N=POOL_JF1;
   C=JR_EF12,$MIX(10,JR_G1,JR_GO1,JR_GT1,JR_G2,JR_G3,JR_G4,JR_REF1),JR_YO3500~OP;
-$ENDPOOL 
+$ENDPOOL
 
 $POOL N=POOL_JF2;
   C=JRF_EF66_54,10-18*KOKI1;
@@ -94,50 +94,52 @@ $POOL N=POOL_JF2;
   C=JRF_EF65_1005,14-22*KOKI1;
   C=JRF_EF65_1059,14-22*KOKI1;
   C=JRF_EF65_1065,14-22*KOKI1;
-$ENDPOOL 
+$ENDPOOL
 #----------------------------------------------------------------------
 $POOL N=POOL_TOKAIDO;
   C=<JRE_211(TCL,T1,M1,M2,TC,TCL,T1,M1,M2,T1,TS1,TS2,M1,M2,TC);
-  C=<JRE_E231_8000TCTL,JRE_E231_3000TTL,JRE_E231_1500MTL,JRE_E230_1500MTL,JRE_E230_6000TCT,JRE_E231_8500TCTL,JRE_E231_3500MTL,JRE_E230_1500MTL,JRE_E231_1000TTL,JRE_E231_1000TTL,JRE_E231_1000TDTL,JRE_E230_1000TDTL,JRE_E231_1500MTL,JRE_E230_3500MTL,JRE_E230_8000TCT;
+  C=<JRE_E231_8000TCTL,JRE_E231_3000TTL,JRE_E231_1500MTL,JRE_E230_1500MTL,JRE_E230_6000TCT,		\
+      JRE_E231_8500TCTL,JRE_E231_3500MTL,JRE_E230_1500MTL,JRE_E231_1000TTL,JRE_E231_1000TTL,		\
+      JRE_E231_1000TDTL,JRE_E230_1000TDTL,JRE_E231_1500MTL,JRE_E230_3500MTL,JRE_E230_8000TCT;
   C=<JRE_211(TCL,T1,M1,M2,TC,TCL,T1,M1,M2,T1,TS3,TS4,M1,M2,TC);
-$ENDPOOL 
+$ENDPOOL
 
 $POOL N=POOL_KEIHIN;
   C=<JRE_209KEI(TCL,T4,M1,M2,T6,T4,T4,M1,M2,TC);
   C=<JRE_209_500KEI(TC1L,T4,M1,M2,T4,T4,T4,M1,M2,TC2);
-$ENDPOOL 
+$ENDPOOL
 
 $POOL N=POOL_YAMANOTE;
   C=<JRE_E231_500(TCL,T6,M1,M2,T6,M1,M2,T4,M1,M2,TC);
-$ENDPOOL 
+$ENDPOOL
 
 $POOL N=POOL_SAIKYO;
   C=<JRE_205S(TCL,M1,M2,M1,M2,M1,M2,T6,T6,TC);
-$ENDPOOL 
+$ENDPOOL
 
 $POOL N=POOL_SOBU;
   C=<JRE_E231S(TC1L,T4,M1,M2,T6,T4,T4,M1,M2,TC2);
   C=<JRE_209S(TC1L,T4,M1,M2,T4,T4,T4,M1,M2,TC2);
   C=<JRE_E231S(TC1L,T4,M1,M2,T6,T4,T4,M1,M2,TC2);
   C=<JRE_209S(TC1L,T4,M1A,M2,T4,T4,T4,M1A,M2,TC2);
-$ENDPOOL 
+$ENDPOOL
 
 $POOL N=POOL_CHUO;
   C=<JRE_201C(TCL,M1,M2,T4,M1,M2,T4,M1,M2,TC);
   C=<JRE_201C(TCL,M1A,M2,TC,TCL,M1A,M2,M1A,M2,TC);
-$ENDPOOL 
+$ENDPOOL
 #----------------------------------------------------------------------
 $POOL N=POOL_ODAKYU1;
   C=<ODAK_NSE1(AL,B,C,D,CL,BL,A);
   C=<ODAK_3000(AL,B,C,C,C,C,D,E);
   C=<ODAK_3000(A1L,B1,C1,D1,E1);
-$ENDPOOL 
+$ENDPOOL
 
 $POOL N=POOL_ODAKYU2;
   C=<ODAK_5000TC1L,ODAK_2600(M1,M2,M3,M2),ODAK_5000TC2;
   C=<ODAK_4000(TC1L,M2,M1,M2,MC);
   C=<ODAK_5000(TC1L,M1,M2,TC2);
-$ENDPOOL 
+$ENDPOOL
 
 $POOL N=POOL_KEIO1;
   C=<KEIO_3000(A1L,B,C,D,E1);
@@ -147,7 +149,7 @@ $POOL N=POOL_KEIO1;
   C=<KEIO_3000(A5L,B,C,D,E5);
   C=<KEIO_3000(A6L,B,C,D,E6);
   C=<KEIO_3000(A7L,B,C,D,E7);
-$ENDPOOL 
+$ENDPOOL
 #----------------------------------------------------------------------
 $DEF TOY_BLUELOC=TOY_E(B58|F58B|F65|F66|F81|F81300)
 
@@ -155,7 +157,7 @@ $POOL N=POOL_JTOY1;
   C=TOY_BLUELOC,(<TOY_BLUE14A,TOY_BLUE14B,TOY_BLUE14C);
   C=TOY_BLUELOC,(<TOY_BLUE20A,TOY_BLUE20B,TOY_BLUE20C);
   C=TOY_BLUELOC,(<TOY_BLUE25A,TOY_BLUE25B,TOY_BLUE25C);
-$ENDPOOL 
+$ENDPOOL
 
 $POOL N=POOL_EGYPTTOY;
   C=TOY_ENR(1B|1G|1R|2),TOY_ENRP(1,2,1);
@@ -165,10 +167,11 @@ $POOL N=POOL_EGYPTTOY;
   C=TOY_ENR(1B|1G|1R|2),TOY_ENRP(4,4,5,4);
   C=<TOY_ENR_T3(AL,B,B,A);
   C=TOY_ENR(1B|1G|1R|2),4*TOY_ENRP6;
-$ENDPOOL 
+$ENDPOOL
 
 $POOL N=POOL_JTOY;
-  D=L; C=TOY_EB10(ER|KC|KY),TOY_JR_P1,TOY_JR_P2;
+  C=TOY_EB10(ER|KC|KY),TOY_JR_P1,TOY_JR_P2;								\
+    D=L;
   C=TOY_EB58,2*TOY_JR_GO1;
   C=<TOY_SH0(A,B,C,D);
   C=<TOY_THRC700T1L,TOY_THRC700T2,TOY_THRC700T3,TOY_THRC700T1;
@@ -184,7 +187,8 @@ $POOL N=POOL_JTOY;
   C=TOY_OROCHIE,(<TOY_OROCHIP,TOY_OROCHIF);
   C=<TOY_TOEI10300(A,B,C,D);
   C=TOY_WA01;
-  D=R; C=TOY_KOREAD,TOY_KOREAP1,TOY_KOREAP2;
+  C=TOY_KOREAD,TOY_KOREAP1,TOY_KOREAP2;									\
+    D=R;
   C=TOY_SIBE2,TOY_SIBP1,TOY_SIBP2,TOY_SIBP3;
   C=<TOY_157NIKKO(1L,2L,3,4,2,1);
   C=<TOY_ETR500A(1L,2,2,1);
@@ -199,653 +203,1146 @@ $POOL N=POOL_JTOY;
 $ENDPOOL
 #======================================================================
 {FILELEVEL=1?
-  $SECTION DX=220; LC=1; DY=80; Y=*; FIN=N; LT=45;
-}
+  $SECTION LC=1; DX=220; DY=80; Y=*; FIN=N; LT=45;
+  }
 #------------------   1 -----------------------------------------------
-$SCENE NAME=OP0001; YDIR=U; DX=220; DY=80; LG=XC:D1,U1,D2,U2:XDOWN,XUP;
-  $PATH Y0=8; FG=(SCENE_FENCEF:,-8; CROSS_ROAD1:*0+144,^0; CROSS_J2F:<0+102,-3); BG=STATION_KEIO; LC=2;	\
-    ENV=[V=6-8][TB=D1,W,3][TE=8][D=L][M=STOP][P=>0+65][T=U1,5];
-    C=<KEIO_N6000E1,KEIO_N6000E2;
-    C=(<KEIO_N7000N1L,KEIO_N7000N2,KEIO_N7000N3,KEIO_N7000N4,KEIO_N7000N5),				\
-	(<KEIO_N7000N2,KEIO_N7000N3,KEIO_N7000N6,KEIO_N7000N7L,KEIO_N7000N7);
-    C=(<KEIO_N6000E1,KEIO_N6000E2),(<KEIO_N9000AL,KEIO_N9000B,KEIO_N9000C,KEIO_N9000D),			\
-	(<KEIO_N9000D1,KEIO_N9000E,KEIO_N9000C1,KEIO_N9000F);
-    C=(<TOEI_N10AL,TOEI_N10B,TOEI_N10C,TOEI_N10D),(<TOEI_N10E,TOEI_N10D,TOEI_N10F,TOEI_N10G);
-    C=(<KEIO_N8000AL,KEIO_N8000B,KEIO_N8000C,KEIO_N8000D),						\
-	(<KEIO_N8000AL,KEIO_N8000B,KEIO_N8000C,KEIO_N8000E,KEIO_N8000C,KEIO_N8000D);
-    C=(<KEIO_N6000A1L,KEIO_N6000A2,KEIO_N6000A3,KEIO_N6000A4),						\
-	(<KEIO_N6000A3,KEIO_N6000A2,KEIO_N6000A3,KEIO_N6000A5);
-  $ENDPATH 
-  $PATH Y0=8; BG=(CROSS_J2B:<0+102,-3; SCENE_KEIO; TRBED20:..,^0); LC=2;				\
-    ENV=[V=6-8][TB=10][TE=U2,W,2][D=R][M=STOP][P=>0+75][T=2,D2,W,2];
-    C=<KEIO_N6000E1,KEIO_N6000E2;
-    C=(<KEIO_N8000AL,KEIO_N8000B,KEIO_N8000C,KEIO_N8000E,KEIO_N8000C,KEIO_N8000D),			\
-	(<KEIO_N8000AL,KEIO_N8000B,KEIO_N8000C,KEIO_N8000D);
-    C=(<KEIO_N6000A3,KEIO_N6000A2,KEIO_N6000A3,KEIO_N6000A5),						\
-	(<KEIO_N6000A1L,KEIO_N6000A2,KEIO_N6000A3,KEIO_N6000A4);
-    C=(<KEIO_N7000N2,KEIO_N7000N3,KEIO_N7000N6,KEIO_N7000N7L,KEIO_N7000N7),				\
-	(<KEIO_N7000N1L,KEIO_N7000N2,KEIO_N7000N3,KEIO_N7000N4,KEIO_N7000N5);
-    C=(<KEIO_N9000D1,KEIO_N9000E,KEIO_N9000C1,KEIO_N9000F),						\
-	(<KEIO_N9000AL,KEIO_N9000B,KEIO_N9000C,KEIO_N9000D),(<KEIO_N6000E1,KEIO_N6000E2);
-    M=STOP; C=(<TOEI_N10E,TOEI_N10D,TOEI_N10F,TOEI_N10G),(<TOEI_N10AL,TOEI_N10B,TOEI_N10C,TOEI_N10D);
-  $ENDPATH 
-$ENDSCENE 
+  $SCENE 												\
+      NAME=OP0001;											\
+      DX=220; DY=80; YDIR=U; LG=XC:D1,U1,D2,U2:XDOWN,XUP;
+    $PATH LC=2;												\
+	BG=STATION_KEIO;										\
+	FG=(SCENE_FENCEF:,-8; CROSS_ROAD1:*0+144,^0; CROSS_J2F:<0+102,-3);				\
+	Y0=8;												\
+	ENV=[V=6-8][TB=D1,W,3][TE=8][D=L][M=STOP][P=>0+65][T=U1,5];
+      C=<KEIO_N6000E1,KEIO_N6000E2;
+      C=(<KEIO_N7000N1L,KEIO_N7000N2,KEIO_N7000N3,KEIO_N7000N4,KEIO_N7000N5),				\
+	  (<KEIO_N7000N2,KEIO_N7000N3,KEIO_N7000N6,KEIO_N7000N7L,KEIO_N7000N7);
+      C=(<KEIO_N6000E1,KEIO_N6000E2),(<KEIO_N9000AL,KEIO_N9000B,KEIO_N9000C,KEIO_N9000D),		\
+	  (<KEIO_N9000D1,KEIO_N9000E,KEIO_N9000C1,KEIO_N9000F);
+      C=(<TOEI_N10AL,TOEI_N10B,TOEI_N10C,TOEI_N10D),(<TOEI_N10E,TOEI_N10D,TOEI_N10F,TOEI_N10G);
+      C=(<KEIO_N8000AL,KEIO_N8000B,KEIO_N8000C,KEIO_N8000D),						\
+	  (<KEIO_N8000AL,KEIO_N8000B,KEIO_N8000C,KEIO_N8000E,KEIO_N8000C,KEIO_N8000D);
+      C=(<KEIO_N6000A1L,KEIO_N6000A2,KEIO_N6000A3,KEIO_N6000A4),					\
+	  (<KEIO_N6000A3,KEIO_N6000A2,KEIO_N6000A3,KEIO_N6000A5);
+    $ENDPATH
+    $PATH LC=2;												\
+	BG=(CROSS_J2B:<0+102,-3; SCENE_KEIO; TRBED20:..,^0);						\
+	Y0=8;												\
+	ENV=[V=6-8][TB=10][TE=U2,W,2][D=R][M=STOP][P=>0+75][T=2,D2,W,2];
+      C=<KEIO_N6000E1,KEIO_N6000E2;
+      C=(<KEIO_N8000AL,KEIO_N8000B,KEIO_N8000C,KEIO_N8000E,KEIO_N8000C,KEIO_N8000D),			\
+	  (<KEIO_N8000AL,KEIO_N8000B,KEIO_N8000C,KEIO_N8000D);
+      C=(<KEIO_N6000A3,KEIO_N6000A2,KEIO_N6000A3,KEIO_N6000A5),						\
+	  (<KEIO_N6000A1L,KEIO_N6000A2,KEIO_N6000A3,KEIO_N6000A4);
+      C=(<KEIO_N7000N2,KEIO_N7000N3,KEIO_N7000N6,KEIO_N7000N7L,KEIO_N7000N7),				\
+	  (<KEIO_N7000N1L,KEIO_N7000N2,KEIO_N7000N3,KEIO_N7000N4,KEIO_N7000N5);
+      C=(<KEIO_N9000D1,KEIO_N9000E,KEIO_N9000C1,KEIO_N9000F),						\
+	  (<KEIO_N9000AL,KEIO_N9000B,KEIO_N9000C,KEIO_N9000D),(<KEIO_N6000E1,KEIO_N6000E2);
+      M=STOP;												\
+	C=(<TOEI_N10E,TOEI_N10D,TOEI_N10F,TOEI_N10G),(<TOEI_N10AL,TOEI_N10B,TOEI_N10C,TOEI_N10D);
+    $ENDPATH
+  $ENDSCENE
 #------------------   4 -----------------------------------------------
-$GROUP NAME=OP0004; DX=220; AB=13; BL=9; BG=(SCENE_BLUE; TRBED20:..,^0);
-  C=JRH_ED79_(17DORA|DORA2000),2*(JRH_50DORA1,JRH_50DORA2);
-  C=<JRH_789_100AL,JRH_789_100B,1-2*(JRH_789_200M1,JRH_789_200M2,JRH_789_200TCN);
-  C=JR_ED79(|_100|_50|_50B)|JRF_EH500_(1|10|10L|3),7-11*KOKI1;
-  C=<JRE_485_3K(1,2,3,4,5,6);
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0004;											\
+      DX=220; AB=13; BL=9;										\
+      BG=(SCENE_BLUE; TRBED20:..,^0);
+    C=JRH_ED79_(17DORA|DORA2000),2*(JRH_50DORA1,JRH_50DORA2);
+    C=<JRH_789_100AL,JRH_789_100B,1-2*(JRH_789_200M1,JRH_789_200M2,JRH_789_200TCN);
+    C=JR_ED79(|_100|_50|_50B)|JRF_EH500_(1|10|10L|3),7-11*KOKI1;
+    C=<JRE_485_3K(1,2,3,4,5,6);
+  $ENDGROUP
 #------------------   6 -----------------------------------------------
-$GROUP NAME=OP0006; DX=220; IMGY=51; AB=21; BL=8;							\
-    BG=(SCENE_SHRINE; TRBED20:..,^0; FL_J2:,51; STATION_ENODEN:>0+90; CROSS_ROAD1:<0+140,^0);		\
-    FG=(CROSS_J2F:<0+116,-5; CROSS_J1:<0+127,-5);
-  M=STOP; POOL=POOL_ENODEN; D=R; P=>0+85; TB=XWAIT,4,BARDOWN,3; TE=BARUP,XGO,W,15; T=15;
-  M=STOP; POOL=POOL_ENODEN; D=L; P=>0+85; TB=XWAIT,4,BARDOWN,7; TE=15; T=BARUP,XGO,15;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0006;											\
+      DX=220; IMGY=51; AB=21; BL=8;									\
+      BG=(SCENE_SHRINE; TRBED20:..,^0; FL_J2:,51; STATION_ENODEN:>0+90; CROSS_ROAD1:<0+140,^0);		\
+      FG=(CROSS_J2F:<0+116,-5; CROSS_J1:<0+127,-5);
+    M=STOP; POOL=POOL_ENODEN; D=R; P=>0+85; TB=XWAIT,4,BARDOWN,3; TE=BARUP,XGO,W,15; T=15;
+    M=STOP; POOL=POOL_ENODEN; D=L; P=>0+85; TB=XWAIT,4,BARDOWN,7; TE=15; T=BARUP,XGO,15;
+  $ENDGROUP
 #------------------   9 -----------------------------------------------
-$GROUP NAME=OP0009; DX=220; IMGY=51; AB=4; BL=25; BG=SCENE_CHICHIBU:,-25; FG=SCENE_CHICHIBUF;
-  C=<SEIBU_101(AL,B,C,D);
-  C=1-2*SEIBU_E851,(<SEIBU_WAFUL,3-5*SEIBU_TEKI,7-12*SEIBU_TAKI,SEIBU_WAFU);
-  C=<SEIBU_5000(A,B,C,D);
-  C=SEIBU_E851,(<JR_SUHAFU12_100L,4*JR_OHA12B,JR_SUHAFU12_100);
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0009;											\
+      DX=220; IMGY=51; AB=4; BL=25;									\
+      BG=SCENE_CHICHIBU:,-25;										\
+      FG=SCENE_CHICHIBUF;
+    C=<SEIBU_101(AL,B,C,D);
+    C=1-2*SEIBU_E851,(<SEIBU_WAFUL,3-5*SEIBU_TEKI,7-12*SEIBU_TAKI,SEIBU_WAFU);
+    C=<SEIBU_5000(A,B,C,D);
+    C=SEIBU_E851,(<JR_SUHAFU12_100L,4*JR_OHA12B,JR_SUHAFU12_100);
+  $ENDGROUP
 #------------------  12 -----------------------------------------------
-$GROUP NAME=OP0012; DX=220; AB=13; BL=9; BG=SCENE_DESERTB; FG=SCENE_DESERTF:,-9;
-  D=R; C=UP_62(4|6)8,3*UP_IMOD1,4-7*UP_IMOD2,3-5*UP_IMOD1,1-3*UP_IMOD2,0-2*UP_IMOD1;
-  C=(<UP_(226|623)5L,UP_62(4|6)8),10-15*UP_WELL;
-  C=(<AMTK_F40PH216L,AMTK_F40PH246),									\
-      (<AMTK_SB13~OP,AMTK_HIL3,4*AMTK_SUP3A,AMTK_SD13,AMTK_SL13,3*AMTK_SS13,AMTK_SUP3B,AMTK_SUP3C);
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0012;											\
+      DX=220; AB=13; BL=9;										\
+      BG=SCENE_DESERTB;											\
+      FG=SCENE_DESERTF:,-9;
+    C=UP_62(4|6)8,3*UP_IMOD1,4-7*UP_IMOD2,3-5*UP_IMOD1,1-3*UP_IMOD2,0-2*UP_IMOD1;			\
+      D=R;
+    C=(<UP_(226|623)5L,UP_62(4|6)8),10-15*UP_WELL;
+    C=(<AMTK_F40PH216L,AMTK_F40PH246),									\
+	(<AMTK_SB13~OP,AMTK_HIL3,4*AMTK_SUP3A,AMTK_SD13,AMTK_SL13,3*AMTK_SS13,AMTK_SUP3B,AMTK_SUP3C);
+  $ENDGROUP
 #------------------  14 -----------------------------------------------
-$GROUP NAME=OP0014; DX=220; IMGY=51; AB=13; BL=16; BG=(SCENE_HAKONEB:,-16; SCENE_HAKONEM:0+32..100); FG=SCENE_HAKONEF:,-16;
-  C=<[PU]HTOZAN_1A(1,2);
-  C=<[PU]HTOZAN_1KAMO(1,2);
-  C=<[PU]HTOZAN_1B(1,2);
-  C=HTOZAN_2;
-  C=HTOZAN_2B;
-  C=HTOZAN_2,HTOZAN_2S[PU],HTOZAN_2S[PD];
-  C=[PU]HTOZAN_3,(<HTOZAN_1B(1,2));
-  C=<[PU]HTOZAN_1000A(1,2);
-  C=<[PU]HTOZAN_1000B(1,2);
-  C=<[PU]HTOZAN_1000RHB(1,2);
-  C=<[PU]HTOZAN_1000RHBC(1,2);
-  C=<[PU]HTOZAN_2000A(1,2);
-  C=<HTOZAN_2000RHB(1[PU],2[PU],3[PD]);
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0014;											\
+      DX=220; IMGY=51; AB=13; BL=16;									\
+      BG=(SCENE_HAKONEB:,-16; SCENE_HAKONEM:0+32..100);							\
+      FG=SCENE_HAKONEF:,-16;
+    C=<[PU]HTOZAN_1A(1,2);
+    C=<[PU]HTOZAN_1KAMO(1,2);
+    C=<[PU]HTOZAN_1B(1,2);
+    C=HTOZAN_2;
+    C=HTOZAN_2B;
+    C=HTOZAN_2,HTOZAN_2S[PU],HTOZAN_2S[PD];
+    C=[PU]HTOZAN_3,(<HTOZAN_1B(1,2));
+    C=<[PU]HTOZAN_1000A(1,2);
+    C=<[PU]HTOZAN_1000B(1,2);
+    C=<[PU]HTOZAN_1000RHB(1,2);
+    C=<[PU]HTOZAN_1000RHBC(1,2);
+    C=<[PU]HTOZAN_2000A(1,2);
+    C=<HTOZAN_2000RHB(1[PU],2[PU],3[PD]);
+  $ENDGROUP
 #------------------  15 -----------------------------------------------
-$GROUP NAME=OP0015; DX=220; IMGY=51; AB=20; BL=9; BG=(SCENE_HATSUDENB; TRBED21:..,^0); FG=(FL_J4:,-4; ENODEN_STOP1:<0+27,-3);
-  M=STOP; C=ENODEN_8; P=>0+70;
-  M=STOP; C=ENODEN_10_6T,ENODEN_10_6B; P=>0+70;
-  M=STOP; C=ENODEN_17; P=>0+70;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0015;											\
+      DX=220; IMGY=51; AB=20; BL=9;									\
+      BG=(SCENE_HATSUDENB; TRBED21:..,^0);								\
+      FG=(FL_J4:,-4; ENODEN_STOP1:<0+27,-3);
+    M=STOP;												\
+      C=ENODEN_8;											\
+      P=>0+70;
+    M=STOP;												\
+      C=ENODEN_10_6T,ENODEN_10_6B;									\
+      P=>0+70;
+    M=STOP;												\
+      C=ENODEN_17;											\
+      P=>0+70;
+  $ENDGROUP
 #------------------  17 -----------------------------------------------
-$GROUP NAME=OP0017; DX=220; AB=13; BL=9; BG=SCENE_TURNTABLEB; FG=SCENE_TURNTABLEF:,-9;
-  D=X; C=JNR_B20_10B(|[!L]); V=2;
-  C=JNR_C57AL|JRE_C57C_180|JRE_C57C_180L|JRW_C57A1|JRW_C57A1L|JRW_C57A2L|JNR_C57A_HKDL|JR_C57A_KAMOMEL|	\
-      JR_C57BL|JR_C57CL|JR_C57DL;									\
-    V=2;
-  C=JNR_D51(|BL|HKD|HKDL|HVL|KMBK|KMBKL|L|NGN|NGNL|NKJ|NKJBL|NKJEL|NKJL|WARL|WRBL); V=2;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0017;											\
+      DX=220; AB=13; BL=9;										\
+      BG=SCENE_TURNTABLEB;										\
+      FG=SCENE_TURNTABLEF:,-9;
+    C=JNR_B20_10B(|[!L]);										\
+      D=X; V=2;
+    C=JNR_C57AL|JRE_C57C_180|JRE_C57C_180L|JRW_C57A1|JRW_C57A1L|JRW_C57A2L|JNR_C57A_HKDL|		\
+	JR_C57A_KAMOMEL|JR_C57BL|JR_C57CL|JR_C57DL;							\
+      V=2;
+    C=JNR_D51(|BL|HKD|HKDL|HVL|KMBK|KMBKL|L|NGN|NGNL|NKJ|NKJBL|NKJEL|NKJL|WARL|WRBL);			\
+      V=2;
+  $ENDGROUP
 #------------------  20 -----------------------------------------------
-$GROUP NAME=OP0020; DX=220; AB=13; BL=9; BG=SCENE_CONTAINERBASE:,-9;
-  C=JRF_DE10_SAPPOROL;
-  D=X; C=JRF_DE10_SAPPOROL,6-12*KOKI1;
-  C=JNR_DE10L;
-  D=X; C=JNR_DE10L,1-3*JR_KOKI200L~OP[C1:C2RT_J1][C3:C2RT_J1];
-  D=X; C=JRF_EF510_2RTL;
-  D=X; C=JRF_EF510_2RTL,8-20*KOKI1;
-  D=X; C=JRF_EH200(901|BT|_2|_2L),8-20*KOKI1;
-  C=JRF_EH200(901|BT|_2|_2L);
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0020;											\
+      DX=220; AB=13; BL=9;										\
+      BG=SCENE_CONTAINERBASE:,-9;
+    C=JRF_DE10_SAPPOROL;
+    C=JRF_DE10_SAPPOROL,6-12*KOKI1;									\
+      D=X;
+    C=JNR_DE10L;
+    C=JNR_DE10L,1-3*JR_KOKI200L~OP[C1:C2RT_J1][C3:C2RT_J1];						\
+      D=X;
+    C=JRF_EF510_2RTL;											\
+      D=X;
+    C=JRF_EF510_2RTL,8-20*KOKI1;									\
+      D=X;
+    C=JRF_EH200(901|BT|_2|_2L),8-20*KOKI1;								\
+      D=X;
+    C=JRF_EH200(901|BT|_2|_2L);
+  $ENDGROUP
 #------------------  21 -----------------------------------------------
-$GROUP NAME=OP0021; DX=220; IMGY=51; AB=13; BL=16; BG=SCENE_FREIGHT:,-17; FG=SIG_J4[R]:0+75,-6; WP=<0+50,<TB:SIGR;
-  D=L; C=JR_EH10~OP,20*JR_KOKI5000[C1:C1013][C2:C1013][C3:C1013][C4:C1013][C5:C1013],JR_YO5000; V=6;	\
-    TB=SIGG,1; TE=4,SIGYY,4,SIGY,4,SIGYG,2;
-  C=JNR_EF66;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0021;											\
+      DX=220; IMGY=51; AB=13; BL=16;									\
+      BG=SCENE_FREIGHT:,-17;										\
+      FG=SIG_J4[R]:0+75,-6;										\
+      WP=<0+50,<TB:SIGR;
+    C=JR_EH10~OP,20*JR_KOKI5000[C1:C1013][C2:C1013][C3:C1013][C4:C1013][C5:C1013],JR_YO5000;		\
+      D=L; V=6; TB=SIGG,1; TE=4,SIGYY,4,SIGY,4,SIGYG,2;
+    C=JNR_EF66;
+  $ENDGROUP
 #------------------  26 -----------------------------------------------
-$SCENE NAME=OP0026; DX=220; DY=80; YDIR=U; BG=SCENE_EKIB:..,17,12; FG=SCENE_EKIF:..,,20;
-  $PATH Y0=9; IMGY=51;
-    M=STOP; POOL=POOL_JP1; D=L; P=*10; TB=10; T=OPEN,5,CLOSE,1;
-    POOL=POOL_JD1; D=L; TB=10;
-    POOL=POOL_JF1; D=L; TB=10;
-  $ENDPATH 
-  $PATH Y0=9; IMGY=51;
-    POOL=POOL_JD1; D=R; TE=10;
-    M=STOP; POOL=POOL_JP1; D=R; P=*50; TE=10; T=6;
-    POOL=POOL_JF1; D=R; TE=10;
-  $ENDPATH 
-$ENDSCENE 
+  $SCENE 												\
+      NAME=OP0026;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_EKIB:..,17,12;										\
+      FG=SCENE_EKIF:..,,20;
+    $PATH Y0=9; IMGY=51;
+      M=STOP; POOL=POOL_JP1; D=L; P=*10; TB=10; T=OPEN,5,CLOSE,1;
+      POOL=POOL_JD1; D=L; TB=10;
+      POOL=POOL_JF1; D=L; TB=10;
+    $ENDPATH
+    $PATH Y0=9; IMGY=51;
+      POOL=POOL_JD1; D=R; TE=10;
+      M=STOP; POOL=POOL_JP1; D=R; P=*50; TE=10; T=6;
+      POOL=POOL_JF1; D=R; TE=10;
+    $ENDPATH
+  $ENDSCENE
 #------------------  28 -----------------------------------------------
-$GROUP NAME=OP0028; DX=220; IMGY=78; AB=2; BL=0; BG=SCENE_RICEFIELDB; FG=SCENE_RICEFIELDF;
-  C=JR_C57IMPERIAL,JR_IMP(1,2,3,4,5);
-  C=JR_EF58_61L,(<JR_IMP(1,2,3,4,5));
-  C=JR_DD51_842,(<JR_IMP(1,2,3,4,5));
-  C=<JRE_E655REF(1,2,3,4,5,6);
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0028;											\
+      DX=220; IMGY=78; AB=2; BL=0;									\
+      BG=SCENE_RICEFIELDB;										\
+      FG=SCENE_RICEFIELDF;
+    C=JR_C57IMPERIAL,JR_IMP(1,2,3,4,5);
+    C=JR_EF58_61L,(<JR_IMP(1,2,3,4,5));
+    C=JR_DD51_842,(<JR_IMP(1,2,3,4,5));
+    C=<JRE_E655REF(1,2,3,4,5,6);
+  $ENDGROUP
 #------------------  29 -----------------------------------------------
-$SCENE NAME=OP0029; DX=220; DY=80; YDIR=U;
-  $PATH Y0=31; IMGY=48;
-    D=X; C=MONO_OER500;
-  $ENDPATH 
-  $PATH Y0=2; IMGY=22; BG=SCENE_MUKOUGAOKAN:,-2;
-    D=X; C=OTOGI_LOC,6*OTOGI_P1;
-  $ENDPATH 
-$ENDSCENE 
+  $SCENE 												\
+      NAME=OP0029;											\
+      DX=220; DY=80; YDIR=U;
+    $PATH Y0=31; IMGY=48;
+      C=MONO_OER500;											\
+	D=X;
+    $ENDPATH
+    $PATH 												\
+	BG=SCENE_MUKOUGAOKAN:,-2;									\
+	Y0=2;												\
+	IMGY=22;
+      C=OTOGI_LOC,6*OTOGI_P1;										\
+	D=X;
+    $ENDPATH
+  $ENDSCENE
 #------------------  33 -----------------------------------------------
-$GROUP NAME=OP0033; DX=220; IMGY=60; AB=20; BL=0; BG=SCENE_XMAS;
-  C=MOMO_TRAM_DL;
-  C=MOMO_TRAM_D;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0033;											\
+      DX=220; IMGY=60; AB=20; BL=0;									\
+      BG=SCENE_XMAS;
+    C=MOMO_TRAM_DL;
+    C=MOMO_TRAM_D;
+  $ENDGROUP
 #------------------  34 -----------------------------------------------
-$SCENE NAME=OP0034; DX=220; DY=80; YDIR=U; BG=SCENE_AVENUEB; FG=SCENE_AVENUEF:,9;
-  $PATH Y0=9;
-    M=OPEN; POOL=POOL_KAGOSHIMA; D=L; P=<44; TB=15;
-  $ENDPATH 
-  $PATH Y0=9;
-    M=STOP; POOL=POOL_KAGOSHIMA; D=R; P=<40; TE=15;
-  $ENDPATH 
-$ENDSCENE 
+  $SCENE 												\
+      NAME=OP0034;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_AVENUEB;											\
+      FG=SCENE_AVENUEF:,9;
+    $PATH Y0=9;
+      M=OPEN; POOL=POOL_KAGOSHIMA; D=L; P=<44; TB=15;
+    $ENDPATH
+    $PATH Y0=9;
+      M=STOP; POOL=POOL_KAGOSHIMA; D=R; P=<40; TE=15;
+    $ENDPATH
+  $ENDSCENE
 #------------------  36 -----------------------------------------------
-$GROUP NAME=OP0036; DX=220; AB=13; BL=9; BG=SCENE_LOCALENDB; FG=SCENE_LOCALENDF:,-9;
-  M=BACK; D=L; C=JNR_DC20; P=<0+60; T=OPEN,10,CLOSE;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0036;											\
+      DX=220; AB=13; BL=9;										\
+      BG=SCENE_LOCALENDB;										\
+      FG=SCENE_LOCALENDF:,-9;
+    M=BACK;												\
+      C=JNR_DC20;											\
+      D=L; P=<0+60; T=OPEN,10,CLOSE;
+  $ENDGROUP
 #------------------  37 -----------------------------------------------
-$GROUP NAME=OP0037; DX=220; AB=1; BL=21; BG=SCENE_TATAMI:,-21;
-  POOL=POOL_JTOY;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0037;											\
+      DX=220; AB=1; BL=21;										\
+      BG=SCENE_TATAMI:,-21;
+    POOL=POOL_JTOY;
+  $ENDGROUP
 #------------------  38 -----------------------------------------------
-$GROUP NAME=OP0038; DX=220; IMGY=51; AB=20; BL=9; BG=(TRBED20:..,^0; SCENE_STREETB:<0+57);					\
-  FG=(CROSS_J3F:<0+52,-5;SCENE_STREETF:..,-9,20);
-  POOL=POOL_KEIO1; D=R; TB=3,XRIGHT,5; TE=XUP,8;
-  POOL=POOL_KEIO1; D=L; TB=3,XLEFT,5; TE=XUP,5;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0038;											\
+      DX=220; IMGY=51; AB=20; BL=9;									\
+      BG=(TRBED20:..,^0; SCENE_STREETB:<0+57);								\
+      FG=(CROSS_J3F:<0+52,-5;SCENE_STREETF:..,-9,20);
+    POOL=POOL_KEIO1; D=R; TB=3,XRIGHT,5; TE=XUP,8;
+    POOL=POOL_KEIO1; D=L; TB=3,XLEFT,5; TE=XUP,5;
+  $ENDGROUP
 #------------------  39 -----------------------------------------------
-$GROUP NAME=OP0039; DX=220; IMGY=51; AB=20; BL=9; BG=SCENE_SHOWAB; FG=SCENE_SHOWAF:,-9;
-  D=L; C=JR_EF53K,JR_SUHANI35650L~OP,5*JR_SUHA32600L~OP,JR_SUSI37740~OP,JR_SURO30750L~OP,JR_SUITE37020;
-  D=L; C=JNR_EF55K1L,JR_SUHANI32K,2*JR_SUHA42KL,JR_SUSHI47K,3*JR_ORO40K,JR_OROFU33K,JR_MAITE39_1EK;
-  D=L; C=JR_EF58K,JR_SUHANI35KL,5*JR_SUHA44K,2*JR_SURO60K,JR_MASHI35K,3*JR_SURO60KL,JR_MAITE58_2K;
-  D=L;													\
+  $GROUP 												\
+      NAME=OP0039;											\
+      DX=220; IMGY=51; AB=20; BL=9;									\
+      BG=SCENE_SHOWAB;											\
+      FG=SCENE_SHOWAF:,-9;
+    C=JR_EF53K,JR_SUHANI35650L~OP,5*JR_SUHA32600L~OP,JR_SUSI37740~OP,JR_SURO30750L~OP,JR_SUITE37020;	\
+      D=L;
+    C=JNR_EF55K1L,JR_SUHANI32K,2*JR_SUHA42KL,JR_SUSHI47K,3*JR_ORO40K,JR_OROFU33K,JR_MAITE39_1EK;	\
+      D=L;
+    C=JR_EF58K,JR_SUHANI35KL,5*JR_SUHA44K,2*JR_SURO60K,JR_MASHI35K,3*JR_SURO60KL,JR_MAITE58_2K;		\
+      D=L;
     C=JR_EF58G2,JR_SUHANI35GL~OP,4*JR_SUHA44GL~OP,2*JR_NARO10GL~OP,JR_OSI17G~OP,3*JR_NARO10GL~OP,	\
-      JR_MAI38GL~OP,JR_MAITE491G~OP;
-$ENDGROUP 
+	JR_MAI38GL~OP,JR_MAITE491G~OP;									\
+      D=L;
+  $ENDGROUP
 #------------------  42 -----------------------------------------------
-$GROUP NAME=OP0042; DX=220; IMGY=51; AB=10; BL=19; BG=SCENE_CATB; FG=SCENE_CATF:,-19; WP=(50,<TB:CATM;30,<TE:CATL);
-  POOL=POOL_JTOY; D=L; TB=CATR;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0042;											\
+      DX=220; IMGY=51; AB=10; BL=19;									\
+      BG=SCENE_CATB;											\
+      FG=SCENE_CATF:,-19;										\
+      WP=(50,<TB:CATM;30,<TE:CATL);
+    POOL=POOL_JTOY; D=L; TB=CATR;
+  $ENDGROUP
 #------------------  43 -----------------------------------------------
-$GROUP NAME=OP0043; DX=220; AB=13; BL=9; BG=SCENE_KIDSIZUMOB; FG=SCENE_KIDSIZUMOF:,-9;
-  M=BACK; D=R; C=<TOY_DC120A,TOY_DC120B; P=>100+60;
-  M=BACK; D=R; C=<TOY_OROCHIE,TOY_OROCHIP,TOY_OROCHIF; P=>100+60;
-  M=BACK; D=R; C=TOY_WA01;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0043;											\
+      DX=220; AB=13; BL=9;										\
+      BG=SCENE_KIDSIZUMOB;										\
+      FG=SCENE_KIDSIZUMOF:,-9;
+    M=BACK;												\
+      C=<TOY_DC120A,TOY_DC120B;										\
+      D=R; P=>100+60;
+    M=BACK;												\
+      C=<TOY_OROCHIE,TOY_OROCHIP,TOY_OROCHIF;								\
+      D=R; P=>100+60;
+    M=BACK;												\
+      C=TOY_WA01;											\
+      D=R;
+  $ENDGROUP
 #------------------  44 -----------------------------------------------
-$SCENE NAME=OP0044; DX=220; DY=80; YDIR=U; BG=SCENE_KIDSB:,7; FG=SCENE_KIDSF:,-2;
-  $PATH Y0=60; IMGY=20;
-    C=<TOY_SH1,TOY_SH2,TOY_SH3,TOY_SH4; TB=15; IMGY=25;
-  $ENDPATH 
-  $PATH Y0=7;
-    POOL=POOL_JTOY1; D=L; TE=5;
-  $ENDPATH 
-  $PATH Y0=7;
-    POOL=POOL_JTOY1; D=R; TB=8;
-  $ENDPATH 
-$ENDSCENE 
+  $SCENE 												\
+      NAME=OP0044;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_KIDSB:,7;										\
+      FG=SCENE_KIDSF:,-2;
+    $PATH Y0=60; IMGY=20;
+      C=<TOY_SH1,TOY_SH2,TOY_SH3,TOY_SH4;								\
+	TB=15;												\
+	IMGY=25;
+    $ENDPATH
+    $PATH Y0=7;
+      POOL=POOL_JTOY1; D=L; TE=5;
+    $ENDPATH
+    $PATH Y0=7;
+      POOL=POOL_JTOY1; D=R; TB=8;
+    $ENDPATH
+  $ENDSCENE
 #------------------  45 -----------------------------------------------
-$SCENE NAME=OP0045; DX=220; DY=80; YDIR=U; BG=SCENE_4TRK;
-  $PATH Y0=9; IMGY=51; FG=SCENE_4TRK[MSK:SCENE_4TRKM,#FFFFFF,0,0]:,-9;
-    POOL=POOL_JF2; D=L; V=8; TB=30; TE=10;
-  $ENDPATH 
-  $PATH Y0=11; IMGY=51;
-    POOL=POOL_JF2; D=R; V=8; TB=25; TE=15;
-  $ENDPATH 
-  $PATH Y0=14; IMGY=51; FG=SCENE_4TRK[MSK:SCENE_4TRKM,#00FF00,0,0]:,-14;
-    M=STOP; POOL=POOL_TOKAIDO; D=L; P=*50; TB=20; TE=20;
-  $ENDPATH 
-  $PATH Y0=16; IMGY=51; FG=SCENE_4TRK[MSK:SCENE_4TRKM,#FF0000,0,0]:,-16;
-    M=OPEN; POOL=POOL_TOKAIDO; D=R; P=*50; TE=40;
-  $ENDPATH 
-$ENDSCENE 
+  $SCENE 												\
+      NAME=OP0045;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_4TRK;
+    $PATH 												\
+	FG=SCENE_4TRK[MSK:SCENE_4TRKM,#FFFFFF,0,0]:,-9;							\
+	Y0=9;												\
+	IMGY=51;
+      POOL=POOL_JF2; D=L; V=8; TB=30; TE=10;
+    $ENDPATH
+    $PATH Y0=11; IMGY=51;
+      POOL=POOL_JF2; D=R; V=8; TB=25; TE=15;
+    $ENDPATH
+    $PATH 												\
+	FG=SCENE_4TRK[MSK:SCENE_4TRKM,#00FF00,0,0]:,-14;						\
+	Y0=14;												\
+	IMGY=51;
+      M=STOP; POOL=POOL_TOKAIDO; D=L; P=*50; TB=20; TE=20;
+    $ENDPATH
+    $PATH 												\
+	FG=SCENE_4TRK[MSK:SCENE_4TRKM,#FF0000,0,0]:,-16;						\
+	Y0=16;												\
+	IMGY=51;
+      M=OPEN; POOL=POOL_TOKAIDO; D=R; P=*50; TE=40;
+    $ENDPATH
+  $ENDSCENE
 #------------------  46 -----------------------------------------------
-$GROUP NAME=OP0046; DX=220; IMGY=51; AB=20; BL=9; BG=SCENE_SHINANOB; FG=SCENE_SHINANOF:,-9;
-  D=X; C=<SHIN_115AL,SHIN_115B,SHIN_115C;
-  D=X; C=<SHIN_169AL,SHIN_169B,SHIN_169C;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0046;											\
+      DX=220; IMGY=51; AB=20; BL=9;									\
+      BG=SCENE_SHINANOB;										\
+      FG=SCENE_SHINANOF:,-9;
+    C=<SHIN_115AL,SHIN_115B,SHIN_115C;									\
+      D=X;
+    C=<SHIN_169AL,SHIN_169B,SHIN_169C;									\
+      D=X;
+  $ENDGROUP
 #------------------  47 -----------------------------------------------
-$GROUP NAME=OP0047; DX=220; AB=13; BL=9; BG=SCENE_CHUNCHEON:,-9;
-  M=STOP; D=R; C=TOY_KOREAD,3@TOY_KOREAP(1|2); P=*50;
-  M=STOP; D=L; C=TOY_KOREAD[!L],3@TOY_KOREAP(1|2); P=>90;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0047;											\
+      DX=220; AB=13; BL=9;										\
+      BG=SCENE_CHUNCHEON:,-9;
+    M=STOP;												\
+      C=TOY_KOREAD,3@TOY_KOREAP(1|2);									\
+      D=R; P=*50;
+    M=STOP;												\
+      C=TOY_KOREAD[!L],3@TOY_KOREAP(1|2);								\
+      D=L; P=>90;
+  $ENDGROUP
 #------------------  48 -----------------------------------------------
-$GROUP NAME=OP0048; DX=220; AB=13; BL=9; BG=SCENE_SIBERIA1:,-9;
-  M=STOP; C=TOY_SIBE(1|2),5:(3-4@TOY_SIBP(1|2|3))|(1-2*TOY_SIBP5,TOY_SIBP4,1-2*TOY_SIBP5); P=*50;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0048;											\
+      DX=220; AB=13; BL=9;										\
+      BG=SCENE_SIBERIA1:,-9;
+    M=STOP;												\
+      C=TOY_SIBE(1|2),5:(3-4@TOY_SIBP(1|2|3))|(1-2*TOY_SIBP5,TOY_SIBP4,1-2*TOY_SIBP5);			\
+      P=*50;
+  $ENDGROUP
 #------------------  50 -----------------------------------------------
-$GROUP NAME=OP0050; DX=220; AB=19; BL=9; BG=SCENE_SUNSET:,-9;
-  D=X; C=KEIO_23;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0050;											\
+      DX=220; AB=19; BL=9;										\
+      BG=SCENE_SUNSET:,-9;
+    C=KEIO_23;												\
+      D=X;
+  $ENDGROUP
 #------------------  51 -----------------------------------------------
-$GROUP NAME=OP0051; DX=220; IMGY=55; AB=16; BL=9; BG=SCENE_SPAINB:,4; FG=SCENE_SPAINF:,-9;
-  M=STOP; C=<RF_AVE100(AL[P2U],B,C,D,F,G,H,I,J,A[P1U]); P=>90;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0051;											\
+      DX=220; IMGY=55; AB=16; BL=9;									\
+      BG=SCENE_SPAINB:,4;										\
+      FG=SCENE_SPAINF:,-9;
+    M=STOP;												\
+      C=<RF_AVE100(AL[P2U],B,C,D,F,G,H,I,J,A[P1U]);							\
+      P=>90;
+  $ENDGROUP
 #------------------  52 -----------------------------------------------
-$GROUP NAME=OP0052; DX=220; AB=20; BL=9; BG=SCENE_INVENTORS:,-9;
-  D=2; C=TREVITHICK; V=2;
-  D=2; C=ROCKET; V=2;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0052;											\
+      DX=220; AB=20; BL=9;										\
+      BG=SCENE_INVENTORS:,-9;
+    C=TREVITHICK;											\
+      D=2; V=2;
+    C=ROCKET;												\
+      D=2; V=2;
+  $ENDGROUP
 #------------------  54 -----------------------------------------------
-$GROUP NAME=OP0054; DX=220; IMGY=80; AB=0; BL=0; BG=SCENE_TOP45; WY=-1,-11;
-  M=STOP; D=X; C=TOP_NANBU_10; V=1; P=*54;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0054;											\
+      DX=220; IMGY=80; AB=0; BL=0;									\
+      BG=SCENE_TOP45;											\
+      WY=-1,-11;
+    M=STOP;												\
+      C=TOP_NANBU_10;											\
+      D=X; V=1; P=*54;
+  $ENDGROUP
 #------------------  55 -----------------------------------------------
-$SCENE NAME=OP0055; DX=220; BG=SCENE_ISOMETRICB; FG=SCENE_ISOMETRICF; DY=80;
-  $PATH Y0=0; WY=94/163,-78;
-    D=L; C=<ISO_JR_103B1,ISO_JR_103B2,ISO_JR_103B3,ISO_JR_103B4;
-  $ENDPATH 
-  $PATH Y0=0; WY=94/163,-34;
-    D=R; C=<ISO_JR_103B1,ISO_JR_103B2,ISO_JR_103B3,ISO_JR_103B4;
-  $ENDPATH 
-$ENDSCENE 
+  $SCENE 												\
+      NAME=OP0055;											\
+      DX=220; DY=80;											\
+      BG=SCENE_ISOMETRICB;										\
+      FG=SCENE_ISOMETRICF;
+    $PATH Y0=0; WY=94/163,-78;
+      C=<ISO_JR_103B1,ISO_JR_103B2,ISO_JR_103B3,ISO_JR_103B4;						\
+	D=L;
+    $ENDPATH
+    $PATH Y0=0; WY=94/163,-34;
+      C=<ISO_JR_103B1,ISO_JR_103B2,ISO_JR_103B3,ISO_JR_103B4;						\
+	D=R;
+    $ENDPATH
+  $ENDSCENE
 #------------------  59 -----------------------------------------------
-$GROUP NAME=OP0059; DX=220; IMGY=51; AB=4; BL=25; BG=SCENE_BIRDSEYEB:,-25; FG=SCENE_BIRDSEYEF:,-17;
-  D=X; C=BIRD_JNR_MC42; V=4;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0059;											\
+      DX=220; IMGY=51; AB=4; BL=25;									\
+      BG=SCENE_BIRDSEYEB:,-25;										\
+      FG=SCENE_BIRDSEYEF:,-17;
+    C=BIRD_JNR_MC42;											\
+      D=X; V=4;
+  $ENDGROUP
 #------------------  60 -----------------------------------------------
-$GROUP NAME=OP0060; DX=220; IMGY=52; AB=19; BL=9; BG=SCENE_CANVAS:,-9;
-  M=STOP; D=X; C=ENODEN_106CANVAS; P=>0+40;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0060;											\
+      DX=220; IMGY=52; AB=19; BL=9;									\
+      BG=SCENE_CANVAS:,-9;
+    M=STOP;												\
+      C=ENODEN_106CANVAS;										\
+      D=X; P=>0+40;
+  $ENDGROUP
 #------------------  61 -----------------------------------------------
-$GROUP NAME=OP0061; DX=220; IMGY=43; BL=37; BG=SCENE_FORESTY:,-37;
-  C=JFOR_LOC(G|O),9*JFOR_G2(|[!L]),JFOR_CAB; V=2-4;
-  C=JFOR_CAB,JFOR_G3,9*JFOR_G1,JFOR_LOC(G|O); V=2-4;
-  C=JFOR_LOC(G|O),JFOR_P1,JFOR_GON,JFOR_TANK; V=2-4;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0061;											\
+      DX=220; IMGY=43; BL=37;										\
+      BG=SCENE_FORESTY:,-37;
+    C=JFOR_LOC(G|O),9*JFOR_G2(|[!L]),JFOR_CAB;								\
+      V=2-4;
+    C=JFOR_CAB,JFOR_G3,9*JFOR_G1,JFOR_LOC(G|O);								\
+      V=2-4;
+    C=JFOR_LOC(G|O),JFOR_P1,JFOR_GON,JFOR_TANK;								\
+      V=2-4;
+  $ENDGROUP
 #------------------  63 -----------------------------------------------
-$GROUP NAME=OP0063; DX=220; IMGY=80; AB=0; BL=0; BG=SCENE_PILATUSB; FG=SCENE_PILATUSF; WY=-78/160,2;
-  D=X; C=PIL_RED; V=1;
-  D=X; C=PIL_UBS; V=1;
-  D=X; C=PIL_MIGROS; V=1;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0063;											\
+      DX=220; IMGY=80; AB=0; BL=0;									\
+      BG=SCENE_PILATUSB;										\
+      FG=SCENE_PILATUSF;										\
+      WY=-78/160,2;
+    C=PIL_RED;												\
+      D=X; V=1;
+    C=PIL_UBS;												\
+      D=X; V=1;
+    C=PIL_MIGROS;											\
+      D=X; V=1;
+  $ENDGROUP
 #------------------  64 -----------------------------------------------
-$GROUP NAME=OP0064; DX=220; IMGY=80; AB=0; BL=0; BG=SCENE_BRBB; FG=SCENE_BRBF; WY=-47/190,-7;
-  D=X; C=BRB_SL12P; V=1;
-  D=X; C=BRB_DL10P; V=1;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0064;											\
+      DX=220; IMGY=80; AB=0; BL=0;									\
+      BG=SCENE_BRBB;											\
+      FG=SCENE_BRBF;											\
+      WY=-47/190,-7;
+    C=BRB_SL12P;											\
+      D=X; V=1;
+    C=BRB_DL10P;											\
+      D=X; V=1;
+  $ENDGROUP
 #------------------  66 -----------------------------------------------
-$GROUP NAME=OP0066; DX=220; IMGY=80; AB=0; BL=0; BG=SCENE_SNOW3D; WY=80/47,-138;
-  D=X; C=AXO_JR_DC40; V=1.5;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0066;											\
+      DX=220; IMGY=80; AB=0; BL=0;									\
+      BG=SCENE_SNOW3D;											\
+      WY=80/47,-138;
+    C=AXO_JR_DC40;											\
+      D=X; V=1.5;
+  $ENDGROUP
 #------------------  67 -----------------------------------------------
-$SCENE NAME=OP0067; BG=SCENE_KOBU3DB; FG=SCENE_KOBU3DF; DX=220; DY=80; YDIR=U;
-  $PATH Y0=0; IMGY=80; WY=80/47,-27;
-    D=L; C=AXO_KOBU_LD; V=1; TB=15;
-  $ENDPATH 
-  $PATH Y0=0; IMGY=80; WY=80/47,38;
-    D=R; C=AXO_KOBU_RU; V=1; TE=15;
-  $ENDPATH 
-$ENDSCENE 
+  $SCENE 												\
+      NAME=OP0067;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_KOBU3DB;											\
+      FG=SCENE_KOBU3DF;
+    $PATH Y0=0; IMGY=80; WY=80/47,-27;
+      C=AXO_KOBU_LD;											\
+	D=L; V=1; TB=15;
+    $ENDPATH
+    $PATH Y0=0; IMGY=80; WY=80/47,38;
+      C=AXO_KOBU_RU;											\
+	D=R; V=1; TE=15;
+    $ENDPATH
+  $ENDSCENE
 #------------------  68 -----------------------------------------------
-$GROUP NAME=OP0068; DX=220; TXB=#006000; TXX=>100; TXY=15; IMGY=50; AB=2; BL=28;						\
-  BG=(SCENE_UENOZOOB0:,-28;SCENE_UENOZOOB1[AO:(OLD:B;NEW:F),SCENE_UENOZOOB2,0,0]:,-28);
-  TX=Ueno Zoo (1957);											\
-    D=L; C=UENO_H; V=2; TB=OLD;
-  TX=Ueno Zoo (1955);											\
-    D=L; C=UENO_M; V=2; TB=OLD;
-  TX=Ueno Zoo (1985);											\
-    D=L; C=UENO_30; V=2; TB=OLD;
-  TX=Ueno Zoo (2001);											\
-    D=L; C=UENO_40; V=2; TB=NEW;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0068;											\
+      TXB=#006000; TXX=>100; TXY=15; DX=220; IMGY=50; AB=2; BL=28;					\
+      BG=(SCENE_UENOZOOB0:,-28;SCENE_UENOZOOB1[AO:(OLD:B;NEW:F),SCENE_UENOZOOB2,0,0]:,-28);
+    TX=Ueno Zoo (1957);											\
+      C=UENO_H;												\
+      D=L; V=2; TB=OLD;
+    TX=Ueno Zoo (1955);											\
+      C=UENO_M;												\
+      D=L; V=2; TB=OLD;
+    TX=Ueno Zoo (1985);											\
+      C=UENO_30;											\
+      D=L; V=2; TB=OLD;
+    TX=Ueno Zoo (2001);											\
+      C=UENO_40;											\
+      D=L; V=2; TB=NEW;
+  $ENDGROUP
 #------------------  69 -----------------------------------------------
-$GROUP NAME=OP0069; DX=220; IMGY=80; AB=0; BL=0; BG=SCENE_TGV3DB; FG=SCENE_TGV3DF; WY=94/163,-100;
-  D=L; C=TOY_TGV3D;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0069;											\
+      DX=220; IMGY=80; AB=0; BL=0;									\
+      BG=SCENE_TGV3DB;											\
+      FG=SCENE_TGV3DF;											\
+      WY=94/163,-100;
+    C=TOY_TGV3D;											\
+      D=L;
+  $ENDGROUP
 #------------------  70 -----------------------------------------------
-$GROUP NAME=OP0070; DX=220; AB=13; BL=9; BG=SCENE_PARK:,-9;
-  C=JPARK_ST,												\
-      $MIX(10,JPARK_P1,JPARK_P2,JPARK_P3,JPARK_P4,JPARK_P5,JPARK_P6,JPARK_P7,JPARK_P8,JPARK_P9,		\
-      JPARK_P10);											\
-    V=1.7;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0070;											\
+      DX=220; AB=13; BL=9;										\
+      BG=SCENE_PARK:,-9;
+    C=JPARK_ST,												\
+	$MIX(10,JPARK_P1,JPARK_P2,JPARK_P3,JPARK_P4,JPARK_P5,JPARK_P6,JPARK_P7,JPARK_P8,JPARK_P9,	\
+	JPARK_P10);											\
+      V=1.7;
+  $ENDGROUP
 #------------------  71 -----------------------------------------------
-$GROUP NAME=OP0071; DX=220; IMGY=55; BL=25; BG=SCENE_HSST:,-25;
-  C=HSST_100B; V=8;
-  C=HSST_100S; V=8;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0071;											\
+      DX=220; IMGY=55; BL=25;										\
+      BG=SCENE_HSST:,-25;
+    C=HSST_100B;											\
+      V=8;
+    C=HSST_100S;											\
+      V=8;
+  $ENDGROUP
 #------------------  72 -----------------------------------------------
-$GROUP NAME=OP0072; DX=220; IMGY=49; BL=31; BG=SCENE_LINIMOB:,-31; FG=SCENE_LINIMOF:,-31;
-  C=<LINIMO_NORMAL,LINIMO_NORMB,LINIMO_NORMA; V=6-10;
-  C=<LINIMO_05AL,LINIMO_05B,LINIMO_05A; V=6-10;
-  C=<LINIMO_07AL,LINIMO_07B,LINIMO_07A; V=6-10;
-  C=<LINIMO_09AL,LINIMO_09B,LINIMO_09A; V=6-10;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0072;											\
+      DX=220; IMGY=49; BL=31;										\
+      BG=SCENE_LINIMOB:,-31;										\
+      FG=SCENE_LINIMOF:,-31;
+    C=<LINIMO_NORMAL,LINIMO_NORMB,LINIMO_NORMA;								\
+      V=6-10;
+    C=<LINIMO_05AL,LINIMO_05B,LINIMO_05A;								\
+      V=6-10;
+    C=<LINIMO_07AL,LINIMO_07B,LINIMO_07A;								\
+      V=6-10;
+    C=<LINIMO_09AL,LINIMO_09B,LINIMO_09A;								\
+      V=6-10;
+  $ENDGROUP
 #------------------  73 -----------------------------------------------
-$GROUP NAME=OP0073; DX=220; IMGY=51; AB=16; BL=13; BG=SCENE_TRANSRAPIDB:,-13; FG=SCENE_TRANSRAPIDF:,-13;
-  M=BACK; D=L; C=<TR08L~OP,TR08_M~OP,TR08~OP; P=>0+130; T=1,OPEN,12,CLOSE,W,1;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0073;											\
+      DX=220; IMGY=51; AB=16; BL=13;									\
+      BG=SCENE_TRANSRAPIDB:,-13;									\
+      FG=SCENE_TRANSRAPIDF:,-13;
+    M=BACK;												\
+      C=<TR08L~OP,TR08_M~OP,TR08~OP;									\
+      D=L; P=>0+130; T=1,OPEN,12,CLOSE,W,1;
+  $ENDGROUP
 #------------------  74 -----------------------------------------------
-$GROUP NAME=OP0074; DX=220; IMGY=44; AB=0; BL=36; BG=SCENE_SHANGHAIB:,-36; FG=SCENE_SHANGHAIF:<0,-36;
-  M=BACK; D=L; C=<SMT_AL,3*SMT_B,SMT_A; V=10; P=>0;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0074;											\
+      DX=220; IMGY=44; AB=0; BL=36;									\
+      BG=SCENE_SHANGHAIB:,-36;										\
+      FG=SCENE_SHANGHAIF:<0,-36;
+    M=BACK;												\
+      C=<SMT_AL,3*SMT_B,SMT_A;										\
+      D=L; V=10; P=>0;
+  $ENDGROUP
 #------------------  75 -----------------------------------------------
-$GROUP NAME=OP0075; DX=220; AB=13; BL=9; BG=(SCENE_THAIB; TRBED20:..,^0); FG=SCENE_THAIF:,-9;				\
-  WP=(<90,<TE:OPEN; <70,<TE:CLOSE; <100+130,>TB:OPEN; <100+160,>TB:CLOSE);
-  M=STOP; D=L; C=SRT_ADD,(<SRT_100(AL,A,B,AL),SRT_200A,SRT_100(AL,A,B,AL)); V=8; P=>80; T=OPEN,8;
-  M=STOP; D=R; C=SRT_ADD,(<SRT_100(AL,A,B,AL),SRT_200A,SRT_100(AL,A,B,AL)); V=8; P=>100+145; T=OPEN,8;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0075;											\
+      DX=220; AB=13; BL=9;										\
+      BG=(SCENE_THAIB; TRBED20:..,^0);									\
+      FG=SCENE_THAIF:,-9;										\
+      WP=(<90,<TE:OPEN; <70,<TE:CLOSE; <100+130,>TB:OPEN; <100+160,>TB:CLOSE);
+    M=STOP;												\
+      C=SRT_ADD,(<SRT_100(AL,A,B,AL),SRT_200A,SRT_100(AL,A,B,AL));					\
+      D=L; V=8; P=>80; T=OPEN,8;
+    M=STOP;												\
+      C=SRT_ADD,(<SRT_100(AL,A,B,AL),SRT_200A,SRT_100(AL,A,B,AL));					\
+      D=R; V=8; P=>100+145; T=OPEN,8;
+  $ENDGROUP
 #------------------  76 -----------------------------------------------
-$GROUP NAME=OP0076; DX=220; IMGY=80; AB=0; BL=0; BG=SCENE_TOPTURN;
-  M=BACK; D=L; C=TOP_IYO; P=<0+35; T=2,RIGHT,W,2;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0076;											\
+      DX=220; IMGY=80; AB=0; BL=0;									\
+      BG=SCENE_TOPTURN;
+    M=BACK;												\
+      C=TOP_IYO;											\
+      D=L; P=<0+35; T=2,RIGHT,W,2;
+  $ENDGROUP
 #------------------  80 -----------------------------------------------
-$GROUP NAME=OP0080; DX=220; IMGY=50; AB=0; BL=30; BG=SCENE_MODELSHOPB:,-30; FG=SCENE_MODELSHOPF:,-30;
-  D=L; C=JR_EB10,$MIX(6,JR_G1,JR_G4,JR_G3,JR_G2,JR_REF1,JR_GO1);
-  D=L; C=JR_EF57~OP,JR_OHAFU33B~OP,JR_OHA35CBL,JR_OHA35BL~OP,JR_OHAFU33BL~OP;
-  C=JR_EF58,JR_NAHAFU11NL~OP,JR_NAHA11N~OP,JR_NAHAFU11N~OP;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0080;											\
+      DX=220; IMGY=50; AB=0; BL=30;									\
+      BG=SCENE_MODELSHOPB:,-30;										\
+      FG=SCENE_MODELSHOPF:,-30;
+    C=JR_EB10,$MIX(6,JR_G1,JR_G4,JR_G3,JR_G2,JR_REF1,JR_GO1);						\
+      D=L;
+    C=JR_EF57~OP,JR_OHAFU33B~OP,JR_OHA35CBL,JR_OHA35BL~OP,JR_OHAFU33BL~OP;				\
+      D=L;
+    C=JR_EF58,JR_NAHAFU11NL~OP,JR_NAHA11N~OP,JR_NAHAFU11N~OP;
+  $ENDGROUP
 #------------------  82 -----------------------------------------------
-$GROUP NAME=OP0082; DX=220; IMGY=51; AB=20; BL=9; BG=SCENE_OOSAKIB:,-9; FG=SCENE_OOSAKIF:,-9;
-  POOL=POOL_YAMANOTE;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0082;											\
+      DX=220; IMGY=51; AB=20; BL=9;									\
+      BG=SCENE_OOSAKIB:,-9;										\
+      FG=SCENE_OOSAKIF:,-9;
+    POOL=POOL_YAMANOTE;
+  $ENDGROUP
 #------------------  83 -----------------------------------------------
-$SCENE NAME=OP0083; DX=220; DY=80; YDIR=U; BG=SCENE_OOIMACHIB:,19; FG=SCENE_OOIMACHIF;
-  $PATH Y0=20;
-    POOL=POOL_KEIHIN; D=L; V=9; TE=30;
-  $ENDPATH 
-  $PATH Y0=20;
-    POOL=POOL_KEIHIN; D=R; V=9; TB=10; TE=20;
-  $ENDPATH 
-  $PATH Y0=22;
-    POOL=POOL_TOKAIDO; D=L; V=9; TB=20; TE=10;
-  $ENDPATH 
-  $PATH Y0=22;
-    POOL=POOL_TOKAIDO; D=R; V=9; TB=30;
-  $ENDPATH 
-$ENDSCENE 
+  $SCENE 												\
+      NAME=OP0083;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_OOIMACHIB:,19;										\
+      FG=SCENE_OOIMACHIF;
+    $PATH Y0=20;
+      POOL=POOL_KEIHIN; D=L; V=9; TE=30;
+    $ENDPATH
+    $PATH Y0=20;
+      POOL=POOL_KEIHIN; D=R; V=9; TB=10; TE=20;
+    $ENDPATH
+    $PATH Y0=22;
+      POOL=POOL_TOKAIDO; D=L; V=9; TB=20; TE=10;
+    $ENDPATH
+    $PATH Y0=22;
+      POOL=POOL_TOKAIDO; D=R; V=9; TB=30;
+    $ENDPATH
+  $ENDSCENE
 #------------------  84 -----------------------------------------------
-$SCENE NAME=OP0084; DX=220; DY=80; YDIR=U; BG=SCENE_YURAKUCHOB; FG=SCENE_YURAKUCHOF:,26;
-  $PATH Y0=30; IMGY=50;
-    POOL=POOL_TOKAIDO; D=L; V=8-10; TE=80;
-    POOL=POOL_KEIHIN; D=L; V=8-10; TE=80;
-  $ENDPATH 
-  $PATH Y0=30; IMGY=50;
-    POOL=POOL_TOKAIDO; D=R; V=8-10; TB=40; TE=40;
-    POOL=POOL_KEIHIN; D=R; V=8-10; TB=40; TE=40;
-  $ENDPATH 
-  $PATH Y0=30; IMGY=50;
-    POOL=POOL_YAMANOTE; D=L; V=8-10; TB=20; TE=60;
-  $ENDPATH 
-  $PATH Y0=30; IMGY=50;
-    POOL=POOL_YAMANOTE; D=R; V=8-10; TB=60; TE=20;
-  $ENDPATH 
-$ENDSCENE 
+  $SCENE 												\
+      NAME=OP0084;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_YURAKUCHOB;										\
+      FG=SCENE_YURAKUCHOF:,26;
+    $PATH Y0=30; IMGY=50;
+      POOL=POOL_TOKAIDO; D=L; V=8-10; TE=80;
+      POOL=POOL_KEIHIN; D=L; V=8-10; TE=80;
+    $ENDPATH
+    $PATH Y0=30; IMGY=50;
+      POOL=POOL_TOKAIDO; D=R; V=8-10; TB=40; TE=40;
+      POOL=POOL_KEIHIN; D=R; V=8-10; TB=40; TE=40;
+    $ENDPATH
+    $PATH Y0=30; IMGY=50;
+      POOL=POOL_YAMANOTE; D=L; V=8-10; TB=20; TE=60;
+    $ENDPATH
+    $PATH Y0=30; IMGY=50;
+      POOL=POOL_YAMANOTE; D=R; V=8-10; TB=60; TE=20;
+    $ENDPATH
+  $ENDSCENE
 #------------------  85 -----------------------------------------------
-$SCENE NAME=OP0085; DX=220; DY=80; YDIR=U; BG=SCENE_SHIBUYAB; FG=SCENE_SHIBUYAF;
-  $PATH Y0=30; IMGY=50;
-    POOL=POOL_SAIKYO; D=L; V=8-10; TE=80;
-  $ENDPATH 
-  $PATH Y0=30; IMGY=50;
-    POOL=POOL_SAIKYO; D=R; V=8-10; TB=40; TE=40;
-  $ENDPATH 
-  $PATH Y0=29; IMGY=51;
-    POOL=POOL_YAMANOTE; D=L; V=8-10; TB=20; TE=60;
-  $ENDPATH 
-  $PATH Y0=29; IMGY=51;
-    POOL=POOL_YAMANOTE; D=R; V=8-10; TB=60; TE=20;
-  $ENDPATH 
-$ENDSCENE 
+  $SCENE 												\
+      NAME=OP0085;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_SHIBUYAB;										\
+      FG=SCENE_SHIBUYAF;
+    $PATH Y0=30; IMGY=50;
+      POOL=POOL_SAIKYO; D=L; V=8-10; TE=80;
+    $ENDPATH
+    $PATH Y0=30; IMGY=50;
+      POOL=POOL_SAIKYO; D=R; V=8-10; TB=40; TE=40;
+    $ENDPATH
+    $PATH Y0=29; IMGY=51;
+      POOL=POOL_YAMANOTE; D=L; V=8-10; TB=20; TE=60;
+    $ENDPATH
+    $PATH Y0=29; IMGY=51;
+      POOL=POOL_YAMANOTE; D=R; V=8-10; TB=60; TE=20;
+    $ENDPATH
+  $ENDSCENE
 #------------------  86 -----------------------------------------------
-$SCENE NAME=OP0086; DX=220; DY=80; YDIR=U; BG=SCENE_SOTOBORIB; FG=SCENE_SOTOBORIF:,26;
-  $PATH Y0=31; IMGY=49;
-    POOL=POOL_SOBU; D=L; V=8-10; TE=80;
-  $ENDPATH 
-  $PATH Y0=31; IMGY=49;
-    POOL=POOL_SOBU; D=R; V=8-10; TB=40; TE=40;
-  $ENDPATH 
-  $PATH Y0=33; IMGY=47;
-    POOL=POOL_CHUO; D=L; V=8-10; TB=20; TE=60;
-  $ENDPATH 
-  $PATH Y0=33; IMGY=47;
-    POOL=POOL_CHUO; D=R; V=8-10; TB=60; TE=20;
-  $ENDPATH 
-$ENDSCENE 
+  $SCENE 												\
+      NAME=OP0086;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_SOTOBORIB;										\
+      FG=SCENE_SOTOBORIF:,26;
+    $PATH Y0=31; IMGY=49;
+      POOL=POOL_SOBU; D=L; V=8-10; TE=80;
+    $ENDPATH
+    $PATH Y0=31; IMGY=49;
+      POOL=POOL_SOBU; D=R; V=8-10; TB=40; TE=40;
+    $ENDPATH
+    $PATH Y0=33; IMGY=47;
+      POOL=POOL_CHUO; D=L; V=8-10; TB=20; TE=60;
+    $ENDPATH
+    $PATH Y0=33; IMGY=47;
+      POOL=POOL_CHUO; D=R; V=8-10; TB=60; TE=20;
+    $ENDPATH
+  $ENDSCENE
 #------------------  87 -----------------------------------------------
-$SCENE NAME=OP0087; DX=220; DY=80; YDIR=U; FG=SCENE_SENDAGAYAF;
-  $PATH Y0=9;
-    POOL=POOL_CHUO; D=L; V=8-10; TE=40;
-  $ENDPATH 
-  $PATH Y0=9; BG=SCENE_SENDAGAYAM2;
-    POOL=POOL_CHUO; D=R; V=8-10; TB=20; TE=20;
-  $ENDPATH 
-  $PATH Y0=11;
-    M=STOP; POOL=POOL_SOBU; D=L; P=<100-25; TB=10; TE=30; T=13;
-  $ENDPATH 
-  $PATH Y0=11; BG=SCENE_SENDAGAYAB:,-5; FG=SCENE_SENDAGAYAM1;
-    M=STOP; POOL=POOL_SOBU; D=R; V=8-10; P=<100-45; TB=30; TE=10; T=OPEN,10,CLOSE,W;
-  $ENDPATH 
-$ENDSCENE 
+  $SCENE 												\
+      NAME=OP0087;											\
+      DX=220; DY=80; YDIR=U;										\
+      FG=SCENE_SENDAGAYAF;
+    $PATH Y0=9;
+      POOL=POOL_CHUO; D=L; V=8-10; TE=40;
+    $ENDPATH
+    $PATH 												\
+	BG=SCENE_SENDAGAYAM2;										\
+	Y0=9;
+      POOL=POOL_CHUO; D=R; V=8-10; TB=20; TE=20;
+    $ENDPATH
+    $PATH Y0=11;
+      M=STOP; POOL=POOL_SOBU; D=L; P=<100-25; TB=10; TE=30; T=13;
+    $ENDPATH
+    $PATH 												\
+	BG=SCENE_SENDAGAYAB:,-5;									\
+	FG=SCENE_SENDAGAYAM1;										\
+	Y0=11;
+      M=STOP; POOL=POOL_SOBU; D=R; V=8-10; P=<100-45; TB=30; TE=10; T=OPEN,10,CLOSE,W;
+    $ENDPATH
+  $ENDSCENE
 #------------------  88 -----------------------------------------------
-$SCENE NAME=OP0088; DX=220; DY=80; YDIR=U; BG=SCENE_SURUGADAB; FG=SCENE_SURUGADAF:,2;
-  $PATH Y0=6; IMGY=51;
-    POOL=POOL_CHUO; D=L; V=8-10; TB=1; TE=39;
-  $ENDPATH 
-  $PATH Y0=6; IMGY=51;
-    POOL=POOL_CHUO; D=R; V=8-10; TB=20; TE=20;
-  $ENDPATH 
-  $PATH Y0=63; IMGY=17;
-    POOL=POOL_SOBU; D=L; V=8-10; TB=10; TE=30;
-  $ENDPATH 
-  $PATH Y0=63; IMGY=17;
-    POOL=POOL_SOBU; D=R; V=8-10; TB=30; TE=10;
-  $ENDPATH 
-$ENDSCENE 
+  $SCENE 												\
+      NAME=OP0088;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_SURUGADAB;										\
+      FG=SCENE_SURUGADAF:,2;
+    $PATH Y0=6; IMGY=51;
+      POOL=POOL_CHUO; D=L; V=8-10; TB=1; TE=39;
+    $ENDPATH
+    $PATH Y0=6; IMGY=51;
+      POOL=POOL_CHUO; D=R; V=8-10; TB=20; TE=20;
+    $ENDPATH
+    $PATH Y0=63; IMGY=17;
+      POOL=POOL_SOBU; D=L; V=8-10; TB=10; TE=30;
+    $ENDPATH
+    $PATH Y0=63; IMGY=17;
+      POOL=POOL_SOBU; D=R; V=8-10; TB=30; TE=10;
+    $ENDPATH
+  $ENDSCENE
 #------------------  89 -----------------------------------------------
-$SCENE NAME=OP0089; DX=220; DY=80; YDIR=U; BG=SCENE_YOYOGIB; FG=SCENE_YOYOGIF:,15;
-  $PATH Y0=29; IMGY=51;
-    POOL=POOL_CHUO; D=L; V=8-10; TB=1; TE=59;
-  $ENDPATH 
-  $PATH Y0=29; IMGY=51;
-    POOL=POOL_CHUO; D=R; V=8-10; TB=30; TE=30;
-  $ENDPATH 
-  $PATH Y0=31; IMGY=49; FG=SCENE_YOYOGIM2:>100,-2;
-    M=STOP; POOL=POOL_SOBU; D=L; P=<95; TB=5; TE=50; T=5;
-  $ENDPATH 
-  $PATH Y0=31; IMGY=49;
-    M=STOP; POOL=POOL_SOBU; D=R; P=<95; TB=40; TE=15; T=5;
-  $ENDPATH 
-  $PATH Y0=33; IMGY=47; FG=SCENE_YOYOGIM1:<0,-2;
-    M=STOP; POOL=POOL_YAMANOTE; D=L; P=<30; TB=15; TE=40; T=5;
-  $ENDPATH 
-  $PATH Y0=33; IMGY=47;
-    M=STOP; POOL=POOL_YAMANOTE; D=R; P=<30; TB=45; TE=10; T=5;
-  $ENDPATH 
-$ENDSCENE 
+  $SCENE 												\
+      NAME=OP0089;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_YOYOGIB;											\
+      FG=SCENE_YOYOGIF:,15;
+    $PATH Y0=29; IMGY=51;
+      POOL=POOL_CHUO; D=L; V=8-10; TB=1; TE=59;
+    $ENDPATH
+    $PATH Y0=29; IMGY=51;
+      POOL=POOL_CHUO; D=R; V=8-10; TB=30; TE=30;
+    $ENDPATH
+    $PATH 												\
+	FG=SCENE_YOYOGIM2:>100,-2;									\
+	Y0=31;												\
+	IMGY=49;
+      M=STOP; POOL=POOL_SOBU; D=L; P=<95; TB=5; TE=50; T=5;
+    $ENDPATH
+    $PATH Y0=31; IMGY=49;
+      M=STOP; POOL=POOL_SOBU; D=R; P=<95; TB=40; TE=15; T=5;
+    $ENDPATH
+    $PATH 												\
+	FG=SCENE_YOYOGIM1:<0,-2;									\
+	Y0=33;												\
+	IMGY=47;
+      M=STOP; POOL=POOL_YAMANOTE; D=L; P=<30; TB=15; TE=40; T=5;
+    $ENDPATH
+    $PATH Y0=33; IMGY=47;
+      M=STOP; POOL=POOL_YAMANOTE; D=R; P=<30; TB=45; TE=10; T=5;
+    $ENDPATH
+  $ENDSCENE
 #------------------  91 -----------------------------------------------
-$GROUP NAME=OP0091; DX=220; IMGY=51; AB=1; BL=28; BG=SCENE_ZUSOUB:,-28; FG=SCENE_ZUSOUF;
-  M=FOLLOW; D=X; C=(ZUSOU_1;ZUSOU_2;ZUSOU_3;ZUSOU_4); V=0.8-1.2;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0091;											\
+      DX=220; IMGY=51; AB=1; BL=28;									\
+      BG=SCENE_ZUSOUB:,-28;										\
+      FG=SCENE_ZUSOUF;
+    M=FOLLOW;												\
+      C=(ZUSOU_1;ZUSOU_2;ZUSOU_3;ZUSOU_4);								\
+      D=X; V=0.8-1.2;
+  $ENDGROUP
 #------------------  93 -----------------------------------------------
-$SCENE NAME=OP0093; DX=220; DY=80; YDIR=U; BG=SCENE_YUMOTOB; FG=SCENE_YUMOTOF;
-  $PATH Y0=10; IMGY=51;
-    M=BACK; D=L; C=<ODAK_VSE(1L,2,3,2,2,4,4,5,4,1); V=8; P=>35; T=15;
-    M=BACK; D=L; C=<ODAK_NSE1(AL,B,C,D,CL,BL,A); V=8; P=>15; T=15;
-  $ENDPATH 
-  $PATH Y0=10; IMGY=51; FG=SCENE_YUMOTOM:<0;
-    D=L; C=<[PU]HTOZAN_1B(1,2); V=6; TB=20;
-    D=R; C=<[PU]HTOZAN_1B(1,2); V=6; TB=20;
-    D=L; C=<HTOZAN_2000RHB(1[PU],2[PU],3[PD]); V=6; TB=20;
-    D=R; C=<HTOZAN_2000RHB(1[PU],2[PU],3[PD]); V=6; TB=20;
-  $ENDPATH 
-$ENDSCENE 
+  $SCENE 												\
+      NAME=OP0093;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_YUMOTOB;											\
+      FG=SCENE_YUMOTOF;
+    $PATH Y0=10; IMGY=51;
+      M=BACK;												\
+	C=<ODAK_VSE(1L,2,3,2,2,4,4,5,4,1);								\
+	D=L; V=8; P=>35; T=15;
+      M=BACK;												\
+	C=<ODAK_NSE1(AL,B,C,D,CL,BL,A);									\
+	D=L; V=8; P=>15; T=15;
+    $ENDPATH
+    $PATH 												\
+	FG=SCENE_YUMOTOM:<0;										\
+	Y0=10;												\
+	IMGY=51;
+      C=<[PU]HTOZAN_1B(1,2);										\
+	D=L; V=6; TB=20;
+      C=<[PU]HTOZAN_1B(1,2);										\
+	D=R; V=6; TB=20;
+      C=<HTOZAN_2000RHB(1[PU],2[PU],3[PD]);								\
+	D=L; V=6; TB=20;
+      C=<HTOZAN_2000RHB(1[PU],2[PU],3[PD]);								\
+	D=R; V=6; TB=20;
+    $ENDPATH
+  $ENDSCENE
 #------------------  95 -----------------------------------------------
-$GROUP NAME=OP0095; DX=220; IMGY=51; AB=24; BL=5; BG=SCENE_GOKURAKUB:<0,-5; FG=SCENE_GOKURAKUF:,-5;
-  POOL=POOL_ENODEN; D=X; V=5-8;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0095;											\
+      DX=220; IMGY=51; AB=24; BL=5;									\
+      BG=SCENE_GOKURAKUB:<0,-5;										\
+      FG=SCENE_GOKURAKUF:,-5;
+    POOL=POOL_ENODEN; D=X; V=5-8;
+  $ENDGROUP
 #------------------  96 -----------------------------------------------
-$SCENE NAME=OP0096; DX=220; DY=80; YDIR=U; BG=SCENE_SAKAIGAWAB; FG=SCENE_SAKAIGAWAF;
-  $PATH Y0=47; IMGY=33;
-    POOL=POOL_ENODEN; D=L; TE=20;
-  $ENDPATH 
-  $PATH Y0=20; IMGY=51;
-    POOL=POOL_ENODEN; D=R; TB=20;
-  $ENDPATH 
-$ENDSCENE 
+  $SCENE 												\
+      NAME=OP0096;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_SAKAIGAWAB;										\
+      FG=SCENE_SAKAIGAWAF;
+    $PATH Y0=47; IMGY=33;
+      POOL=POOL_ENODEN; D=L; TE=20;
+    $ENDPATH
+    $PATH Y0=20; IMGY=51;
+      POOL=POOL_ENODEN; D=R; TB=20;
+    $ENDPATH
+  $ENDSCENE
 #------------------  97 -----------------------------------------------
-$GROUP NAME=OP0097; DX=220; IMGY=44; AB=0; BL=36; BG=SCENE_KAIGANB; FG=SCENE_KAIGANF:,-36;
-  POOL=POOL_ENODEN; D=X;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0097;											\
+      DX=220; IMGY=44; AB=0; BL=36;									\
+      BG=SCENE_KAIGANB;											\
+      FG=SCENE_KAIGANF:,-36;
+    POOL=POOL_ENODEN; D=X;
+  $ENDGROUP
 #------------------  98 -----------------------------------------------
-$GROUP NAME=OP0098; DX=220; IMGY=51; AB=20; BL=9; BG=SCENE_ENGAKUJIB; FG=SCENE_ENGAKUJIF:,-9;
-  D=X; C=<JRE_E217(TCL,T,M1,M2,T,T,TD1,TD2,M1,M2),JRE_E216TC;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0098;											\
+      DX=220; IMGY=51; AB=20; BL=9;									\
+      BG=SCENE_ENGAKUJIB;										\
+      FG=SCENE_ENGAKUJIF:,-9;
+    C=<JRE_E217(TCL,T,M1,M2,T,T,TD1,TD2,M1,M2),JRE_E216TC;						\
+      D=X;
+  $ENDGROUP
 #------------------  99 -----------------------------------------------
-$GROUP NAME=OP0099; DX=220; IMGY=51; AB=15; BL=14; BG=SCENE_HACHIMANB:,6; FG=SCENE_HACHIMANF:,-14;
-  D=X; C=<JRE_E217(TCL,T,M1,M2,T,T,TD1,TD2,M1,M2),JRE_E216TC;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0099;											\
+      DX=220; IMGY=51; AB=15; BL=14;									\
+      BG=SCENE_HACHIMANB:,6;										\
+      FG=SCENE_HACHIMANF:,-14;
+    C=<JRE_E217(TCL,T,M1,M2,T,T,TD1,TD2,M1,M2),JRE_E216TC;						\
+      D=X;
+  $ENDGROUP
 #------------------ 100 -----------------------------------------------
-$GROUP NAME=OP0100; DX=220; IMGY=55; AB=17; BL=8; BG=SCENE_KLIAB; FG=SCENE_KLIAF:,-8;
-  D=X; C=<ERL_KLIAFL~OP,ERL_KLIAB~OP,ERL_KLIAE~OP,ERL_KLIAF~OP;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0100;											\
+      DX=220; IMGY=55; AB=17; BL=8;									\
+      BG=SCENE_KLIAB;											\
+      FG=SCENE_KLIAF:,-8;
+    C=<ERL_KLIAFL~OP,ERL_KLIAB~OP,ERL_KLIAE~OP,ERL_KLIAF~OP;						\
+      D=X;
+  $ENDGROUP
 #------------------ 101 -----------------------------------------------
-$GROUP NAME=OP0101; DX=220; IMGY=45; AB=0; BL=35; BG=SCENE_CHILDHOODB:,-35; FG=SCENE_CHILDHOODF:,-17;
-  C=<ODAK_2200OAL,ODAK_2200OB,ODAK_2200OAL,ODAK_2200OB;
-  C=<ODAK_2400OTCL,ODAK_2400OM1,ODAK_2400OM2,ODAK_2400OTC;
-  C=<ODAK_3000(AL,B,C,C,C,C,D,E);
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0101;											\
+      DX=220; IMGY=45; AB=0; BL=35;									\
+      BG=SCENE_CHILDHOODB:,-35;										\
+      FG=SCENE_CHILDHOODF:,-17;
+    C=<ODAK_2200OAL,ODAK_2200OB,ODAK_2200OAL,ODAK_2200OB;
+    C=<ODAK_2400OTCL,ODAK_2400OM1,ODAK_2400OM2,ODAK_2400OTC;
+    C=<ODAK_3000(AL,B,C,C,C,C,D,E);
+  $ENDGROUP
 #------------------ 102 -----------------------------------------------
-$GROUP NAME=OP0102; DX=220; IMGY=51; AB=20; BL=9; BG=(SCENE_TRAUMB; CROSS_J4B:>0+135,-5; TRBED22:..,^0; CROSS_ROAD2:*0+80,^0); \
-  FG=(CROSS_J4F:<0+30,-5;SCENE_TRAUMF:,-9); WP=(0+40,<TE:XUP;0+120,>TE:XUP);
-  C=<JR_165H(TCL,TCL,M1,MC,TCL,M1,MC,TB,TS,TS,M1,MC); V=8-10; TB=XDOWN,4; TE=3;
-  C=JNR_ED61|JR_EF64~OP,JR_OHAFU33CB,3*JR_SUHA43BL~OP,JR_OHA35NL~OP, JR_SUHA43BL~OP,JR_OHAFU33BL~OP;	\
-    V=8-10; TB=XDOWN,4; TE=3;
-  C=<JR_181A(TCL,MS,TS,T1,TB,M,T2,M,T2,TC); V=8-10; TB=XDOWN,4; TE=3;
-  C=<JR_115C(TCL,M1,MC,T,T,TCL,M1,MC),JR_83800C,JR_82800C; V=8-10; TB=XDOWN,4; TE=3;
-  C=JNR_ED61|JR_EF64~OP, $MIX(10,JR_G1,JR_GO1,JR_GT1,JR_G2,JR_G3,JR_G4,JR_REF1),JR_YO3500~OP; V=8-10;	\
-    TB=XDOWN,4; TE=3;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0102;											\
+      DX=220; IMGY=51; AB=20; BL=9;									\
+      BG=(SCENE_TRAUMB; CROSS_J4B:>0+135,-5; TRBED22:..,^0; CROSS_ROAD2:*0+80,^0);			\
+      FG=(CROSS_J4F:<0+30,-5;SCENE_TRAUMF:,-9);								\
+      WP=(0+40,<TE:XUP;0+120,>TE:XUP);
+    C=<JR_165H(TCL,TCL,M1,MC,TCL,M1,MC,TB,TS,TS,M1,MC);							\
+      V=8-10; TB=XDOWN,4; TE=3;
+    C=JNR_ED61|JR_EF64~OP,JR_OHAFU33CB,3*JR_SUHA43BL~OP,JR_OHA35NL~OP,JR_SUHA43BL~OP,JR_OHAFU33BL~OP;	\
+      V=8-10; TB=XDOWN,4; TE=3;
+    C=<JR_181A(TCL,MS,TS,T1,TB,M,T2,M,T2,TC);								\
+      V=8-10; TB=XDOWN,4; TE=3;
+    C=<JR_115C(TCL,M1,MC,T,T,TCL,M1,MC),JR_83800C,JR_82800C;						\
+      V=8-10; TB=XDOWN,4; TE=3;
+    C=JNR_ED61|JR_EF64~OP,$MIX(10,JR_G1,JR_GO1,JR_GT1,JR_G2,JR_G3,JR_G4,JR_REF1),JR_YO3500~OP;		\
+      V=8-10; TB=XDOWN,4; TE=3;
+  $ENDGROUP
 #------------------ 103 -----------------------------------------------
-$GROUP NAME=OP0103; DX=220; IMGY=51; AB=22; BL=7; BG=SCENE_EGYPT:,-7;
-  POOL=POOL_EGYPTTOY;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0103;											\
+      DX=220; IMGY=51; AB=22; BL=7;									\
+      BG=SCENE_EGYPT:,-7;
+    POOL=POOL_EGYPTTOY;
+  $ENDGROUP
 #------------------ 107 -----------------------------------------------
-$GROUP NAME=OP0107; DX=220; IMGY=51; AB=3; BL=26; BG=SCENE_GYOKUNAN:,-26;
-  D=X; C=GYOKUNAN_1; V=3-5;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0107;											\
+      DX=220; IMGY=51; AB=3; BL=26;									\
+      BG=SCENE_GYOKUNAN:,-26;
+    C=GYOKUNAN_1;											\
+      D=X; V=3-5;
+  $ENDGROUP
 #------------------ 108 -----------------------------------------------
-$GROUP NAME=OP0108; DX=220; IMGY=42; AB=0; BL=38; BG=SCENE_KEIKOKUB:,-38; FG=SCENE_KEIKOKUF:>100,-38;
-  D=X; C=JNR_DC20; V=5-7;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0108;											\
+      DX=220; IMGY=42; AB=0; BL=38;									\
+      BG=SCENE_KEIKOKUB:,-38;										\
+      FG=SCENE_KEIKOKUF:>100,-38;
+    C=JNR_DC20;												\
+      D=X; V=5-7;
+  $ENDGROUP
 #------------------ 110 -----------------------------------------------
-$GROUP NAME=OP0110; DX=220; IMGY=51; AB=20; BL=9; BG=SCENE_NANBUB; FG=SCENE_NANBUF:,-9;
-  M=STOP; D=X; C=NANBU_101; P=<80; T=6;
-  M=STOP; D=X; C=NANBU_104; P=<80; T=6;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0110;											\
+      DX=220; IMGY=51; AB=20; BL=9;									\
+      BG=SCENE_NANBUB;											\
+      FG=SCENE_NANBUF:,-9;
+    M=STOP;												\
+      C=NANBU_101;											\
+      D=X; P=<80; T=6;
+    M=STOP;												\
+      C=NANBU_104;											\
+      D=X; P=<80; T=6;
+  $ENDGROUP
 #------------------ 111 -----------------------------------------------
-$SCENE NAME=OP0111; DX=220; DY=80; YDIR=U; BG=SCENE_USUILOCOB; FG=SCENE_USUILOCOF:,31;
-  $PATH Y0=34; IMGY=46;
-    D=L; C=JNR_10000; V=2;
-    D=L; C=JNR_ED40L; V=2;
-    D=L; C=JNR_ED41; V=2;
-    D=L; C=JNR_ED42A; V=2;
-  $ENDPATH 
-  $PATH Y0=57; IMGY=23; FG=SCENE_USUILOCOM:,-18;
-    D=L; C=JR_EF63_FOG; TB=50;
-  $ENDPATH 
-$ENDSCENE 
+  $SCENE 												\
+      NAME=OP0111;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_USUILOCOB;										\
+      FG=SCENE_USUILOCOF:,31;
+    $PATH Y0=34; IMGY=46;
+      C=JNR_10000;											\
+	D=L; V=2;
+      C=JNR_ED40L;											\
+	D=L; V=2;
+      C=JNR_ED41;											\
+	D=L; V=2;
+      C=JNR_ED42A;											\
+	D=L; V=2;
+    $ENDPATH
+    $PATH 												\
+	FG=SCENE_USUILOCOM:,-18;									\
+	Y0=57;												\
+	IMGY=23;
+      C=JR_EF63_FOG;											\
+	D=L; TB=50;
+    $ENDPATH
+  $ENDSCENE
 #------------------ 112 -----------------------------------------------
-$GROUP NAME=OP0112; DX=220; IMGY=51; AB=9; BL=20; BG=SCENE_DRIVE63B:,-4; FG=SCENE_DRIVE63F:,-20;
-  M=BACK; D=R; C=JR_EF63C; P=<40; T=10;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0112;											\
+      DX=220; IMGY=51; AB=9; BL=20;									\
+      BG=SCENE_DRIVE63B:,-4;										\
+      FG=SCENE_DRIVE63F:,-20;
+    M=BACK;												\
+      C=JR_EF63C;											\
+      D=R; P=<40; T=10;
+  $ENDGROUP
 #------------------ 113 -----------------------------------------------
-$GROUP NAME=OP0113; DX=220; IMGY=51; AB=20; BL=9; BG=SCENE_MARUYAMA:,-9;
-  C=JR_DB20,JR_YO8000HL; V=2-4;
-  D=L; C=>USUI_SHERPA0,USUI_SHERPA2,USUI_SHERPA1; V=2-4;
-  C=JR_EF63C,JR_YO8000HL; V=2-4;
-  D=R; C=>USUI_SHERPA0,USUI_SHERPA2,USUI_SHERPA1; V=2-4;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0113;											\
+      DX=220; IMGY=51; AB=20; BL=9;									\
+      BG=SCENE_MARUYAMA:,-9;
+    C=JR_DB20,JR_YO8000HL;										\
+      V=2-4;
+    C=>USUI_SHERPA0,USUI_SHERPA2,USUI_SHERPA1;								\
+      D=L; V=2-4;
+    C=JR_EF63C,JR_YO8000HL;										\
+      V=2-4;
+    C=>USUI_SHERPA0,USUI_SHERPA2,USUI_SHERPA1;								\
+      D=R; V=2-4;
+  $ENDGROUP
 #------------------ 114 -----------------------------------------------
-$GROUP NAME=OP0114; DX=220; IMGY=51; AB=20; BL=9; BG=SCENE_ABTKUN:,-9;
-  D=L; C=USUI_ABTKUNS,3*USUI_ABTKUNP; V=2-4;
-  D=L; C=USUI_ABTKUND,3*USUI_ABTKUNP; V=2-4;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0114;											\
+      DX=220; IMGY=51; AB=20; BL=9;									\
+      BG=SCENE_ABTKUN:,-9;
+    C=USUI_ABTKUNS,3*USUI_ABTKUNP;									\
+      D=L; V=2-4;
+    C=USUI_ABTKUND,3*USUI_ABTKUNP;									\
+      D=L; V=2-4;
+  $ENDGROUP
 #------------------ 115 -----------------------------------------------
-$GROUP NAME=OP0115; DX=220; IMGY=51; AB=20; BL=9; BG=SCENE_ALISHAN:,-9;
-  D=X; C=ALISHAN_SHAY,2*ALISHAN_P1;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0115;											\
+      DX=220; IMGY=51; AB=20; BL=9;									\
+      BG=SCENE_ALISHAN:,-9;
+    C=ALISHAN_SHAY,2*ALISHAN_P1;									\
+      D=X;
+  $ENDGROUP
 #------------------ 116 -----------------------------------------------
-$GROUP NAME=OP0116; DX=220; IMGY=51; AB=14; BL=15; BG=SCENE_DARJEELING:,-15;
-  D=L; C=DARJ_SL1,DARJ_P1,DARJ_P2,DARJ_P3; V=2-4;
-  D=R; C=DARJ_SL2,DARJ_P3,DARJ_P2,DARJ_P1; V=2-4;
-  D=L; C=DARJ_SL1,DARJ_P4,DARJ_P5; V=2-4;
-  D=R; C=DARJ_SL2,DARJ_P5,DARJ_P4; V=2-4;
-  D=L; C=DARJ_SL1,DARJ_P4,DARJ_P5,DARJ_P6; V=2-4;
-  D=R; C=DARJ_SL2,DARJ_P6,DARJ_P5,DARJ_P4; V=2-4;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0116;											\
+      DX=220; IMGY=51; AB=14; BL=15;									\
+      BG=SCENE_DARJEELING:,-15;
+    C=DARJ_SL1,DARJ_P1,DARJ_P2,DARJ_P3;									\
+      D=L; V=2-4;
+    C=DARJ_SL2,DARJ_P3,DARJ_P2,DARJ_P1;									\
+      D=R; V=2-4;
+    C=DARJ_SL1,DARJ_P4,DARJ_P5;										\
+      D=L; V=2-4;
+    C=DARJ_SL2,DARJ_P5,DARJ_P4;										\
+      D=R; V=2-4;
+    C=DARJ_SL1,DARJ_P4,DARJ_P5,DARJ_P6;									\
+      D=L; V=2-4;
+    C=DARJ_SL2,DARJ_P6,DARJ_P5,DARJ_P4;									\
+      D=R; V=2-4;
+  $ENDGROUP
 #------------------ 118 -----------------------------------------------
-$SCENE NAME=OP0118; DX=220; DY=80; YDIR=U; BG=SCENE_SHIMOKITAB:,7; FG=SCENE_SHIMOKITAF:<0,2;
-  $PATH Y0=7;
-    M=STOP; POOL=POOL_KEIO1; D=L; V=8; P=>5;
-  $ENDPATH 
-  $PATH Y0=7; FG=SCENE_SHIMOKITAM:,-7;
-    M=STOP; POOL=POOL_KEIO1; D=R; V=8; P=>10;
-  $ENDPATH 
-$ENDSCENE 
+  $SCENE 												\
+      NAME=OP0118;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_SHIMOKITAB:,7;										\
+      FG=SCENE_SHIMOKITAF:<0,2;
+    $PATH Y0=7;
+      M=STOP; POOL=POOL_KEIO1; D=L; V=8; P=>5;
+    $ENDPATH
+    $PATH 												\
+	FG=SCENE_SHIMOKITAM:,-7;									\
+	Y0=7;
+      M=STOP; POOL=POOL_KEIO1; D=R; V=8; P=>10;
+    $ENDPATH
+  $ENDSCENE
 #------------------ 119 -----------------------------------------------
-$GROUP NAME=OP0119; DX=220; AB=18; BL=4; BG=SCENE_TOBANOEB:..,-4,110; FG=SCENE_TOBANOEF:..,-4,110;
-  M=STOP; D=X; C=KANTO_2200;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0119;											\
+      DX=220; AB=18; BL=4;										\
+      BG=SCENE_TOBANOEB:..,-4,110;									\
+      FG=SCENE_TOBANOEF:..,-4,110;
+    M=STOP;												\
+      C=KANTOR_2200;											\
+      D=X;
+  $ENDGROUP
 #------------------ 120 -----------------------------------------------
-$SCENE NAME=OP0120; DX=220; DY=80; YDIR=U; BG=SCENE_SHIRAITODAIB; FG=SCENE_SHIRAITODAIF;
-  $PATH Y0=9;
-    M=STOP; D=L; C=<SEIBU_101N(AL,B,C,D); P=<0+100; TB=20; T=7;
-  $ENDPATH 
-  $PATH Y0=9; FG=SCENE_SHIRAITODAIM:>100;
-    M=STOP; D=R; C=<SEIBU_101N(AL,B,C,D); P=<0+90; TE=20; T=OPEN,6,CLOSE,1;
-  $ENDPATH 
-$ENDSCENE 
+  $SCENE 												\
+      NAME=OP0120;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_SHIRAITODAIB;										\
+      FG=SCENE_SHIRAITODAIF;
+    $PATH Y0=9;
+      M=STOP;												\
+	C=<SEIBU_101N(AL,B,C,D);									\
+	D=L; P=<0+100; TB=20; T=7;
+    $ENDPATH
+    $PATH 												\
+	FG=SCENE_SHIRAITODAIM:>100;									\
+	Y0=9;
+      M=STOP;												\
+	C=<SEIBU_101N(AL,B,C,D);									\
+	D=R; P=<0+90; TE=20; T=OPEN,6,CLOSE,1;
+    $ENDPATH
+  $ENDSCENE
 #------------------ 121 -----------------------------------------------
-$GROUP NAME=OP0121; DX=220; IMGY=51; AB=20; BL=9; BG=SCENE_DAJARE:,-9;
-  C=JRH_DD51_STARL|JRH_DE10_1741|JRH_DE10_NOROKKO2L|JRH_DE15_FURANO2L|JRH_DE15_FURANOL|JRH_DE15_NAEBOL|	\
-      JRH_DE15_NOROKKO1L|JR_DD51_502,JR_YO3500~OP|JR_YO8000HL,4-6*JR_HOKI800;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0121;											\
+      DX=220; IMGY=51; AB=20; BL=9;									\
+      BG=SCENE_DAJARE:,-9;
+    C=JRH_DD51_STARL|JRH_DE10_1741|JRH_DE10_NOROKKO2L|JRH_DE15_FURANO2L|JRH_DE15_FURANOL|		\
+	JRH_DE15_NAEBOL|JRH_DE15_NOROKKO1L|JR_DD51_502,JR_YO3500~OP|JR_YO8000HL,4-6*JR_HOKI800;
+  $ENDGROUP
 #------------------ 124 -----------------------------------------------
-$GROUP NAME=OP0124; DX=220; AB=13; BL=9; BG=SCENE_ARTB:,-9;
-  C=JR_C51TSUBAMEL,JR_SUHANI35650L~OP,2*JR_SUHA32600L~OP, JR_SUSI37740~OP, 2*JR_SURO30750L~OP,		\
-      JR_MAINE37100L~OP;
-  C=JNR_C53L,JR_SUHANI35650L~OP,5*JR_SUHA32600L~OP,JR_SUSI37740~OP, 2*JR_SURO30750L~OP,JR_SUITE37020;
-  C=JR_C59BL,JR_SUHANI32K,2*JR_SUHA42KL,JR_SUSHI47K,3*JR_ORO40K, JR_OROFU33K,JR_MAITE39_1EK;
-  C=JR_C62TOKAIDOL,JR_SUHANI35KL,5*JR_SUHA44K,2*JR_SURO60K,JR_MASHI35K, 3*JR_SURO60KLX,JR_MAITE58_2K;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0124;											\
+      DX=220; AB=13; BL=9;										\
+      BG=SCENE_ARTB:,-9;
+    C=JR_C51TSUBAMEL,JR_SUHANI35650L~OP,2*JR_SUHA32600L~OP,JR_SUSI37740~OP,2*JR_SURO30750L~OP,		\
+	JR_MAINE37100L~OP;
+    C=JNR_C53L,JR_SUHANI35650L~OP,5*JR_SUHA32600L~OP,JR_SUSI37740~OP,2*JR_SURO30750L~OP,JR_SUITE37020;
+    C=JR_C59BL,JR_SUHANI32K,2*JR_SUHA42KL,JR_SUSHI47K,3*JR_ORO40K,JR_OROFU33K,JR_MAITE39_1EK;
+    C=JR_C62TOKAIDOL,JR_SUHANI35KL,5*JR_SUHA44K,2*JR_SURO60K,JR_MASHI35K,3*JR_SURO60KLX,JR_MAITE58_2K;
+  $ENDGROUP
 #------------------ 125 -----------------------------------------------
-$GROUP NAME=OP0125; DX=220; AB=5; BL=17; BG=SCENE_KAMOMEB; FG=SCENE_KAMOMEF:,-17;
-  C=JR_C59BL,JR_SUHAFU43KTML,4*JR_SURO54KL,JR_MASHI49KL,3*JR_SUHA44KL, JR_SUHANI35K; V=5-7;
-  C=JR_C59B,JR_SUHAFU43KTM,JR_MASHI49K,4*JR_SURO54K,3*JR_SUHA44K, JR_SUHANI35KL; V=5-7;
-  C=JR_C62SANYOL,JR_OHANI36KTL,3*JR_NARO10K,JR_OSI17KL,3*JR_NAHA11KL, JR_NAHAFU11KM; V=5-7;
-  C=JR_C62SANYO,JR_NAHAFU11KMT,3*JR_NAHA11KL,JR_OSI17KL,3*JR_NARO10KX, JR_OHANI36KL; V=5-7;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0125;											\
+      DX=220; AB=5; BL=17;										\
+      BG=SCENE_KAMOMEB;											\
+      FG=SCENE_KAMOMEF:,-17;
+    C=JR_C59BL,JR_SUHAFU43KTML,4*JR_SURO54KL,JR_MASHI49KL,3*JR_SUHA44KL,JR_SUHANI35K;			\
+      V=5-7;
+    C=JR_C59B,JR_SUHAFU43KTM,JR_MASHI49K,4*JR_SURO54K,3*JR_SUHA44K,JR_SUHANI35KL;			\
+      V=5-7;
+    C=JR_C62SANYOL,JR_OHANI36KTL,3*JR_NARO10K,JR_OSI17KL,3*JR_NAHA11KL,JR_NAHAFU11KM;			\
+      V=5-7;
+    C=JR_C62SANYO,JR_NAHAFU11KMT,3*JR_NAHA11KL,JR_OSI17KL,3*JR_NARO10KX,JR_OHANI36KL;			\
+      V=5-7;
+  $ENDGROUP
 
 #------------------ 694 -----------------------------------------------
-$GROUP NAME=OP0694; DX=220; AB=13; BL=9; BG=SCENE_ROCKYDEPOTB:,-9; FG=SCENE_ROCKYDEPOTF:<0+43;
-  M=STOP; C=(DRGW_47(3|3Y|6|8),DS_(BOX3,26,25,24,23,22,21))(|L)| (DRGW_475,DS_3(4,3,2,1)); P=>70;
-  C=DRGW_47(3|3Y|6|8)(|L),DS_BOX(3|4|5|6),								\
-      $MIX(4-8,DS_BOX3,DS_BOX4,DS_GON2,DS_TANK1,DS_TANK2,DS_FLAT1,DS_BOX5, DS_BOX6,DS_GON3),DS_CAB05;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0694;											\
+      DX=220; AB=13; BL=9;										\
+      BG=SCENE_ROCKYDEPOTB:,-9;										\
+      FG=SCENE_ROCKYDEPOTF:<0+43;
+    M=STOP;												\
+      C=(DRGW_47(3|3Y|6|8),DS_(BOX3,26,25,24,23,22,21))(|L)|(DRGW_475,DS_3(4,3,2,1));			\
+      P=>70;
+    C=DRGW_47(3|3Y|6|8)(|L),DS_BOX(3|4|5|6),								\
+	$MIX(4-8,DS_BOX3,DS_BOX4,DS_GON2,DS_TANK1,DS_TANK2,DS_FLAT1,DS_BOX5,DS_BOX6,DS_GON3),DS_CAB05;
+  $ENDGROUP
 #------------------ 697 -----------------------------------------------
-$GROUP NAME=OP0697; DX=220; IMGY=47; BL=33; BG=SCENE_ROCKY1:,-33;
-  C=(DRGW_47(3|3Y|5|6|8),DS_(BOX3,26,25,24,23,22,21))(|L);
-  C=RGS_GOOSE(1|2|3|4|5|5L|6|7);
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0697;											\
+      DX=220; IMGY=47; BL=33;										\
+      BG=SCENE_ROCKY1:,-33;
+    C=(DRGW_47(3|3Y|5|6|8),DS_(BOX3,26,25,24,23,22,21))(|L);
+    C=RGS_GOOSE(1|2|3|4|5|5L|6|7);
+  $ENDGROUP
 #------------------ 698 -----------------------------------------------
-$GROUP NAME=OP0698; DX=220; IMGY=50; BL=30; BG=SCENE_ROCKY2B:,-30; FG=SCENE_ROCKY2F:,-30;
-  C=(DRGW_47(3|3Y|5|6|8),DS_(BOX3,26,25,24,23,22,21))(|L);
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0698;											\
+      DX=220; IMGY=50; BL=30;										\
+      BG=SCENE_ROCKY2B:,-30;										\
+      FG=SCENE_ROCKY2F:,-30;
+    C=(DRGW_47(3|3Y|5|6|8),DS_(BOX3,26,25,24,23,22,21))(|L);
+  $ENDGROUP
 #------------------ 700 -----------------------------------------------
-$GROUP NAME=OP0700; DX=220; AB=13; BL=9; BG=SCENE_GOOSE_TOWN:,-9;
-  M=STOP; D=X; C=RGS_GOOSE(1|2|3|4|5|5L|6|7); P=*50;
-$ENDGROUP 
+  $GROUP 												\
+      NAME=OP0700;											\
+      DX=220; AB=13; BL=9;										\
+      BG=SCENE_GOOSE_TOWN:,-9;
+    M=STOP;												\
+      C=RGS_GOOSE(1|2|3|4|5|5L|6|7);									\
+      D=X; P=*50;
+  $ENDGROUP
 #======================================================================
-{FILELEVEL=1?
+  {FILELEVEL=1?
   $ENDSECTION
 }

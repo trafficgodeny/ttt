@@ -11,6 +11,9 @@ $REQUIRE TRAINDEF.TTT
 
 # ohne
   {E1?
+    TX=MAV 301 001 + Personenzug;									\
+      C=M_1_301001(|L),M_4416,2*M_1701,3*M_4744,2*M_4743,3*M_1565,M_1574;				\
+      F=SP1;
     TX=MAV 342 + Personenzug;										\
       C=M_1_342002(|L),M_108208(|L),									\
 	(<M_15(65|74)(|L),M_2507,M_4101,M_CF25(|L),M_474(3|4)(|L),M_1701,M_1701L);			\
@@ -23,8 +26,11 @@ $REQUIRE TRAINDEF.TTT
       F=SP1;
   }
   {E2?
+    TX=MAV 301 001/501 + Schnellzug;									\
+      C=M_2A301001(|L)|M_2B301001(|L)|M_2_301501(|L),4*M_3_AAF1200(|L),4*M_2_BAF5000(|L);		\
+      F=SP2;
     TX=MAV 424 + Personenzug;										\
-      C=M_2_424(008|005)(|L),KKSTB_DE,(<2*M_2_BAF5000,3*M_2_BAF5000L,2*M_2_AAF1200);			\
+      C=M_2_424(008|005|001|019)(|L),KKSTB_DE,(<2*M_2_BAF5000,3*M_2_BAF5000L,2*M_2_AAF1200);		\
       F=SP3;
     TX=MAV V 40 + Personenzug;										\
       C=M_V40_016,M_108003(|L),M_4416,(<5*M_1701);							\
@@ -36,16 +42,22 @@ $REQUIRE TRAINDEF.TTT
       C=DVAS_318002L|DVAS_318002,M_G1,M_072TCS2,M_911UCSL,M_911UCS|M_910UCS;				\
       F=SF3;
 # MAV
-    TX=MAV 301 + Schnellzug;										\
-      C=M_301016|M_301016L,(<(2*M_2_BAF5000L),M_2_AAF1200L,M_2_AAF1200,2*M_2_BAF5000);			\
+    TX=MAV 301 001 + Schnellzug;									\
+      C=M_3A301001(|L),(<(2*M_2_BAF5000L),M_2_AAF1200L,M_2_AAF1200,2*M_2_BAF5000);			\
       F=SP3;
     TX=MAV 301 + Schnellzug;										\
-      C=M_301006L|M_301006,										\
+      C=M_301006(|L)|M_3_301016(|L),									\
 	(<M_3A_CAK5300L,M_3A_CAK5300,M_3A_CAK5400L,M_3A_CAKET5100L,M_3A_CAKET5100|M_3A_CAK5400);	\
+      F=SP3;
+    TX=MAV 301 + Schnellzug;										\
+      C=(M_301006|M_3_301020|M_3C301019|M_3B301001)(|L),M_3B_BA3000L,M_3B_ABA2000L|M_3B_ABA2000,	\
+	M_3B_AA1000L|M_3B_AA1000,M_3B_WR200L|M_3B_WR200|M_3B_WR300L|M_3B_WR300,				\
+	2*(M_3B_BA3000L|M_3B_BA3000|M_3B_BAK5100L|M_3B_BAK5100|M_3B_BAK5300L|M_3B_BAK5300|		\
+	M_3B_BAK5400L|M_3B_BAK5400),M_3B_BAKET3800|M_3B_BAKET3800L;					\
       F=SP3;
 
     TX=MAV 303 + Schnellzug;										\
-      C=M_303002|M_303002L,M_3B_BA3000L,M_3B_ABA2000L|M_3B_ABA2000,M_3B_AA1000L|M_3B_AA1000,		\
+      C=M_303002(|L)|M_3_303001(|L),M_3B_BA3000L,M_3B_ABA2000L|M_3B_ABA2000,M_3B_AA1000L|M_3B_AA1000,	\
 	M_3B_WR200L|M_3B_WR200|M_3B_WR300L|M_3B_WR300,							\
 	2*(M_3B_BA3000L|M_3B_BA3000|M_3B_BAK5100L|M_3B_BAK5100|M_3B_BAK5300L|M_3B_BAK5300|		\
 	M_3B_BAK5400L|M_3B_BAK5400),M_3B_BAKET3800|M_3B_BAKET3800L;					\
@@ -57,21 +69,23 @@ $REQUIRE TRAINDEF.TTT
       C=M_3_342006(|L),H3P2;										\
       F=SP3;
     TX=MAV 411 + Güterzug;										\
+      C=M_3_411(221|005)(|L),20*(PKP_3A_WDDOA10(|U|UH|H)(|L));						\
+      F=SF3;
+    TX=MAV 411 + Güterzug;										\
       C=M_3_411(221|005)(|L),H3FL1;									\
       F=SF3;
     TX=MAV 375 + Güterzug;										\
       C=M_(1_375053|1_375551|1_375807|1_375837|2_375610|3_3751029|3_3751032)(|L),2*H3GS;		\
       F=SF3;
     TX=MAV 424 + Schnellzug;										\
-      C=M_3_424009|M_3_424009L,(<(2*M_3_BAF5000L),M_3_AAF1200L,M_3_AAF1200,2*M_3_BAF5000);		\
+      C=M_3_424(005|008|188|282(|K)|232|053)(|L),							\
+	(<(2*M_3_BAF5000L),M_3_AAF1200L,M_3_AAF1200,2*M_3_BAF5000);					\
       F=SP3;
     TX=MAV 424 + Schnellzug;										\
-      C=M_3_424005L|M_3_424005|M_3_424009|M_3_424009L|M_3_424140|M_3_424140L|M_3_424262|M_3_424262L|	\
-	M_3_424247|M_3_424247L,H3PD1;									\
+      C=M_3_424(005|008|188|282|232|053)(|L),H3PD1;							\
       F=SP3;
     TX=MAV 424 + Schnellzug;										\
-      C=M_3_424005L|M_3_424005|M_3_424008L|M_3_424008|M_3_424188L|M_3_424188|M_3_424282L|M_3_424282,	\
-	(<M_BAH4600L,M_BAH4600,M_BAH4700L,M_BAH4700);							\
+      C=M_3_424(005|008|188|282|232|053)(|L),(<M_BAH4600L,M_BAH4600,M_BAH4700L,M_BAH4700);		\
       F=SP3;
     TX=MAV 442;												\
       C=M_3_442013(|L),M_DNZ64000(|L),M_BZX59000(|L),M_AZ1(0|6)000(|L),5*(M_BZ5(2|3)000(|L));		\
@@ -155,9 +169,13 @@ $REQUIRE TRAINDEF.TTT
 
   }
   {E4?
+    TX=MAV 424 + Schnellzug;										\
+      C=M_4_424(363|339|318|287|239|140)(|L),H4P1;							\
+      F=SP4;
     TX=MAV M61 + Schnellzug;										\
       C=M_3M61001(|L),											\
-	(<3*M_BMO,2*M_AMO,M_ABMO,M_BRMO,3*M_BRMO)|(>3*M_BMOL,2*M_AMOL,M_ABMOL,M_BRMOL,3*M_BRMOL);	\
+	(<3*M_BMO,2*M_AMO,M_ABMO,M_BRMO,3*M_BRMO,M_4WLABM7041002)|					\
+	(>3*M_BMOL,2*M_AMOL,M_ABMOL,M_BRMOL,3*M_BRMOL,M_4WLABM7041002L);				\
       F=DF4;
     TX=MAV M61;												\
       C=M_4M61006(|L),H4P1;										\
@@ -221,7 +239,7 @@ $REQUIRE TRAINDEF.TTT
     TX=SZOB MD 40;											\
       C=SZOB_MD40,SZOB_UBA1|SZOB_UBAF;									\
       F=DFN4;
-    TX=Ungarn Gyermekvasút (Children's Railway) Budapest 2945 + Passenger Train;			\
+    TX=Ungarn Gyermekvasút (Children's Railway)Budapest 2945 + Passenger Train;				\
       C=GYV_2920703,M_BAWA2501,M_BK117;									\
       F=DPN4;
   }
@@ -295,14 +313,14 @@ $REQUIRE TRAINDEF.TTT
       C=M_628|M_M62KL|M_M62K|M_M62UL|M_M62U|M_M62_266|M_M62ML|M_M62M|M_M62AL|M_M62_228|M_M62PL|M_M62P|	\
 	M_M62IL|M_M62I|M_M62SL|M_M62S|M_M62T,								\
 	(<M_4BKO2037B|M_4BKO2037BL,M_4AO1937|M_4A1941L|M_4A1941|M_4AO1937L,M_4BKO2037A|M_4BKO2037AL,	\
-	M_4B2041L|M_4B2041);										\
+	M_4B2041L|M_4B2041,M_BKO2037126(|L));								\
       F=DP5;
     TX=MAV BZMot 400;											\
       C=((M_BZMOTAL|M_BZMOTA|M_BZMOTBL|M_BZMOTB|M_BZMOTCL|M_BZMOTC),(M_BZXAL|M_BZXA|M_BDZXAL|M_BDZXA))|	\
 	((M_BZMOTDL|M_BZMOTD),(M_BZXCL|M_BZXC))|							\
 	(((M_BZMOTE|M_BZMOTFL|M_BZMOTF|MAVS_BZMOT),(MAVS_BZX))|						\
-	(MAVS_BDZX|M_BZMOT_DUPL|M_BZMOT_DUP|MAVS_6312L|M_BZMOTIPAL|M_BZMOTIPA|M_BZMOTIPBL|M_BZMOTIPB|	\
-	M_BZMOTIPCL|M_BZMOTIPC|MAVS_BZMOT2),M_POST4L,M_POST4,MAVS_BZMOT3);				\
+	(MAVS_BDZX|M_BZMOT_DUP(|L)|MAVS_6312A|MAVS_6312L|M_BZMOTIPAL|M_BZMOTIPA|M_BZMOTIPBL|		\
+	M_BZMOTIPB|M_BZMOTIPCL|M_BZMOTIPC|MAVS_BZMOT2),M_POST4L,M_POST4,MAVS_BZMOT3);			\
       F=DPR5U;
 
 # Ungarn E
@@ -356,7 +374,7 @@ $REQUIRE TRAINDEF.TTT
     TX=Királyrét MK 482;										\
       C=KIR_MK482(|A),KIR_F6_2;										\
       F=DPN5;
-    TX=Ungarn Gyermekvasút (Children's Railway) Budapest ABAMOT 6920;					\
+    TX=Ungarn Gyermekvasút (Children's Railway)Budapest ABAMOT 6920;					\
       C=GYV_ABAMOT6920,GYV_AAX117|GYV_BAX117;								\
       F=DPN5;
     TX=Ungarn Gysev Fertõdoboz 2921 + Personenzug;							\
@@ -366,17 +384,29 @@ $REQUIRE TRAINDEF.TTT
 
   {E6?
 # Ungarn Diesel
+    TX=START 228.1 + Rangierzug;									\
+      C=M_M28C,MAVS_DDMEE_M(|L),MAVS_BYEE_M2;								\
+      F=DF6;
     TX=MAV 228.1 + Rangierzug;										\
       C=M_M28C,MAVS_BCBMZ5990M(|L),MAVS_WRRMZM(|L);							\
+      F=DF6;
+    TX=START 288 + Rangierzug;										\
+      C=M_288,MAVS_AO;											\
       F=DF6;
     TX=MAV 408 + Güterzug;										\
       C=M_M40_9D|M_408REMOT|M_M40_9DL,H6F1S;								\
       F=DF6;
-    TX=MAV 418 + IC 362 Bihor/Bihar: Cluj Napoca - Budapest-Keleti 2015;				\
+    TX=MAV 418 + IC 362 Bihor/Bihar:Cluj Napoca - Budapest-Keleti 2015;					\
       C=M_418,(<MAVS_APMZ1071,2*MAVS_BPM2070)|(<(2*MAVS_BPM2070L),MAVS_APMZ1071L);			\
       F=DP6;
+    TX=MAV 438.2 + Bpee IEC + AD1930;									\
+      C=M_438REMOT,MAVS_BPEE_IEC(|L),MAVS_AD1930RETRO(|L);						\
+      F=DF6;
     TX=MAV 438 + Güterzug;										\
       C=M_M43_1200L|M_M43_1200|M_438REMOT,H6F1R;							\
+      F=DF6;
+    TX=MAV 448 + Güterzug;										\
+      C=M_448,H6F1R;											\
       F=DF6;
     TX=MAV 448 + Güterzug;										\
       C=M_448,H6F1R;											\
@@ -384,15 +414,42 @@ $REQUIRE TRAINDEF.TTT
     TX=MAV 628 + Güterzug;										\
       C=M_628REMOT|M_M62VL|M_M62V|M_M62_306|M_M62_307,H6F1;						\
       F=DF6;
+    TX=MAV 628 + IC  19795   Kék Hullám: Tapolca - Balatonfüred (- Budapest-Déli) 2024;			\
+      C=MAVS_628187(|L),										\
+	(<MAVS_61_8891,MAVS_ARMZ8591_4,MAVS_BPMZ2071ML,MAVS_BPMZ2071M,MAVS_BDMPEE_MB)|			\
+	(<MAVS_61_8891L,MAVS_ARMZ8591_4L,MAVS_BPMZ2071M,MAVS_BPMZ2071ML,MAVS_BDMPEE_MBL);		\
+      F=DP6;
     TX=MAV M46;												\
       C=M_M46,												\
-	(<MAVS_ARP2,MAVS_B2041,MAVS_AB3941,MAVS_A1941|MAVS_AO1937,MAVS_DS1|MAVS_BD8407)|		\
+	(<MAVS_ARP2,MAVS_B2041,MAVS_AB3941,MAVS_A1941|MAVS_AO1937,MAVS_DS1|MAVS_BD8407(|L))|		\
 	(MAVS_BD8444|MAVS_DS1L,MAVS_A1941L|MAVS_AO1937L,MAVS_AB3941L,MAVS_B2041L,MAVS_ARP2L);		\
       F=DF6;
+    TX=MAVRT M61 + Kü 13101 Castles of Transylvania:(Curtici -)Kecskemét - Budapest 2024;		\
+      C=M_M61020(|L),											\
+	(<MNOS_WLDSM8971,MAVRT_SALON_ISTROPOLITAN,MAVRT_WL361,MAVRT_WLM,MAVRT_WLMEE,MAVRT_WLM,		\
+	MNOS_WSRMEE8771,MAVRT_WLMEEL,MAVRT_WLM,MNOS_WRM004_2018)|					\
+	(>MNOS_WLDSM8971,MAVRT_SALON_ISTROPOLITAN,MAVRT_WL361,MAVRT_WLML,MAVRT_WLMEEL,MAVRT_WLML,	\
+	MNOS_WSRMEE8771,MAVRT_WLMEE,MAVRT_WLML,MNOS_WRM004_2018);					\
+      F=DP6;
+    TX=MAVRT 648.2 ME + Kü  13000  Semmering Expressz: Budapest - Hodoš (- Mürzzuschlag) 2025;		\
+      C=NRFAB_ME_MAVRT,											\
+	(<MNOS_WLDSM8971,MAVRT_SALON_ISTROPOLITAN,MAVRT_WL361,2*MAVRT_WLMEE,MNOS_WRM004_2018,		\
+	MNOS_WSRMEE8771,MAVRT_WLMEEL,MAVRT_WLM);							\
+      F=DP6;
+
+    TX=MAV Mot 631.2;											\
+      C=MAVS_6312B;											\
+      F=DPRU56;
     TX=MAV Mot 6341;											\
       C=M_6341|MAVS_6341;										\
       F=DPU56;
-    TX=MAV Mot 6342;											\
+    TX=MAV Mot 634.1;											\
+      C=MAVS_416B;											\
+      F=DPRU6;
+    TX=MAV 1446;											\
+      C=MAVS_1446(|L);											\
+      F=DPRU6;
+    TX=MAV Mot 634.2;											\
       C=1-2*(M_6342L|M_6342|MAVS_6342);									\
       F=DPU6;
     TX=MAV BZMot 8328;											\
@@ -403,23 +460,53 @@ $REQUIRE TRAINDEF.TTT
 	(<M_2705BL,2*M_2005BL,M_1005BL,M_2005BL,M_MDMOTBL)|(<M_MDMOTB,M_1005B,M_2005B,M_2705B)|		\
 	(<M_MDMOTAL,M_2005A,M_1005A,M_1005C,M_2705A)|(<M_2705AL,M_1005CL,M_1005AL,M_2005AL,M_MDMOTA);	\
       F=DPU6;
+    TX=MAV Mot 6342;											\
+      C=MAVS_6342(|L);											\
+      F=DPU6;
     TX=MAV BVHMOT;											\
       C=MAVS_BVHMOT|M_BVHMOT|MAVS_BDVMOT;								\
-      F=EPU5;
+      F=EPU6;
     TX=MAV BVHMOT 414;											\
-      C=<MAVS_BDVMOT0414L,MAVS_AMX1105,MAVS_BMX2205,MAVS_BMXT8005;					\
-      F=EPRU5;
+      C=(<MAVS_414BL,MAVS_BPMEE2205M,MAVS_BMXFEE_B)|(>MAVS_414B,MAVS_BPMEE2205ML,MAVS_BMXFEE_BL);	\
+      F=EPRU6;
+    TX=MAV BVHMOT 414;											\
+      C=(<MAVS_BDVMOT0414L,MAVS_AMX1105,MAVS_BMX2205,MAVS_BMXT8005)|					\
+	(>MAVS_BDVMOT0414,MAVS_BMX2105L,MAVS_BMX2205L,MAVS_BMXT8005L);					\
+      F=EPRU6;
     TX=MAV BVHMOT 424;											\
-      C=<MAVS_BVHMOT0424L,MAVS_AMX1105,MAVS_BMX2205,MAVS_BMXT8005;					\
-      F=EPRU5;
+      C=(<MAVS_BVHMOT0424L,MAVS_AMX1105|MAVS_BMX2105,MAVS_BMX2205,MAVS_BMXT8005)|			\
+	(>MAVS_BVHMOT0424,MAVS_BMX2105L,MAVS_BMX2205L,MAVS_BMXT8005L);					\
+      F=EPRU6;
     TX=MAV A 61;											\
       C=M_6M610(17|20)(|L),5*M_Y_RAIL,M_WINCH;								\
       F=DF6;
+    TX=MAV BZMot 0117 + BDzx + Bzx;									\
+      C=<M_BZMOTF(|L),MAVS_BDZX_BL(|L),M_BZXC(|L);							\
+      F=DPRU6;
+    TX=MAV BZMot;											\
+      C=MAVS_BZMOT_AC(|L),MAVS_BZX_RETRO(|L);								\
+      F=DPU6;
+    TX=MAV BZMot;											\
+      C=<MAVS_BZMOT_(B|ACB|IPB)(|L),MAVS_B(FXZ803B|ZX_B)(|L);						\
+      F=DPU6;
     TX=MAV BZMot 0127;											\
-      C=(<MAVS_BZMOT0127A,MAVS_BTZX8028A)|(<MAVS_BTZX8028B,MAVS_BZMOT0127B);				\
-      F=DPU5;
+      C=(<MAVS_BZMOT_IP,MAVS_BTZX_IP)|(<MAVS_BTZX_IPL,MAVS_BZMOT_IPL);					\
+      F=DPU6;
+    TX=MAV 416;												\
+      C=MAVS_416B;											\
+      F=DPRU6;
+    TX=MAV BZX;												\
+      C=MAVS_BZX2;											\
+      F=DPRU6;
 
 # Ungarn E
+    TX=MAV 193;												\
+      C=ELL_193MAVS(|L),										\
+	(<MAVS_BPEE2044M,MAVS_BDMPEE8405_840L,MAVS_BPMEE2076,ZSSK_BEER2070,ZSSK_BPEER2970B,		\
+	ZSSK_APEER1970)|										\
+	(>MAVS_BPEE2044ML,MAVS_BDMPEE8405_840,MAVS_BPMEE2076L,ZSSK_BEER2070L,ZSSK_BPEER2970BL,		\
+	ZSSK_APEER1970L);										\
+      F=EP6;
     TX=MAV V46;												\
       C=M_460|M_V46AL|M_V46A|M_V46BL|M_V46B|M_V46C|M_V46_044|M_V46_057,					\
 	MAV_EAO[OB:SCRAP2,35,28][OB:#SCRAP2,10,28],4*(M_457SGNS4[O:CA91_26,7,12][O:CA91_26,100,12]);	\
@@ -435,45 +522,114 @@ $REQUIRE TRAINDEF.TTT
 	MAVS_BDT8005406|MAVS_BDT8005400|MAVS_BDT2|MAVS_BDT2_3|MAVS_BDT80052)|				\
 	(<MAVS_BDT80052L|MAVS_BDT2L,3*MAVS_BHV22,M_V43_3000B);						\
       F=EPU6;
+    TX=START 406 TramTrain 33064 Szeged vá. - Hódmezovásárhely vá. 2023;				\
+      C=MAVS_406(|L);											\
+      F=EPU6;
+    TX=START 431 + >IC 75 Fogaras:Budapest-Keleti - Brasov 2023;					\
+      C=M_V43_1B(|L)[BC:0,-30],MAVS_BPMEE2076,MAVS_BDMPEE_M,MAVS_BPEE2044M;				\
+      F=EP6;
+    TX=START 431 + IC 506 Zemplén Miskolc-Tiszai - Sátoraljaújhely 2023;				\
+      C=M_V43_1B(|L)[BC:0,-30],3*MAVS_BD2037HD(|L),MAVS_B1935X(|L);					\
+      F=EP6;
     TX=MAV 431 + 652 Páva / Budapest-Nyugati - Miskolc - Budapest-Keleti 2017;				\
-      C=<M_431|M_V43_3000C|M_V43_3000B,2*MAVS_BPEE1,MAVS_APEE1,M_BYBDTEE;				\
+      C=(<M_431|M_V43_3000C|M_V43_3000B,2*MAVS_BPEE1,MAVS_APEE1,M_BYBDTEE)|				\
+	(>M_431|M_V43_3000C|M_V43_3000B,2*MAVS_BPEE1,MAVS_APEE1,M_BYBDTEEL);				\
+      F=EPU6;
+    TX=MAV 431 + IC 366 Hargita:(Brasov -)Valea lui Mihai - Budapest 2024;				\
+      C=(M_431|M_V43_3000C|M_V43_3000B),								\
+	(<2*MAVS_BD2937H,MAVS_AMZ1991_3M,MAVS_ABMZM)|(>2*MAVS_BD2937HL,MAVS_AMZ1991_3ML,MAVS_ABMZML);	\
+      F=EP6;
+    TX=MAV 431 + IC 366 Hargita:(Brasov -)Valea lui Mihai - Budapest 2025;				\
+      C=(M_431|M_V43_3000C|M_V43_3000B),								\
+	(<MAVS_BPMEE2076,MAVS_BDMPEE8405V,MAVS_BPEE2044M)|						\
+	(>MAVS_BPMEE2076L,MAVS_BDMPEE8405VL,MAVS_BPEE2044ML);						\
+      F=EP6;
+    TX=MAV 431 001 + Byee;										\
+      C=MAVS_431_001(|L),MAVS_BYEE2155_66(|L),MAVS_BYEE2155_5(|L),MAVS_BYEE2155_90(|L),			\
+	MAVS_BYEE2155_900(|L),MAVS_BYDEE7(A|AB)(|L);							\
+      F=EP6;
+    TX=MAV 431 + Sz 5115 Nyíregyháza - Füzesabony 2024;							\
+      C=(M_431|M_V43_3000C(|L)|M_V43_3000B),								\
+	(<MAVS_BPMBDFEE8076BL,MAVS_BPMEE2076)|(>MAVS_BPMBDFEE8076B,MAVS_BPMEE2076L);			\
       F=EPU6;
     TX=MAV V43 + Personenzug;										\
       C=(<M_431|M_V43_3000C|M_V43_3000B,3*MAVS_BPMEE2076(|A),MAVS_BPMBDFEE8076)|			\
 	(<MAVS_BPMBDFEE8076L,3*MAVS_BPMEE2076(|A),M_431|M_V43_3000C|M_V43_3000B);			\
       F=EPRU6;
     TX=MAV V43 + IC;											\
-      C=M_432|M_V43C0|M_V43_1B,										\
+      C=MAVS_432(|L)|MAVS_432F,										\
 	(<(3*M_BP2067),M_8867CL,M_AP1067(A|B)L)|(<M_1067(A|B),M_8867C,3*M_BP2067);			\
       F=EP6;
     TX=MAV V43 + IC;											\
-      C=M_432|M_V43C0|M_V43_1B,										\
+      C=M_432|M_V43C0|M_V43_1B(|L),									\
 	(<MAVS_AP,MAVS_GY_A|MAVS_GY_A|MAVS_A,MAVS_GY_A,MAVS_GY_AB|MAVS_AB,MAVS_WRR2|MAVS_WRRO,		\
 	MAVS_BP2905H,MAVS_BP,MAVS_GY_B,MAVS_B);								\
       F=EP6;
-    TX=MAV V43 + IC 605 Nyírség: Nyíregyháza - Budapest-Nyugati 2015;					\
-      C=M_1043A|M_V43_1B,										\
+    TX=MAV 432 + Sz 4592 G30 Budapest-Déli - Székesfehérvár 2024;					\
+      C=MAVS_432(|L),(<MAVS_DDMEE_CEE,2*MAVS_BHV2005_3)|(>MAVS_DDMEE_CEEL,2*MAVS_BHV2005_3L);		\
+      F=EP6;
+    TX=START 433 + IC 800 Mecsek:Budapest-Keleti - Pécs 2023;						\
+      C=(<M_V43_3000C,MAVS_ARMZ8591_4,2*MAVS_BPEE1,MAVS_BYEE_M,MAVS_BYBDTEE)|				\
+	(>M_V43_3000C,MAVS_ARMZ8591_4L,2*MAVS_BPEE1,MAVS_BYEE_M,MAVS_BYBDTEEL);				\
+      F=EP6;
+    TX=MAV V43 + IC 605 Nyírség:Nyíregyháza - Budapest-Nyugati 2015;					\
+      C=M_1043A|M_V43_1B(|L),										\
 	(<MAVS_AP1067_(1|2),3*MAVS_BP2067_(1|2))|(<(3*MAVS_BP2067_(1|2)L),MAVS_AP1067_(1|2));		\
       F=EP6;
-    TX=MAV V43 + IC 568 Tulipán: Budapest-Keleti - Debrecen 2015;					\
-      C=M_1043A|M_V43_1B,(<4*MAVS_AMXA,3*MAVS_BP2067_1,MAVS_AP)|(<4*MAVS_AMXA,3*MAVS_BP2067_1,MAVS_AP);	\
+    TX=MAV V43 + B 240 Venezia:Budapest-Keleti - Venezia S.L. 2010;					\
+      C=M_1043A|M_V43_1B(|L),										\
+	(2*MAVS_BPM2070(|L),MAVS_AVMZ(|L),MAVS_WLAB1(|L),MAVS_ACBC1,MAVS_WSPZ2(|L),			\
+	2*MAVS_BVMZ2191(|L),MAVS_61_2091(|L),MAVS_BC5941(|L),M_Z1DWA_WRBUMZM(|L),MAVS_WLAB1(|L),	\
+	RZD_WLABM62A(|L),CFR_ACBCMEE2(|L));								\
       F=EP6;
-    TX=MAV V43 + IC 513 Lillafüred: Miskolc-Tiszai - Budapest-Keleti 2014;				\
-      C=M_V43C0|M_V43_1B,										\
+    TX=MAV V43 + IC 568 Tulipán:Budapest-Keleti - Debrecen 2015;					\
+      C=M_1043A|M_V43_1B(|L),										\
+	(<4*MAVS_AMXA,3*MAVS_BP2067_1,MAVS_AP)|(<4*MAVS_AMXA,3*MAVS_BP2067_1,MAVS_AP);			\
+      F=EP6;
+    TX=MAV V431 + IR/G 1480 Albena:Varna - Budapest-Keleti 2013;					\
+      C=M_V43_1B(|L),											\
+	(<MAVS_A1980,MAVS_AB3980L,2*MAVS_B2080,MAVS_A1980,MAVS_WRM8881,ZSSK_BC5941,CFR_ACBCEE4431,	\
+	2*MAVS_WLAB7080L,CD_BC_N2)|									\
+	(<CD_WLABN2,2*MAVS_WLAB7080,CFR_ACBCEE4431L,ZSSK_BC5941L,MAVS_WRM8881L,MAVS_A1980L,		\
+	2*MAVS_B2080L,MAVS_AB3980,MAVS_A1980L);								\
+      F=EP6;
+    TX=MAV V43 + IC 513 Lillafüred:Miskolc-Tiszai - Budapest-Keleti 2014;				\
+      C=M_V43C0|M_V43_1B(|L),										\
 	(<(2*ZSSK_BPEER2970),ZSSK_BEER2070L,MAVS_8871L,ZSSK_AEER1970L)|					\
 	(<ZSSK_AEER1970,MAVS_8871,ZSSK_BEER2070,2*ZSSK_BPEER2970);					\
       F=EP6;
     TX=MAV V43;												\
       C=M_1043B|M_1043C|M_1043D|M_1043E,								\
 	(<((M_4A1980AL,M_4A1980BL)|(M_4A1980A|M_4A1980B)),M_4WRM8881029L,M_4WRM8881L|M_4WRM8881,	\
-	MAVS_BPMZ2091,2*M_4B2080(BL|B|AL|A),M_4AB3980(BL|B|AL|A));					\
+	MAVS_BPMZ2091_4(|L),2*M_4B2080(BL|B|AL|A),M_4AB3980(BL|B|AL|A));				\
       F=EP6;
-    TX=MAV V431 + IR/G 1480 Albena: Varna - Budapest-Keleti 2013;					\
-      C=M_V43_1B,											\
-	(<MAVS_A1980,MAVS_AB3980L,2*MAVS_B2080,MAVS_A1980,MAVS_WRM8881,ZSSK_BC5941,CFR_ACBCEE4431,	\
-	2*MAVS_WLAB7080L,CD_BC_N2)|									\
-	(<CD_WLABN2,2*MAVS_WLAB7080,CFR_ACBCEE4431L,ZSSK_BC5941L,MAVS_WRM8881L,MAVS_A1980L,		\
-	2*MAVS_B2080L,MAVS_AB3980,MAVS_A1980L);								\
+    TX=START 630 + IC 656 Tokaj:Budapest-Nyugati - Debrecen - Budapest-Keleti 2023;			\
+      C=M_V63A,												\
+	(<MAVS_APEE1044M,MAVS_ARMZ8591_4,MAVS_BBDPMZ8491_4,2*MAVS_BPEE2044M)|				\
+	(>MAVS_APEE1044M,MAVS_ARMZ8591_4L,MAVS_BBDPMZ8491_4L,2*MAVS_BPEE2044M);				\
+      F=EP6;
+    TX=START 630 + Kü 13005:(Košice -)Hidasnémeti - Budapest-Nyugati 2024;				\
+      C=MAVS_630(B|_013)(|L),										\
+	(<4*MAVRT_BPEE,MNOS_WRM004_2018,MNOS_WRM8881012,3*MAVRT_APEE,MAVRT_WLML,MNOS_9910055,MNOS_VFK);	\
+      F=EP6;
+    TX=START 630 + 13001 PIVO Expressz:(Brno hl.n. -)Rajka - Budapest-Nyugati 2024;			\
+      C=MAVS_630B(|L),											\
+	(<MAVRT_SALON_ISTROPOLITAN,MNOS_WRM8881029,MNOS_WRM8881012,4*MAVRT_BPEE,MAVRT_BRPEE005,		\
+	MAVRT_BRPEE,MAVRT_APEE,MNOS_WRM004_2018,2*MAVRT_WLM(|L));					\
+      F=EP6;
+    TX=START 630 +  IC 806 Mecsek: Budapest-Keleti - Pécs 2024;						\
+      C=MAVS_630(B|_013)(|L),										\
+	(<MAVS_BYEE2155_92B,MAVS_BYEE2155_94,MAVS_APEE1044,MAVS_ARMZ8591_4,MAVS_BPEE2957M,		\
+	MAVS_BPHEE2044GY,MAVS_BYBDTEE1)|								\
+	(>MAVS_BYEE2155_92BL,MAVS_BYEE2155_94L,MAVS_APEE1044,MAVS_ARMZ8591_4L,MAVS_BPEE2957ML,		\
+	MAVS_BPEE2044GY,MAVS_BYBDTEE1L);								\
+      F=EPU6;
+    TX=START 630 + IC 654   Tokaj: Budapest-Nyugati - Debrecen - Miskolc - Budapest-Keleti 2025;	\
+      C=MAVS_630B(|L),											\
+	(<MAVS_BHV2005_3,MAVS_BHV2005_4,MAVS_BHV2005_3,MAVS_APEE1044,MAVS_ARMZ8591_4L,			\
+	MAVS_BBDPMZ8491_437L,MAVS_BPEE2044M,MAVS_BPEE2044V)|						\
+	(<MAVS_BHV2005_3L,MAVS_BHV2005_4L,MAVS_BHV2005_3L,MAVS_APEE1044,MAVS_ARMZ8591_4,		\
+	MAVS_BBDPMZ8491_437,MAVS_BPEE2044M,MAVS_BPEE2044VL);						\
       F=EP6;
     TX=MAV 1116 + Güterzug;										\
       C=MAVC_1116_015L~SA|MAVC_1116_015~SA|MAVC_1116_015L~MB|MAVC_1116_015~MB|RCH_1116_017L~SA|		\
@@ -505,36 +661,44 @@ $REQUIRE TRAINDEF.TTT
 	(<(3*MAVS_1957APEEL),6*MAVS_2957BPEEL)|(<(6*MAVS_2957BPEE),MAVS_1957APEE)|			\
 	(<(3*MAVS_1957APEEWL,6*MAVS_2957BPEEWL))|(<(6*MAVS_2957BPEEW),3*MAVS_1957APEEW);		\
       F=EPOT6;
-    TX=MAV 1047 + IC 344 Avala: (Beograd) - Kiskunhalas - Wien Westbf 2015;				\
+    TX=MAV 1047 + IC 344 Avala:(Beograd)- Kiskunhalas - Wien Westbf 2015;				\
       C=M_1047(|L)~HEN,											\
 	(<MAVS_APMZ1091_1,MAVS_WRBUMZL,MAVS_BMZ2191L,MAVS_BVMZ2191,MAVS_BMZ2191L)|			\
 	(<MAVS_BMZ2191,MAVS_BVMZ2191L,MAVS_BMZ2191,MAVS_WRBUMZ,MAVS_APMZ1091_1L);			\
       F=EP6;
     TX=MAV 1047 + IC;											\
-      C=M_470(010|_010B|_005F|_004O)(|L),								\
+      C=M_470_(010B|005F|004O)(|L),									\
 	(<(2*MAVS_APEEW),MAVS_8891WRMZL,6*MAVS_BPEEW)|(<(6*MAVS_BPEE),MAVS_8891WRMZ,2*MAVS_APEE);	\
       F=EP6;
-    TX=MAV 470 + EN 466 Wiener Walzer: Budapest-Keleti - Zürich HB 2013;				\
+    TX=MAV 470 + Güterzug;										\
+      C=MAVS_470_(001(|L)|002(|L)|002Z|003|004|005|006|007),D6FCM;					\
+      F=EF6;
+    TX=MAV 470 + EN 466 Wiener Walzer:Budapest-Keleti - Zürich HB 2013;					\
       C=M_470B|M_1047(|L)~HEN,										\
 	(<MAVS_61_9591L,MAVS_2071L,MAVS_BMZ2191L,MAVS_61_8891L,MAVS_61_1991L,MAVS_61_2091L,		\
 	MAVS_61_2191_1L,MAVS_61_5091L,MAVS_61_7191L)|							\
 	(<MAVS_61_7191,MAVS_61_5091,MAVS_61_2191_1,MAVS_61_2091,MAVS_61_1991,MAVS_61_8891,		\
 	MAVS_BMZ2191,MAVS_2071,MAVS_61_9591);								\
       F=EP6;
-    TX=MAV 480 + IC 311 Dráva: Ljubljana - Budapest-Keleti 2022;				\
+    TX=MAV START 182 + IC 31 Latorca:(Mukatschewo -)- Záhony - Budapest 2024;				\
+      C=MAVRT_182(|L),											\
+	(<3*MAVS_BPEE2044M,MAVS_ARMZ8591_4,MAVS_APEE1044M,MAVS_BHV2005_4)|				\
+	(>3*MAVS_BPEE2044ML,MAVS_ARMZ8591_4L,MAVS_APEE1044ML,MAVS_BHV2005_4L);				\
+      F=EP6;
+    TX=MAV 480 + IC 311 Dráva:Ljubljana - Budapest-Keleti 2022;						\
       C=M_480B,												\
 	(<MAVS_BPM2070,MAVS_ARMZ8591_4,MAVS_BBDPMZ8491_4,MAVS_BPMEE2070M,MAVS_BPM2070)|			\
 	(>MAVS_BPM2070L,MAVS_ARMZ8591_4L,MAVS_BBDPMZ8491_4L,MAVS_BPMEE2070ML,MAVS_BPM2070L);		\
       F=EP6;
-    TX=MAV 480 + IC/IR 73 Traianus: Budapest-Keleti - Bucuresti Nord 2013;				\
+    TX=MAV 480 + IC/IR 73 Traianus:Budapest-Keleti - Bucuresti Nord 2013;				\
       C=M_480B,												\
 	(<(2*CFR_6B2176),CFR_6BR8987,CFR_6A1091,MAVS_61_1091,3*MAVS_BO2037,MAVS_A1980)|			\
 	(<MAVS_A1980L,3*MAVS_BO2037L,MAVS_61_1091L,CFR_6A1091,CFR_6BR8987,2*CFR_6B2176);		\
       F=EP6;
-    TX=MAV 480 + IC/IR  948 Arrabona: Budapest-Keleti - Hegyeshalom 2015;				\
+    TX=MAV 480 + IC/IR  948 Arrabona:Budapest-Keleti - Hegyeshalom 2015;				\
       C=M_480B,(<MAVS_BPMEE2076,MAVS_BPM2070,MAVS_1991)|(<MAVS_1991L,MAVS_BPM2070L,MAVS_BPMEE2076);	\
       F=EP6;
-    TX=MAV 480 + Gy 346 Dacia: (Bucuresti Nord Gr.A -) Budapest-Keleti - Wien Hbf. 2019;		\
+    TX=MAV 480 + Gy 346 Dacia:(Bucuresti Nord Gr.A -)Budapest-Keleti - Wien Hbf. 2019;			\
       C=M_480B,												\
 	(<MAVS_AVMZ,MAVS_BPMZ2071,MAVS_BMZ2191L,CFR_B2190A,CFR_ACBCMEE4070_2016)|			\
 	(>MAVS_AVMZL,MAVS_BPMZ2071L,MAVS_BMZ2191,CFR_B2190AL,CFR_ACBCMEE4070_2016L);			\
@@ -542,20 +706,27 @@ $REQUIRE TRAINDEF.TTT
     C=M_480B,(<MAVS_BPMEE2076,MAVS_BPM2070,MAVS_1991)|(<MAVS_1991L,MAVS_BPM2070L,MAVS_BPMEE2076);	\
       F=EP6;												\
       IC/IR  948 ARRABONA:BUDAPEST-KELETI - HEGYESHALOM 2015;
-    TX=MAV 480 + IC 1247 Istria: Maribor - Zalaegerszeg 2013;						\
+    TX=MAV 480 + IC 1247 Istria:Maribor - Zalaegerszeg 2013;						\
       C=M_480B,												\
 	(<RZD_6_WLABM017,MAVS_61_7191L,MAVS_BC5941,MAVS_WSPZ2,MAVS_61_7191,MAVS_3091)|			\
 	(<RZD_6_WLABM|MAVS_3091L,MAVS_WSPZ2L,MAVS_BC5941L,MAVS_61_7191,RZD_6_WLABM017L|RZD_6_WLABML);	\
       MAVS_WSPZ2 F=EP6;
-    TX=MAV 480 + IC  187  Hernád: Hidasnémeti - Budapest-Keleti  2021;					\
+    TX=MAV 480 + IC  187  Hernád:Hidasnémeti - Budapest-Keleti  2021;					\
       C=M_480B,												\
 	(<MAVS_BPHEE2044,MAVS_BDMPEE8405,MAVS_BPMEE2076,MAVS_BMZ2191_1M,MAVS_BMZ2191_3M,		\
 	MAVS_AMZ1991_3M)|										\
 	(>MAVS_BPHEE2044,MAVS_BDMPEE8405,MAVS_BPMEE2076,MAVS_BMZ2191_1ML,MAVS_BMZ2191_3ML,		\
 	MAVS_AMZ1991_3ML);										\
-      MF=EP6;
+      F=EP6;
+    TX=MAV 480 +  EC 149 Hortobágy:(Wien Hbf -)Budapest-Keleti - Záhony 2024;				\
+      C=MAVS_480PLANET(|L),										\
+	(<MAVS_BHV2005_4,2*UZ_WLABM_B2,MAVS_BPMZ2091_1L,MAVS_BMZ2191_1ML,MAVS_BMZ2191_3ML,		\
+	MAVS_BBDPMZ8491_4L,MAVS_WRRMZML,MAVS_AMZ1991_3M)|						\
+	(>MAVS_BHV2005_4L,2*UZ_WLABM_B2,MAVS_BPMZ2091_1,MAVS_BMZ2191_1M,MAVS_BMZ2191_3M,		\
+	MAVS_BBDPMZ8491_4,MAVS_WRRMZM,MAVS_AMZ1991_3ML);						\
+      F=EP6;
     TX=MAV 480 + Güterzug;										\
-      C=M_480B|M_480A|M_480|M_480_001|M_480_001L|M_480L|M_480_022WEORES|M_480_004GABORARON,		\
+      C=MAVS_480_(001V|002(|L)|003|004(|L)|005|006|007|008|009|010|012|013(|L)|022),			\
 	(<SNCF_CNC_S7F[O:BOX14_EWALS6|BOX14_EWALS7|BOX14_EWALS8|BOX14_EWALS9|BOX14_EWALS10|		\
 	BOX14_EWALS11|BOX14_EWALS12],									\
 	M_454SGS[O:BOX14_ALBERTI_SPANTI1|BOX14_06|BOX14_BAS1|BOX14_GALLIKER1|BOX14_MREAL],		\
@@ -570,40 +741,83 @@ $REQUIRE TRAINDEF.TTT
 	WASC_SGGRSS80L[O:CT_VOS4,175,11][O:CT_WAUTERS1,20,11],						\
 	M_400LAAGRSS[O:BOX12_ROUCH3,9,11][O:BOX12_ARCUS,141,11]);					\
       F=EF6;
+    TX=MAV 480 + Güterzug;										\
+      C=M_480_(004GABORARON|001(|L)),D6FCM;								\
+      F=EF6;
+    TX=MAV 480 + IC 187 Hernád: Košice - Budapest-Keleti 2025;						\
+      C=MAVS_480_010,											\
+	(<2*MAVS_BPMEE2076,MAVS_BPEE2044V,MAVS_BDMPEE8405_840L,MAVS_BPMEE2076,2*ZSSK_BEER2070,		\
+	ZSSK_AEER1970)|											\
+	(>2*MAVS_BPMEE2076L,MAVS_BPEE2044VL,MAVS_BDMPEE8405_840,MAVS_BPMEE2076L,2*ZSSK_BEER2070L,	\
+	ZSSK_AEER1970L);										\
+      F=EP6;
+    TX=MAV 480 + IC 606 Nyírség: Budapest-Nyugati - Záhony 2025;					\
+      C=M_480B,												\
+	(<2*MAVS_BPEE2044M,MAVS_APEE1044M,MAVS_ARMZ_8591,MAVS_ARMZ8591_4,MAVS_BPEE2044M,		\
+	2*MAVS_BPEE2044V,MAVS_AD1930H,MAVS_BD2937H,3*MAVS_BPEE2044M)|					\
+	(>2*MAVS_BPEE2044ML,MAVS_APEE1044ML,MAVS_ARMZ8591_4L,MAVS_ARMZ8591_4L,MAVS_BPEE2044ML,		\
+	2*MAVS_BPEE2044VL,MAVS_AD1930HL,MAVS_BD2937HL,3*MAVS_BPEE2044ML);				\
+      F=EP6;
     TX=MAV 5040;											\
       C=<M_6805BDVMOTAL,M_1105,M_2205L,M_6805BDVMOTA;							\
       F=EPU6;
     TX=MAV 5341;											\
-      C=MAVS_BVPMOT0415RS|MAVS_BVPMOT0415B|(<M_5341_1AL,M_5341_1BL,M_5341_1C,M_5341_1D)|		\
+      C=MAVS_BVPMOT0415B|MAVS_415B(|L);									\
+      F=EPRU6;
+    TX=MAV 5341;											\
+      C=MAVS_BVPMOT0415RS|(<M_5341_1AL,M_5341_1BL,M_5341_1C,M_5341_1D)|					\
 	(<M_5341_1DL,M_5341_1CL,M_5341_1B,M_5341_1A)|(<M_5341_2AL,M_5341_2BL,M_5341_2C,M_5341_2D)|	\
 	(<M_5341_2DL,M_5341_2CL,M_5341_2B,M_5341_2A)|M_5341|M_5341L;					\
       F=EPU6;
+    TX=MAV 425;												\
+      C=MAVS_425B(|L);											\
+      F=EPRU6;
     TX=MAV 5342;											\
       C=MAVS_BVBDPMOT0425|MAVS_BVBDPMOT0425|M_5342L~SA|M_5342~SA|M_5342L~ZS|M_5342~ZS|MAVS_5342L;	\
       F=EPU6;
-    TX=MAV BVHMOT 9076;											\
+    TX=MAV BVHMOT 434 Sz 2536 S71 Budapest-Nyugati - Vác 2025;						\
+      C=(<MAVS_BMXTZL,2*MAVS_BMXZ,MAVS_AMXZ,MAVS_BVMOT)|						\
+	(>MAVS_BMXTZ,2*MAVS_BMXZL,MAVS_AMXZL,MAVS_BVMOTL);						\
+      F=EPRU6;
+    TX=MAV BVHMOT 434;											\
       C=(<MAVS_BVMOT0434L,MAVS_AMXZ1076,MAVS_BMXZ2176,MAVS_BMXTZ8076)|					\
 	(<MAVS_BVMOT9076L,M_2176A,M_1076A,M_8076A)|							\
 	(<M_8076AL,M_1076AL,M_2176AL,M_BVMOTD_X,MAVS_BVMOT9076);					\
       F=EPRU6;
-    TX=MAV BDVMOT0414: Sz 5337 Hidasnémeti - Miskolc-Tiszai 2018;					\
+    TX=MAV BDVMOT0414:Sz 5337 Hidasnémeti - Miskolc-Tiszai 2018;					\
       C=(<M_BDVMOT0414L,M_BMX2205,M_BMXT2105)|(<M_BMXT2105L,M_BMX2205,M_BDVMOT0414);			\
       F=EPRU6;
     TX=MAV BDVMOT0414 2018;										\
       C=(<M_BDVMOT0414L,M_BMX2105V,M_BMXT8005)|(<M_BMXT8005L,M_BMX2105V,M_BDVMOT0414);			\
       F=EPRU6;
-    TX=MAV 815 Sz 7049: Kecskemét - Budapest-Nyugati 2020;						\
+    TX=MAV 415;												\
+      C=MAVS_415B(|L);											\
+      F=EPU6;
+    TX=MAV 415 061;											\
+      C=MAVS_415_061;											\
+      F=EPU6;
+    TX=MAV 425;												\
+      C=MAVS_425B(|L);											\
+      F=EPU6;
+    TX=MAV 815 Sz 7049:Kecskemét - Budapest-Nyugati 2020;						\
       C=<MAVS_815AL,MAVS_815B,MAVS_815C,MAVS_815D,2*MAVS_815D,MAVS_815F;				\
       F=EPRU6;
-    TX=ÖBB Gy 347 Dacia: Wien Hbf. -  Budapest-Keleti - Bucuresti Nord Gr.A 2020;			\
+    TX=ÖBB Gy 347 Dacia:Wien Hbf. -  Budapest-Keleti - Bucuresti Nord Gr.A 2020;			\
       C=OBB_1116ETCS(|L),										\
 	(<MAVS_BMZ2191_3M,MAVS_61_2191_1,MAVS_BMZ2191_3M,CFR_WLABMEE7091_001,CFR_ACBCMEE4431,		\
 	CFR_B2190A)|											\
 	(>MAVS_BMZ2191_3ML,MAVS_61_2191_1L,MAVS_BMZ2191_3ML,CFR_WLABMEE7091_001L,CFR_ACBCMEE4431L,	\
 	CFR_B2190AL);											\
       F=EP6;
+    TX=CFR 477 + EN/IR 473 Ister:Budapest-Keleti - Bucuresti Nord Gr.A 2015;				\
+      C=CFR_CL47SO01(|L),CFR_WLABMEE7170(|L),CFR_ACBCMEE4431(|L),CFR_WRMZ8896,2*CFR_6B2176,		\
+	MAVS_WLAB7080(|L),MAVS_AB3930H(|L),MAVS_B2080(|L),MAVS_BO2037(|L),MAVS_BHV2005_601;		\
+      F=EP6;
 
 # Ungarn Hist
+    TX=MAV class 301;											\
+      C=M_6_301016(|L),H6PH1;										\
+      F=SP6;
     TX=MAV class 375;											\
       C=M_3_3751029(|L),H6PH1;										\
       F=SP6;
@@ -659,12 +873,32 @@ $REQUIRE TRAINDEF.TTT
       F=DPU6;
 
 # privat
+    TX=Ungarn Akiem 186 (ES64)+ Güterzug;								\
+      C=MRCE_ES64U2_070GY(|L),D6FCM;									\
+      F=EF6;
     TX=Ungarn Ferroglóbusz A26 064;									\
       C=FERG_A26_064,G_5_EAS(|L)[O:SCRAP(6|4|5)];							\
       F=DF6;
     TX=Ungarn Floyd Kft DA 60+Güterzug;									\
       C=FLOYD_DA60,H6F1;										\
       F=DF6;
+    TX=Ungarn Continental Railway Solution (CRS) ZOS 240 013 + Kü 13021 Velikonocní vlak do Neznáma:Szob - Pécs 2024; \
+      C=ZOS_240013ZM,											\
+	(<RJCZ_BCMZ_I6_WSBA,CD_WLABV,3*WST_BCMHWS,CD_SR8940_041N,CD_BDSN2_2019,WST_BC75,WST_BC663,	\
+	CD_WLABV,CDC_BCEE663,WST_BC663)|								\
+	(>RJCZ_BCMZ_I6_WSBAL,CD_WLABVL,3*WST_BCMHWSL,CD_SR8940_041N,CD_BDSN2_2019L,WST_BC75L,		\
+	WST_BC663,CD_WLABVL,CDC_BCEE663,WST_BC663);							\
+      F=EP6;
+    TX=Ungarn Continental Railway Solution (CRS) ZOS 240  129 + Kü 13100 éves a Semmeringbahn:Budapest-Keleti - Hegyeshalom (- Mürzzuschlag)2024; \
+      C=ZOS_240129C,											\
+	(<2*CRSHU_AP2,CRSHU_BRZ,CRSHU_WRMZ,CRSHU_AP1)|(>2*CRSHU_AP2,CRSHU_BRZL,CRSHU_WRMZL,CRSHU_AP1L);	\
+      F=EP6;
+    TX=Ungarn Continental Railway Solution (CRS)47 + Salonwagen;					\
+      C=CRSHU_47,CRSHU_SALON_Z(|L);									\
+      F=DP6;
+    TX=Ungarn Continental Railway Solution (CRS) 47 + MAVS 628 + Kü 13603 Angolok külünvonata:Záhony - Debrecen 2024; \
+      C=CRSHU_47,M_1905A2,MAVS_BHRV,2*MAVS_BO2037A,MAVS_BD2037RETRO(|L),MAVS_BY2017,M_M62P(|L);		\
+      F=DP6;
     TX=Ungarn Floyd 600 001 + Güterzug;									\
       C=FLOYD_600_001,H6F1;										\
       F=DF6;
@@ -687,29 +921,36 @@ $REQUIRE TRAINDEF.TTT
       C=GY_651A,H6F1;											\
       F=DF6;
     TX=Ungarn GYSEV 470 501 + Personenzug;								\
-      C=GY_470_501(|L),H6PG1;										\
+      C=GY_470_501(|L)|GY_470504_150,H6PG1;								\
       F=EP6;
     TX=Ungarn GYSEV 470 501 + Personenzug;								\
       C=GY_470505P1,											\
 	(<(4*GY_BH2027),GY_BDH8127)|(<(4*GY_BPZ2903),GY_BDPZ8405|GY_BDPZ8203)|				\
 	(<GY_BDPZ8235L,(4*GY_BPZ2935(|L)))|(<(4*GY_BPZ2935(|L)),GY_BDPZ8235);				\
       F=EP6;
-    TX=Ungarn GYSEV 471 + REX 318 Rába: Budapest-Keleti - Graz Hbf.;					\
-      C=GY_471,(<3*GY_BMZ,2*MAVS_BMZ2191L)|(<2*MAVS_BMZ2191,3*GY_BMZL);					\
+    TX=Ungarn GYSEV 471 + REX 318 Rába:Budapest-Keleti - Graz Hbf.;					\
+      C=GY_471(|L),(<3*GY_BMZ,2*MAVS_BMZ2191L)|(<2*MAVS_BMZ2191,3*GY_BMZL);				\
       F=EP6;
-    TX=Ungarn GYSEV 471 +  IC 914 Savaria: Budapest-Keleti - Szombathely;				\
-      C=GY_471,(<3*MAVS_BPM2070,MAVS_2071,MAVS_APMZ1071M)|(<3*MAVS_BPM2070L,MAVS_2071L,MAVS_APMZ1071ML); \
+    TX=Ungarn GYSEV 471 + IC 914 Savaria:Budapest-Keleti - Szombathely;					\
+      C=GY_471(|L),											\
+	(<3*MAVS_BPM2070,MAVS_2071,MAVS_APMZ1071M)|(<3*MAVS_BPM2070L,MAVS_2071L,MAVS_APMZ1071ML);	\
+      F=EP6;
+    TX=Ungarn GYSEV 471 + IC 993 Tuztorony:Sopron - Budapest-Keleti 2024;				\
+      C=GY_471(|L),(<GY_1033,GY_2067A,GY_R_BY,GY_BP2033M)|(>GY_1033,GY_2067A,GY_R_BY,GY_BP2033ML);	\
       F=EP6;
     TX=Ungarn MRCE ES64 Gysev + Güterzug;								\
       C=MRCE_ES64U2_070GY(|L),H6F1;									\
-      F=DF6;
+      F=EF6;
+    TX=Ungarn GYSEV 193 + Güterzug;									\
+      C=GYC_193(837|595)(|L),D6FCM;									\
+      F=EF6;
     TX=Ungarn GYSEV 430 + Personenzug;									\
       C=GY_430,H6PG1;											\
       F=EP6;
     TX=Ungarn GYSEV 1116 + Personenzug;									\
       C=GY_1116_061(|L)~MB|GY_1116BM(|L),H6PG1;								\
       F=EP6;
-    TX=Ungarn GYSEV 1116 (470) + IC 913 Isis: Szombathely - Budapest-Keleti 2014;			\
+    TX=Ungarn GYSEV 1116 (470)+ IC 913 Isis:Szombathely - Budapest-Keleti 2014;				\
       C=GY_1116_061L~MB|GY_1116_061~MB,									\
 	(<GY_1033|GY_1067C,2*(GY_2033|GY_2067C),MAVS_1071L,2*MAVS_2070L)|				\
 	(<2*MAVS_2070,MAVS_1071,2*(GY_2033|GY_2067C),GY_1033|GY_1067C);					\
@@ -720,7 +961,10 @@ $REQUIRE TRAINDEF.TTT
     TX=Ungarn GYSEV 1116 061 + Personenzug;								\
       C=<GY_1116_061L~MB|GY_1116_061~MB,2*GY_BYZ1,GY_ABYZ3,GY_8076;					\
       F=EPU6;
-    TX=Ungarn GYSEV 435: Sz 9114 Szombathely - Szentgotthárd 2020;					\
+    TX=Ungarn GYSEV 1446 + Sz 39816 Csorna - Szombathely 2024;						\
+      C=<GY_1446AL,GY_1446A;										\
+      F=EPU6;
+    TX=Ungarn GYSEV 435:Sz 9114 Szombathely - Szentgotthárd 2020;					\
       C=<GY_435_5AL,(GY_435_5B,GY_435_5C)|(GY_435_5CL,GY_435_5BL),GY_435_5A;				\
       F=EPRU6;
     TX=Ungarn GYSEV 1047/470;										\
@@ -760,6 +1004,9 @@ $REQUIRE TRAINDEF.TTT
 	M_454SGS2[O:C2I_NAMSUNG1,7][O:C45_APL,70,12],M_454SGS3[O:C2_MSC1,7][O:C4R_C65O1,70,12],		\
 	M_TADGS0,M_245HBBILLNS1,M_246HBBILLNNS1,M_246HBBILLNNS3);					\
       F=EF6;
+    TX=Ungarn Komplex Rail Vasúti Szolgáltató Kft 618 + Güterzug;					\
+      C=KRHU_618,D6FCM;											\
+      F=DF6;
     TX=Ungarn Magyar Magánvasút ZRt 2100 + Güterzug;							\
       C=MMV_LDE2100(|L),H6F1;										\
       F=DF6;
@@ -775,36 +1022,46 @@ $REQUIRE TRAINDEF.TTT
     TX=Ungarn Magyar Magánvasút 48 + Güterzug;								\
       C=MMV_48SO0(1|2)(|L),D6FCM;									\
       F=EF6;
+    TX=Ungarn Mávépcell Kft.2143 + Güterzug;								\
+      C=MAVEP_2143(|L),D6FCM;										\
+      F=DF6;
     TX=Ungarn TH - Train Hungary Magánvasút Kft 60 + Güterzug;						\
       C=THM_60_01(|L),D6FZM|H6F1;									\
       F=DF6;
     TX=Ungarn TH - Train Hungary Magánvasút Kft 40 + Güterzug;						\
       C=THM_40_01(|L),D6FCM|H6F1;									\
       F=EF6;
-    TX=SK Raill 383 +  EC 173 Hungaria: Hamburg-Altona - Budapest-Nyugati 2021;				\
+    TX=SK Raill 383 +  EC 173 Hungaria:Hamburg-Altona - Budapest-Nyugati 2021;				\
       C=ZSR_383,											\
 	(>MAVS_APMZ1091_1M,MAVS_AMZ1991_1M,MAVS_BMZ2191_1M,4*MAVS_BPMZ2091_1,MAVS_BBDPMZ8491_4)|	\
 	(>MAVS_APMZ1091_1ML,MAVS_AMZ1991_1ML,MAVS_BMZ2191_1ML,4*MAVS_BPMZ2091_1L,MAVS_BBDPMZ8491_4L);	\
       F=EP6;
-    TX=CD 380 +  EC 131 Báthory: Terespol - Bohumín - Budapest-Nyugati 2021;				\
+    TX=CD 380 +  EC 131 Báthory:Terespol - Bohumín - Budapest-Nyugati 2021;				\
       C=CD_380V4A,											\
 	(<MAVS_AMZ1991_1M,MAVS_BMZ2191_3M,MAVS_BPMZ2071M,MAVS_BMZ2191_3M,MAVS_BBDPMZ8491_4L)|		\
 	(>MAVS_AMZ1991_1ML,MAVS_BMZ2191_3ML,MAVS_BPMZ2071ML,MAVS_BMZ2191_3ML,MAVS_BBDPMZ8491_4);	\
       F=EP6;
-    TX=ÖBB 1116 +  EN 462 Kálmán Imre: Budapest-Keleti - München Hbf 2021;				\
+    TX=ÖBB 1116 +  EN 462 Kálmán Imre:Budapest-Keleti - München Hbf 2021;				\
       C=OBB_1116ETCS(|L),										\
 	(<MAVS_WLABMZ7191_1M,MAVS_BCMZ5091_1M,2*MAVS_BMZ2191_3M)|					\
 	(>MAVS_WLABMZ7191_1ML,MAVS_BCMZ5091_1ML,2*MAVS_BMZ2191_3ML);					\
       F=EP6;
-
+    TX=CD 380 + EN 476 Metropol Budapest-Nyugati - Breclav 2022;					\
+      C=CD_380V4A(|L),											\
+	(<PKP_BC10MNOUZ134ABM,PKP_B11MNOUZ_Z2B_NEWAG,MAVS_BMZ2191_3M,MAVS_BCMZ5091_1M,			\
+	MAVS_WLABMZ7191_0ML,PKP_WLABDMNU61,CD_WLABMEEN2M,BTE_BVCMZ248,MAVS_BMZ2191_3M,CD_WLABMEEN2ML)|	\
+	(>PKP_BC10MNOUZ134ABM,PKP_B11MNOUZ_Z2B_NEWAG,MAVS_BMZ2191_3ML,MAVS_BCMZ5091_1ML,		\
+	MAVS_WLABMZ7191_0M,PKP_WLABDMNU61,CD_WLABMEEN2ML,BTE_BVCMZ248L,MAVS_BMZ2191_3ML,CD_WLABMEEN2M);	\
+      F=EP6;
 # Schmalspur
     TX=Ungarn Balatonfenyves 2948 + Passenger Train;							\
       C=BF_2948,BF_BAWG2501,BF_BDAW2501;								\
       F=DPN6;
-    TX=Ungarn Gyermekvasút (Children's Railway) Budapest 2945 + Passenger Train;			\
+    TX=Ungarn Gyermekvasút (Children's Railway)Budapest 2945 + Passenger Train;				\
       C=GYV_2945001|GYV_2945|GYV_2945REMOT|GYV_2945003,							\
 	(3*GYV_GANZP1,GYV_KIL1)|(3*GYV_BAWN2501485,GYV_BAWNN2501555)|					\
 	(<M_BDDU2450,M_BAWW2501494,M_BAWW2501496,M_BAWW2501493,M_BA2501);				\
       F=DPN6;
   }
 %ENDPOOL;
+

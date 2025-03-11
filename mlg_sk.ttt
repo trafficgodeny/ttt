@@ -1,9 +1,6 @@
 {FILELEVEL=1?
   $INCLUDE SINGLE.TTT
 }
-{FILELEVEL=1?
-  $INCLUDE SINGLE.TTT
-}
 $REQUIRE MLG_DEF.TTT
 
 {SK?
@@ -26,19 +23,160 @@ $REQUIRE MLG_DEF.TTT
 
 ;R400 BRATISLAVA - WIEN
       TX=ÖBB 1116 + R400 Bratislava - Wien;								\
-	C=OBB_1116_R1(|L),3*ZSR_BMEE_RWO(|L),OBB_BMZ21705(|L);						\
+	C=OBB_1116_R1(|L),3*ZSR_B90_BMEE_RWO(|L),OBB_BMZ21705(|L);						\
 	V=14;												\
 	F=EP5;
+      TX=CD 162;											\
+	C=CD_162GY(|L),2*ZSR_B90_AMEER_GY(|L),CSD_WRAB_B(|L),8*ZSR_B90_BMEER_GY(|L);			\
+	V=14;												\
+	F=EP5;
+      TX=ZSR 162;											\
+	C=ZSR_162GY(|L),ZSR_YB_AG(|L),ZSR_YB70_BDSG(|L),5*ZSR_YB_BG(|L);				\
+	V=12;												\
+	F=EP5;
+      TX=ZSR 162;											\
+	C=ZSSK_162GY(|L),CD_APEE141EC(|L),CD_BDS449_IC(|L),5*CD_B249_2S_IC;				\
+	V=12;												\
+	F=EP5;
+      TX=ZSR 263;											\
+	C=ZSR_263RC(|L),2*XZSR_YB70_B_RO1,ZSR_YB_AB_RO1(|L);						\
+	V=12;												\
+	F=EP5;
+      TX=ZSR 350;											\
+	C=ZSR_350RC(|L),4*ZSR_B90_BMEER_GY(|L),$DIR(ZSR_B90_BDMEER_GY,ZSR_B90_BDMEER_GYL),		\
+	  2*ZSR_B90_AMEER_GY(|L);									\
+	V=14;												\
+	F=EP5;
+      TX=ZSR 350;											\
+	C=ZSR_350RC(|L),ZSR_YB70_DSG(|L),2*ZSR_YB_AG(|L),5*ZSR_YB_BG(|L);				\
+	V=12;												\
+	F=EP5;
+      TX=ZSR 350;											\
+	C=ZSR_350RC(|L),5*CD_BEE246IC(|L),CD_WRM812EC(|L),CD_AEE147IC(|L);				\
+	V=14;												\
+	F=EP5;
+      TX=ZSR 350;											\
+	C=ZSR_350BC(|L),2*ZSR_B90_BMEER_GY(|L),ZSR_B90_BMEE_RWO(|L),ZSR_B90_BMEER_GY(|L),			\
+	  ZSR_B90_AMEER_GY(|L);										\
+	V=14;												\
+	F=EP5;
+      TX=ZSR 350;											\
+	C=ZSR_350(_BCA|BY),ZSR_YB70_DSG(|L),ZSR_B90_AMEER_GY(|L),ZSR_YB70_AG(|L),CSD_WRAB_B(|L),	\
+	  5*ZSR_YB70_B_V;										\
+	V=14;												\
+	F=EP5;
+      TX=ZSR 350;											\
+	C=ZSR_350BY(|L),4*ZSR_B90_BMEER_GY(|L),$DIR(ZSR_B90_BDMEER_GY,ZSR_B90_BDMEER_GYL),		\
+	  CSD_WRAB_B(|L),2*ZSR_B90_AMEER_GY(|L);							\
+	V=14;												\
+	F=EP5;
+      TX=ZSSK 350;											\
+	C=ZSSK_350RC(|L),M_Z1DWA_AVMZ(|L),CD_AEE147IC(|L),CD_WRM812EC(|L),5*CD_BEE246IC(|L);		\
+	V=14;												\
+	F=EP5;
+      TX=ZSSK 350;											\
+	C=ZSSK_350RC(|L),ZSSK_YB70R_APEER(|L),ZSSK_YB70R_APEERO(|L),ZSSK_Z_WRRM_RW(|L),			\
+	  2*(2*ZSSK_YB70R_BPEER2070O(|L),ZSSK_YB70R_BPEER2070(|L));					\
+	V=14;												\
+	F=EP5;
+      TX=ZSSK 350;											\
+	C=ZSSK_350_BBB(|L),M_Z1CAF_APMZ(|L),M_Z1DWA_WRBUMZ(|L),3*M_Z1DWA_BVMZ(|L),CD_BPEE247IC(|L),	\
+	  CD_AEE147IC(|L),2*CD_BEE246IC(|L),OBB_6ABMZ30700(|L);						\
+	V=16;												\
+	F=EP5;
+      TX=ZSSK 350;											\
+	C=ZSSK_350_BBB(|L),CD_AEE142EC(|L),CD_AMPZ10910_EC(|L),5*CD_BEE240EC(|L),CD_BT277IC;		\
+	V=16;												\
+	F=EP5;
+      TX=ZSSK 350;											\
+	C=ZSSK_350_BBB(|L),CD_AEE147IC(|L),CD_BDBMRSEE447IC(|L),CD_BEE273_L1,2*CD_BEE246IC(|L);		\
+	V=16;												\
+	F=EP5;
+
+      TX=ZSSK 163;											\
+	C=ZSSK_163GY3(|L),2*ZSSK_STUD_BDT2G(|L),ZSSK_YB70_BDS_GO,SKPOST_GBKKQS;				\
+	V=12;												\
+	F=EPR5;
+      TX=ZSR 263;											\
+	C=ZSR_263RC(|L),3*ZSR_BDMTEE_GO1(|L);								\
+	V=12;												\
+	F=EPR5;
+      TX=ZSR 362;											\
+	C=ZSR_362BC(|L),2*ZSR_BDMTEE_GO1(|L),ZSR_BDMTEEG(|L)|(3*ZSR_BDMTEE_GO1(|L));			\
+	V=12;												\
+	F=EPR5;
+      TX=ZSSK 263;											\
+	C=ZSSK_263RC(|L),3*ZSSK_BDMTEE_G(|L),ZSSK_YB70_BDS_GO(|L),3*ZSSK_BDMTEE_G(|L);			\
+	V=12;												\
+	F=EPR5;
+      TX=ZSSK 362;											\
+	C=ZSSK_362BC2(|L),4*ZSSK_BDMTEE_G(|L);								\
+	V=12;												\
+	F=EPR5;
+
+      TX=ZSR 750;											\
+	C=ZSR_750B(|L),2*ZSR_STUD_BTG1(|L),ZSR_YB70_BDSG1(|L),2*ZSR_STUD_BTG1(|L);			\
+	V=11;												\
+	F=DPR5;
+      TX=ZSR 750;											\
+	C=ZSR_750BY(|L)|ZSR_750RY(|L),2*ZSR_YB_BG(|L),ZSR_YB70_DSG(|L),2*ZSR_YB_BG(|L);			\
+	V=11;												\
+	F=DPR5;
+      TX=ZSR 750;											\
+	C=ZSR_750BW(|L),2*ZSR_STUD_BTG1(|L),ZSR_YB70_BDSG1(|L),2*ZSR_STUD_BTG1(|L);			\
+	V=11;												\
+	F=DPR5;
+      TX=ZSR 750;											\
+	C=ZSR_750BW(|L),ZSR_BDMTEE_GO1(|L),ZSR_YB70_BDS_GO1,ZSR_BDMTEE_GO1(|L);				\
+	V=11;												\
+	F=DPR5;
+      TX=ZSSK 750;											\
+	C=2*ZSSK_750BW(|L),										\
+	  7-8*(ZSSK_GYOR_BHG1|ZSSK_STUD_BTG1(|L)|ZSR_STUD_BDT1G1(|L)|ZSR_STUD_BDT2G1(|L));		\
+	V=10;												\
+	F=DPR5;
+      TX=ZSSK 750;											\
+	C=ZSSK_750BW(|L),ZSSK_BDMTEE_G(|L),ZSSK_YB70_BDSEE_RO,ZSSK_BDMTEE_G(|L);			\
+	V=11;												\
+	F=DPR5;
+      TX=ZSSK 750;											\
+	C=ZSSK_750BW(|L),										\
+	  (ZSSK_BDMTEE_GO1(|L),ZSSK_BDMTEE_G(|L),ZSSK_BDMTEE_GO1(|L))|(3*ZSSK_BDMTEE_G(|L));		\
+	V=11;												\
+	F=DPR5;
+      TX=ZSR 754;											\
+	C=ZSR_754GW(|L),2*ZSR_GYOR_BH_GO1,ZSR_YB70_BDS_GO1,2*ZSR_GYOR_BH_GO1;				\
+	V=11;												\
+	F=DPR5;
+
+      TX=ZSR 810;											\
+	C=2:ZSR_810RC(|L)|1:ZSR_810RY(|L),(|ZSR_011RC(|L));						\
+	V=8; W=X;											\
+	FG=TRBED57:..,-6,0-5;
+      TX=ZSSK 810;											\
+	C=ZSSK_810RC(|L),|ZSSK_011RC(|L);								\
+	V=8; W=X;											\
+	FG=TRBED57:..,-6,0-5;
+      TX=ZSSK 812;											\
+	C=ZSSK_812R1(|L),|ZSSK_011R(|L);								\
+	V=8; W=X;											\
+	FG=TRBED57:..,-6,0-5;
+      TX=ZSSK 840;											\
+	C=1-2@ZSSK_840_L1;										\
+	V=11;												\
+	F=DPRU5;
+
+;FREIGHT
+      TX=ZSSK 131;											\
+	C=ZSSK_131_VJ,18*ZSSK_EAS5950,14*ZSSK_EANOS5377;						\
+	V=10;												\
+	F=EF5;
 
     }
 #===============================
 #========   EPOQUE VI   ========
 #===============================
     {E6?
-
-#==================
-#==== REGIOJET ====
-#==================
 
 #-----------------
 #--- MAINLINES ---
@@ -77,19 +215,18 @@ $REQUIRE MLG_DEF.TTT
 	V=14;												\
 	F=EP6;
       TX=ZSSK 350;											\
-	C=ZSSK_350RW(|L),ZSSK_BMEE_RW(|L),ZSSK_YB70_BDSEE_WR,4*ZSSK_YB70_BEE(|L),			\
+	C=ZSSK_350RW(|L),ZSSK_BMEE_RW(|L),ZSSK_YB70_BDSEE_WR,4*ZSSK_YB70_BEE_RW(|L),			\
 	  ZSSK_YB70_BEEEXA_RW(|L);									\
 	V=14;												\
 	F=EP6;
       TX=ZSSK 362;											\
-	C=ZSSK_362BC2(|L),ZSSK_BAUTZEN90R_BMEE_RW(|L),2*ZSSK_YB70_BEE(|L),ZSSK_BAUTZEN90R_BMEE_RW(|L),	\
-	  3*ZSSK_YB70R_BEER(|L),ZSSK_BAUTZEN90R_BDGHMEER_RW(|L),ZSSK_BAUTZEN90_ARMEER_RW(|L),		\
-	  ZSSK_YB70R_AEER(|L);										\
+	C=ZSSK_362BC2(|L),ZSSK_B90R_BMEE_RW(|L),2*ZSSK_YB70_BEE_RW(|L),ZSSK_B90R_BMEE_RW(|L),		\
+	  3*ZSSK_YB70R_BEER(|L),ZSSK_B90R_BDGHMEER_RW(|L),ZSSK_B90_ARMEER_RWO(|L),ZSSK_YB70R_AEER(|L);	\
 	V=14;												\
 	F=EP6;
       TX=ZSSK 362;											\
-	C=ZSSK_362WR(|L),ZSSK_YB70R_APEER(|L),CD_WRMEE816B2(|L),ZSSK_BAUTZEN90R_BDGHMEER_RW(|L),	\
-	  3*ZSSK_BMPEER_RW(|L),5*ZSSK_BAUTZEN90R_BMEE_RW(|L);						\
+	C=ZSSK_362WR(|L),ZSSK_YB70R_APEER(|L),CD_WRMEE816B2(|L),ZSSK_B90R_BDGHMEER_RW(|L),		\
+	  3*ZSSK_BMPEER_RW(|L),5*ZSSK_B90R_BMEE_RW(|L);							\
 	V=14;												\
 	F=EP6;
       TX=ZSSK 362;											\
@@ -97,23 +234,23 @@ $REQUIRE MLG_DEF.TTT
 	V=14;												\
 	F=EP6;
       TX=ZSSK 362;											\
-	C=ZSSK_362WR(|L),ZSSK_YB70R_AEER(|L),ZSSK_BAUTZEN90R_BDGHMEER_RW(|L),5*ZSSK_YB70R_BEER(|L),	\
+	C=ZSSK_362WR(|L),ZSSK_YB70R_AEER(|L),ZSSK_B90R_BDGHMEER_RW(|L),5*ZSSK_YB70R_BEER(|L),		\
 	  ZSSK_BMEE_RW(|L);										\
 	V=14;												\
 	F=EP6;
       TX=ZSSK 383;											\
-	C=ZSSK_383_1_L1_AC,ZSSK_AMPEER_RW(|L),ZSSK_BAUTZEN90R_BDGHMEER_RW(|L),				\
-	  2*ZSSK_YB70R_BPEER2970(|L),3*ZSSK_BMPEER_RW(|L),2*ZSSK_BAUTZEN90R_BMEE_RW(|L);		\
+	C=ZSSK_383_1_L1_AC,ZSSK_AMPEER_RW(|L),ZSSK_B90R_BDGHMEER_RW(|L),2*ZSSK_YB70R_BPEER2970(|L),	\
+	  3*ZSSK_BMPEER_RW(|L),2*ZSSK_B90R_BMEE_RW(|L);							\
 	V=16;												\
 	F=EP6;
       TX=ZSSK 383;											\
-	C=ZSSK_383_1_L1_AC,2*ZSSK_BMPEER_RW(|L),ZSSK_BAUTZEN90R_BDGHMEER_RW(|L),ZSSK_YB70R_WRREER(|L),	\
+	C=ZSSK_383_1_L1_AC,2*ZSSK_BMPEER_RW(|L),ZSSK_B90R_BDGHMEER_RW(|L),ZSSK_YB70R_WRREER(|L),	\
 	  ZSSK_AMPEER_RW(|L);										\
 	V=16;												\
 	F=EP6;
       TX=ZSSK 383;											\
-	C=ZSSK_383_1_L1_AC,2*ZSSK_BMPEER_RW(|L),ZSSK_BAUTZEN90R_BMEE_RW(|L),3*ZSSK_BMPEER_RW(|L),	\
-	  2*ZSSK_YB70R_BPEER2970(|L),ZSSK_BAUTZEN90R_BDGHMEER_RW(|L),ZSSK_BAUTZEN90R_WRRMEER_RW(|L),	\
+	C=ZSSK_383_1_L1_AC,2*ZSSK_BMPEER_RW(|L),ZSSK_B90R_BMEE_RW(|L),3*ZSSK_BMPEER_RW(|L),		\
+	  2*ZSSK_YB70R_BPEER2970(|L),ZSSK_B90R_BDGHMEER_RW(|L),ZSSK_B90R_WRRMEER_RW(|L),		\
 	  ZSSK_YB70R_AEERPLUS_RW(|L),ZSSK_AMPEER_RW(|L);						\
 	V=16;												\
 	F=EP6;
@@ -130,11 +267,37 @@ $REQUIRE MLG_DEF.TTT
 	F=DPRU6;
 
       TX=ZSSK 162;											\
-	C=ZSSK_162GY(|L),ZSSK_YB70_BDS_GO,ZSSK_STUDENKA_BDT_GO,ZSSK_STUD_BDT2R(|L),ZSSK_STUDENKA_BDT_GO; \
+	C=(ZSSK_162GY(|L),ZSSK_YB70_BEE_RO(|L))|(ZSSK_162RW(|L),ZSSK_YB70_BEE(|L)),ZSSK_YB70_BDSEE_WR,	\
+	  2*ZSSK_YB70_BEE(|L);										\
 	V=12;												\
 	F=EPR6;
+      TX=ZSSK 162;											\
+	C=ZSSK_162GY(|L),ZSSK_YB70_BDS_GO,4*ZSSK_STUD_BDT2G(|L);					\
+	V=12;												\
+	F=EPR6;
+      TX=ZSSK 162;											\
+	C=ZSSK_162GY(|L),XZSSK_YB70_BDS_GO,ZSSK_STUDENKA_BDT_GO,ZSSK_STUD_BDT2R(|L),			\
+	  ZSSK_STUDENKA_BDT_GO;										\
+	V=12;												\
+	F=EPR6;
+      TX=ZSSK 162;											\
+	C=ZSSK_163GY3(|L),2*ZSSK_YB70_BEE(|L),ZSSK_YB70_BEE_RO(|L);					\
+	V=12;												\
+	F=EPR6;
+      TX=ZSSK 162;											\
+	C=ZSSK_162RW(|L),ZSSK_YB70_BEE(|L),2*ZSSK_YB70_BEE_RO(|L),ZSSK_YB70_BDSEE_RO;			\
+	V=12;												\
+	F=EPR6;
+      TX=ZSSK 162;											\
+	C=ZSSK_162RW(|L),ZSSK_YB70_BDS_RO,ZSSK_STUD_BDT2R(|L),2*ZSSK_STUD_BDTEER2100RW(|L);		\
+	V=11;												\
+	F=EPR6;
+      TX=ZSSK 162;											\
+	C=ZSSK_162RW(|L),ZSSK_YB70_BDSEE_WR,3*ZSSK_STUD_BDT2G(|L),ZSSK_STUD_BDT2R(|L);			\
+	V=11;												\
+	F=EPR6;
       TX=ZSSK 263;											\
-	C=ZSSK_263RC(|L),ZSSK_YB70_BEE(|L),2*XZSSK_YB70_BEE_RO,2*ZSSK_YB70_BEE(|L),			\
+	C=ZSSK_263RC(|L),ZSSK_YB70_BEE_RW(|L),2*XZSSK_YB70_BEE_RO,2*ZSSK_YB70_BEE_RW(|L),		\
 	  2*XZSSK_YB70_BEE_RO,2*SKPOST_GBKKQS;								\
 	V=12;												\
 	F=EPR6;
@@ -143,13 +306,97 @@ $REQUIRE MLG_DEF.TTT
 	V=12;												\
 	F=EPR6;
       TX=ZSSK 362;											\
-	C=ZSSK_362WR(|L),ZSSK_YB70_BEE(|L),2*ZSSK_STUD_BDT1RW(|L),ZSSK_YB70_BEE(|L);			\
+	C=ZSSK_362WR(|L),ZSSK_YB70_BEE_RW(|L),2*ZSSK_STUD_BDT1RW(|L),ZSSK_YB70_BEE_RW(|L);		\
 	V=12;												\
 	F=EPR6;
       TX=ZSSK 362;											\
 	C=ZSSK_362WR(|L),3*ZSSK_BDMTEE_G(|L);								\
 	V=12;												\
 	F=EPR6;
+      TX=ZSSK 381;											\
+	C=ZSSK_381,ZSSK_YB70_BEE_RW(|L),								\
+	  ZSSK_STUD_BDT1RW(|L)|(ZSSK_YB70_BEEEXA_RW(|L),ZSSK_YB70_BEE_RW(|L)),				\
+	  ZSSK_STUD_BDTEER2100RW(|L);									\
+	V=12;												\
+	F=EPR6;
+      TX=ZSSK 381;											\
+	C=ZSSK_381,ZSSK_YB70_BDSEE_WR,ZSSK_STUD_BTWR(|L),ZSSK_STUD_BTG(|L),2*ZSSK_STUD_BTWR(|L);	\
+	V=12;												\
+	F=EPR6;
+      TX=ZSSK 381;											\
+	C=ZSSK_381,2*ZSSK_BDMTEE_RW(|L),ZSSK_BDMTEE_G(|L),ZSSK_BDMTEE_RW(|L);				\
+	V=12;												\
+	F=EPR6;
+      TX=ZSSK 263;											\
+	C=(<ZSSK_263RW(|L),2*ZSSK_051B,ZSSK_951B)|(>ZSSK_263RW(|L),2*ZSSK_051BL,ZSSK_951BL);		\
+	V=14;												\
+	F=EPR6;
+      TX=ZSSK 381;											\
+	C=(<ZSSK_381,2*ZSSK_051B,ZSSK_951B)|(>ZSSK_381,2*ZSSK_051BL,ZSSK_951BL);			\
+	V=16;												\
+	F=EPR6;
+
+      TX=ZSSK 754;											\
+	C=ZSSK_754GW(|L),ZSSK_YB70_BEEEXA_RW(|L),ZSSK_YB70_BDSEE_WR,ZSSK_YB70_BEE(|L);			\
+	V=12;												\
+	F=DPR6;
+      TX=ZSSK 757;											\
+	C=ZSSK_757WR(|L),ZSSK_YB70_BEE(|L),ZSSK_YB70_BDSEE_WR,ZSSK_YB70_BEE(|L);			\
+	V=12;												\
+	F=DPR6;
+      TX=ZSSK 757;											\
+	C=ZSSK_757WR(|L),ZSSK_STUD_BDT1RW(|L),2*ZSSK_YB70_BEE(|L);					\
+	V=12;												\
+	F=DPR6;
+      TX=ZSSK 757;											\
+	C=ZSSK_757WR(|L),2*ZSSK_YB70_BEE(|L),ZSSK_YB70_BEE_RO(|L),ZSSK_B90R_BDGHMEER_RW(|L),		\
+	  ZSSK_YB70R_APEER(|L);										\
+	V=12;												\
+	F=DPR6;
+      TX=ZSSK 757;											\
+	C=ZSSK_757WR(|L),2*ZSSK_BMEE_RW(|L),ZSSK_YB70_BEE(|L),ZSSK_YB70R_APEERO(|L);			\
+	V=12;												\
+	F=DPR6;
+      TX=ZSSK 757;											\
+	C=ZSSK_757WR(|L),4*ZSSK_STUD_BDTEER2000RW(|L),ZSSK_STUD_BDTEER2100RW(|L),			\
+	  ZSSK_STUD_BDTEER2000RW(|L);									\
+	V=12;												\
+	F=DPRU6;
+      C=ZSSK_660_L1;											\
+	V=14;												\
+	F=DPR6;
+      C=ZSSK_661_L1;											\
+	V=14;												\
+	F=DPRU6;
+
+      TX=ZSSK 671;											\
+	C=1-2*ZSSK_671_L1;										\
+	V=14;												\
+	F=EPRU6;
+
+      TX=ZSSK 810;											\
+	C=ZSSK_810WR(|L),|ZSSK_011WR(|L);								\
+	V=8;												\
+	F=DPRU6;
+      TX=ZSSK 812;											\
+	C=ZSSK_812R2(|L),|ZSSK_011WR(|L);								\
+	V=8;												\
+	F=DPRU6;
+      TX=ZSSK 813.0;											\
+	C=ZSSK_813_0_WR;										\
+	V=9;												\
+	F=DPRU6;
+      TX=ZSSK 840;											\
+	C=1-2*(ZSSK_840_L1|ZSSK_840_L20);								\
+	V=11;												\
+	F=DPRU6;
+     TX=ZSSK 561;											\
+	C=C=1-2@ZSSK_561;								\
+	V=14;												\
+	F=DPRU6;
+
+;-- REGIOJET --
+;--------------
 
       TX=Beacon Rail ER 20 + RegioJet Dostos;								\
 	C=BEAC_ER20(|L)|BEAC_ER20_012RJ(|L),(<RJCZ_DABZ755VRL,2*RJCZ_DBZ750VR(|L),RJCZ_DABZ755VRL);	\
@@ -167,6 +414,19 @@ $REQUIRE MLG_DEF.TTT
 	C=RJ_643PH;											\
 	V=12;												\
 	F=DPRU6;
+
+#---------------
+#--- FREIGHT ---
+#---------------
+
+      TX=ZSSK Cargo 131;										\
+	C=ZSSKCARGO_131_VJ,30*ZSSK_FALNS(|L);								\
+	V=10;												\
+	F=EF6;
+      TX=ZSSK Cargo 131;										\
+	C=ZSSKCARGO_131_VJ,28-30*CDC_EAS53[O:FR_KO6(1|2|3),,];						\
+	V=10;												\
+	F=EF6;
 
     }
   %ENDPOOL;

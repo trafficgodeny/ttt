@@ -45,14 +45,14 @@ $ENDPOOL
 $SPOOL N=SBB_Arlbergexpress1973; SEQ=R;
   {E4?
     TX=Train 469 "Arlberg Express" Paris Est <- Basel - Sargans - Buchs - Innsbruck -> Wien (anno 1973); \
-      C=CH_RE44GREEN|CH_AE47,SNCF_EST_DD2M,OBB_3D3180,0|1*SNCF_AOC_B10(M|GM),SNCF_UIC_B10C(M|HM)(|L),	\
-	SNCF_UH_TENM(|L),0|1*SNCF_AOC_B10(M|GM),2*SNCF_UIC_A4CB5C_1967,SNCF_EST_1A312B5M,		\
-	SNCF_UIC_B10C(M|HM)(|L),SNCF_UH_TENM(|L),SNCF_AOC4_A2B6(M|GM),SBB_8833(113|500),SBB_4AEW1A,	\
-	SBB_4AEW1B,SBB_3_5070(|L);									\
+      C=CH_RE44GREEN|CH_AE47,SNCF_EST_DD2M,OBB_3D3180,(0|1)*SNCF_AOC_B10(M|GM),				\
+	SNCF_UIC_B10C(M|HM)(|L),SNCF_UH_TENM(|L),(0|1)*SNCF_AOC_B10(M|GM),2*SNCF_UIC_A4CB5C_1967,	\
+	SNCF_EST_1A312B5M,SNCF_UIC_B10C(M|HM)(|L),SNCF_UH_TENM(|L),SNCF_AOC4_A2B6(M|GM),		\
+	SBB_8833(113|500),SBB_4AEW1A,SBB_4AEW1B,SBB_3_5070(|L);						\
       F=EP4;
     TX=Train 469 "Arlberg Express" Paris Est <- Basel - Sargans - Buchs - Innsbruck -> Wien (anno 1973); \
-      C=CH_AE47,SNCF_EST_DD2M,OBB_3D3180,0|1*SNCF_AOC_B10(M|GM),SNCF_UIC_B10C(M|HM)(|L),		\
-	SNCF_UH_TENM(|L),0|1*SNCF_AOC_B10(M|GM),2*SNCF_UIC_A4CB5C_1967,SNCF_EST_1A312B5M,		\
+      C=CH_AE47,SNCF_EST_DD2M,OBB_3D3180,(0|1)*SNCF_AOC_B10(M|GM),SNCF_UIC_B10C(M|HM)(|L),		\
+	SNCF_UH_TENM(|L),(0|1)*SNCF_AOC_B10(M|GM),2*SNCF_UIC_A4CB5C_1967,SNCF_EST_1A312B5M,		\
 	SNCF_UIC_B10C(M|HM)(|L),SNCF_UH_TENM(|L),SNCF_AOC4_A2B6(M|GM),SBB_8833(113|500),SBB_4AEW1A,	\
 	SBB_4AEW1B;											\
       F=EP4;
@@ -82,12 +82,13 @@ $SPOOL N=SBB_D_1979; SEQ=R;
   {E4?
     TX=D 366 "Ticcino" München <- Lindau - Zürich -> Milano (anno 1979);				\
       M=HEAD;												\
-      C=<2:(DB_AVUMZ207(|L))|(DB_AVUMZ207(|L)),3*FS_4B2071EU(|L),DB_4BM234{NEK?|99:(DB_BM232(|L))},	\
-	FS_D_EUF,DB_ABVMZ227_4E(|L);									\
+      C=<2:(DB_AVMZ207(|L))|(DB_AVUMZ207(|L)),3*FS_4B2071EU(|L),DB_4BM234{NEK?|99:(DB_BM232(|L))},	\
+	FS_UICX75DZO(|L),DB_ABVMZ227_4E(|L);								\
       D=R;												\
       C1=DB_218(214|218)(|L);										\
-      C2=SBB_RE442_11(294G|347GU);									\
-      P=<45-55; T1=10-20; T3=10-20;									\
+      C2=CH_RE44GREEN;											\
+      P=<45-55; T1=10-20; T3=10-20; W=X;								\
+      BG=TRBED(1|11|12|5|7|8):..,^0;									\
       F=EPO4;
     TX=D 366 "Ticcino" München <- Lindau - Zürich -> Milano (anno 1979);				\
       M=HEAD;												\
@@ -113,8 +114,8 @@ $SPOOL N=SBB_TEE_1980; SEQ=R;
 	[TX=TEE 7 "Rheingold" Bern <- Basel - Mannheim - Köln - Emmerich -> Amsterdam (anno 1980)];	\
       F=EP4;
     C=SBB_RE44II_TEE_AL|SBB_RE44II_TEE_A|SBB_RE44II_TEE_MDL|SBB_RE44II_TEE_MD|SBB_RE44II_TEE_MFL,	\
-	2*SNCF_TEEM69_A,SNCF_TEEM69_R,SNCF_TEEM69_BAR,4*SNCF_TEEM69_A,					\
-	$DIR(SNCF_TEEM69_AD,SNCF_TEEM69_ADL);								\
+	2*SNCF_TEEM69_AM,SNCF_TEEM69_RM,SNCF_TEEM69_BARM,4*SNCF_TEEM69_AM,				\
+	$DIR(SNCF_TEEM69_ADML,SNCF_TEEM69_ADM);								\
       V=10-15;												\
       AP=[TX=TEE 22 "Cisalpin" Paris Lyon <- Vallorbe - Lausanne - Domodossola -> Milano C.le (anno 1980)]| \
 	[TX=TEE 23 "Cisalpin" Milano C.le <- Domodossola - Lausanne - Vallorbe -> Paris Lyon (anno 1980)]; \
@@ -203,7 +204,7 @@ $SPOOL N=SBB_EC_1987; SEQ=R;
       AP=[TX=EC 94 "Iris" Chur <- Zürich - Basel - Luxembourg -> Bruxelles Midi (anno 1987)]|		\
 	[TX=EC 95 "Iris" Bruxelles Midi <- Luxembourg - Basel - Zürich -> Chur (anno 1987)];		\
       F=EP4;
-#I4 should be SNCB WR in orange
+
     C=SBB_RE442_11(162R|239|252RU|294G|347GU),SBB_EW4D50(|L)|SBB_EW4D51(|L),				\
 	2*SBB_1073(|L)|SBB_1075(|L|O|OL|P|PL)|SBB_1095(|L),						\
 	4*SBB_2173(|L)|SBB_2175(|L|O|OL|P|PL)|SBB_2195(|L),SNCF_VTU_AM(|L),SNCF_VU_B11M(|L);		\
@@ -329,13 +330,13 @@ $SPOOL N=SBB_EN_2005; SEQ=R;
       AP=[TX=EN 311 "Roma" Genève <- Zürich Hbf. - Chiasso - Milano -> Roma T.ni (anno 2005)]|		\
 	[TX=EN 316 "Roma" Roma T.ni <- Milano - Chiasso - Zürich Hbf. -> Genève  (anno 2005)];		\
       F=EP6;
-;should be Cisalpino Re484
+
     C=(SBB_RE460_083CARGO|SBB_RE460_ATEL|SBB_RE460_STRATEGO)|12:(SBB_RE460~HEN){NEK?|50:SBB_RE460~NEK},	\
 	4*SBB_2090CIS(|L),2*SBB_1090CISL,2*FS_MU_F64M_XMPRM(|L),3*SBB_5_BCM(|L);			\
       AP=[TX=EN 313 "Roma" Genève <- Zürich Hbf. - Chiasso - Milano -> Roma T.ni (anno 2005)]|		\
 	[TX=EN 314 "Roma" Roma T.ni <- Milano - Chiasso - Zürich Hbf. -> Genève  (anno 2005)];		\
       F=EP6;
-; Should be 4*Cisalpino Bpm, 2* Cisalpino Apm
+
     TX=EN 464 "Zürichsee" Zürich <- Buchs - Villach - Graz - Zagreb -> Beograd (anno 2005);		\
       C=(CH_RE44GREEN)|(SBB_RE442_(11162R|8:11239|5:11252RU|KLIMA)),OBB_5BCMZ5970(|L),OBB_29XX_6,	\
 	HZ_7080(|L),HZ_5970(|L),ZSRB_BLM3(|L),OBB_21XX_6,OBB_5WLABMZ7070_0(|L),OBB_5BCMZ5970(|L),	\
@@ -390,7 +391,7 @@ $SPOOL N=CH_MAINT1435; SEQ=R;
       F=DF5;
     C=AMEBA_VM150T|AMEBA_USP303|JMAG_KVP3T|JMAG_R20L|JMAG_R21U|SCHEU_P522|SBB_XTM91401|SBB_XTM91401W|	\
 	JMAG_B30C1|JMAG_B40U1|JMAG_B50D|JMAG_B66U2|JMAG_B66U4|SERSA_B66U|SCHEU_B200|SCHEU_B251|		\
-	SCHEU_B761|SCHEU_B2001|SCHEU_BB132|SCHEUR_BNA333|SCHEU_BNA661|SCHEU_BNA662|SCHEU_BNA664|	\
+	SCHEU_B761|SCHEU_B2001|SCHEU_BB132|SCHEU_BNA333|SCHEU_BNA661|SCHEU_BNA662|SCHEU_BNA664|		\
 	AMEBA_08275|AMEBA_08275_3S|AMEBA_0916_4S|SCHEU_BOA820|SCHEU_BOA810T|BENKLER_WALTHER|		\
 	SCHEU_M450|SCHEU_M620|SCHEU_GRIZZLY;								\
       V=1-4;												\
@@ -500,7 +501,7 @@ $ENDPOOL
 	SBB_SAURE|SBB_P92251(|L)|SBB_EGLIN(3|5),CH_M6_3,3*CH_G_2,					\
 	SBB_M9H_SLM(|1L|L)|STB_G8|SBB_M9H_WOOD{NEK?|DB_S05S14|DB_S05S14R},				\
 	(2*SBB_CARDINAL(2|3))|(2*SBB_K2_EICHHOF(|B|L|S|SBL|SL))|(2*SBB_K2_CARDINAL(|1|B|BL|L|S|SL)),	\
-	CH_E2_E,CH_E2_G;										\
+	CH_E2_E,CH_G_2;											\
       F=SF2;
     TX=Luzern <- Beinwil - Lenzburg -> Wildegg  (anno 1926);						\
       C=SBB_2A15301(|L),SBB_9393,SBB_4927,SBB_17462(|O),SBB_PTT11;					\
@@ -522,7 +523,7 @@ $ENDPOOL
 	SBB_2394,SBB_3754(|L),2*SBB_4651(|L),2*SBB_2394|SBB_3754L;					\
       D=R;												\
       F=SP2;
-    TX="Gotthard-Pullman-Express" Zürich <- Zug -> Arth-Goldau (-> Milano -> Roma) (anno 1927);		\
+    TX="Gotthard-Pullman-Express" Zürich <- Zug -> Arth-Goldau (-> Milano -> Roma)(anno 1927);		\
       C=SBB_10973(|L)[PU],SBB_18201(|L),CIWL_WSP4131(|L),CIWL_WSPC4148(|L);				\
       F=EP2;
     C=RHB_82_SNOW,RHB_BERPL,2*RHB_BER3A,3*RHB_BER1A|RHB_BER1B;						\
@@ -537,8 +538,8 @@ $ENDPOOL
 	(0-3*SBB_RF(1|2))|(0-3*SBB_K2_ANKER(|L))|							\
 	(0-3*SBB_CARDINAL(2|3)|SBB_K2_CARDINAL(|1|B|BL|L|S|SL))|					\
 	(0-3*SBB_K2_EICHHOF(|B|L|S|SBL|SL|YL))|(0-3*SBB_K2_FALKEN|SBB_FALKEN1)|(0-3*SBB_P91061_FUOG(|L)), \
-	1-3*(CH_E2_E)|(FS_P|FP_P601|(DB_RMS31(|B|BL))),1-6*5:CH_G_2|2:D_EPII_G|I_G3,			\
-	1-2*CH_G_2|D_EPII_G|SNCF_G2,7*CH_E2_E,1-6*CH_G_2,D_EPII_G|I_G3|SNCF_G2|CH_G_2;			\
+	1-3*(CH_E2_E)|(FS_P|FP_P601|(DB_RMS31(|B|BL))),1-6*5:CH_G_2|2:D_EPII_G,				\
+	1-2*CH_G_2|D_EPII_G|SNCF_G2,7*CH_E2_E,1-6*CH_G_2,D_EPII_G|SNCF_G2|CH_G_2;			\
       D=L;												\
       F=SF2;
     TX=Basel <-> Olten (anno 1929);									\
@@ -668,7 +669,7 @@ $ENDPOOL
       F=SP3;
     C=CH_AE47,$DIR(SBB_F4U_18810L,SBB_F4U_18810),4*CIWL_WL3(487B|532B|542B);				\
       F=EP3;
-    TX=Zug Etzwilen <-> Singen (Htw.) (06.07.1954);							\
+    TX=Zug Etzwilen <-> Singen (Htw.)(06.07.1954);							\
       C=SBB_5801,SBB_19001[>M],$DIR(SBB_4401L,SBB_4401),$DIR(SBB_6016(|A),SBB_6016L);			\
       V=6-7;												\
       F=SP3;
@@ -708,7 +709,7 @@ $ENDPOOL
       C=UEF_5_75_1118[<R],SBB_17101,$DIR(SBB_UMBAU_GABM,SBB_UMBAU_GABML),$DIR(SBB_8118L,SBB_8118);	\
       F=SP3;
     TX=Zug 7024 Aarau <-> Erstfeld (anno 1959);								\
-      C=0|1*SBB_3A104(01|21)(|L),SBB_2976OL,SBB_UCEK(|L),SBB_UCS_9122100(|L),				\
+      C=(0|1)*SBB_3A104(01|21)(|L),SBB_2976OL,SBB_UCEK(|L),SBB_UCS_9122100(|L),				\
 	2*SBB_UCS_9121(101|101L|475|475L),5*CH_K2_3,CH_J2D_3,SNCF_STANDARDA_3,6*CH_K2_3,CH_K4_3;	\
       F=EF3;
     C=(<SBB_3RBE44_1401L,5*SBB_3AEW1B,SBB_DR4U_10134,SBB_3AEW1B,3*SBB_3AEW1A,SBB_FZT4U_994)|		\
@@ -747,7 +748,7 @@ $ENDPOOL
       F=EPNL3;
     C=<SBB_841(|L)|SBB_1644|SBB_4_1621(|L),SBB_2933347,SBB_BCT4U_951|SBB_CFT4U_961;			\
       F=EPU3;
-    TX=Güterzug Singen (Htw.) <-> Etzwilen (01.09.1962);						\
+    TX=Güterzug Singen (Htw.)<-> Etzwilen (01.09.1962);							\
       C=$DIR(SBB_AM44,SBB_AM44L),SBB_Z3P[<M],$DIR(SBB_GKLM_K2,SBB_GKLM_K2L),4*DB_TIMS858BM,SBB_3E505;	\
       V=5-6;												\
       F=DFZ3;
@@ -768,7 +769,7 @@ $ENDPOOL
 	SBB_M6(E|E1|E1L|EL|N|N1|N1L|NL),I_G3;								\
       D=R;												\
       F=SF3;
-    TX=D 80 Stuttgart <- Singen - Schaffhausen -> Zürich (Abschnitt Singen <-> Schaffhausen) (anno 1963); \
+    TX=D 80 Stuttgart <- Singen - Schaffhausen -> Zürich (Abschnitt Singen <-> Schaffhausen)(anno 1963); \
       C=UEF_5_75_1118[<R],SBB_UMBAU_GBM(|L),$DIR(DB_3C_AB4UMG55,DB_3C_AB4UMG55L)[N:#P,BG_NULL],		\
 	FS_CZ32000IS,$DIR(DB_3C_AB4UMG55,DB_3C_AB4UMG55L)[N:#P,BG_NULL],				\
 	$DIR(DB_3C_B4UMG54,DB_3C_B4UMG54L),$DIR(DB_3B_D4UM60,DB_3B_D4UM60L);				\
@@ -810,7 +811,7 @@ $ENDPOOL
     C=SBB_EE33_16332(|L)|SBB_EE33_16333(|L)|SBB_EE33_16(357|381G|414|431),				\
 	(1-3*SBB_BELL(|H|HL|L))|(3-5*I_I3|FS_IBBEHKS(|2|2L|L))|						\
 	(3-5*DB_IBCS_INTERFRIGO|SBB_O70202|SBB_IBPSS|NS_IBES);						\
-      V=1-3; W=E;											\
+      V=1-3;												\
       F=EF3;
     TX=Romanshorn (20.06.1966);										\
       C=SBB_3A10421(|L),(<SBB_STUCKGUTL,SBB_STUCKGUT),SBB_3BEW1A,3*SBB_B4U_4103|SBB_B4U_4107;		\
@@ -832,10 +833,10 @@ $ENDPOOL
     C=SBB_10667|SBB_10674(|L)|SBB_10702,SBB_PTT_Z416A,SBB_3833000|SBB_3833500|SBB_3833020,SBB_2933001,	\
 	SBB_4AEW1B;											\
       F=EP3;
-    C=BLS_AE6_8~TIS|BLS_AE6_8~MF|BLS_AE6_8~DJ|BLS_AE6_8(A|B|C|H)|BLS_BE6_8(A|B|C),BLS_4P,		\
+    C=BLS_AE68_1962V(1|2)(|L),BLS_4P,		\
 	BLS_EW1ABG(|L),4*BLS_EW1GB;									\
       F=EP3;
-    TX=Überführung der neuen Be4/4 21-23 zur BLM: Interlaken Ost <- Zweilütschinen -> Lauterbrunnen (05.05.1967); \
+    TX=Überführung der neuen Be4/4 21-23 zur BLM:Interlaken Ost <- Zweilütschinen -> Lauterbrunnen (05.05.1967); \
       C=BER_HGE33E,											\
 	3*BLM_BE44A[B:0,36,33][CP:124,17,12,9,34,17][CP:124,17,12,9,49,17][CP:124,17,12,9,64,17]	\
 	[CP:124,17,12,9,79,17][CP:124,17,12,9,109,17][>M];						\
@@ -863,19 +864,14 @@ $ENDPOOL
       F=EFZ3;
     C=CH_BE47GREEN,SBB_18211,SBB_L6_58101(|L),2*SBB_L7,SBB_47001,CH_G_3B,SBB_C4U_61(01|84);		\
       F=EF3;
-    {NEK?TX=Morterasch anno 1969;									\
-      C=ABE44_48~NEK,RHB_P1,RHB_4STB;									\
-      F=EFNLZ3;}
-    C=RHB_2GE24(|L)|RHB_3_20(5|5L|7|7L)|RHB_2_22(1|1L|2|2L)|RHB_4_22(1|1L|2|2L),			\
-	(6*RHB_MO_RHB){NEK?|15:(6*RHB_7319W(1|1L|2|2L|3|3L))|15:(6*RHB_UCE8002)};			\
+    TX=Morterasch anno 1969;										\
+      C=RHB_3ABDE44_481,RHB_P1,RHB_4STB;								\
+      F=EPNLZ3;
+    C=RHB_2GE24(|L)|RHB_3_20(5|5L|7|7L)|RHB_2_22(1|1L|2|2L)|RHB_4_22(1|1L|2|2L),6*RHB_UCE8063;		\
       V=3;												\
       F=EFNL3;
-    C=RHB_GE44_2R~FA|RHB_GE44_2R~FH|RHB_GE44_2R~MIC|RHB_80(1|2)|RHB_GE66_2|RHB_444R~DEJ|RHB_64(1|7)|	\
-	RHB_GE44_3R~MIC|RHB_GE44_3~MIC|RHB_GE44_3B~FA|RHB_GE44_3B~MIC|RHB_GE44_3_KLR,			\
-	2*RHB_MB(|2PZ|2PZL|PZ),RHB_EWD3R,RHB_EW2_B|RHB_B226,2*RHB_DAVOSAB|RHB_EW2_AB;			\
-      F=E3;
-    C=<FO_HGE44R~FA|FO_HGE44R~MIC,2*FO_B~FA|FO_B2L~FA|FO_B2~FA,FO_ABT~FA|FO_ABT2;			\
-      F=E3;
+    C=<FO_101|FO_102|FO_103|FO_108,2*FO_B~FA|FO_B2L~FA|FO_B2~FA,FO_ABT~FA|FO_ABT2;			\
+      F=EPRU3;
   }
   {E4?
     C=2*SBB_4_14270[PU],CH_G_4A,D_G4_1970,3*SBB_M6E(|1|1L|L)|SBB_M6N(|1|1L|L),3*I_G4,CH_E_3B,		\
@@ -928,9 +924,9 @@ $ENDPOOL
       C=$DIR(RHB_2_353,RHB_2_353L),RHB_D2,RHB_BI4;							\
       F=EFNL4;
 # ^^ Bi should be a ABi
-    {NEK?TX=Chur (05.1972);										\
+    TX=Chur (05.1972);											\
       C=RHB_GE661,RHB_BI2BB,4*RHB_5505(|L),RHB_7316(|L),RHB_6621(|L),2*RHB_5505(|L),RHB_5415;		\
-      F=EPRN4;}
+      F=EPRN4;
     TX=Landquart (05.1972);										\
       C=RHB_701G,RHB_EWD2G,3*RHB_STBG1;									\
       F=EFNL4;
@@ -947,7 +943,7 @@ $ENDPOOL
     TX=TEE 13 "Cisalpin" Paris-Lyon <- Dijon - Lausanne - Brig - Domodossola - Milano -> Venezia (anno 1974); \
       C=SBB_RE44II_TEE_A(|L)|SBB_RE44II_TEE_MD(|L)|SBB_RE44II_TEE_MFL,					\
 	(<SNCF_TEEM69_ADML,3*SNCF_TEEM69_AM,SNCF_TEEM69_RM,						\
-	0|1*(SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_AM));						\
+	(0|1)*(SNCF_TEEM69_AM,SNCF_TEEM69_BARM,SNCF_TEEM69_AM));					\
       F=EP4;
     TX=Probefahrt der Ellok 1601 mit Zug 81030 (anno 1974);						\
       C=SNCB_16F[P3U]|SNCB_16FL[P4U],SBB_2039001,2*SBB_2933350,SBB_4AEW1B,SBB_2039001,SBB_4AEW1B;	\
@@ -986,7 +982,6 @@ $ENDPOOL
 #^^ (16.1.1977)
     C=SBB_4_10224,(<SBB_O74901L,3*SBB_LLP(1A|1B|2A|2B|3A|3B|4A|4B),3*SBB_LLPB,SBB_O74901),		\
 	(<SBB_O74901L,6*SBB_LLPB,SBB_O74901);								\
-      W=E;												\
       F=EF4;
     TX=Tösstal (28.06.1977);										\
       C=SBB_4_14253,SBB_UNFALL1,SBB_K2NBL|SBB_K2NB|SBB_K2NHL|SBB_K2NH;					\
@@ -994,7 +989,7 @@ $ENDPOOL
     TX=Arth-Goldau (08.10.1977);									\
       C=DB_491MM(|L);											\
       F=EPU4;
-    TX=Zug 384 Schaffhausen <- Neuhausen (SBB) - Eglisau - Bülach - Oberglatt -> Zürich HB (10.06.1978); \
+    TX=Zug 384 Schaffhausen <- Neuhausen (SBB)- Eglisau - Bülach - Oberglatt -> Zürich HB (10.06.1978);	\
       C=$DIR(SBB_11112NAZ,SBB_11112NAZL),$DIR(SBB_4_BM51OL,SBB_4_BM51O),				\
 	$DIR(SBB_3_2270,SBB_3_2270L)[N:#P,BG_NULL][N:#B,BG_NULL],$DIR(BLS_1740030L,BLS_1740030),	\
 	SBB_2933002,SBB_4EW2B[N:#P,BG_NULL],$DIR(SBB_3833500,SBB_3833000),				\
@@ -1035,15 +1030,16 @@ $ENDPOOL
     TX=Zug 16526 Arth-Goldau <- Erstfeld - Göschenen - Airolo -> Belinzona (anno 1982);			\
       C=SBB_4AE46(|L),SBB_2043000L,2*CH_K3_4,CH_K2_4,CH_K3_4,4*CFR_UCS1_(1|2|3|4|5);			\
       F=E4;
-    {NEK?TX=Ausfahrt Bergun (13.9.1982);								\
+    {NEK?												\
+      TX=Ausfahrt Bergun (13.9.1982);									\
       C=RHB_GE661,2*RHB_8183,RHB_5505,RHB_UCE8077,RHB_UCE8077L,RHB_8336,RHB_5412;			\
       F=EFN4;}
     TX=D 545 Chur <-> St. Moritz (13.9.1982);								\
       C=RHB_703G,RHB_EWD3G,RHB_4052B(|L),2*RHB_EWBG(|L),RHB_EWAG(|L),RHB_EWABG(|L),RHB_EWBG(|L),	\
 	RHB_3810,RHB_EWBG(|L),RHB_EWBR(|L),{NEK?99:(RHB_550(4|4L|5|5L))|}RHB_G2AL;			\
       F=EFNL4;
-    C=2*BLS_AE6_8~MF|BLS_AE6_8~DJ,5*BLS_SHIMMS|SBB_SHIMMS,G_RGS(1|2),RGS(1|2|3|4),5*CONTFLAT,		\
-	SBB_HBIS225O(|L)|SBB_HBISWW225_2200(|O),G_RGS(1|2),5*SBB_EANOS1(L)|SBB_EAS(L),			\
+    C=(BLS_AE68_205_1988(|L),BLS_AE68_1988V2(|L))|(BLS_AE68_205_1989(|L),BLS_AE68_1989V2(|L)),5*BLS_SHIMMS|SBB_SHIMMS,G_RGS(1|2),RGS(1|2|3|4),5*CONTFLAT,		\
+	SBB_HBIS225O(|L)|SBB_HBISWW225_2200(|O),G_RGS(1|2),5*SBB_EANOS1(|L)|SBB_EAS(|L),			\
 	GT3|VTG_1|VTG_10L|VTG_10|VTG_17,CONT80;								\
       F=EF4;
     C=SBB_4_14253,SBB_LKKM2,2*CH_K3_4,G_29859_01A,CH_K4_4B,DR_4A_ZE8006(|L),SBB_KLMS,SBB_UNFALL1;	\
@@ -1071,7 +1067,7 @@ $ENDPOOL
 	SBB_HHV(|L);											\
       F=EF4;
     TX=Spiez (anno 1984);										\
-      C=BLS_AE6_8~MF,2*DB_4B_GS(204|211|2:212)E(|L),SBB_LOTHAR,CH_UACS_GRAY,5*CH_K3_4|CH_K4_4B;		\
+      C=(BLS_AE68_205_1989|BLS_AE68_1989V2)(|L),2*DB_4B_GS(204|211|2:212)E(|L),SBB_LOTHAR,CH_UACS_GRAY,5*CH_K3_4|CH_K4_4B;		\
       F=EF4;
     TX=Spiez (anno 1984);										\
       C=BLS_RE44_S2,SBB_PTT_Z555L;									\
@@ -1091,31 +1087,34 @@ $ENDPOOL
       C=RHB_GE44I_KESCH,RHB_D2|RHB_4052B(|L),RHB_1251E4[B:95,27,75,1],2*RHB_2301E5(|L);			\
       F=L4;
 #2. und 4. Wagen sollen grün sein
-;  M=BACK|SIMPLE|STOP;
-;    C=SBB_4B1880(1|7)(|L)|SBB_4BM44_184(01|26)(|L),CH_E5_E,CH_E5_G,
-;      2@SBB_3P539ARAL(|L)|SBB_3P539BP(|L)|SBB_3P539ESSO(|L)|SBB_3P539SHELL(|L)|SBB_5ZS735AVIA(|L)|
-;      SBB_5ZS735EBNOTHER(|L)|SBB_5ZS735ELF(|L)|SBB_5ZS735MOBIL(|L)|SBB_5ZS735SPURT(|L)|
-;      SBB_ZS_ALTOLA(|L)|SBB_ZS_ASEOL(|L)|SBB_ZS_AARAU(|L),DRGBS,2*G_29859_01|G_KS(1|2),CH_HBILSANY;
-;    AP=SBB_CATENARY(B|F); F=EFO4;
+    M=BACK|SIMPLE|STOP;											\
+      C=SBB_4B1880(1|7)(|L)|SBB_4BM44_184(01|26)(|L),CH_E5_E,CH_E5_G,					\
+	2@SBB_3P539ARAL(|L)|SBB_3P539BP(|L)|SBB_3P539ESSO(|L)|SBB_3P539SHELL(|L)|SBB_5ZS735AVIA(|L)|	\
+	SBB_5ZS735EBNOTHER(|L)|SBB_5ZS735ELF(|L)|SBB_5ZS735MOBIL(|L)|SBB_5ZS735SPURT(|L)|		\
+	SBB_5Z_BP(|L)|SBB_ZS_ALTOLA(|L)|SBB_ZS_ASEOL(|L)|SBB_ZS_AARAU(|L)|SBB_MOTOREX,DRGBS,		\
+	2*G_29859_01|G_KS(1|2),CH_HBILSANY;								\
+      F=EFO4;
     C=SBB_1010(1|2|3)(|L),CH_EW4_WR4,2*CH_EW4_A4,CH_EW4_B4,CH_EW4_A4|CH_RIC_A4,4*CH_EW4_B4;		\
       F=EP4;
 #sollte grüner SBB Brünig Packwagen mit einer äußeren Schiebetür (WC-Seite) sein;
-    TX=Zug 2961 Meiringen <- Giswil - -> Luzern (Abschnitt Meiringen - Giswil) (08.09.1985);		\
-      C=(2*BRU_DEH46|SBB_DEH46,SBB_DEH46G,BRU_DEH46|SBB_DEH46),$DIR(BRU_ABMG1L,BRU_ABMG1),RHB_EWD2G,	\
-	$DIR(BRU_AMG1L,BRU_AMG1)[>CP:61,16,13,10,103,16][>CP:43,16,13,10,61,16],3*BRU_BG~TIS;		\
+    TX=Zug 2961 Meiringen <- Giswil - -> Luzern (Abschnitt Meiringen - Giswil)(08.09.1985);		\
+      C=(2*BRU_DEH46|SBB_DEH46,SBB_DEH46G,BRU_DEH46|SBB_DEH46),$DIR(BRU_ABMG1,BRU_ABMG1L),		\
+	BRU_Z67(|L)|BRU_Z67S(|L),									\
+	$DIR(BRU_AMG1,BRU_AMG1L[>CP:61,16,13,10,103,16][>CP:43,16,13,10,61,16]),3*BRU_BG~TIS;		\
       F=EPRNL4;
 #first EW2_B should be green;
     TX=R 771 Chur <-> Disentis/Munster (12.09.1985);							\
-      C=RHB_GE44I_KESCH,RHB_EWD3G[<M],$DIR(RHB_EWBG,RHB_EWBGL),RHB_EW2_B,$DIR(RHB_EWAGL,RHB_EWAG),	\
-	RHB_EW2_B;											\
+      C=RHB_GE44I_KESCH,RHB_EWD3G[<M],$DIR(RHB_EWBG,RHB_EWBGL),RHB_B_EW2,$DIR(RHB_EWAGL,RHB_EWAG),	\
+	RHB_B_EW2;											\
       F=L4;
-    {NEK?TX=D 725 "Glacier Express F" Davos <-> Zermatt (13.09.1985);					\
+    {NEK?												\
+      TX=D 725 "Glacier Express F" Davos <-> Zermatt (13.09.1985);					\
       C=RHB_GE44I_KESCH,2*$DIR(FO_4251,FO_4251L),$DIR(FO_4273L,FO_4273),				\
 	$DIR(BVZ_45A2061L,BVZ_45A2061),$DIR(RHB_EWABRL,RHB_EWABR),RHB_WR3815[>M],RHB_EWD3G,		\
 	2*RHB_EWBG(|L);											\
       F=EPNL4;}
     C=RHB_622_AROSA,4*RHB_8183,RHB_HAIKR(|L),RHB_HAIKB(|L),{NEK?99:(RHB_550(4|4L|5|5L))|}RHB_G2AL,	\
-	{NEK?RHB_8510(|L),}{NEK?99:(RHB_550(4|4L|5|5L))|}RHB_G2AL,RHB_HAIKR(|L);			\
+	RHB_8183,RHB_G2AL,RHB_HAIKR(|L);								\
       F=LEPRN4;
     TX=R 745 Chur <-> Disentis/M (19.9.1985);								\
       C=RHB_GE44I_ALBULA,RHB_EWD3G,RHB_EWABG(|L),RHB_EWBG(|L),RHB_B2334G,RHB_G2{NEK?|99:(RHB_5505(|L))}; \
@@ -1140,13 +1139,14 @@ $ENDPOOL
 	3*BRU_X9701[<M:18,10,47,7];									\
       V=4-6;												\
       F=EFNL4;
-    {NEK?TX=Bergün (11.9.1986);										\
+    {NEK?												\
+      TX=Bergün (11.9.1986);										\
       C=RHB_707R,3*RHB_550(4|4L|5|5L),RHB_516(5|8),RHB_7346L~NEK|RHB_7346~NEK,2*RHB_8510(|L),		\
 	RHB_8355W(1|2),RHB_5412,RHB_UCE8077(|L),RHB_6621(|L);						\
       F=EFNL4;}
 #in Bergün 11.9.1986
     TX="Bernina-Express" Chur <-> Tirano (11.9.1986);							\
-      C=RHB_630_TRUN,RHB_EW2_B,RHB_EW2_A,RHB_EW4A2(|L),7*RHB_EW4B2(|L);					\
+      C=RHB_630_TRUN,RHB_B_EW2,RHB_A_EW2,RHB_EW4A2(|L),7*RHB_EW4B2(|L);					\
       F=EPRNL4;
     TX=D 555 Chur <-> St. Moritz (14.9.1986);								\
       C=RHB_702G,RHB_EWD3G,2*RHB_EWBR(|L),2*RHB_EWBG(|L),2*RHB_EWBR(|L),RHB_EWAR(|L),RHB_EWBG(|L);	\
@@ -1155,27 +1155,26 @@ $ENDPOOL
       C=RHB_GE44I_ALBULA,RHB_EWD3G,2*RHB_STBG2,RHB_STAG2,RHB_STBR1;					\
       F=EPRNL4;
     TX=R 849 Chur <-> Thuns (14.9.1986);								\
-      C=<RHB_EW_ABTL,RHB_B,RHB_ABE44_3~AM;								\
+      C=<RHB_EW_ABTL,RHB_B_PENDEL,RHB_ABE44_3~AM;							\
       F=EPRNL4;
-    C=RHB_GE44_3_STB,5*FO_PANL~FA|FO_PAN~FA,RHB_EWD3R,3*RHB_EWBR(|L);					\
+    C=RHB_GE44_3_STB,5*FO_PANL~FA|FO_PAN~FA,RHB_D4211,3*RHB_EWBR(|L);					\
       F=EPRN4;
     {NEK?												\
       C=FO_HGE44R~PHG,FO_B~FA|FO_B2L~FA,RHB_3812,FO_PANL~FA|FO_PAN~FA,FO_PAN4C|FO_PAN4D,		\
 	FO_4263L|FO_4263,FO_4273L|FO_4273;								\
       F=EPRNL4;}
-    {NEK?												\
-      C=FO_HGE44R~PHG,FO_PAN4(A|B),FO_4263(|L),FO_4273(|L),BVZ_6A(|L),FO_4273(|L);			\
-      F=L4;}
+    C=FO_HGE44R~PHG,FO_PAN4(A|B),FO_4263(|L),FO_4273(|L),BVZ_6A(|L),FO_4273(|L);			\
+      F=ERPNL4;
     C=BLS_AE88,3*SBB_4EW2B,2*CH_EW4_B4,CH_EW4_A4,9*CH_EW4_B4;						\
       F=EP4;
     C=<SBB_4_8233900L|SBB_4_3703900L|SBB_5_3833930L,2*SBB_2933(002|347|639V),SBB_5_1621(|L);		\
       F=EPU4;
-    TX=Extragüterzug (wegen Profilüberschreitung) Zweilütschinen <-> Interlaken Ost (14.04.1987);	\
+    TX=Extragüterzug (wegen Profilüberschreitung)Zweilütschinen <-> Interlaken Ost (14.04.1987);	\
       C=BER_HGE33,(<BRU_UA9801[CR:BRU_UA9801][OB:SBB_2750000(|A|Y|Y1),,6]);				\
       V=3-4;												\
       F=L4;
     C=<SBB_EW4BT(EL|WL),4*CH_EW4_B4,CH_EW4_WR(4|5),2*CH_EW4_A4,CH_EW4_D4,				\
-	SBB_RE460~HEN|SBB_RE460_JAOUIL~JPD|SBB_RE460_JAOUI~JPD|SBB_RE460_JASI~JPD|SBB_RE460_084JUBI|	\
+	SBB_RE460~HEN|SBB_RE460_016FINOVL|SBB_RE460_016FINOV|SBB_RE460_022FINOV|SBB_RE460_084JUBI|	\
 	SBB_RE460_016ADTRANZ2;										\
       F=EP4;
 #Ga sollte SBB Brünig mit je 4 Seitenwandfeldern und Schiebern nur in den 2ten von außen sein,Uac sollte BOB sein!;
@@ -1211,7 +1210,8 @@ $ENDPOOL
     C=MOB_BDE443004,2*MOB_B5,2*MOB_G1,RHB_7316(|L),RHB_8183,RHB_5505L;					\
       F=E4;
 #soll De6/6 sein und MOB (nicht RhB) Wagen sein
-    TX=Dienstzug Zweilütschinen <- Wilderswil -> Interlaken Ost (Abschnitt Zweilütschinen - Wilderswil) (19.04.1988); \
+    TX=Dienstzug Zweilütschinen <- Wilderswil -> Interlaken Ost (Abschnitt Zweilütschinen - Wilderswil)	\
+	(19.04.1988);											\
       C=$DIR(BER_ABEH44A~MF,BER_ABEH44AL~MF),								\
 	$DIR(BER_ABDEH44L~MF,										\
 	BER_ABDEH44~MF[<CP:52,21,6,6,80,21][<CP:80,21,12,10,52,21][<CP:80,21,12,10,66,21]		\
@@ -1225,10 +1225,9 @@ $ENDPOOL
     TX=x <-> Filisur (anno 1988);									\
       C=RHB_706R[PFU],RHB_633_ZUOZ,RHB_B226,2*RHB_STAR1,8*RHB_STBR1;					\
       F=LEFN4;
-#sollte echter Packwagen sein;
-    {NEK?TX=Zug 6330 Luzern <- Giswil -> Meiringen (06.05.1988);					\
-      C=BRU_4HGE442,2*(BRU_B~TIS{NEK?|999:BRU_B~NEK}),$DIR(BRU_AMG1L,BRU_AMG1),BRU_X9741[>M];		\
-      F=EZ4;}
+    TX=Zug 6330 Luzern <- Giswil -> Meiringen (06.05.1988);						\
+      C=BRU_4HGE442,2*BRU_B~TIS,$DIR(BRU_AMG1L,BRU_AMG1),BRU_K3_2201N(|L)|BRU_K3_2201N1|BRU_K3_2201N2L;	\
+      F=EPRNZ4;
     TX=Rangierfahrt Güteranlage Kupferhammer <-> Übergabebahnhof Röslimatt (13.05.1988);		\
       C=KLB_EM44[<M][>O:DSB_GELO1,104,4],$DIR(SBB_EICHHOF3,SBB_EICHHOF3L),				\
 	$DIR(SBB_EICHHOF3[>O:DSB_GELO1,109,12],SBB_EICHHOF3L[<OB:DSB_GELO1[M],6,12]),			\
@@ -1237,13 +1236,11 @@ $ENDPOOL
       F=EFO4;
     POOL=CH_MAINT1000;											\
       F=4;
-    C=MOB_BDE44(2|3|3004|4)|MOB_BDE44~TIS|MOB_BDE44~PK,							\
-	3*(RHB_G(1|2|2AL|2L)){NEK?|5:(RHB_550(3|3L|4|4L|5|5L))},					\
-	RHB_8183{NEK?|RHB_81(21|21L|35|36)|RHB_8137L~NEK|RHB_8137~NEK},					\
-	3-4*(RHB_G(1|2|2AL|2L)){NEK?|12:(RHB_550(3|3L|4|4L|5|5L))};					\
-      F=E4;
+    C=MOB_BDE44(2|3|3004|4)|MOB_BDE44~TIS|MOB_BDE44~PK,3*(RHB_G(1|2|2AL|2L)),RHB_8183,			\
+	3-4*(RHB_G(1|2|2AL|2L));									\
+      F=EFN4;
     C=MOB_BDE44(2|3004)|MOB_BDE44~TIS|MOB_BDE44~PK,2*MOB_ABN|MOB_AN|MOB_BN;				\
-      F=E4;
+      F=EPRN4;
     TX=Sonderzug (anno 1988);										\
       C=BLS_4_301(L_0|_0),BLS_BI1(|L),BLS_AB4IL,BLS_DZ_901A;						\
       V=6.5;												\
@@ -1259,7 +1256,7 @@ $ENDPOOL
 	SBB_5RBE(44|44_1408|44_1437|540)(|L);								\
       F=EPU4;
     TX=Ng 60311 Thun <-> Kandersteg (26.10.1988);							\
-      C=BLS_AE6_8~MF[>M],2*DB_TD928[B:0,40],G_RGS1,DB_GS210(BM|BML|M);					\
+      C=BLS_AE68_205_1988(|L)|BLS_AE68_1988V2(|L)|BLS_AE68_205_1989(|L),BLS_AE68_1989V2(|L),2*DB_TD928[B:0,40],G_RGS1,DB_GS210(BM|BML|M);					\
       F=EF4;
 #^^ Ae6/8 205 sollte BLS langen Schriftzug und 75 Jahre BLS Aufkleber haben, 2 Schotterwagen BLS oder SBB ähnlich DB Otmm57;
     C=CH_RE44(GREEN|RED)|CH_AE66(GREEN|RED)|BLS_RE44_S2,3-5*CH_E5_E,					\
@@ -1269,7 +1266,7 @@ $ENDPOOL
     C=SBB_5EW1BDT_EX(ABTL|BL),SBB_5EW1BK(|V),SBB_5RBE(44|44_1408|44_1437|540)(|L);			\
       D=L;												\
       F=EPU4;
-    C=CH_RE44(GREEN|RED),12*SBB_XAS62,SBB_EANOS1(L)|SBB_EAS(L);						\
+    C=CH_RE44(GREEN|RED),12*SBB_XAS62,SBB_EANOS1(|L)|SBB_EAS(|L);						\
       F=EF4;
     C=CH_RE1010,CH_ROLA;										\
       D=L; V=10-12;											\
@@ -1288,10 +1285,11 @@ $ENDPOOL
     C=CH_AE66IIGREEN4|CH_AE66IIRED5,7-18*CH_UCS_4,4*CH_E5_G,7*FS_IBEFHS(|2|3);				\
       D=R;												\
       F=EF4;
-    TX=Regionalzug Grindelwald <- Zweilütschinen -> Interlaken Ost (mit Milchkurswagen Grindelwald - Luzern) (20.04.1989); \
+    TX=Regionalzug Grindelwald <- Zweilütschinen -> Interlaken Ost (mit Milchkurswagen Grindelwald - Luzern) \
+	(20.04.1989);											\
       C=BER_BDT1L[N:#P,BG_NULL][N:#B,BG_NULL],BER_B1~CBO[N:#P,BG_NULL][N:#B,BG_NULL],			\
 	BER_AB1L[N:#P,BG_NULL][N:#B,BG_NULL],BER_B1~CBO[N:#P,BG_NULL][N:#B,BG_NULL],BER_ABEH442A,	\
-	MOB_G1{NEK?|999:RHB_5505L};									\
+	BRU_K2001(|L)|BRU_K2001L1|BRU_K2022(|L);							\
       D=L;												\
       F=EFNL4;
 #^^ RhB G sollte BOB oder SBB Brünig sein;
@@ -1305,9 +1303,7 @@ $ENDPOOL
       F=E4;
     TX=Sonderzug für die Verkehrsfreunde Stuttgart (anno 1989);						\
       C=RHB_GE22P,RHB_ABE44_1R3,RHB_B2(|A),RHB_4052B(|L){NEK?,2*RHB_7319W(1|1L|2|2L|3|3L)};		\
-      F=E4;
-    C=RHB_GE44I_(ALBULA|KESCH),RHB_2301E5(|L),$DIR(RHB_EWABRL,RHB_EWABR),RHB_P1;			\
-      F=L4;
+      F=EPRN4;
     C=BLS_RE44_S2,3*BLS_TPPS,SBB_TPPS(3|3L|4|4L),CH_E4_G,						\
 	SNCF_RILS206SEM|FRET_RILS206SEM|SNCF_RILS206MEM|FRET_RILS206MEM,2*CH_HBILSANY,DR_GBS1500D,	\
 	(3*CH_UACS_GRAY)|(3*SBB_UCKKS_9103110(|L))|(3*SBB_UCKKS_KAMBLY(|L))|				\
@@ -1318,15 +1314,17 @@ $ENDPOOL
     C=<CH_RE44RED,SBB_5EW2AK,SBB_5EW(1AN|1ANL|2AN|2ANL),4*SBB_5EW2BK,					\
 	SBB_3833930R|SBB_4(AEW1ABT|BEW1ABT|BEW1BDT)|SBB_5EW1BDT_EXABT;					\
       F=EP4;
-    C=CH_RE1010,FS_GABS(1|2)M,SBB_EANOS1(L)|SBB_EAS(L),FS_GABS(1|2)M,G_SGS4,2*CH_E4_E,			\
+    C=CH_RE1010,FS_GABS(1|2)M,SBB_EANOS1(|L)|SBB_EAS(|L),FS_GABS(1|2)M,G_SGS4,2*CH_E4_E,			\
 	HABISNORM|CH_HBILSANY,SNCF_TAMS(1|2)|SNCB_TAEMS(|L)|SNCF_TAES(|L)|CD_TAMS_001(|L),		\
 	20*CONTFLAT|BOXFLAT;										\
       F=EF4;
     TX=Davos <-> Klosters (anno 1989);									\
       C=RHB_GE661,RHB_1154,2*RHB_1161,RHB_1154,RHB_EWD2G,2*RHB_STBG1,RHB_STBG2;				\
-      F=E4;
+      F=EPRN4;
     TX=Engadin (26.07.1989);										\
-      C=CH_AE47[PFU],CH_AE47,SIM_STE,2*SNCF_TAMS(1|2)|SNCB_TAEMS(|L)|SNCF_TAES(|L),CH_HBILSANY,		\
+      C=RHB_GE44I_(ALBULA|KESCH),RHB_2301E5(|L),$DIR(RHB_EWABRL,RHB_EWABR),RHB_P1;			\
+      F=EPRNL4;
+    C=CH_AE47[PFU],CH_AE47,SIM_STE,2*SNCF_TAMS(1|2)|SNCB_TAEMS(|L)|SNCF_TAES(|L),CH_HBILSANY,		\
 	DR_ZACNS(|L),(2*FS_IBEFHS(|2|3))|(2*SBB_CARDINAL(4|5))|(2*FS_IBBEHKS(|2|2L|L)),2*SBB_53001S,	\
 	CH_E4_G,2*SBB_UCKKS_9103110(|L),SBB_53001S;							\
       F=EF4;
@@ -1338,7 +1336,8 @@ $ENDPOOL
     C=SBB_5EW1BDT_EXABTL,SBB_5EW1BK,SBB_5RBE(44|44_1408|44_1437|540)(|L);				\
       D=L;												\
       F=EPU4;
-    TX=Überführung HST für Versuchszwecken || Dunkirk <- Lille - Strasbourg - Basel - Zürich - Buchs - Liechstenstein - Innsbruck - Salzburg -> Wien (09.1988); \
+    TX=Überführung HST für Versuchszwecken ||								\
+	Dunkirk <- Lille - Strasbourg - Basel - Zürich - Buchs - Liechstenstein - Innsbruck - Salzburg -> Wien (09.1988); \
       C=SBB_4A11403L,SNCF_5UIC_B10CHM,$DIR(BR_MK4IC_TOL,BR_MK4IC_TO),$DIR(BR_MK4IC_DVT,BR_MK4IC_DVTL);	\
       F=EP4;
     C=<BLS_RE44_S2,BLS_CLL,5*BLS_CC0(1|2|5),BLS_CC04,BLS_CC03,2-3*BLS_CC(|O),BLS_CL,			\
@@ -1349,10 +1348,10 @@ $ENDPOOL
 	15*DB_TAES891(A|B|C);										\
       F=EF4;
     C=RHB_GE44_2R~FA|RHB_GE44_2R~FH|RHB_GE44_2R~MIC|RHB_GE44_3R~MIC|RHB_GE44_3~FA|RHB_GE44_3~MIC,	\
-	2*RHB_B,RHB_A,RHB_WR3815,3*RHB_B;								\
+	2*RHB_B_PENDEL,RHB_A_EW2,RHB_WR3815,3*RHB_B;							\
       F=E4;
     M=BACK;												\
-      C=RHB_213O,4*(RHB_MO_80(04|47|51|74|75)){NEK?|18:(RHB_UCE80(25|28|69|69L|77|77L|86))};		\
+      C=RHB_213O,4*(RHB_MO_80(04|47|51|74|75));								\
       F=LO4;
     C=CH_AE66IIGREEN4|CH_AE66GREEN,I_I4,2*I_G4,RIVEPIVGS,2*FS_IBBEHKS(|2|2L|L),				\
 	2-3*SNCF_IBES|SNCF_IAEHSS(1|2),3*G_ES(1|2|B|BL),CH_E4_E,CH_AE66IIGREEN4|CH_AE66IIRED5,		\
@@ -1363,7 +1362,7 @@ $ENDPOOL
 	RHB_701R|RHB_703R|RHB_707R,0-1*RHB_GBK_CARGO(|L){NEK?|RHB_51(18|19|22|32|33|37|60|64|69|71)},	\
 	0-1*RHB_COOP{NEK?|RHB_51(05|20|21|62|63|65|68)},1-3*RHB_8183,1-3*RHB_SCHIE,			\
 	RHB_21(2O|3O)|RHB_GBK_CARGO(|L)|RHB_HAIK_V5102(|L)|RHB_5101(|L);				\
-      F=O4;
+      F=EFO4;
     C=FO_HGE44R~FA,0-1@((FO_B~FA|FO_B2L~FA|FO_B2~FA,FO_A~FA)),2*FO_PANL~FA|FO_PAN~FA,			\
 	FO_B~FA|FO_B2L~FA|FO_B2~FA,0-1@((FO_A~FA,FO_B~FA|FO_B2L~FA|FO_B2~FA));				\
       F=E4;
@@ -1402,7 +1401,7 @@ $ENDPOOL
 	[CP:68,24,3,8,68,12][CP:68,24,3,8,68,18],,6];							\
       V=3-4;												\
       F=5;
-    TX=Überführung Zürich-Seehofen <-> Wolfurt (Bahnhofsfest) (11.10.1991);				\
+    TX=Überführung Zürich-Seehofen <-> Wolfurt (Bahnhofsfest)(11.10.1991);				\
       C=SBB_RE442_11252RU{NEK?|99:SBB_RE44_11192},$DIR(OBB_1822_001L[PD],OBB_1822_001[PD]);		\
       V=6;												\
       F=E5;
@@ -1421,7 +1420,7 @@ $ENDPOOL
 	DB_4BM235(|L);											\
       F=EP5;
     TX=D 501 "Bernina Express" Chur <-> Tirano (11.09.1992);						\
-      C=RHB_GE44_1_603~NEK2,5*RHB_EW3_B~NEK,RHB_EW3_A~NEK,RHB_EW3_B~NEK;				\
+      C=RHB_622_AROSA,5*RHB_B_EW3,RHB_A_EW3,RHB_B_EW3;							\
       F=LZ5;
     C=<SBB_5_3833930L,SBB_2933350,SBB_5_1621L;								\
       F=EPU5;
@@ -1430,8 +1429,8 @@ $ENDPOOL
       F=E5;
 #Wagen nicht authentisch! siehe EI 11/92 S38;
     TX=R 464 Tirano <-> St. Moritz (13.09.1992);							\
-      C=ABE44_48~NEK[>M],RHB_ABE44_3~AM[<M],RHB_EW2_B,5*RHB_B2;						\
-      F=LZ5;
+      C=RHB_5ABDE44_481,RHB_ABE44_3~AM[<M],RHB_B_EW2,5*RHB_B2;						\
+      F=EPRNLZ5;
     C=<BRB_H23_12[<R],BRB_P1,BRB_P2;									\
       V=2;												\
       F=5;
@@ -1441,9 +1440,10 @@ $ENDPOOL
 	SNCF_VU_A9M(|L)|SNCF_VU_CN_A9M(|L),SNCF_VU_CN_B11M(|L);						\
       D=R;												\
       F=EP5;
-    {NEK?TX=D 901 "Glacier Express F4" Chur <-> Zermatt (07.09.1993);					\
+    {NEK?												\
+      TX=D 901 "Glacier Express F4" Chur <-> Zermatt (07.09.1993);					\
       C=FO_102,$DIR(FO_PAN4A,FO_PAN4B)[<M:23,19,2,3,146,19,2,3,66,10,24,4],RHB_3810,			\
-	$DIR(BVZ_6AL,BVZ_6A),$DIR(FO_4263,FO_4263L),RHB_EW2_B,$DIR(FO_4273,FO_4273L);			\
+	$DIR(BVZ_6AL,BVZ_6A),$DIR(FO_4263,FO_4263L),RHB_B_EW2,$DIR(FO_4273,FO_4273L);			\
       F=EPNRL5;}
     TX=Train 298/299 Bruxelles Midi <-> Venezia;							\
       C=CH_AE66(GREEN|RED)|SBB_RE460~HEN|SBB_RE460_083CARGO|SBB_RE460_019MIELE,TEN5,			\
@@ -1467,19 +1467,19 @@ $ENDPOOL
       F=EF5;
     C=RMCH_436_113[PFU],CH_AE66RED,(16*SBB_FALLS_HUNTW(17|27|43))|(16*SBB_FALS_HOLCIM(|L));		\
       F=EF5;
-    {NEK?TX=Extrazug 3246 "Rhätia Incoming" Zuoz <-> Pontresina (anno 1994);				\
+    {NEK?												\
+      TX=Extrazug 3246 "Rhätia Incoming" Zuoz <-> Pontresina (anno 1994);				\
       C=RHB_647,RHB_EWBRL|RHB_EWBR,RHB_WR_S3821~NEK,RHB_EWBRL|RHB_EWBR;					\
-      F=EZ5;}
+      F=EPRNZ5;}
     TX=R 254 Scoul <-> St. Moritz (25.05.1994);								\
-      C=RHB_GE44_1_603~NEK2,RHB_BD2481|RHB_D4R,$DIR(RHB_EWBR,RHB_EWBRL),RHB_EW2_AB[>MX:16,17,154,12],	\
-	RHB_EW2_AB[<MX:16,17,154,12];									\
+      C=RHB_GE44_1_603~NEK2,RHB_BD2481|RHB_D4R,$DIR(RHB_EWBR,RHB_EWBRL),2*RHB_AB_EW2L;			\
       F=EPRNLZ5;
     TX=Lastprobe der 142 132 bei der Gruyère-Fribourg-Morat Bahn (13.06.1994);				\
       C=MTHB_142_134[B:25,28,6,5][B:131,28,6,5],TPF_166O,TPF_363O,3*TPF_364O,2*GFM_363GB,TPF_364O,	\
 	GFM_171GB,TPF_161O,GFM_161GB;									\
       F=EF5;
     TX=Zug 425 St. Moritz <-> Tirano (anno 1994);							\
-      C=2*ABE44_48~NEK,3*RHB_B2,RHB_EW3_B~NEK,RHB_EW3_A~NEK,RHB_EW3_B~NEK;				\
+      C=2*RHB_5ABDE44_481,3*RHB_B2,RHB_B_EW3,RHB_A_EW3,RHB_B_EW3;					\
       F=LZ5;
 #soll 2B und dann AB sein.
     TX=Zug 22 Meiringen MIB <-> Innertkirchen (anno 1994);						\
@@ -1489,7 +1489,8 @@ $ENDPOOL
     TX=Arbon (20.07.1994);										\
       C=CH_AE66RED,3*SBB_XAS73;										\
       F=EF5;
-    {NEK?TX=Güterzug 5335 Samedan <-> Kuoni (anno 1994);						\
+    {NEK?												\
+      TX=Güterzug 5335 Samedan <-> Kuoni (anno 1994);							\
       C=RHB_GE661,5*RHB_550(3|3L|4|4L|5|5L);								\
       V=3-5;												\
       F=EFN5;}
@@ -1535,13 +1536,12 @@ $ENDPOOL
 	2*FS_5270(|B|BL|L),2*SNCB_I10_2170(M|ML|N|NL|O|O2|O2L|OL)|SNCB_2171O(|L),			\
 	2*FS_4B2071EU(|L)|FS_6B2071(|L)|FS_5B2071(|L),3*SNCB_2171O(|L),B_DDMLOADED;			\
       F=EP5;
-    TX=Dienstzug 34070 (Meßfahrten für Doppelstockwagen) St. Triphon <-> Aigle (11.09.1996);		\
-      C=SBB_AM44_18461(|L),SBB_RE460~HEN{NEK?|99:SBB_RE460~NEK}[PD],					\
-	$DIR(SBB_2090309DIS,SBB_2090309DISL),$DIR(SBB_IC2000B11,SBB_IC2000B11L),			\
-	$DIR(SBB_2173L,SBB_2173),SBB_RE460~HEN{NEK?|99:SBB_RE460~NEK}[PD];				\
-      F=EFPZ5;
+    TX=Dienstzug 34070 (Meßfahrten für Doppelstockwagen)St. Triphon <-> Aigle (11.09.1996);		\
+      C=SBB_AM44_18461(|L),SBB_RE460~HEN[PD],$DIR(SBB_2090309DIS,SBB_2090309DISL),			\
+	$DIR(SBB_IC2000B11,SBB_IC2000B11L),$DIR(SBB_2173L,SBB_2173),SBB_RE460~HEN[PD];			\
+      F=EPZ5;
     C=BLS_RE44_S2|BLS_AE4_4~MF|BLS44N~NEK,BLS_EW1C2TA,BLS_EW1C2SA,3*BLS_EW1C2SB;			\
-      F=E5;
+      F=EP5;
     C=BLS_AE88,SBB_PTT_1(|L),3*BLS_2940050(|L)|BLS_2940054(|L),BLS_EW4D1(|L);				\
       F=EP5;
     TX=Winterthur <-> Rapperswil (02.1998);								\
@@ -1551,15 +1551,16 @@ $ENDPOOL
       C=RHB_5G34_1,RHB_2060L|RHB_2060,RHB_4052AL|RHB_4052A,RHB_98_1102L|RHB_89_1102,RHB_6515L;		\
       V=3-5;												\
       F=5;
-    {NEK?TX=Zug 5346 Pontresina <-> Samedan (anno 1998);						\
+    {NEK?												\
+      TX=Zug 5346 Pontresina <-> Samedan (anno 1998);							\
       C=RHB_623_BONADUZ,RHB_5505L|RHB_5505,RHB_7349L|RHB_7349,RHB_9046B;				\
       V=4-6;												\
       F=L5;}
 #soll Gb5030, Lbv7852,Xk9018 sein
-    {NEK?TX=Zug 344 Pontresina <-> Samedan (anno 1998);							\
+    TX=Zug 344 Pontresina <-> Samedan (anno 1998);							\
       C=RHB_GE44_1_602~NEK2,RHB_EWD3R,RHB_EW4B2|RHB_EW4B2L,RHB_DAVOSAB,RHB_GE44_1_603~NEK2;		\
       V=4-6;												\
-      F=LZ5;}
+      F=EPRNLZ5;
     TX="Alpin Classic Pullman Express" Chur <-> Pontresina (anno 1998);					\
       C=RHB_5_353(|L),RHB_D2U_AC,2*RHB_AS_AC,RHB_SALON1R;						\
       V=3-5;												\
@@ -1568,8 +1569,8 @@ $ENDPOOL
       C=RHB_5ABDE44_481,RHB_EW4A2L|RHB_EW4A2{NEK?,RHB_8355W1|RHB_8355W2};				\
       F=L5;
     TX=Regionalzug 423 St. Moritz <-> Alp Grüm (anno 1998);						\
-      C=ABE44_48~NEK,0|1*(4*RHB_B2A);									\
-      F=LZ5;
+      C=RHB_5ABDE44_481,0|1*(4*RHB_B2A);								\
+      F=EPRNLZ5;
     TX=Zürich <- Dübendorf -> Zug (01.1999);								\
       C=3@(<SBB_450SEL,SBB_2633,SBB_3633WK|SBB_3633WE,SBB_26339S);					\
       F=EPU5;
@@ -1580,7 +1581,7 @@ $ENDPOOL
       F=EP5;
     C=CH_RE44(3:RED|GREEN),7*AAE_LGNSS45[O:CHPOSTCONT,>84,11][O:CHPOSTCONT,<90,11];			\
       F=EF5;
-    C=CH_RE1010,2*DB_HBIS299(A|B|C|D),SBB_EANOS1(L)|SBB_EAS(L),2*CH_E5_G,5@EP5CHEM,3*CH_E5_G,		\
+    C=CH_RE1010,2*DB_HBIS299(A|B|C|D),SBB_EANOS1(|L)|SBB_EAS(|L),2*CH_E5_G,5@EP5CHEM,3*CH_E5_G,		\
 	OBB_HIRRS292(A|B|FT|SO);									\
       F=EF5;
     C=BLS_RE465~HEN|BLS_RE465~NEK|BLS_RE465~MF|BLS_RE465LOGO~NEK,4*CH_EW4_A4,				\
@@ -1590,7 +1591,7 @@ $ENDPOOL
     C=BLS_AE88,9*SBB_FANSU6770210(|L)|SBB_FANSU6770226(|L)|SBB_FANSU67702230(|L);			\
       F=EF5;
 #^^should be BLS Fans
-    C=BLS_AE6_8~MF,SBB_HBILS_DENNER1(|L);								\
+    C=BLS_AE68_208_2006(|L),SBB_HBILS_DENNER1(|L);								\
       F=EF5;
     C=BLS_RE465~HEN,BLS_EW4D1(|L),BLS_EW1BC3AM|BLS_EW1RBC3AM,2*BLS_EW4A3(|L),3*BLS_EW4B3(|L);		\
       F=EP5;
@@ -1627,12 +1628,11 @@ $ENDPOOL
 	SBB_EW4D51(|L);											\
       F=EP6;
     TX=Filisur (20.05.2002);										\
-      C=RHB_647,2*RHB_A,RHB_EWBR(|L),2*RHB_B,RHB_EWD3R,RHB_B,RHB_2301E5(|L);				\
+      C=RHB_647,2*RHB_A_EW2,,RHB_EWBR(|L),2*RHB_B_PENDEL,RHB_D4211,RHB_B_PENDEL,RHB_2301E5(|L);		\
       F=EPRN6;
     TX=Filisur (20.05.2002);										\
-      C=RHB_GE44_3_STB,RHB_EWD3R,2*RHB_B,RHB_EWBR(|L),RHB_A,RHB_EWAR(|L);				\
+      C=RHB_GE44_3_STB,RHB_4052A(|L),2*RHB_B_PENDEL,RHB_EWBR(|L),RHB_A_EW2,RHB_EWAR(|L);		\
       F=EPRN6;
-# ^^ soll 2achs Gep. sein
     TX=Sargans (20.05.2002);										\
       C=CH_AE66GREEN,SBB_5EW1BKV,SBB_5EW1BK,SBB_5EW1AK,SBB_5EW1BKV,SBB_5EW1BK;				\
       F=EP6;
@@ -1647,7 +1647,7 @@ $ENDPOOL
       C=CH_AE66IIGREEN5,2*CH_RE44RED[PD],2*CH_AE66IIRED5[PD],CH_RE44RED[PD],CH_AE66IIRED5[PD],		\
 	CH_RE44RED[PD];											\
       F=E6;
-    C=<SBB_RE460_083CARGO|SBB_RE460_018SF|SBB_RE460_RETE~SA|SBB_RE460_074CARGO(|L){NEK?|SBB_RE460~NEK},	\
+    C=<SBB_RE460_083CARGO|SBB_RE460_018SF|SBB_RE460_RETE~SA|SBB_RE460_074CARGO(|L),			\
 	3*SBB_IC2000A(1|1L|2|2L),4*SBB_IC2000B(11|11L|12|12L|2|2L),					\
 	SBB_IC2000BT11|SBB_IC2000BT12|SBB_IC2000BT2|SBB_IC2000BT_DSB|SBB_IC2000BT_GLOBI~DEJ|		\
 	SBB_IC2000BT_MOON|SBB_IC2000BT_DINO~DEJ|SBB_927|SBB_930|SBB_932|SBB_933|SBB_936|SBB_937;	\
@@ -1717,9 +1717,9 @@ $ENDPOOL
     C=<SBB_RBE44S|SBB_45RBE44_1407L,SBB_5EW2A,2*SBB_5EW2BK,SBB_4B5EW2DZT;				\
       F=EPU6;
     TX=Horn (25.03.2003);										\
-      C=RMCH_RE44L|RMCH_RE44,SBB_HABILS|M_277HABIS|M_277HABIS2;						\
+      C=RMCH_RE456M(|L),SBB_HABILS|M_277HABIS|M_277HABIS2;						\
       F=EFZ6;
-# should be 'paper shuttle' Re456
+# ^^should be paper shuttle Re456
     TX=Typentestfahrt für Fahrgastinformationssystem (Ebikon 08.04.2003);				\
       C=<SBB_RABE570_LUZERN~LUK,SBB_RABE570_AARGAU~LUK,SBB_RABE570_LUZERN~LUK;				\
       F=EPU6;
@@ -1787,9 +1787,9 @@ $ENDPOOL
     TX=S22 Büllach <-> Schaffhausen (21.06.2003);							\
       C=<SBB_5RBE540(|L),SBB_5EW1ABK,SBB_5EW1BDT_EXABT;							\
       F=EPU6;
-    {NEK?TX=Samedan <-> Landquart (23.06.2003);								\
+    TX=Samedan <-> Landquart (23.06.2003);								\
       C=RHB_GE661,12*RHB_8121(|L);									\
-      F=E6;}
+      F=E6;
     TX=Chur <-> Samedan (27.06.2003);									\
       C=RHB_JUBI,RHB_2245L,RHB_2245[B:156,9,5,18],RHB_2246[B:5,9,5,18],RHB_3STBL,RHB_3STB,		\
 	RHB_3STA|RHB_3STAB;										\
@@ -1803,21 +1803,21 @@ $ENDPOOL
       C=(<SBB_SWEX_BTL,4*SBB_SWEX_B,BLS_EW3NA~NJA,SBB_SWEX_A,CH_RE44RED)|				\
 	(<SBB_SWEX_BTL,SBB_SWEX_ABD,BLS_EW3NB~NJA,2*SBB_SWEX_B,SBB_SWEX_A,BLS_EW3NA~NJA,CH_RE44RED);	\
       F=EP6;
-    TX=Messzug, Erstfeld (05.07.2003);									\
+    TX=Messzug,Erstfeld (05.07.2003);									\
       C=SBB_RE460~HEN,4*SBB_5_2270(|L),SNCF_SU_RESTOM,FRET_437_026[PD];					\
       F=EP6;
 # RIC Wagen sollen fast völlig mit Grafitti bedeckt sein.
     TX=Bernina Express (18.07.2003);									\
       C=RHB_GE44_1_607~NEK2,4*RHB_BPM,RHB_BPMS,RHB_APMS;						\
-      F=LZ6;
+      F=EPRNLZ6;
     TX=Pontresina <-> St. Moritz (22.07.2003);								\
       C=2*RHB_ABE44_1Y~MIC,RHB_EWBR(|L),RHB_PAN4B,RHB_EWBR(|L);						\
-      F=E6;
+      F=EPRN6;
     TX=Bernina Express (23.07.2003);									\
       C=RHB_626_MALANS,$DIR(RHB_EWABRL,RHB_EWABR),2*RHB_PANA,RHB_EW4B1(|L),3*RHB_EWBR(|L);		\
       F=EPRNLZ6;
-    C=RHB_622_AROSA,RHB_2301E5L,RHB_EWD3R,RHB_AUTO_VER2,RHB_(5118|5119|HAIK_V5102|HAIK_V5102L);		\
-      F=L6;
+    C=RHB_622_AROSA,RHB_2301E5L,RHB_D4211,RHB_AUTO_VER2,RHB_HAIK_V5102(|L);				\
+      F=EFNL6;
 # from www.bahngalerie.de. baggage should be 2 axle and I think flat is part of an auto train.
 # Loco should be red 621
     TX=Pfäffikon (03.08.2003);										\
@@ -1838,7 +1838,7 @@ $ENDPOOL
       F=L6;
 #Wagen nach 2. Panorama-Wagen soll BD sein
     TX=Fahrleitungsmesszug Winterthur <-> Kemptthal (04.08.2003);					\
-      C=<CH_RE44RED,SBB_X90106[PU],SBB_4EW1DZT;								\
+      C=<CH_RE44RED,SBB_X90106[PU],SBB_5EW1BT28339M;							\
       F=EP6;
 # Steuerwagen soll EP5 Logo haben
     TX=Regionalzug 457 St.Moritz <-> Pontresina (04.08.2003);						\
@@ -1869,7 +1869,8 @@ $ENDPOOL
     TX=Erstfeld (26.08.2003);										\
       C=CH_AE66RED,2*CH_AE66GREEN[PD],CH_RE44RED[PD],CH_AE66RED[PD];					\
       F=EF6;
-    {NEK?TX=D 500 "Bernina Express" Chur <-> Tirano (31.08.2003);					\
+    {NEK?												\
+      TX=D 500 "Bernina Express" Chur <-> Tirano (31.08.2003);						\
       C=RHB_GE44_1_607~NEK2,4*RHB_BPM,RHB_APM;								\
       F=LEPRNZ6;}
     TX=Zug 74339F Hüntwangen <-> Bürglen TG (12.09.2003);						\
@@ -1917,7 +1918,7 @@ $ENDPOOL
 	7*(SBB_FANSU6770210(|L)|SBB_FANSU6770226(|L)|SBB_FANSU67702230(|L))[OB:GRAV,<15-18,25-29]	\
 	[OB:GRAV,>109-112,25-29];									\
       F=EF6;
-    TX=La Praille (GE) (Herbst 2003);									\
+    TX=La Praille (GE)(Herbst 2003);									\
       C=SBB_AM841L~OB|SBB_AM841~OB,14*ZAS5;								\
       F=DF6;
     C=<SBB_RBDE44_2103,SBB_BT903;									\
@@ -1930,8 +1931,8 @@ $ENDPOOL
     TX=Messfahrt Genève <-> Vernier-Meyrin (anno 2003);							\
       C=SBB_4BM44_18426L,SBB_X73105,SBB_RE442_11(162R|239|252RU)[PD];					\
       F=6;
-    C=(<BLS_RE465_001ALP(|L),BLS_EW3JABDL,BLS_EW3NA~NJA,3*BLS_EW3NB~NJA,BLS_EW3JBT)|			\
-	(<BLS_EW3NBT~NJA,3*BLS_EW3NB~NJA,BLS_EW3NA~NJA,BLS_EW3NAD~NJA,BLS_RE465_001ALP(|L));		\
+    C=(<BLS_RE465_001ALP(|L)~TBR,BLS_EW3JABDL,BLS_EW3NA~NJA,3*BLS_EW3NB~NJA,BLS_EW3JBT)|			\
+	(<BLS_EW3NBT~NJA,3*BLS_EW3NB~NJA,BLS_EW3NA~NJA,BLS_EW3NAD~NJA,BLS_RE465_001ALP(|L)~TBR);		\
       F=EP6;
     C=BLS_RABE525(E|EL|F|FL|G|GL|H|HL|I|IL|J|JL|K|KL|ML);						\
       F=EPU6;
@@ -1981,21 +1982,20 @@ $ENDPOOL
       F=E6;
     TX=Poschiavo (28.07.2004);										\
       M=SIMPLE|BACK|STOP;										\
-      C=RHB_GE22O,2*RHB_BERO4[BT:7,20,7,6][BT:24,20,18,11][BT:57,20,4,6][BT:70,20,7,6],{NEK?RHB_7316L,	\
-	}RHB_34T1;											\
+      C=RHB_GE22O,2*RHB_BERO4[BT:7,20,7,6][BT:24,20,18,11][BT:57,20,4,6][BT:70,20,7,6],RHB_34T1;	\
       V=2;												\
       F=O6;
     TX=D 565 Chur <-> St. Moritz (anno 2004);								\
-      C=RHB_JUBI,RHB_EWD3R,2*RHB_EWBR(|L),RHB_EW4B1(|L),RHB_EW4A1(|L),2*RHB_EWBR(|L);			\
+      C=RHB_JUBI,RHB_D4211,2*RHB_EWBR(|L),RHB_EW4B1(|L),RHB_EW4A1(|L),2*RHB_EWBR(|L);			\
       F=E6;
     C=<SBB_5TM1_407(|L)|SBB_5TM1_448(|L),SBB_UCS0(0|1|2);						\
       V=1-3;												\
       F=DF6;
-    C=RHB_GE44_3_COOP2,RHB_EWD3R,2*RHB_B,RHB_EW4B1(|L),RHB_A,RHB_EW4A1(|L),RHB_EW4B1(|L),RHB_B;		\
+    C=RHB_GE44_3_COOP2,RHB_D4211,2*RHB_B_PENDEL,RHB_EW4B1(|L),RHB_A_EW2,RHB_EW4A1(|L),RHB_EW4B1(|L),	\
+	RHB_B;												\
       F=L6;
-    {NEK?												\
-      C=RHB_702E,RHB_TM22_81,5*RHB_8355,RHB_5160(|QY),RHB_8121L,RHB_5505,3*RHB_6621(|L);		\
-      F=L6;}
+    C=RHB_702E,RHB_TM22_81,5*RHB_8355,RHB_5160(|QY),RHB_8121L,RHB_5505,3*RHB_6621(|L);			\
+      F=EFNL6;
     TX=Chur <-> Ziegelbrücke (anno 2005);								\
       C=<SBB_REGIOBDTL,SBB_REGIOB,SBB_5RBE540;								\
       F=EPU6;
@@ -2157,7 +2157,7 @@ $ENDPOOL
     TX=Zürich (05.10.2007);										\
       C=<SBB_EW4BTN2L,SBB_2195L|SBB_2195,SBB_1075NL|SBB_1075N,SBB_2175N1L|SBB_2175NL,			\
 	2*SBB_IC2000B12L|SBB_IC2000B12,SBB_IC2000A1L|SBB_IC2000A1,2*SBB_IC2000B12L|SBB_IC2000B12,	\
-	SBB_RE460_HIST~DEJ;										\
+	SBB_RE460_102HISTORIC;										\
       V=6-10;												\
       F=EP6;
     TX=Zürich (05.10.2007);										\
@@ -2167,8 +2167,8 @@ $ENDPOOL
       C=RHB_622_AROSA|RHB_623_BONADUZ|RHB_624_CELERINA|RHB_625_KUBLIS|RHB_626_MALANS|			\
 	RHB_627_REICHENAU|RHB_628_S_CHANF|RHB_629_TIEFENCASTEL|RHB_630_TRUN|RHB_631_UNTERVAZ|		\
 	RHB_632_ZIZERS|RHB_633_ZUOZ,2*RHB_EWBRL|RHB_EWBR,RHB_EWARL|RHB_EWAR,3*RHB_EWBRL|RHB_EWBR,	\
-	RHB_EWD3R,RHB_EWBRL|RHB_EWBR;									\
-      F=L6;
+	RHB_D4211,RHB_EWBRL|RHB_EWBR;									\
+      F=EPRNL6;
     TX=Chur (06.10.2007);										\
       C=SBB_RE442_KLIMA,2*OBB_1875GL|OBB_1875G,$DIR(OBB_8291G2L,OBB_8291G2),				\
 	$DIR(OBB_WRMZ88L,OBB_WRMZ88),5*OBB_2171GL|OBB_2171G|OBB_2191GL|OBB_2191G;			\
@@ -2192,17 +2192,9 @@ $ENDPOOL
     TX=S2 Arth-Goldau <- Schwyz -> Zug (07.10.2007);							\
       C=<SBB_523002BTL,SBB_523002B1,SBB_523002ABT;							\
       F=EPU6;
-# Schwyz 07.10.2007
-    C=SBB_RE482C~HSC[P2U],14*G_SGNS15|G_SGNS16|HUPAC_2|HUPAC_196|HUPAC_3|HUPAC_SGNS198|HUPAC_1|HUPAC_5;	\
-      V=8-10;												\
-      F=EF6;
-# Schwyz 07.10.2007
-    C=DB_185_085[P2U],22*HUPACCONT;									\
-      V=8-10;												\
-      F=EF6;
-# Schwyz 07.10.2007
-    C=SBB_RE442_11162R|SBB_RE442_11252RU|SBB_RE442_KLIMA,4*SBB_HBILLNS|SBB_HBBILLNS,FS_GABS,		\
-	14*SBB_HBILLNS|SBB_HBBILLNS|FS_GABS|SBB_HBILLNS1|FS_HBBILLNS2|FS_HBBILLNS;			\
+    TX=Schwyz (07.10.2007);										\
+      C=SBB_RE482C~HSC[P2U],										\
+	14*G_SGNS15|G_SGNS16|HUPAC_2|HUPAC_196|HUPAC_3|HUPAC_SGNS198|HUPAC_1|HUPAC_5;			\
       V=8-10;												\
       F=EF6;
     TX=Schwyz (07.10.2007);										\
@@ -2244,11 +2236,12 @@ $ENDPOOL
     TX=Möhlin (07.07.2009);										\
       C=SBB_420_178KL|SBB_420_178K|SBB_420_186L|SBB_420_186,						\
 	6*(CVIR_UACS0(1|2|3|4|5)(|L))|SBB_UACS932_1101(|L)|(SBB_UACS0(1|2|3|4|5|6|7|8)(|L));
-    {NEK?TX=R 1941 Ardez <-> Pontresina (10.07.2009);							\
-      C=<RHB_BDT1721L,3*RHB_B,RHB_A,RHB_GE44_1_607~NEK2[P1U];						\
+    {NEK?												\
+      TX=R 1941 Ardez <-> Pontresina (10.07.2009);							\
+      C=<RHB_BDT1721L,3*RHB_B_PENDEL,RHB_A_EW2,RHB_GE44_1_607~NEK2[P1U];				\
       F=EFNLZ6;}
     TX=R 1944 Pontresina <-> Ardez (10.07.2009);							\
-      C=<RHB_623_BONADUZ,RHB_A,RHB_B,RHB_2301E5(|L),RHB_B,RHB_BDT;					\
+      C=<RHB_623_BONADUZ,RHB_A_EW2,RHB_B_PENDEL,RHB_2301E5(|L),RHB_B_PENDEL,RHB_BDT;			\
       F=EPNRL6;
     TX=Renens -> St. Triphon (31.07.2009);								\
       C=SBB_11603R|SBB_11604RL|SBB_5_11605|SBB_5_11608|SBB_5_11614|SBB_RE66_11614(|L)|SBB_5_11629|	\

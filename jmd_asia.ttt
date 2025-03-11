@@ -1,10 +1,11 @@
 {FILELEVEL=1?
   $INCLUDE SINGLE.TTT
+#  $ENV TRACK
 }
 
 $REQUIRE JMD_DEF.TTT
 
-{CN?
+  {CN?
   %ADDPOOL(POOL_CN,CN_ENV)
 #
 # CHINA
@@ -45,9 +46,8 @@ $REQUIRE JMD_DEF.TTT
 	C=<KCR_KTT2L,4*KCR_KTTT(1|2)(|L),2*KCR_KTTT(3|4)(|L),2@(KCR_KTTT1,KCR_KTTT2),KCR_KTT2;
     }
   %ENDPOOL;
-}
-
-{J?
+  }
+  {J?
   %ADDPOOL(POOL_JP,J_ENV)
     {E4?
       C=JR_40_(100A|100B|2000|500A|500B)(|L);								\
@@ -396,11 +396,35 @@ $REQUIRE JMD_DEF.TTT
 	F=LU6;
       C=<JRW_103OA,JRW_103OB,JRW_103OC,3*JRW_103OD,JRW_103OF;						\
 	F=LU6;
+
     }
   %ENDPOOL;
-}
+  }
 
-{IND?
+  {AUS?
+  %ADDPOOL(POOL_AUS,AUS_ENV)
+#
+# AUSTRALIA
+#
+    {E5?
+      TX=Huddleston,SA (January 12,1996);								\
+	C=$DIR(ANR_CL14L,ANR_CL14),$DIR(ANR_865L,ANR_865),34*FA_VHGF(|L);
+# ^^ 1st loco should be GM class in AN green. Cars all in ANR livery not FA.
+      TX=Train 3MPS in Parkeston,NSW. (January 9,1998);							\
+	C=(<NR_30L,STA_NR),28*AUSCOFC;
+    }
+    {E6?
+      TX=Willow Tree,NSW;										\
+	C=FRC_81L,FRC_81,PN_48112,PN_48132,64*NSW_NGTY(|L)|FA_VHGF(|L)|PN_VHGF(|L),3*FRC_81L|FRC_81;
+      TX=Tallarook (January 25,2012);									\
+	C=PN_ASO01(|L),$DIR(FA_T5,FA_T5L),PN_ASO01(|L),45*AUSCOFC;
+      TX=Train 9306 Wandong-Kiilmore East (January 30,2012);						\
+	C=3*PN_ASO01(|L),36*AUSCOFC;
+    }
+  %ENDPOOL;
+  }
+
+  {IND?
   %ADDPOOL(POOL_IND,IND_ENV)
 #
 # INDIA
@@ -480,8 +504,10 @@ $REQUIRE JMD_DEF.TTT
 	  INR_BVZI(|L);
       C=INR_WM41,											\
 	  (52-58*INR_ACC_BCCM_BC95081(|L))|(52-58*INR_ACC_BCCM_BC09137(|L))|				\
-	  (52-58*(INR_BCCW_V(|L)|4:INR_BCCW_V200(|L)))|							\
-	  (52-58*(INR_UTC_BCCWC_RCU445(|L)|INR_UTC_BCCWC_RCU446(|L)),INR_BVZI(|L),2*INR_WCAM3);
+	  (52-58*INR_BCCW_V(|L)|4:INR_BCCW_V200(|L))|							\
+	  (52-58*(INR_UTC_BCCWC_RCU445(|L)|INR_UTC_BCCWC_RCU446(|L))),INR_BVZI(|L),2*INR_WCAM3;
     }
   %ENDPOOL;
-}
+  }
+
+

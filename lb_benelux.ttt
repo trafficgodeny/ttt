@@ -28,15 +28,17 @@ $REQUIRE TRAINDEF.TTT
       TX=SNCB 10 + Personenzug;										\
 	C=SNCB_(3_10018|10035)(|L),B3P1;								\
 	F=SP3;
+      TX=SNCB 124;											\
+	C=SNCB_124_G2TM,B3F1;										\
+	F=SF3;
       TX=SNCB 25;											\
 	C=SNCB_3A250(02|11|13)(|L),B3F1;								\
 	F=SF3;
-      TX=SNCB 26;											\
-	C=(SNCB_26050|SNCB_26002|SNCB_26101),B3F1;							\
+      TX=SNCB 126;											\
+	C=SNCB_126PM,B3F1;										\
 	F=SF3;
       TX=SNCB 26;											\
-	C=(SNCB_26050L|SNCB_26002L|SNCB_26101L),							\
-	  18*(SNCB_EAOS1|SNCB_G10A|SNCB_G9A|G_E2|SNCF_E_UICII_S|SNCF_ELO|NS_21426N);			\
+	C=(SNCB_26050|SNCB_26002|SNCB_26101)(|L),B3F2;							\
 	F=SF3;
       TX=SNCB 27;											\
 	C=SNCB_3A_2700(2|1)(|L),B3P1;									\
@@ -48,7 +50,7 @@ $REQUIRE TRAINDEF.TTT
 	C=(SNCB_HLV62L|SNCB_HLV62L),(<SNCB_I1_3,SNCB_I1_12,SNCB_I1_12L,2*SNCB_I1_3L);			\
 	F=SP3;
       TX=SNCB 81 340;											\
-	C=SNCB_81340,SNCB_G9A,SNCB_G10A;								\
+	C=SNCB_81340,B3F2S;										\
 	F=SF3;
       TX=SNCB 57;											\
 	C=SNCB_5701L|SNCB_5701|SNCB_5702|SNCB_5702L;							\
@@ -71,6 +73,9 @@ $REQUIRE TRAINDEF.TTT
       TX=SNCB 5519 + Güterzug;										\
 	C=SNCB_3_5512L|SNCB_3_5512,B3F2;								\
 	F=DF3;
+      TX=SNCB 205 + M2;											\
+	C=SNCB_205G70M(|L),$DIR(SNCB_3M2GBDML,SNCB_3M2GBDM),SNCB_3M2GABM(|L),SNCB_3M2GBM(|L);		\
+	F=DPR3;
       TX=SNCB HLD62 + Personenzug;									\
 	C=SNCB_6201,(<SNCB_HKV_RA,SNCB_R734GL,2*SNCB_R734G);						\
 	F=DP3;
@@ -80,6 +85,41 @@ $REQUIRE TRAINDEF.TTT
       TX=SNCB HLD62 + Personenzug;									\
 	C=<SNCB_8749A_SML|SNCB_8749A1L,SNCB_2048AL,SNCB_3948AL,SNCB_3948A|SNCB_8248A_SM,SNCB_6215;	\
 	F=DP3;
+      TX=SNCB 211 + I2;											\
+	C=SNCB_201BM(|L),										\
+	  (<2*SNCB_I2_B8_2,2*SNCB_4_I1B11B,SNCB_4_I1A4B4A,2*SNCB_I2_A8_2)|				\
+	  (>2*SNCB_I2_B8_2,2*SNCB_4_I1B11BL,SNCB_4_I1A4B4AL,2*SNCB_I2_A8_2);				\
+	F=DP3;
+      TX=SNCB 211 + M1;											\
+	C=SNCB_211G1M(|L),$DIR(SNCB_3M1BD1ML,SNCB_3M1BD1M),SNCB_3M1B1M(|L),SNCB_3M1AB1M(|L);		\
+	F=DPR3;
+      TX=SNCB 222;											\
+	C=SNCB_222G1M(|L),4*B3F2S;									\
+	F=DF3;
+      TX=SNCB 230;											\
+	C=SNCB_230_(0|1)G1M(|L),B3F2S;									\
+	F=DF3;
+      TX=SNCB 232;											\
+	C=SNCB_232M(|L),2*B3F2S;									\
+	F=DF3;
+      TX=SNCB 252;											\
+	C=SNCB_252_(0|1)G1M(|L),2*B3F2S;								\
+	F=DF3;
+      TX=SNCB 253;											\
+	C=SNCB_253G2M(|L),2*B3F2S;									\
+	F=DF3;
+      TX=SNCB 260;											\
+	C=SNCB_260G1M(|L),2*B3F2S;									\
+	F=DF3;
+      TX=SNCB 270;											\
+	C=SNCB_270G1M(|L),4*B3F2S;									\
+	F=DF3;
+      TX=SNCB 272;											\
+	C=SNCB_272G1M(|L),4*B3F2S;									\
+	F=DF3;
+      TX=SNCB 272;											\
+	C=SNCB_273G1M(|L),2*B3F2S;									\
+	F=DF3;
 
 # Belgien VT
 
@@ -93,6 +133,9 @@ $REQUIRE TRAINDEF.TTT
 	  (<SNCB_630001DML,SNCB_630001AB,SNCB_630001BK)|(<SNCB_AR630BKL,SNCB_AR630ABL,SNCB_AR630DM)|	\
 	  (<SNCB_AR630DML,SNCB_AR630AB,SNCB_AR630BK);							\
 	F=DPU3;
+      TX=SNCB 603;											\
+	C=SNCB_603G0M(|L);										\
+	F=DPRU3;
       TX=SNCB 651-654;											\
 	C=SNCB_652A|SNCB_652|SNCB_652_1A|SNCB_652_1|SNCB_653A|SNCB_653|SNCB_653_1A|SNCB_653_1|		\
 	  SNCB_654A|SNCB_654;										\
@@ -121,8 +164,7 @@ $REQUIRE TRAINDEF.TTT
 	  SNCB_I1_B7R);											\
 	F=EP3;
       TX=SNCB 123 001;											\
-	C=SNCB_123_001L|SNCB_123_001,3*SNCB_E_STD,2*SNCB_TMSL,2*SNCB_G9A,3*SNCB_G10A,SNCB_F1213B1,	\
-	  SNCB_TMS1215B1L;										\
+	C=SNCB_123_001L|SNCB_123_001,B3F2;								\
 	F=EF3;
 
     }
@@ -138,8 +180,7 @@ $REQUIRE TRAINDEF.TTT
 	F=DF4;
       TX=SNCB 52 + Schnellzug;										\
 	C=SNCB_5204|SNCB_5205|SNCB_5206|SNCB_5207|SNCB_5209|SNCB_5210|SNCB_5211|SNCB_5212,		\
-	  (<SNCB_9570B|SNCB_9570BL,SNCB_4_I4B9SOL,SNCB_I2_A3R,SNCB_4_I4A4B6SOL,SNCB_I2_AR,		\
-	  SNCB_4_I4B9SO);										\
+	  (<SNCB_9570B|SNCB_9570BL,SNCB_4_I4B9SOL,SNCB_I2_A3ROM|SNCB_I2_AR,SNCB_I2_A8_1,SNCB_4_I4B9SO);	\
 	F=DP4;
       TX=SNCB 52 + Personenzug;										\
 	C=SNCB_5208|SNCB_5201|SNCB_5202|SNCB_5203,B4PR1;						\
@@ -256,6 +297,9 @@ $REQUIRE TRAINDEF.TTT
       TX=SNCB HLE 26  + Personenzug;									\
 	C=SNCB_26GM(|L),SNCB_K1A1SM(|L),SNCB_K1B1M(|L),$DIR(SNCB_K1BD1M,SNCB_K1BD1ML);			\
 	F=DPR4;
+      TX=SNCB HLE 28  + Personenzug;									\
+	C=SNCB_28S(G|B)M(|L),B4PR1;									\
+	F=DPR4;
       TX=SNCB HLE 29  + Personenzug;									\
 	C=SNCB_29M,B4PR1;										\
 	F=DPR4;
@@ -264,6 +308,9 @@ $REQUIRE TRAINDEF.TTT
 	F=EPU4;
       TX=SNCB AM 62;											\
 	C=SNCB_AM62G2L|SNCB_AM62GL|SNCB_AM62G|SNCB_AM62G2;						\
+	F=EPU4;
+      TX=SNCB AM 65;											\
+	C=1-2@SNCB_AM65_R;										\
 	F=EPU4;
       TX=SNCB AM 66;											\
 	C=SNCB_AM66VGL|SNCB_AM66VG;									\
@@ -373,7 +420,8 @@ $REQUIRE TRAINDEF.TTT
 	C=SNCB_21~MLG,4*SNCB_K4UIC_BM,SNCB_K4USI_AM,2*SNCB_K4USI_BM;					\
 	F=EP5;
       TX=SNCB 2208 + Personenzug;									\
-	C=<SNCB_2208|SNCB_2208L,SNCB_M4B11R,2*SNCB_M4B11RL,SNCB_M4A9R|SNCB_M4A9RL,SNCB_M4A6DXR;		\
+	C=(<SNCB_22B(|1)M(|L),3*SNCB_M4B11R(|L),SNCB_M4A9R(|L),SNCB_M4A6DXR25)|				\
+	  (>SNCB_22B(|1)M(|L),3*SNCB_M4B11R(|L),SNCB_M4A9R(|L),SNCB_M4A6DXR25L);			\
 	F=EP5;
       TX=SNCB 23;											\
 	C=SNCB_2356~JMD|SNCB_2380;									\
@@ -394,7 +442,9 @@ $REQUIRE TRAINDEF.TTT
 	  (<NS_PLAN_DRSTL,2*NS_W1_B4L,NS_W1_B4,SNCB_4_I4A9SB,(SNCB_25_5|SNCB_25_5L));			\
 	F=EF5;
       TX=SNCB 26;											\
-	C=SNCB_26YBPM,(<SNCB_M4B11,2*SNCB_M4B11L,SNCB_M4B7DKL,SNCB_M4A9L,SNCB_M4A6D);			\
+	C=SNCB_26YBPM,											\
+	  (<SNCB_M4B11,2*SNCB_M4B11L,SNCB_M4B7DKL,SNCB_M4A9L,SNCB_M4A6D)|				\
+	  (>SNCB_M4B11,2*SNCB_M4B11,SNCB_M4B7DK,SNCB_M4A9,SNCB_M4A6DL);					\
 	F=EF5;
       TX=SNCB 27 + Personenzug;										\
 	C=SNCB_HLE27L|SNCB_HLE27,(<SNCB_8248AL,SNCB_2048A1,SNCB_3948A_SML|SNCB_3948A_SM,SNCB_2048A1L);	\
@@ -467,6 +517,9 @@ $REQUIRE TRAINDEF.TTT
       TX=Alpha Trains 4000;										\
 	C=ATC_2505(|L)|ATC_4001(|L),Z_D_E6_G_FalsP;							\
 	F=DF6;
+      TX=Beacon Rail 66;										\
+	C=BEAC_66(|_2_BE2|_2)M(|L),D6FCM|D6FZM;								\
+	F=DF6;
       TX=Dille en Le Jeune Cargo 66;									\
 	C=DLC_C66L~SOP|DLC_C66~SOP|DLC_C66~EB|DLC_C66~HSC|DLC_6301|DLC_6303,Z_D_E6_C11;			\
 	F=DF6;
@@ -520,23 +573,28 @@ $REQUIRE TRAINDEF.TTT
       TX=SNCB 18;											\
 	C=<SNCB_18NL|SNCB_18N,3*SNCB_I11_B~ZS,2*SNCB_I11_A~ZS,2*SNCB_I11_B~ZS,SNCB_I11_BDX~ZS;		\
 	F=EF6;
+      TX=SNCB 18 + OTC 54 Bruxelles-Midi/Brussel-Zuid - Paris Nord 2025;											\
+	C=<SNCB_18N(|L),SNCB_I11A_OUIGO,6*SNCB_I11B_OUIGO,SNCB_I11_BDX;		\
+	F=EP6;
       TX=SNCB 27;											\
 	C=<SNCB_2716L|SNCB_2716,2*SNCB_M6_BL,SNCB_M6_A,SNCB_M6_BL,SNCB_M6_BDX;				\
 	F=EP6;
-
       TX=SNCB 20 + Freight long Coal transport;								\
 	C=SNCB_20YBM,											\
 	  (15*(SNCB_FALS1000F3M|SNCB_FALS1000F5M|SNCB_FALS1000F9M(|L))					\
 	  [OB:FR_KO37|FR_COAL1|FR_COAL2|COAL33|COAL34|COAL35|COAL3(|[M]),,40]);				\
 	F=EF5;
 
-# Privat E
+# Privat
 
       TX=Lineas 13;											\
-	C=LINEAS_13M(|L),D6FCM;										\
+	C=LINEAS_13M(|L),B6FC;										\
 	F=EF6;
       TX=Lineas 27000;											\
-	C=LINEAS_27000OSR2M(|L),D6FCM;									\
+	C=LINEAS_27000OSR2M(|L),B6FC;									\
+	F=EF6;
+      TX=Lineas E186;											\
+	C=LINEAS_E186_ATV_DC1,B6F;									\
 	F=EF6;
       TX=Dille en Le Jeune Cargo ES64U;									\
 	C=DLC_ES64U2M(|L),B6F|Z_D_E6_C11;								\
@@ -555,18 +613,36 @@ $REQUIRE TRAINDEF.TTT
 # Netherlands
 #
     {E1?
+
+      TX=Nederlandse Centraal Spoorweg Maatschappij 72;							\
+	C=NCS_72[BC:-20,-20][C!BT:0,46][NB:B,BA8],NCS_D201(|L)[NB:B,BA8],NCS_C130(|L)[NB:B,BA8],	\
+	  NCS_C111[NB:B,BA8],NCS_BD104(|L)[NB:B,BA8],NCS_B111[NB:B,BA8],NCS_A1B[NB:B,BA8],		\
+	  NCS_C130(|L)[NB:B,BA8],NCS_C111[NB:B,BA8];							\
+	F=SP1;
+      TX=Noord Brabants Duitse Spoorweg Maatschappij 1;							\
+	C=NBDS_1L[BC:-40,-40][C!BT:0,40][NB:B,BA8],NBDS_C5_POST[NT:B],NBDS_C5_C,NBDS_C5_C,NBDS_C5_AB,	\
+	  NBDS_C5_CD,NBDS_C5_D;										\
+	F=SPR1;
       TX=NS 5000 I;											\
 	C=NS_1D5001(|L),NL2P2;										\
-	F=SP2;
+	F=SP1;
       TX=HSM 806 + Freight train;									\
-	C=HSM_806(|L),NS_PWG(|L),10*(HSM_4488FB(|L)|HSM_5211FB(|L));					\
+	C=HSM_806(|L),HSM_D2,10*(HSM_4488FB(|L)|HSM_5211FB(|L)|HSM_80701CHM);				\
 	F=SF1;
-      TX=HSM 136 + Freight train;									\
-	C=HSM_136(|L),NS_PWG(|L),HSM_D(2|1501|1502|1501L|1502L),HSM_BD(1|13|21|29|84)(|L),2*(HSM_C3),	\
-	  HSM_B(1060L|1201|1060|P31L|106|74|74L|72|70L|70|25|25L),HSM_BC1201(|L),HSM_B(DP1070|P31)(|L);	\
+      TX=HSM 136 + Passenger train;									\
+	C=HSM_136(|L),HSM_D1705(|L),HSM_D(2|1501|1502|1501L|1502L),HSM_BD(1|13|21|29|84)(|L),		\
+	  2*(HSM_C3),HSM_B(1060L|1201|1060|P31L|106|74|74L|72|70L|70|25|25L),HSM_BC1201(|L),		\
+	  HSM_B(DP1070|P31)(|L);									\
 	F=SF1;
+      TX=Staatsspoorwegen 806 + Passenger train;							\
+	C=SS_1B806(|L),SS_D25(|L),SS_C129,SS_C5_2,SS_C129L,SS_C5_1;					\
+	F=SP1;
       TX=Staatsspoorwegen 161 + Passenger train;							\
 	C=SS_1A161(|L),SS_D25(|L),SS_C129,SS_C5_2,SS_C129L,SS_C5_1;					\
+	F=SP1;
+      TX=Staatsspoorwegen 165 + freight train;								\
+	C=SS_1B165(|L),SS_CAB3(|L),									\
+	  16*(SS_83900L|SS_83900|SS_84543L|SS_84543|SS_84715|SS_82001L|SS_82001|SS_84500);		\
 	F=SF1;
       TX=Staatsspoorwegen 165 + freight train;								\
 	C=SS_1B165(|L),SS_CAB3(|L),									\
@@ -603,18 +679,24 @@ $REQUIRE TRAINDEF.TTT
       TX=NS 1000 + Personenzug;										\
 	C=NS_10(01|25)(|L),NL2P2;									\
 	F=SP2;
-      TX=NS S1300;											\
-	C=NS_S1300(|A|B|C)(|L)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NL12F;		\
-	F=SF2;
+      TX=NS 1300;											\
+	C=NS_2A13(01|20)(|L),NL2P2;									\
+	F=SP2;
+      TX=NS 1400 + Personenzug;										\
+	C=NS_2B14(04|13)(|L),NL2P2;									\
+	F=SP2;
       TX=NS 1500;											\
 	C=NS_1500(|A)(|L)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NL12F;		\
 	F=SF2;
       TX=NS 1600;											\
-	C=NS_1600(|A)(|L)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NL12F;		\
+	C=NS_16(39|13|01S)(|L),NL2P2;									\
+	F=SP2;
+      TX=NS 1613 Abfalltransport VAM 1932;								\
+	C=NS_2_1613_VAM(|L),NS_DG2372G(|L),10*(VAM_2_OOT|VAM_TAKKLS1E);					\
 	F=SF2;
       TX=NS 1700;											\
-	C=NS_S1700(|A)(|L)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NL12F;		\
-	F=SF2;
+	C=NS_2(A1701|B1745)(|L),NL2PSC;									\
+	F=SP2;
       TX=NS 2000;											\
 	C=NS_2000(L|~EB)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NL12F;			\
 	F=SF2;
@@ -651,6 +733,9 @@ $REQUIRE TRAINDEF.TTT
       TX=NS 3300;											\
 	C=NS_2B3304(|L),NL12FM;										\
 	F=SF2;
+      TX=NS 3400;											\
+	C=NS_2B3401(|L),NL12FM;										\
+	F=SF2;
       TX=NS 3500;											\
 	C=NS_3500(|A)(|L)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NL12F;		\
 	F=SF2;
@@ -662,14 +747,11 @@ $REQUIRE TRAINDEF.TTT
 	C=NS_3700(|F(|2|1|3|4|5|6|7|8|9|10)|B||D(|2|1|3|4|5|6|7|8|9)|N(|2|1|3|4|5|6|7|8|9|10)|P(|9)|T|	\
 	  V|X|Z(|2|4|6))(|L)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NL2PSC;		\
 	F=SP2;
-      TX=NS 3700 + Schnellzug;										\
-	C=NS_3737B(|L)|NS_2_3713(|L)|NS_2_3701(|L)|NS_2_3785(|L),NL2PL;					\
-	F=SP2;
       TX=NS 3700 + CIWL Edelweiss Amsterdam-Luzern 1937;						\
-	C=NS_2_3713(|L),F2PCE;										\
+	C=NS_2_37(13|01|85|23)(|L),F2PCE;								\
 	F=SP2;
       TX=NS 3800 + Eilzug;										\
-	C=NS_2_3816(|L)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NL2PSC;			\
+	C=NS_2_3816(|L),NL2PSC;										\
 	F=SP2;
       TX=NS 3900;											\
 	C=NS_3900(|L)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],				\
@@ -679,7 +761,8 @@ $REQUIRE TRAINDEF.TTT
 	C=NS_2_3931(|L),NL2PSC;										\
 	F=SF2;
       TX=NS 3900 + Schnellzug;										\
-	C=NS_2_3931(|L),NL2PL;										\
+	C=NS_2_3931(|L),										\
+	  (<NS_C10C_6101,NS_C10C_6026,NS_BC9C_6001,CIWL_WR2,NS_AB8C_6231L,NS_C10C_6026L|CIWL_WL(20|30)); \
 	F=SP2;
       TX=NS 4500/4600;											\
 	C=NS_2_4501(|L)|NS_2_4612(|L),NL12F;								\
@@ -711,10 +794,7 @@ $REQUIRE TRAINDEF.TTT
 	C=NS_2B5404(|L),(<NS_C7_4001L,NS_C8C_4501L,NS_B5C_4615L,NS_C8C_4551L);				\
 	F=SF2;
       TX=NS 5500 + Personenzug;										\
-	C=NS_5500AL|NS_5500A|NS_5500BL|NS_5500CL|NS_5500C|NS_5500DL|NS_5500EL|NS_5500E|NS_5500F|	\
-	  NS_5500GL|NS_5500HL|NS_5500H|NS_5500IL|NS_5500I|NS_5500JL|NS_5500KL|NS_5500K|NS_5500L|	\
-	  NS_5500ML|NS_5500M|NS_5500NL|NS_5500N|NS_5500B|NS_5500D|NS_5500FL|NS_5500G|NS_5500J|		\
-	  NS_5500LL,(<NS_D4011L,NS_C12CO2,NS_C12CG2,NS_B12CG);						\
+	C=NS_(2A5501|2B5541|2B5546)(|L),(<NS_D4011L,NS_C12CO2,NS_C12CG2,NS_B12CG);			\
 	F=SP2;
       TX=NS 5546 + Personenzug Het Loo 1935;								\
 	C=(NS_2B5546L,NS_2B_D4172,NS_B2,NS_2B_C1101),(NS_2B5546,NS_2B_D4172L,NS_B2,NS_2B_C1101);	\
@@ -724,19 +804,21 @@ $REQUIRE TRAINDEF.TTT
 	  (<NS_C6_2570,NS_C7_4001L,NS_B5C_4615,NS_C7_4001);						\
 	F=SP2;
       TX=NS 5700;											\
-	C=NS_5700(|A|B|C|D|E)(|L)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NS_D2566,	\
+	C=NS_57(03|01)(|L),NS_D2566,									\
 	  (<NS_B4C_2501,NS_C5_2126,NS_C5_2315L,NS_C6_2570,NS_C7_4001L,NS_A3C_2502L);			\
 	F=SF2;
       TX=NS 5800;											\
 	C=NS_580(0H|1HL|6|6L)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NS_D1017,		\
 	  (<NS_C8C_4501,NS_C8C_4551L,NS_A4C_4503|NS_AB6_4001|NS_AB6C_4571,NS_C8C_4501L);		\
 	F=SP2;
+      TX=NS 5806 + DIII 4001-4098 + BI8 1806-1821 + CI8 1817-1821 + CI7 1601-1606 Amersfoort-Utrecht 1936; \
+	C=(NS_5806HL,NS_D4011L,NS_2_B4,NS_2_C4L,NS_2_B3A)|(NS_5806H,NS_D4011,NS_2_B4,NS_2_C4,NS_2_B3A);	\
+	F=SP2;
       TX=NS 5901;											\
 	C=NS_5951,NS_D2557,(<NS_C5_2126,NS_C5_2315,NS_B4C_2501L,NS_C6_2570);				\
 	F=SF2;
       TX=NS 6000;											\
-	C=NS_6000L|NS_6000|NS_6000AL|NS_6000A|NS_6000BL|NS_6000B|NS_6000CL|NS_6000C|NS_6000DL|		\
-	  NS_6000D|NS_6000EL|NS_6000E|NS_6000FL|NS_6000F|NS_6000GL|NS_6000G,NS_D2566L,NL2PSC;		\
+	C=NS_2_60(01|05|07|17)(|L),NL2PSC;								\
 	F=SP2;
       TX=NS 6100 + Personenzug;										\
 	C=NS_2_6110(|L),NL2PSC;										\
@@ -795,6 +877,9 @@ $REQUIRE TRAINDEF.TTT
       TX=NS 7200;											\
 	C=NS_7200(|A)(|L)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NL12FM;		\
 	F=SF2;
+      TX=NS 7300;											\
+	C=NS_7301(|L),NL2P2;										\
+	F=SP2;
       TX=NS 7400 + Passenger Train Haarlemermeer;							\
 	C=NS_7401(|L)|NS_2B_7400L,NS_DPOST,NS_P5,NS_P4;							\
 	F=SP2;
@@ -802,7 +887,7 @@ $REQUIRE TRAINDEF.TTT
 	C=NS_7600[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NL12FS;			\
 	F=SF2;
       TX=NS 7700;											\
-	C=NS_77(00|42|00B|00L|42L)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NL12FS;	\
+	C=NS_2_77(16|01)(|L),NL12FS;									\
 	F=SF2;
       TX=NS 8000;											\
 	C=NS_8001[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NL12FS;			\
@@ -811,7 +896,7 @@ $REQUIRE TRAINDEF.TTT
 	C=NS_8100(|A)(|L)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NL12FS;		\
 	F=SF2;
       TX=NS 8200;											\
-	C=NS_8200(|L)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NL12FS;			\
+	C=NS_2(A_8201|B8207)(|L),NL12FS;								\
 	F=SF2;
       TX=NS 8300;											\
 	C=NS_8301[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NL12FS;			\
@@ -833,20 +918,18 @@ $REQUIRE TRAINDEF.TTT
 	  NS_2_O3[O:COAL42,,26],SS_59414L;								\
 	F=SF2;
       TX=NS 8700;											\
-	C=NS_8700(|L)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NL12FM;			\
+	C=NS_2B87(01|26)(|L),NL12FM;									\
 	F=SF2;
       TX=NS 8800;											\
 	C=NS_8800(|L)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NL12FS;			\
 	F=SF2;
       TX=NS 9500;											\
-	C=NS_2A95(02|01)(|L),4*((NS_89101HTRSEL|NS_89101HTRSE)[OB:WOOD(24|127)(|[M]),,13]);		\
+	C=NS_9500(|A)(|L)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],			\
+	  4*((NS_89101HTRSEL|NS_89101HTRSE)[OB:WOOD(24|127)(|[M]),,13]);				\
 	F=SF2;
       TX=NS 9500;											\
-	C=NS_2B9504(|L),NL2FLC;										\
+	C=(NS_2A9501L,NS_2A9502L)|NS_2B9504(|L)|(NS_2A9501,NS_2A9502),NL2FLC;				\
 	F=SF2;
-
-# VT
-
       TX=NS omc 900;											\
 	C=NS_OMC901Y|NS_OMC911Y;									\
 	F=DF2;
@@ -867,6 +950,10 @@ $REQUIRE TRAINDEF.TTT
 	  NS_ABEC_8501GY,NS_AEC_8501GY,NS_MABD_9001GY|NS_MBD5_9001GY|NS_MBD5_9029GY);			\
 	F=EPU2;
 
+      TX=Zuid-Hollandsche Electrische Spoorweg-Maatschappij MBC1 + MB51;				\
+	C=(ZHESM_MBC1B,2*ZHESM_C101B,ZHESM_MB51B)|(ZHESM_MBC1G,2*ZHESM_C101G,ZHESM_MB51G);		\
+	F=EPR2;
+
 #  Niederlande Schmalspur
 
       TX=Rotterdamsche Tramweg Maatschappij 50-57;							\
@@ -879,9 +966,15 @@ $REQUIRE TRAINDEF.TTT
     {E3?
 
 # Dampf
+      TX=NS 1700;											\
+	C=NS_3B1762(|L),NL3PLA;										\
+	F=S32;
       TX=NS 2114 + Schnellzug;										\
 	C=NS_2114(|L),NL3PLA;										\
 	F=SP3;
+      TX=NS 3400;											\
+	C=NS_3A3419(|L),NL3FLS;										\
+	F=SF3;
       TX=NS 3737 + NVBS-Sonderzug 1956;									\
 	C=NS_3737B(|L),											\
 	  (<2*NS_AB7C6021H,NS_C10C6101H,NS_BC9C6001HL,NS_C10C6200H,3*NS_C10C6101HL,NS_C10C6201H,	\
@@ -892,14 +985,14 @@ $REQUIRE TRAINDEF.TTT
       TX=NS 3737 + Dampf-Abschiedszug Januar 1958;							\
 	C=NS_3737B(|L),(<NS_3OV_AB,3*NS_3OV_C)|(>NS_3OV_ABL,3*NS_3OV_CL);				\
 	F=SP3;
-      TX=NS 3700 + Schnellzug;										\
-	C=NS_3_37(34|60|46|23|08)(|L),NL3PLA;								\
-	F=SP3;
       TX=NS 3700 + Personenzug;										\
-	C=NS_3_37(34|60|46|23|08)(|L),NL3PRA;								\
+	C=NS_3_37(08|23|34|46|60)(|L),NL3PRA;								\
 	F=SP3;
       TX=NS 3800 + Personenzug;										\
 	C=NS_3_3819(|L),NL3PRA;										\
+	F=SP3;
+      TX=NS 3900 + Schnellzug;										\
+	C=NS_2_3931(|L),NL3PLA;										\
 	F=SP3;
       TX=NS 3900 + Personenzug;										\
 	C=NS_3_39(30|17|03)(|L),NL3PRA;									\
@@ -916,16 +1009,28 @@ $REQUIRE TRAINDEF.TTT
       TX=NS 4600;											\
 	C=NS_3_4608(|L)|NS_3_4618(|L),NL3FLA;								\
 	F=SF3;
+      TX=NS 4700;											\
+	C=NS_3_47(01|16)(|L),NS_D111(|L),15*(NS_3_O4|NS_3_O3|NS_3_O1|NS_70701|NS_3A_CHOP1460|NS_CHHP1);	\
+	F=SF3;
       TX=NS 5000 II;											\
 	C=NS_3_5002(|L),NL3FLA;										\
 	F=SF3;
-      TX=NS 5000 II + ex USTC 617, 614, 618, 615, 608, 610, 619 - 1950;					\
+      TX=NS 5000 II + ex USTC 617,614,618,615,608,610,619 - 1950;					\
 	C=NS_3_5002(|L),NS_614(|L),NS_608(|L),NS_610(|L),NS_619(|L),NS_3A_C12A,NS_C10C_6101(|L),	\
 	  NS_3A_C10A;											\
 	F=SF3;
       TX=NS 5100 II;											\
 	C=NS_3_5102(|L),NL3FLA;										\
 	F=SF3;
+      TX=NS 5500;											\
+	C=NS_3A55(23|34)(|L),2*NL3FLS;									\
+	F=SF3;
+      TX=NS 5706 + P Zwolle - Hardenberg 1948 (Coaches ex SJ);						\
+	C=NS_3A_5706(|L),NS_D4011(|L),5*NS_3A_C2EXSJ(|L);						\
+	F=SPR3;
+      TX=NS 6000;											\
+	C=NS_3_60(02|08)(|L),NL3PLA;									\
+	F=SP3;
       TX=NS 6100;											\
 	C=NS_3_6104(|L),NL3FLA;										\
 	F=SF3;
@@ -938,14 +1043,17 @@ $REQUIRE TRAINDEF.TTT
       TX=NS 7100;											\
 	C=NS_3A7101(|L),NL3PRA;										\
 	F=SF3;
-      TX=NS 4700;											\
-	C=NS_3_47(01|16)(|L),NS_D111(|L),15*(NS_3_O4|NS_3_O3|NS_3_O1|NS_70701|NS_3A_CHOP1460|NS_CHHP1);	\
+      TX=NS 7700;											\
+	C=NS_3_7723(|L),NL3FLS;										\
+	F=SF3;
+      TX=NS 8200;											\
+	C=NS_3A8209(|L),NL3FLS;										\
+	F=SF3;
+      TX=NS 8700;											\
+	C=NS_3A87(30|22)(|L),NL3FLS;									\
 	F=SF3;
       TX=NS 8800;											\
 	C=NS_3A_8801(|L),NL3FLS;									\
-	F=SF3;
-      TX=NS 9500;											\
-	C=NS_3_9505(|L),NL3FLS;										\
 	F=SF3;
 
 # Akku
@@ -959,6 +1067,9 @@ $REQUIRE TRAINDEF.TTT
 
 # V
 
+      TX=NS 200;											\
+	C=NS_200G5M(|L),NS_9441511;									\
+	F=DF3;
       TX=NS 400;											\
 	C=NS_400L~HW|NS_402~EB|NS_402A|NS_402L~HW|NS_402~HW|NS_400~HW,NS_CHHP1,NS_88101N,NS_SAMMS;	\
 	F=DF3;
@@ -1058,7 +1169,7 @@ $REQUIRE TRAINDEF.TTT
       TX=NS OMBC 1904;											\
 	C=NS_OMBC1904;											\
 	F=DF3;
-      TX=NS ombc 2900, DE1;										\
+      TX=NS ombc 2900,DE1;										\
 	C=NS_OMBC2900~JVM|NS_OMBC2900L~EB|NS_OMBC2900~EB|NS_OMBC2900L~JVM|NS_DE1OL|NS_DE1O|NS_DE1BL|	\
 	  NS_DE1B|NS_DE1BPL|NS_DE1BP|NS_DE1_41ML|NS_DE1_41M|NS_DE1RL|NS_DE1R;				\
 	F=DF3;
@@ -1144,17 +1255,17 @@ $REQUIRE TRAINDEF.TTT
 	  (<NS_E_BL~HW,2*NS_E_B~HW,NS_E_AL~HW|NS_E_A~HW,NS_E_BL~HW,NS_E_ABL~HW|NS_E_AB~HW,NS_E_RDL~HW);	\
 	F=EP3;
       TX=NS 1300;											\
-	C=NS_1300T~GOU,NL3FLB;										\
+	C=NS_1300T~GOU|NS_1303(|L),NL3FLB;								\
 	F=EF3;
       TX=NS 1300;											\
-	C=NS_1300B3,											\
+	C=NS_1300B3|NS1310(|L),										\
 	  (<NS_L_P3L|NS_L_P3|NS_L_P4L|NS_L_P4|NS_L_P5L|NS_L_P5,NS_E_RD~GOU,				\
 	  NS_E_B~GOU|NS_E_B7L|NS_E_B7,NS_E_A6L|NS_E_A~GOU|NS_E_A6,NS_E_AB6L|NS_E_AB6,NS_E_B6L|NS_E_B6);	\
 	F=EP3;
 
 # ET
 
-      TX=NS 9000 = 9900;										\
+      TX=NS 9000 =9900;											\
 	C=NS_MB9925|NS_MBC9910|NS_MC9901,NS_C8001G;							\
 	F=EPU3;
       TX=NS Mat 24;											\
@@ -1189,6 +1300,11 @@ $REQUIRE TRAINDEF.TTT
 	  NS_9711012|NS_9711616|NS_9751514L|NS_9751514|NS_9781804|NS_9791512;				\
 	F=EF3;
 
+# Privat
+      TX=Nederland DSM (Dutch State Mines)155 + Coal train 1962;					\
+	C=DSM_155(|L),20*DSM_4L_COAL[O:(COAL64|FR_KO41),12,30][O:(COAL64|FR_KO41),48,30];		\
+	F=DF3;
+
 #  Niederlande Schmalspur
 
       TX=Rotterdamsche Tramweg Maatschappij 1602;							\
@@ -1200,7 +1316,7 @@ $REQUIRE TRAINDEF.TTT
       TX=Rotterdamsche Tramweg Maatschappij 1700;							\
 	C=<RTM_P3,RTM_MBD1700,RTM_P3;									\
 	F=DNPU3;
-      TX=Rotterdamsche Tramweg Maatschappij 1805, 1806;							\
+      TX=Rotterdamsche Tramweg Maatschappij 1805,1806;							\
 	C=RTM_MD1805|RTM_MD1806,RTM_P1;									\
 	F=DNP3;
       TX=Rotterdamsche Tramweg Maatschappij M67;							\
@@ -1225,8 +1341,22 @@ $REQUIRE TRAINDEF.TTT
       TX=NS 500;											\
 	C=NS_500A|NS_500B|NS_500C,2*NL4FS1;								\
 	F=DF45;
+      TX=NS 614 + Werkwagen;										\
+	C=NS_614(|L),(NS_WERKW505(|L)|(NS_WERKW505LO[#D:L])|NS_WERKW503(|L)|NS_WERKW504(|L));		\
+	F=DF4;
+      TX=NS 2200 + Wendezug 1970-1980er Jahre;								\
+	C=(<NS_2294,NS_E_B7,NS_E_AB6L,NS_E_B7L,NS_E_B7,NS_4_ENG501,NS_4A_2200N8L)|			\
+	  (>NS_2294L,NS_E_B7L,NS_E_AB6,NS_E_B7,NS_E_B7L,NS_4_ENG501,NS_4A_2200N8);			\
+	F=DPRU4;
+      TX=NS 2200 + Wendezug 1970-1980er Jahre;								\
+	C=(<NS_2294,NS_E_B7,NS_E_B7L,NS_E_B7,NS_4_ENG501,NS_2210L)|					\
+	  (>NS_2294L,NS_E_B7L,NS_E_B7,NS_E_B7L,NS_4_ENG501,NS_2210L);					\
+	F=DPRU4;
       TX=NS 2200 + Erzzug Ruhrgebiet - Rotterdam 1973;							\
 	C=4*NS_22(01|00A)(|L),28*NS_FALS25(10AL|10A|10BL|10B|20AL|20A|20BL|20B|20|10);			\
+	F=DF4;
+      TX=NS 2300 + Maintenance;										\
+	C=NS_2343(|L),NS_WERKWY2(|L),NS_E_W1(|L),NS_E_CB(|L);						\
 	F=DF4;
       TX=NS 2200/2300;											\
 	C=NS_2225L|NS_2225|NS_2210L|NS_2210|NS_2343L|NS_2343|NS_2325L|NS_2325|NS_2200L~EB|NS_2200~EB,	\
@@ -1238,6 +1368,10 @@ $REQUIRE TRAINDEF.TTT
       TX=NS 2400;											\
 	C=NS_2456|NS_2449|NS_2472|NS_2411|NS_2400YM(|L),4*NL4FS1;					\
 	F=DF45;
+      TX=NS 2435 + Unfallhilfszug 1982;									\
+	C=(NS_4B_2435L,NS_KRANM2L,NS_KRAN1L,NS_KRANM1)|(NS_4B_2435,NS_KRANM2,NS_KRAN1,NS_KRANM1L);	\
+	V=5;												\
+	F=DF4;
       TX=NS 2404 + 2514 mit Schleifzug 1983 im Einsatz;							\
 	C=(<NS_2404L[!S],NS_4_SLIJPWAT,NS_4_SLIJPBLOK[!S],NS_4_SLIJPWATL,NS_2514[!S])|			\
 	  (>NS_2404[!S],NS_4_SLIJPWATL,NS_4_SLIJPBLOKL[!S],NS_4_SLIJPWAT,NS_2514L[!S]);			\
@@ -1247,18 +1381,27 @@ $REQUIRE TRAINDEF.TTT
 	C=(<NS_2404L,NS_4_SLIJPWAT,NS_4_SLIJPBLOK,NS_4_SLIJPWATL,NS_2514)|				\
 	  (>NS_2404,NS_4_SLIJPWATL,NS_4_SLIJPBLOKL,NS_4_SLIJPWAT,NS_2514L);				\
 	F=DF4;
+      TX=NS 2404 + Transport Class 2900 after sale 1975;						\
+	C=NS_2435(|L),5*(NS_290(1|5)~HW|NS_290(1|5)L~HW),2*NS_G_UIC_BOISM;				\
+	F=DF4;
       TX=NS 2404 + 2514 mit Schleifzug 1983 im Einsatz;							\
 	C=NS_2456|NS_2449|NS_2472|NS_2411|NS_2400YM(|L),4*NL4FS1;					\
 	F=DF45;
       TX=NS 2530;											\
 	C=NS_2530CL|NS_2530C|NS_2530FL|NS_2530F|NS_2530N2|NS_2530N3,4*NL4FS1;				\
 	F=DF4;
+      TX=NS 2400/2500 Abfalltransport VAM 1973;								\
+	C=NS_25(14|01)(|L),4*VAM_TAKKLS1G;								\
+	F=DF4;
       TX=NS 2530;											\
 	C=NS_2530Y2L|NS_2530YL|NS_2530Y|NS_2530SL|NS_2530S|NS_2530Y1|NS_2530Y2,4*NL4FS1;		\
 	F=DF45;
       TX=NS 2900;											\
-	C=NS_2901~EB|NS_2901L~EB|NS_2905L~EB|NS_2905~EB,4*NL4FS1;					\
+	C=NS_290(1|5)(|L)~HW,4*NL4FS1;									\
 	F=DF45;
+      TX=NS 2903 Abfalltransport VAM 1973;								\
+	C=NS_2903(|L),12*VAM_4TADS_COMP;								\
+	F=DF4;
 
 # VT
 
@@ -1278,12 +1421,12 @@ $REQUIRE TRAINDEF.TTT
       TX=NS DE3 112;											\
 	C=(<NS_112ABKL,NS_112B,NS_112MBDK|NS_115MBDK)|(<NS_112MBDKL|NS_115MBDKL,NS_112BL,NS_112ABK)|	\
 	  (<NS_DE3ABKPL,NS_112B,NS_DE3MBDKP|NS_DE3MBDKP5)|						\
-	  (<NS_DE3MBDKPL|NS_DE3MBDKP5L,NS_112BL,NS_DE3ABKP)|(<)|(<);					\
+	  (<NS_DE3MBDKPL|NS_DE3MBDKP5L,NS_112BL,NS_DE3ABKP);						\
 	F=DPU45;
       TX=NS DE2;											\
 	C=(NS_DE2RL,NS_DE2R)|(NS_DE2RBL,NS_DE2RB);							\
 	F=DPU4;
-      TX=NS DE5;											\
+      TX=NS DE5 181 - 192;										\
 	C=(<NS_DE5ABKRL,NS_DE5MRL,NS_DE5B2RL,NS_DE5B1RL,NS_DE5BKR)|					\
 	  (<NS_DE5BKRL,NS_DE5B1R,NS_DE5B2R,NS_DE5MR,NS_DE5ABKR)|					\
 	  (<NS_DE5ABKSL,NS_DE5MSL,NS_DE5B2SL,NS_DE5B1SL,NS_DE5BKS)|					\
@@ -1292,6 +1435,19 @@ $REQUIRE TRAINDEF.TTT
 	  (<NS_DE5BKBL,NS_DE5B1B,NS_DE5B2B,NS_DE5MB,NS_DE5ABKB)|					\
 	  (<NS_DE5ABKOL,NS_DE5MOL,NS_DE5B2OL,NS_DE5B1OL,NS_DE5BKO)|					\
 	  (<NS_DE5BKOL,NS_DE5B1O,NS_DE5B2O,NS_DE5MS,NS_DE5ABKO);					\
+	F=DPU4;
+      TX=NS DE5 196,197 ex ElD5;									\
+	C=(<NS_DE5_BK_RML,NS_DE5_MD_RML,NS_DE5_BOEXELD5_RM,NS_DE5_BOOEXELD5_RM,NS_DE5_BKEXELD5_RM)|	\
+	  (>NS_DE5_BK_RM,NS_DE5_MD_RM,NS_DE5_BOEXELD5_RML,NS_DE5_BOOEXELD5_RML,NS_DE5_BKEXELD5_RML)|	\
+	  (<NS_DE5_BK_R2ML,NS_DE5_MD_R2ML,NS_DE5_BOEXELD5_R2M,NS_DE5_BOOEXELD5_R2M,NS_DE5_BKEXELD5_R2M)| \
+	  (>NS_DE5_BK_R2M,NS_DE5_MD_R2M,NS_DE5_BOEXELD5_R2ML,NS_DE5_BOOEXELD5_R2ML,			\
+	  NS_DE5_BKEXELD5_R2ML);									\
+	F=DPU4;
+      TX=NS DE5 181 - 192;										\
+	C=(<NS_DE5_ABK_RML,NS_DE5_MD_RML,NS_DE5_BO_RM,NS_DE5_BOO_RM,NS_DE5_BK_RM)|			\
+	  (>NS_DE5_ABK_RM,NS_DE5_MD_RM,NS_DE5_BO_RML,NS_DE5_BOO_RML,NS_DE5_BK_RML)|			\
+	  (<NS_DE5_ABK_R2ML,NS_DE5_MD_R2ML,NS_DE5_BO_R2M,NS_DE5_BOO_R2M,NS_DE5_BK_R2M)|			\
+	  (>NS_DE5_ABK_R2M,NS_DE5_MD_R2M,NS_DE5_BO_R2ML,NS_DE5_BOO_R2ML,NS_DE5_BK_R2ML);		\
 	F=DPU4;
       TX=NS DH2;											\
 	C=NS_DH2L~GOU|NS_DH2~GOU|NS_DH2NL~GOU|NS_DH2N~GOU;						\
@@ -1308,6 +1464,9 @@ $REQUIRE TRAINDEF.TTT
       TX=NS 1100 + Schnellzug;										\
 	C=NS_1100_2CL|NS_1100_2C,(<(2*NS_D_B9SL),2*NS_D_B9S,NS_D_RDSL|NS_D_RDS,NS_D_A8S,NS_D_A8SL);	\
 	F=EP4;
+      TX=NS 1100 + Maintenance;										\
+	C=(<NS_1149(|L),NS_CTO|NS_NSTO,NS_D_WRD3)|(>NS_1149(|L),NS_CTOL|NS_NSTOL,NS_D_WRD3L);		\
+	F=EF4;
       TX=NS 1100 + Regionalzug;										\
 	C=NS_1144L|NS_1144|NS_1113L|NS_1113,								\
 	  (<2*NS_W1_B7L,NS_K4_A8L|NS_K4_A8|NS_M2_ABL|NS_M2_AB|NS_M2_BKD|NS_K4_A8_NSL|NS_K4_A8_NS,	\
@@ -1327,7 +1486,7 @@ $REQUIRE TRAINDEF.TTT
 	C=NS_12(11|20)(|L)~GOU,NS_W1_B3,3*NS_W1_B3L;							\
 	F=EF4;
       TX=NS 1300;											\
-	C=NS_1300B4,(<NS_W1_B8L|NS_W1_B8,NS_W1_B3L,NS_W1_B3,NS_W2_B2L|NS_W2_B2);			\
+	C=NS_1300B(4|5),(<NS_W1_B8L|NS_W1_B8,NS_W1_B3L,NS_W1_B3,NS_W2_B2L|NS_W2_B2);			\
 	F=EF4;
       TX=NS 1600 Prototyp;										\
 	C=NS_1600PL|NS_1600P,NL4FL1;									\
@@ -1356,6 +1515,9 @@ $REQUIRE TRAINDEF.TTT
       TX=NS Mat 40 zweiteilig;										\
 	C=(<NS_MAT40YABKL,NS_MAT40YDK1)|(<NS_MAT40YDK1L,NS_MAT40YABK)|(<NS_MAT40PABKL,NS_MAT40PBDK)|	\
 	  (<NS_MAT40PBDKL,NS_MAT40PABK)|(<NS_MAT40OCDKL,NS_MAT40RBCK)|(<NS_MAT40RBCKL,NS_MAT40OCDK);	\
+	F=EPU4;
+      TX=NS Mat 40 fünfteilig;										\
+	C=NS_MAT40ELD5_V2;										\
 	F=EPU4;
       TX=NS Mat 40 fünfteilig;										\
 	C=(<NS_MAT40YAKL,NS_MAT40YB1L,NS_MAT40YB2L,NS_MAT40YB3L,NS_MAT40YBDK)|				\
@@ -1492,6 +1654,9 @@ $REQUIRE TRAINDEF.TTT
 	  (1-2*((<NS_ICM1_MBDK1ML,NS_ICM1_AB1ML,NS_ICM1_SBK1M)|						\
 	  (>NS_ICM1_MBDK1M,NS_ICM1_AB1M,NS_ICM1_SBK1ML)));						\
 	F=EF45;
+      TX=Nederland DSM (Dutch State Mines )151-155;							\
+	C=DSM_151(|L)|DSM_152(|L)~HW|DSM_153(|L)~HW|DSM_154(|L)|DSM_155(|L),10*NS_FALS2510(|A|AL|B|BL);	\
+	F=DF4;
 
 # Hist
 
@@ -1504,6 +1669,9 @@ $REQUIRE TRAINDEF.TTT
     }
     {E5?
 # V
+      TX=NS 200 + Maintenance;										\
+	C=NS_200C,NL5FM1;										\
+	F=DF5;
       TX=NS 2200;											\
 	C=NSC_2384AL|NSC_2384A|NSC_2384BL|NSC_2384B,2-3*NL5FS1;						\
 	F=DF5;
@@ -1601,6 +1769,19 @@ $REQUIRE TRAINDEF.TTT
       TX=NS 3737 + PlanE-Zug 1989;									\
 	C=NS_4_3737(|L),(<2*NS_3_EBL,NS_3_EBKD,3*NS_3_EB)|(>2*NS_3_EB,NS_3_EBKDL,3*NS_3_EBL);		\
 	F=SP5;
+# Priv
+      TX=Strukton Rail 200;										\
+	C=STRUKTON_200,NL5FM1;										\
+	F=DF5;
+      TX=Strukton Rail 500;										\
+	C=STRUKTON_500(|A),NL5FM1;									\
+	F=DF5;
+      TX=Strukton Rail 302;										\
+	C=STRUCTON_302(270|282A|282B|328)(|L),NL5FM1;							\
+	F=DF5;
+      TX=Volker Stevin 200;										\
+	C=VOST_200,NL5FM1;										\
+	F=DF5;
 
     }
     {E6?
@@ -1643,14 +1824,33 @@ $REQUIRE TRAINDEF.TTT
 	  (>NS_HSP1_BML,NS_HSP2_BM,NS_HSP3_BM,NS_HSP4_BDM,NS_FYRA3_AM,NS_HSP2_AM,NS_HSP1_BM);		\
 	F=EP6;
 
-      TX=NSHS 193 (ELL) + NS Hispeed;									\
+      TX=NSHS 193 (ELL)+ NS Hispeed;									\
 	C=NS_193ELL(|L),										\
 	  (<NS_HSP1_BM,NS_HSP2_BML,NS_HSP3_BML,NS_HSP4_BDML,NS_FYRA3_AML,NS_HSP2_AML,NS_HSP1_BML)|	\
 	  (>NS_HSP1_BML,NS_HSP2_BM,NS_HSP3_BM,NS_HSP4_BDM,NS_FYRA3_AM,NS_HSP2_AM,NS_HSP1_BM);		\
 	F=EP6;
+      TX=NSHS 193 (ELL)+ NightJet 403 Amsterdam Central - Zürich HB 2024;				\
+	C=NS_193ELL(|L),										\
+	  (<7*SBB_2090REFIT,SBB_1090REFIT,BTE_BVCMZ248NJ,RDC_BVCMZL,BTE_BVCMZ248NJ,BTE_WLABMZ7171NJ,	\
+	  BTE_BVCMBZ249NJ)|										\
+	  (>7*SBB_2090REFITL,SBB_1090REFITL,BTE_BVCMZ248NJL,RDC_BVCMZ,BTE_BVCMZ248NJL,			\
+	  BTE_WLABMZ7171NJL,BTE_BVCMBZ249NJL);								\
+	F=EP6;
 
 # ET
 
+      TX=NS 2700 CAF Civity 2022;									\
+	C=NS_CIVITY_2700Y;										\
+	F=EPU56;
+      TX=NS 2700 CAF Civity 2022;									\
+	C=NS_CIVITY_2300Y;										\
+	F=EPU56;
+      TX=NS 3200/3300;					\
+	C=<NS_3300I1L,NS_3300I2L,NS_3300I3L,NS_3300I4L,NS_3300I4,NS_3300I3,NS_3300I7,NS_3300I1;		\
+	F=EPU6;
+      TX=NS 3200/3300 IC 9531 Brussel Zuid - Lelystad Centrum 2024;					\
+	C=<NS_3300F1L,NS_3300F2L,NS_3300F3L,NS_3300F4L,NS_3300F4,NS_3300F3,NS_3300F2,NS_3300F1;		\
+	F=EPU6;
       TX=NS 4000 ICM;											\
 	C=2*(<NS_ICMG_MBKL,NS_ICMG_AB,NS_ICMG_SBFK);							\
 	F=EPU56;
@@ -1752,35 +1952,32 @@ $REQUIRE TRAINDEF.TTT
       TX=Niederlande Arriva GT26;									\
 	C=AR_GTW26L~ASM|AR_GTW26~ASM|AR_GTW26L~GOU|AR_GTW26~GOU;
       TX=Arriva GT26E;											\
-	C=AR_GTWE26L|AR_GTWE26;										\
+	C=AR_GTWE26(|L)|AR_GTW26SPURT(|L);								\
 	F=EPU6;
       TX=Niederlande Arriva GT28;									\
 	C=AR_GTW28(|L)~ASM|AR_GTW28~ASM|AR_GTW28(|L)~GOU;
       TX=Arriva GT28E;											\
 	C=AR_GTWE28L|AR_GTWE28;										\
 	F=EPU6;
-      TX=DB Cargo Nederland 1614;									\
-	C=DBS_1616YD[PFU],Z_D_E6_G_Kessel(|2);								\
-	F=DF6;
+      TX=Niederlande Arriva LINT 41H Blauwnet RS 24 Oldenzaal - Zutphen 2025;									\
+	C=AR_41H_BLAUWNETM;								\
+	F=DPRU6;
       TX=DB Cargo Nederland 6400;									\
 	C=(DBS_6400VRM|DBS_6400EYM)(|L),2*D6FZKM;							\
 	F=DF6;
-      TX=Nederland Connexxion (Niederlande) DH1;							\
+      TX=Nederland Connexxion (Niederlande)DH1;								\
 	C=CX_DH1L|CX_DH1|CX_DH1NL|CX_DH1N;								\
 	F=DPU6;
       TX=Nederlande Connexxion Hermes brengdirect Arnhem-Doetinchem Stadler GTW 2/8;			\
 	C=(<CX_GTW28B_AL,CX_GTW28B_B,CX_GTW28B_C,CX_GTW28B_D)|						\
 	  (<CX_GTW28B_DL,CX_GTW28B_CL,CX_GTW28B_BL,CX_GTW28B_A);					\
 	F=DPU6;
-      TX=Nederland Connexxion (Niederlande) DH2;							\
+      TX=Nederland Connexxion (Niederlande)DH2;								\
 	C=CX_DE2~EB|CX_DE2L~EB;										\
 	F=DPU6;
-      TX=Nederland Connexxion (Niederlande) Protos;							\
+      TX=Nederland Connexxion (Niederlande)Protos;							\
 	C=(<CX_PROTOS0EL,CX_PROTOS0E)|(<CX_PROTOS0FL,CX_PROTOS0F)|(<CX_PROTOS1EL,CX_PROTOS1E)|		\
 	  (<CX_PROTOS1FL,CX_PROTOS1F);									\
-	F=DPU6;
-      TX=Nederland DSM 152-155;										\
-	C=DSM_152~HW|DSM_152~PK|DSM_153~HW|DSM_153~PK|DSM_155;						\
 	F=DPU6;
       TX=Nederland ERS European Rail Shuttle B.V. 1201;							\
 	C=ERS_1201(|L),D6FP1K;										\
@@ -1818,6 +2015,9 @@ $REQUIRE TRAINDEF.TTT
 	  EETC_BUFFET_L0AML|EETC_BUFFET_BSLML|EETC_WRM_L0NSML,EETC_BCVMH_EESLML,EETC_BCVMH_L0NSML,	\
 	  EETC_BCVMH_L0CNLML,EETC_AB30_L0ML,EETC_MU_W64M_EESLML|EETC_MU_L0NSML);			\
 	F=DP6;
+      TX=Hoogovens (Corus)822;										\
+	C=HO_822,NL6S;											\
+	F=DF6;
       TX=Nederlande Husa 7100;										\
 	C=HUSA_7100M(|L),D6FZKM|(3*NL6S);								\
 	F=DF6;
@@ -1867,6 +2067,12 @@ $REQUIRE TRAINDEF.TTT
       TX=Nederland Oostnet DE2;										\
 	C=OOST_DE2L|OOST_DE2;										\
 	F=DPU6;
+      TX=Nedtrain 200;											\
+	C=NEDTRAIN_200,EURAILSCOUT_UMR(|L);								\
+	F=DF6;
+      TX=Nederland Rail Force One EURO 9000 Nr. 2019-303;										\
+	C=RFOFS_2019303(|L),D6FCM;										\
+	F=EF6;
       TX=Nederland Rail Terminal Born 500;								\
 	C=RTBORN_500~EB,Z_D_E6_G_KK(3|1|2);								\
 	F=DF6;
@@ -1955,12 +2161,12 @@ $REQUIRE TRAINDEF.TTT
 	F=EF6;
       TX=Niederlande ACTS 1250;										\
 	C=ACTS_1250BL|ACTS_1250B|ACTS_1250CL|ACTS_1250C|ACTS_1250AL|ACTS_1250A|ACTS_1250DL|ACTS_1250D|	\
-	  ACTS_1250DL|ACTS_1250D;									\
+	  ACTS_1250DL|ACTS_1250D,D6FCM;									\
 	F=EF6;
       TX=Niederlande Arriva V4;										\
 	C=(<AR_V4BKL,AR_V4ABK)|(<AR_V4ABKL,AR_V4BK);							\
 	F=EF6;
-      TX=Connexxion (Niederlande) Protos;								\
+      TX=Connexxion (Niederlande)Protos;								\
 	C=(<CX_PROTOS0EL,CX_PROTOS0F)|(<CX_PROTOS0FL,CX_PROTOS0E)|(<CX_PROTOS1FL,CX_PROTOS1E)|		\
 	  (<CX_PROTOS1EL,CX_PROTOS1F);									\
 	F=EPU6;
@@ -1976,8 +2182,11 @@ $REQUIRE TRAINDEF.TTT
 	  (<2*EETC_WLABM_MU5SNCB,EETC_WRMZ_BL|EETC_WRMZ_LOGO|EETC_WRMZ017L,				\
 	  EETC_BCML|EETC_BCVMH160L|EETC_BCVMH140L,6*EETC_DDM);						\
 	F=EP6;
-      TX=HUSA ES64 (NL) + Güterzug;									\
+      TX=HUSA ES64 (NL)+ Güterzug;									\
 	C=HO_ES64F4_996,NL6F;										\
+	F=EF6;
+      TX=Niederlande HSL Logistik 1300;									\
+	C=HSL_13(15|04),D6FCM;										\
 	F=EF6;
       TX=HUSA 1600 (NL);										\
 	C=HUSA_1600L~GOU|HUSA_1600~GOU,NL6F;								\
@@ -1991,6 +2200,18 @@ $REQUIRE TRAINDEF.TTT
       TX=Niederlande PTT MP 3000;									\
 	C=NSC_MP3000~EB|NSC_MP3000A|NSC_MP3000MDW;							\
 	F=EF5;
+      TX=Niederlande Rail Force One 193 623;								\
+	C=DISP_193_623RFOFS,D6FCM;									\
+	F=EF6;
+      TX=Niederlande Rail Force One 2019 303;								\
+	C=RCM_2019_303,D6FCM;										\
+	F=EF6;
+      TX=Niederlande Rail Logix 193 627;								\
+	C=DISP_193_627RAILLOGIX,D6FCM;									\
+	F=EF6;
+      TX=Niederlande Railpromo 1215;									\
+	C=RAIP_1215(|L),D6FCM;										\
+	F=EF6;
       TX=Niederlande Railion 1600;									\
 	C=RAI_1601L~EB|RAI_1601~EB|RAI_1606L~EB|RAI_1606~EB|RAI_1610|RAI_1612~EB|RAI_1619;		\
 	F=EF6;
@@ -2019,19 +2240,22 @@ $REQUIRE TRAINDEF.TTT
   %ADDPOOL(POOL_L,L_ENV);
     {E3?
       TX=CFL 3000 + Güterzug;										\
-	C=CFL_302(2|3)(|L),2*L3FS;									\
+	C=CFL_302(2|3)(|L),2*L3FSA;									\
 	F=SF3;
 
       TX=CFL 5519 + Güterzug;										\
-	C=CFL_5519L~JUH|CFL_5519~JUH|CFL_5519~JMD,L3F1;							\
+	C=CFL_5519L~JUH|CFL_5519~JUH|CFL_5519~JMD,L3F1A;						\
 	F=SF3;
       TX=CFL 5609 + Güterzug;										\
-	C=CFL_56(09|14|18)(|L),L3F1;									\
+	C=CFL_56(09|14|18)(|L),L3F1A;									\
 	F=SF3;
       TX=CFL 1600 + Personenzug;									\
 	C=CFL_3_1601L|CFL_3_1601,									\
 	  (<(2*(CFL_B4UP30L|CFL_B4UP30)),CFL_AB4U36L|CFL_AB4U36,CFL_B4U28L|CFL_B4U28);			\
 	F=DP3;
+      TX=CFL 1600 + Güterzug;										\
+	C=CFL_3_1601L|CFL_3_1601,L3F1;									\
+	F=DF3;
       TX=CFL 1600 + Schnellzug;										\
 	C=CFL_3_1601L|CFL_3_1601,									\
 	  (<CFL_3_B4U200X,CFL_3_BR4U2008|CFL_3_BR4U2008L,CFL_3_B4U200XL,CFL_3_AB4U1204,			\
@@ -2041,7 +2265,10 @@ $REQUIRE TRAINDEF.TTT
 	  (<CFL_3_D4U7001L,CFL_B4U28,CFL_3_AB4U1201,CFL_3_AB4U1204L,2*CFL_3_B4U_2001);			\
 	F=DP3;
       TX=CFL 600;											\
-	C=CFL_3A601L|CFL_3A601|CFL_3B601L|CFL_3B601,CFL_GKKS,CFL_GS1,CFL_HIS2;				\
+	C=CFL_3A601L|CFL_3A601,2*L3FSA;									\
+	F=DF3;
+      TX=CFL 600;											\
+	C=CFL_3B601L|CFL_3B601,2*L3FS;									\
 	F=DF3;
       TX=CFL VT 201ff;											\
 	C=(<CFL_3_201L,CFL_3_211)|(<CFL_3_204L,CFL_3_214)|(<CFL_4_201L,CFL_4_211)|			\
@@ -2054,7 +2281,7 @@ $REQUIRE TRAINDEF.TTT
     {E4?
 
       TX=CFL Kof 2;											\
-	C=CFL_KOF2M(|L),CFL_4_ES(|L),CFL_4_GKKS1301(|L),CFL_4_GKKS1301AL(|L);				\
+	C=CFL_KOF2M(|L),L4FSA;										\
 	F=DF4;
       TX=CFL 1030;											\
 	C=CFL_1030M(|L),2*L4FS;										\
@@ -2081,7 +2308,7 @@ $REQUIRE TRAINDEF.TTT
 	C=CFL_800NM(|L),4*L5FS;										\
 	F=DF5;
       TX=CFL 851/900;											\
-	C=CFL_902|CFL_851|CFL_902L|CFL_902|CFL_911L|CFL_911,4*L5FS;					\
+	C=CFL_(911|851|902)(|L),4*L5FS;									\
 	F=DF45;
       TX=CFL 1030;											\
 	C=CFL_1030NM(|L),2*L5FS;									\
@@ -2146,13 +2373,19 @@ $REQUIRE TRAINDEF.TTT
 
 # E
 
+      TX=CFL 3000;											\
+	C=CFL_3000_U2_AC,										\
+	  ($DIR(CFL_VU_CP2_A4B6L,CFL_VU_CP2_A4B6)|							\
+	  ((<CFL_VU_CP2_A4B6,CFL_VU_CP2_A4B6L),CFL_VTU_CP2_B(|L))),2*CFL_VTU_CP2_B(|L),			\
+	  CFL_VTU82_CP2_B(|L);										\
+	F=EPRU6;
       TX=CFL 3000 + CFL Regionalzug;									\
 	C=CFL_3000~CDP|CFL_3000~ZS,CFL_BD5ML|CFL_BD5M,CFL_B5ML|CFL_B5M,CFL_ABD5ML|CFL_ABD5M,		\
 	  CFL_ABD15ML|CFL_ABD15M,CFL_B5ML|CFL_B5M;							\
 	F=EP6;
       TX=CFL 4000 + Doppelstockzug;									\
 	C=(<CFL_DABPBZFL~KMN,3*CFL_DBPZL~KMN,CFL_4001LU|CFL_4000~MTI|CFL_4006B~PBI|CFL_4005~PBI)|	\
-	  (<CFL_4001LU|CFL_4003~PBI|CFL_4020_E50Y,3*CFL_DBPZ~KMN,CFL_DABPBZF~KMN)|			\
+	  (<CFL_4001LU|CFL_4003~PBI|CFL_4020_E50Y,CFL_4000U2M(|L),3*CFL_DBPZ~KMN,CFL_DABPBZF~KMN)|	\
 	  (<CFL_DDABFL,3*CFL_DDB,CFL_4007~PBI|CFL_4002|CFL_4018C~PBI|CFL_4018)|				\
 	  (<CFLC_4012|CFL_4006G~PBI|CFL_4000~MB|CFL_4020_TELEVIE,3*CFL_DDB,CFL_DDABF);			\
 	F=EP6;

@@ -11,7 +11,6 @@ $REQUIRE MLG_DEF.TTT
 ;Ep IIIb
 ;==================================================
   {E3?
-
 ;=======================================
 ;============    EP IIIB    ============
 ;=======================================
@@ -123,10 +122,11 @@ $REQUIRE MLG_DEF.TTT
 	SBB_B29330;											\
       V=10;												\
       F=EPR4;
-    TX=SBB Ae 8/14 ;										\
-C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
-  V=10;F=EPR4;
-   TX=SBB Ae 4/6;											\
+    TX=SBB Ae 8/14;											\
+      C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
+      V=10;												\
+      F=EPR4;
+    TX=SBB Ae 4/6;											\
       C=SBB_AE46,SBB_A18331(|L),2*SBB_4EW1BM;								\
       V=12;												\
       F=EPR4;
@@ -190,6 +190,11 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       C=1-2*CFF_RABDE816_2000_L1;									\
       V=10;												\
       F=EPRU4;
+;Seetal
+    TX=SBB Be 4/4 12001 + Personenzug Seetal;								\
+      C=SBB_BE44_12001(|L),SBB_SEETAL_G1BI(|L),SBB_SEETAL_G1ABD(|L),SBB_B29330;				\
+      V=8;												\
+      F=EPRU4;
 
     TX=SBB Be 4/6;											\
       C=SBB_BE46_3G(|L),SBB_UMBAU_GB(|L),SBB_GMS(|L),SBB_4KS,SBB_GMS(|L);				\
@@ -212,12 +217,16 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       C=SBB_BE46_4G(|L),SBB_DD_M(|L),2*SBB_GKLM1(|L),SBB_E1,SBB_UCS290HLB1(|L);				\
       V=8;												\
       F=EPR4;
+    TX=SBB Be 4/7;											\
+      C=SBB_BE47_12500(|L),16-25*(SBB_GKLM1(|L)|SBB_GMS(|L)|SBB_HK(|L));				\
+      V=8;												\
+      F=EPR4;
     TX=SBB Ae 3/6 I;											\
       C=2*SBB_AE36I(|L),DB_KLMRS440,DB_E037M,2*SNCF_E_UICI_E4,SNCF_E_UIC2;				\
       V=9;												\
       F=EPR4;
     TX=SBB Ae 6/6;											\
-      C=SBB_AE66G1(|L),5*(SBB_GMS_FGDB(|L)|SBB_HK_FGDB(|L)),DB_KBS442M,SBB_GS|SBB_GS_LOGO,		\
+      C=SBB_AE66G1(|L),5*(SBB_GMS_FGDB(|L)|SBB_HK_FGDB(|L)),DB_KBS442M(|L),SBB_GS|SBB_GS_LOGO,		\
 	12*(4:SBB_4HBIS_1F(|L)|3:SBB_4HBIS_2|1:SBB_4HBIS_PLF(|L));					\
       V=9;												\
       F=EPR4;
@@ -249,7 +258,7 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       V=11;												\
       F=EPR4;
     TX=BLS Re 4/4 I;											\
-      C=BLS_RE44_1A(|L),SBB_PTT_Z500G1(|L),2*SBB_3EW1BM,SBB_A18331(|L),SBB_D92335(|L),SBB_3EW1AM,	\
+      C=BLS_RE44_1A(|L),SBB_PTT_4Z500(|L),2*SBB_3EW1BM,SBB_A18331(|L),SBB_D92335(|L),SBB_3EW1AM,	\
 	SBB_B29330;											\
       V=11;												\
       F=EPR4;
@@ -262,7 +271,13 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       C=BLS_BE44_760G(|L),SBB_GKLM_FGDB(|L),SBB_PTT_4Z810(|L);						\
       V=9;												\
       F=EPR4;
-
+    TX=BLS ABDZe 4/6 731;										\
+      C=BLS_ABDZE46_731;										\
+      V=11;												\
+      F=EPR4;
+    C=(<BLS_ABDE48_749A1L,BLS_ABDE48_746B1,BLS_EW1BC1B,BLS_EW1_BT950G)|					\
+	(>BLS_ABDE48_749A1,BLS_ABDE48_746B1L,BLS_EW1BC1B,BLS_EW1_BT950GL);				\
+      V=11;
     TX=BLS ABDe 4/8 760;										\
       C=(<BLS_ABDE48_749A1L,BLS_ABDE48_746B1,BLS_EW1BC1B,BLS_EW1_BT950G)|				\
 	(>BLS_ABDE48_749A1,BLS_ABDE48_746B1L,BLS_EW1BC1B,BLS_EW1_BT950GL);				\
@@ -278,6 +293,10 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       F=EPUR4;
 
 ;BN
+    TX=BN ABDZe 4/6 736;										\
+      C=BN_ABDZE46_736;											\
+      V=11;												\
+      F=EPR4;
     TX=Bern ü Neuchatel Be 4/4 760;									\
       C=BNB_BE44_760G(|L),BLS_B50R_G(|L),BLS_AB53R_G(|L),SEZ_D2_G(|L);					\
       V=11;												\
@@ -291,6 +310,14 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       C=(<GBS_BE44_760G(|L),BLS_4EW1D(|L),BLS_EW1GAB1(|L),1-2*BLS_4EW1B,BNB_BT990G)|			\
 	(>GBS_BE44_760G(|L),BLS_4EW1D(|L),BLS_EW1GAB1(|L),1-2*BLS_4EW1B,BNB_BT990GL);			\
       V=11;												\
+      F=EPR4;
+    TX=Gürbental-Schwarzenburg-Bahn ABDe 2/8 700;							\
+      C=GBS_ABDE28_700;											\
+      V=10;												\
+      F=EPR4;
+    TX=Gürbental-Schwarzenburg-Bahn BDZe 2/6 711;							\
+      C=GBS_BDZE26_711(|L);										\
+      V=8;												\
       F=EPR4;
     TX=Gürbental-Schwarzenburg-Bahn ABDe 4/8 751;							\
       C=(<GBS_ABDE48_751_BC1,GBS_EW1_B1,GBS_EW1_BT980_1)|						\
@@ -318,6 +345,14 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
 ;--
     TX=Chemins de Fer du Jura BDe 4/4;									\
       C=<(CJ_BDE44RCL,CJ_BT121RC)|(CJ_BT121RCL,CJ_BDE44RC);						\
+      V=10;												\
+      F=EPRU4;
+
+;Emmental-Burgdorf-Thun, SMB, VHB
+;-------------
+    TX=Emmental-Burgdorf-Thun (EBT)BDe 4/4;								\
+      C=(<EBT_BDE44_200GCL,EBT_EW1_8T_BGC,EBT_EW18T_ABTGC)|						\
+	(>EBT_BDE44_200GC,EBT_EW1_8T_BGC,EBT_EW18T_ABTGCL);						\
       V=10;												\
       F=EPRU4;
 
@@ -478,10 +513,10 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
     TX=SBB Re 6/6 + Loreley Express;									\
       C=SBB_RE66G,											\
 	(SBB_4UIC_A(|L),2*SBB_4UIC_B(|L),FS_UICX70_G_DZ(|L),FS_UICX64_GPB_AB(|L),			\
-	2*FS_UICX68_GPB_B(|L),SBB_UIC_N1BC(|L),FS_UICX68_GPB_B(|L),FS_UICX64_GPB_AB(|L))|		\
+	2*FS_UICX68ET_B(|L),SBB_UIC_N1BC(|L),FS_UICX68ET_B(|L),FS_UICX64_GPB_AB(|L))|		\
 	(SBB_4UIC_B(|L),SBB_EW4B(|L),SBB_EW1_WRS(|L),SBB_4UIC_A(|L),2*SBB_4UIC_B(|L),			\
-	FS_UICX70_G_DZ(|L),FS_UICX68_GPB_B(|L),FS_UICX64_GPB_AB(|L),FS_UICX68_GPB_B(|L),		\
-	SBB_UIC_N1BC(|L),FS_UICX64_GPB_AB(|L),FS_UICX68_GPB_B(|L),SBB_4UIC_B(|L));			\
+	FS_UICX70_G_DZ(|L),FS_UICX68ET_B(|L),FS_UICX64_GPB_AB(|L),FS_UICX68ET_B(|L),		\
+	SBB_UIC_N1BC(|L),FS_UICX64_GPB_AB(|L),FS_UICX68ET_B(|L),SBB_4UIC_B(|L));			\
       V=14;												\
       F=EP4;
 ;ARLBERG EXPRESS
@@ -546,7 +581,7 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       V=14;												\
       F=EP4;
     TX=SBB Re 4/4 II;											\
-      C=SBB_RE442S2G(|L),SBB_PTT_Z500G1(|L),SBB_PTT_5Z880(|L),4*SBB_EW4B(|L),SBB_EW1_WRS(|L),		\
+      C=SBB_RE442S2G(|L),SBB_PTT_4Z500(|L),SBB_PTT_5Z880(|L),4*SBB_EW4B(|L),SBB_EW1_WRS(|L),		\
 	2*SBB_EW4A(|L),SBB_4EW2_D(|L);									\
       V=14;												\
       F=EP4;
@@ -570,8 +605,8 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       V=14;												\
       F=EP4;
     TX=SBB Re 6/6;											\
-      C=SBB_RE66G,SBB_4UICB12(|L),DB_ABM225BB2(|L),FS_UICX64_GPB_AB(|L),2*FS_UICX68_GPB_B(|L),		\
-	FS_T49_DUZE(|L),2*FS_UICX68_GPB_B(|L),FS_UICX64_GPB_AB(|L),SBB_A18331(|L),SBB_EW1_WR (|L),	\
+      C=SBB_RE66G,SBB_4UICB12(|L),DB_ABM225BB2(|L),FS_UICX64_GPB_AB(|L),2*FS_UICX68ET_B(|L),		\
+	FS_T49_DUZE(|L),2*FS_UICX68ET_B(|L),FS_UICX64_GPB_AB(|L),SBB_A18331(|L),SBB_EW1_WR (|L),	\
 	3*SBB_4EW2BM;											\
       V=13;												\
       F=EP4;
@@ -584,8 +619,8 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
 ;SWISS EXPRESS
     TX=SBB Re 4/4 II + Swiss Express;									\
       C=SBB_RE442PLSWX(|L)|SBB_RE442PLPUSWX(|L)|SBB_RE442S1SWEX(|L)|SBB_RE442S1SWEX1(|L),		\
-	(<SBB_EW3_AD2L,5*SBB_EW3_A,SBB_EW3_WRL,7*SBB_EW3_B)|						\
-	(>SBB_EW3_AD2,5*SBB_EW3_A,SBB_EW3_WR,7*SBB_EW3_B);						\
+	(<SBB_EW3_ADL,5*SBB_EW3_A,SBB_EW3_WRL,7*SBB_EW3_B)|						\
+	(>SBB_EW3_AD,5*SBB_EW3_A,SBB_EW3_WR,7*SBB_EW3_B);						\
       V=14;												\
       F=EPU4;
 
@@ -596,7 +631,7 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       V=13;												\
       F=EP4;
     TX=SBB Re 4/4 II + TAC;										\
-      C=SBB_RE442S2G(|L),SNCF_UIC_B10CH(|L),SNCF_4A_UIC_B10CH(|L),2*SNCF_UIC_B10CH(|L),			\
+      C=SBB_RE442S2G(|L),SNCF_4B_UIC_B10CH(|L),SNCF_4A_UIC_B10CH(|L),2*SNCF_4B_UIC_B10CH(|L),			\
 	2*SNCF_T2_TEN2(|L),9*SNCF_LESS_TA260;								\
       V=13;												\
       F=EP4;
@@ -707,7 +742,7 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       V=12;												\
       F=EPR4;
     TX=SBB Re 4/4 II;											\
-      C=SBB_RE442S1R1,4*SBB_4EW1BM,SBB_5EW1AM,SBB_4EW2_D(|L);						\
+      C=SBB_RE442S1R1(|L),4*SBB_4EW1BM,SBB_5EW1AM,SBB_4EW2_D(|L);					\
       V=12;												\
       F=EPR4;
     TX=SBB Re 4/4 II + Regionalzug;									\
@@ -889,55 +924,60 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       F=EF4;
 
 ;MARCHANDISES
-    TX=SBB Ae 3/5 + Marchandise/Güterzug;									\
+    TX=SBB Ae 3/5 + Marchandise/Güterzug;								\
       C=SBB_AE35M(|L),SBB_FBKK_F(|L),SBB_FBKK_FS(|L),SBB_FBKK_F(|L),SBB_FBKK_FS(|L);			\
       V=7;												\
       F=EF4;
-    TX=SBB Ae 3/5 + Marchandise/Güterzug;									\
+    TX=SBB Ae 3/5 + Marchandise/Güterzug;								\
       C=SBB_AE35M(|L),SBB_HK(|L),SBB_GKLM_FGDB(|L);							\
       V=7;												\
       F=EF4;
-    TX=SBB Ae 3/6 I + Marchandise/Güterzug;									\
+    TX=SBB Ae 3/6 I + Marchandise/Güterzug;								\
       C=SBB_AE36I(|L),SNCF_G4,8*SBB_4EAOS[O:BETTERAVES1|BETTERAVES2];					\
-      V=10;												\
+      V=9;												\
       F=EF4;
-    TX=SBB Ae 3/6 I + Marchandise/Güterzug;									\
-      C=SBB_AE36I(|L),BLS_GKLM1(|L),SBB_DD_M(|L);							\
-      V=10;												\
-      F=EF4;
-    TX=SBB Ae 3/6 I + Marchandise/Güterzug;									\
+    TX=SBB Ae 3/6 I + Marchandise/Güterzug;								\
       C=SBB_AE36I(|L),SBB_GKLM_FGDB(|L),SBB_PTT_Z500G2(|L);						\
-      V=10;												\
+      V=9;												\
       F=EF4;
-    TX=SBB Ae 3/6 III + Marchandise/Güterzug;									\
+    TX=SBB Ae 3/6 I + Marchandise/Güterzug;								\
+      C=SBB_AE36I(|L),BLS_GKLM1(|L),SBB_DD_M(|L);							\
+      V=9;												\
+      F=EF4;
+    TX=SBB Ae 3/6 I + Marchandise/Güterzug;								\
+      C=SBB_AE36I(|L),SBB_GKLM_FGDB(|L),SBB_PTT_Z500G2(|L);						\
+      V=9;												\
+      F=EF4;
+    TX=SBB Ae 3/6 III + Marchandise/Güterzug;								\
       C=SBB_AE36_3M(|L),SBB_GMS(|L),DB_GS210B(|L),SBB_GMS_FGDB(|L),DB_GS210,2*SBB_4HBIS_2;		\
       V=8;												\
       F=EF4;
-   TX=SBB Ae 8/14 III + Marchandise/Güterzug;									\
- C=SBB_4AE814_11801(|L),15-22*(SBB_TAGPPS2(|L)|SBB_4TGPPSE(|L));						\
-  V=8;F=EF4;
-   TX=SBB Ae 4/6 + Marchandise/Güterzug;									\
+    TX=SBB Ae 8/14 III + Marchandise/Güterzug;								\
+      C=SBB_4AE814_11801(|L),15-22*(SBB_TAGPPS2(|L)|SBB_4TGPPSE(|L));					\
+      V=8;												\
+      F=EF4;
+    TX=SBB Ae 4/6 + Marchandise/Güterzug;								\
       C=2*SBB_AE46,SBB_4KS,2*SBB_4RS,SBB_4KS,2*SNCF_CERP_MONFER(|L),2*SBB_4RES,2*(SBB_GS|SBB_GS_LOGO),	\
 	10-12*SBB_4EAOS;										\
       V=9;												\
       F=EF4;
-    TX=SBB Ae 4/6 + Marchandise/Güterzug;									\
+    TX=SBB Ae 4/6 + Marchandise/Güterzug;								\
       C=SBB_AE46,SBB_AE66G1(|L),25*(FS_GABS1|FS_GBHS7|SBB_4HBIS_2);					\
       V=9;												\
       F=EF4;
-    TX=SBB Ae 4/6 + Marchandise/Güterzug;									\
+    TX=SBB Ae 4/6 + Marchandise/Güterzug;								\
       C=SBB_AE46,SBB_DD_M(|L),SBB_GKLM_FGDB(|L),							\
 	(SBB_HK_FGDB(|L),SNCF_G4BOIS,SBB_HK_FGDB(|L))|							\
 	(SBB_GMS_FGDB(|L),SBB_GKLM_FGDB(|L),SBB_HK_FGDB(|L),3*SBB_GKLM_FGDB(|L),SBB_GS,DB_GS210,	\
 	SBB_GMS_FGDB(|L));										\
       V=9;												\
       F=EF4;
-    TX=SBB Ae 6/6 + Marchandise/Güterzug;									\
+    TX=SBB Ae 6/6 + Marchandise/Güterzug;								\
       C=SBB_AE66G1(|L),SBB_DD_M(|L),SBB_GKLM_FGDB(|L),SNCF_G4,2*SNCF_G4BOIS,DB_GS204,SBB_GS_LOGO;	\
       V=10;												\
       F=EF4;
-    TX=SBB Ae 6/6 + Marchandise/Güterzug;									\
-      C=SBB_AE66G2(|L),SBB_PTT_Z500G1(|L),SBB_GMS_FGDB(|L),2*SBB_GKLM_FGDB(|L),SBB_GMS_FGDB(|L),	\
+    TX=SBB Ae 6/6 + Marchandise/Güterzug;								\
+      C=SBB_AE66G2(|L),SBB_PTT_4Z500(|L),SBB_GMS_FGDB(|L),2*SBB_GKLM_FGDB(|L),SBB_GMS_FGDB(|L),	\
 	6*SBB_GKLM_FGDB(|L);										\
       V=10;												\
       F=EF4;
@@ -986,6 +1026,14 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       V=11;												\
       F=EPRU4;
 
+    TX=BLS De 4/5 790;											\
+      C=BLS_DE45_790B(|L),BLS_ABI53_G(|L),BLS_BI50_G(|L);						\
+      V=10;												\
+      F=EPRU4;
+    TX=BLS ABDZe 4/6 731;										\
+      C=BLS_ABDZE46_731;										\
+      V=11;												\
+      F=EPRU4;
     TX=BLS ABDe 4/8;											\
       C=(<BLS_ABDE48_749AE1L,BLS_ABDE48_746B1,BLS_EW1BC1BT950)|						\
 	(>BLS_ABDE48_749AE1,BLS_ABDE48_746B1L,BLS_EW1BC1BT950L);					\
@@ -1015,23 +1063,31 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       F=EF4;
 
 ;BN
+    TX=Bern - Neuchatel (BN)ABDZe 4/6 736;								\
+      C=BN_ABDZE46_736;											\
+      V=11;												\
+      F=EPRU4;
     C=(<BN_ABDE48_751_BC1,BNB_BT990G|BNB_BT990BC1)|(>BN_ABDE48_751_BC1,BNB_BT990GL|BNB_BT990BC1L);	\
       V=11;												\
       F=EPR4;												\
-      BERN Ü NEUCHATEL ABDE 4/8 751;
+      TX:BERN - NEUCHATELBNABDE 4/8 751;
     C=(<BNB_BE44_760G(|L),BLS_EW1GAB1(|L),BLS_BDT940G)|							\
 	(>BNB_BE44_760G(|L),BLS_EW1GAB1(|L),BLS_BDT940GL);						\
       V=11;												\
       F=EPR4;												\
-      BERN Ü NEUCHATEL BE 4/4 760;
+      TX:BERN - NEUCHATELBNBE 4/4 760;
     C=<(BNB_RBDE565_2L,BNB_B20_33700_2,BNB_ABT960_2)|(BNB_ABT960_2L,BNB_B20_33700_2,BNB_RBDE565_2);	\
       V=11;												\
       F=EPR4;												\
-      BERN Ü NEUCHATEL RBDE 4/4 760;
+      TX:BERN - NEUCHATELBNRBBE 4/4 760;
 
 ;GBS
     TX=Gürbental-Schwarzenburg-Bahn ABDe 2/8 703/704;							\
-      C=SEZ_ABDE28_700;	\
+      C=GBS_ABDE28_700;											\
+      V=11;												\
+      F=EPRU4;
+    TX=Gürbental-Schwarzenburg-Bahn BDZe 2/6 711;							\
+      C=GBS_BDZE26_711RG(|L);										\
       V=11;												\
       F=EPRU4;
     TX=Gürbental-Schwarzenburg-Bahn RBDe 4/4 565;							\
@@ -1040,11 +1096,11 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       F=EPR4;
 
 ;SEZ
-     TX=Spiez-Erlenbach-Zweisimmen Bahn ABDe 2/8 703/704;							\
-      C=GBS_ABDE28_700;	\
+    TX=Spiez-Erlenbach-Zweisimmen Bahn ABDe 2/8 703/704;						\
+      C=GBS_ABDE28_700;											\
       V=11;												\
       F=EPRU4;
-   TX=Spiez-Erlenbach-Zweisimmen Bahn ABDe 4/8 751;							\
+    TX=Spiez-Erlenbach-Zweisimmen Bahn ABDe 4/8 751;							\
       C=(<SEZ_ABDE48_751_BC1,SEZ_EW1_BT970_1)|(>SEZ_ABDE48_751_BC1,SEZ_EW1_BT970_1L);			\
       V=11;												\
       F=EPR4;
@@ -1091,15 +1147,32 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       F=EPR4;
     TX=Emmental-Burgdorf-Thun 100;									\
       C=EBT_100,SBB_B29330,SBB_4EW1BM,SBB_B20330,2*SBB_5EW1BM;						\
-      V=10;												\
+      V=8;												\
+      F=EPR4;
+    TX=Emmental-Burgdorf-Thun 100;									\
+      C=EBT_100,EBT_BI_SBB(|L),EBT_EW1_8T_BR,EBT_D2922(|L);						\
+      V=8;												\
       F=EPR4;
     TX=Emmental-Burgdorf-Thun Re 4/4 II;								\
       C=EBT_RE442G(|L),2*EBT_BI_SBB(|L),EBT_D2924(|L);							\
       V=10;												\
       F=EPR4;
     TX=Vereinigte Huttwil-Bahnen Re 4/4 II;								\
-      C=VHB_RE442G(|L),2*EBT_LEGOB;									\
+      C=VHB_RE442G(|L),2*EBT_LEGOB(|L);									\
       V=12;												\
+      F=EPR4;
+    TX=Emmental-Burgdorf-Thun BDe 4/4 220;								\
+      C=EBT_BDE24_220(|L),EBT_EW1_8T_BR;								\
+      V=8;												\
+      F=EPR4;
+    TX=Solothurn-Münster Bahn BDe 2/4 271;								\
+      C=SMB_BDE24_271(|L),EBT_EW2B;									\
+      V=8;												\
+      F=EPR4;
+    TX=Emmental-Burgdorf-Thun BDe 4/4 200;								\
+      C=(<EBT_BDE44_200R(|L),EBT_EW1_8T_BR,EBT_EW1_8T_BTR)|						\
+	(>EBT_BDE44_200R(|L),EBT_EW1_8T_BR,EBT_EW1_8T_BTRL);						\
+      V=10;												\
       F=EPR4;
     TX=Emmental-Burgdorf-Thun RBDe 227;									\
       C=<(EBT_RBDE227L,EBT_BT327)|(EBT_BT327L,EBT_RBDE227);						\
@@ -1442,7 +1515,7 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       F=EP5;
     TX=SBB Re 6/6;											\
       C=SBB_RE66R,2*SBB_4EW2BM,SBB_EW4A(|L),2*SBB_EW4B(|L),SBB_EW4A(|L),SBB_EW4B(|L),SBB_EW1_WRS(|L),	\
-	SBB_4UIC_AB(|L),SBB_4UIC_B(|L),FS_UICX68_GPB_B(|L),XFS_UICX75_GPB_B;				\
+	SBB_4UIC_AB(|L),SBB_4UIC_B(|L),FS_UICX68ET_B(|L),XFS_UICX75_GPB_B;				\
       V=14;												\
       F=EP5;
 ;FRASNE - BERNE
@@ -1455,7 +1528,7 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       V=13;												\
       F=EPU5;
 
-;"SWISS EXPRESS"
+;"Swiss Express"
     TX=SBB Re 4/4 II + "Swiss Express";									\
       C=(<SBB_RE442S1SWEX(|L),SBB_EW3_AD2L,3*SBB_EW3_A2,4*SBB_EW3_B2,SBB_EW3_BT3)|			\
 	(>SBB_RE442S1SWEX(|L),SBB_EW3_AD2,3*SBB_EW3_A2,4*SBB_EW3_B2,SBB_EW3_BT3L);			\
@@ -1467,7 +1540,7 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       V=14;												\
       F=EPUU5;
 
-;RüGIONAUX
+;Régionaux
     TX=SBB Ae 3/6 I + Regionalzug;									\
       C=SBB_AE36I(|L),SBB_D92335(|L),2*SBB_UMBAU_GB(|L);						\
       V=11;												\
@@ -1507,6 +1580,10 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       V=12;												\
       F=EPRU5;
     TX=SBB Re 4/4 I + Regionalzug;									\
+      C=(<SBB_AE44IS1R(|L),SBB_4EW2_D(|L),SBB_4EW2BM,SBB_B29330,SBB_4EW1ABTM),DB_GS211;			\
+      V=12;												\
+      F=EPRU5;
+    TX=SBB Re 4/4 I + Regionalzug;									\
       C=<SBB_AE44IS1R(|L),SBB_D92335(|L),2*SBB_B29330,SBB_A18337,SBB_AE44IS1R(|L);			\
       V=12;												\
       F=EPRU5;
@@ -1515,7 +1592,10 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
 	(>SBB_AE44IS1R(|L),SBB_D92335(|L),2*SBB_B29330,SBB_5EW1ABTML);					\
       V=12;												\
       F=EPRU5;
-# Zeilen einfügen
+    TX=SBB Re 4/4 I + Regionalzug;									\
+      C=<SBB_AE44IS1R(|L),SBB_DZ91335,2*SBB_B29330,SBB_ABT37039;					\
+      V=11;												\
+      F=EPRU5;
     TX=SBB Re 4/4 I + Regionalzug;									\
       C=(>SBB_AE44IS1R(|L),3*SBB_5EW2B2,SBB_5EW2A2,SBB_5DT92339L)|					\
 	(>SBB_AE44IS1R(|L),3*SBB_5EW2B2,SBB_5EW2A2,2*SBB_5EW2BM,SBB_ABT37039L)|				\
@@ -1541,6 +1621,10 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       F=EPR5;
     TX=SBB Re 4/4 II + Regionalzug;									\
       C=SBB_RE442S2G(|L),3*BLS_EW1BC2B,$DIR(BLS_3EW1AB,BLS_3EW1ABL),BLS_EW1BC1A,BLS_4EW1D(|L);		\
+      V=12;												\
+      F=EPR5;
+    TX=SBB Re 4/4 II;											\
+      C=SBB_RE442S2G(|L),SBB_D_MC76C(|L),SBB_5EW2A2,SBB_5EW2B2,SBB_4EW1BM,2*SBB_5EW1BM;			\
       V=12;												\
       F=EPR5;
     TX=SBB Re 4/4 II;											\
@@ -1680,7 +1764,7 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       F=EPR5;
     TX=SBB Re 4/4 II  CFF-BLS;										\
       C=SBB_RE442S2G(|L),2*SBB_4EW1BM,SBB_4EW1AM,BLS_EW1BC1B,2*BLS_EW1BC3B,				\
-	$DIR(BLS_EW1BC3AB1,BLS_EW1BC3AB1L),BLS_4EW1A,BLS_EW1BD(|L);					\
+	$DIR(BLS_EW1CBC3AB1,BLS_EW1CBC3AB1L),BLS_4EW1A,BLS_EW1BD(|L);					\
       V=12;												\
       F=EPR5;
     TX=SBB Re 4/4 II  CFF-BLS;										\
@@ -1739,6 +1823,10 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       F=EPRU5;
 
 ;MANOEUVRES
+    TX=SBB Ee 3/3;											\
+      C=SBB_EE33S3A(|L),SBB_D92335(|L);									\
+      V=6;												\
+      F=EF5;
     TX=SBB Ee 3/3 IV;											\
       C=FS_UICX87_RG_D,SBB_4UIC_B(|L),2*FS_UICX64_RGPB_B,FS_UICX75_RGPB_A,SBB_EE334R1(|L);		\
       V=6;												\
@@ -1769,31 +1857,31 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       F=EF5;
 
 ;Marchandise/Güterzug
-    TX=SBB Ae 3/6 I + Marchandise/Güterzug;									\
+    TX=SBB Ae 3/6 I + Marchandise/Güterzug;								\
       C=SBB_AE36I(|L),13*(SNCF_E_UIC2|DB_E036);								\
       V=10;												\
       F=EF5;
-    TX=SBB Ae 3/6 I + Marchandise/Güterzug;									\
+    TX=SBB Ae 3/6 I + Marchandise/Güterzug;								\
       C=SBB_AE36I(|L),SBB_DD_M(|L),DB_GS211,2*SBB_UCS290HLB2N(|L);					\
       V=9;												\
       F=EF5;
-    TX=SBB Ae 3/6 I + Marchandise/Güterzug;									\
+    TX=SBB Ae 3/6 I + Marchandise/Güterzug;								\
       C=SBB_AE36I(|L),SBB_GKLM_FGDB(|L),SBB_GMS_FGDB(|L),DB_GS213,2*SBB_4RS,SNCF_G4;			\
       V=10;												\
       F=EF5;
-    TX=SBB Ae 3/6 I + Marchandise/Güterzug;									\
+    TX=SBB Ae 3/6 I + Marchandise/Güterzug;								\
       C=SBB_AE36I(|L),3*DB_TBIS870BE,DB_GS216C;								\
       V=9;												\
       F=EF5;
-    TX=SBB Ae 3/6 I + Marchandise/Güterzug;									\
+    TX=SBB Ae 3/6 I + Marchandise/Güterzug;								\
       C=SBB_AE36I_PI,2*DB_GS204,DB_TBIS871,DB_GS204,DB_GBS252,2*DB_GS204,6*DB_TBIS871;			\
       V=9;												\
       F=EF5;
-    TX=SBB Ae 4/7 + Marchandise/Güterzug;									\
+    TX=SBB Ae 4/7 + Marchandise/Güterzug;								\
       C=SBB_AE47_T3(|L),SBB_AE47_T3PU(|L)[PU],20*(SNCF_FAPS_STEMI(|L)|SNCF_FAPS_SITRAM(|L));		\
       V=9;												\
       F=EF5;
-    TX=SBB Ae 6/6 + Marchandise/Güterzug;									\
+    TX=SBB Ae 6/6 + Marchandise/Güterzug;								\
       C=SBB_AE66G1(|L),20*WKAG_FACC_SWP62H1(|L);							\
       V=10;												\
       F=EF5;
@@ -1844,7 +1932,7 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       F=EPR5;
     TX=BLS Re 4/4;											\
       C=BLS_RE44_1A(|L),2*SBB_Z1B(|L),SBB_VSE_A9O(|L),SBB_5UIC_A(|L),2*SBB_5UIC1B(|L),BLS_EW1BD(|L),	\
-	BLS_4EW1A,$DIR(BLS_EW1BC3AB1L,BLS_EW1BC3AB1),2*BLS_EW1BC3B,BLS_EW1BC1B;				\
+	BLS_4EW1A,$DIR(BLS_EW1CBC3AB1L,BLS_EW1CBC3AB1),2*BLS_EW1BC3B,BLS_EW1BC1B;			\
       V=12;												\
       F=EPR5;
     TX=BLS Re 4/4;											\
@@ -1886,7 +1974,7 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       V=12;												\
       F=EPR5;
     TX=BLS Re 4/4;											\
-      C=BLS_RE44_2(|L),$DIR(BLS_EW1BC3BDL,BLS_EW1BC3BD),BLS_EW1BC2B,BLS_EW1BC3AB1(|L),BLS_EW1BC1B,	\
+      C=BLS_RE44_2(|L),$DIR(BLS_EW1BC3BDL,BLS_EW1BC3BD),BLS_EW1BC2B,BLS_EW1BC3AB(|L),BLS_EW1BC1B,	\
 	$DIR((BLS_RBDE565_BC2L,BLS_B20_33700_BC2,BLS_ABT960_BC2),					\
 	(BLS_RBDE565_BC2,BLS_B20_33700_BC2,BLS_ABT960_BC2L));						\
       V=12;												\
@@ -1958,14 +2046,13 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
 	(>BT_RE456(|L),2*BT_EW1B3,BT_EW1BDR3(|L),BT_EW1ABT3L);						\
       V=12;												\
       F=EPRU5;
-     TX=Bodensee-Toggenburg-Bahn Re 456;									\
- V=12;C=(<BT_RE456(|L),BLS_EW1BD(|L),2*BT_EW1B3,BT_EW1ABT3)|\
-(>BT_RE456(|L),BLS_EW1BD(|L),2*BT_EW1B3,BT_EW1ABT3L);\
-   V=12;												\
+    TX=Bodensee-Toggenburg-Bahn Re 456;									\
+      C=(<BT_RE456(|L),BLS_EW1BD(|L),2*BT_EW1B3,BT_EW1ABT3)|						\
+	(>BT_RE456(|L),BLS_EW1BD(|L),2*BT_EW1B3,BT_EW1ABT3L);						\
+      V=12;												\
       F=EPRU5;
 
-
- TX=Bodensee-Toggenburg-Bahn BDe 4/4 50;								\
+    TX=Bodensee-Toggenburg-Bahn BDe 4/4 50;								\
       C=(<BT_50BL,2*BT_EW1CB2,BT_EW1ABT2)|(>BT_50B,2*BT_EW1CB2,BT_EW1ABT2L);				\
       V=12;												\
       F=EPRU5;
@@ -1987,19 +2074,30 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       C=EBT_100,EBT_EW1_8T_BR;										\
       V=10;												\
       F=EPR5;
+    TX=Emmental-Burgdorf-Thun De 4/4 235;								\
+      C=EBT_DE44_235(|L),EBT_EW1_8T_BR;									\
+      V=8;												\
+      F=EPR5;
+    TX=Emmental-Burgdorf-Thun De 4/4 235;								\
+      C=(<EBT_DE44_235(|L),EBT_BT311)|(>EBT_DE44_235(|L),EBT_BT311L);					\
+      V=8;												\
+      F=EPRU5;
     TX=Emmental-Burgdorf-Thun BDe 4/4 200;								\
       C=EBT_BDE44_200R(|L),3*EBT_EW1_2G_BR,2*EBT_EW1_8T_BR,SBB_4UIC_B(|L),SBB_4EW1BM;			\
       V=11;												\
       F=EPR5;
     TX=Emmental-Burgdorf-Thun BDe 4/4 200;								\
-      C=(<EBT_BDE44_200R(|L),EBT_EW1_8T_BR,EBT_EW1_8T_BTR|EBT_EW1_8T_ABTR)|				\
-	(>EBT_BDE44_200R(|L),EBT_EW1_8T_BR,EBT_EW1_8T_BTRL|EBT_EW1_8T_ABTRL),				\
-	0-1*(EBT_EW1_2G_BR|EBT_EW1_8T_BR);								\
+      C=(<EBT_BDE44_200R(|L),EBT_EW1_8T_BR,EBT_EW1_8T_ABTR)|						\
+	(>EBT_BDE44_200R(|L),EBT_EW1_8T_BR,EBT_EW1_8T_ABTRL),0-1*(EBT_EW1_2G_BR|EBT_EW1_8T_BR);		\
       V=11;												\
       F=EPR5;
     TX=Emmental-Burgdorf-Thun RBDe 227;									\
       C=<(EBT_RBDE227L,EBT_LEGOB,EBT_ABT327)|(EBT_ABT327L,EBT_LEGOB,EBT_RBDE227);			\
       V=12;												\
+      F=EPRU5;
+    TX=Emmental-Burgdorf-Thun RBDe 227;									\
+      C=2*$DIR((EBT_RBDE227L,EBT_ABT327),(EBT_RBDE227,EBT_ABT327L)),EBT_EW2B,EBT_EW1_8T_BR;		\
+      V=11;												\
       F=EPRU5;
 
     TX=Emmental-Burgdorf-Thun 100;									\
@@ -2013,7 +2111,7 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       V=10;												\
       F=EF5;
     TX=Emmental-Burgdorf-Thun Re 4/4 II;								\
-      C=SMB_RE442G(|L),NS_HBIS193,SNCF_RES90,DB_HBIS299,DB_GS213,SBB_HABILSA1;			\
+      C=SMB_RE442G(|L),NS_HBIS193,SNCF_RES90,DB_HBIS299,DB_GS213,SBB_HABILSA1;				\
       V=10;												\
       F=EF5;
 
@@ -2049,8 +2147,8 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       C=GFM_166B(|L),SBB_PTT_5Z920U(|L),								\
 	|												\
 	(GFM_GMS470(|L),										\
-	SBB_5SPS[OB:WOOD7(1|2|3|4|5|6),8,12][OB:WOOD7(1|2|3|4|5|6),54,12]				\
-	[OB:WOOD7(1|2|3|4|5|6),100,12][OB:WOOD7(1|2|3|4|5|6),146,12]);					\
+	SBB_5SPS[OB:WOOD(15|14|13|12|240|37),8,12][OB:(15|14|13|12|240|37),54,12]			\
+	[OB:(15|14|13|12|240|37),100,12][OB:(15|14|13|12|240|37),146,12]);				\
       V=8;												\
       F=EPR5;
 
@@ -2076,7 +2174,7 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
       V=12;												\
       F=EPRU5;
     TX=Mittelhurgaubahn ABDe 4/4 10;									\
-      C=<MTHB_ABDE44_10GC2L,BLS_EW1BC1AB(|L),MTHB_EW1R_BT1;						\
+      C=<MTHB_ABDE44_10GC2L,BLS_EW1BC1AB(|L),MTHB_EW1R_BT1(|L);						\
       V=12;												\
       F=EPRU5;
 
@@ -2105,9 +2203,9 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
 
 ;Voralpen-Express
     TX=Südostbahn Re 4/4 III + Voralpen-Express;							\
-      C=(<SOB_RE443SR(|L),SOB_5AB262(|L)|SOB_5A271,2-3*SOB_4EW1B5,SOB_EW1_VCR_BDT)|			\
-	(>SOB_RE443SR(|L),SOB_5AB262(|L)|SOB_5A271,2-3*SOB_4EW1B5,SOB_EW1_VCR_BDTL);			\
-      V=12;												\
+      C=(<SOB_RE443SR(|L),SOB_5AB262U(|L)|SOB_5A271,2-3*SOB_5EW1BU,SOB_5BDT197)|			\
+	(>SOB_RE443SR(|L),SOB_5AB262U(|L)|SOB_5A271,2-3*SOB_5EW1BU,SOB_5BDT197L);			\
+      V=11;												\
       F=EPRU5;
     TX=Südostbahn Re 4/4 III + Voralpen-Express;							\
       C=2:SOB_RE443PR(|L)|3:SOB_RE443SR(|L),								\
@@ -2120,23 +2218,18 @@ C=SBB_4AE814_11801(|L),5*SBB_4EW1BM,2*SBB_4EW1AM,SBB_D92335(|L);					\
 	(<BT_EW1BISTROL,2*SOB_EW4B1(|L),BT_EW4B1(|L),BT_EW4A1(|L));					\
       V=11;												\
       F=EPRU5;
-
     TX=Südostbahn 143;											\
       C=SOB_143(|L),SOB_4B_BR242(|L),SOB_5ABR780(|L);							\
       V=10;												\
       F=EPRU5;
-
     TX=SBB Re 442 + Regionalzug Südostbahn;								\
       C=SBB_RE442S2G(|L),$DIR(SOB_ABD2L,SOB_ABD2),SOB_5B830U(|L),SOB_5AB261U(|L);			\
       V=11;												\
       F=EPR5;
-# Zeilen einfügen
     TX=Südostbahn BDe 4/4 81/82;									\
-      C=(<SOB_4BDE44_81L|SOB_4BDE44_82L,SOB_5B811,SOB_4EW1ABTF|SOB_5EW1ABT)|				\
-	(>SOB_4BDE44_81|SOB_4BDE44_82,SOB_5B811,SOB_4EW1ABTFL|SOB_5EWIABTL);				\
-      V=12;												\
+      C=(<SOB_4BDE44_81L,SOB_5B811,SOB_4B_ABT203)|(>SOB_4BDE44_81,SOB_5B811,SOB_4B_ABT203L);		\
+      V=10;												\
       F=EPRU5;
-
     TX=Südostbahn 155;											\
       C=SOB_155(|L),12-15*DB_FC090(|L);									\
       V=9;												\

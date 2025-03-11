@@ -1,0 +1,4044 @@
+{FILELEVEL=1?
+  $INCLUDE SINGLE.TTT
+}
+
+$REQUIRE STREETDEF.TTT
+$REQUIRE TRAINDEF.TTT
+$REQUIRE POOLDEF2.TTT
+
+# 33 x 24
+$DEF CJ1=C10(13|14|15|16|33)
+
+# 34 x 24
+$DEF CJ2=C10(02|03|04|05|06|12)
+
+# 37 x 24
+$DEF CJ3=C1017|C1018|C1019|C1021|C1022|C1023|C1026|C1027|C1028|C1030|C1031|C1_JOT6|C1_JOT8|C1_JOT9|	\
+    C1_JR11|C1_JR12|C1_JR13
+
+# 37 x 25
+$DEF CJ4=C1020|C1024|C1025|C1029|C1030|C1032|C1_JOT1|C1_JOT10|C1_JOT11|C1_JOT12|C1_JOT13|C1_JOT2|	\
+    C1_JOT3|C1_JOT4|C1_JOT5|C1_JR1|C1_JR10|C1_JR14|C1_JR15|C1_JR2|C1_JR3|C1_JR4|C1_JR5|C1_JR6|C1_JR7|	\
+    C1_JR8|C1_JR9|C1_JRF1|C1_JRF10|C1_JRF11|C1_JRF12|C1_JRF13|C1_JRF14|C1_JRF15|C1_JRF2|C1_JRF3|	\
+    C1_JRF4|C1_JRF5|C1_JRF6|C1_JRF7|C1_JRF8|C1_JRF9
+
+# 61 x 25
+$DEF CJ5=C2_JR(|F)1
+
+$DEF KOKI1=JR_KOKI(104(|L)~OP|106(|BA)L~OP|110BL~OP|50000NL|50000GL)					\
+    (6:[C1:CJ4][C2:CJ4][C3:CJ4][C4:CJ4][C5:CJ4]|2:[C1:CJ5][C3:CJ4][C5:CJ5]|				\
+    1:[C1:CJ4][C2:CJ4][C4:CJ4][C5:CJ4])
+
+# ==============================================================================
+
+$DEF JRE_E954=<JRE_E954_1L,JRE_E954_2,JRE_E954_3,JRE_E954_4,JRE_E954_5,JRE_E954_6,JRE_E954_7,JRE_E954_8
+$DEF JRH_789DELIVERY=<JRH_789_100AML,JRH_789_100BM,JRH_789_200M1M,JRH_789_200M2M,JRH_789_200TCNM
+
+$POOL NAME=POOL_DRLT;
+  C=<DRLT_1BLUE1L,4*DRLT_1BLUE2,DRLT_1BLUE1;
+  C=<DRLT_2YELLOW1L,4*DRLT_2YELLOW2,DRLT_2YELLOW1;
+  C=<DRLT_3PURPLE1L,4*DRLT_3PURPLE2,DRLT_3PURPLE1;
+  C=<DRLT_4GREEN1L,4*DRLT_4GREEN2,DRLT_4GREEN1;
+  C=<DRLT_5PEACH1L,4*DRLT_5PEACH2,DRLT_5PEACH1;
+$ENDPOOL
+
+# ==============================================================================
+
+$SECTION SEQ=C;
+
+#...............................................................................
+# 2
+
+  $SCENE 												\
+      NAME=OP0002;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=(SIG_J4:<50+90,4;CROSS_J5B:>50+87,4;SCENE_SUN:,9;);						\
+      FG=(CROSS_J5F:<50-20,4;CROSS_ROAD1:*50+33;);							\
+      LG=XC:D1,U1,D2,U2:XDOWN,XUP;
+    $PATH Y=9; LC=2;											\
+	BG=(TRBED20:..,^0;STATION_NORMAL:<0,0;);							\
+	D=L;												\
+	WP=(50-20,<TE:U1;);										\
+	TB=D1,6;
+      C=JR_EF65,											\
+	  7*JR_KOKI50000NL[C1:C1019|C1018|C1017][C2:C1019|C1018|C1017][C3:C1019|C1018|C1017]		\
+	  [C4:C1019|C1018|C1017][C5:C1019|C1018|C1017],							\
+	  JR_KOKIFU51000~OP[C1:C1019|C1018|C1017][C3:C1019|C1018|C1017][C4:C1019|C1018|C1017];
+      C=JNR_EF60,2*(<JR_G1,JR_GO1,JR_GT1,JR_G2,JR_G3,JR_G4,JR_REF1);
+      C=JR_EF65_500~OP,JR_OHAFU13L,3*JR_OHA12,JR_SUHAFU12;
+      C=<JR_165HTCSL,JR_165HMS1,JR_165HTC2,JR_165HTBS,JR_165HTG,JR_165HTG,JR_165HMS1,JR_165HTC2;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=R; WP=(50+87,>TE:U2;50+190,>TB:SCBG.SIGR;); TB=SCBG.SIGG,D2,6;			\
+	TE=4,SCBG.SIGYY,3,SCBG.SIGY,3,SCBG.SIGYG,3,SCBG.SIGG;
+      C=JR_EF58,JR_SUHAFU12,3*JR_OHA12,JR_OHAFU13L;							\
+	V=7;
+      C=<JR_165HTCSL,JR_165HMS1,JR_165HTC2,JR_165HTBS,JR_165HTG,JR_165HTG,JR_165HMS1,JR_165HTC2;	\
+	V=7;
+      C=JR_EF65_500~OP,											\
+	  7*JR_KOKI50000NL[C1:C1019|C1018|C1017][C2:C1019|C1018|C1017][C3:C1019|C1018|C1017]		\
+	  [C4:C1019|C1018|C1017][C5:C1019|C1018|C1017],							\
+	  JR_KOKIFU51000L~OP[C2:C1019|C1018|C1017][C3:C1019|C1018|C1017][C5:C1019|C1018|C1017];		\
+	V=7;
+      C=JR_EF65,2*(<JR_G1,JR_GO1,JR_GT1,JR_G2,JR_G3,JR_G4,JR_REF1);					\
+	V=5;
+    $ENDPATH
+  $ENDSCENE
+
+#...............................................................................
+# 2b
+
+  $SCENE 												\
+      NAME=OP0002B;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=(SIG_J4:<50+90,4;CROSS_J5B:>50+87,4;SCENE_FULLMOON:,9;);					\
+      FG=(CROSS_J5F:<50-20,4;CROSS_ROAD1:*50+33;);							\
+      LG=XC:D1,U1,D2,U2:XDOWN,XUP;
+    $PATH Y=9; LC=2;											\
+	BG=(TRBED20:..,^0;STATION_NORMAL:<0,0;);							\
+	D=L;												\
+	WP=(50-20,<TE:U1;);										\
+	TB=D1,6;
+      C=JR_EF65,											\
+	  7*JR_KOKI50000NL[C1:C1019|C1018|C1017][C2:C1019|C1018|C1017][C3:C1019|C1018|C1017]		\
+	  [C4:C1019|C1018|C1017][C5:C1019|C1018|C1017],							\
+	  JR_KOKIFU51000~OP[C1:C1019|C1018|C1017][C3:C1019|C1018|C1017][C4:C1019|C1018|C1017];
+      C=JNR_EF60,2*(<JR_G1,JR_GO1,JR_GT1,JR_G2,JR_G3,JR_G4,JR_REF1);
+      C=JR_EF65_500~OP,JR_OHAFU13L,3*JR_OHA12,JR_SUHAFU12;
+      C=<JR_165HTCSL,JR_165HMS1,JR_165HTC2,JR_165HTBS,JR_165HTG,JR_165HTG,JR_165HMS1,JR_165HTC2;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=R; WP=(50+87,>TE:U2;50+190,>TB:SCBG.SIGR;); TB=SCBG.SIGG,D2,6;			\
+	TE=4,SCBG.SIGYY,3,SCBG.SIGY,3,SCBG.SIGYG,3,SCBG.SIGG;
+      C=JR_EF58,JR_SUHAFU12,3*JR_OHA12,JR_OHAFU13L;							\
+	V=7;
+      C=<JR_165HTCSL,JR_165HMS1,JR_165HTC2,JR_165HTBS,JR_165HTG,JR_165HTG,JR_165HMS1,JR_165HTC2;	\
+	V=7;
+      C=JR_EF65_500~OP,											\
+	  7*JR_KOKI50000NL[C1:C1019|C1018|C1017][C2:C1019|C1018|C1017][C3:C1019|C1018|C1017]		\
+	  [C4:C1019|C1018|C1017][C5:C1019|C1018|C1017],							\
+	  JR_KOKIFU51000L~OP[C2:C1019|C1018|C1017][C3:C1019|C1018|C1017][C5:C1019|C1018|C1017];		\
+	V=7;
+      C=JR_EF65,2*(<JR_G1,JR_GO1,JR_GT1,JR_G2,JR_G3,JR_G4,JR_REF1);					\
+	V=5;
+    $ENDPATH
+  $ENDSCENE
+
+#...............................................................................
+# 3
+
+  $SCENE 												\
+      NAME=OP0003;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=(SIG_J4:<50+90,4;CROSS_J4B:>50+87,4;SCENE_FUJIN:,9;);						\
+      FG=(CROSS_J4F:<50-20,4;CROSS_ROAD1:*50+33;);							\
+      LG=XC:D1,U1,D2,U2:XDOWN,XUP;
+    $PATH Y=9; LC=2;											\
+	BG=(TRBED20:..,^0;STATION_OLDERN:;);								\
+	D=L;												\
+	WP=(50-20,<TE:U1;);										\
+	TB=D1,6;
+      C=JR_EF18,2*(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1);
+      C=JR_EH10~OP,6*JRF_CHIKI5000L[C1:C1034][C2:C1034][C3:C1034][C4:C1034][C5:C1034],JR_YO5000;
+      C=JR_EF58K,JR_SUHAFU42N~OP,2*JR_SUHA43NL~OP,JR_OHA35NL~OP,JR_SUHAFU42NL~OP;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=R; WP=(50+87,>TE:U2;50+190,>TB:SCBG.SIGR;); TB=SCBG.SIGG,D2,6;			\
+	TE=4,SCBG.SIGYY,3,SCBG.SIGY,3,SCBG.SIGYG,3,SCBG.SIGG;
+      C=JR_EF58K,JR_SUHAFU42NL~OP,JR_OHA35NL~OP,2*JR_SUHA43NL~OP,JR_SUHAFU42N~OP;			\
+	V=7;
+      C=JR_EF15,2*(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1);					\
+	V=4,5;
+      C=JR_EH10~OP,6*JRF_CHIKI5000L[C1:C1034][C2:C1034][C3:C1034][C4:C1034][C5:C1034],JR_YO5000;	\
+	V=6;
+    $ENDPATH
+  $ENDSCENE
+
+#...............................................................................
+# 5
+
+#  SignalR signal1sR_ at 570 is unknown.
+  $SCENE 												\
+      NAME=OP0005;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=(CROSS_J5B:>50+87,4;SCENE_BUILDING:,9;);							\
+      FG=(SCENE_FENCEF;CROSS_J5F:<50-20,4;CROSS_ROAD1:*50+33;);						\
+      LG=XC:D1,U1,D2,U2:XDOWN,XUP;
+    $PATH Y=9; LC=2;											\
+	BG=(TRBED20:..,^0;STATION_NORMAL:<0-23;);							\
+	D=L;												\
+	WP=(50-20,<TE:U1;);										\
+	TB=D1,6;
+      C=(<ODAK_5000TC1L,ODAK_5000M1,ODAK_5000M2,ODAK_5000TC2),						\
+	  (<ODAK_2400TCL,ODAK_2400M1,ODAK_2400M2,ODAK_2400TC);
+      C=<ODAK_3000A1L,ODAK_3000B1,ODAK_3000C1,ODAK_3000D1,ODAK_3000E1;
+      M=STOP;												\
+	C=(<ODAK_4000TC1L,ODAK_4000M2,ODAK_4000M1),ODAK_4000MC;						\
+	P=>0+70;
+      M=STOP;												\
+	C=(<ODAK_5000TC1L,ODAK_2600M1,ODAK_2600M2),(<ODAK_2600M3,ODAK_2600M2,ODAK_5000TC2);		\
+	P=>0+70;
+      C=<ODAK_NSE1AL,ODAK_NSE1B,ODAK_NSE1C,ODAK_NSE1D,ODAK_NSE1CL,ODAK_NSE1BL,ODAK_NSE1A;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=R; WP=(50+87,>TE:U2;); TB=D2,6;
+      M=STOP;												\
+	C=(<ODAK_2600M3,ODAK_2600M2,ODAK_5000TC2),(<ODAK_5000TC1L,ODAK_2600M1,ODAK_2600M2);		\
+	V=7; P=>0+80;
+      C=<ODAK_NSE1AL,ODAK_NSE1B,ODAK_NSE1C,ODAK_NSE1D,ODAK_NSE1CL,ODAK_NSE1BL,ODAK_NSE1A;		\
+	V=7;
+      C=(<ODAK_2400TCL,ODAK_2400M1,ODAK_2400M2,ODAK_2400TC),						\
+	  (<ODAK_5000TC1L,ODAK_5000M1,ODAK_5000M2,ODAK_5000TC2);					\
+	V=7;
+      C=<ODAK_3000A1L,ODAK_3000B1,ODAK_3000C1,ODAK_3000D1,ODAK_3000E1;					\
+	V=7;
+      M=STOP;												\
+	C=ODAK_4000MC,(<ODAK_4000TC1L,ODAK_4000M2,ODAK_4000M1);						\
+	V=7; P=>0+80;
+    $ENDPATH
+  $ENDSCENE
+
+#...............................................................................
+# 8
+
+  $SCENE 												\
+      NAME=OP0008;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=(SIG_J4:<50+90,4;CROSS_J5B:>50+7,4;SCENE_KOUGENB:,9;);						\
+      FG=(SCENE_KOUGENF:;CROSS_J5F:<50-100,4;);								\
+      LG=XC:D1,U1,D2,U2:XDOWN,XUP;
+    $PATH Y=9; LC=2;											\
+	BG=(TRBED20:..,^0;);										\
+	D=L;												\
+	WP=(50-100,<TE:U1;);										\
+	TB=5,D1,6;
+      C=<JR_115CTCL,JR_115CM1,JR_115CMC,JR_115CT,JR_115CT,JR_115CTCL,JR_115CM1,JR_115CMC,JR_83800C;
+      C=(<JR_165HTCSL,JR_165HTCSL,JR_165HMS1,JR_165HTC2),						\
+	  (<JR_165HTCSL,JR_165HMS1,JR_165HTC2,JR_165HTBS,JR_165HTG,JR_165HTG,JR_165HMS1,JR_165HTC2);
+      C=<JNR_TC183A1L,JNR_M183A1L,JNR_M182A1L,JNR_M183A1L,JNR_M182A1L,JNR_TS183A1L,JNR_M183A1L,		\
+	  JNR_M182A1L,JNR_M183A1L,JNR_M182A1L,JNR_TS183A1;
+      C=JR_EF64~OP,JR_EF64B~OP,(<JR_G1,JR_GO1,JR_G2,JR_G2,JR_G3,JR_G4),4*JR_TAKI9900S;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=R; WP=(50+7,>TE:U2;50+190,>TB:SCBG.SIGR;); TB=2,SCBG.SIGG,D2,6;			\
+	TE=4,SCBG.SIGYY,3,SCBG.SIGY,3,SCBG.SIGYG,3,SCBG.SIGG;
+      C=<JNR_TC183A1L,JNR_M183A1L,JNR_M182A1L,JNR_M183A1L,JNR_M182A1L,JNR_TS183A1L,JNR_M183A1L,		\
+	  JNR_M182A1L,JNR_M183A1L,JNR_M182A1L,JNR_TS183A1;						\
+	V=7;
+      C=JR_EF64~OP,JR_EF64B~OP,4*JR_TAKI9900S,(<JR_G1,JR_GO1,JR_G2,JR_G2,JR_G3,JR_G4);			\
+	V=5;
+      C=<JR_115CTCL,JR_115CM1,JR_115CMC,JR_115CT,JR_115CT,JR_115CTCL,JR_115CM1,JR_115CMC,JR_83800C;	\
+	V=6,5;
+      C=(<JR_165HTCSL,JR_165HMS1,JR_165HTC2,JR_165HTBS,JR_165HTG,JR_165HTG,JR_165HMS1,JR_165HTC2),	\
+	  (<JR_165HTCSL,JR_165HTCSL,JR_165HMS1,JR_165HTC2);						\
+	V=6,5;
+    $ENDPATH
+  $ENDSCENE
+
+#...............................................................................
+# 10
+
+  $SCENE 												\
+      NAME=OP0010;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=(SIG_J4:<50+90,4;CROSS_J5B:>50+87,4;SCENE_SEA;);						\
+      FG=(SCENE_FENCE2:<0-20;CROSS_J5F:<50-20,4;CROSS_ROAD1:*50+33;);					\
+      LG=XC:D1,U1,D2,U2:XDOWN,XUP;
+    $PATH Y=9; LC=2;											\
+	BG=(TRBED20:..,^0;STATION_NORMAL:<0-20;);							\
+	D=L;												\
+	WP=(50-20,<TE:U1;);										\
+	TB=D1,6;
+      C=2*(<JNR_455MCL,JNR_454M,JNR_455TS,JNR_455MCL,JNR_454M,JNR_455TC);
+      C=JR_485KUHAL,(<JR_485MOHA1,JR_485MOHA2),JR_485SARO,JR_485SASHI,(<JR_485MOHA1,JR_485MOHA2),	\
+	  JR_485KUHA;
+      M=STOP;												\
+	C=(<JRE_TC411AL,JRE_M415A,JRE_M414A,JRE_TC414A,JRE_TC411AL,JRE_M415A,JRE_M414A,JRE_TC414A,	\
+	  JRE_TC411AL,JRE_M415A,JRE_M414A),JRE_TC414A;							\
+	P=>0+70;
+      C=JNR_EF81,											\
+	  4*JR_KOKI50000NL[C1:C1019|C1018|C1017][C2:C1019|C1018|C1017][C3:C1019|C1018|C1017]		\
+	  [C4:C1019|C1018|C1017][C5:C1019|C1018|C1017],							\
+	  JR_KOKIFU51000~OP[C1:C1019|C1018|C1017][C3:C1019|C1018|C1017][C4:C1019|C1018|C1017];
+    $ENDPATH
+    $PATH Y=9; LC=2; D=R; WP=(50+87,>TE:U2;50+190,>TB:SCBG.SIGR;); TB=SCBG.SIGG,D2,6;			\
+	TE=4,SCBG.SIGYY,3,SCBG.SIGY,3,SCBG.SIGYG,3,SCBG.SIGG;
+      M=STOP;												\
+	C=JRE_TC414A,											\
+	  (<JRE_TC411AL,JRE_M415A,JRE_M414A,JRE_TC414A,JRE_TC411AL,JRE_M415A,JRE_M414A,JRE_TC414A,	\
+	  JRE_TC411AL,JRE_M415A,JRE_M414A);								\
+	V=7; P=>0+80;
+      C=JNR_EF81,											\
+	  4*JR_KOKI50000NL[C1:C1019|C1018|C1017][C2:C1019|C1018|C1017][C3:C1019|C1018|C1017]		\
+	  [C4:C1019|C1018|C1017][C5:C1019|C1018|C1017],							\
+	  JR_KOKIFU51000L~OP[C2:C1019|C1018|C1017][C3:C1019|C1018|C1017][C5:C1019|C1018|C1017];		\
+	V=5,5;
+      C=2*(<JNR_455MCL,JNR_454M,JNR_455TS,JNR_455MCL,JNR_454M,JNR_455TC);				\
+	V=6;
+      C=JR_485KUHA,(<JR_485MOHA1,JR_485MOHA2),JR_485SASHI,JR_485SARO,(<JR_485MOHA1,JR_485MOHA2),	\
+	  JR_485KUHAL;											\
+	V=7,5;
+    $ENDPATH
+  $ENDSCENE
+
+#...............................................................................
+# 11
+
+  $SCENE 												\
+      NAME=OP0011;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=(SCENE_EURO;);
+    $PATH Y=9; LC=2;											\
+	BG=(TRBED20:..,^0;STATION_EURO:<0-20;);								\
+	D=R;
+      C=DB_103TEE,4*DB_TEE_B2,DB_TEE_WR1,4*DB_TEE_A2;
+      M=STOP;												\
+	C=DB_103OR,4*DB_R;										\
+	P=>0+70;
+      M=STOP;												\
+	C=DB_V200,4*DB_G;										\
+	P=>0+70;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=L;
+      M=STOP;												\
+	C=DB_V200,4*DB_BL;										\
+	V=7; P=>0+80;
+      C=DB_103TEE2,4*DB_TEE_A2,DB_TEE_WR1,4*DB_TEE_B2;							\
+	V=10;
+      M=STOP;												\
+	C=DB_E03,4*DB_D;										\
+	V=7; P=>0+80;
+    $ENDPATH
+  $ENDSCENE
+
+#...............................................................................
+# 16
+
+  $SCENE 												\
+      NAME=OP0016;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=(SCENE_MONOB:,9;);										\
+      FG=(SCENE_MONOF:;);
+    $PATH Y=9; LC=2;											\
+	BG=(TRBED20:..,^0;STATION_MONO:-20;);								\
+	D=L;												\
+	V=3-5;
+      C=JNR_EF15E_MONO,2*(<JR_G1,JR_GO1,JNR_WAMU80000_MONO,JR_G3,JR_G4,JR_GO1),JNR_YO3500_MONO;
+      C=JNR_EF13DEKO_MONO,2*(<JR_G1,JR_GO1,JNR_WAMU80000_MONO,JR_G3,JR_G4,JR_GO1),JNR_YO3500_MONO;
+      C=JNR_EF58_MONO,JNR_SUHAFU42E,4*JNR_SUHA43E,JNR_SUHAFU42E;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=R; V=3-5;
+      C=JNR_EF58_MONO,JNR_SUHAFU42E,4*JNR_SUHA43E,JNR_SUHAFU42E;					\
+	V=7;
+      C=JNR_EF15E_MONO,2*(<JR_G1,JR_GO1,JNR_WAMU80000_MONO,JR_G3,JR_G4,JR_GO1),JNR_YO3500_MONO;		\
+	V=4;
+      C=JNR_EF13DEKO_MONO,2*(<JR_G1,JR_GO1,JNR_WAMU80000_MONO,JR_G3,JR_G4,JR_GO1),JNR_YO3500_MONO;	\
+	V=4;
+    $ENDPATH
+  $ENDSCENE
+
+#...............................................................................
+# 18
+
+  $SCENE 												\
+      NAME=OP0018;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=(SCENE_MODELB:,27;TRBED20:..,^27;);								\
+      FG=SCENE_MODELF:,0;										\
+      IMGY=51;
+    $PATH Y=27; LC=2; D=L; C=MODEL_JRE_D51_498_BRASSL,MODEL_SUHA44BRASS,MODEL_SUHAFU43BRASS;
+      C=MODEL_JRE_D51_498_NICKELL,MODEL_JRE_OHA35_NICKEL;
+      C=MODEL_JNR_EF58_BRASS,MODEL_SUHA44BRASS,MODEL_SUHAFU43BRASS;
+    $ENDPATH
+    $PATH Y=27; LC=2; D=R;
+      C=,MODEL_JNR_EF58_BRASS,MODEL_SUHAFU43BRASS,MODEL_SUHA44BRASS;					\
+	V=4;
+      C=MODEL_JRE_D51_498_BRASSL,MODEL_SUHAFU43BRASS,MODEL_SUHA44BRASS;					\
+	V=3;
+      C=MODEL_JRE_D51_498_NICKELL,MODEL_JRE_OHA35_NICKEL;						\
+	V=3;
+    $ENDPATH
+  $ENDSCENE
+
+#...............................................................................
+# 19
+
+  $SCENE 												\
+      NAME=OP0019;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=(SIG_J2:<50+80,-5;SCENE_MEADOWN;);								\
+      V=2-5;
+    $PATH Y=9; LC=2;											\
+	BG=(TRBED20:..,^0;STATION_OLDERN);								\
+	D=L;
+      M=STOP;												\
+	C=JR_ED75L1[PFU],JR_ED75L1,2*(<JR_G1,JR_GO1,JR_GT1,JR_G2,JR_G3,JR_G4,JR_REF1),			\
+	  2*JR_KOKI50000NL[C1:C1019|C1018|C1017][C2:C1019|C1018|C1017][C3:C1019|C1018|C1017]		\
+	  [C4:C1019|C1018|C1017][C5:C1019|C1018|C1017];							\
+	P=>0+50;
+      M=STOP;												\
+	C=JR_ED75L1,JR_SUHAFU12L,2*JR_OHA12,JR_SUHAFU12;						\
+	P=>0+50;
+      M=STOP;												\
+	C=JR_ED75L1,JR_OHAFU50,2*JR_OHA50,JR_OHAFU50;							\
+	P=>0+50;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=R; WP=(50+180,>TB:SCBG.SIGR;); TB=SCBG.SIGG; TE=6,SCBG.SIGG;
+      M=STOP;												\
+	C=JNR_ED75E,JR_OHAFU50,2*JR_OHA50,JR_OHAFU50;							\
+	P=>0+70;
+      M=STOP;												\
+	C=JR_ED75~OP[PFU],JR_ED75~OP,									\
+	  2*JR_KOKI50000NL[C1:C1019|C1018|C1017][C2:C1019|C1018|C1017][C3:C1019|C1018|C1017]		\
+	  [C4:C1019|C1018|C1017][C5:C1019|C1018|C1017],							\
+	  2*(<JR_G1,JR_GO1,JR_GT1,JR_G2,JR_G3,JR_G4,JR_REF1);						\
+	P=>0+70;
+      M=STOP;												\
+	C=JNR_ED75E,JR_SUHAFU12,2*JR_OHA12,JR_SUHAFU12L;						\
+	P=>0+70;
+    $ENDPATH
+  $ENDSCENE
+
+#...............................................................................
+# 22
+
+  $SCENE 												\
+      NAME=OP0022;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=(SIG_J2:<50+75,4;SCENE_SLB:<0-20,9;);								\
+      FG=SCENE_SLF:<0-20,0;
+    $PATH Y=9; LC=2;											\
+	BG=(TRBED20:..,^0;STATION_SL:<0);								\
+	D=L;
+      C=JNR_D51L,(<JR_G1,JR_GO1,JR_GT1,JR_G2,JR_G3,JR_G4,JR_REF1),JR_YO3500~OP;
+      C=<JNR_KIHA82L,2*JNR_KIHA80,JNR_KISI80,JNR_KIRO80,JNR_KIHA82;
+      C=JNR_C61L,JR_SUHAFU42N~OP,3*JR_SUHA43NL~OP,2*JR_SUHAFU42NL~OP;
+      M=STOP;												\
+	C=JNR_KIHA58L,JNR_KIHA28L,JNR_KIHA58,JNR_KIRO28,2*JNR_KIHA58;					\
+	P=>0+70;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=R; WP=(50+175,>TB:SCBG.SIGR;); TB=SCBG.SIGG; TE=6,SCBG.SIGG;
+      C=JNR_C61,2*JR_SUHAFU42NL~OP,3*JR_SUHA43NL~OP,JR_SUHAFU42N~OP;					\
+	V=7;
+      M=STOP;												\
+	C=2*JNR_KIHA58,JNR_KIRO28,JNR_KIHA58,JNR_KIHA28L,JNR_KIHA58L;					\
+	V=7; P=>0+90;
+      C=JNR_D51,(<JR_G1,JR_GO1,JR_GT1,JR_G2,JR_G3,JR_G4,JR_REF1),JR_YO3500~OP;				\
+	V=4;
+      C=<JNR_KIHA82L,2*JNR_KIHA80,JNR_KISI80,JNR_KIRO80,JNR_KIHA82;					\
+	V=6;
+    $ENDPATH
+  $ENDSCENE
+
+#...............................................................................
+# 23
+
+  $GROUP 												\
+      NAME=OP0023;											\
+      DX=220; AB=13; BL=9; D=L;										\
+      BG=SCENE_DEEPSNOW1B;										\
+      FG=SCENE_DEEPSNOWF:,-9;
+    C=JR_KI100L,JNR_D51KMBKL;										\
+      V=3,5;
+    C=JNR_D51HKDL,JR_KI900_KI620KL,JNR_D51HKDL,JR_YO2000L;						\
+      V=2,5;
+    C=JNR_C57A_HKDL,JR_SUHAFU44,JR_SUHA45L,JR_SUHA45L,JR_SUHA45BL,JR_SUHAFU44BL,JR_SUHAFU44L;		\
+      V=4;
+    C=JR_D61L,(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),JR_YO3500~OP;				\
+      V=3,5;
+  $ENDGROUP
+
+#...............................................................................
+# 24
+
+  $GROUP 												\
+      NAME=OP0024;											\
+      DX=220; AB=13; BL=9; D=L;										\
+      BG=SCENE_DEEPSNOW2B;										\
+      FG=SCENE_DEEPSNOWF:-9;
+    C=JR_DE15SNOW1;											\
+      V=3;
+    C=JR_DD53SNOW1L;											\
+      V=3;
+    C=JR_DD51_500FL,											\
+	JR_KOKI50000NL[C1:C1019|C1018|C1017][C2:C1019|C1018|C1017][C3:C1019|C1018|C1017]		\
+	[C4:C1019|C1018|C1017][C5:C1019|C1018|C1017],							\
+	JR_KOKI50000NL[C1:C1019|C1018|C1017][C2:C1019|C1018|C1017][C3:C1019|C1018|C1017]		\
+	[C4:C1019|C1018|C1017][C5:C1019|C1018|C1017],							\
+	JR_KOKI50000NL[C1:C1019|C1018|C1017][C2:C1019|C1018|C1017][C3:C1019|C1018|C1017]		\
+	[C4:C1019|C1018|C1017][C5:C1019|C1018|C1017],							\
+	JR_KOKI50000NL[C1:C1019|C1018|C1017][C2:C1019|C1018|C1017][C3:C1019|C1018|C1017]		\
+	[C4:C1019|C1018|C1017][C5:C1019|C1018|C1017],							\
+	JR_KOKI50000NL[C1:C1019|C1018|C1017][C2:C1019|C1018|C1017][C3:C1019|C1018|C1017]		\
+	[C4:C1019|C1018|C1017][C5:C1019|C1018|C1017];							\
+      V=5;
+    C=2*JNR_KH40_100;											\
+      V=6;
+  $ENDGROUP
+
+#...............................................................................
+# 25
+
+  $GROUP 												\
+      NAME=OP0025;											\
+      LC=1; DX=220; AB=13; BL=9; D=L;									\
+      BG=(SCENE_SILHOUETTE2B:;TRBED35:..,^0;);								\
+      FG=INTRO_SIGNAL:,-9;										\
+      TB=INTRO,W,3;
+    C=LIGHT_2[COR:11],SILHOUETTELOCO1,5*SILHOUETTECOACH1,SILHOUETTECOACH2;				\
+      V=3;
+  $ENDGROUP
+
+#...............................................................................
+# 27
+
+  $GROUP 												\
+      NAME=OP0027;											\
+      SEQ=B; DX=220; AB=-12; BL=34;									\
+      BG=SCENE_USUIABTB:,-34;										\
+      FG=(INTRO_YOKOKARU:,-34;SCENE_USUIABTF;);
+    TB=INTRO,W,3;											\
+      AP=[D=L]												\
+	[C=JNR_ED42A,(<JNR_KIHA82L,2*JNR_KIHA80,JNR_KISI80,JNR_KIRO80,JNR_KIHA82),JNR_ED42A,JNR_ED42A,	\
+	JNR_ED42A][V=1.8]|										\
+	[D=R]												\
+	[C=JNR_ED42A,JNR_ED42A,JNR_ED42A,JNR_ED42A,							\
+	(<JNR_KIHA82L,2*JNR_KIHA80,JNR_KISI80,JNR_KIRO80,JNR_KIHA82)][V=1.8];
+    AP=[D=L]												\
+	[C=JNR_ED42A,(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),					\
+	(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),JR_YO3500~OP,JNR_ED42A,JNR_ED42A,JNR_ED42A]	\
+	[V=1.8]|											\
+	[D=R]												\
+	[C=JNR_ED42A,JNR_ED42A,JNR_ED42A,JNR_ED42A,(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),	\
+	(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),JR_YO3500~OP][V=1.8];
+    AP=[D=L]												\
+	[C=JNR_ED42A,JR_SUHAFU42N~OP,JR_SUHA43NL~OP,JR_SUHA43NL~OP,JR_OHA35NL~OP,JR_SUHAFU42NL~OP,	\
+	JR_SUHAFU42NL~OP,JNR_ED42A,JNR_ED42A,JNR_ED42A][V=1.8]|						\
+	[D=R]												\
+	[C=JNR_ED42A,JNR_ED42A,JNR_ED42A,JNR_ED42A,JR_SUHAFU42NL~OP,JR_SUHAFU42NL~OP,JR_OHA35NL~OP,	\
+	JR_SUHA43NL~OP,JR_SUHA43NL~OP,JR_SUHAFU42N~OP][V=1.8];
+    AP=[D=L][C=JNR_ED42A,JNR_KIHA58ABTL,JNR_ED42A,JNR_ED42A,JNR_ED42A][V=1.8]|				\
+	[D=R][C=JNR_ED42A,JNR_ED42A,JNR_ED42A,JNR_ED42A,JNR_KIHA58ABTL][V=1.8];
+  $ENDGROUP
+
+#...............................................................................
+# 30
+
+  $SCENE 												\
+      NAME=OP0030;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_THUNDERB;										\
+      FG=SCENE_THUNDERF;
+    $PATH Y=9; LC=2;											\
+	BG=(SCENE_THUNDERM;TRBED20:..,^0;);								\
+	D=L;
+      M=STOP;												\
+	C=<JRK_817MCL,JRK_817TC,JRK_817MCL,JRK_817TC,JRK_817MCL,JRK_817TC;				\
+	P=>0+160;
+    $ENDPATH
+    $PATH Y=9; LC=2;											\
+	BG=(SIG_J4:<50+90,-5;);										\
+	D=R;												\
+	WP=(50+190,>TB:SCBG.SIGR;);									\
+	TB=SCBG.SIGG;											\
+	TE=4,SCBG.SIGYY,3,SCBG.SIGY,3,SCBG.SIGYG,3,SCBG.SIGG;
+      M=STOP;												\
+	C=<JRK_817MCL,JRK_817TC,JRK_817MCL,JRK_817TC,JRK_817MCL,JRK_817TC;				\
+	V=7; P=>0+180;
+    $ENDPATH
+  $ENDSCENE
+
+#...............................................................................
+# 31
+
+  $SCENE 												\
+      NAME=OP0031;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=(CROSS_J5B:>50+7,4;SCENE_TOWNB:,9;);								\
+      FG=(SCENE_TOWNF;CROSS_J5F:<50-100,4;);								\
+      LG=XC:D1,U1,D2,U2:XDOWN,XUP;
+    $PATH Y=9; LC=2;											\
+	BG=(STATION_TOWN;TRBED20:..,^0;);								\
+	D=L;												\
+	WP=(50-100,<TE:U1;);										\
+	TB=6;
+
+      M=STOP;												\
+	C=<JRE_TC209NBL,JRE_M209NB,JRE_M208NB,JRE_M209NB,JRE_M208NB,JRE_TC208NB;			\
+	A=0.02; B=0.02; P=<100-70; T=3,D1,W,1;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=R; WP=(50+7,>TE:U2;); TB=D2,6;
+      M=STOP;												\
+	C=<JRE_TC209NBL,JRE_M209NB,JRE_M208NB,JRE_M209NB,JRE_M208NB,JRE_TC208NB;			\
+	V=7; A=0.02; B=0.02; P=<100-85;
+    $ENDPATH
+  $ENDSCENE
+
+#...............................................................................
+# 32
+
+  $GROUP 												\
+      NAME=OP0032;											\
+      LC=2; DX=220; AB=13; BL=9;									\
+      BG=SCENE_NORTHB:,-9;										\
+      FG=SCENE_NORTHF:,-9;
+    M=STOP;												\
+      C=JR_KIHA22D;											\
+      D=X; V=4; A=0.03; B=0.03; P=<0+80; TB=3; TE=2;
+  $ENDGROUP
+
+#...............................................................................
+# 35
+
+  $SECTION 												\
+      NAME=NAME=OP0035;											\
+      DX=220; DY=80;
+    $GROUP LC=2; DX=220; IMGY=51; AB=5; BL=24;								\
+	BG=SCENE_DREAMB:,-24;										\
+	FG=SCENE_DREAMF:,-24;
+      M=STOP;												\
+	C=SEPIA_JNR_DC12;										\
+	D=X; V=3; A=0.03; B=0.03; P=>50-20; TB=5,OLD,W,2; TE=2,NEW,W,2;
+    $ENDGROUP
+  $ENDSECTION
+
+#...............................................................................
+# 40
+
+  $SCENE 												\
+      NAME=OP0040;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_FORESTB;
+    $PATH Y=9; LC=2; D=L;
+      C=JNR_DC81L,4*JNR_DC80,JNR_KISASHI80A,2*JNR_KIRO80E,JNR_DC81;					\
+	TB=6;
+      C=JNR_C60A_TOHOKUL,JNR_C61L,JR_SUHANI35HL~OP,3*JR_SUHA44HL~OP,JR_OSI17HL~OP,2*JR_NARO10HL~OP,	\
+	  JR_SUHAFU43HL~OP;										\
+	TB=6;
+    $ENDPATH
+    $PATH Y=29; LC=2;											\
+	BG=SIG_J3:<50+95;										\
+	D=R;												\
+	IMGY=51;											\
+	WP=(50+195,>TB:SCBG.SIGR;);									\
+	TB=SCBG.SIGG;											\
+	TE=4,SCBG.SIGY,3,SCBG.SIGG;
+      C=JNR_C60A_TOHOKU,JNR_C61,JR_SUHANI35H~OP,3*JR_SUHA44H~OP,JR_OSI17H~OP,2*JR_NARO10H~OP,		\
+	  JR_SUHAFU43H~OP;										\
+	V=6; TE=5;
+      C=JNR_DC81,2*JNR_KIRO80E,JNR_KISASHI80A,4*JNR_DC80,JNR_DC81L;					\
+	V=7; TE=6;
+    $ENDPATH
+  $ENDSCENE
+
+#...............................................................................
+# 41
+
+  $SCENE 												\
+      NAME=OP0041;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_ROOMB:<0+51,44;										\
+      FG=SCENE_ROOMF;
+    $PATH Y=28; LC=1; D=L;
+      C=<JRK_800_1L,JRK_800_2,JRK_800_3,JRK_800_4,JRK_800_5,JRK_800_6;					\
+	V=18; TB=10; TE=2;
+    $ENDPATH
+    $PATH Y=28; LC=1; D=R;
+      C=<JRK_800_1L,JRK_800_2,JRK_800_3,JRK_800_4,JRK_800_5,JRK_800_6;					\
+	V=18;
+    $ENDPATH
+  $ENDSCENE
+
+#...............................................................................
+# 49
+
+  $GROUP 												\
+      NAME=OP0049;											\
+      DX=220; IMGY=43; BL=37;										\
+      BG=SCENE_WATARASEB:<0-20;										\
+      FG=SCENE_WATARASEF:<0-20,-37;									\
+      TB=3;
+    C=<TOY_WA89_100,TOY_WA89_300;									\
+      V=3;
+    C=TOY_DE10WATARASE,(<TOY_WATARASE99A[!L],TOY_WATARASE99M,TOY_WATARASE99M,TOY_WATARASE99A);		\
+      V=3;
+    C=TOY_WA89_300,TOY_WA89_300;									\
+      V=3;
+    C=TOY_DE10,(<TOY_WA01A,TOY_WA01B,TOY_WA01C);							\
+      V=3;
+  $ENDGROUP
+
+#------------------  53 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0053;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_MIYAGASEB;
+    $PATH LC=2;												\
+	BG=SCENE_MIYAGASEM:<0+70,0;									\
+	Y0=0;												\
+	SEQ=B;												\
+	WY=80/114,6;											\
+	IMGY=80;
+      C=J_MIYAGASE1;											\
+	D=R; V=0.3;
+      C=J_MIYAGASE1;											\
+	D=L; V=0.3;
+    $ENDPATH
+    $PATH LC=2; Y0=0; SEQ=B; WY=80/114,6; IMGY=80;
+      C=J_MIYAGASE2;											\
+	D=L; V=0.3;
+      C=J_MIYAGASE2;											\
+	D=R; V=0.3;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------  77 -----------------------------------------------
+  $GROUP LC=2; DX=220; AB=13; BL=9;									\
+      BG=SCENE_EASTIB:,-9;										\
+      FG=SCENE_EASTIF:,-9;
+    C=(<JRE_E926_6L,JRE_E926_5,JRE_E926_4,JRE_E926_3,JRE_E926_2,JRE_E926_1)[PU];			\
+      D=X; V=20; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------  90 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0090;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=(CROSS_J5B:>50+149,4;SCENE_CONSTRUCTIONB);							\
+      FG=(SCENE_CONSTRUCTIONF;CROSS_J5F:<50+42,4;);							\
+      LG=XC:D1,U1,D2,U2:XDOWN,XUP;
+    $PATH Y=9; LC=2;											\
+	BG=(TRBED20:..,^0;);										\
+	D=L;												\
+	WP=(50+42,<TE:U1;);										\
+	TB=D1,6;
+      C=(<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1),						\
+	  (<JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,JRE_201CM1B,JRE_201CM2,JRE_201CTC);
+      C=<JRE_201CTCL,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,	\
+	  JRE_201CM2,JRE_201CTC;
+      C=<JRE_201CTCL,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,	\
+	  JRE_201CM2,JRE_201CTC;
+      C=(<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1),						\
+	  (<JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,JRE_201CM1A,JRE_201CM2,JRE_201CTC);
+      C=<JRE_201CTCL,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,	\
+	  JRE_201CM2,JRE_201CTC;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=R; WP=(50+149,>TE:U2;); TB=D2,6;
+      C=(<JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,JRE_201CM1A,JRE_201CM2,JRE_201CTC),			\
+	  (<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1);						\
+	V=4,5;
+      C=<JRE_201CTCL,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,	\
+	  JRE_201CM2,JRE_201CTC;									\
+	V=4,5;
+      C=(<JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,JRE_201CM1B,JRE_201CM2,JRE_201CTC),			\
+	  (<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1);						\
+	V=4,5;
+      C=<JRE_201CTCL,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,	\
+	  JRE_201CM2,JRE_201CTC;									\
+	V=4,5;
+      C=<JRE_201CTCL,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,	\
+	  JRE_201CM2,JRE_201CTC;									\
+	V=4,5;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------  77 -----------------------------------------------
+  $GROUP LC=2; DX=220; AB=13; BL=9;									\
+      BG=SCENE_EASTIB:,-9;										\
+      FG=SCENE_EASTIF:,-9;
+    C=(<JRE_E926_6L,JRE_E926_5,JRE_E926_4,JRE_E926_3,JRE_E926_2,JRE_E926_1)[PU];			\
+      D=X; V=20; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------  92 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0092;											\
+      LC=2; DX=220; AB=13; BL=9;									\
+      BG=SCENE_MAHJONGG:,-9;
+    C=<NAN_50000AL,NAN_50000B,NAN_50000C,NAN_50000D,NAN_50000E,NAN_50000F;				\
+      D=X; V=5; TB=2; TE=2;
+    C=<ODAK_VSE1L,ODAK_VSE2,ODAK_VSE3,ODAK_VSE2,ODAK_VSE2,ODAK_VSE4,ODAK_VSE4,ODAK_VSE5,ODAK_VSE4,	\
+	ODAK_VSE1;											\
+      D=X; V=5; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------  94 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0094;											\
+      SEQ=B; DX=220; AB=13; BL=9; D=X;									\
+      BG=SCENE_KABUKIB:,-9;										\
+      FG=(SCENE_KABUKIF:,-9; SCENE_KABUKIC:,-9);
+    C=ENODEN_106;											\
+      V=2; TB=2,UP,W,2;
+    C=ENODEN_201;											\
+      V=2; TB=2;
+    C=ENODEN_301E;											\
+      V=2; TE=2,DOWN,W,1;
+  $ENDGROUP
+
+#------------------ 104 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0104;											\
+      DX=220; AB=13; BL=9; D=L;										\
+      BG=SCENE_MODELDISPLAY:,-9;									\
+      AP=[TB=2][TE=2];
+    C=JNR_C61L,JR_SUHANI35HL~OP,JR_SUHA44HL~OP,JR_SUHA44HL~OP,JR_SUHA44HL~OP,JR_OSI17HL~OP,		\
+	JR_NARO10HL~OP,JR_NARO10HL~OP,JR_SUHAFU43HL~OP;							\
+      V=4,5;
+    C=JNR_DC81L,JNR_DC80,JNR_DC80,JNR_DC80,JNR_DC80,JNR_KISASHI80A,JNR_KIRO80E,JNR_KIRO80E,JNR_DC81;	\
+      V=7;
+    C=JR_ED75L1,JR_SUHAFU12L,JR_OHA12,JR_OHA12,JR_OHA12,JR_OHA12,JR_SUHAFU12;				\
+      V=7;
+    C=JR_DD51_500F,JR_OHAFU50,JR_OHA50,JR_OHA50,JR_OHAFU50;						\
+      V=7;
+  $ENDGROUP
+
+#------------------ 105 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0105;											\
+      DX=220; AB=13; BL=9; D=L;										\
+      BG=SCENE_SUIBOKUGA:,-9;
+    C=JNR_EF58_MONO,JNR_SUHAFU42E,JNR_SUHA43E,JNR_SUHA43E,JNR_SUHA43E,JNR_SUHA43E,JNR_SUHAFU42E;	\
+      V=4;
+    C=JNR_EF15E_MONO,(<JR_G1,JR_GO1,JNR_WAMU80000_MONO,JR_G3,JR_G4,JR_GO1),				\
+	(<JR_G1,JR_GO1,JNR_WAMU80000_MONO,JR_G3,JR_G4,JR_GO1),JNR_YO3500_MONO;				\
+      V=4;
+  $ENDGROUP
+
+#------------------ 106 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0106;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_FANB:<0+92,23;										\
+      FG=SCENE_FANF;											\
+      AP=[TB=2];
+    $PATH Y=23; LC=2; D=L;
+      C=2*(<JNR_455MCL,JNR_454M,JNR_455TS,JNR_455MCL,JNR_454M,JNR_455TC);
+      C=JR_485KUHAL,(<JR_485MOHA1,JR_485MOHA2),JR_485SARO,JR_485SASHI,(<JR_485MOHA1,JR_485MOHA2),	\
+	  JR_485KUHA;
+      C=(<JRE_TC411AL,JRE_M415A,JRE_M414A,JRE_TC414A,JRE_TC411AL,JRE_M415A,JRE_M414A,JRE_TC414A,	\
+	  JRE_TC411AL,JRE_M415A,JRE_M414A),JRE_TC414A;
+      C=JR_ED75L1,											\
+	  4*JR_KOKI50000NL[C1:C1019|C1018|C1017][C2:C1019|C1018|C1017][C3:C1019|C1018|C1017]		\
+	  [C4:C1019|C1018|C1017][C5:C1019|C1018|C1017],							\
+	  JR_KOKIFU51000~OP[C1:C1019|C1018|C1017][C3:C1019|C1018|C1017][C4:C1019|C1018|C1017];
+    $ENDPATH
+    $PATH Y=23; LC=2; D=R;
+      C=JRE_TC414A,											\
+	  (<JRE_TC411AL,JRE_M415A,JRE_M414A,JRE_TC414A,JRE_TC411AL,JRE_M415A,JRE_M414A,JRE_TC414A,	\
+	  JRE_TC411AL,JRE_M415A,JRE_M414A);								\
+	V=7,5;
+      C=JR_ED75~OP,											\
+	  4*JR_KOKI50000NL[C1:C1019|C1018|C1017][C2:C1019|C1018|C1017][C3:C1019|C1018|C1017]		\
+	  [C4:C1019|C1018|C1017][C5:C1019|C1018|C1017],							\
+	  JR_KOKIFU51000L~OP[C2:C1019|C1018|C1017][C3:C1019|C1018|C1017][C5:C1019|C1018|C1017];		\
+	V=7,5;
+      C=2*(<JNR_455MCL,JNR_454M,JNR_455TS,JNR_455MCL,JNR_454M,JNR_455TC);				\
+	V=7,5;
+      C=JR_485KUHA,(<JR_485MOHA1,JR_485MOHA2),JR_485SASHI,JR_485SARO,(<JR_485MOHA1,JR_485MOHA2),	\
+	  JR_485KUHAL;											\
+	V=7,5;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 109 -----------------------------------------------
+  $DEF JRK_800=<JRK_800_1L,JRK_800_2,JRK_800_3,JRK_800_4,JRK_800_5,JRK_800_6
+
+  $GROUP 												\
+      NAME=OP0109;											\
+      SEQ=B; DX=220; AB=0; BL=22;									\
+      BG=SCENE_PHOTOB:,-22;										\
+      FG=SCENE_PHOTOF:,-22;										\
+      ENV=[D=L][C=JRK_800][M=STOP][A=1.9][B=1.9][V=20];
+    P=<0+5; TB=3;
+    P=<0-183;
+    P=<0-1436;
+    P=<0-45;
+    P=<0-792; TE=3;
+  $ENDGROUP
+
+#------------------ 122 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0122A;											\
+      DX=220; AB=13; BL=9;										\
+      BG=SCENE_BRONZEB:,-9;										\
+      FG=SCENE_BRONZEF:,-9;
+    M=STOP;												\
+      C=JNR_DC20;											\
+      V=7; P=>0+70;
+  $ENDGROUP
+
+  $GROUP 												\
+      NAME=OP0122B;											\
+      DX=220; AB=13; BL=9;										\
+      BG=SCENE_BRONZE2B:,-9;										\
+      FG=SCENE_BRONZE2F:,-9;
+    M=STOP;												\
+      C=JNR_DC20;											\
+      V=7; P=>0+80;
+  $ENDGROUP
+
+#------------------ 124 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0124;											\
+      DX=220; AB=13; BL=9; D=L;										\
+      BG=SCENE_ARTB:,-9;
+    C=JR_C51TSUBAMEL,JR_MIKI20,JR_SUHANI35650L~OP,JR_SUHA32600L~OP,JR_SUHA32600L~OP,JR_SUSI37740~OP,	\
+	JR_SURO30750L~OP,JR_SURO30750L~OP,JR_MAINE37100L~OP;						\
+      V=4,5;
+    C=JNR_C53L,JR_SUHANI35650L~OP,JR_SUHA32600L~OP,JR_SUHA32600L~OP,JR_SUHA32600L~OP,JR_SUHA32600L~OP,	\
+	JR_SUHA32600L~OP,JR_SUSI37740~OP,JR_SURO30750L~OP,JR_SURO30750L~OP,JR_SUITE37020~OP;		\
+      V=4,5;
+    C=JR_C59BL,JR_SUHANI32K,JR_SUHA42KL,JR_SUHA42KL,JR_SUSHI47K,JR_ORO40KL,JR_ORO40KL,JR_ORO40KL,	\
+	JR_OROFU33KL,JR_MAITE39_1EK;									\
+      V=4,5;
+    C=JR_C62TOKAIDOL,JR_SUHANI35KL,JR_SUHA44KL,JR_SUHA44KL,JR_SUHA44KL,JR_SUHA44KL,JR_SUHA44KL,		\
+	JR_SURO60KL,JR_SURO60KL,JR_MASHI35KL,JR_SURO60K,JR_SURO60K,JR_SURO60K,JR_MAITE58_2K;		\
+      V=4,5;
+  $ENDGROUP
+
+#------------------ 126 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0126;											\
+      DX=220; AB=13; BL=9; D=L;										\
+      BG=SCENE_SNOW:,-9;
+    C=JR_C62_2HKDL,JR_C62_3HKDL,JR_SUHAFU44B,JR_SUHA45BL,JR_SUHA45BL,JR_SUHA45BL,JR_SURO62,		\
+	JR_SUHAFU44BL,JR_MANI60L~OP,JR_OYU10;								\
+      V=6;
+    C=JNR_DD51_3LIGHT,JNR_DD51_500C,JR_SUHAFU44B,JR_SUHA45BL,JR_SUHA45BL,JR_SUHA45BL,JR_SURO62,		\
+	JR_SUHAFU44BL,JR_MANI60L~OP,JR_OYU10,JR_MANI60L~OP,JR_MANI60L~OP;				\
+      V=6;
+    C=<JNR_DC56N2L,JNR_DC56N1L,JNR_DC56N2L,JNR_DC56N2L,JNR_DC56NG,JNR_DC56N1L,JNR_DC56N3;		\
+      V=6;
+    C=JNR_DD51_500C,JR_DD51_500F,(<JNR_14SUHAFUL,JNR_14OHA,JNR_14OHA,JNR_14SUHAFU),JR_MANI50,		\
+	JR_MANI50,JR_SUYU15L;										\
+      V=6;
+  $ENDGROUP
+
+#------------------ 127 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0127;											\
+      SEQ=B; DX=220; AB=13; BL=9; D=L;									\
+      BG=SCENE_KIKANKO:,-9;										\
+      ENV=[V=2][A=0.01][B=0.01][M=STOP][T=6];
+    C=JNR_D51NL;											\
+      TB=2;
+    C=JNR_C61L;
+    C=JNR_D52L;
+    C=JR_C62TOKAIDOL;											\
+      TE=2;
+  $ENDGROUP
+
+#------------------ 128 -----------------------------------------------
+# $GROUP DX=220; BL=9; AB=13; NAME=OP0128;
+#     BG=SCENE_GALAXY; WY=-696/1204,-1240; D=L;
+#   C=SPACE_C62GALAXY_1; V=2;
+# $ENDGROUP
+
+#------------------ 129 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0129;											\
+      DX=220; AB=6; BL=16;										\
+      BG=SCENE_CHIHOKU:,-16;
+    C=CHIH_CR70;											\
+      V=4;
+    C=CHIH_CR75_999Y;											\
+      V=4;
+    C=CHIH_CR70;											\
+      V=4;
+    C=CHIH_CR75_999W;											\
+      V=4;
+    C=CHIH_CR70C;											\
+      V=4;
+  $ENDGROUP
+
+#------------------ 130 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0130;											\
+      LC=3; DX=220; AB=0; BL=22; D=X;									\
+      BG=SCENE_MIZUSHIMAB:,13;										\
+      FG=SCENE_MIZUSHIMAF:,-22;										\
+      ENV=[V=4][TB=2][TE=2];
+    C=MIZURIN_300;
+    C=JR_DE70MIZURIN,2-4*KOKI1;
+    C=MIZURIN_300;
+    C=MIZURIN_300F;
+    C=<MIZURIN_KH20A,MIZURIN_KH20B;
+  $ENDGROUP
+
+#------------------ 131 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0131;											\
+      LC=2; DX=220; AB=13; BL=9;									\
+      BG=SCENE_TOYAMA2B:,-9;										\
+      FG=SCENE_TOYAMA2F:,-9;
+    M=STOP;												\
+      C=MANYOSEN_1000;											\
+      D=R; V=3; P=<0+80; T=BOPEN,4,BCLOSE,1;
+    M=OPEN;												\
+      C=MANYOSEN_1000;											\
+      D=L; V=3; P=<0+75;
+  $ENDGROUP
+
+#------------------ 132 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0132;											\
+      LC=3; DX=220; AB=13; BL=9; D=X;									\
+      BG=SCENE_TOYAMA1B:,-9;										\
+      FG=SCENE_TOYAMA1F:,-9;										\
+      ENV=[M=STOP][P=>0+10][V=6];
+    C=TOYA_TLR0601;
+    C=TOYA_TLR0602;
+    C=TOYA_TLR0603;
+    C=TOYA_TLR0604;
+    C=TOYA_TLR0605;
+    C=TOYA_TLR0606;
+    C=TOYA_TLR0607;
+  $ENDGROUP
+
+#------------------ 133 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0133;											\
+      LC=2; SEQ=B; DX=220; AB=13; BL=9;									\
+      BG=SCENE_ICEFLOE:,-9;										\
+      ENV=[C=<TOY_NOROKKO1,TOY_NOROKKO2,TOY_NOROKKO3,TOY_NOROKKO4,TOY_NOROKKO5][V=2][B=0.03][A=0.03]	\
+      [M=STOP];
+    D=L; P=<0+60; TB=2;
+    D=R; P=>100-60; TE=2;
+  $ENDGROUP
+
+#------------------ 134 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0134;											\
+      DX=220; AB=7; BL=15; D=L;										\
+      BG=SCENE_KOURIN:,-15;										\
+      ENV=[V=4];
+    C=JR_EF60_19YASURAGI,JR_HOKI800,JR_HOKI800,JR_HOKI800,JR_HOKI800;
+    C=JRC_EF64_66E~OP,JRF_CHIKI5200,JRF_CHIKI5200;
+    C=JR_EF64_1001~OP,JR_HOKI800,JR_HOKI800,JR_HOKI800,JR_HOKI800;
+    C=JRW_EF65_123B,JRF_CHIKI5200,JRF_CHIKI5200;
+    C=JRE_EF65_1118,JR_HOKI800,JR_HOKI800,JR_HOKI800,JR_HOKI800;
+  $ENDGROUP
+
+#------------------ 135 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0135;											\
+      DX=220; AB=8; BL=14; D=X;										\
+      BG=SCENE_PORTALB:,-14;										\
+      ENV=[V=20][TB=2][TE=2];
+    C=<(<JRE_952A1,JRE_952A2,JRE_952A3,JRE_952A4),(<JRE_953A1,JRE_953A2,JRE_953A3,JRE_953A4,JRE_953A5);
+    C=JRE_E954;
+  $ENDGROUP
+
+#------------------ 136 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0136;											\
+      LC=2; DX=220; AB=4; BL=18; D=L;									\
+      BG=SCENE_BOOKS:,-18;
+    C=JRE_E954;												\
+      V=20; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------ 137 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0137;											\
+      DX=220; AB=1; BL=21; D=L;										\
+      BG=SCENE_BLIK:,-21;
+    C=TINTRAIN_165;											\
+      V=3; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------ 138 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0138;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_CAENB;											\
+      FG=SCENE_CAENF:<0;
+    $PATH Y=9; D=R;
+      M=STOP;												\
+	C=CAEN_BB;											\
+	V=7; P=>0+15;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=L;
+      M=STOP;												\
+	C=CAEN_BBL;											\
+	V=7; P=>0+30;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 139 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0139;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_BORDEAUX;
+    $PATH Y=9; LC=2; D=R;
+      M=STOP;												\
+	C=BORD_CIT402[PD];										\
+	V=6; P=>0+15; TB=2; TE=2;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=L;
+      M=STOP;												\
+	C=BORD_CIT402[PD];										\
+	V=6; P=>0+30; TE=2;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 140 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0140;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_BORDEAUXGB;										\
+      FG=SCENE_BORDEAUXGF:<0,8;
+    $PATH Y=9; LC=2;											\
+	BG=SCENE_BORDEAUXGM:<0+57;									\
+	D=R;
+      M=STOP;												\
+	C=BORD_CIT402;											\
+	V=6; P=>0+15; TB=2; TE=2;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=L;
+      M=STOP;												\
+	C=BORD_CIT402;											\
+	V=6; P=>0+30; TE=2;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 141 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0141;											\
+      LC=2; DX=220; AB=22; BL=0;									\
+      BG=SCENE_LOSINCASB:,10;										\
+      FG=SCENE_LOSINCASF;
+    M=OPEN;												\
+      C=TOKYO_500AVL,4*TOKYO_500DV,TOKYO_500CV;								\
+      D=R; V=7; P=*;
+    M=STOP;												\
+      C=TOKYO_500AVL,4*TOKYO_500DV,TOKYO_500CV;								\
+      D=L; V=7; P=*;
+  $ENDGROUP
+
+#------------------ 142 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0142;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_KANDAGAWAB:,40;										\
+      FG=SCENE_KANDAGAWAF;										\
+      IMGY=38;
+    $PATH Y=42; LC=2; D=L;
+      C=<TOKYO_500AL,TOKYO_500B,TOKYO_500AL,TOKYO_500C,TOKYO_500B,TOKYO_500C;				\
+	V=5; TB=5; TE=2;
+    $ENDPATH
+    $PATH Y=42; LC=2; D=R;
+      C=<TOKYO_500AL,TOKYO_500B,TOKYO_500AL,TOKYO_500C,TOKYO_500B,TOKYO_500C;				\
+	V=5 TB=2; TE=2;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 143 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0143;											\
+      SEQ=B; DX=220; AB=13; BL=9;									\
+      BG=SCENE_BOTHSIDEN:,-9;										\
+      ENV=[C=JR_ED500_901L,JR_KOKI104~OP,JR_KOKI104~OP][V=4];
+    D=R; TB=MID,2,BACK,W,2;
+    D=R; TB=2; TE=2;
+    D=L; TB=MID,2,FRONT,W,2;
+    D=L; TB=2;
+  $ENDGROUP
+
+#------------------ 145 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0145;											\
+      SEQ=B; DX=220; AB=13; BL=9;									\
+      BG=SCENE_MEDALCOLORB:,-9;
+    M=STOP;												\
+      C=MODEL_JRE_D51_498_BRASSL;									\
+      V=2; A=0.01; B=0.01; TB=GOLD,2; TE=2;
+    M=STOP;												\
+      C=MODEL_JRE_D51_498_NICKELL;									\
+      V=2; A=0.01; B=0.01; TB=SILVER,2; TE=2;
+    M=STOP;												\
+      C=MODEL_JRE_D51_498_BRONZEL;									\
+      V=2; A=0.01; B=0.01; TB=BRONZE,2; TE=2;
+  $ENDGROUP
+
+#------------------ 150 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0150;											\
+      LC=2; DX=220; AB=13; BL=9;									\
+      BG=SCENE_PURPLESEA:,-9;
+    M=STOP;												\
+      C=<TOY_KINOKUNI1,TOY_KINOKUNI2,TOY_KINOKUNI3,TOY_KINOKUNI4,TOY_KINOKUNI5;				\
+      V=5; P=<100-70; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------ 151 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0151;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_TKTBB:<0+23,33;
+    $PATH Y=9;												\
+	BG=SCENE_TKTBM:,-9;										\
+	SEQ=B;
+      C=JNR_591;											\
+	D=R; V=6; TB=2; TE=[SI:N=IR];
+      C=JNR_391;											\
+	D=R; V=6; TB=[WI:N=ST],2; TE=[SI:N=IR];
+    $ENDPATH
+    $PATH Y=37; IMGY=32;
+      C=<TB_JNR_591CL,TB_JNR_591D,TB_JNR_591E;								\
+	D=L; V=4; TB=[WI:N=IR],2; TE=[SI:N=ST];
+      C=TB_JR_391AL;											\
+	D=L; V=4; TB=[WI:N=IR],2; TE=2;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 152 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0152;											\
+      DX=220; AB=3; BL=19; D=X;										\
+      BG=SCENE_PENDULUM:,-19;										\
+      TB=2;												\
+      TE=2;
+    C=JNR_591;												\
+      V=6;
+    C=JNR_391;												\
+      V=6;
+  $ENDGROUP
+
+#------------------ 153 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0153;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_TURBOB:,16;										\
+      FG=SCENE_TURBOF;
+    $PATH Y=16; LC=2; D=L;
+      C=JNR_07_901;
+      C=JNR_391;
+      C=JNR_KIHA58L,JNR_07_901;
+      C=JNR_391;
+    $ENDPATH
+    $PATH Y=16; LC=2; D=R;
+      C=JNR_07_901,JNR_KIHA58L;										\
+	V=5;
+      C=JNR_391;											\
+	V=5;
+      C=JNR_07_901;											\
+	V=15;
+      C=JNR_391;											\
+	V=13;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 154 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0154;											\
+      DX=220; AB=13; BL=9;										\
+      BG=SCENE_1964B;											\
+      FG=SCENE_1964F:,-9;
+    M=BACK;												\
+      C=<JNR_021L,JNR_026,JNR_025,JNR_026_200,JNR_035,JNR_026_200,JNR_015,JNR_016,JNR_035,JNR_026,	\
+	JNR_025,JNR_022;										\
+      D=R; B=0.01; P=<100-70; TB=2; TE=2; T=1,OPEN,6,CLOSE,W,1;
+  $ENDGROUP
+
+#------------------ 155 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0155;											\
+      LC=2; DX=220; AB=13; BL=9; D=X;									\
+      BG=SCENE_EXPO70B;											\
+      FG=SCENE_EXPO70F:,-9;
+    C=<JNR_021L,JNR_026,JNR_025,JNR_026_200,JNR_035,JNR_026_200,JNR_025,JNR_026_200,JNR_015G,JNR_016G,	\
+	JNR_035,JNR_026,JNR_025,JNR_026_200,JNR_025,JNR_022;						\
+      V=21;
+  $ENDGROUP
+
+#------------------ 156 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0156;											\
+      LC=2; DX=220; IMGY=46; BL=34; D=X;								\
+      BG=SCENE_FUJIGAWAB:,-34;										\
+      FG=SCENE_FUJIGAWAF:,-12;
+    C=<JNR_021BL,JNR_026B,JNR_025B,JNR_026_200B,JNR_025B,JNR_026_200B,JNR_027B,JNR_036BFJ,JNR_035B,	\
+	JNR_026_200B,JNR_015B,JNR_016B,JNR_025B,JNR_026B,JNR_025B,JNR_022B;				\
+      V=21; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------ 157 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0157;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_HIMEJIB;											\
+      FG=SCENE_HIMEJIF1;
+    $PATH Y=21; LC=2; D=L;
+      C=JNR_021BL,JNR_026B,JNR_025B,JNR_026_200B,JNR_025B,JNR_026_200B,JNR_027B,JNR_036BFJ,JNR_035B,	\
+	  JNR_026_200B,JNR_015B,JNR_016B,JNR_025B,JNR_026B,JNR_025B,JNR_022B;				\
+	TB=2; TE=3;
+    $ENDPATH
+    $PATH Y=21; LC=2; D=R;
+      C=JNR_022B,JNR_025B,JNR_026B,JNR_025B,JNR_016B,JNR_015B,JNR_026_200B,JNR_035B,JNR_036BFJ,		\
+	  JNR_027B,JNR_026_200B,JNR_025B,JNR_026_200B,JNR_025B,JNR_026B,JNR_021BL;			\
+	TB=5; TE=2;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 158 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0158;											\
+      LC=2; DX=220; AB=18; BL=4; D=X;									\
+      BG=SCENE_ZEROFIGHTER:,-4;
+    C=<JNR_021L,JNR_026,JNR_025,JNR_026_200,JNR_035,JNR_026_200,JNR_015,JNR_016,JNR_035,JNR_026,	\
+	JNR_025,JNR_022;										\
+      V=21; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------ 160 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0160;											\
+      DX=220; DY=80; SEQ=B;										\
+      BG=SCENE_AQUAB:,14;
+    $PATH Y=9; LC=2;											\
+	BG=SCENE_AQUAM:,-9;										\
+	D=R;
+      C=<TOY_SH0A,TOY_SH0B,TOY_SH0C,TOY_SH0D;								\
+	TB=2; TE=[SI:N=I1];
+      C=<TOY_SH0A,TOY_SH0B,TOY_SH0C,TOY_SH0D;								\
+	TB=[WI:I2],2; TE=[SI:N=I1];
+    $ENDPATH
+    $PATH Y=17; D=L;
+      C=TOY_SH0AQ1,TOY_SH0AQ2,TOY_SH0AQ3,TOY_SH0AQ4;							\
+	TB=[WI:N=I1],2; TE=[SI:N=I2];
+      C=TOY_SH0AQ1,TOY_SH0AQ2,TOY_SH0AQ3,TOY_SH0AQ4;							\
+	TB=[WI:N=I1],2; TE=2;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 161 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0161;											\
+      LC=3; DX=220; AB=13; BL=9; D=L;									\
+      BG=SCENE_BLUETRAIN3:,-9;										\
+      ENV=[TB=2][TE=2];
+    C=JR_EF58BLUETRAIN,JR_MANI20B,JR_NARONE20B,JR_NARONE21_100B,JR_NARONE21_100B,JR_NARONE21_100B,	\
+	JR_NARONE21_100B,JR_NARO20B,JR_NASHI20B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,	\
+	JR_NAHA20B,JR_NAHAFU20B;									\
+      V=7;
+    C=JR_EF60_500~OP,JR_KANI22P,JR_NARONE22B,JR_NARO20B,JR_NASHI20B,JR_NAHANE20B,JR_NAHANE20B,		\
+	JR_NAHANE20B,JR_NAHAFU21B,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,		\
+	JR_NAHANE20B,JR_NAHANE20B,JR_NAHAFU20B;								\
+      V=7;
+    C=JR_EF65_500~OP,JR_KANI21B,JR_NARONE20B,JR_NARONE22B,JR_NARONE21_100B,JR_NARONE21_100B,		\
+	JR_NARONE21_100B,JR_NARONE21_100B,JR_NARO20B,JR_NASHI20B,JR_NAHANE20B,JR_NAHANE20B,		\
+	JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANEFU22B;						\
+      V=7;
+  $ENDGROUP
+
+#------------------ 162 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0162;											\
+      DX=220; AB=6; BL=16; D=R;										\
+      BG=SCENE_BLUETRAIN2:,-16;										\
+      ENV=[TB=2][TE=2];
+    C=JNR_C62JOBAN,JR_NAHAFU20B,6*JR_NAHANE20B,JR_NASHI20B,2*JR_NAHANE20B,2*JR_NARONE21_100B,JR_KANI21B; \
+      V=5;
+    C=JR_DD51_500F,JR_NAHANEFU21B,5*JR_NAHANE20B,JR_NASHI20B,4*JR_NAHANE20B,JR_NARONE21_100B,JR_KANI21B; \
+      V=5;
+    C=JNR_DD51_500C,JR_NAHAFU20B,JR_NAHA20B,6*JR_NAHANE20B,JR_NASHI20B,JR_NARONE21_100B,JR_KANI21B;	\
+      V=5;
+  $ENDGROUP
+
+#------------------ 163 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0163;											\
+      DX=220; AB=-1; BL=23; D=L;									\
+      BG=SCENE_BLUETRAIN1:,-23;										\
+      ENV=[TB=2][TE=2];
+    C=JNR_C60BL,JR_KANI22_PTB[PD],JR_NARONE22B,JR_NARO20B,JR_NASHI20B,JR_NAHANE20B,JR_NAHANE20B,	\
+	JR_NAHANE20B,JR_NAHAFU21B;									\
+      V=5;
+    C=JNR_C61L,JR_MAYA20B,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,		\
+	JR_NAHANE20B,JR_NAHAFU20B;									\
+      V=5;
+    C=JNR_DD51_500B,JR_KANI21B,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,JR_NASHI20B,	\
+	JR_NAHANE20B,JR_NAHANEFU23B;									\
+      V=5;
+    C=JNR_DD51_500B,JR_MAYA20_10B,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,		\
+	JR_NAHANE20B,JR_NAHANE20B,JR_NAHANEFU22B;							\
+      V=5;
+  $ENDGROUP
+
+#------------------ 164 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0164;											\
+      LC=2; DX=220; AB=13; BL=9; D=L;									\
+      BG=SCENE_SETX1_2B:,-9;										\
+      FG=SCENE_SETX1_2F:,-9;										\
+      ENV=[TB=2][TE=2][M=STOP][B=0.01][A=0.01][P=<0+25];
+    C=JR_EF65_500~OP,JR_KANI21B,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,JR_NASHI20B,	\
+	JR_NAHANE20B,JR_NAHANEFU23B,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,		\
+	JR_NAHANE20B,JR_NAHANE20B,JR_NAHANEFU22B;							\
+      V=7;
+    C=JR_EF65_500~OP,JR_KANI22_NOPTB,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,		\
+	JR_NASHI20B,JR_NAHANE20B,JR_NAHANEFU23B,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,		\
+	JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANEFU22B;						\
+      V=7;
+    C=JR_EF65_500~OP,JR_KANI21B,JR_NARONE20B,JR_NARONE22B,JR_NARONE22B,JR_NARONE22B,JR_NARONE21_100B,	\
+	JR_NAHANE20B,JR_NARO20B,JR_NASHI20B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,	\
+	JR_NAHANE20B,JR_NAHANEFU22B;									\
+      V=7;
+    C=JR_EF65_500~OP,JR_KANI21B,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,JR_NASHI20B,	\
+	JR_NAHANE20B,JR_NAHANEFU23B,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANEFU22B;		\
+      V=7;
+    C=JR_EF65_500~OP,JR_KANI21B,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,	\
+	JR_NAHANE20B,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,		\
+	JR_NAHANE20B,JR_NAHANEFU22B;									\
+      V=7;
+  $ENDGROUP
+
+#------------------ 165 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0165;											\
+      DX=220; AB=13; BL=9; D=L;										\
+      BG=SCENE_MOJIB:,-9;										\
+      FG=SCENE_MOJIF:>100,-9;										\
+      ENV=[TB=2][TE=2][V=5];
+    C=JRE_EF30,JR_KANI21B,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,JR_NASHI20B,		\
+	JR_NAHANE20B,JR_NAHANEFU23B,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,		\
+	JR_NAHANE20B,JR_NAHANE20B,JR_NAHANEFU22B;
+    C=JRE_EF30,JR_KANI22_NOPTB,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,JR_NASHI20B,	\
+	JR_NAHANE20B,JR_NAHANEFU23B,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,		\
+	JR_NAHANE20B,JR_NAHANE20B,JR_NAHANEFU22B;
+    C=JNR_EF30_1,JR_KANI21B,JR_NARONE20B,JR_NARONE22B,JR_NARONE22B,JR_NARONE22B,JR_NARONE21_100B,	\
+	JR_NAHANE20B,JR_NARO20B,JR_NASHI20B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,	\
+	JR_NAHANE20B,JR_NAHANEFU22B;
+  $ENDGROUP
+
+#------------------ 166 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0166;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=(CROSS_J4B:>50+97;SCENE_BLUETRAINR:<0-20;);							\
+      FG=(CROSS_J4F:<50-10,-5;CROSS_ROAD1:*50+43;);							\
+      LG=XC:D1,U1,D2,U2:XDOWN,XUP;
+    $PATH Y=9; LC=2;											\
+	BG=(TRBED20:..,^0;);										\
+	D=L;												\
+	WP=(50-10,<TE:U1;);										\
+	TB=6,D1,6;
+      C=JR_ED74,											\
+	  (>JR_NAHANEFU22B,5*JR_NAHANE20B,JR_NARONE21_100B,JR_NAHANEFU23B,JR_NAHANE20B,JR_NASHI20B,	\
+	  3*JR_NAHANE20B,JR_NARONE21_100B,JR_KANI21B);							\
+	V=9;
+      C=JNR_ED73~OP,											\
+	  (>JR_NAHANEFU22B,5*JR_NAHANE20B,JR_NARONE21_100B,JR_NAHANEFU23B,JR_NAHANE20B,JR_NASHI20B,	\
+	  3*JR_NAHANE20B,JR_NARONE21_100B,JR_KANI22_NOPTB);						\
+	V=9;
+      C=JNR_ED73~OP,											\
+	  (>JR_NAHANEFU22B,5*JR_NAHANE20B,JR_NASHI20B,JR_NARO20B,JR_NAHANE20B,JR_NARONE21_100B,		\
+	  3*JR_NARONE22B,JR_NARONE20B,JR_KANI21B);							\
+	V=9;
+    $ENDPATH
+    $PATH Y=9; LC=2;											\
+	BG=(SIG_J3:<50-50,-5;);										\
+	D=R;												\
+	WP=(50+97,>TE:U2;50+50,>TB:SCBG.SIGR;);								\
+	TB=2,SCBG.SIGG,D2,6;										\
+	TE=4,SCBG.SIGY,3,SCBG.SIGG;
+      C=JR_ED74,											\
+	  (>JR_NAHANEFU22B,5*JR_NAHANE20B,JR_NARONE21_100B,JR_NAHANEFU23B,JR_NAHANE20B,JR_NASHI20B,	\
+	  3*JR_NAHANE20B,JR_NARONE21_100B,JR_KANI21B);							\
+	V=9;
+      C=JNR_ED73~OP,											\
+	  (>JR_NAHANEFU22B,5*JR_NAHANE20B,JR_NARONE21_100B,JR_NAHANEFU23B,JR_NAHANE20B,JR_NASHI20B,	\
+	  3*JR_NAHANE20B,JR_NARONE21_100B,JR_KANI22_NOPTB);						\
+	V=9;
+      C=JNR_ED73~OP,											\
+	  (>JR_NAHANEFU22B,5*JR_NAHANE20B,JR_NASHI20B,JR_NARO20B,JR_NAHANE20B,JR_NARONE21_100B,		\
+	  3*JR_NARONE22B,JR_NARONE20B,JR_KANI21B);							\
+	V=9;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 167 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0167;											\
+      DX=220; AB=13; BL=9;										\
+      BG=SCENE_KYAKUSHAKU:,-9;										\
+      V=2.5;
+    C=<JNR_DD13A,JR_KANI21B;
+    C=JNR_DD13A;
+    C=<JNR_DD13A,JR_KANI21B,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,JR_NASHI20B,	\
+	JR_NAHANE20B,JR_NAHANEFU23B,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,		\
+	JR_NAHANE20B,JR_NAHANE20B,JR_NAHANEFU22B;
+  $ENDGROUP
+
+  $GROUP 												\
+      NAME=OP0168;											\
+      DX=220; AB=13; BL=9; D=L;										\
+      BG=SCENE_MIDNIGHTSTA:,-9;
+    M=STOP;												\
+      C=JNR_EF65_500D,JNR_KANI21BD,JNR_NARONE21_100BD,3*JNR_NAHANE20BD,JNR_NASHI20BD,JNR_NAHANE20BD,	\
+	JNR_NAHANEFU23BD,JNR_NARONE21_100BD,5*JNR_NAHANE20BD,JNR_NAHANEFU22BD;				\
+      D=L; V=7; A=0.02; B=0.02; P=>100-55;
+  $ENDGROUP
+
+#------------------ 169 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0169;											\
+      DX=220; AB=13; BL=9; D=L;										\
+      BG=SCENE_MIDNIGHTBLUE:,-9;
+    C=LIGHT_3[BC:25],JNR_EF65_500D,JNR_KANI21BD,JNR_NARONE21_100BD,3*JNR_NAHANE20BD,JNR_NASHI20BD,	\
+	JNR_NAHANE20BD,JNR_NAHANEFU23BD,JNR_NARONE21_100BD,5*JNR_NAHANE20BD,JNR_NAHANEFU22BD;		\
+      V=9; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------ 170 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0170;											\
+      DX=220; AB=13; BL=9; D=R;										\
+      BG=SCENE_SOUTHAFRICA:,-9;
+    C=SAR_E19A,SAR_E19B,ROVOS_BAG,ROVOS_GEN,ROVOS_STAFF,5*ROVOS_DELUXE,ROVOS_CLUB,ROVOS_KITCHEN,	\
+	ROVOS_DINING,ROVOS_LOUNGE,2*ROVOS_LUXSUITE,3*ROVOS_DELUXE,ROVOS_CONFERENCE;			\
+      TB=2; TE=2; ORIGNAME=KITWPC_BLUETRAINR;
+  $ENDGROUP
+
+#------------------ 171 -----------------------------------------------
+  $SECTION 												\
+      NAME=OP0171;											\
+      DX=220; DY=80;
+    $GROUP DX=10000; AB=13; BL=9; VM=HEAD;								\
+	BG=SCROLL_ELB:..;										\
+	FG=SCROLL_ELF:..,-9;										\
+	MBG=1000,5,CYC,SCROLL_ELV;
+      C=JNR_EF52;											\
+	D=R; V=5;
+    $ENDGROUP
+  $ENDSECTION
+
+#------------------ 172 -----------------------------------------------
+  $SECTION 												\
+      NAME=OP0172;											\
+      DX=220; DY=80;
+    $GROUP DX=2000; AB=13; BL=9; VM=HEAD;								\
+	BG=SCROLL_YAMAB:..;										\
+	FG=SCROLL_YAMAF:..,-9;										\
+	MBG=500,7,CYC,SCROLL_YAMAV;
+      C=2*JRE_C57C_180L;										\
+	D=L; V=2.5;
+    $ENDGROUP
+  $ENDSECTION
+
+#------------------ 173 -----------------------------------------------
+  $SECTION 												\
+      NAME=OP0173;											\
+      DX=220; DY=80;
+    $SCENE DX=2000; YDIR=U; VM=HEAD;									\
+	BG=SCROLL_ELB2:..,9;										\
+	FG=SCROLL_ELF:..;
+      $PATH Y=9; D=L;
+	C=<SHIN_115AL,SHIN_115B,SHIN_115C;								\
+	  V=4; TB=3; TE=2;
+      $ENDPATH
+      $PATH Y=9; LC=2; D=R;
+	C=<SHIN_115AL,SHIN_115B,SHIN_115C;								\
+	  V=6;
+      $ENDPATH
+    $ENDSCENE
+  $ENDSECTION
+
+#------------------ 180 -----------------------------------------------
+  $GROUP DX=220; IMGY=48; BL=32;									\
+      BG=SCENE_HANAMAKI:,-32;										\
+      TB=2;												\
+      TE=2;
+    C=BIRD_HANAMAKIL;											\
+      D=L; V=2;
+    C=BIRD_HANAMAKI;											\
+      D=R; V=2;
+  $ENDGROUP
+
+#------------------ 181 -----------------------------------------------
+  $SECTION 												\
+      NAME=OP0181;											\
+      DX=220; DY=80;
+    $GROUP SEQ=B; DX=220; IMGY=80; BL=10;								\
+	BG=SCENE_WEBSCALE:,-10;										\
+	FG=SCENE_SCALENAME:>100,-10;									\
+	ENV=[D=R][M=STOP][P=*][TE=2][V=2];								\
+	YDIR=U;
+      C=203[O:DB_103TEE2[PD],0,24];									\
+	TB=2,TK,1;											\
+	IMGY=80;
+      C=135[O:TB_DB_103O,0,11];										\
+	TB=1,TB,1;
+      C=TGIF_DB_103TEE;											\
+	TB=1,TG,1; TE=NONE,2;
+    $ENDGROUP
+  $ENDSECTION
+
+#------------------ 182 -----------------------------------------------
+  $SECTION 												\
+      NAME=OP0182;											\
+      DX=220; DY=80;
+    $GROUP SEQ=B; DX=220; IMGY=90; BL=3;								\
+	BG=SCENE_MODELGAUGE:,-3;									\
+	FG=SCENE_SCALENAME:>100,-10;									\
+	ENV=[D=L][M=STOP][P=*][TE=2][V=2];								\
+	YDIR=U;
+      C=203[O:DB_103TEE2[PD],0,31];									\
+	TB=2,HO,1;
+      C=148[O:DB_103TT,0,20];										\
+	TB=1,TT,1;
+      C=111[O:DB_103N,0,10];										\
+	TB=1,N,1;
+      C=DB_103Z;											\
+	TB=1,Z,1; TE=NONE,2;
+    $ENDGROUP
+  $ENDSECTION
+
+#------------------ 183 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0183;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=(<-- scenegif/crossEAB.gif -->:>50+60;SCENE_CROSSINGFBX;);					\
+      FG=(SCENE_CROSSINGFBX:<50-380;<-- scenegif/crossEAF0.gif -->:<50-70,-5;);				\
+      LG=XC:D1,U1,D2,U2:XDOWN,XUP;
+    $PATH Y=9; LC=2;											\
+	BG=(TRBED20:..,^0;);										\
+	D=L;												\
+	WP=(50-70,<TE:U1;);										\
+	TB=D1,6;
+      C=DB_103TEE,5*ADV_PC_OPAKU;
+      C=DB_103OR,5*ADV_PC_OPAKU;
+      C=DB_V200,4*ADV_FC_OPAKU;
+    $ENDPATH
+    $PATH Y=9; LC=2;											\
+	BG=(SIG_E1:<50+90,-5;);										\
+	D=R;												\
+	WP=(50+60,>TE:U2;50+190,>TB:SCBG.SIGR;);							\
+	TB=SCBG.SIGG,D2,6;										\
+	TE=4,SCBG.SIGY,3,SCBG.SIGG;
+      C=DB_V200,4*ADV_FC_OPAKU;										\
+	V=7;
+      C=DB_103TEE2,5*ADV_PC_OPAKU;									\
+	V=7;
+      C=DB_E03,5*ADV_PC_OPAKU;										\
+	V=7;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 184 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0184;											\
+      SEQ=B; DX=220; BL=20; D=L;									\
+      BG=SCENE_MACG4B:,-20;										\
+      FG=(SCENE_MACG4F:,-20;INTRO_MACG4:,-20;);
+    V=5; TB=10;
+    C=JRE_E257A,JRE_E257B,JRE_E257M,JRE_E257C,JRE_E257E,JRE_E257F,JRE_E257G,JRE_E257H,JRE_E257I,	\
+	JRE_E257J,JRE_E257K;										\
+      V=5; TB=4;
+    C=JRE_MC215_1B,JRE_M214_1,JRE_T215,2*JRE_T214,JRE_TS215,JRE_TS214,JRE_T215,JRE_M214_0,JRE_MC215_0B;	\
+      V=5; TB=2; ORIGNAME=SAMPLETSV_JRE215;
+    C=JRW_DC120_200FL,JRW_DC120_200KL,JRW_DC120KISUKIL,JRW_DC120KAMEYAMAL,JRW_DC120SHIMOL,		\
+	JRW_DC120HIROSHIMAL,JRW_DC120OKAYAMAL,JRW_DC120HAMADAL,JRW_DC120TOYAMAL;			\
+      V=5; TB=2;
+    C=<ODAK_3000AL,ODAK_3000B,ODAK_3000C,ODAK_3000C,ODAK_3000C,ODAK_3000C,ODAK_3000D,ODAK_3000E;	\
+      V=5; TB=2;
+    C=<ODAK_3000A1L,ODAK_3000B1,ODAK_3000C1,ODAK_3000D1,ODAK_3000E1;					\
+      V=5; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------ 186 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0186;											\
+      DX=220; AB=13; BL=9;										\
+      BG=SCENE_FOGGYB:,-9;										\
+      FG=SCENE_FOGGYF:,-9;
+    C=JRE_E257_0TFOGL,JRE_E257_0MCFOG,JRE_E257_100TCLFOG,JRE_E257_0MFOG,JRE_E256_0MFOG,			\
+	JRE_E257_1000MFOG,JRE_E257_0TFOG,JRE_E257_0TSFOG,JRE_E257_100MFOG,JRE_E256_100MFOG,		\
+	JRE_E256_0TCFOG;										\
+      V=6; TB=2; TE=2; ORIGNAME=FOGGYEC_JREE257;
+  $ENDGROUP
+
+#------------------ 186 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0186;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_KOSENKYOUB:,9;										\
+      FG=SCENE_KOSENKYOUF;										\
+      ENV=[TB=2][TE=2][P=>0+80][B=0.005][A=0.005][V=4];
+    $PATH Y=9; LC=2; D=L;
+      C=JNR_EF10_20,2*(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),JR_YO3500~OP;
+      M=STOP;												\
+	C=JR_EF57~OP,JR_SUHAFU42N~OP,3*JR_OHA35CNL,JR_SUHAFU42NL~OP,JR_OHAFU33NL~OP;
+      M=STOP;												\
+	C=JR_EF56,JR_OHAFU33N~OP,3*JR_SUHA43NL~OP,JR_OHA35NL~OP,JR_SUHAFU42NL~OP,JR_MANI60L~OP;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=R;
+      M=STOP;												\
+	C=JR_EF57~OP,JR_MANI60L~OP,JR_SUHAFU42NL~OP,JR_OHA35NL~OP,3*JR_SUHA43NL~OP,JR_OHAFU33N~OP;
+      C=JR_EF12,2*(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),JR_YO3500~OP;
+      M=STOP;												\
+	C=JR_EF56,JR_OHAFU33NL~OP,JR_SUHAFU42NL~OP,3*JR_OHA35CNL,JR_SUHAFU42N~OP;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 187 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0187;											\
+      DX=220; AB=13; BL=9; D=L;										\
+      BG=SCENE_DREAMTRAIN_V2:<0-175,-9;									\
+      ENV=[V=7][TB=2][TE=2];
+    C=JR_EH10_15,JR_SUHANI35KL,JR_SUHA44KL,JR_SUHA44KL,JR_SUHA44KL,JR_SUHA44KL,JR_SUHA44KL,		\
+	JR_SURO60KL,JR_SURO60KL,JR_MASHI35KL,JR_SURO60K,JR_SURO60K,JR_SURO60K,JR_MAITE58_2K;
+    C=JR_EF58_4,JR_SUHANI35GL~OP,JR_SUHA44GL~OP,JR_SUHA44GL~OP,JR_SUHA44GL~OP,JR_SUHA44GL~OP,		\
+	JR_NARO10GL~OP,JR_NARO10GL~OP,JR_OSI17G~OP,JR_NARO10G~OP,JR_NARO10G~OP,JR_NARO10G~OP,		\
+	JR_MAI38GL~OP,JR_MAITE391G~OP;
+    C=JNR_EF66,JR_KANI21B,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,		\
+	JR_NAHANE20B,JR_NAHANEFU23B,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,		\
+	JR_NAHANE20B,JR_NAHANE20B,JR_NAHANEFU22B;
+  $ENDGROUP
+
+#------------------ 188 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0188;											\
+      DX=220; IMGY=51; AB=4; BL=25; D=R;								\
+      BG=SCENE_AKAIWAB:,-25;										\
+      FG=SCENE_AKAIWAF:>100+0,-25;									\
+      ENV=[TB=2][TE=2][V=4];
+    C=JR_EF16,(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),(<JR_G1,JR_GO1,JR_G2,JR_G2,JR_G3,JR_G4),	\
+	JR_YO3500~OP;
+    C=JR_EF16,(<JNR_KIHA82L,2*JNR_KIHA80,JNR_KISI80,JNR_KIRO80,JNR_KIHA82);
+    C=JR_EF16,JR_MANI60L~OP,JR_SUHAFU42NL~OP,2*JR_SUHA43NL~OP,JR_OHA35CNL,JR_SUHA43NL~OP,		\
+	JR_OHA35NL~OP,JR_SUHAFU42N~OP;
+    C=JR_EF64~OP,(<JR_G1,JR_GO1,JR_G2,JR_G2,JR_G3,JR_G4),JR_YO3500~OP;
+  $ENDGROUP
+
+#------------------ 189 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0189;											\
+      LC=3; DX=220; AB=13; BL=9; D=R;									\
+      BG=SCENE_SNOWSHADEB;										\
+      FG=SCENE_SNOWSHADEF:,-9;										\
+      TB=2;												\
+      TE=2;
+    C=JNR_EF71L,JNR_ED78L,(<JR_G1,JR_GO1,JR_G2,JR_G2,JR_G3,JR_G4),					\
+	(<JR_G1,JR_GO1,JR_GT1,JR_G2,JR_G3,JR_G4,JR_REF1),						\
+	JR_KOKI50000NL[C1:C1019|C1018|C1017][C2:C1019|C1018|C1017][C3:C1019|C1018|C1017]		\
+	[C4:C1019|C1018|C1017][C5:C1019|C1018|C1017],JR_YO3500~OP;					\
+      V=4;
+    C=JR_485KUHA,(<JR_485MOHA1,JR_485MOHA2),JR_485SASHI,JR_485SARO,(<JR_485MOHA1,JR_485MOHA2),		\
+	JR_485KUHAL;											\
+      V=5.5;
+    C=JNR_ED78L,JR_SUHAFU42BL~OP,JR_SUHA43NL~OP,JR_SUHA43BL~OP,JR_SUHA43BL~OP,JR_SUHA43BL~OP,		\
+	JR_SUHA43NL~OP,JR_SUHAFU42B~OP,JR_MANI60L~OP;							\
+      V=4;
+    C=<JNR_455MCL,JNR_454M,JNR_455TS,JNR_455MCL,JNR_454M,JNR_455TC;					\
+      V=5.5;
+    C=JNR_ED78L,(<JR_G1,JR_GO1,JR_G2,JR_G2,JR_G3,JR_G4),JR_YO3500~OP;					\
+      V=4;
+    C=JNR_EF71L,JR_SUHAFU42BL~OP,JR_SUHA43BL~OP,JR_SUHA43BL~OP,JR_SUHA43BL~OP,JR_SUHA43BL~OP,		\
+	JR_SUHA43NL~OP,JR_SUHAFU42B~OP,JR_MANI60L~OP;							\
+      V=4;
+  $ENDGROUP
+
+#------------------ 190 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0190;											\
+      LC=2; DX=220; AB=13; BL=9; D=R;									\
+      BG=(SCENE_SENO8B;SCENE_SENO8M;SIG_J3:<50+95,-5);							\
+      FG=SCENE_SENO8F:,-29;										\
+      WP=(0+219,>TB:BG.SIGR;);										\
+      ENV=[TB=>BG.SIGG,<BG.SIGR,3];
+    C=JNR_D51,(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),						\
+	(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),JR_YO2000,JNR_D52;				\
+      V=4;
+    C=JNR_EF60N,(<JR_G1,JR_GO1,JR_GT1,JR_G2,JR_G3,JR_G4,JR_REF1),					\
+	(<JR_G1,JR_GO1,JR_GT1,JR_G2,JR_G3,JR_G4,JR_REF1),JR_YO3500~OP,JR_EF59A,JR_EF59N;		\
+      V=5.5;
+    C=JNR_EF66_901,JNR_KOKI10000[C1:C33_24][C2:C33_24][C3:C33_24][C4:C33_24][C5:C33_24],		\
+	JNR_KOKI10000[C1:C33_24][C2:C33_24][C3:C33_24][C4:C33_24][C5:C33_24],				\
+	JNR_KOKI10000[C1:C33_24][C2:C33_24][C3:C33_24][C4:C33_24][C5:C33_24],				\
+	JNR_KOKI10000[C1:C33_24][C2:C33_24][C3:C33_24][C4:C33_24][C5:C33_24],				\
+	JNR_KOKI10000[C1:C33_24][C2:C33_24][C3:C33_24][C4:C33_24][C5:C33_24],				\
+	JNR_KOKI10000[C1:C33_24][C2:C33_24][C3:C33_24][C4:C33_24][C5:C33_24],JR_KOKIFU10000L~OP,	\
+	JNR_EF61_200;											\
+      V=5.5;
+    C=JRF_EF65O,2*KOKI1,JR_KOKI104L~OP,JNR_EF67_1;							\
+      V=5.5;
+    C=JRF_EF210_100BL,2*KOKI1,JR_KOKI104L~OP,JR_EF67_100D;						\
+      V=5.5;
+  $ENDGROUP
+
+  ------------------ 191 ---------------------------;
+  $SCENE 												\
+      NAME=OP0191;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_SKYRAILB;										\
+      FG=SCENE_SKYRAILF:>100+0;
+    $PATH Y=22; LC=2;											\
+	BG=SCENE_SKYRAILM:,-22;										\
+	D=L;
+      M=STOP;												\
+	C=SKYRAIL_1L;											\
+	P=<100-10; T=1;
+    $ENDPATH
+    $PATH Y=22; LC=2; D=R;
+      M=STOP;												\
+	C=SKYRAIL_1;											\
+	P=<100-10; T=1;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 193 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0193;											\
+      LC=2; DX=220; AB=1; BL=21;									\
+      BG=SCENE_SUBURBS:,-21;
+    C=<JRW_MC320L,JRW_M321,JRW_T321,JRW_M320,JRW_M321,JRW_M320,JRW_MC321;				\
+      D=X; V=12; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------ 194 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0194;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=(CROSS_J5B:>50+125;SCENE_NOISYTOWNA:<0,30;SCENE_NOISYTOWNB;);					\
+      FG=(SCENE_NOISYTOWNF;CROSS_J5F:<50+18,-5;CROSS_ROAD1:*50+71;);					\
+      LG=XC:D1,U1,D2,U2:XDOWN,XUP;
+    $PATH Y=9; LC=2; D=L; WP=(50+18,<TE:U1;); TB=D1,6;
+      C=<JRW_MC320L,JRW_M321,JRW_T321,JRW_M320,JRW_M321,JRW_M320,JRW_MC321;
+    $ENDPATH
+    $PATH Y=9; LC=2;											\
+	BG=(SIG_J4:<50-18,-5;);										\
+	D=R;												\
+	WP=(50+125,>TE:U2;50+82,>TB:SCBG.SIGR;);							\
+	TB=SCBG.SIGG,D2,6;										\
+	TE=4,SCBG.SIGYY,3,SCBG.SIGY,3,SCBG.SIGYG,3,SCBG.SIGG;
+      C=<JRW_MC320L,JRW_M321,JRW_T321,JRW_M320,JRW_M321,JRW_M320,JRW_MC321;				\
+	V=7;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 195 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0195;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_NOROKKOW;
+    $PATH Y=3; D=R;
+      C=<TOY_NOROKKO1,TOY_NOROKKO2,TOY_NOROKKO3,TOY_NOROKKO4,TOY_NOROKKO5;				\
+	V=3; TB=2; TE=2;
+    $ENDPATH
+    $PATH Y=34; D=L;
+      C=>JRH_DE10_NOROKKO2,JRH_OHA510_1,JRH_NAHA29001,JRH_OHATEFU510_1,JRH_OTCTE510_1;			\
+	V=4.5; TB=3; TE=2;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 196 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0196;											\
+      LC=4; SEQ=B; DX=220; AB=13; BL=9;									\
+      BG=SCENE_WETLANDSB:,-9;										\
+      FG=SCENE_WETLANDSF:,-9;
+    C=JRH_DE15_NOROKKO1L,(<JRH_NOR_3500,JRH_NOR_7000,JRH_NOR_42,JRH_NOR_51);				\
+      D=X; V=3;
+    C=<JRH_OTCTE510_1,JRH_OHATEFU500_51,JRH_OHATEFU510_2,JRH_OHATEFU510_1,JRH_OHA510_1,			\
+	JRH_DE10_NOROKKO2;										\
+      D=S; V=3;
+  $ENDGROUP
+
+#------------------ 197 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0197;											\
+      LC=3; DX=220; BL=29;										\
+      BG=SCENE_LAVENDER:,-29;										\
+      TB=2;												\
+      TE=2;
+    C=JRH_KH40_700;											\
+      V=4.5;
+    C=JRH_KH150;											\
+      V=4.5;
+    C=<JRH_OTCTE510_2,JRH_NAHA29002,JRH_NAHA29003,JRH_OHATEFU510_51,JRH_DE15_FURANO;			\
+      V=4.5;
+    C=JRH_KH150F;											\
+      V=4.5;
+  $ENDGROUP
+
+#------------------ 198 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0198;											\
+      DX=220; AB=13; BL=9; D=R;										\
+      BG=SCENE_AINULANDB;										\
+      FG=SCENE_AINULANDF:,-9;										\
+      TB=2;												\
+      TE=2;
+    C=<JNR_KH22A,JNR_KH12A;										\
+      V=5.5;
+    C=<JNR_KH40,JNR_KH22;										\
+      V=5.5;
+    C=JRH_KH40_700;											\
+      V=5.5;
+    C=JRH_KH54_500L;											\
+      V=5.5;
+  $ENDGROUP
+
+#------------------ 199 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0199;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_DC12;
+    $PATH Y=9; D=L;
+      M=BACK;												\
+	C=JNR_KIHA12_23;										\
+	V=5; B=0.01; P=<50+0; TB=1,[SI:N=I1],[WI:N=I2]; TE=2;
+    $ENDPATH
+    $PATH Y=9; D=R;
+      M=BACK;												\
+	C=JR_KIHA_12O;											\
+	V=5; B=0.01; P=>50+0; TB=1,[SI:N=I2],[WI:N=I1]; TE=2;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 200 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0200;											\
+      DX=220; AB=-11; BL=33;										\
+      BG=SCENE_HOROMAIB:,-33;										\
+      FG=SCENE_HOROMAIF:,-33;
+    M=BACK;												\
+      C=JNR_KIHA12_23;											\
+      D=R; V=5; A=0.005; B=0.005; P=<50-15; TB=2; TE=2; T=4;
+  $ENDGROUP
+
+#------------------ 202 -----------------------------------------------
+  $SECTION 												\
+      NAME=OP0202;											\
+      DX=220; DY=80;
+    $GROUP DX=5000; AB=13; BL=9; D=L; VM=CONT;								\
+	BG=SCROLL_YAMAB:..,-9;										\
+	FG=SCROLL_YAMAF:..,-9;										\
+	MBG=1000,7,CYC,SCROLL_ELV;
+      C=JR_C57A_KAMOMEL,JR_SUHANI35KL,JR_SUHA44KL,JR_SUHA44KL,JR_SUHA44KL,JR_SURO54KL,JR_MASHI49K,	\
+	  JR_SURO54KL,JR_SURO54KL,JR_SUHAFU43KTM;							\
+	V=7; TB=2; TE=2;
+    $ENDGROUP
+  $ENDSECTION
+
+#------------------ 203 -----------------------------------------------
+  $SECTION 												\
+      NAME=OP0203;											\
+      DX=220; DY=80;
+    $GROUP DX=3000; AB=13; BL=9; D=R; VM=CONT,JUMP;							\
+	BG=SCROLL_ELB:..;										\
+	FG=SCROLL_ELF:..,-9;										\
+	MBG=500,8,CYC,SCROLL_YAMAV;									\
+	V=5;												\
+	TB=2;												\
+	TE=2;
+      C=JR_ED76_500,JR_OYU10,JR_MANI60L~OP,JR_SUHAFU44BL,JR_SURO62,JR_SUHA45BL,JR_SUHA45BL,		\
+	  JR_SUHA45BL,JR_SUHAFU44B;
+      C=JR_ED76_500,JR_SUYU15L,JR_MANI50,JR_MANI50,(<JNR_14SUHAFUL,JNR_14OHA,JNR_14OHA,JNR_14SUHAFU);
+    $ENDGROUP
+  $ENDSECTION
+
+#------------------ 205 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0205;											\
+      DX=220; AB=13; BL=9; D=X;										\
+      BG=SCENE_BROWNEC:,-9;										\
+      FG=STATION_SL:>0+174;										\
+      TB=2;												\
+      TE=2;
+    M=OPEN;												\
+      C=<JNR_MC51NL,JNR_T51N,JNR_T51N,JNR_MC51N;							\
+      P=>0+150;
+    M=OPEN;												\
+      C=<JNR_MC51AL,JNR_TC68A;										\
+      P=>0+150;
+    C=JNR_EF10_1K,(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),JR_YO3500~OP;				\
+      V=4;
+    M=OPEN;												\
+      C=<JNR_MC51AL,JNR_TC68A;										\
+      P=>0+150;
+  $ENDGROUP
+
+#------------------ 206 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0206;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_MODELERDESK;
+    $PATH Y=9; LC=2; D=L; ENV=[M=BACK][V=4][B=0.001][A=0.001][TB=2][TE=2][T=20][P=<0+90];
+      C=<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1,JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,		\
+	  JRE_201CM1A,JRE_201CM2,JRE_201CTC;
+      C=<JRE_E233CTCL,JRE_E233CM1,JRE_E233CM3,JRE_E233CM2,JRE_E233CM3,JRE_E233CTC;
+      C=<JRE_E233CTCL,JRE_E233CM1,JRE_E233CM3,JRE_E233CM2,JRE_E233CM3,JRE_E233CTC;
+      C=<JRE_E231STC1L,JRE_E231ST4,JRE_E231SM1,JRE_E231SM2,JRE_E231ST6,JRE_E231ST4,JRE_E231ST4,		\
+	  JRE_E231SM1,JRE_E231SM2,JRE_E231STC2;
+      C=<JRE_E231STC1L,JRE_E231ST4,JRE_E231SM1,JRE_E231SM2,JRE_E231ST6,JRE_E231ST4,JRE_E231ST4,		\
+	  JRE_E231SM1,JRE_E231SM2,JRE_E231STC2;
+      C=<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1,JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,		\
+	  JRE_201CM1A,JRE_201CM2,JRE_201CTC;
+    $ENDPATH
+    $PATH Y=38; LC=3; D=R; ENV=[M=STOP][V=8][B=0.01][A=0.01][T=6][P=<0+155][TB=2][TE=2]; IMGY=42;
+      C=<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1,JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,		\
+	  JRE_201CM1A,JRE_201CM2,JRE_201CTC;
+      C=<JRE_E233CTCL,JRE_E233CM1,JRE_E233CM3,JRE_E233CM2,JRE_E233CM3,JRE_E233CTC;
+      C=<JRE_E233CTCL,JRE_E233CM1,JRE_E233CM3,JRE_E233CM2,JRE_E233CM3,JRE_E233CTC;
+      C=<JRE_E231STC1L,JRE_E231ST4,JRE_E231SM1,JRE_E231SM2,JRE_E231ST6,JRE_E231ST4,JRE_E231ST4,		\
+	  JRE_E231SM1,JRE_E231SM2,JRE_E231STC2;
+      C=<JRE_E231STC1L,JRE_E231ST4,JRE_E231SM1,JRE_E231SM2,JRE_E231ST6,JRE_E231ST4,JRE_E231ST4,		\
+	  JRE_E231SM1,JRE_E231SM2,JRE_E231STC2;
+      C=<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1,JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,		\
+	  JRE_201CM1A,JRE_201CM2,JRE_201CTC;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 207 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0207;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_TACHIKAWAB;										\
+      FG=SCENE_TACHIKAWAF;										\
+      IMGY=47;
+    $PATH Y=33; LC=3; D=L; ENV=[TB=2][TE=7];
+      C=<JRE_E257_0TCL,JRE_E257_0MC,JRE_E257_100TCL,JRE_E257_0M,JRE_E256_0M,JRE_E257_1000M,		\
+	  JRE_E257_0T,JRE_E257_0TS,JRE_E257_1000M,JRE_E257_100M,JRE_E256_100M,JRE_E256_0TC;
+      C=<JRE_E233CTCL,JRE_E233CM1,JRE_E233CM3,JRE_E233CM2,JRE_E233CM3,JRE_E233CTC;
+      C=(<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1),						\
+	  (<JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,JRE_201CM1A,JRE_201CM2,JRE_201CTC);
+      C=JRF_EH200_2,5*JR_TAKI1000G,JR_TAKI1000G2,3*JR_TAKI1000G;
+      C=(<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1),						\
+	  (<JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,JRE_201CM1A,JRE_201CM2,JRE_201CTC);
+      C=(<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1),						\
+	  (<JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,JRE_201CM1B,JRE_201CM2,JRE_201CTC);
+      C=<JRE_E233CTCL,JRE_E233CM1,JRE_E233CM3,JRE_E233CM2,JRE_E233CM3,JRE_E233CTC;
+      C=<JRE_201CTCL,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,	\
+	  JRE_201CM2,JRE_201CTC;
+    $ENDPATH
+    $PATH Y=33; LC=3; D=R; ENV=[TB=8][TE=2];
+      C=(<JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,JRE_201CM1A,JRE_201CM2,JRE_201CTC),			\
+	  (<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1);
+      C=(<JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,JRE_201CM1B,JRE_201CM2,JRE_201CTC),			\
+	  (<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1);
+      C=<JRE_E233CTCL,JRE_E233CM1,JRE_E233CM3,JRE_E233CM2,JRE_E233CM3,JRE_E233CTC;
+      C=<JRE_201CTCL,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,	\
+	  JRE_201CM2,JRE_201CTC;
+      C=<JRE_E257_0TCL,JRE_E257_0MC,JRE_E257_100TCL,JRE_E257_0M,JRE_E256_0M,JRE_E257_1000M,		\
+	  JRE_E257_0T,JRE_E257_0TS,JRE_E257_1000M,JRE_E257_100M,JRE_E256_100M,JRE_E256_0TC;
+      C=<JRE_E233CTCL,JRE_E233CM1,JRE_E233CM3,JRE_E233CM2,JRE_E233CM3,JRE_E233CTC;
+      C=(<JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,JRE_201CM1A,JRE_201CM2,JRE_201CTC),			\
+	  (<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1);
+      C=JRF_EH200_2,7*JR_TAKI1000G,JR_TAKI1000G2,JR_TAKI1000G;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 208 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0208;											\
+      DX=220; AB=13; BL=9; D=X;										\
+      BG=SCENE_HOSENKU:,-9;										\
+      ENV=[M=STOP][TB=2][TE=2][T=7][P=@-0+40];
+    C=JNR_DE10,JR_HOKI800,JR_HOKI800,JR_HOKI800;							\
+      V=7;
+    C=JNR_DE10,JRF_CHIKI5200,JRF_CHIKI5200;								\
+      V=7;
+  $ENDGROUP
+
+#------------------ 211 -----------------------------------------------
+  $SECTION 												\
+      NAME=OP0211;											\
+      DX=220; DY=80;
+    C=2*JNR_C55CL;											\
+      D=L; V=2.7; W=X;											\
+      BG=SCROLL_SNOWB:..,-9;										\
+      VM=HEAD;												\
+      DX=2000;												\
+      BL=9;												\
+      AB=14;												\
+      MBG=384,10,CYC,SCROLL_SNOWV;
+  $ENDSECTION
+
+#------------------ 212 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0212;											\
+      SEQ=B; DX=220; AB=3; BL=19;									\
+      BG=SCENE_DMV:,-19;
+    M=STOP;												\
+      C=J_DMV_901;											\
+      D=L; V=2; P=*; TB=2; TE=2; T=2,RAIL,W,2;
+  $ENDGROUP
+
+#------------------ 213 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0213;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=(SCENE_AIKOKUB.GIF;);										\
+      FG=(SCENE_AIKOKUF.GIF:<,999986;SCENE_GGSET1.PNG:<50-1880;);
+    $PATH Y=3; LC=2;											\
+	BG=(TRBED20:..,^0;);										\
+	D=L;
+      M=STOP;												\
+	C=<JNR_KH22A,JNR_KH22A;										\
+	P=<50-360;
+      M=STOP;												\
+	C=<JNR_KH22A,JNR_KH22;										\
+	P=<50-360;
+    $ENDPATH
+    $PATH Y=3; LC=2; D=R;
+      M=STOP;												\
+	C=<JNR_KH22A,JNR_KH22;										\
+	V=7; P=<50-480;
+      M=STOP;												\
+	C=<JNR_KH22A,JNR_KH22A;										\
+	V=7; P=<50-480;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 213 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0213;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_AIKOKUB:,10;										\
+      FG=SCENE_AIKOKUF;
+    $PATH Y=3; LC=2; D=L; ENV=[P=>0+170][M=OPEN][TB=2][TE=2][V=5];
+      C=<JNR_KH22A,JNR_KH22A;
+      C=<JNR_KH22A,JNR_KH22;
+    $ENDPATH
+    $PATH Y=3; LC=2; D=R; ENV=[P=>0+40][M=STOP][TB=2][TE=2][V=5];
+      C=<JNR_KH22A,JNR_KH22;
+      C=<JNR_KH22A,JNR_KH22A;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 214 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0214;											\
+      DX=220; AB=19; BL=3; D=X;										\
+      BG=SCENE_TAISHOEKIB:,8;										\
+      FG=SCENE_TAISHOEKIF:,-3;										\
+      ENV=[M=OPEN][P=<0+20][V=5][B=0.01][A=0.01][TB=2][TE=2];
+    C=<JNR_KH22A,JNR_KH22A;
+    C=<JNR_KH22A,JNR_KH22;
+  $ENDGROUP
+
+#------------------ 215 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0215;											\
+      DX=220; AB=13; BL=9; D=X;										\
+      BG=SCENE_KOUFUKU:,-9;										\
+      ENV=[M=STOP][P=>0+130][A=0.01][B=0.01][TB=2][TE=2];
+    C=<JNR_KH22A,JNR_KH22A;
+    C=<JNR_KH22A,JNR_KH22;
+    C=<JNR_KH22A,JNR_KH12A;
+  $ENDGROUP
+
+#------------------ 216 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0215;											\
+      DX=220; AB=13; BL=14; D=X;									\
+      BG=SCENE_KOUFUKU2B:,-14;										\
+      FG=SCENE_KOUFUKU2F:,-14;										\
+      ENV=[M=OPEN][P=>0+130][A=0.01][B=0.01][TB=2][TE=2];
+    C=<JNR_KH22A,JNR_KH22A;
+    C=<JNR_KH22A,JNR_KH22;
+    C=<JNR_KH22A,JNR_KH12A;
+  $ENDGROUP
+
+#------------------ 218 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0218;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=(CROSS_J4B:>50+111,4;SCENE_BIRTHPLACEB:,9;);							\
+      FG=(SCENE_BIRTHPLACEF;CROSS_J4F:<50+4,4;);							\
+      LG=XC:D1,U1,D2,U2:XDOWN,XUP;									\
+      ENV=[V=5.5];
+    $PATH Y=9; LC=2;											\
+	BG=SCENE_BIRTHPLACEM:,-9;									\
+	D=L;												\
+	WP=(50+4,<TE:U1;);										\
+	TB=D1,6;
+      C=<ODAK_3000AL,ODAK_3000B,ODAK_3000C,ODAK_3000C,ODAK_3000C,ODAK_3000C,ODAK_3000D,ODAK_3000E;
+      C=<ODAK_2400OTCL,ODAK_2400OM1,ODAK_2400OM2,ODAK_2400OTC;
+      C=2*(<ODAK_2200OAL,ODAK_2200OB);
+      C=<ODAK_2400OTCL,ODAK_2400OM1,ODAK_2400OM2,ODAK_2400OTC;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=R; WP=(50+111,>TE:U2;); TB=D2,6;
+      C=2*(<ODAK_2200OAL,ODAK_2200OB);
+      C=<ODAK_2400OTCL,ODAK_2400OM1,ODAK_2400OM2,ODAK_2400OTC;
+      C=<ODAK_3000AL,ODAK_3000B,ODAK_3000C,ODAK_3000C,ODAK_3000C,ODAK_3000C,ODAK_3000D,ODAK_3000E;
+      C=<ODAK_2400OTCL,ODAK_2400OM1,ODAK_2400OM2,ODAK_2400OTC;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 219 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0219;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_ISTANBULMETROB;
+    $PATH Y=0; LC=2;											\
+	BG=SCENE_ISTANBULMETROM;									\
+	D=R;
+      M=STOP;												\
+	C=BIRD_METRO_ISTANBUL[BR:14];									\
+	P=<0+50;
+    $ENDPATH
+    $PATH Y=37; LC=2; D=L;
+      M=OPEN;												\
+	C=BIRD_METRO_ISTANBUL[!DOOR];									\
+	P=<0+20;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 220 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0220;											\
+      LC=2; DX=220; AB=13; BL=9;									\
+      BG=SCENE_ISTANBULTRAM:,-9;
+    C=2*IST_LRV;											\
+      D=X; V=4; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------ 221 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0221;											\
+      LC=3; DX=220; AB=13; BL=9; D=X;									\
+      BG=SCENE_HIMIKOB:,-9;										\
+      FG=SCENE_HIMIKOF:,-9;										\
+      ENV=[TB=2][V=4][TE=2];
+    C=AMAGI_AR400HIMIKO;
+    C=AMAGI_AR300;
+    C=AMAGI_AR200S;
+    C=AMAGI_AR100;
+    C=AMAGI_AR302B;
+    C=AMAGI_AR303;
+    C=AMAGI_AR301SUISHA;
+    C=AMAGI_AR304G;
+    C=AMAGI_AR305;
+    C=AMAGI_AR307BW;
+    C=AMAGI_AR306;
+  $ENDGROUP
+
+#------------------ 222 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0222;											\
+      DX=220; AB=13; BL=9;										\
+      BG=SCENE_KEGONG_FALL[A:(*SHOW:*(0,W400,1-171,W400)),SCENE_KEGONG_TEXT,116,9,104,71,340,0,30,171,	\
+      -2,0]:<0,-9;											\
+      ENV=[TB=2][TE=2][V=4];
+    C=<TOY_NIKKO55AL,TOY_NIKKO55B,TOY_NIKKO55CL,TOY_NIKKO55D;						\
+      D=L;
+    C=<TOY_TOBU5700AL,TOY_TOBU5700B,TOY_TOBU5700CL,TOY_TOBU5700D;					\
+      D=R;
+    C=<TOY_157NIKKO1L,TOY_157NIKKO2L,TOY_157NIKKO3,TOY_157NIKKO4,TOY_157NIKKO2,TOY_157NIKKO1;		\
+      D=L;
+    C=3*(<TOY_TOBU1700AL,TOY_TOBU1700B);								\
+      D=R;
+    C=<TOY_TOBU1720DRC1L,TOY_TOBU1720DRC2,TOY_TOBU1720DRC3,TOY_TOBU1720DRC4,TOY_TOBU1720DRC5,		\
+	TOY_TOBU1720DRC6;										\
+      D=R;
+  $ENDGROUP
+
+#------------------ 223 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0223;											\
+      LC=3; DX=220; AB=20; BL=2; D=L;									\
+      BG=SCENE_YOMEIMON:,-2;										\
+      ENV=[TB=2][TE=2][V=3.5];
+    C=<TOY_TOBU5700AL,TOY_TOBU5700B,TOY_TOBU5700CL,TOY_TOBU5700D;
+    C=<TOY_TOBU1700AL,TOY_TOBU1700B,TOY_TOBU1700AL,TOY_TOBU1700B;
+    C=<TOY_TOBU1720DRC1L,TOY_TOBU1720DRC2,TOY_TOBU1720DRC3,TOY_TOBU1720DRC4,TOY_TOBU1720DRC5,		\
+	TOY_TOBU1720DRC6;
+    C=<TOY_TOBU100SP1L,TOY_TOBU100SP2,TOY_TOBU100SP3,TOY_TOBU100SP4,TOY_TOBU100SP5,TOY_TOBU100SP1;
+    C=<TOY_JR485N1L,TOY_JR485N2,TOY_JR485N3,TOY_JR485N2,TOY_JR485N3,TOY_JR485N1;
+    C=<TOY_JR189O1L,TOY_JR189O2,TOY_JR189O3,TOY_JR189O2,TOY_JR189O3,TOY_JR189O1;
+    C=<TOY_JR253_1000A1L,TOY_JR253_1000A2,TOY_JR253_1000A3,TOY_JR253_1000A2,TOY_JR253_1000A3,		\
+	TOY_JR253_1000A6;
+    C=<TOY_TOBU100SPI1L,TOY_TOBU100SPI2,TOY_TOBU100SPI3,TOY_TOBU100SPI4,TOY_TOBU100SPI5,TOY_TOBU100SPI1;
+    C=<TOY_TOBU100SPB1L,TOY_TOBU100SPB2,TOY_TOBU100SPB3,TOY_TOBU100SPB4,TOY_TOBU100SPB5,TOY_TOBU100SPB1;
+    C=<TOY_TOBU100SPO1L,TOY_TOBU100SPO2,TOY_TOBU100SPO3,TOY_TOBU100SPO4,TOY_TOBU100SPO5,TOY_TOBU100SPO1;
+    C=TOY_TOBU100SP1L,TOY_TOBU100SP2,TOY_TOBU100SP3,TOY_TOBU100SP4,TOY_TOBU100SP5,TOY_TOBU100SP1;
+    C=TOY_TOBU100SPNM1L,TOY_TOBU100SPNM2,TOY_TOBU100SPNM3,TOY_TOBU100SPNM4,TOY_TOBU100SPNM5,		\
+	TOY_TOBU100SPNM6;
+  $ENDGROUP
+
+#------------------ 224 -----------------------------------------------
+  $SECTION 												\
+      NAME=OP0224;											\
+      DX=220; DY=80;
+    $GROUP DX=1300; VM=HEAD;										\
+	BG=TRIP_BRASSB;											\
+	FG=TRIP_BRASSF:,-15;										\
+	DY=80;
+      M=BACK;												\
+	C=MODEL_JNR_EF58_BRASS;										\
+	D=R; V=2; P=>100-10; TB=2; TE=2;
+    $ENDGROUP
+  $ENDSECTION
+
+#------------------ 225 -----------------------------------------------
+  $SECTION 												\
+      NAME=OP0225;											\
+      DX=220; DY=80;
+    $GROUP DX=2000; AB=3; BL=19; VM=HEAD;								\
+	BG=TRIP_OLDB;											\
+	FG=TRIP_OLDF:,-19;										\
+	MBG=1000,20,CYC,TRIP_OLDV; %;
+      M=BACK;												\
+	C=JNR_B6_1L,JR_G3;										\
+	D=R; V=2; A=0.01; B=0.004; P=>100-10; TB=2; TE=2;
+    $ENDGROUP
+  $ENDSECTION
+
+#------------------ 229 -----------------------------------------------
+  $SECTION 												\
+      NAME=OP0229;											\
+      DX=220; DY=80;
+    $GROUP DX=11088; IMGY=54; BL=26; VM=HEAD,VD=180;							\
+	BG=TRIP_MUKOUGAOKAB1,65*TRIP_MUKOUGAOKAB2,TRIP_MUKOUGAOKAB3:,-26;				\
+	FG=TRIP_MUKOUGAOKAF1:<0+0,-26;									\
+	WP=(0+180,>TB:[V:7];0+420,<TB:[V:1]);								\
+	MBG=3400,25,CYC,TRIP_MUKOUGAOKAV:,-26; %;
+      M=BACK;												\
+	C=MONO_OER500;											\
+	D=R; V=1; P=>100-240;
+    $ENDGROUP
+  $ENDSECTION
+
+#------------------ 231 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0231;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=(CROSS_J4B:>50+30;SCENE_KEIO1963B:,9;);							\
+      FG=(SCENE_KEIO1963F;CROSS_J4F:<50-77,4;);								\
+      LG=XC:D1,U1,D2,U2:XDOWN,XUP;
+    $PATH Y=9; LC=2; D=L; WP=(50-77,<TE:U1;); TB=D1,6;
+      C=<KEIO_5000E1L,KEIO_5000E2,KEIO_5000E3,KEIO_5000E4;
+      C=KEIO_2010C1L,(<KEIO_5070E1L,KEIO_5007E2);
+      C=<KEIO_2010G1L,KEIO_2010G2,KEIO_2010G2,KEIO_2700G3;
+      C=<KEIO_2700G1L,KEIO_2700G2,KEIO_2700G3,KEIO_2000G1L,KEIO_2000G2;
+      C=(<KEIO_5000E1L,KEIO_5000E2,KEIO_5000E3,KEIO_5000E4),(<KEIO_5070E1L,KEIO_5007E2);
+      C=<KEIO_2010G1L,2*KEIO_2500G1,KEIO_2700G3;
+      C=KEIO_2010C1L,(<KEIO_2700C1L,KEIO_2700C2);
+      C=<KEIO_2600G1L,KEIO_2600G2,KEIO_2600G3,KEIO_2000G1L,KEIO_2000G2;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=R; WP=(50+30,>TE:U2;); TB=D2,6;
+      C=(<KEIO_5070E1L,KEIO_5007E2),(<KEIO_5000E1L,KEIO_5000E2,KEIO_5000E3,KEIO_5000E4);		\
+	V=6;
+      C=<KEIO_2010G1L,2*KEIO_2500G1,KEIO_2700G3;							\
+	V=6;
+      C=(<KEIO_2700C1L,KEIO_2700C2),KEIO_2010C1L;							\
+	V=6;
+      C=<KEIO_2600G1L,KEIO_2600G2,KEIO_2600G3,KEIO_2000G1L,KEIO_2000G2;					\
+	V=6;
+      C=<KEIO_5000E1L,KEIO_5000E2,KEIO_5000E3,KEIO_5000E4;						\
+	V=6;
+      C=(<KEIO_5070E1L,KEIO_5007E2),KEIO_2010C1L;							\
+	V=6;
+      C=<KEIO_2010G1L,KEIO_2010G2,KEIO_2010G2,KEIO_2700G3;						\
+	V=6;
+      C=<KEIO_2700G1L,KEIO_2700G2,KEIO_2700G3,KEIO_2000G1L,KEIO_2000G2;					\
+	V=6;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 232 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0232;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_KEIO1968B:,9;										\
+      FG=SCENE_KEIO1968F;
+    $PATH Y=9; LC=2; D=L;
+      C=(<KEIO_5000C1AL,KEIO_5000C1B,KEIO_5000C1C,KEIO_5000C1D),					\
+	  (<KEIO_5000C1AL,KEIO_5000C1B,KEIO_5100C1A);
+      C=<KEIO_2010G1L,KEIO_2010G2,KEIO_2010G2,KEIO_2700G3;
+      C=(<KEIO_5000C0AL,KEIO_5000C0B,KEIO_5000C0C,KEIO_5000C0D),					\
+	  (<KEIO_5000C1AL,KEIO_5000C1B,KEIO_5100C1A);
+      C=<KEIO_5000C0AL,KEIO_5000C0B,KEIO_5000C0C,KEIO_5000C0D;
+      C=KEIO_2010C1L;
+      C=(<KEIO_2010G1L,KEIO_2010G2,KEIO_2010G2,KEIO_2700G3),(<KEIO_2000G3L,KEIO_2000G4);
+      C=KEIO_2010C1L,(<KEIO_2700C1L,KEIO_2700C2);
+      C=(<KEIO_5000C1AL,KEIO_5000C1B,KEIO_5000C1C,KEIO_5000C1D),(<KEIO_5100C0AL,KEIO_5100C0B);
+      C=(<KEIO_2010G1L,KEIO_2010G2,KEIO_2010G2,KEIO_2700G3),(<KEIO_2000G3L,KEIO_2000G4);
+    $ENDPATH
+    $PATH Y=9; LC=2;											\
+	BG=(SIG_J4:<50+26,-5;);										\
+	D=R;												\
+	WP=(50+126,>TB:SCBG.SIGR;);									\
+	TB=SCBG.SIGG;											\
+	TE=4,SCBG.SIGYY,3,SCBG.SIGY,3,SCBG.SIGYG,3,SCBG.SIGG;
+      C=(<KEIO_2000G3L,KEIO_2000G4),(<KEIO_2010G1L,KEIO_2010G2,KEIO_2010G2,KEIO_2700G3);		\
+	V=5,5;
+      C=(<KEIO_2700C1L,KEIO_2700C2),KEIO_2010C1L;							\
+	V=5,5;
+      C=(<KEIO_5100C0AL,KEIO_5100C0B),(<KEIO_5000C1AL,KEIO_5000C1B,KEIO_5000C1C,KEIO_5000C1D);		\
+	V=5,5;
+      C=(<KEIO_2000G3L,KEIO_2000G4),(<KEIO_2010G1L,KEIO_2010G2,KEIO_2010G2,KEIO_2700G3);		\
+	V=5,5;
+      C=(<KEIO_5000C1AL,KEIO_5000C1B,KEIO_5100C1A),							\
+	  (<KEIO_5000C1AL,KEIO_5000C1B,KEIO_5000C1C,KEIO_5000C1D);					\
+	V=5,5;
+      C=<KEIO_2010G1L,KEIO_2010G2,KEIO_2010G2,KEIO_2700G3;						\
+	V=5,5;
+      C=(<KEIO_5000C1AL,KEIO_5000C1B,KEIO_5100C1A),							\
+	  (<KEIO_5000C0AL,KEIO_5000C0B,KEIO_5000C0C,KEIO_5000C0D);					\
+	V=5,5;
+      C=<KEIO_5000C0AL,KEIO_5000C0B,KEIO_5000C0C,KEIO_5000C0D;						\
+	V=5,5;
+      C=KEIO_2010C1L;											\
+	V=5,5;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 233 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0233;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_KEIO1972B:,9;										\
+      FG=SCENE_KEIO1972F;
+    $PATH Y=9; LC=2; D=L;
+      C=(<KEIO_5000C2AL,KEIO_5000C2B,KEIO_5000C2C,KEIO_5000C2D),(<KEIO_5100C0AL,KEIO_5100C0B);
+      C=<KEIO_6000E1L,KEIO_6000E2,KEIO_6000E3,KEIO_6000E4,KEIO_6000E3,KEIO_6000E5;
+      C=<KEIO_5000C0AL,KEIO_5000C0B,KEIO_5000C0C,KEIO_5000C0D;
+      C=(<KEIO_5000C2AL,KEIO_5000C2B,KEIO_5000C2C,KEIO_5000C2D),					\
+	  (<KEIO_5100C2AL,KEIO_5100C2B,KEIO_5100C2C);
+      C=<KEIO_6000E1L,KEIO_6000E2,KEIO_6000E3,KEIO_6000E4,KEIO_6000E3,KEIO_6000E5;
+      C=(<KEIO_5000C1AL,KEIO_5000C1B,KEIO_5000C1C,KEIO_5000C1D),					\
+	  (<KEIO_5100C2AL,KEIO_5100C2B,KEIO_5100C2C);
+      C=(<KEIO_2010G3L,KEIO_2010G4,KEIO_2010G4,KEIO_2010G5),(<KEIO_2000G3L,KEIO_2000G4);
+    $ENDPATH
+    $PATH Y=9; LC=2; D=R;
+      C=<KEIO_6000E1L,KEIO_6000E2,KEIO_6000E3,KEIO_6000E4,KEIO_6000E3,KEIO_6000E5;			\
+	V=7;
+      C=(<KEIO_5100C2AL,KEIO_5100C2B,KEIO_5100C2C),							\
+	  (<KEIO_5000C1AL,KEIO_5000C1B,KEIO_5000C1C,KEIO_5000C1D);					\
+	V=7;
+      C=(<KEIO_2000G3L,KEIO_2000G4),(<KEIO_2010G3L,KEIO_2010G4,KEIO_2010G4,KEIO_2010G5);		\
+	V=7;
+      C=(<KEIO_5100C0AL,KEIO_5100C0B),(<KEIO_5000C2AL,KEIO_5000C2B,KEIO_5000C2C,KEIO_5000C2D);		\
+	V=7;
+      C=<KEIO_6000E1L,KEIO_6000E2,KEIO_6000E3,KEIO_6000E4,KEIO_6000E3,KEIO_6000E5;			\
+	V=7;
+      C=<KEIO_5000C0AL,KEIO_5000C0B,KEIO_5000C0C,KEIO_5000C0D;						\
+	V=7;
+      C=(<KEIO_5100C2AL,KEIO_5100C2B,KEIO_5100C2C),							\
+	  (<KEIO_5000C2AL,KEIO_5000C2B,KEIO_5000C2C,KEIO_5000C2D);					\
+	V=7;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 234 -----------------------------------------------
+  $SECTION 												\
+      NAME=OP0234;											\
+      DX=220; DY=80;
+    $GROUP DX=1100; AB=-1; BL=23; D=X; VM=INDEP;							\
+	BG=WIDE_GALLERYB:,-23;										\
+	FG=WIDE_GALLERYF:,-23;
+      C=CHIH_CR70;											\
+	V=4;
+      C=<CHIH_CR75_999Y,CHIH_CR75_999W;									\
+	V=4;
+      C=<CHIH_CR70,CHIH_CR70C;										\
+	V=4;
+    $ENDGROUP
+  $ENDSECTION
+
+#------------------ 235 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0235;											\
+      DX=220; AB=13; BL=9;										\
+      BG=SCENE_RAPIT:<0-20,-9;										\
+      ENV=[TB=2][TE=2][V=7];
+    C=<NAN_50000AL,NAN_50000B,NAN_50000C,NAN_50000D,NAN_50000E,NAN_50000F;
+    C=<NAN_50000NAL,NAN_50000NB,NAN_50000NC,NAN_50000ND,NAN_50000NE,NAN_50000NF;
+  $ENDGROUP
+
+#------------------ 236 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0236;											\
+      DX=220; AB=13; BL=9; D=X;										\
+      BG=SCENE_NOHB:<0,-9;										\
+      FG=SCENE_NOHF:>100,-9;										\
+      ENV=[TB=2][TE=2][V=7];
+    C=<JRE_209STC1L,JRE_209ST4,JRE_209SM1A,JRE_209SM2,JRE_209ST4,JRE_209ST4,JRE_209ST4,JRE_209SM1A,	\
+	JRE_209SM2,JRE_209STC2;
+    C=<JRE_E231_900TCL,JRE_E231_900T,JRE_E231_900M,JRE_E230_900M,JRE_E230_900T,JRE_E231_900T,		\
+	JRE_E231_900T,JRE_E231_900M1,JRE_E230_900M,JRE_E230_900TC;
+    C=<JRE_209STC1L,JRE_209ST4,JRE_209SM1,JRE_209SM2,JRE_209ST4,JRE_209ST4,JRE_209ST4,JRE_209SM1,	\
+	JRE_209SM2,JRE_209STC2;
+    C=<JRE_E231STC1L,JRE_E231ST4,JRE_E231SM1,JRE_E231SM2,JRE_E231ST6,JRE_E231ST4,JRE_E231ST4,		\
+	JRE_E231SM1,JRE_E231SM2,JRE_E231STC2;
+  $ENDGROUP
+
+#------------------ 238 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0238;											\
+      DX=220; AB=13; BL=9;										\
+      BG=SCENE_SEASON:,-9;										\
+      ENV=[C=<JRW_KH58C1L,JRW_KH58C2,JRW_KH65C][V=6][TE=1];
+    TB=SPRING,2;
+    TB=SUMMER,2;
+    TB=AUTUMN,2;
+    TB=WINTER,2;
+  $ENDGROUP
+
+#------------------ 239 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0239;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_KOSENKYO2B:,20;										\
+      FG=SCENE_KOSENKYO2F:;
+    $PATH Y=9; LC=2;											\
+	BG=SCENE_KOSENKYO2M;										\
+	D=L;												\
+	ENV=[TB=8][TE=1];
+      M=STOP;												\
+	C=<JRE_TC115NL,JRE_M114N,JRE_MC115N;								\
+	P=>50+200;
+      C=JR_EF64~OP,JRF_EF64,8*JR_TAKI1000G;
+      M=STOP;												\
+	C=<JRE_TC115NL,JRE_M114N,JRE_MC115N;								\
+	P=>50+200;
+      C=JNR_TC183A2L;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=R; ENV=[TE=3];
+      M=OPEN;												\
+	C=<JRE_TC115NL,JRE_M114N,JRE_MC115N;								\
+	V=7; P=>50+250;
+      C=JNR_TC183A2L;											\
+	V=5,5;
+      M=OPEN;												\
+	C=<JRE_TC115NL,JRE_M114N,JRE_MC115N;								\
+	V=7; P=>50+250;
+      C=JRF_EF64,JR_EF64~OP,8*JR_TAKI1000G;								\
+	V=4,5;
+    $ENDPATH
+  $ENDSCENE
+
+  $GROUP 												\
+      NAME=OP0240;											\
+      LC=3; DX=220; AB=13; BL=9; D=X;									\
+      BG=SCENE_MAP:,-9;											\
+      ENV=[TB=2][TE=2][V=7];
+    C=<JRE_E217TCL,JRE_E217T,JRE_E217M1,JRE_E217M2,JRE_E217T,JRE_E217T,JRE_E217TD1,JRE_E217TD2,		\
+	JRE_E217M1,JRE_E217M2,JRE_E216TC;
+    C=<JRE_E231_8000TCTL,JRE_E231_3000TTL,JRE_E231_1500MTL,JRE_E230_1500MTL,JRE_E230_6000TCT,		\
+	JRE_E231_8500TCTL,JRE_E230_8000TCT;
+    C=<JRE_E217TCNL,JRE_E217TN,JRE_E217MN,JRE_E216MN,JRE_E217TN,JRE_E217TN,JRE_E217TDN,JRE_E216TDN,	\
+	JRE_E217MN,JRE_E216MN,JRE_E216TCN,JRE_E217_2000TCN,JRE_E217M1,JRE_E217M2,JRE_E216_1000TCN;
+    C=<JRE_E217_2000TCTL,JRE_E217TT,JRE_E217MT,JRE_E216MT,JRE_E216_1000TCT,JRE_E217TCTL,JRE_E217MT,	\
+	JRE_E216MT,JRE_E217TT,JRE_E217TT,JRE_E217TDT,JRE_E216TDT,JRE_E217MT,JRE_E216MT,JRE_E216_2000TCT;
+    C=<JRE_E217TCL,JRE_E217T,JRE_E217M1,JRE_E217M2,JRE_E217T,JRE_E217T,JRE_E217TD1,JRE_E217TD2,		\
+	JRE_E217M1,JRE_E217M2,JRE_E216TC;
+    C=<JRE_E233TCTSL,JRE_E233TTS,JRE_E233M1TM,JRE_E232M1TM,JRE_E233TCTS,JRE_E233TCTML,JRE_E233M2TM,	\
+	JRE_E232M1TM,JRE_E233M1TM,JRE_E233TTM,JRE_E233TS1TM,JRE_E233TS2TM,JRE_E233M3TM,JRE_E232M2TM,	\
+	JRE_E232TCTM;
+  $ENDGROUP
+
+#------------------ 241 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0241;											\
+      DX=220; AB=13; BL=9;										\
+      BG=SCENE_GOLD:,-9;
+    C=UP_4000L,20*UP_2HOP1,UP_CAB8;									\
+      D=X; V=5; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------ 242 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0242;											\
+      DX=220; AB=13; BL=9;										\
+      BG=(SCENE_WIGWAGB;WIGWAG_1:<0+129,-5;);								\
+      FG=(WIGWAG_1[M]:<0+23,-5;SCENE_WIGWAGF:,-9;);							\
+      WP=(0+288,<TE:XUP;0+219,>TE:XUP;);								\
+      ENV=[TB=>XRIGHT,<XLEFT,3];
+    C=UP_4000L,20*UP_2HOP1,UP_CAB8;									\
+      D=X; V=5; TB=4; TE=4;
+  $ENDGROUP
+
+#------------------ 245 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0245;											\
+      SEQ=B; DX=220; AB=13; BL=9;									\
+      BG=(SCENE_OSB:,-9;SCENE_OSN:<0+140,39;);								\
+      FG=SCENE_OSF:,-9;
+    C=<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1,JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,JRE_201CM1A,	\
+	JRE_201CM2,JRE_201CTC;										\
+      TB=WIN98,2; TE=2;
+    C=<JRE_E233CTCL,JRE_E233CM1,JRE_E233CM3,JRE_E233CM2,JRE_E233CM3,JRE_E233CTC;			\
+      TB=WINXP,2; TE=2;
+    C=<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1,JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,JRE_201CM1A,	\
+	JRE_201CM2,JRE_201CTC;										\
+      TB=MACOS,2; TE=2;
+    C=<JRE_E233CTCL,JRE_E233CM1,JRE_E233CM3,JRE_E233CM2,JRE_E233CM3,JRE_E233CTC;			\
+      TB=MACOSX,2; TE=2;
+  $ENDGROUP
+
+#------------------ 246 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0246;											\
+      LC=2; DX=220; AB=17; BL=5; D=L;									\
+      BG=SCENE_DEMASITAB:,-5;										\
+      FG=SCENE_DEMASITAF:>100-23,4;									\
+      ENV=[M=STOP][P=>0+97][V=7][TB=OFF,2,ON,5][WP=0-20,TB:OFF][TE=2];
+    C=<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1,JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,JRE_201CM1A,	\
+	JRE_201CM2,JRE_201CTC;
+    C=<JRE_201CTCL,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,	\
+	JRE_201CM2,JRE_201CTC;
+    C=<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1,JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,JRE_201CM1B,	\
+	JRE_201CM2,JRE_201CTC;
+    C=<JRE_201CTCL,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,	\
+	JRE_201CM2,JRE_201CTC;
+    C=<JRE_201CTCL,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,	\
+	JRE_201CM2,JRE_201CTC;
+  $ENDGROUP
+
+#------------------ 247 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0247;											\
+      LC=3; DX=220; AB=-5; BL=27; D=L;									\
+      BG=SCENE_OOHIKAGEB:,-27;										\
+      FG=SCENE_OOHIKAGEF:,-2;										\
+      ENV=[TB=2][TE=2];
+    C=JNR_D51NGNL,JR_NAHAFU11KMTL,JR_NAHA11KL,JR_NAHA11KL,JR_NAHA11KL,JR_NAHA11KL,JNR_ORO36C,		\
+	JNR_NAROHANE10N1B,JNR_SUNI30NL;									\
+      V=4;
+    C=<JNR_KH55ALPS1L,JNR_KH55ALPS1L,JNR_KH55ALPS2,JNR_KH55ALPS1L,JNR_KH55ALPS2,JNR_KH55ALPS3;		\
+      V=5;
+    C=JNR_KIHA58L,JNR_KIHA58,JNR_KIHA28L,JNR_KIRO58,JNR_KIRO58,JNR_KIHA28L,JNR_KIHA58,JNR_KIHA58L,	\
+	JNR_KIHA58,JNR_KIHA58,JNR_KIHA58L,JNR_KIHA58;							\
+      V=5.5;
+    C=<JR_165HTCSL,JR_165HTCSL,JR_165HMS1,JR_165HTC2,JR_165HTCSL,JR_165HMS1,JR_165HTC2,JR_165HTBS,	\
+	JR_165HTG,JR_165HTG,JR_165HMS1,JR_165HTC2;							\
+      V=6;
+    C=<JNR_TC183A2L,JNR_M183A2L,JNR_M182A2L,JNR_TS183A2L,JNR_M183A2L,JNR_M182A2L,JNR_M183A2L,		\
+	JNR_M182A2L,JNR_TC183A2;									\
+      V=6;
+  $ENDGROUP
+
+#------------------ 248 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0248;											\
+      LC=2; DX=220; AB=8; BL=14;									\
+      BG=(SCENE_YATSUGATAKEB;CROSS_J4B:>100+8,-5;);							\
+      FG=(CROSS_J4F:<50-12,-5;SCENE_YATSUGATAKEF:,-14;);						\
+      WP=(0+4,<TE:XUP;100-4,>TE:XUP;);									\
+      ENV=[TB=2,>XRIGHT,<XLEFT,W,3][TE=W,2];
+    C=<JRW_KH52A,JRW_KH52B;										\
+      V=5;
+    C=JNR_DD16,(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),JR_YO3500~OP;				\
+      V=5;
+    C=<JRW_KH52A,JRW_KH52B;										\
+      V=5;
+    C=<JRW_KH65CL,JRW_KH58C1;										\
+      V=5;
+  $ENDGROUP
+
+#------------------ 249 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0249;											\
+      DX=220; AB=6; BL=16;										\
+      BG=(SCENE_INADANIB;CROSS_J4B:>100+20,-5;);							\
+      FG=(CROSS_J4F:<50+26,-5;SCENE_INADANIF:,-16;);							\
+      WP=(0+4,<TE:XUP;100-4,>TE:XUP;);									\
+      ENV=[TB=2,>XRIGHT,<XLEFT,W,3][TE=2];
+    C=(<JNR_TPBC56AL,JNR_MC51A),(<JNR_MC51AL,JNR_TC68A);						\
+      V=4.6;
+    C=JNR_ED62,(<JR_G1,JR_GO1,JR_GT1,JR_G2,JR_G3,JR_G4,JR_REF1),JR_YO3500~OP;				\
+      V=4.6;
+    C=<JR_165HTCSL,JR_165HTCSL,JR_165HMS1,JR_165HTC2;							\
+      V=5.5;
+    C=<JNR_MC81B1L,JNR_MC51AL,JNR_TC68A;								\
+      V=4.6;
+    C=JNR_ED19,(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),JR_YO3500~OP;				\
+      V=4.6;
+  $ENDGROUP
+
+#------------------ 250 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0250;											\
+      LC=3; DX=220; AB=13; BL=9; D=X;									\
+      BG=SCENE_FACTORY:,-9;										\
+      ENV=[V=2][TB=2][TE=2];
+    C=<OMIYA_DD16_36G,JR_EF58G[PD];
+    C=<OMIYA_DD16_20B1,JNR_391;
+    C=<OMIYA_DD16_20B2,JNR_ED17_1[PD];
+    C=<JR_EF58G[PD],OMIYA_DD16_36B;
+    C=<JNR_391,OMIYA_DD16_20;
+    C=<JNR_ED17_1[PD],OMIYA_DD16_36A;
+  $ENDGROUP
+
+#------------------ 251 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0251;											\
+      LC=2; DX=220; AB=13; BL=9;									\
+      BG=SCENE_SAKUNAMIB;										\
+      FG=(SCENE_SAKUNAMIF:,-9;INTRO_SAKUNAMI:,-9;);							\
+      ENV=[TB=W,2][TE=2][V-5];
+    AP=[D=L][C=JR_ED44,JR_OHAFU33CK,JR_OHA35K,JR_OHA35CK,JNR_SUROHA32K,JR_OHAFU33CKL]|			\
+	[D=R][C=JR_ED44,JR_OHAFU33CKL,JNR_SUROHA32K,JR_OHA35CK,JR_OHA35K,JR_OHAFU33CK];
+    C=JNR_ED45_1,(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),					\
+	(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1);
+    AP=[D=L][C=JNR_ED45_1,JR_OHAFU33K,JR_OHA35K,JR_OHA35K,JNR_SUROHA32K,JR_MANI60L~OP]|			\
+	[D=R][C=JNR_ED45_1,JR_MANI60L~OP,JNR_SUROHA32K,JR_OHA35K,JR_OHA35K,JR_OHAFU33K];
+    C=JR_ED44,(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),JR_YO3500~OP;				\
+      V=5;
+  $ENDGROUP
+
+#------------------ 252 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0252;											\
+      LC=2; DX=220; AB=2; BL=20; D=R;									\
+      BG=SCENE_WINTERSTATIONB:,-1;									\
+      FG=(SCENE_WINTERSTATIONF:,-20;INTRO_WINTERSTATION:,-20;);						\
+      ENV=[TB=W,3][TE=3][M=BACK][P#=<100-20][W=2][T=8][V=2][B=0.002][A=0.003];
+    C=JR_MANI60L~OP,JR_OHAFU33NL~OP,JR_OHA35CNL,JR_OHA35NL~OP,JR_SUHA43NL~OP,JR_OHA35CNL,		\
+	JR_OHA35NL~OP,JR_OHA35NL~OP,JR_OHAFU33CN,JR_MANU34,JR_EF13;					\
+      P=<20;
+    C=JR_EF64~OP,JR_MANI60L~OP,JR_SUHAFU42BL~OP,JR_SUHA43BL~OP,JR_OHA35CBL,JR_SUHA43NL~OP,		\
+	JR_SUHA43BL~OP,JR_OHA35NL~OP,JR_OHA35CBL,JR_SUHAFU42B~OP;
+    C=JR_82800C,											\
+	(<JR_115CTCL,JR_115CM1,JR_115CMC,JR_115CT,JR_115CT,JR_115CTCL,JR_115CM1,JR_115CMC,JR_83800C);
+    C=JR_EF13,JR_MANU34,JR_MANI60L~OP,JR_OHAFU33NL~OP,JR_OHA35CNL,JR_OHA35NL~OP,JR_SUHA43NL~OP,		\
+	JR_OHA35CNL,JR_OHA35NL~OP,JR_OHA35NL~OP,JR_OHAFU33CN;
+    C=JR_MANI60L~OP,JR_SUHAFU42BL~OP,JR_SUHA43BL~OP,JR_OHA35CBL,JR_SUHA43NL~OP,JR_SUHA43BL~OP,		\
+	JR_OHA35NL~OP,JR_OHA35CBL,JR_SUHAFU42B~OP,JR_EF64~OP;						\
+      P=<20;
+    C=JR_82800C,											\
+	(<JR_115CTCL,JR_115CM1,JR_115CMC,JR_115CT,JR_115CT,JR_115CTCL,JR_115CM1,JR_115CMC,JR_83800C);
+  $ENDGROUP
+
+#------------------ 253 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0253;											\
+      LC=2; DX=220; IMGY=55; AB=0; BL=25;								\
+      BG=SCENE_KINKOB:,-25;										\
+      FG=(SCENE_KINKOF:,-25;INTRO_KINKO:,-25;);								\
+      ENV=[TB=W,2][TE=2][V=4];
+    C=<TOY_MEI2000NAL,TOY_MEI2000NB,TOY_MEI2000NC,TOY_MEI2000ND;
+    C=<TOY_MEI2200AL,TOY_MEI2200B,TOY_MEI2200C,TOY_MEI2200D,TOY_MEI2200C,TOY_MEI2200E;
+    C=<TOY_MEI2000AL,TOY_MEI2000D,TOY_MEI2000E,TOY_MEI2000C;
+    C=<TOY_MEI2200AL,TOY_MEI2200B,TOY_MEI2200C,TOY_MEI2200D,TOY_MEI2200C,TOY_MEI2200E;
+  $ENDGROUP
+
+#------------------ 254 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0254;											\
+      LC=2; DX=220; AB=5; BL=17;									\
+      BG=SCENE_CENTRAIRKIDSB:,6;									\
+      FG=SCENE_CENTRAIRKIDSF:,-17;									\
+      ENV=[TB=2][TE=2][M=BACK][P=<0-85][T=6][V=4][D=L];
+    C=<TOY_MEI2000AL,TOY_MEI2000B,TOY_MEI2000C;
+    C=<TOY_MEI2200AL,TOY_MEI2200B,TOY_MEI2200C,TOY_MEI2200D,TOY_MEI2200C,TOY_MEI2200E;
+    C=<TOY_MEI2200AL,TOY_MEI2200B,TOY_MEI2200C,TOY_MEI2200D,TOY_MEI2200C,TOY_MEI2200E;
+    C=<TOY_MEI2000AL,TOY_MEI2000B,TOY_MEI2000C;
+  $ENDGROUP
+
+#------------------ 258 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0258;											\
+      DX=220; AB=7; BL=15; D=L;										\
+      BG=SCENE_3CLASSB;											\
+      FG=SCENE_3CLASSF:,-15;
+    C=JR_C51TSUBAMEL,JR_MIKI20,JR_SUHANI35650L~OP,JR_SUHA32600L~OP,JR_SUHA32600L~OP,JR_SUSI37740~OP,	\
+	JR_SURO30750L~OP,JR_SURO30750L~OP,JR_SUITE37020~OP;						\
+      V=4.5; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------ 260 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0260;											\
+      DX=220; AB=13; BL=9;										\
+      BG=SCENE_BLIZZARDB:,-9;										\
+      FG=SCENE_EASTIF:,-9;										\
+      ENV=[TB=2][TE=2][V=4];
+    C=JRH_KH54_500L;
+    C=JRH_KH40_700E;
+    C=JRH_DE15_NOROKKO1L,JRH_NOR_3500;
+  $ENDGROUP
+
+#------------------ 261 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0261;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_DISNEY1959B;										\
+      FG=SCENE_DISNEY1959F:<0+0;
+    $PATH Y=0;												\
+	BG=SCENE_DISNEY1959M:>100+0;									\
+	D=R;
+      C=DISNEY_SUB1959;											\
+	D=R; V=0.4; TB=2;
+    $ENDPATH
+    $PATH Y=42; TB=2; TE=2; IMGY=38; D=L;
+      C=DISNEY_MK2R;											\
+	V=3.7;
+      C=DISNEY_MK2B;											\
+	V=3.7;
+      C=DISNEY_MK2Y;											\
+	V=3.7;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 262 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0262;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_MAGICKINGDOMB;										\
+      ENV=[V=2];
+    $PATH Y=18; LC=2;											\
+	BG=SCENE_MAGICKINGDOMM:,-18;									\
+	D=R;												\
+	TB=2;												\
+	TE=3;
+      C=<DMR_MK6R1L,DMR_MK6R2,DMR_MK6R2,DMR_MK6R2,DMR_MK6R2,DMR_MK6R1;
+      C=<DMR_MK6B1L,DMR_MK6B2,DMR_MK6B2,DMR_MK6B2,DMR_MK6B2,DMR_MK6B1;
+      C=<DMR_MK6S1L,DMR_MK6S2,DMR_MK6S2,DMR_MK6S2,DMR_MK6S2,DMR_MK6S1;
+      C=<DMR_MK6P1L,DMR_MK6P2,DMR_MK6P2,DMR_MK6P2,DMR_MK6P2,DMR_MK6P1;
+      C=<DMR_MK6Y1L,DMR_MK6Y2,DMR_MK6Y2,DMR_MK6Y2,DMR_MK6Y2,DMR_MK6Y1;
+      C=<DMR_MK6G1L,DMR_MK6G2,DMR_MK6G2,DMR_MK6G2,DMR_MK6G2,DMR_MK6G1;
+    $ENDPATH
+    $PATH Y=18; LC=2; D=L; TB=5; TE=2;
+      C=<DMR_MK6U1L,DMR_MK6U2,DMR_MK6U2,DMR_MK6U2,DMR_MK6U2,DMR_MK6U1;
+      C=<DMR_MK6O1L,DMR_MK6O2,DMR_MK6O2,DMR_MK6O2,DMR_MK6O2,DMR_MK6O1;
+      C=<DMR_MK6L1L,DMR_MK6L2,DMR_MK6L2,DMR_MK6L2,DMR_MK6L2,DMR_MK6L1;
+      C=<DMR_MK6C1L,DMR_MK6C2,DMR_MK6C2,DMR_MK6C2,DMR_MK6C2,DMR_MK6C1;
+      C=<DMR_MK6K1L,DMR_MK6K2,DMR_MK6K2,DMR_MK6K2,DMR_MK6K2,DMR_MK6K1;
+      C=<DMR_MK6D1L,DMR_MK6D2,DMR_MK6D2,DMR_MK6D2,DMR_MK6D2,DMR_MK6D1;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 263 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0263;											\
+      SEQ=B; DX=220; AB=0; BL=22; D=L;									\
+      BG=(SCENE_DISNEYMONOB:,-22;SCENE_DISNEYMONOMK:<0+196,43;);					\
+      ENV=[V=4][TE=2];
+    C=DISNEY_MK1R;											\
+      TB=CA,MK1,2;
+    C=DISNEY_MK2Y;											\
+      TB=CA,MK2,2;
+    C=DISNEY_MK3G;											\
+      TB=CA,MK3,2;
+    C=<DMR_MK4G1L,DMR_MK4G2,DMR_MK4G2,DMR_MK4G2,DMR_MK4G2,DMR_MK4G1;					\
+      TB=FL,MK4,2;
+    C=DISNEY_MK5B;											\
+      TB=CA,MK5,2;
+    C=<DMR_MK6C1L,DMR_MK6C2,DMR_MK6C2,DMR_MK6C2,DMR_MK6C2,DMR_MK6C1;					\
+      TB=FL,MK6,2;
+    C=DISNEY_MK7RL;											\
+      TB=CA,MK7,2;
+  $ENDGROUP
+
+#------------------ 264 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0264;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_KEYOB:,9;										\
+      FG=SCENE_KEYOF;
+    $PATH Y=9; LC=2; D=L; TB=2; TE=5;
+      C=<JRE_TC204M1L,JRE_M204M1,JRE_M205M1,JRE_M204M1,JRE_M205M1,JRE_M204M1,JRE_M205M1,JRE_TC205M1;	\
+	V=6.7;
+      C=<JRE_TC205K1L,JRE_M205K1,JRE_M204K1,JRE_T205K1,JRE_M205K1,JRE_M204K1,JRE_T205K1,JRE_M205K1,	\
+	  JRE_M204K1,JRE_TC204K1;									\
+	V=6.7;
+      C=2*(<JRE_E257_500TCBL,JRE_E257_500MB,JRE_E256_500MB,JRE_E257_1500MB,JRE_E256_500TCB);		\
+	V=9.5;
+      C=<JRE_TC205K1L,JRE_M205K1,JRE_M204K1,JRE_T205K1,JRE_M205K1,JRE_M204K1,JRE_T205K1,JRE_M205K1,	\
+	  JRE_M204K1,JRE_TC204K1;									\
+	V=6.7;
+      C=<JRE_TC200K3L,JRE_M201K3,JRE_M200K3,JRE_TC201K4,JRE_TC200K4L,JRE_M201K3,JRE_M200K3,JRE_M201K3,	\
+	  JRE_M200K3,JRE_TC201K3;									\
+	V=6.7;
+      C=<JRE_TC205K1L,JRE_M205K1,JRE_M204K1,JRE_T205K1,JRE_M205K1,JRE_M204K1,JRE_T205K1,JRE_M205K1,	\
+	  JRE_M204K1,JRE_TC204K1;									\
+	V=6.7l;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=R; TB=5; TE=2;
+      C=<JRE_TC205K1L,JRE_M205K1,JRE_M204K1,JRE_T205K1,JRE_M205K1,JRE_M204K1,JRE_T205K1,JRE_M205K1,	\
+	  JRE_M204K1,JRE_TC204K1;									\
+	V=6.7;
+      C=<JRE_TC200K3L,JRE_M201K3,JRE_M200K3,JRE_TC201K4,JRE_TC200K4L,JRE_M201K3,JRE_M200K3,JRE_M201K3,	\
+	  JRE_M200K3,JRE_TC201K3;									\
+	V=6.7;
+      C=<JRE_TC205K1L,JRE_M205K1,JRE_M204K1,JRE_T205K1,JRE_M205K1,JRE_M204K1,JRE_T205K1,JRE_M205K1,	\
+	  JRE_M204K1,JRE_TC204K1;									\
+	V=6.7;
+      C=<JRE_TC204M1L,JRE_M204M1,JRE_M205M1,JRE_M204M1,JRE_M205M1,JRE_M204M1,JRE_M205M1,JRE_TC205M1;	\
+	V=6.7;
+      C=<JRE_TC205K1L,JRE_M205K1,JRE_M204K1,JRE_T205K1,JRE_M205K1,JRE_M204K1,JRE_T205K1,JRE_M205K1,	\
+	  JRE_M204K1,JRE_TC204K1;									\
+	V=6.7;
+      C=2*(<JRE_E257_500TCBL,JRE_E257_500MB,JRE_E256_500MB,JRE_E257_1500MB,JRE_E256_500TCB);		\
+	V=9.5;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 265 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0265;											\
+      LC=2; DX=220; AB=13; BL=9; D=R;									\
+      BG=SCENE_MAIHAMACASTLEB:,-9;									\
+      FG=SCENE_MAIHAMACASTLEF:<0+0,-9;									\
+      TB=2;												\
+      TE=2;
+    POOL=POOL_DRLT;
+  $ENDGROUP
+
+#------------------ 266 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0266;											\
+      LC=2; DX=220; AB=1; BL=21; D=R;									\
+      BG=SCENE_MAIHAMAB:,-4;										\
+      FG=SCENE_MAIHAMAF:,-21;										\
+      TB=2;												\
+      TE=2;
+    POOL=POOL_DRLT;
+  $ENDGROUP
+
+#------------------ 267 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0267;											\
+      LC=2; DX=220; AB=22; BL=0;									\
+      BG=SCENE_TDLSTATIONB:,18;										\
+      FG=SCENE_TDLSTATIONF;
+    M=STOP; POOL=POOL_DRLT; D=R; V=5; P=*50+137; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------ 268 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0268;											\
+      LC=2; DX=220; AB=7; BL=15; D=R;									\
+      BG=SCENE_DISNEYSEAB:,-15;										\
+      FG=SCENE_DISNEYSEAF:<0+0,-15;
+    M=STOP; POOL=POOL_DRLT; D=R; V=5; A=0.004; P=>0+3; TE=2;
+  $ENDGROUP
+
+#------------------ 269 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0269;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_RER_A4B;											\
+      FG=SCENE_RER_A4F;
+    $PATH Y=9; LC=2; D=R;
+      C=<SNCF_MI2N1L,SNCF_MI2N2,SNCF_MI2N3,SNCF_MI2N4,SNCF_MI2N1;					\
+	V=8; TB=2; TE=5;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=L;
+      C=<SNCF_MI2N1L,SNCF_MI2N2,SNCF_MI2N3,SNCF_MI2N4,SNCF_MI2N1;					\
+	V=8; TB=5; TE=2;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 270 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0270;											\
+      LC=2; DX=220; AB=13; BL=9;									\
+      BG=SCENE_SUNNYBAYB:,9;										\
+      FG=SCENE_SUNNYBAYF:,-9;
+    M=BACK;												\
+      C=<MTR_DISNEYAL,MTR_DISNEYBL,MTR_DISNEYB,MTR_DISNEYA;						\
+      D=R; V=7; A=0.006; B=0.006; P=<0+5; TB=2; TE=2; T=POPEN,1,OPEN,10,CLOSE,W,1,PCLOSE,1;
+  $ENDGROUP
+
+#------------------ 271 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0271;											\
+      DX=220; AB=22; BL=0; D=L;										\
+      BG=SCENE_USHB:,9;											\
+      FG=SCENE_USHF;
+    M=OPEN;												\
+      C=<3*(LACMTA_REDL,LACMTA_RED);									\
+      V=7; A=0.01; B=0.005; P=<0+5; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------ 272 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0272;											\
+      LC=2; DX=220; AB=17; BL=5; D=X;									\
+      BG=SCENE_USJB:,-5;										\
+      FG=SCENE_USJF:,-5;										\
+      ENV=[V=7][P=>0+30][A=0.01][B=0.008][M=STOP],$DIR([TB=3],);
+    C=<JRW_103USJP1L,JRW_103USJP2,JRW_103USJP3,JRW_103USJP4,JRW_103USJP5,JRW_103USJP6;
+    C=<JRW_103USJS1L,JRW_103USJS2,JRW_103USJS3,JRW_103USJS4,JRW_103USJS5,JRW_103USJS6;
+    C=<JRW_TC103O1L,JRW_M102O,JRW_M103O,JRW_T103O,JRW_T103O,JRW_M102O,JRW_M103O,JRW_TC103O2;
+    C=<JRW_103USJA1L,JRW_103USJA2,JRW_103USJA3,JRW_103USJA4,JRW_103USJA5,JRW_103USJA6;
+    C=<JRW_TC681THL,(<JRW_TPC681THL,JRW_M681_3TH,JRW_TC681_2TH);
+  $ENDGROUP
+
+#------------------ 273 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0273;											\
+      DX=220; AB=7; BL=15; D=R;										\
+      BG=SCENE_DREAMNARA:,-15;										\
+      TB=2;												\
+      TE=2;
+    C=NARA_DREAM1;											\
+      V=4;
+    C=NARA_DREAM2;											\
+      V=4;
+  $ENDGROUP
+
+#------------------ 274 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0274;											\
+      DX=220; AB=7; BL=15;										\
+      BG=SCENE_DREAMYOKOHAMA:,-15;
+    C=YOKOHAMA_DREAM1;											\
+      V=4; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------ 277 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0277;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_SAIKYOB;											\
+      FG=SCENE_KEYOF;
+    $PATH Y=9; LC=2; D=L; ENV=[TB=2][TE=5][V=7];
+      C=<JRE_205STCL,JRE_205SM1,JRE_205SM2,JRE_205SM1,JRE_205SM2,JRE_205SM1,JRE_205SM2,JRE_205ST6,	\
+	  JRE_205ST6,JRE_205STC;
+      C=<TWR_70000L,TWR_70001,TWR_70002,TWR_70003,TWR_70001,TWR_70005,TWR_70003,TWR_70001,TWR_70002,	\
+	  TWR_70009;
+      C=<JRE_205STCL,JRE_205SM1,JRE_205SM2,JRE_205ST4,JRE_205SM1,JRE_205SM2,JRE_205ST4,JRE_205SM1,	\
+	  JRE_205SM2,JRE_205STC;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=R; ENV=[TB=5][TE=2][V=7];
+      C=<JRE_205STCL,JRE_205SM1,JRE_205SM2,JRE_205ST4,JRE_205SM1,JRE_205SM2,JRE_205ST4,JRE_205SM1,	\
+	  JRE_205SM2,JRE_205STC;
+      C=<JRE_205STCL,JRE_205SM1,JRE_205SM2,JRE_205SM1,JRE_205SM2,JRE_205SM1,JRE_205SM2,JRE_205ST6,	\
+	  JRE_205ST6,JRE_205STC;
+      C=<TWR_70000L,TWR_70001,TWR_70002,TWR_70003,TWR_70001,TWR_70005,TWR_70003,TWR_70001,TWR_70002,	\
+	  TWR_70009;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 278 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0278;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_ZOUSEIB:,54;										\
+      FG=SCENE_ZOUSEIF;
+    $PATH Y=38; LC=3; D=L; ENV=[TB=2][TE=5][V=7]; IMGY=42;
+      C=<JRE_TC204M2L,JRE_M204M2,JRE_M205M2,JRE_T205M2,JRE_T205M2,JRE_M204M2,JRE_M205M2,JRE_TC205M2;
+      C=JRF_EH500_10[PDU],6-10*KOKI1;
+      C=<JRE_TC204M1L,JRE_M204M1,JRE_M205M1,JRE_M204M1,JRE_M205M1,JRE_M204M1,JRE_M205M1,JRE_TC205M1;
+      C=JRF_EF65,9*JR_TAKI1000G;
+      C=<JRE_TC204M1L,JRE_M204M1,JRE_M205M1,JRE_M204M1,JRE_M205M1,JRE_M204M1,JRE_M205M1,JRE_TC205M1;
+      C=<JRE_TC103M1L,JRE_M102M,JRE_M103M,JRE_M102M,JRE_M103M,JRE_M102M,JRE_M103M,JRE_TC103M2;
+      C=JRF_EF64,6-10*KOKI1;
+    $ENDPATH
+    $PATH Y=38; LC=3; D=R; ENV=[TB=5][TE=2][V=7]; IMGY=42;
+      C=<JRE_TC204M1L,JRE_M204M1,JRE_M205M1,JRE_M204M1,JRE_M205M1,JRE_M204M1,JRE_M205M1,JRE_TC205M1;
+      C=<JRE_TC103M1L,JRE_M102M,JRE_M103M,JRE_M102M,JRE_M103M,JRE_M102M,JRE_M103M,JRE_TC103M2;
+      C=JRF_EF64,6-10*KOKI1;
+      C=<JRE_TC204M2L,JRE_M204M2,JRE_M205M2,JRE_T205M2,JRE_T205M2,JRE_M204M2,JRE_M205M2,JRE_TC205M2;
+      C=JRF_EH500_10[PDU],6-10*KOKI1;
+      C=<JRE_TC204M1L,JRE_M204M1,JRE_M205M1,JRE_M204M1,JRE_M205M1,JRE_M204M1,JRE_M205M1,JRE_TC205M1;
+      C=JRF_EF65,9*JR_TAKI1000G;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 279 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0279;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_KITAFUCHUB:,9;										\
+      FG=SCENE_KITAFUCHUF:;
+    $PATH Y=-2; LC=2; D=L; ENV=[C-=[BR:2]][TB=5][TE=2];
+      C=JRF_EF65,6-10*KOKI1;
+      M=STOP;												\
+	C=<JRE_TC204M2L,JRE_M204M2,JRE_M205M2,JRE_T205M2,JRE_T205M2,JRE_M204M2,JRE_M205M2,JRE_TC205M2;	\
+	P=>0+10;
+      M=STOP;												\
+	C=<JRE_TC204M1L,JRE_M204M1,JRE_M205M1,JRE_M204M1,JRE_M205M1,JRE_M204M1,JRE_M205M1,JRE_TC205M1;	\
+	P=>0+10;
+      M=STOP;												\
+	C=<JRE_TC103M1L,JRE_M102M,JRE_M103M,JRE_M102M,JRE_M103M,JRE_M102M,JRE_M103M,JRE_TC103M2;	\
+	P=>0+10;
+    $ENDPATH
+    $PATH Y=-2; LC=2;											\
+	BG=(SIG_J3:<50+97,-5;);										\
+	D=R;												\
+	WP=(50+197,>TB:SCBG.SIGR;);									\
+	TB=SCBG.SIGG,2;											\
+	TE=4,SCBG.SIGY,3,SCBG.SIGG;									\
+	ENV=[C-=[BR:2]];
+      M=STOP;												\
+	C=<JRE_TC204M1L,JRE_M204M1,JRE_M205M1,JRE_M204M1,JRE_M205M1,JRE_M204M1,JRE_M205M1,JRE_TC205M1;	\
+	V=7; P=>0+20;
+      M=STOP;												\
+	C=<JRE_TC103M1L,JRE_M102M,JRE_M103M,JRE_M102M,JRE_M103M,JRE_M102M,JRE_M103M,JRE_TC103M2;	\
+	V=7; P=>0+20;
+      C=JRF_EF65,6-10*KOKI1;										\
+	V=5;
+      M=STOP;												\
+	C=<JRE_TC204M2L,JRE_M204M2,JRE_M205M2,JRE_T205M2,JRE_T205M2,JRE_M204M2,JRE_M205M2,JRE_TC205M2;	\
+	V=7; P=>0+20;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 280 ----------------------------------------------
+  $SCENE 												\
+      NAME=OP0280;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_MANSEIBASHI2B:<0+0,30;									\
+      FG=SCENE_MANSEIBASHI2F[BR:125]:<0+0;								\
+      IMGY=50;
+    $PATH Y=30;												\
+	BG=SCENE_MANSEIBASHI2M:<0+0;									\
+	D=L;												\
+	ENV=[TB=2][TE=5][V=5.5];									\
+	SEQ=B;
+      C=(<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1),						\
+	  (<JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,JRE_201CM1B,JRE_201CM2,JRE_201CTC);
+      C=<JRE_201CTCL,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,	\
+	  JRE_201CM2,JRE_201CTC;
+      C=(<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1),						\
+	  (<JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,JRE_201CM1A,JRE_201CM2,JRE_201CTC);
+    $ENDPATH
+    $PATH Y=30; D=R; ENV=[TB=5][TE=2][V=5.5]; SEQ=B;
+      C=(<JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,JRE_201CM1A,JRE_201CM2,JRE_201CTC),			\
+	  (<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1);
+      C=(<JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,JRE_201CM1B,JRE_201CM2,JRE_201CTC),			\
+	  (<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1);
+      C=<JRE_201CTCL,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,	\
+	  JRE_201CM2,JRE_201CTC;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 281A ----------------------------------------------
+  $GROUP 												\
+      NAME=OP0281A;											\
+      LC=2; DX=220; AB=13; BL=9; D=R;									\
+      BG=SCENE_HARAJUKUB:,10;										\
+      FG=SCENE_HARAJUKUF:,-9;										\
+      ENV=[M=OPEN][TB=2][TE=2][P=<0-20][V=7][B=0.006][A=0.01];
+    C=<JRE_TC103Y1L,JRE_M103Y,JRE_M102Y,JRE_T103Y,JRE_M103Y,JRE_M102Y,JRE_T103Y,JRE_M103Y,JRE_M102Y,	\
+	JRE_TC103Y2;
+    C=<JRE_TC205YL,JRE_T204Y,JRE_M205Y,JRE_M204Y,JRE_T205Y,JRE_M205Y,JRE_M204Y,JRE_T205Y,JRE_M205Y,	\
+	JRE_M204Y,JRE_TC204Y;
+    C=<JRE_E231_500TCL,JRE_E231_500T6,JRE_E231_500M1,JRE_E231_500M3,JRE_E231_500T6,JRE_E231_500M1,	\
+	JRE_E231_500M2,JRE_E231_500T4,JRE_E231_500M1,JRE_E231_500M3,JRE_E231_500TC;
+    C=<JRE_E231_500TCL,JRE_E231_500T1,JRE_E231_500M1,JRE_E231_500M3,JRE_E231_500T4,JRE_E231_500M1,	\
+	JRE_E231_500M2,JRE_E231_500T4,JRE_E231_500M1,JRE_E231_500M3,JRE_E231_500TC;
+  $ENDGROUP
+
+#------------------ 281B ----------------------------------------------
+  $GROUP 												\
+      NAME=OP0281B;											\
+      DX=220; AB=13; BL=9; D=R;										\
+      BG=SCENE_HARAJUKUB:,10;										\
+      FG=(SCENE_HARAJUKUF:,-9;SCENE_HARAJUKUD:,2);							\
+      ENV=[M=STOP][TB=2][TE=2][P=<0-22][V=7][B=0.006][A=0.01][T=POPEN,1,OPEN,10,CLOSE,W,1,PCLOSE,1];
+    C=<JRE_TCE235L,JRE_TE235_4600,JRE_ME235,JRE_ME234,JRE_TE234,JRE_ME235B,JRE_ME234,JRE_TE235,		\
+	JRE_ME235C,JRE_ME234,JRE_TCE234;
+  $ENDGROUP
+
+#------------------ 282 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0282;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_IMPERIALSTATIONB:,15;									\
+      FG=SCENE_IMPERIALSTATIONF;
+    $PATH Y=9;												\
+	BG=SCENE_IMPERIALSTATIONM:,6;
+      M=STOP;												\
+	C=JR_EF58_61FL,(<JR_461,JR_330,JR_1,JR_340,JR_460);						\
+	D=L; V=5; A=0.003; B=0.003; P=<0-566; TB=8; T=6;
+      M=STOP;												\
+	C=JR_EF58_61F,(<JR_461,JR_330,JR_1,JR_340,JR_460);						\
+	D=R; V=5; A=0.003; B=0.003; P=<0-367; TB=8; TE=2; T=6;
+    $ENDPATH
+    $PATH Y=15; LC=7;
+      C=<TB_JNR_103TC1G2L,TB_JNR_103M1G2,TB_JNR_103M2G2,TB_JNR_103TG2,TB_JNR_103M1G2,TB_JNR_103M2G2,	\
+	  TB_JNR_103TG2,TB_JNR_103M1G2,TB_JNR_103M2G2,TB_JNR_103TC2G2;					\
+	D=X; V=6; TB=2; TE=2; ORIGNAME=TBEC_103Y;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 283 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0283;											\
+      DX=220; IMGY=31; BL=49;										\
+      BG=SCENE_KOJOB:,-49;										\
+      FG=SCENE_KOJOF:,-2;										\
+      ENV=[V=3][TB=2][TE=2];
+    M=STOP;												\
+      C=<OIG_DD20,OIG_SUROFU300,OIG_SUROFU300,OIG_TC600;						\
+      P=<50;
+    M=STOP;												\
+      C=OIG_DB1,(<OIG_SUHAFU1,OIG_SUHAFU1,OIG_SURONI200);						\
+      P=<50+40;
+    C=OIG_DD20,(<OIG_CWAFU0,OIG_CSIKI300,OIG_CTOKI200);
+  $ENDGROUP
+
+#------------------ 285 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0285;											\
+      LC=2; DX=220; AB=13; BL=9;									\
+      BG=SCENE_KAITEIB:,-9;										\
+      FG=SCENE_KAITEIF:,-5;										\
+      ENV=[TB=2][TE=2];
+    M=STOP;												\
+      C=<JRH_TAC780L,JRH_M781A,JRH_TA780A,JRH_M781B,JRH_TA780B,JRH_MC781;				\
+      V=8; A=0.005; B=0.005; P=>0+50;
+    C=JR_ED79_100,JR_ED79~OP,										\
+	8-10*(JR_KOKI50000NL|JR_KOKI50000N2L|JR_KOKI50000GL)[C1:C37_25][C2:C37_25][C3:C37_25]		\
+	[C4:C37_25][C5:C37_25];										\
+      D=L; V=11;
+    C=JR_ED79_50B,JR_ED79_50~OP,									\
+	8-10*(JR_KOKI50000NL|JR_KOKI50000N2L|JR_KOKI50000GL)[C1:C37_25][C2:C37_25][C3:C37_25]		\
+	[C4:C37_25][C5:C37_25];										\
+      D=R; V=11;
+    C=<JRH_789_100AL,JRH_789_100B,JRH_789_100T,JRH_789_200M1,JRH_789_200M2,JRH_789_200TCN,		\
+	JRH_788_300M,JRH_789_200TCN;									\
+      V=14;
+    C=JRF_EH500_10L,											\
+	8-10*(JR_KOKI50000NL|JR_KOKI50000N2L|JR_KOKI50000GL)[C1:C37_25][C2:C37_25][C3:C37_25]		\
+	[C4:C37_25][C5:C37_25];										\
+      V=11;
+  $ENDGROUP
+
+#------------------ 286 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0286;											\
+      DX=220; AB=13; BL=9; D=X;										\
+      BG=SCENE_HANASAKIB;										\
+      FG=SCENE_HANASAKIF:,-9;										\
+      ENV=[TB=2][TE=2][V=3];
+    C=JRH_KH54_500L;
+    C=JRH_KH54_520;
+    C=JRH_KH54_500HL;
+  $ENDGROUP
+
+#------------------ 287 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0287;											\
+      SEQ=B; DX=220; AB=13; BL=9;									\
+      BG=SCENE_YUSOU:,-9;
+    C=J_DE11_2000,JRH_789DELIVERY;									\
+      D=L; V=2; TB=TRANS:1,2;
+    C=JRF_EF65_1000R,JRH_789DELIVERY;									\
+      D=L; V=7; TB=TRANS:2,2;
+    C=JRF_ED75,JRH_789DELIVERY;										\
+      D=L; V=7; TB=TRANS:3,2;
+    C=JRH_ED79_DORA2000,JRH_789DELIVERY;								\
+      D=L; V=7; TB=TRANS:4,2;
+    C=JRH_DD51_STAR,JRH_789DELIVERY;									\
+      D=R; TB=TRANS:5,2;
+    C=JRH_789DELIVERY,JRH_DE10_1741;									\
+      D=L; V=2; TB=TRANS:6,2;
+    C=<JRH_789_100AL,JRH_789_100B,JRH_789_200M1,JRH_789_200M2,JRH_789_200TCN,JRH_789_200M1,		\
+	JRH_789_200M2,JRH_789_200TCN;									\
+      V=8; TB=TRANS:7,2; TE=2;
+  $ENDGROUP
+
+#------------------ 288 -----------------------------------------------
+  $SECTION 												\
+      NAME=OP0288;											\
+      DX=220; DY=80;
+    $GROUP DX=3000; AB=13; BL=9; D=L; VM=CONT;								\
+	BG=SCROLL_TESTPAINT:..,-9;
+      C=JRF_EF65_1005,JRS_5104TCDM_DELIVERYL,2*JRS_5104TCDML,2*JRS_5101TCDML,JRS_5101TCDSML;
+    $ENDGROUP
+  $ENDSECTION
+
+#------------------ 291 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0291;											\
+      DX=220; IMGY=54; BL=26;										\
+      BG=SCENE_NRSKY:,-26;										\
+      ENV=[V=3][TB=2][TE=2](|[M=STOP][P=@+90]);
+    C=<NR_48L,NR_54;
+    C=<FLNK_FQ01L,FLNK_FQ02;
+    C=<NR_25L,NR_25;
+    C=<NR_74L,NR_74;
+    C=NR_69L;
+    C=<FLNK_FQ03L,FLNK_FQ03;
+    C=<NR_29L,NR_103;
+    C=<NR_30L,NR_52;
+    C=<STA_56L,STLK_58;
+    C=NR_FQ16L;
+    C=NR_47L;
+    C=NR_18;
+    C=NR_74AL;
+    C=<NR_30OL,NR_31O;
+    C=<NR_30EL,NR_52K;
+    C=<NR_26L,NR_28;
+    C=<NR_18GHANL,NR_18GHAN;
+    C=<NR_14L,NR_8;
+  $ENDGROUP
+
+#------------------ 292 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0292;											\
+      DX=220; AB=13; BL=9; D=R;										\
+      BG=SCENE_JRFPAINTLOCO:,-9;									\
+      ENV=[TB=2][M=STOP][P=*][TE=2][V=5][B=0.006][A=0.006];
+    C=JRF_DD51_1088;
+    C=JRF_EF64_1010;
+    C=JRF_EF65_1059;
+    C=JRF_EF66_20SUPERLINER;
+    C=JRF_EF65_1065;
+    C=JR_EF81_408;
+    C=JNR_ED75_HIGE~OP;
+    C=JRF_ED75_PANDA~OP;
+    C=JRF_DD51_1059;
+    C=JRF_DD51_1058;
+  $ENDGROUP
+
+#------------------ 293 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0293;											\
+      SEQ=B; DX=220; AB=8; BL=14; D=R;									\
+      BG=SCENE_ACCELERATION:,-14;									\
+      ENV=[V=7][M=STOP][B=0.005][TE=2][P=>0+50];
+    C=TOYA_TLR0601;											\
+      A=0.00139; TB=ACC:0,2;
+    C=TOYA_TLR0602;											\
+      A=0.00277; TB=ACC:1,2;
+    C=TOYA_TLR0603;											\
+      A=0.00417; TB=ACC:2,2;
+    C=TOYA_TLR0604;											\
+      A=0.00556; TB=ACC:3,2;
+    C=TOYA_TLR0605;											\
+      A=0.00695; TB=ACC:4,2;
+    C=TOYA_TLR0606;											\
+      A=0.00833; TB=ACC:5,2;
+    C=TOYA_TLR0607;											\
+      A=0.01111; TB=ACC:6,2;
+    C=FERRARI_ENZO;											\
+      A=0.07777; TB=ACC:7,2;
+  $ENDGROUP
+
+#------------------ 294 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0294;											\
+      DX=220; AB=-4; BL=26;										\
+      BG=SCENE_ROCK:,-26;										\
+      ENV=[TB=2][TE=2];
+    C=<TOY_ICET1L,TOY_ICET2L,TOY_ICET2L,TOY_ICET2L,TOY_ICET3,TOY_ICET2,TOY_ICET1;			\
+      V=7;
+    C=<TOY_ICETD1L,TOY_ICETD2,TOY_ICETD3,TOY_ICETD1;							\
+      V=6;
+  $ENDGROUP
+
+#------------------ 295 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0295;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_SUBARUB;											\
+      FG=SCENE_SUBARUF:,4;										\
+      IMGY=47;
+    $PATH Y=9; LC=2; D=L;
+      C=SUBARU_360;											\
+	V=1.8; TB=7; TE=2;
+    $ENDPATH
+    $PATH Y=33; LC=2; ENV=[TB=2][TE=2];
+      C=$DIR(JNR_D51NGNL,JNR_D51NGN),									\
+	  (<JR_OHAFU33N~OP,JR_SUHA43NL~OP,JR_SUHA32AL,JR_OHA35NL~OP,JR_OHA35CNL,JR_OHAFU33CNL,		\
+	  JR_MANI60L~OP);										\
+	V=4;
+      C=<JNR_KH55ALPS1L,JNR_KH55ALPS1L,JNR_KH55ALPS2,JNR_KH55ALPS1L,JNR_KH55ALPS2,JNR_KH55ALPS3;	\
+	V=5;
+      C=$DIR(JNR_D51NGNL,JNR_D51NGN),2*(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),JR_YO3500~OP;
+      C=<JNR_KH55ALPS1L,JNR_KH55ALPS1L,JNR_KH55ALPS2,JNR_KH55ALPS1L,JNR_KH55ALPS2,JNR_KH55ALPS3;	\
+	V=5;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 296 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0296;											\
+      DX=220; AB=4; BL=18;										\
+      BG=SCENE_FARAWAY:,-18;										\
+      ENV=[TB=2][TE=2][A=0.003][B=0.003];
+    M=STOP; P=>0+40;											\
+      AP=[D=L]												\
+	[C=JNR_DF50NL,JNR_DF50N,JNR_SUNI30NL,JR_SUHAFU42K,JNR_ORO36C,JR_OHA35K,JR_OHA35CK,		\
+	JR_SUHA32AKL,JR_OHAFU33KL][V=7]|								\
+	[D=R]												\
+	[C=JNR_DF50N,JNR_DF50NL,JR_OHAFU33KL,JR_SUHA32AKL,JR_OHA35CK,JR_OHA35K,JNR_ORO36C,		\
+	JR_SUHAFU42K,JNR_SUNI30NL][V=7];
+    AP=[D=L]												\
+	[C=JNR_D51NGNL,(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),					\
+	(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),JR_YO3500~OP][V=7]|				\
+	[D=R]												\
+	[C=JNR_D51NGN,(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),					\
+	(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),JR_YO3500~OP][V=7];
+    M=STOP; P=>0+40;											\
+      AP=[D=L]												\
+	[C=JNR_D51NGNL,JNR_SUNI30NL,JR_SUHAFU42K,JNR_ORO36C,JR_OHA35K,JR_OHA35CK,JR_SUHA32AKL,		\
+	JR_OHAFU33KL][V=7]|										\
+	[D=R]												\
+	[C=JNR_D51NGN,JR_OHAFU33KL,JR_SUHA32AKL,JR_OHA35CK,JR_OHA35K,JNR_ORO36C,JR_SUHAFU42K,		\
+	JNR_SUNI30NL][V=7];
+  $ENDGROUP
+
+#------------------ 297 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0297;											\
+      LC=2; DX=220; IMGY=45; BL=35; D=L;								\
+      BG=SCENE_BUNGO:,-35;										\
+      ENV=[TB=2][TE=2][V=7];
+    C=JNR_DF50L,JR_MAYA20B,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,	\
+	JR_NAHAFU20B;
+    C=JNR_DF50L,JR_KANI21B,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,JR_NASHI20B,		\
+	JR_NAHANE20B,JR_NAHANEFU23B;
+    C=JNR_DF50L,JR_KANI22_NOPTB,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,JR_NASHI20B,	\
+	JR_NAHANE20B,JR_NAHANEFU23B;
+  $ENDGROUP
+
+#------------------ 298 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0298;											\
+      DX=220; DY=80;											\
+      BG=SCENE_DFLOCALB:,9;
+    $PATH Y=9;												\
+	BG=SCENE_DFLOCALM:,-9;										\
+	D=L;												\
+	ENV=[V=4][TB=2][TE=8][B=0.003][A=0.003];
+      C=<JNR_KIHA58L,JNR_KIHA28L,JNR_KIHA28L,JNR_KIRO28,JNR_KIHA58,JNR_KIHA58;
+      M=STOP;												\
+	C=JNR_DF50_1,											\
+	  (<JR_MANI60L~OP,JR_SUHAFU42N~OP,JR_OHA35NL~OP,JR_OHA35CNL,JR_OHAFU33NL~OP,JR_OHAFU33NL~OP);	\
+	P=<0+120;
+      C=JNR_DF50_1,(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),					\
+	  (<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),JR_YO3500~OP;
+    $ENDPATH
+    $PATH Y=9; D=R; ENV=[V=4][TB=8][TE=2][B=0.003][A=0.003];
+      M=STOP;												\
+	C=JNR_DF50_1,											\
+	  (<JR_MANI60L~OP,JR_SUHAFU42N~OP,JR_OHA35NL~OP,JR_OHA35CNL,JR_OHAFU33NL~OP,JR_OHAFU33NL~OP);	\
+	P=<0+120;
+      C=JNR_DF50_1,(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),					\
+	  (<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),JR_YO3500~OP;
+      C=<JNR_KIHA58L,JNR_KIHA28L,JNR_KIHA28L,JNR_KIRO28,JNR_KIHA58,JNR_KIHA58;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 299 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0299;											\
+      DX=220; AB=13; BL=9; D=L;										\
+      BG=SCENE_AUTORACK:,-9;										\
+      ENV=[TB=2][TE=2][V=5.5];
+    C=BNSF_SD60M_9944L,BN_SD60M_9294L,BNSF_AUTOMAX,AUTOMAX,BNSF_AUTOMAX2,BNSF_AUTOMAX,UP_AUTOMAX,	\
+	UP_AUTOMAX,BNSF_AUTOMAX,KCS_AUTOMAX,AUTOMAX,CP_AUTOMAX,CSX_AUTOMAX,UP_AUTOMAX,BNSF_AUTOMAX,	\
+	BNSF_AUTOMAX;
+    C=BN_SD60M_9229L,UP_AUTORACK2,BNSF_AUTORACK4,TTX_AUTORACK2,TTX_AUTORACK2,UP_AUTORACK2,		\
+	UP_AUTORACK2,TTX_AUTORACK2,UP_AUTORACK2,BNSF_AUTORACK4,TTX_AUTORACK2,TTX_AUTORACK2,		\
+	TTX_AUTORACK2,BNSF_AUTORACK4,UP_AUTORACK2,TTX_AUTORACK2,TTX_AUTORACK2,BNSF_AUTORACK4,		\
+	UP_AUTORACK2,TTX_AUTORACK2;
+  $ENDGROUP
+
+#------------------ 300 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0300;											\
+      DX=220; IMGY=68; AB=3; BL=9; D=L;									\
+      BG=SCENE_DOUBLESTACKB:,-9;									\
+      FG=SCENE_DOUBLESTACKF:<0,-9;
+    C=BN_SD40_2OL,BNSF_SD60M_9944L,BNSF_SD60M_9287,BN_SD60M_9294L,BN_SD60M_9229,			\
+	4*(GUMS53AL[C1:C53_53],3*GUMS53M[C1:C53_53],GUMS53B[C1:C53_53]),				\
+	3*(GUMS48AL[C1:C48_53],3*GUMS48M[C1:C48_53],GUMS48B[C1:C48_53]),				\
+	3*(GUMS48AL[C1:C48_53],3*GUMS48M[C1:C48_53],GUMS48B[C1:C48_53]),				\
+	4*(GUMS53AL[C1:C53_53],3*GUMS53M[C1:C53_53],GUMS53B[C1:C53_53]),				\
+	4*(GUMS53AL[C1:C53_53],3*GUMS53M[C1:C53_53],GUMS53B[C1:C53_53]),				\
+	4*(GUMS53AL[C1:C53_53],3*GUMS53M[C1:C53_53],GUMS53B[C1:C53_53]),				\
+	3*(GUMS48AL[C1:C48_53],3*GUMS48M[C1:C48_53],GUMS48B[C1:C48_53]),				\
+	4*(GUMS53AL[C1:C53_53],3*GUMS53M[C1:C53_53],GUMS53B[C1:C53_53]),				\
+	4*(GUMS53AL[C1:C53_53],3*GUMS53M[C1:C53_53],GUMS53B[C1:C53_53]),WELL1;				\
+      V=4;
+  $ENDGROUP
+
+#------------------ 301 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0301;											\
+      DX=220; IMGY=48; AB=1; BL=31;									\
+      BG=SCENE_ML500B:,-31;										\
+      FG=SCENE_ML500F:,-6;										\
+      ENV=[TB=2][TE=2];
+    C=J_ML500;												\
+      D=L; V=20;
+    C=J_ML500;												\
+      D=R; V=2;
+    C=J_ML500R;												\
+      D=L; V=20.4;
+    C=J_ML500R;												\
+      D=R; V=2;
+  $ENDGROUP
+
+#------------------ 302 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0300;											\
+      DX=220; IMGY=48; AB=1; BL=31;									\
+      BG=SCENE_MIYAZAKIB:,-31;										\
+      FG=SCENE_MIYAZAKIF:<0,-31;
+    C=J_MLU001B;											\
+      D=L; V=25; TB=4; TE=2;
+    C=J_MLU001B;											\
+      D=R; V=25; TB=4; TE=2;
+    C=J_MLU002;												\
+      D=L; V=25; TB=4; TE=2;
+    C=J_MLU002;												\
+      D=R; V=15; TB=4; TE=2;
+
+  $ENDGROUP
+
+#------------------ 303A -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0303A;											\
+      DX=220; IMGY=56; AB=1; BL=23;									\
+      BG=SCENE_MAGLEVBRIDGEB:,-23;									\
+      FG=SCENE_MAGLEVBRIDGEF:,-23;
+    C=<J_MLX01_901,J_MLX01_22,J_MLX01_4;								\
+      V=30; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------ 303B -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0303A;											\
+      DX=220; IMGY=56; AB=1; BL=23;									\
+      BG=SCENE_MAGLEVBRIDGEB:,-23;									\
+      FG=SCENE_MAGLEVBRIDGEF:,-23;
+    C=<J_MAGLEV_L21L,J_MAGLEV_L26,4*J_MAGLEV_L25,J_MAGLEV_L22;						\
+      V=35; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------ 304 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0304;											\
+      DX=220; AB=13; BL=9;										\
+      BG=SCENE_MAGLEVBASEB:<0;										\
+      FG=(SCENE_MAGLEVBASEM:,-9;SCENE_MAGLEVBASEF:>100,-9;);						\
+      ENV=[TB=2][TE=2];
+    C=<J_MLX01_1,J_MLX01_11,J_MLX01_2C,J_MAGLEV_LOADER;							\
+      V=1.4;
+    C=<J_MLX01_901,J_MLX01_22,J_MLX01_11,J_MLX01_4C,J_MAGLEV_LOADER;					\
+      V=1.4;
+  $ENDGROUP
+
+#------------------ 305 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0307;											\
+      SEQ=B; DX=220; IMGY=47; AB=1; BL=32; D=L;								\
+      BG=SCENE_MAGLEVJRHISTORY_TRACK:,-32;								\
+      V=3;
+    C=J_ML100;												\
+      TB=BAR:0,4,BAR:1,TRACK:1,2;
+    C=J_ML500;												\
+      TB=BAR:2,TRACK:2,2;
+    C=J_ML500R;												\
+      TB=BAR:3,TRACK:2,2;
+    C=J_MLU001;												\
+      TB=BAR:4,TRACK:3,2;
+    C=J_MLU002;												\
+      TB=BAR:5,TRACK:3,2;
+    C=J_MLU001B;											\
+      TB=BAR:6,TRACK:3,2;
+    C=J_MLU002N;											\
+      TB=BAR:7,TRACK:3,2;
+    C=<J_MLX01_1,J_MLX01_11,J_MLX01_2;									\
+      TB=BAR:8,TRACK:4,2;
+    C=<J_MLX01_3,J_MLX01_21,J_MLX01_4;									\
+      TB=BAR:9,TRACK:4,2;
+    C=<J_MLX01_901,J_MLX01_22,J_MLX01_11,J_MLX01_4;							\
+      TB=BAR:10,TRACK:4,2;
+    C=<J_MLX01_901A,J_MLX01_22A,J_MLX01_11,J_MLX01_2;							\
+      TB=BAR:11,TRACK:4,2;
+    C=<J_MAGLEV_L21L,3*J_MAGLEV_L25,J_MAGLEV_L22;							\
+      TB=BAR:12,TRACK:4,2;
+    C=<J_MAGLEV_L21L,J_MAGLEV_L26,4*J_MAGLEV_L25,J_MAGLEV_L22;						\
+      TB=BAR:13,TRACK:4,2;
+  $ENDGROUP
+
+#------------------ 307 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0307;											\
+      DX=220; AB=0; BL=22; D=L;										\
+      BG=SCENE_USUZUMINB:,-22;										\
+      FG=SCENE_USUZUMINF:,-1;										\
+      ENV=[TB=2][TE=2][V=4.5];
+    C=TARUMI_H180;
+    C=TARUMI_TDE10_5,(<TARUMI_500A,TARUMI_500A);
+    C=TARUMI_TDE11_3,JR_TAKI1900K,JR_TAKI1900K,JR_TAKI1900K,JR_TAKI1900K,JR_TAKI1900K,JR_TAKI1900K,	\
+	JR_TAKI1900K;
+    C=TARUMI_H230A;
+    C=TARUMI_TDE10_2,(<TARUMI_500B,TARUMI_500B,TARUMI_500B1);
+    C=TARUMI_H230B;
+    C=TARUMI_TDE10_2,											\
+	(<TARUMI_FANTASIA1A,TARUMI_FANTASIA1B,TARUMI_FANTASIA1C,TARUMI_FANTASIA1D,TARUMI_FANTASIA1E);
+    C=TARUMI_TDE10_2,											\
+	(<TARUMI_FANTASIA2A,TARUMI_FANTASIA1B,TARUMI_FANTASIA1C,TARUMI_FANTASIA2D,TARUMI_FANTASIA2D);
+    C=TARUMI_TDE10_1,(<TARUMI_BL1L,TARUMI_BL2L,TARUMI_BL2L,TARUMI_BL2,TARUMI_BL1);
+    C=TARUMI_IKD1,TARUMI_IKD2;
+    C=TARUMI_TDE11_3,TARUMI_TDE10_5,12*JR_TAKI1900W;
+    C=TARUMI_H295516;
+    C=MIKI_300;
+    C=TARUMI_H330701;
+  $ENDGROUP
+
+#------------------ 308 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0308;											\
+      DX=220; IMGY=48; BL=32;										\
+      BG=SCENE_USUZUMIS:,-32;										\
+      ENV=[TB=2][TE=2][V=4];
+    C=TARUMI_H230A1;
+    C=TARUMI_313M;
+    C=TARUMI_IKD1,TARUMI_IKD2;
+    C=TARUMI_H295516;
+    C=TARUMI_314M;
+  $ENDGROUP
+
+  $GROUP 												\
+      NAME=OP0309;											\
+      LC=4; SEQ=R; DX=220; AB=13; BL=9; D=L;								\
+      BG=SCENE_HONGKONGTRAM:,-9;									\
+      ENV=[V=1.5];
+    C=HKONG_TRAMG1;
+    C=HKONG_TRAMTRICOLOR;
+    C=HKONG_TRAMO;
+    C=HKONG_TRAMG2;
+    C=HKONG_TRAMY;
+    C=HKONG_TRAMSPEC;
+    C=HKONG_TRAMR;
+    C=HKONG_TRAMG3;
+    C=HKONG_TRAMK;
+    C=HKONG_TRAMP;
+    C=HKONG_TRAMG0;
+    C=HKONG_TRAMMILLENNIUM;
+    C=HKONG_TRAMOLD;
+    C=HKONG_TRAMB;
+    C=HKONG_TRAMW;
+    C=HKONG_TRAMX2;
+    C=HKONG_TRAMX1;
+    C=HKONG_TRAMX9;
+    C=HKONG_TRAMX7;
+    C=HKONG_TRAMX5;
+    C=HKONG_TRAMX3;
+    C=HKONG_TRAMX6;
+    C=HKONG_TRAMX4;
+    C=HKONG_TRAM128SPEC;
+    C=HKONG_TRAMX8;
+    C=HKONG_TRAMX10;
+    C=HKONG_TRAMX11;
+    C=HKONG_TRAMX12;
+    C=HKONG_TRAM168RENEWAL;
+    C=HKONG_TRAMNEWER1;
+  $ENDGROUP
+
+#------------------ 310 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0310;											\
+      DX=220; AB=4; BL=18;										\
+      BG=SCENE_LONGGHANB:,-18;										\
+      FG=AUS_CROSSING:0+14,-2;
+    M=STOP;												\
+      C=(<NR_74L,NR_74),										\
+	(>GSR_GHAN1,GSR_GHAN2,GSR_GHAN3,GSR_GHAN4,GSR_GHAN5,GSR_GHAN6,GSR_GHAN7,GSR_GHAN8,GSR_GHAN9,	\
+	GSR_GHAN4A,GSR_GHAN6,GSR_GHAN10,GSR_GHAN11,GSR_GHAN8,GSR_GHAN12,GSR_GHAN13,GSR_GHAN14,		\
+	GSR_GHAN15,GSR_GHAN16,GSR_GHAN12,GSR_GHAN12,GSR_GHAN12A,GSR_GHAN14A,GSR_GHAN13,GSR_GHAN15,	\
+	GSR_GHAN17,GSR_GHAN12,GSR_GHAN13,GSR_GHAN12A,GSR_GHAN14A,GSR_GHAN12,GSR_GHAN18,GSR_GHAN16,	\
+	GSR_GHAN19,GSR_GHAN12,GSR_GHAN12A,GSR_GHAN14,GSR_GHAN15,GSR_GHAN20,GSR_GHAN21,GSR_GHAN22,	\
+	GSR_GHAN3,GSR_GHAN23,GSR_GHAN24,GSR_GHAN25);							\
+      V=7; A=0.004; B=0.004; P=<50; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------ 312A ----------------------------------------------
+  $GROUP 												\
+      NAME=OP0312A;											\
+      LC=2; DX=220; AB=3; BL=19;									\
+      BG=SCENE_CASTLENIGHT:,-19;
+    C=<$DIR(DB_VT601DL,DB_VT601DBL),DB_VT901_1DL,DB_VT901_2D,DB_VT901_3D,DB_VT901_4D,DB_VT901_1D,	\
+	$DIR(DB_VT601D,DB_VT601DB);									\
+      D=X; V=8; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------ 312B ----------------------------------------------
+  $GROUP 												\
+      NAME=OP0312B;											\
+      LC=2; DX=220; AB=3; BL=19;									\
+      BG=SCENE_CASTLEDAY:,-19;
+    C=<DB_VT601L,DB_VT901_1L,DB_VT901_2,DB_VT901_3,DB_VT901_4,DB_VT901_1,DB_VT601;			\
+      D=X; V=8; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------ 313 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0313;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_DRESDEN;
+    $PATH Y=9; LC=2; D=R; ENV=[TB=1][TE=6][V=3.5];
+      C=DVB_CARGOTRAM;
+      C=DVB_B4D1,DVB_B4D2,DVB_B4D~OP;
+      C=DVB_NGT6DD~OP;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=L; ENV=[TB=6][TE=2][V=3.5];
+      C=DVB_T4D1L,DVB_T4D2L,DVB_B4DL~OP;
+      C=DVB_NGT6DDL~OP;
+      C=DVB_CARGOTRAM;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 314 ----------------------------------------------
+  $SCENE 												\
+      NAME=OP0314;											\
+      DX=220; DY=80; YDIR=U; SEQ=B;									\
+      BG=SCENE_WUPPERTAL2B:,-60;									\
+      FG=SCENE_WUPPERTAL2F:,-60;									\
+      IMGY=48;
+    $PATH Y=32; LC=4;											\
+	BG=SCENE_WUPPERTAL2M:,29;									\
+	D=R;												\
+	ENV=[TB=2][TE=5][V=4];
+      C=WUP_ACTL;
+      C=WUP_KAISERWAGENL;
+      C=WUP_ACTL;
+      C=WUP_ACTL;
+    $ENDPATH
+    $PATH Y=32; D=L; ENV=[TB=5][TE=2][V=4];
+      C=WUP_ACT;
+      C=WUP_ACT;
+      C=WUP_ACT;
+      C=WUP_KAISERWAGEN;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 315 -----------------------------------------------
+  $SECTION DX=220; DY=80;
+    $GROUP DX=20000; IMGY=53; BL=27; VM=HEAD; DY=80;							\
+	MBG=(500,5%,CYC,SCROLL_TRANSRAPIDV:,8; 500,100%,CYC,SCROLL_TRANSRAPIDB:,-27);
+      M=BACK;												\
+	C=<TR08L~OP,TR08_M~OP,TR08~OP;									\
+	D=L; V=30; P=<0+60;
+    $ENDGROUP
+  $ENDSECTION
+
+#------------------ 316 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0316;											\
+      LC=2; DX=220; AB=22; BL=0; D=R;									\
+      BG=SCENE_HEXB:,10;										\
+      FG=SCENE_HEXF;											\
+      ENV=[TB=2][TE=2][M=BACK][P=<100-60][T=8][V=4][B=0.003];
+    C=<HEX_332A6L,HEX_332B4L,HEX_332C4L,HEX_332A4;
+    C=<HEX_332A4L,HEX_332B4L,HEX_332C4L,HEX_332A4;
+    C=<HEX_332A7L,HEX_332B4L,HEX_332C4L,HEX_332A4;
+    C=<HEX_332A4L,HEX_332B4L,HEX_332C4L,HEX_332A4;
+  $ENDGROUP
+
+#------------------ 317 -----------------------------------------------
+  $SECTION 												\
+      NAME=OP0317;											\
+      DX=220; DY=80;
+    $GROUP LC=2; DX=5000; AB=13; BL=9; D=X; VM=CONT,JUMP; ENV=[TB=2][TE=2][V=12];			\
+	MBG=(500,10%,CYC,SCROLL_HEXV;500,100%,CYC,SCROLL_HEXB:,-9;);
+      C=<HEX_332A4L,HEX_332B4L,HEX_332C4L,HEX_332A4;
+      C=<HEX_332A7L,HEX_332B4L,HEX_332C4L,HEX_332A4;
+      C=<HEX_332A6L,HEX_332B4L,HEX_332C4L,HEX_332A4;
+    $ENDGROUP
+  $ENDSECTION
+
+#------------------ 318 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0318;											\
+      LC=2; DX=220; AB=13; BL=9;									\
+      BG=SCENE_HEXN:,-9;										\
+      ENV=[TB=2][TE=2][V=10];
+    C=<HEX_332A5L,HEX_332B5L,HEX_332C5L,HEX_332A5,HEX_332A5L,HEX_332C5,HEX_332B5L,HEX_332C5L,HEX_332A5;
+    C=<HEX_332A5L,HEX_332B5L,HEX_332C5L,HEX_332A5,HEX_332A5L,HEX_332C5,HEX_332B5L,HEX_332C5L,HEX_332A5;
+    C=<HEX_332A8L,HEX_332B5L,HEX_332C5L,HEX_332A5,HEX_332A5L,HEX_332C5,HEX_332B5L,HEX_332C5L,HEX_332A5;
+  $ENDGROUP
+
+#------------------ 319 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0319;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_YORKSHIREB:,5;										\
+      FG=SCENE_YORKSHIREF;
+    $PATH Y=9; LC=2; D=L;
+      M=STOP;												\
+	C=<ATN_333A2L,ATN_333C2L,ATN_333B2L,ATN_333A2;							\
+	A=0.006; B=0.006; P=<100-60; TB=9; TE=2;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=R;
+      M=STOP;												\
+	C=<ATN_333A2L,ATN_333C2L,ATN_333B2L,ATN_333A2;							\
+	A=0.006; B=0.006; P=<0+60; TB=2; TE=8;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 320 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0320;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_FRENCHB;
+    $PATH Y=9; LC=2;											\
+	BG=SCENE_FRENCHM:>100;										\
+	D=L;												\
+	ENV=[TB=2][TE=5];
+      M=STOP;												\
+	C=SNCF_X76500AL,SNCF_X76500B,SNCF_X76500C;							\
+	P=<50-10;
+      M=STOP;												\
+	C=SNCF_68000O,2*SNCF_CORAIL2;									\
+	P=<50-10;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=R; ENV=[TB=6][TE=2];
+      M=STOP;												\
+	C=SNCF_68000O,2*SNCF_CORAIL2;									\
+	P=<50-30;
+      M=STOP;												\
+	C=<SNCF_X76500AL,SNCF_X76500B,SNCF_X76500C;							\
+	P=<50-30;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 321 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0321;											\
+      LC=2; DX=220; IMGY=44; BL=36; D=X;								\
+      BG=SCENE_EUROMEDB:,-36;										\
+      FG=SCENE_EUROMEDF:,-13;
+    C=<RF_EUROMED0L,RF_EUROMED1,RF_EUROMED2,RF_EUROMED3,RF_EUROMED4,RF_EUROMED5,RF_EUROMED6,		\
+	RF_EUROMED7,RF_EUROMED8,RF_EUROMED0;								\
+      V=9; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------ 322 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0322;											\
+      LC=2; DX=220; IMGY=54; BL=26;									\
+      BG=SCENE_MARINELINERB:,-26;									\
+      FG=SCENE_MARINELINERF:,-26;									\
+      ENV=[V=6.5][TB=2][TE=2];
+    C=<JRS_5104TCDL,JRS_5000T,JRS_5000MC,JRW_223TCL,JRW_223MC;
+    C=<JRS_5101TCDL,JRS_5000T,JRS_5000MC,JRW_223TCL,JRW_223MC;
+  $ENDGROUP
+
+#------------------ 323 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0323;											\
+      LC=2; DX=220; IMGY=49; BL=31; D=X;								\
+      BG=SCENE_ORESUNDB:,-31;										\
+      FG=SCENE_ORESUNDF:,-31;										\
+      YDIR=U;
+    C=<(1-2)*(SJ_X31KFL,SJ_X31KF,SJ_X31KM);								\
+      V=12; TB=2; TE=2;
+  $ENDGROUP
+
+#------------------ 326 -----------------------------------------------
+  $SCENE 												\
+      NAME=OP0326;											\
+      DX=220; DY=80; YDIR=U;										\
+      BG=SCENE_EUROPORTALB:>100,8;									\
+      FG=SCENE_EUROPORTALF;
+    $PATH Y=8;												\
+	BG=SCENE_EUROPORTALM:>100-8;									\
+	D=L;												\
+	ENV=[TB=7][TE=2][V=9];
+      C=<TOY_EUST_373AL,TOY_EUST_373BL,4*TOY_EUST_373CL,TOY_EUST_373DL,2*TOY_EUST_373CL,TOY_EUST_373E,	\
+	  TOY_EUST_373EL,2*TOY_EUST_373C,TOY_EUST_373D,4*TOY_EUST_373C,TOY_EUST_373B,TOY_EUST_373A;
+      C=<TOY_EUTUN_LOCL,TOY_EUTUN_P1,14*TOY_EUTUN_P2,TOY_EUTUN_P3,TOY_EUTUN_P4,14*TOY_EUTUN_P5,		\
+	  TOY_EUTUN_P6,TOY_EUTUN_LOC;
+    $ENDPATH
+    $PATH Y=8; D=R; ENV=[TB=2][TE=6];
+      C=<TOY_EUTUN_LOCL,TOY_EUTUN_P1,14*TOY_EUTUN_P2,TOY_EUTUN_P3,TOY_EUTUN_P4,14*TOY_EUTUN_P5,		\
+	  TOY_EUTUN_P6,TOY_EUTUN_LOC;
+      C=<TOY_EUST_373AL,TOY_EUST_373BL,4*TOY_EUST_373CL,TOY_EUST_373DL,2*TOY_EUST_373CL,TOY_EUST_373E,	\
+	  TOY_EUST_373EL,2*TOY_EUST_373C,TOY_EUST_373D,4*TOY_EUST_373C,TOY_EUST_373B,TOY_EUST_373A;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 327 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0327;											\
+      LC=3; DX=220; AB=7; BL=15; D=N;									\
+      BG=SCENE_IMABETSUB:>100,-15;									\
+      FG=SCENE_IMABETSUF:,-15;										\
+      ENV=[TB=2][TE=2];
+    C=JR_ED76_551,											\
+	(<JR_OHAFU50_5000,JR_OHA51_5000CARPET,JR_OHA50_5000,JR_OHAFU50_5000,JR_OHA50_5000,		\
+	JR_OHAFU50_5000);										\
+      V=7;
+    C=<JRE_485_3K1,JRE_485_3K2,JRE_485_3K3,JRE_485_3K4,JRE_485_3K5,JRE_485_3K6;				\
+      V=10;
+    C=(<JR_ED79_100,JR_ED79~OP),14-18*KOKI1;
+    C=JR_ED79~OP,(<JR_OHAFU50_5000,JR_OHA51_5000CARPET,JR_OHA50_5000,JR_OHAFU50_5000);			\
+      V=7;
+    C=<JRE_485_3K1,JRE_485_3K2,JRE_485_3K3,JRE_485_3K4,JRE_485_3K5,JRE_485_3K6;				\
+      V=10;
+    C=JR_ED79~OP,(<JRE_14SUHAFUL,JRE_14X1,JRE_14X2,JNR_14OHA,JRE_14SUHAFU);				\
+      V=7;
+    C=JR_ED79_50~OP,JR_ED79_50~OP,15-21*KOKI1;								\
+      V=7;
+  $ENDGROUP
+
+#------------------ 328 -----------------------------------------------
+  $GROUP 												\
+      NAME=OP0328;											\
+      LC=2; DX=220; IMGY=52; BL=28; D=L;								\
+      BG=SCENE_STAINLESSSILVERB;									\
+      FG=SCENE_STAINLESSSILVERF:,-28;									\
+      ENV=[M=STOP][P=<0+85][TB=1][TE=2][V=7][A=0.005][B=0.005];
+    C=JRF_EF81_301B,8-12*KOKI1;
+    C=JR_EF81_302[PFU],JR_TAKI1000G,JR_TAKI1000G,JR_TAKI1000G,JR_TAKI1000G;
+    C=JRF_EF81_303[PFU],JR_TAKI1900K,JR_TAKI1900K,JR_TAKI1900K,JR_TAKI1900K,JR_TAKI1900K;
+    C=JRF_EF81_400,7-10*KOKI1;
+    C=JRF_EF81_451[PFU],JR_TAKI1000G,JR_TAKI1000G,JR_TAKI1000G,JR_TAKI1000G;
+    C=JRF_EH500_45DC_KANMON[PFU],JR_TAKI1900K,JR_TAKI1900K,JR_TAKI1900K,JR_TAKI1900K,JR_TAKI1900K;
+  $ENDGROUP
+
+  M=EXIT;
+
+$ENDSECTION
+
+#======================================================================
+
+$SECTION 												\
+    NAME=OPAKU_EXTRA;
+
+#------------------ 173VM ---------------------------------------------
+  $SCENE DX=2000; YDIR=U; VM=HEAD,JUMP;									\
+      BG=SCROLL_ELB2:..,9;										\
+      FG=SCROLL_ELF:..;
+    $PATH Y=9; D=L; VM=MASTER;
+      C=<SHIN_115AL,SHIN_115B,SHIN_115C;								\
+	V=4; TB=3; TE=2;
+    $ENDPATH
+    $PATH Y=9; LC=2; D=R;
+      C=<SHIN_115AL,SHIN_115B,SHIN_115C;								\
+	V=6;
+    $ENDPATH
+  $ENDSCENE
+#------------------ 187_500 -------------------------------------------
+  $GROUP 												\
+      NAME=OP0187_500;											\
+      DX=500; AB=13; BL=9; D=L;										\
+      BG=SCENE_DREAMTRAIN_V2:,-9;									\
+      ENV=[V=7][TB=2][TE=2];
+    C=JR_EH10_15,JR_SUHANI35KL,JR_SUHA44KL,JR_SUHA44KL,JR_SUHA44KL,JR_SUHA44KL,JR_SUHA44KL,		\
+	JR_SURO60KL,JR_SURO60KL,JR_MASHI35KL,JR_SURO60K,JR_SURO60K,JR_SURO60K,JR_MAITE58_2K;
+    C=JR_EF58_4,JR_SUHANI35GL~OP,JR_SUHA44GL~OP,JR_SUHA44GL~OP,JR_SUHA44GL~OP,JR_SUHA44GL~OP,		\
+	JR_NARO10GL~OP,JR_NARO10GL~OP,JR_OSI17G~OP,JR_NARO10G~OP,JR_NARO10G~OP,JR_NARO10G~OP,		\
+	JR_MAI38GL~OP,JR_MAITE391G~OP;
+    C=JNR_EF66,JR_KANI21B,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,		\
+	JR_NAHANE20B,JR_NAHANEFU23B,JR_NARONE21_100B,JR_NAHANE20B,JR_NAHANE20B,JR_NAHANE20B,		\
+	JR_NAHANE20B,JR_NAHANE20B,JR_NAHANEFU22B;
+  $ENDGROUP
+
+#------------------ 190_600 -------------------------------------------
+  $GROUP 												\
+      NAME=OP0190;											\
+      LC=2; DX=600; AB=13; BL=9; D=R;									\
+      BG=(SCENE_SENO8B;SCENE_SENO8M;SIG_J3:<50+95,-5);							\
+      FG=SCENE_SENO8F:,-29;										\
+      WP=(0+219,>TB:BG.SIGR;);										\
+      ENV=[TB=>BG.SIGG,<BG.SIGR,3];
+    C=JNR_D51,(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),						\
+	(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),JR_YO2000,JNR_D52;				\
+      V=4;
+    C=JNR_EF60N,(<JR_G1,JR_GO1,JR_GT1,JR_G2,JR_G3,JR_G4,JR_REF1),					\
+	(<JR_G1,JR_GO1,JR_GT1,JR_G2,JR_G3,JR_G4,JR_REF1),JR_YO3500~OP,JR_EF59A,JR_EF59N;		\
+      V=5.5;
+    C=JNR_EF66_901,JNR_KOKI10000[C1:C33_24][C2:C33_24][C3:C33_24][C4:C33_24][C5:C33_24],		\
+	JNR_KOKI10000[C1:C33_24][C2:C33_24][C3:C33_24][C4:C33_24][C5:C33_24],				\
+	JNR_KOKI10000[C1:C33_24][C2:C33_24][C3:C33_24][C4:C33_24][C5:C33_24],				\
+	JNR_KOKI10000[C1:C33_24][C2:C33_24][C3:C33_24][C4:C33_24][C5:C33_24],				\
+	JNR_KOKI10000[C1:C33_24][C2:C33_24][C3:C33_24][C4:C33_24][C5:C33_24],				\
+	JNR_KOKI10000[C1:C33_24][C2:C33_24][C3:C33_24][C4:C33_24][C5:C33_24],JR_KOKIFU10000L~OP,	\
+	JNR_EF61_200;											\
+      V=5.5;
+    C=JRF_EF65O,2*KOKI1,JR_KOKI104L~OP,JNR_EF67_1;							\
+      V=5.5;
+    C=JRF_EF210_100BL,2*KOKI1,JR_KOKI104L~OP,JR_EF67_100D;						\
+      V=5.5;
+  $ENDGROUP
+
+#------------------ 222X ----------------------------------------------
+  $GROUP 												\
+      NAME=OP0222X;											\
+      DX=560; AB=13; BL=9;										\
+      BG=(SCENE_KEGONG_TEXT:>100+0;SCENE_KEGONG_FALL:,-9;);						\
+      ENV=[TB=2][TE=2][V=4];
+    C=<TOY_NIKKO55AL,TOY_NIKKO55B,TOY_NIKKO55CL,TOY_NIKKO55D;						\
+      D=L;
+    C=<TOY_TOBU5700AL,TOY_TOBU5700B,TOY_TOBU5700CL,TOY_TOBU5700D;					\
+      D=R;
+    C=<TOY_157NIKKO1L,TOY_157NIKKO2L,TOY_157NIKKO3,TOY_157NIKKO4,TOY_157NIKKO2,TOY_157NIKKO1;		\
+      D=L;
+    C=3*(<TOY_TOBU1700AL,TOY_TOBU1700B);								\
+      D=R;
+    C=<TOY_TOBU1720DRC1L,TOY_TOBU1720DRC2,TOY_TOBU1720DRC3,TOY_TOBU1720DRC4,TOY_TOBU1720DRC5,		\
+	TOY_TOBU1720DRC6;										\
+      D=R;
+  $ENDGROUP
+
+#------------------ 234X ----------------------------------------------
+  $GROUP 												\
+      NAME=OP0234X;											\
+      LC=3; DX=1100; AB=-1; BL=23; D=X; VM=INDEP;							\
+      BG=WIDE_GALLERYB:,-23;										\
+      FG=WIDE_GALLERYF:,-23;
+    C=CHIH_CR70;											\
+      V=4;
+    C=<CHIH_CR75_999Y,CHIH_CR75_999W;									\
+      V=4;
+    C=<CHIH_CR70,CHIH_CR70C;										\
+      V=4;
+  $ENDGROUP
+
+#------------------ 280X ----------------------------------------------
+  $SCENE 												\
+      NAME=OP0280X;											\
+      DX=240; DY=205; YDIR=U;										\
+      BG=SCENE_MANSEIBASHI2B:,155;									\
+      FG=(SCENE_MANSEIBASHI2FF;SCENE_MANSEIBASHI2F;);							\
+      IMGY=50;
+    $PATH Y=155;											\
+	BG=SCENE_MANSEIBASHI2M;										\
+	SEQ=B;												\
+	D=L;												\
+	ENV=[TB=2][TE=5][V=5.5];
+      C=(<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1),						\
+	  (<JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,JRE_201CM1B,JRE_201CM2,JRE_201CTC);
+      C=<JRE_201CTCL,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,	\
+	  JRE_201CM2,JRE_201CTC;
+      C=(<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1),						\
+	  (<JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,JRE_201CM1A,JRE_201CM2,JRE_201CTC);
+    $ENDPATH
+    $PATH Y=155; SEQ=B; D=R; ENV=[TB=5][TE=2][V=5.5];
+      C=(<JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,JRE_201CM1A,JRE_201CM2,JRE_201CTC),			\
+	  (<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1);
+      C=(<JRE_201CTC1L,JRE_201CM1A,JRE_201CM2,JRE_201CM1B,JRE_201CM2,JRE_201CTC),			\
+	  (<JRE_201CTCL,JRE_201CM1A,JRE_201CM2,JRE_201CTC1);
+      C=<JRE_201CTCL,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,JRE_201CM2,JRE_201CT4,JRE_201CM1,	\
+	  JRE_201CM2,JRE_201CTC;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 314X ---------------------------------------------
+  $SCENE 												\
+      NAME=OP0314;											\
+      DX=220; DY=160; YDIR=U; SEQ=B;									\
+      BG=SCENE_WUPPERTAL2B;										\
+      FG=SCENE_WUPPERTAL2F;										\
+      IMGY=48;
+    $PATH Y=92; LC=4;											\
+	BG=SCENE_WUPPERTAL2M:,29;									\
+	D=R;												\
+	ENV=[TB=2][TE=5][V=4];
+      C=WUP_ACTL;
+      C=WUP_KAISERWAGENL;
+      C=WUP_ACTL;
+      C=WUP_ACTL;
+    $ENDPATH
+    $PATH Y=92; D=L; ENV=[TB=5][TE=2][V=4];
+      C=WUP_ACT;
+      C=WUP_ACT;
+      C=WUP_ACT;
+      C=WUP_KAISERWAGEN;
+    $ENDPATH
+  $ENDSCENE
+
+#------------------ 315 -----------------------------------------------
+
+  M=EXIT;
+
+$ENDSECTION
+

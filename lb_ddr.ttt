@@ -4,7 +4,6 @@
 $REQUIRE REPLACE.TTT
 $REQUIRE TRAINDEF.TTT
 $REQUIRE JMD_DEF.TTT
-$REQUIRE JMD_EU_DEF.TTT
 
 # Deutschland DR
 %ADDPOOL(POOL_DDR,DR_ENV)
@@ -21,12 +20,16 @@ $REQUIRE JMD_EU_DEF.TTT
 
 # Deutschland DR Dampf
 #01-0
-    TX=DR 01.0 + Schnellzug;										\
-      C=DR_3_01(018|036|050|084|114|118|120|137|165|204)(|L),DR3PD;					\
-      F=SP3;
-    TX=DR 01.0 + Eilzug;										\
-      C=DR_3B01005(|L),DR3PE;										\
-      F=SP3;
+TX=DR 01 156 + Kï¿½hlzug 1960;										\
+  C=DR_01156_1960(|L),5*DR_TTNS_KMZ_K(|L),								\
+    ((<DR_TTNS_KMZ_WL,DR_TTNS_KMZ_M)|(>DR_TTNS_KMZ_W,DR_TTNS_KMZ_ML)),5*DR_TTNS_KMZ_K(|L);		\
+  F=SF3;
+TX=DR 01.0 + Schnellzug;										\
+  C=DR_3_01(018|036|050|084|114|118|120|137|165|204)(|L),DR3PD;						\
+  F=SP3;
+TX=DR 01.0 + Eilzug;											\
+  C=DR_3B01005(|L),DR3PE;										\
+  F=SP3;
 #01-5
     TX=DR 01.501 Prototyp + 22 + Schnellzug D49 Meiningen - Halle 30.04.1962;				\
       C=DR_3_01501BGL|DR_3_01501BG2L,DR_3_22L,								\
@@ -48,6 +51,11 @@ $REQUIRE JMD_EU_DEF.TTT
       C=DR_3(_03180|(B|C)03154|A03001|_03001)(|L),DR3PDB;						\
       F=SP3;
 #03-10
+    TX=DR 03.10 + Schnellzug;										\
+      C=DR_3A03_(1046|1087|1077|1059|1010)(|L),DR_3A_PW4U28(|L),					\
+	(3*DR_3A_C4UPR07,2*DR_3A_AB4UPR15,3*DR_3A_C4UPR08)|						\
+	(3*DR_3A_C4UPR07L,2*DR_3A_AB4UPR15L,3*DR_3A_C4UPR08L);						\
+      F=SP3;
     TX=DR 03.10;											\
       C=DR_3A03_(1046|1087|1077|1059|1010)(|L),DR3PD;							\
       F=SP3;
@@ -55,12 +63,12 @@ $REQUIRE JMD_EU_DEF.TTT
     TX=DR 03.10 Reko;											\
       C=DR_3B03_(1057|1046|1074|1080)(|L),DR3PE;							\
       F=SF3;
-    TX=DR 03.10 Reko Öl + Eilzug;									\
+    TX=DR 03.10 Reko ï¿½l + Eilzug;									\
       C=DR_03_1010_1967|DR_3B03_1046L|DR_3B03_1046,DR3PE;						\
       F=SP3;
 #07
     TX=DR 07.1001;											\
-      C=(DR_3A07_1001L|DR_3A07_1001),DR_3AC4U38,DR_B4U_C4UBAD07L,DR_ABZ52000,DR_PW4U_PW4UBAD06L;	\
+      C=(DR_3A07_1001L|DR_3A07_1001),DR_3AC4U38,DR_B4U_C4UBAD07(|L),DR_ABZ52000,DR_PW4U_PW4UBAD06L;	\
       F=SP3;
 #08
     TX=DR 08.10;											\
@@ -170,10 +178,13 @@ $REQUIRE JMD_EU_DEF.TTT
       D=R;												\
       F=SPR3;
 #38-10
+    TX=DR 38.10 + Eilzug;										\
+      C=DR_3_381075(|L),DR3PEA;										\
+      F=SP3;
     TX=DR 38.10 + Personenzug;										\
       C=DR_3_38(1075|1182|1712|1536|1822|1923|2918|2267|3488|3545)(|L),					\
 	(<DR_PW4U_PW4UBAD06,5*(DR_3B4GWLL|DR_3B4GWL|DR_3B4GWLRL|DR_3B4GWLR|DR_3B4GWLSL|DR_3B4GWLS));	\
-      F=SF3;
+      F=SPR3;
     TX=DR 38.10 + Personenzug;										\
       C=DR_3_38(1075|1182|1712|1536|1822|1923|2918|2267|3488|3545)(|L),					\
 	(<DR_3BI_CI27L,DR_3BI_CI28L~JUH,DR_3EXBI29|DR_3BI_BCI29,DR_3BI_BCI29L|DR_3BI_BCI29L,		\
@@ -183,7 +194,7 @@ $REQUIRE JMD_EU_DEF.TTT
       F=SPR3;
 #39
     TX=DR 39.0-2 + Schnellzug;										\
-      C=DR_3A39_086L|DR_3A39_086|DR_3A39_086L|DR_3A39_086,DR3PD;					\
+      C=DR_3A39_086(|L),DR3PD;										\
       F=SF3;
 #41
     TX=DR 41;												\
@@ -200,7 +211,7 @@ $REQUIRE JMD_EU_DEF.TTT
       F=SF3;
 #41 Reko
     TX=DR 41;												\
-      C=DR_4_411144(|L)  ,										\
+      C=DR_4_411144(|L),										\
 	5*(DR_GAGSV1992|DR_GAGSV1992BL|DR_GAGSV1992B|DR_GAGSV1993L|DR_GAGSV1993BL|DR_GAGSV1993B|	\
 	DR_GAGSV1994L|DR_GAGSV1994|DR_GAGSV1994BL|DR_GAGSV1994B);					\
       F=SF4;
@@ -229,13 +240,13 @@ $REQUIRE JMD_EU_DEF.TTT
       C=DR_(3A44116|3A441235|3A44193|3A441234|44808|44609|44_464|3A44012)(|L),DR3FL;			\
       F=SF3;
     TX=DR 44;												\
-      C=(DR_3B44609|DR_3B441413)(|L),DR3FL;								\
+      C=DR_3B44(609|1413|808)(|L),DR3FL;								\
       F=SF3;
-#44ÖL
+#44ï¿½L
     TX=DR 44;												\
-      C=DR_4_440634         |DR_4_440105L         |DR_4_440634L         ,DR3FL;				\
+      C=DR_4_440634|DR_4_440105L|DR_4_440634L,DR3FL;							\
       F=SF3;
-    TX=DR 44.0 ÖL + Kohlezug;										\
+    TX=DR 44.0 ï¿½L + Kohlezug;										\
       C=DR_3B44(105)(|L),										\
 	16*(DR_FAL6556AL|DR_FAL6556A|DR_FAL6556BL|DR_FAL6556B|DR_FAL6556CL|DR_FAL6556C|DR_FAL6556DL|	\
 	DR_FAL6556D|DR_FAL6556AHL|DR_FAL6556AH|DR_FAL6556BHL|DR_FAL6556BH|DR_FAL6556CHL|DR_FAL6556CH|	\
@@ -243,7 +254,7 @@ $REQUIRE JMD_EU_DEF.TTT
       F=SF3;
 #44K
     TX=DR 44 Kohlenstaubfeuerung;									\
-      C=DR_3B44991L         |DR_3B44991         ,DR3FL;							\
+      C=DR_3B44(991|506)(|L),DR3FL;									\
       F=SF3;
     TX=DR 44 Kohlenstaubfeuerung;									\
       C=DR_44_1232L|DR_44_1232|DR_3A44116(|L),								\
@@ -254,19 +265,19 @@ $REQUIRE JMD_EU_DEF.TTT
       C=DR_3B44(991|506)(|L),DR3FL;									\
       F=SF3;
 #50
-    TX=DR 50 + Güterzug;										\
+    TX=DR 50 + Gï¿½terzug;										\
       C=DR_3A50(831|860|2228)(|L),DR3FL;								\
       F=SF3;
-    TX=DR 50 + Güterzug;										\
+    TX=DR 50 + Gï¿½terzug;										\
       C=DR_3B50(689|694|812|1304|2378|2407|2416|2652|2740|3044|3048|3113)(|L),				\
 	12*(DR_TDGS1AL|DR_TDGS1A|DR_TDGS1BL|DR_TDGS1B|DR_TDGS1CL|DR_TDGS1C|DR_TDGS1DL|DR_TDGS1D|	\
 	DR_TDGS1EL|DR_TDGS1E|DR_TDGS1FL|DR_TDGS1F);							\
       F=SF3;
-    TX=DR 50.35 + Güterzug;										\
+    TX=DR 50.35 + Gï¿½terzug;										\
       C=DR_(3B503523|3B503540|3B503559|3B503600|3B503616|50_3576)(|L),DR_RMM[O:BR99_77_79,,11],		\
 	DR_TAOOS,DR_UCS9020F,DR_UCS9020G,DR4FR;								\
       F=SF3;
-    TX=DR 50 2407 + Streckeneröffnungszug Plaaz-Vogelsang 1965;						\
+    TX=DR 50 2407 + Streckenerï¿½ffnungszug Plaaz-Vogelsang 1965;						\
       C=DR_3B502407(|L),2*DR_3A_B3G57(|L),DR_3B4GWLR(|L),MITR_3B_WR4UEMSJ(|L),2*DR_3B_B3G57P(|L),	\
 	4*DR_3B_B3GTR57(|L),DR_3A_BG57,DR_3B_PW3GE(|L);							\
       F=SPR3;
@@ -279,7 +290,7 @@ $REQUIRE JMD_EU_DEF.TTT
       C=DR_3B503559(|L),DR_3B_B4ITRPL35A(|L),DR_3B_B4I35A(|L),DR_3B_B4ITRPL35A(|L);			\
       F=SPR3;
 #50-40
-    TX=DR 50.40 + Güterzug;										\
+    TX=DR 50.40 + Gï¿½terzug;										\
       C=DR_3A504002(|L)|DR_3B5040(33|82|01|67)(|L),15*DR_3OOTZ47(5|4L);					\
       F=SF3;
     TX=DR 50.40;											\
@@ -298,9 +309,6 @@ $REQUIRE JMD_EU_DEF.TTT
       C=DR_3_52(1932|1934|1961|1964|1968|006|115|705|360|192|1425|4787|4900|5232|5457|5354|6902|6183)	\
 	(|L),DR3FL;											\
       F=SF3;
-    TX=DR 52 + Hilfszug;										\
-      C=DR_4_525410L,DR_4SHZ3,DR_HILFA,DR_HILFB,DR_HILFC,DR_4SHZ1,DR_4SHZ2;				\
-      F=SF3;
     TX=DR 52 + Bauzug;											\
       C=DR_3_526902(|L)|DR_3_521961(|L),DR_BAU1,DR_BAU2,DR_BAU3,DR_BAU4;				\
       F=SF3;
@@ -313,11 +321,11 @@ $REQUIRE JMD_EU_DEF.TTT
       C=DR_3_528154L,DR_4D_DAAL,DR_4D_DAA|DR_4D_BAAGEL,DR_4D_BAAGE,DR_4D_BAGEL,DR_4D_BAGE,		\
 	DR_4D_BAGTREL,DR_4D_BAGTRE;									\
       F=SPR3;
-    TX=DR 52.80 + Güterzug;										\
+    TX=DR 52.80 + Gï¿½terzug;										\
       C=DR_3_528(002|014|020|034|040|154|142|186)(|L),DR3FL;						\
       F=SF3;
 #54.15
-    TX=DR 54.15-17 + Güterzug;										\
+    TX=DR 54.15-17 + Gï¿½terzug;										\
       C=DR_3A541554(|L),DR3FS;										\
       F=SF3;
 
@@ -336,7 +344,7 @@ $REQUIRE JMD_EU_DEF.TTT
       D=R;												\
       F=SF3;
 #56-1
-    TX=DR 56.1 + Güterzug;										\
+    TX=DR 56.1 + Gï¿½terzug;										\
       C=DR_3_56_127,DR3FL;										\
       D=R;												\
       F=SF3;
@@ -420,7 +428,7 @@ $REQUIRE JMD_EU_DEF.TTT
       F=SPR3;
 #75-1
     TX=DR 75.1;												\
-      C=DR_3_75(109|264)(|L),DR3PRA1;										\
+      C=DR_3_75(109|264)(|L),DR3PRA1;									\
       F=SPR3;
 #75-4
     TX=DR 75.4,10-11;											\
@@ -477,7 +485,7 @@ $REQUIRE JMD_EU_DEF.TTT
       C=DR_3B86(323|563)(|L),DR_EXPWI31AOL,DR_3EXBI29L|DR_3EXBI29,DR_3BI_CI27L|DR_3BI_CI27,		\
 	DR_3BI_BCI29(|L)|DR_3BI_BCI29L,2*(DR_3BI_CI28(|L)~JUH);						\
       F=SPR3;
-    TX=DR 86 223 + Abteil-Vierachser belgischer Herkunft (Reihe L) bei Klotzsche 1966;			\
+    TX=DR 86 223 + Abteil-Vierachser belgischer Herkunft (Reihe L)bei Klotzsche 1966;			\
       C=DR_3B86233(|L),(<DR_3PWI27,DR_3B_B4BEL,2*DR_3B_B4BE)|(<2*DR_3B_B4BEL,DR_3B_B4BE,DR_3PWI27L);	\
       F=SPR3;
     TX=DR 86;												\
@@ -562,10 +570,10 @@ $REQUIRE JMD_EU_DEF.TTT
 
 # Deutschland DR V
 #100
-    TX=DR Köf II;											\
+    TX=DR Kï¿½f II;											\
       C=DR_3KOF2L|DR_3KOF2|DR_3KO5712L|DR_3KO5712,DR3FR;						\
       F=DF3;
-    TX=DR Köf II rangiert 01 501 Prototyp;								\
+    TX=DR Kï¿½f II rangiert 01 501 Prototyp;								\
       C=DR_KOEII,DR_3_01501BG;										\
       F=DF3;
 #V 15 101 311
@@ -606,22 +614,45 @@ $REQUIRE JMD_EU_DEF.TTT
       C=DR_V100_003L|DR_V100_003,DR3PRD;								\
       F=DPR3;
 #118 V180 228
+    TX=DR V 180 + Schnellzug;										\
+      C=DR_V180_(059_196(6|9)|101_1969)(|L),DR3PDB;							\
+      F=DP3;
+    TX=DR V 180 Vorserie + Schnellzug;									\
+      C=DR_V180_00(3|4|5)_1964(|L),DR3PDB;								\
+      F=DP3;
+    TX=DR V 180 013 + Personenzug;									\
+      C=DR_V180_013_1964(|L),DR_3B_DC1361GZ1|DR_3B_DC13GZ(1|2);								\
+      F=DP3;
+    TX=DR V 180 Vorserie + Personenzug Berlin - Frankfurt/Oder 1967;					\
+      C=DR_V180_00(6|5)_1967(|L),DR_3B4GWLS(|L),DR_3B4GWL(|L),2*DR_3B4GWLS(|L);				\
+      F=DPR3;
     TX=DR V 180;											\
-      C=DR_V180_124|DR_3V180_158|DR_V180_148,DR3PRN;							\
+      C=DR_V180_124|DR_3V180_158(|L)|DR_V180_148,DR3PRN;						\
+      F=DPR3;
+    TX=DR V 180 + 03.0 + Doppelstockzug 1967;								\
+      C=DR_V180_(082|143)_1967(|L),DR_3C03154,2*DR_3C_DC13GZ;						\
+      F=DP3;
+    TX=DR V 180 131 + Personenzug;									\
+      C=DR_V180_131(|L),DR_PWI31A(|L)~JMU,DR_3B_BG57(|L),DR_3B_B3GTR57(|L),DR_3B_BG57(|L),		\
+	2*DR_3B_B3G57(|L);										\
+      F=DP3;
+    TX=DR V 180 201 Prototyp Messelackierung;								\
+      C=DR_V180_201(|L);										\
       F=DF3;
+
 # V 200
     TX=DR V 200;											\
       C=DR_V200_048(|L)|DR_V200B(|L),DR3FL;								\
       F=DF3;
     TX=DR V 200 1001;											\
-      C=DR_V200_1001_1965,DR3FL;									\
+      C=DR_V200_1001_1965(|L),DR3FL;									\
       F=DF3;
     TX=DR V 200 203;											\
-      C=DR_V200_203,DR_IAIIS2,DR_TTEHKOS19,DR_IAEGIQSZ8757,DR_EALS4,DR3FS;				\
+      C=DR_V200_203(|L),DR_IAIIS2,DR_TTEHKOS19,DR_IAEGIQSZ8757,DR_EALS4,DR3FS;				\
       F=DF3;
 # V 240
     TX=DR V 240 001;											\
-      C=DR_V240_001,DR3FL;										\
+      C=DR_V240_001(|L),DR3FL;										\
       F=DF3;
 #120
 # Deutschland DR VT
@@ -654,20 +685,45 @@ $REQUIRE JMD_EU_DEF.TTT
     TX=DR VT 137.288 Ruhr;										\
       C=DR_VT137288L|DR_VT137288;									\
       F=DPU3;
-    TX=DR VT12.14.02: Hamburg - Berlin 1955;											\
-      C=(<DR_3A_VT121402DL,DR_3A_VT121402C,DR_3A_VT121402B,DR_3A_VT121402A)|(>DR_3A_VT121402D,DR_3A_VT121402CL,DR_3A_VT121402BL,DR_3A_VT121402AL);											\
+    TX=DR VT12.14.02:Hamburg - Berlin 1955;								\
+      C=(<DR_3A_VT121402DL,DR_3A_VT121402C,DR_3A_VT121402B,DR_3A_VT121402A)|				\
+	(>DR_3A_VT121402D,DR_3A_VT121402CL,DR_3A_VT121402BL,DR_3A_VT121402AL);				\
       F=DPU3;
-    TX=DR VT12.14.01: Berlin-Prag-Wien "Vindobona" 1960;											\
-      C=(<DR_3BVT121401AL,DR_3B_VT121401B,DR_3B_VT121401C,DR_3B_VT121401D)|(>DR_3B_VT121401A,DR_3B_VT121401BL,DR_3B_VT121401CL,DR_3B_VT121401DL);											\
+    TX=DR VT12.14.01:Berlin-Prag-Wien "Vindobona" 1960;							\
+      C=(<DR_3BVT121401AL,DR_3B_VT121401B,DR_3B_VT121401C,DR_3B_VT121401D)|				\
+	(>DR_3B_VT121401A,DR_3B_VT121401BL,DR_3B_VT121401CL,DR_3B_VT121401DL);				\
       F=DPU3;
 
 # Deutschland DR E
-    TX=DR E 04;												\
-      C=(DR_3B_E04_09|DR_3B_E04_09L),5*(DR_3B4GWLRL|DR_3B4GWLR|DR_3B4GWLSL|DR_3B4GWLS);			\
+    TX=DR E 04 03 + Personenzug Kï¿½then 1955;								\
+      C=DR_3A_E04_03(|L),4*DR_3B_C3DTR04(|L);								\
+      F=EPR3;
+    TX=DR E 04 03 + Erï¿½ffnungszug Leipzig-Halle Dezember 1958;						\
+      C=DR_3A_E04_03,8*DR_3B_BE5E(|L);									\
+      F=EP3;
+    TX=DR E 04 09 + Schnellzug Kï¿½then 1958;								\
+      C=DR_3A_E04_03(|L),DR_3B_D4UME31(|L),2*DR_3B_B4UE28(|L),DR_3B_AB4UPR15(|L),2*DR_3B_C4UPR08(|L),	\
+	DR_3B_C4UPR07(|L);										\
       F=EP3;
     TX=DR E04 + Personenzug + M1-Wagen;									\
       C=(DR_3A_E04_03L|DR_3A_E04_03),DR3PD;								\
       F=EPR3;
+    TX=DR E 04 08 + Schnellzug Leipzig 1961;								\
+      C=DR_3B_E04_09(|L),DR_3B_D4U28(|L),2*DR_3B4GE1,							\
+	(<DR_3B_MOD_AB4GE35,DR_3AB4GEL)|(>DR_3B_MOD_AB4GE35L,DR_3AB4GE),DR_3B4GE(|L),DR_B4U_CZ30000(|L); \
+      F=EP3;
+    TX=DR E 04 09 + Personenzug Halle 1963;								\
+      C=DR_3B_E04_09(|L),DR_3PWI28(|L),6*DR_3B_B3G57(|L);						\
+      F=EPR3;
+    TX=DR E 04 09 + S-Bahn Leipzig 1965;								\
+      C=DR_3B_E04_09(|L),										\
+	(<DR_3_BD4I_C8PL,2*DR_3_B4I_C10(|L),DR_3_B4I_B5C4(|L),3*DR_3_B4I_C10(|L))|			\
+	(>DR_3_BD4I_C8P,DR_3_B4I_C10,DR_3_B4I_C10,DR_3_B4I_B5C4L,DR_3_B4I_C10L,DR_3_B4I_C10,		\
+	DR_3_B4I_C10L);											\
+      F=EPR3;
+    TX=DR E 04;												\
+      C=DR_3B_E04_09(|L),5*(DR_3B4GWLRL|DR_3B4GWLR|DR_3B4GWLSL|DR_3B4GWLS);				\
+      F=EP3;
 #211,E11
     TX=DR E11 032 + S-Bahn Leipzig;									\
       C=(<DR_LEIPZIGSFL~JMU,4*DR_LEIPZIGSB(|L)~JMU,DR_E11_032)|						\
@@ -709,7 +765,7 @@ $REQUIRE JMD_EU_DEF.TTT
       F=EPR3;
 
 # E 94
-    TX=DR E94 + Güterzug;										\
+    TX=DR E94 + Gï¿½terzug;										\
       C=(DR_3E94_017L|DR_3E94_017|DR_3E94_069L|DR_3E94_069),						\
 	15*(DR_3_G04HL|DR_3_G04UV|DR_3_G04V|DR_3_G04VHL|DR_3_G04VH|DR_3_G04VH4L|DR_3_GR04L|		\
 	DR_3_GR04HL|DR_3_GHS07|DR_3_GHS07HL|DR_3_GHS07B|DR_3_GHS07LHL|DR_3_GHS07LH|DR_3_GHMS11|		\
@@ -751,7 +807,7 @@ $REQUIRE JMD_EU_DEF.TTT
 
 # Deutschland Schmalspur
 # DR
-    TX=DR 99 162 + Rollbockzug Reichenbach (Vogtland) - Mylau;						\
+    TX=DR 99 162 + Rollbockzug Reichenbach (Vogtland)- Mylau;						\
       C=(DR_3_99162_R[O:DR_3_OMU36VBUL,5,4][OT:BSOD,5,4][O:#BSOD,91,4][B:93,7,3,5],			\
 	SAX_ROM1000_45[O:DR_3_G04H,2,4][OT:BSOD,2,4][OT:#BSOD,94,4],					\
 	SAX_ROM1000_45[O:DR_3_GR04H,4,4][OT:BSOD,4,4][OT:#BSOD,97,4])|					\
@@ -759,11 +815,11 @@ $REQUIRE JMD_EU_DEF.TTT
 	SAX_ROM1000_45[O:DR_3_G04H,2,4][OT:BSOD,2,4][OT:#BSOD,94,4],					\
 	SAX_ROM1000_45[O:DR_3_GR04H,4,4][OT:BSOD,4,4][OT:#BSOD,97,4]);					\
       F=SFN3;
-    TX=DR 99 162 + Personenzug Reichenbach (Vogtland) - Mylau;						\
+    TX=DR 99 162 + Personenzug Reichenbach (Vogtland)- Mylau;						\
       C=DR_3A99162P(|L),DR_3A_DRE100(6|8);								\
       F=SPRN3;
 #
-    TX=DR 99 321 + Personenzug Bad Doberan - Kühlungsborn 1969;						\
+    TX=DR 99 321 + Personenzug Bad Doberan - Kï¿½hlungsborn 1969;						\
       C=(DR_3B99_321L,											\
 	(<DR_3B996901L,2*DR_3B990203L,DR_3B990001L,DR_3B990002L,2*DR_3B990303L,DR_3B990311L))|		\
 	(DR_3B99_321,(<DR_3B990311,2*DR_3B990303,DR_3B990001,DR_3B990002,2*DR_3B990203,DR_3B996901));	\
@@ -783,26 +839,26 @@ $REQUIRE JMD_EU_DEF.TTT
     TX=DR 99.51 Reko + Persnonenzug;									\
       C=DR_99_51(|B),DR_KD4SA,DR_KB4SBL,DR_KB4SA,DR_KB4SAL,DR_KB4SB;					\
       F=SNPR3;
-    TX=DR 99.51 Reko + Güterzug;									\
+    TX=DR 99.51 Reko + Gï¿½terzug;									\
       C=DR_99_51(|B),DR_GGKSB,DR_OOKSA,DR_GGKSA,DR_SSKSA,DR_OKSA;					\
       F=SNF3;
-    TX=DR 99 3301 + Güterzug Waldeisenbahn Muskau;							\
+    TX=DR 99 3301 + Gï¿½terzug Waldeisenbahn Muskau;							\
       C=WEM_3_99_3301L|WEM_3_99_3301,WEM_03NCL|WEM_03NC,WEM_07_005BL|WEM_07_005A,			\
 	WEM_07_005D|WEM_07_005DL,WEM_07_014|WEM_07_013|WEM_07_015B;					\
       F=SNF3;
-    TX=DR 99 3312 + Güterzug Waldeisenbahn Muskau;							\
+    TX=DR 99 3312 + Gï¿½terzug Waldeisenbahn Muskau;							\
       C=WEM_3A99_3312L|WEM_3A99_3312,WEM_01T_KG|WEM_01T_KHL,WEM_01T_HL,WEM_01T_H,			\
 	WEM_01A_K1DL|WEM_01A_K1D,WEM_01T_DL|WEM_01T_D,WEM_01A_1C|WEM_01A_1CL,WEM_01T_AL|WEM_01T_A,	\
 	WEM_01A_K0B,WEM_01A_K0A,WEM_05BL[o:BRK04,1,5],WEM_05C;						\
       F=SNF3;
-    TX=DR 99 3317 + Güterzug Waldeisenbahn Muskau;							\
+    TX=DR 99 3317 + Gï¿½terzug Waldeisenbahn Muskau;							\
       C=WEM_4_99_3317|WEM_4_99_3317L,WEM_02KC[O:CLAY13,8,16][O:CLAY2,31,16],				\
 	WEM_01T_GL[O:#CLAY12,39,16][O:#CLAY11,13,16],WEM_02KAL[O:CLAY01,12,16][O:CLAY12,39,16],		\
 	WEM_01P1L[O:#CLAY11,12,16][O:#CLAY10,38,16],WEM_02CL[O:#CLAY01,12,16][O:#CLAY12,39,16],		\
 	WEM_02BL[O:CLAY11,12,16][O:CLAY10,36,16],							\
 	WEM_02BL[O:#CLAY11,37,16][O:#CLAY07,13,16][o:BRK06,3,4];					\
       F=SNF3;
-    TX=DR 99 3317 + Güterzug Waldeisenbahn Muskau;							\
+    TX=DR 99 3317 + Gï¿½terzug Waldeisenbahn Muskau;							\
       C=WEM_4_99_3317|WEM_4_99_3317L,WEM_06_NL2H,WEM_06_AL4HB,WEM_06_AL2S,WEM_07_003B;			\
       F=SNF3;
     TX=DR 99 3351-53;											\
@@ -812,22 +868,22 @@ $REQUIRE JMD_EU_DEF.TTT
     TX=DR 99 3462 MPSB;											\
       C=DR_3A99_3462L|DR_3A99_3462|DR_3B99_3462|DR_3B99_3462L,(<DR_6_060,DR_6_016,DR_6_009L,DR_6_005);	\
       F=SNF3;
-    TX=DR 99 4301 + Güterzug;										\
+    TX=DR 99 4301 + Gï¿½terzug;										\
       C=DR_99_4301,DR_976901B,DR_976901A;								\
       F=SNF3;
-    TX=DR 99 4551 + Güterzug;										\
+    TX=DR 99 4551 + Gï¿½terzug;										\
       C=DR_99_4551,DR_976301,DR_976002,DR_976001,DR_976358,DR_975_202,DR_737540;			\
       F=SNF3;
-    TX=DR 99 4614, 15 + Personenzug;									\
+    TX=DR 99 4614,15 + Personenzug;									\
       C=DR_99_4615|DR_99_4614,DR_975_201,DR_971_312;							\
       F=SNPR3;
     TX=DR 99 4641 + Personenzug;									\
       C=DR_99_4641,DR_975_201,DR_971_311,DR_971_312,DR_971_315;						\
       F=SNP3;
-    TX=DR 99 4643-45 + Güterzug;									\
+    TX=DR 99 4643-45 + Gï¿½terzug;									\
       C=DR_99_4644|DR_99_4645|DR_99_4643,DR_975_202,DR_976431;						\
       F=SNF3;
-    TX=DR 99 4721 + Güterwagen;										\
+    TX=DR 99 4721 + Gï¿½terwagen;										\
       C=DR_99_4721,DR_976910;										\
       F=SNF3;
     TX=DR 99 4801 + Personenzug;									\
@@ -836,13 +892,13 @@ $REQUIRE JMD_EU_DEF.TTT
     TX=DR 99 4801 + Personenzug;									\
       C=DR_99_4801,DR_976431,DR_976001,DR_976306_07;							\
       F=SNPR3;
-    TX=DR 99.5912 + Güterzug Gera-Meuselwitz-Wuitz;							\
+    TX=DR 99.5912 + Gï¿½terzug Gera-Meuselwitz-Wuitz;							\
       C=DR_995912,DR_OW,DR_OOW,DR_OW,DR_OOTM,DR_KPW996151;						\
       F=SNF3;
     TX=DR 99.6001;											\
       C=HSB_99_6001|HSB_6_996001;									\
       F=SNF3;
-    TX=DR 99.610 + Güterzug Harz;									\
+    TX=DR 99.610 + Gï¿½terzug Harz;									\
       C=DR_99_6102G,DR_990338(|L),DR_990386(|L),DR_990471(|L),DR_990473(|L),DR_990451(|L),		\
 	DR_990384(|L),DR_990392(|L),DR_990701(|L);							\
       F=SNP3;
@@ -856,7 +912,7 @@ $REQUIRE JMD_EU_DEF.TTT
     TX=DR KO 0408 MPSB;											\
       C=DR_KO0408,DR_6_061;										\
       F=DNF3;
-    TX=DR Kö 6002 Kleinbahn Kreis Jerichow I;								\
+    TX=DR Kï¿½ 6002 Kleinbahn Kreis Jerichow I;								\
       C=KJI_KO6002,KJER_OW2,KJER_OW1;									\
       F=DNF3;
     TX=DR V 10;												\
@@ -901,10 +957,14 @@ $REQUIRE JMD_EU_DEF.TTT
       C=LEUNA_203|LEUNA_205,Z_DR_E4_Kessel;								\
       F=DF4;
 # Deutschland DR Dampf
+    TX=DR 01 066 + D 83 Leipzig - Dresden 1970;										\
+      C=DR_4_012(029|050|018|036|084|114|118|120|137|165|204)(|L),					\
+	2*(<DR_4B_DGBGQE1L,DR_4B_DGBGQE2,DR_4B_DGBGQE3,DR_4B_DGBGQE2,DR_4B_DGBGQE3[B:3,27,4,2][B:161,27,4,2],DR_4B_DGBGQE2,DR_4B_DGBGQE3,DR_4B_DGBGQE2,DR_4B_DGBGQE1);								\
+      F=SP4;
     TX=DR 01.20 + Schnellzug;										\
       C=DR_4_012(029|050|018|036|084|114|118|120|137|165|204)(|L),					\
-	(<(3*(DR_B516A|DR_B518A|DR_B516B|DR_B518B|DR_B519B)),						\
-	2*(DR_A504AL|DR_A504A|DR_A505AL|DR_A505A),DR_B518AL|DR_B516BL|DR_B519BL,DR_4WRME8870G,		\
+	(<(3*(DR_B516AZ|DR_B518AZ|DR_B516B|DR_B518B|DR_B519B)),						\
+	2*(DR_A504AZL|DR_A504AZ|DR_A505AZL|DR_A505AZ),DR_B518AZL|DR_B516BL|DR_B519BL,DR_4WRME8870G,	\
 	DR_A507B,DR_AB508AL|DR_AB508A|DR_AB511AL|DR_AB508B|DR_AB511BL|DR_AB511B,DR_41DGE1,		\
 	DR_POSTMAL|DR_POSTMA|DR_POSTMB);								\
       F=SP4;
@@ -927,14 +987,14 @@ $REQUIRE JMD_EU_DEF.TTT
       C=DR_4_01_15(06|15|18|11|14)(|L)|DR_4_011518D(|L),DR4PL(1|3);					\
       F=SP4;
 #03-0
-    TX=DR 03 001 (Traditionslok) + DR 01 005 mit dem Zwickauer Traditionseilzug bei der großen Jubiläumsparade in Riesa am 08.04.1989; \
+    TX=DR 03 001 (Traditionslok) + DR 01 005 mit dem Zwickauer Traditionseilzug bei der groï¿½en Jubilï¿½umsparade in Riesa am 08.04.1989; \
       C=(DR_4_03001L,DR_4_01005L,DR_4_POST4U_ZWML,DR_BC4I30ZW1,DR_4C4I30ZW3L,DR_4C4I30ZW2,		\
 	DR_WR4U35ZWL,DR_4C4I30ZW4,DR_C4I30ZW1L,DR_PW4I31ZW1)|						\
 	(DR_4_03001,DR_4_01005,DR_4_POST4U_ZWM,DR_BC4I30ZW1L,DR_4C4I30ZW3,DR_4C4I30ZW2L,DR_WR4U35ZW,	\
 	DR_4C4I30ZW4L,DR_C4I30ZW1,DR_PW4I31ZW1L);							\
       F=SP4;
     TX=DR 03 20;											\
-      C=DR_4_032180|DR_4_032295|DR_4_03154|DR_4_032001(|L),DR4PL1;					\
+      C=DR_4_03(2180|2295|154|2001)(|L),DR4PL1;								\
       F=SP4;
 #03-10
     TX=DR 03.10 Reko;											\
@@ -1011,8 +1071,14 @@ $REQUIRE JMD_EU_DEF.TTT
       F=SPR4;
 
 # 44
+    TX=DR 44 ï¿½l;											\
+      C=DR_4_440634|DR_4_440105L|DR_4_440634L,DR4FL2A;							\
+      F=SF3;
     TX=DR 44;												\
-      C=DR_4_44(1413L|1413|1486),DR4FL2;								\
+      C=DR_4_44(1413(|L)|1486|1486C(|L)),DR4FL2A;							\
+      F=SF4;
+    TX=DR 44 Kohlenstaub;										\
+      C=DR_4_44(9119|9481|9598)(|L),DR4FL2A|Z_DR_E4_Kessel;						\
       F=SF4;
     TX=DR 44;												\
       C=DR_44(609|082|_464)(|L),20*(DR_TDGS1(B|G|C)(|L)|DR_TADGSY(2|3|6));				\
@@ -1023,23 +1089,23 @@ $REQUIRE JMD_EU_DEF.TTT
 	DR_ZAEKK2L,3*(DR_ZASW1L|DR_ZASW1|DR_ZASW2L |DR_ZASW2),M_ZS2L,DR_ZE8006L,DR_ZAKKW3,		\
 	DR_4A_ZE8023L,DR_4A_ZE8024,DR_4A_ZE8006;							\
       F=SF4;
-    TX=DR 44.0 Öl;											\
+    TX=DR 44.0 ï¿½l;											\
       C=DR_4_440(105|233|634)(|L)|DR_4_44OED,Z_DR_E4_Kessel;						\
       F=SF4;
 #50
     TX=DR 50;												\
-      C=DR_4_50_1L|DR_50_2146,DR4FL2;									\
+      C=DR_4_50_1L|DR_50_2146,DR4FL2B;									\
       F=SF4;
-    TX=DR 50 + Güterzug;										\
+    TX=DR 50 + Gï¿½terzug;										\
       C=DR_4_50(1181|1812|1849|2146|2378|2407|2416|2652|2740|3044|3048|3113)(|L),			\
-	Z_DR_E4_FAL|DR4FL2|Z_DR_E4_Kessel;								\
+	Z_DR_E4_FAL|DR4FL2A|Z_DR_E4_Kessel;								\
       F=SF4;
 #50-35
     TX=DR 50.35 + Sonderzug;										\
       C=DR_4_50_35|DR_4_50_3600L|DR_50_3548L|DR_50_3548|DR_50_3576L|DR_50_3576|DR_4_50_3600|		\
 	DR_4_50_3616L|DR_4_50_3616,(<(3*DR_BGHEC(|L)),DR_45BGRE1L[NT:P],DR_4C4I30ZW2,3*DR_4C4I30ZW2L);	\
       F=SP4;
-    TX=DR 50.35 + Güterzug;										\
+    TX=DR 50.35 + Gï¿½terzug;										\
       C=DR_4_50(3540|_3600|_3616|3576|3559|3523)(|L),G_LGS2[O:C2IF_DDR01,9,12][O:C2IF_DDR02,70,12],	\
 	DR4FR,G_LGS2[O:C2R_DEUT3,9,12][O:C2R_DEUT3,70,12],						\
 	2-3*G_LGS2[O:C2I_DDR(1|2|3|4),9,12][O:C2I_DDR(1|2|3|4),70,12];					\
@@ -1054,24 +1120,24 @@ $REQUIRE JMD_EU_DEF.TTT
 	DR_4B_DBVQE61GZ(R|S)(R|L)|(2*DR_4B_DC7GZ)|(DR_4B_DBVE52GZR|DR_4B_DBVQE52GZG(R|L));		\
       F=SPR4;
     TX=DR 50.35;											\
-      C=DR_4_50_35|DR_5_50_3501L|DR_5_50_3501,DR4FL2|Z_DR_E4_Kessel;					\
+      C=DR_4_50_35|DR_5_50_3501L|DR_5_50_3501,DR4FL2B|Z_DR_E4_Kessel;					\
       F=SF4;
 #50-40
-    TX=DR 50.40 + Güterzug;										\
-      C=DR_4_5040(67|82|77)(|L),Z_DR_E4_FAL|DR4FL2|Z_DR_E4_Kessel;					\
+    TX=DR 50.40 + Gï¿½terzug;										\
+      C=DR_4_5040(67|82|77)(|L),Z_DR_E4_FAL|DR4FL2A|Z_DR_E4_Kessel;					\
       F=SF4;
 #50-50
     TX=DR 50.50;											\
-      C=DR_4_5000(72|32|49)(|L),DR4FL2|Z_DR_E4_Kessel;							\
+      C=DR_4_5000(72|32|49)(|L),DR4FL2A|Z_DR_E4_Kessel;							\
       F=SF4;
 #52-10;
-    TX=DR 52.10 + Güterzug;										\
+    TX=DR 52.10 + Gï¿½terzug;										\
       C=DR_4_52(1360|1413|3233|5410|5137)(|L),15*DR_4A_FAL6554(|L);					\
       F=SF4;
-    TX=DR 52.80 + Güterzug;										\
-      C=DR_4_52(8002|8014|8020|8034|8142|8154|8199|8186)(|L),DR4FL2|Z_DR_E4_Kessel;			\
+    TX=DR 52.80 + Gï¿½terzug;										\
+      C=DR_4_52(8002|8014|8020|8034|8142|8154|8199|8186)(|L),DR4FL2B|Z_DR_E4_Kessel;			\
       F=SF4;
-    TX=DR 52.80 + Güterzug;										\
+    TX=DR 52.80 + Gï¿½terzug;										\
       C=DR_4_528186(|L),										\
 	(<DR_LAAEKQZ,DR_4OMMUL,DR_GLMS1B,DR_GLMS1BL,DR_GL1020B2,DR_GL1020A2,DR_GBS1500H,DR_GBS1500A,	\
 	DR_GLMMOS,DR_GBST1530,DR_EKKL,DR_4OMMU,DR_EKKL2,DR_EKKL2L,DR_EKKL,DR_OORL,DR_EALS3,DR_EALS1,	\
@@ -1081,15 +1147,18 @@ $REQUIRE JMD_EU_DEF.TTT
     TX=DR 52.80 + Personenzug;										\
       C=DR_4_528176(|L),DR_4A_DBVE52GZ2,DR_4B_DAA1(|L),3*DR_4B_BAAGE(|L);				\
       F=SPR4;
-#52-90
-    TX=DR 52.90 + Güterzug;										\
-      C=DR_4_529426(|L),DR4FL2|Z_DR_E4_Kessel;								\
+    TX=DR 52 + Hilfszug;										\
+      C=DR_4_525410L,(<DR_4SHZ3,DR_4SHZ1,DR_4SHZ2)|(>DR_4SHZ3L,DR_4SHZ1L,DR_4SHZ2L);			\
       F=SF4;
-    TX=DR 58.10 + Güterzug;										\
-      C=DR_4_581111(|L)|DR_4_581800,DR4FL2|Z_DR_E4_Kessel;						\
+#52-90
+    TX=DR 52.90 + Gï¿½terzug;										\
+      C=DR_4_529426(|L),DR4FL2A|Z_DR_E4_Kessel;								\
+      F=SF4;
+    TX=DR 58.10 + Gï¿½terzug;										\
+      C=DR_4_581111(|L)|DR_4_581800,DR4FL2A|Z_DR_E4_Kessel;						\
       F=SF4;
 #58-30
-    TX=DR 58.30 Personenzug (DGBe Doppelstock-Gliederzug) 1976;						\
+    TX=DR 58.30 Personenzug (DGBe Doppelstock-Gliederzug)1976;						\
       C=DR_4_58_30(34|24|30)(|L),									\
 	(<DR_4B_DGBGQE1L,DR_4B_DGBGQE2,(3*(<DR_4B_DGBGQE3,DR_4B_DGBGQE2)),DR_4B_DGBGQE1);		\
       F=SPR4;
@@ -1149,11 +1218,27 @@ $REQUIRE JMD_EU_DEF.TTT
 	DR_ZSW7361BL|DR_ZSW7361B|DR_ZSW7361CL|DR_ZSW7361D);						\
       F=SF4;
 #86
-    TX=DR 86.10 + Güterzug;										\
+    TX=DR 86.10 + Gï¿½terzug;										\
+      C=DR_4_861(056|501)(|L),										\
+	DR_4_U973[OT:BVO_99_773SL,,11][BT:0,47][O:DR_3_99_777L,83,24][OT:DR_4_KCHAIN,7,11]		\
+	[OT:#DR_4_KCHAIN,114,11][B:40,11,2,1,#222][B:87,11,2,1,#222],3*DR4FR;				\
+      F=SF4;
+    TX=DR 86 1001 + P Schlettau - Crottendorf 1982;							\
+      C=(DR_4_861001L[#D:L],DR_4B_DAA1L,3*DR_4B_BAGEL[!NR])|						\
+	(DR_4_861001[#D:R],DR_4B_DAA1,3*DR_4B_BAGE[!NR]);						\
+      F=SP4;
+    TX=DR 86 1114 + P 18188 Ahlbeck - Wolgaster Fï¿½hre 1973;						\
+      C=(DR_4_861114L,DR_4BI_BCI29L,DR_4A_BAGE[!RA],DR_4A_BAGE[!NR],DR_4A_BAGEL[!NR],			\
+	DR_4A_BAGEL[!RA][OT:DB_ZLS,101,16],DR_4A_BAGEL[!RA],DR_4A_BAGEL[!NR],DR_4A_BAGEL[!RA],		\
+	DR_4BAGE[!NR])|											\
+	(DR_4_861114,DR_4BI_BCI29,DR_4A_BAGEL[!RA],DR_4A_BAGEL[!NR],DR_4A_BAGE[!NR],			\
+	DR_4A_BAGE[!RA][OT:DB_ZLS,101,16],DR_4A_BAGE[!RA],DR_4A_BAGE[!NR],DR_4A_BAGE[!RA],		\
+	DR_4BAGEL[!NR]);										\
+      F=SP4;
+    TX=DR 86.10 + Gï¿½terzug;										\
       C=DR_4_861(460|049)(|L),3*DR4FR;									\
       F=SF4;
-#86
-    TX=DR 86 1221 schiebt Zug aus  Abteil-Donnerbüchsen, Dürrhennersdorf 1973;				\
+    TX=DR 86 1221 schiebt Zug aus  Abteil-Donnerbï¿½chsen,Dï¿½rrhennersdorf 1973;				\
       C=(<DR_4_861018[#D:R],DR_CD27_3(|L),4*DR_4_B21CD(|L),DR_CD27_3(|L),DR_4_DI27L)|			\
 	(<DR_4_DI27[#D:L],DR_CD27_3(|L),4*DR_4_B21CD(|L),DR_CD27_3(|L),DR_4_861018L);			\
       F=SPRU4;
@@ -1172,15 +1257,19 @@ $REQUIRE JMD_EU_DEF.TTT
     TX=DR 86.10 + Personenzug;										\
       C=DR_4_861119(|L),2*DR_4BI_CI29(|L),DR_4BI_CI28(|L),DR_4BI_BCI29(|L),DR_4A_DAA(|L);		\
       F=SPR4;
-    TX=DR 86 1624 + mit P 19088 bei Schleusingen/Thüringen 1973;					\
+    TX=DR 86 1624 + mit P 19088 bei Schleusingen/Thï¿½ringen 1973;					\
       C=DR_4_861624(|L),										\
 	(<DR_4A_DAAH,DR_4BI_BCI29,DR_4BI21CDL,DR_4BI_BCI29,DR_4BI29UA1L)|				\
 	(<DR_4BI29UA1,DR_4BI_BCI29L,DR_4BI21CD,DR_4BI_BCI29L,DR_4A_DAAHL);				\
       F=SPR4;
-    TX=DR 86 1018 + 94 1810 + P bei Hirschbach/Thüringen 1972;						\
+    TX=DR 86 1018 + 94 1810 + P bei Hirschbach/Thï¿½ringen 1972;						\
       C=DR_4_861018(|L),(DR_4BI_BCI29L,2*DR_4BI29UA1)|(<2*DR_4BI29UA1L,DR_4BI_BCI29,DR_4BI_BI29),	\
 	DR_4_941810,;											\
       F=SPR4;
+    TX=DR 86 1725 + 86 1218 + Gï¿½terzug;									\
+      C=(DR_4_861725,DR_4_861218)|(DR_4_861725L,DR_4_861218L),						\
+	DR_4_RS3900(|L)[OB:DR_KBI09(|L),33,12][OT:DR_4_KCHAIN,58,12][OT:#DR_4_KCHAIN,135,12],3*DR4FR;	\
+      F=SF4;
 #93.20
     TX=DR 93.20 + Personenzug;										\
       C=DR_4_93(2855|2916)(|L),DR4PR3;									\
@@ -1204,7 +1293,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	[BC:-25,20,94,13,22,6][BC:-25,20,72,13,44,1][BC:-25,20,133,9,16,4][BC:-25,20,141,6,5,3]		\
 	[NB:B,BA8]),(<DR_4A_BGHWEL,DR_4A_BGHWESL,2*DR_4A_BGHWES,DR_42DGEL,DR_GBS1500F);			\
       F=SPR4;
-    TX=DR 95 Öl + Güterzug;										\
+    TX=DR 95 ï¿½l + Gï¿½terzug;										\
       C=DR_95_043,											\
 	(<DR_4RGS3910A,DR_4A_F6000L,DR_4A_F6001AL,DR_TDS1CL,DR_TDS1A,DR_4A_F6001BL,DR_GBS1500I,		\
 	DR_GBS1500D,DR_4B_TMS0756,DR_TBS,DR_GAGSV1993,DR_IACMS2,DR_IACMS3);				\
@@ -1254,8 +1343,8 @@ $REQUIRE JMD_EU_DEF.TTT
     TX=DR 106 + Schneeschleuder Saalfeld;								\
       C=(<DR_4_SCHN_SAAL,DR_106O(|L))|(<DR_106O(|L),DR_4_SCHN_SAA);					\
       F=DFU4;
-    TX=DR 106 + Übergabezug;										\
-      C=DR_106~LAF,DR_EL5565E[O:C2R23,,27,20],DR_ES4[O:BALLAST43,,27,0],DR_ES5[O:SCRAP3,,27,0];		\
+    TX=DR 106 + ï¿½bergabezug;										\
+      C=DR_106~LAF,DR_EL5565E[O:C2R23,,27,20],2*DR_ES(|2|3|4|1|7)(|L)[O:(BALLAST43|SCRAP3)(|[M]),,27,0]; \
       F=DF4;
 #107 V75
     TX=DR 107 + Rangierzug;										\
@@ -1275,7 +1364,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	(<DR_KATAMASCHL,DR_KATAOPL,DR_KATAKUECHL,DR_KATABETT2L,DR_KATABETT1L);				\
       F=DF4;
     TX=DR 110 + Personenzug;										\
-      C=DR_110_250(|L)|DR_110K(|L),									\
+      C=DR_110(_250|K|_034_1974)(|L),									\
 	(<6*DR_4A_BAGE(|L),DR_4A_BAGTRE(|L),DR_4A_BAGEP(|L),DR_4A_DAGE(|L))|				\
 	(<DR_4B_DAGE(|L),DR_4(B|C)_BAGEP(|L),6*DR_4B_BAGE(|L),DR_4B_BAGTRE(|L));			\
       F=DPR4;
@@ -1289,9 +1378,9 @@ $REQUIRE JMD_EU_DEF.TTT
 	DR_4D_BAGTRE|DR_4D_BAGTREL);									\
       F=DPR4;
     TX=DR 110 + Personenzug;										\
-      C=DR_110_104(|L),DR_4B_DAGE,DR_4B_BAGE,DR_4B_BAGTREL,DR_4B_BAGEL;					\
+      C=DR_110_(104|Y1991)(|L),DR_4B_DAGE,DR_4B_BAGE,DR_4B_BAGTREL,DR_4B_BAGEL;				\
       F=DPR4;
-    TX=DR 110 + Rübenzug;										\
+    TX=DR 110 + Rï¿½benzug;										\
       C=DR_110K(|L),											\
 	12-14*(DR_4EL(1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16|17|18|19)					\
 	[OB:FR_RUEB(1|2|3|4|5|6|7|8|9|10|11|12)(|[M]),,27]);						\
@@ -1305,53 +1394,127 @@ $REQUIRE JMD_EU_DEF.TTT
       C=(<DR_110_(250|104)(|L),DR_4A_DBVQE52GZR|DR_4A_DBVQE61GZ2SR)|					\
 	(<DR_4A_DBVQE52GZL|DR_4A_DBVQE61GZ2SL,DR_110_(250|104)(|L));					\
       F=DPRU4;
+    TX=DR 111 + Rangierzug;										\
+      C=DR_111_(1|0)M(|L),2*DR4FR;									\
+      F=DF4;
+    TX=DR 111 + Personenzug;										\
+      M=OPEN;												\
+      C=DR_111P(|L),DR_4B_DBVQE61GZRR;									\
+      F=DPR4;
 
 #112
     TX=DR 112 + Doppelstockzug;										\
-      C=<DR_112_844,DR_4DBMUE2031GL,DR_4DBMQE2032G;							\
+      C=<DR_112_844(|L),DR_4DBMUE2031GL,DR_4DBMQE2032G;							\
+      F=DPRU4;
+    TX=DR 112 + Personenzug;										\
+      C=DR_112_(589_1985|473_1984)(|L),									\
+	(<DR_4C_BGHWE2,DR_4C_BGHWE2L,DR_4C_BGHWE2,DR_4D_BDGHWSE)|					\
+	(>DR_4C_BGHWE2L,DR_4C_BGHWE2,DR_4C_BGHWE2L,DR_4D_BDGHWSEL);					\
       F=DPRU4;
 #114 204
 #118 V180 228
+    TX=DR 118 005 Vorserie + Personenzug 1973;								\
+      C=DR_118_005_1973(|L),DR4PRM;									\
+      F=DPR4;
     TX=DR 118 131 + Nahverkehrszug;									\
-      C=DR_118_131,											\
+      C=DR_118_131(|_1975)(|L),										\
 	(<DR_4BMHE2111PL|DR_4BMHE2111|DR_4BMHE2111L,DR_4BMH2140STL,DR_4BMH2140ST,			\
 	DR_4BMH2140STSX|DR_4BMH2140STSXL,DR_4BMH2140SX);						\
       F=DPR4;
+    TX=DR 118 Vorserie + Schnellzug 1972;								\
+      C=DR_118_0(08|10)_1972(|L),2*DR_4A_DBVE52GZ1;							\
+      F=DPR4;
+    TX=DR 118 005 als V 180 005 + Sonderzug 93323 (Doppelstockgliederzug Typ DGBge) Jubilï¿½umsparade in Riesa 08.04.1989; \
+      C=DR_118_005_1989(|L),										\
+	(<DR_4C_DGBGQE1L,DR_4C_DGBGQE2,DR_4C_DGBGQE3L,DR_4C_DGBGQE2,DR_4C_DGBGQE3L,DR_4C_DGBGQE2,	\
+	DR_4C_DGBGQE3L,DR_4C_DGBGQE2,DR_4C_DGBGQE4)|							\
+	(<DR_4C_DGBGQE1,DR_4C_DGBGQE2,DR_4C_DGBGQE3,DR_4C_DGBGQE2,DR_4C_DGBGQE3,DR_4C_DGBGQE2,		\
+	DR_4C_DGBGQE3,DR_4C_DGBGQE2,DR_4C_DGBGQE4L);							\
+      F=DPO4;
+    TX=DR 118 Vorserie + Doppelstockgliederzug Typ DGBe 1975;						\
+      C=DR_118_00(8|5)_1975(|L),									\
+	(<DR_4B_DGBGQE1L,DR_4B_DGBGQE2,DR_4B_DGBGQE3,DR_4B_DGBGQE2,					\
+	DR_4B_DGBGQE3[B:2,28,5,3][B:160,28,5,3],DR_4B_DGBGQE2,DR_4B_DGBGQE3,DR_4B_DGBGQE2,		\
+	DR_4B_DGBGQE1)|											\
+	(>DR_4B_DGBGQE1,DR_4B_DGBGQE2,DR_4B_DGBGQE3,DR_4B_DGBGQE2,					\
+	DR_4B_DGBGQE3[B:2,28,5,3][B:160,28,5,3],DR_4B_DGBGQE2,DR_4B_DGBGQE3,DR_4B_DGBGQE2,		\
+	DR_4B_DGBGQE1L);										\
+      F=DPR4;
+
     TX=DR 118 059 + Personenzug;									\
-      C=,DR_118_059,											\
+      C=,DR_118_059(|_1979)(|L),									\
 	(<DR_41DGE1,DR_4A_B_C10|DR_4A_B_C10L,DR_4_AB4UPE,DR_4_B4UPEL,DR_41BGE1L,DR_41BGE1SL,		\
 	DR_41POST21L|DR_41POST21AL|DR_41POST21A|DR_41POST20L|DR_41POST20);				\
       F=DPR4;
     TX=DR 118 + Nahverkehrszug;										\
-      C=DR_118_567|DR_118_585|DR_118_114,DR_4DBMQE2032GL,DR_4DBMQE2034GL|DR_4DBMQE2034G,		\
-	DR_4DBMUE2031G|DR_4DBMUE2033GL,DR_4DBMUE2033G;							\
+      C=DR_118_107|DR_118_567|DR_118_585(|L)|DR_118_114(|L),DR_4DBMQE2032GL,				\
+	DR_4DBMQE2034GL|DR_4DBMQE2034G,DR_4DBMUE2031G|DR_4DBMUE2033GL,DR_4DBMUE2033G;			\
       F=DPR4;
-    TX=DR 118 + Städtexpress 175;									\
-      C=2*(DR_118_107|DR_118_118|DR_118_124|DR_4_118_548|DR_118_126|DR_118_548),			\
+    TX=DR 118 + Stï¿½dteexpress 1975;									\
+      C=DR_118_157_1975(|L),DR_118_(106|070)_1975(|L),							\
+	(<6*OSSHD_SEB~HEN,DR_4WRGE_EX1,4*OSSHD_SEAL~HEN)|						\
+	(>6*OSSHD_SEB~HENL,DR_4WRGE_EX1L,4*OSSHD_SEA~HEN);						\
+      F=DP4;
+    TX=DR 118 + Personenzug;										\
+      C=DR_118_(124_1984|129_1988|144_1989)(|L),							\
+	(<DR_4E_BDWSBL|DR_4E_BDGHWSEL,4*DR_4E_BGHWE(|L))|(>DR_4E_BDWSB|DR_4E_BDGHWSE,4*DR_4E_BGHWE(|L)); \
+      F=DPR4;
+    TX=DR 118 203 + Personenzug 1971;									\
+      C=DR_118_203_1971(|L),DR_4BI_CI29(|L),DR_4BCI34U(|L),DR_4_MBI(|L)~JMU,DR_4A_BAAGE(|L),		\
+	DR_4BAAGE(|L),DR_4A_DAA(|L);									\
+      F=DPR4;
+    TX=DR 118 + Stï¿½dtexpress 175;									\
+      C=(DR_118_118|DR_118_124)(|L),(DR_4_118_548|DR_118_126)(|L),					\
 	(<(5*OSSHD_SEBL~HEN),OSSHD_SEBEL~HEN,								\
 	DR_4WRGE_EX3|DR_4WRGE_EX1L|DR_4WRGE_EX2L|DR_4WRGE_EX2|DR_4WRGE_EX3L,3*OSSHD_SEAE~HEN);		\
       F=DP4;
+    TX=DR 118 B'B' + Wendezug (Doppelstockgliederzug Typ DBvqe) S-Bahn Rostock um 1985;			\
+      C=(<DR_118_180_1985(|L),DR_4_DBVQE61GZSRL|DR_4B_DBVQE52GZSRL)|					\
+	(<DR_118_180_1985(|L),DR_4_DBVQE61GZSRL|DR_4B_DBVQE52GZSRL);					\
+      F=DPRU4;
+
     TX=DR 118 B'B' + Personenzug Anfang der 70er Jahre;							\
-      C=DR_118_505,DR_POST4UE28_4,DR_4BGHWERS,DR_4BGHWERSL[NM:P,0,0],DR_B4UP30_4,DR_4B4U28,		\
-	DR_B4UP36_4,DR_4AB4UMEL,DR_A4U28,DR_4BGHWERL[NM:P,0,0],DR_4BGHWER,DR_4D4U37;			\
+      C=DR_118_(505|083_1973|026_1972)(|L),								\
+	(DR_POST4UE28_4,DR_4BGHWERS,DR_4BGHWERSL[NM:P,0,0],DR_4B4UME,DR_C4U28,DR_4B4UME,DR_4AB4UMEL,	\
+	DR_A4U28,DR_4BGHWERL[NM:P,0,0],DR_4BGHWER,							\
+	DR_4D4U37[BC:-55,-40,2,11,212][OT:GWUL,0,12][OT:GWUR,>,12])|					\
+	(DR_POST4UE28_4L,DR_4BGHWERSL,DR_4BGHWERS[NM:P,0,0],DR_4B4UME,2*DR_C4U28L,DR_4B4UMEL,		\
+	DR_4AB4UME,DR_A4U28L,DR_4BGHWER[NM:P,0,0],DR_4BGHWERL,						\
+	DR_4D4U37[BC:-55,-40,2,11,212][OT:GWUL,0,12][OT:GWUR,>,12]);					\
       F=DPR4;
+    TX=DR 118 072 + Schnellzug 1978;									\
+      C=DR_118_072_1978(|L),										\
+	(<DR_4B_BME2940L,DR_4B_AME1940L,DR_4WRGE_EX1,DR_4B_AME1980L,DR_4B_ABME3980L,DR_4B_BME2080L)|	\
+	(>DR_4B_BME2940,DR_4B_AME1940,DR_4WRGE_EX1L,DR_4B_AME1980,DR_4B_ABME3980,DR_4B_BME2080);	\
+      F=DP4;
+    TX=DR 118 533 + Personenzug Doppelstockwagen 1987;							\
+      C=DR_118_533_1987(|L),										\
+	(<DR_4C_DGBGQE1L,DR_4C_DGBGQE2,DR_4C_DGBGQE3L,DR_4C_DGBGQE2,DR_4C_DGBGQE3L,DR_4C_DGBGQE2,	\
+	DR_4C_DGBGQE3L,DR_4C_DGBGQE2,DR_4C_DGBGQE4)|							\
+	(<DR_4C_DGBGQE1,DR_4C_DGBGQE2,DR_4C_DGBGQE3,DR_4C_DGBGQE2,DR_4C_DGBGQE3,DR_4C_DGBGQE2,		\
+	DR_4C_DGBGQE3,DR_4C_DGBGQE2,DR_4C_DGBGQE4L);							\
+      F=DP4;
+
+    TX=DR 118 520 + Personenzug Doppelstockwagen 1989;							\
+      M=OPEN;												\
+      C=(<DR_4B_DBVQE61GZ(R|S)L,DR_118_520_1989(|L))|(>DR_4B_DBVQE61GZ(R|S)R,DR_118_520_1989(|L));	\
+      F=DPRUO4;
+
 # 118.2 228.2
     TX=DR 118 203 + Personenzug;									\
-      C=DR_118_203,(<(3*DR_4A_BGHWE),DR_AGE4D,3*DR_42BGE,DR_4A_BDGHWSE,DR_4A_BDGHWSE);			\
+      C=DR_118_203(|L),(<(3*DR_4A_BGHWE),DR_AGE4D,3*DR_42BGE,DR_4A_BDGHWSE,DR_4A_BDGHWSE);		\
       F=DPR4;
     TX=DR 118.2 + Zwickauer Traditionszug;								\
-      C=DR_118_201B,DR_PW4I31ZW1(|L),DR_WR4U35ZW(|L)[NT:P][NT:B],DR_BC4I30ZW1(|L)[NT:P][NT:B],		\
+      C=DR_118_201B(|L),DR_PW4I31ZW1(|L),DR_WR4U35ZW(|L)[NT:P][NT:B],DR_BC4I30ZW1(|L)[NT:P][NT:B],	\
 	3*(DR_C4I30ZW1(|L)),DR_4_POST4U_ZWM(|L)[NT:P][NT:B];						\
       F=DP4;
+    TX=DR 118.203 + Personenzug 1976;									\
+      C=DR_118_203_1976(|L),										\
+	(<DR_4D_BDGHWSEL,DR_4BMH2140,DR_4BMH2140L,DR_4ABME3043L,DR_4E_BGHWEL,DR_4D_BGHWE),		\
+	DR_POSTAA|DR_GBQSS_G;										\
+      F=DPR4;
     TX=DR 118.2 + Schnellzug;										\
-      C=DR_118_201A,											\
-	(<DR_41DGE(|L),2*(DR_EWB_BGPM|DR_EWB_BGM|DR_YB70_BGM),DR_4A_WRGE(|L),				\
-	(2*DR_EWB_AGPM|DR_EWB_AGM|DR_YB70_AGM),4*(DR_EWB_BGPM|DR_EWB_BGM|DR_YB70_BGM)L)|		\
-	(>DR_41DGE(|L),2*(DR_EWB_BGPM|DR_EWB_BGM|DR_YB70_BGM)L,DR_4A_WRGE(|L),				\
-	(2*DR_EWB_AGPM|DR_EWB_AGM|DR_YB70_AGM)L,4*(DR_EWB_BGPM|DR_EWB_BGM|DR_YB70_BGM)L);		\
-      F=DP4;
-    TX=DR 118.2 + Schnellzug;										\
-      C=DR_118_201A,											\
+      C=DR_118_201A(|L),										\
 	(<DR_BDS275DL|DR_BDS275D,									\
 	2*(DR_A504DL|DR_A504D|DR_A505DL|DR_A505D|DR_A506DL|DR_A506D|DR_A507DL),				\
 	DR_4C_WRGEL|DR_4C_WRGE|DR_4C_WRGE1L),5*(DR_B516DL|DR_B516D|DR_B518DL|DR_B518D|DR_B519D),	\
@@ -1359,33 +1522,36 @@ $REQUIRE JMD_EU_DEF.TTT
 	DR_44POST20L|DR_44POST20|DR_44POST21L|DR_44POST21);						\
       F=DP4;
     TX=DR 118 237 + Nachtzug;										\
-      C=DR_118_237,											\
+      C=DR_118_237(|L),											\
 	(<DR_POSTMDL|DR_POSTMEDL|DR_POSTMED,								\
 	DR_44DGEL|DR_44DGE|DR_44DGE1L|DR_44DGE1SL|DR_44DGE1S|DR_45DGEL|DR_45DGE|DR_45DGE1L|DR_45DGE1,	\
 	3*(DR_WLAB177BL|DR_WLAB177B|DR_WLABGE1BL|DR_WLABGE1B|DR_WLABGE2BL|DR_WLABGE2B|DR_WLAB1771DL|	\
 	DR_WLAB1771D|DR_WLAB177Y2DL|DR_WLAB177Y2D|DR_WLABGEDL|DR_WLABGED),				\
-	DR_WRM1BL|DR_WRM1B|DR_WRM2BL|DR_WRM2B,2*(DR_4BCM5080L|DR_4BCM5080),				\
+	DR_WRM1BZL|DR_WRM1BZ|DR_WRM2BZL|DR_WRM2BZ,2*(DR_4BCM5080L|DR_4BCM5080),				\
 	4*(DR_BCMEAL|DR_BCMEA|DR_BCME1BL|DR_BCME1B|DR_BCME1DL|DR_BCME1D|DR_BCME2DL|DR_BCME2D));		\
       F=DP4;
     TX=DR 118.2;											\
-      C=DR_118_299,											\
+      C=DR_118_299(|L),											\
 	DR_42POST20L|DR_42POST20|DR_42POST20AL|DR_42POST20A|DR_42POST21L|DR_42POST21|DR_42POST21AL|	\
 	DR_42POST21A,DR_B518B,										\
 	DR_43BGE1SL|DR_42BGEL|DR_42BGE1SL|DR_42BGREL|DR_42BGRE1L|DR_42BGRE1|DR_43BGEL|DR_43BGE1L|	\
 	DR_43BGE1|DR_43BGE1S|DR_43BGREL|DR_43BGRE|DR_43BGRE1L|DR_43BGRE1,				\
 	DR_4A_WRGEL|DR_4A_WRGE|DR_4B_WRGEML|DR_4B_WRGEM|DR_4B_WRGEM1L|DR_4B_WRGESL|DR_4B_WRGES|		\
 	DR_4B_WRGES1L|DR_4B_WRGEOL|DR_4B_WRGEO|DR_4B_WRGEO1L,DR_A504BL|DR_A504B|DR_A505BL|DR_A507BL,	\
-	DR_AB508BL|DR_AB512BL,DR_B518A,DR_B516A,DR_B516AL;						\
+	DR_AB508BL|DR_AB512BL,DR_B518AZ,DR_B516AZ,DR_B516AZL;						\
       F=DP4;
     TX=DR 118.7 + Schnellzug;										\
-      C=DR_118_708|DR_118_745,DR4PL2;									\
+      C=DR_118_(708|745)(|L),DR4PL2;									\
+      F=DP4;
+    TX=DR 118.7 + Schnellzug;										\
+      C=DR_118_747(|L),											\
+	(<DR_41DGE(|L),2*(DR_EWB_BGPM|DR_EWB_BGM|DR_YB70_BGM),DR_4A_WRGE(|L),				\
+	(2*DR_EWB_AGPM|DR_EWB_AGM|DR_YB70_AGM),4*(DR_EWB_BGPM|DR_EWB_BGM|DR_YB70_BGM)L)|		\
+	(>DR_41DGE(|L),2*(DR_EWB_BGPM|DR_EWB_BGM|DR_YB70_BGM)L,DR_4A_WRGE(|L),				\
+	(2*DR_EWB_AGPM|DR_EWB_AGM|DR_YB70_AGM)L,4*(DR_EWB_BGPM|DR_EWB_BGM|DR_YB70_BGM)L);		\
       F=DP4;
     TX=DR 118.7 + Personenzug;										\
-      C=DR_118_747,(<DR_4D_BDGHWSEL,DR_4BMH2140,DR_4BMH2140L,DR_4ABME3043L,DR_4E_BGHWEL,DR_4D_BGHWE),	\
-	DR_POSTAA;											\
-      F=DPR4;
-    TX=DR 118.7 + Personenzug;										\
-      C=<DR_118_794,DR_4DBMUZ2038O,DR_4STDBMUE2033O,DR_4DBMQE2034O1;					\
+      C=<DR_118_794(|L),DR_4DBMUZ2038O,DR_4STDBMUE2033O,DR_4DBMQE2034O1;				\
       F=DPR4;
     TX=DR 118.7;											\
       C=DR_118_708|DR_118_745|DR_118_781,								\
@@ -1414,15 +1580,15 @@ $REQUIRE JMD_EU_DEF.TTT
       F=DPR4;
 #120
     TX=DR 120;												\
-      C=DR_120(A|B|C)(|L)|DR_120_(001|022|366)(|L),DR4FL2;						\
+      C=DR_120(A|B|C)(|L)|DR_120_(001|022|366)(|L),DR4FL2B;						\
       F=DF4;
-    TX=DR 120 + Güterzug;										\
+    TX=DR 120 + Gï¿½terzug;										\
       C=DR_120BL|DR_120B,										\
 	(<DR_GBS1500D,G_KS2,CFR_KS2,DR_UCX,DR_4A_Z8021,DR_ZSW7361AL,DR_ZSW7361DL,DR_ZCE7176,		\
-	DR_ES[O:FR_REPA2,,27],DR_EKKL3[O:FR_KO14,,28],DR_EALS2[O:COAL22],DR_4_EAS5969[O:COAL25],	\
-	DR_4_EAS5969FL[O:COAL21],DR_GBS1507,DR_GL1020A3,PKP_GBS,CSD_LA_BL,DR_IACMS3L,DR_KMM54A1BL,	\
-	DR_KMM54A3BL,DR_KMM54A3B,DR_KMM54A4BL,DR_TDS1B,DR_TDS1AL,DR_TDS1D,DR_TADGSY1,DR_TADGSY5,	\
-	DR_UCS9020E);											\
+	DR_ES(|1|2|3|4|5|7)(|L)[O:FR_REPA2,,27],DR_EKKL3[O:FR_KO14,,28],DR_EALS2[O:COAL22],		\
+	DR_4_EAS5969[O:COAL25],DR_4_EAS5969FL[O:COAL21],DR_GBS1507,DR_GL1020A3,PKP_GBS,CSD_LA_BL,	\
+	DR_IACMS3L,DR_KMM54A1BL,DR_KMM54A3BL,DR_KMM54A3B,DR_KMM54A4BL,DR_TDS1B,DR_TDS1AL,DR_TDS1D,	\
+	DR_TADGSY1,DR_TADGSY5,DR_UCS9020E);								\
       F=DF4;
 #130
     TX=DR 130;												\
@@ -1440,7 +1606,7 @@ $REQUIRE JMD_EU_DEF.TTT
       F=DF4;
 #132
 
-    TX=TX=DR 132 + Schnellzug DR 132 + Schnellzug;							\
+    TX=TX=DR 132 + Schnellzug;										\
       C=DR_132(051|_105)(|L),DR4PL3;									\
       F=DP4;
     TX=DR 132 + Schnellzug Leipzig-Cottbus;								\
@@ -1454,6 +1620,10 @@ $REQUIRE JMD_EU_DEF.TTT
 	DR_4AME1085SXGL|DR_4BME2150SXBL|DR_4BME2150SXGL|DR_4BME2185SXGL,OSSHD_SEBE~HEN,OSSHD_SEB~HEN,	\
 	DR_BOM280NL,;											\
       F=DP4;
+    TX=TX=DR 132 + Schnellzug;										\
+      C=DR_132S(2BX1B|3BX1B|3BX2B|2BX1|3BX2|1BX1|1BX1B|1BX2|1BX2B)M(|L),DR4PL3;				\
+      F=DP4;
+
 #142
     TX=DR 142;												\
       C=DR_142L|DR_142,Z_DR_E4_FAL;									\
@@ -1523,6 +1693,19 @@ $REQUIRE JMD_EU_DEF.TTT
     TX=DR 204 + Schnellzug;										\
       C=DR_4_204_008(|L),(<DR_42DGE,2*DR_42BGE1L,DR_42BGRE,DR_43ABGE1,DR_43AGE,DR_42BGE1S,DR_42BGE1);	\
       F=EP4;
+    TX=DR 204 010 + D 710 Leipzig 1945;									\
+      C=DR_4_204_008(|L),DB_POSTMRAP26_55(|L),								\
+	(<DR_4A_DGBGQE1L,DR_4A_DGBGQE2,DR_4A_DGBGQE3,DR_4A_DGBGQE2,DR_4A_DGBGQE3,DR_4A_DGBGQE2,		\
+	DR_4A_DGBGQE4)|											\
+	(>DR_4A_DGBGQE1,DR_4A_DGBGQE2L,DR_4A_DGBGQE3L,DR_4A_DGBGQE2L,DR_4A_DGBGQE3L,DR_4A_DGBGQE2L,	\
+	DR_4A_DGBGQE4L);										\
+      F=EP4;
+    TX=DR 204 003 + Personenzug Dresden 1971;								\
+      C=DR_4_204_008(|L),DR_4D_EXPOST_B125(|L),DR_4BGHE_EXFSMOD(|L),2*DR_B36000(|L),DR_4BI_BI29(|L);	\
+      F=EP4;
+    TX=DR 204 + Sonderzug Dessau 1979;									\
+      C=DR_5E04_01(|L),7*DR_4B_BGHWE(|L),$DIR(DR_4B_BDGHWSEL,2*DR_4B_BDGHWSE);				\
+      F=EP4;
 #211,E11
     TX=DR 211 052 + S-Bahn Leipzig;									\
       C=(<DR_LEIPZIGSFL~JMU,4*DR_LEIPZIGSB(|L)~JMU,DR_211_052)|						\
@@ -1544,7 +1727,7 @@ $REQUIRE JMD_EU_DEF.TTT
       F=EPR4;
 
     TX=DR 211;												\
-      C=DR_4_242_197(|L),DR4FL2;									\
+      C=DR_4_242_197(|L),DR4FL2B;									\
       F=EF4;
     TX=DR 109 + Regionalbahn;										\
       C=(DR_109ORL|DR_109OR),(<DR_4BDME8280L,DR_5BYU2145GP,DR_4BMH2140,DR_5ABYU3415L);			\
@@ -1558,7 +1741,7 @@ $REQUIRE JMD_EU_DEF.TTT
       C=DR_3_E17_124L,DR4PL2;										\
       F=EP4;
 #218,E18
-    TX=DR 218 + Städteexpress;										\
+    TX=DR 218 + Stï¿½dteexpress;										\
       C=DR_218_019|DR_218_019L,										\
 	(<DR_4BMEE2135SXL,OSSHD_SEBEL~HEN,DR_4BME2185SXBL,OSSHD_SEAEL~HEN,DR_4WRGE_EX1,			\
 	DR_4AME1043SXBL,DR_4AME1043SXB|OSSHD_SEAE~HEN,OSSHD_SEBE~HEN,DR_4BME2185SXB,DR_4BMH2140SXL);	\
@@ -1568,14 +1751,14 @@ $REQUIRE JMD_EU_DEF.TTT
       F=EP4;
 #E230
     TX=DR 180;												\
-      C=DR_4_230_007|DR_4_230_007L,DR4FL2;								\
+      C=DR_4_230_007|DR_4_230_007L,DR4FL2B;								\
       F=EF4;
 #242,E42
     TX=DR 242 181-6 + E5-Wagen;										\
       C=DR_242_181,(<(2*DR_BGHEB(|L)),DR_BGHE(|L),2*DR_(BGHEA,4A_BGHES)(|L),DR_4D4U37);			\
       F=EF4;
     TX=DR 242;												\
-      C=DR_4_242_197(|L)|DR_4_242_168L,DR4FL2;								\
+      C=DR_4_242_197(|L)|DR_4_242_168L,DR4FL2B;								\
       F=EF4;
     TX=DR 242 + Gliederzug;										\
       C=(DR_4_242_008L|DR_4_242_008),									\
@@ -1620,20 +1803,20 @@ $REQUIRE JMD_EU_DEF.TTT
     TX=DR 250;												\
       C=|DR_250264,DR_250024(|L)|DR_250003|DR_250_112,							\
 	(15*(DR_FAL6559AL|DR_FAL6559A|DR_FAL6559BL|DR_FAL6559B|DR_FAL6559CL|DR_FAL6559C|DR_FAL6559DL|	\
-	DR_FAL6559D))|DR4FL2;										\
+	DR_FAL6559D))|DR4FL2B;										\
       F=EF4;
 #251,E251
     TX=DR 251;												\
       C=DR_4_251_009|DR_4_251_004L|DR_4_251_004|DR_4_251_005L|DR_4_251_005|DR_4_251_009L|		\
-	DR_4_251_010L|DR_4_251_010,DR4FL2;								\
+	DR_4_251_010L|DR_4_251_010,DR4FL2B;								\
       F=XEF4;
 #254,E94
-    TX=DR 254 + Güterzug;										\
+    TX=DR 254 + Gï¿½terzug;										\
       C=DR_254_106~HEN,DR_EL5565,DR_EL5565B,DR_EL5565C,DR_EKKLL,DR_EKKL4,DR_GAGSV1992L,DR_HBS2311,	\
 	DR_RLMMP3863C,DR_RES,DR_4RES3936RL,DR_4RGS3910AL,DR_4RGS3910RA,DR_TADGSY2,DR_TADGSY3,		\
 	DR_TADGSY4,DR_TADGSY5;										\
       F=EF4;
-    TX=DR 254 + Güterzug;										\
+    TX=DR 254 + Gï¿½terzug;										\
       C=(DR_4_254_052L|DR_4_254_052),									\
 	15*(DR_FCS1AL|DR_FCS1A|DR_FCS1BL|DR_FCS1B|DR_FCS1CL|DR_FCS1C|DR_FCS1DL|DR_FCS1D|DR_FCS1EL|	\
 	DR_FCS1E|DR_FCS1FL|DR_FCS1F|DR_FACS1|DR_FACS2|DR_FACS3|DR_FACS4|DR_FACS5|DR_FACS6);		\
@@ -1680,7 +1863,7 @@ $REQUIRE JMD_EU_DEF.TTT
       F=DF45;
 
 # Schmalspur
-    TX=DR 99 321 + Personenzug Bad Doberan - Kühlungsborn 1990;						\
+    TX=DR 99 321 + Personenzug Bad Doberan - Kï¿½hlungsborn 1990;						\
       C=(DR_3B99_321L,											\
 	(<DR_4C996002L,DR_4C990208L,DR_4C990301L,DR_4C990305L,DR_4C990306L,DR_4C990101L,DR_4C990208L,	\
 	DR_4C990305L,DR_4C990310L))|									\
@@ -1688,7 +1871,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	(<DR_4C990310,DR_4C990305,DR_4C990208,DR_4C990101,DR_4C990306,DR_4C990305,DR_4C990301,		\
 	DR_4C990208,DR_4C996002));									\
       F=SPRN4;
-    TX=DR 99 321 + Personenzug Bad Doberan - Kühlungsborn 1990;						\
+    TX=DR 99 321 + Personenzug Bad Doberan - Kï¿½hlungsborn 1990;						\
       C=(DR_99_2321L,											\
 	(<DR_4C996005L,DR_4C990208L,DR_4C990301L,DR_4C990305L,DR_4C990306L,DR_4C990101L,DR_4C990208L,	\
 	DR_4C990305L,DR_4C990310L))|									\
@@ -1696,7 +1879,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	(<DR_4C990310,DR_4C990305,DR_4C990208,DR_4C990101,DR_4C990306,DR_4C990305,DR_4C990301,		\
 	DR_4C990208,DR_4C996005));									\
       F=SPRN4;
-    TX=DR 99 321 + Sonderzug Bad Doberan - Kühlungsborn 1990;						\
+    TX=DR 99 321 + Sonderzug Bad Doberan - Kï¿½hlungsborn 1990;						\
       C=(DR_99_2321L,(<DR_4C996901L,DR_4B990302L,MOLLI_990307L,MOLLI_14L,DR_4C990316L))|		\
 	(DR_99_2321,(<DR_4C990316,DR_4B990302,MOLLI_990307,MOLLI_14,DR_4C996901));			\
       F=SPRN4;
@@ -1723,7 +1906,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	(<DR_4_KD4ISA01|DR_4_KDISA02,DR_4_KBI01L,DR_4_KBI03L,DR_4_KBI02L)|				\
 	(<DR_KBI07L,DR_KBI06,DR_4_KBI04,DR_4_KDISA04)|(<DR_4_KDISA05L,DR_4_KBI04,DR_KBI07,DR_KBI06L);	\
       F=SNPR4;
-    TX=DR 99 1775 + Kurzgüterzug Cranzahl - Oberwiesenthal 1986;					\
+    TX=DR 99 1775 + Kurzgï¿½terzug Cranzahl - Oberwiesenthal 1986;					\
       C=DR_4_99_1773SL,DR_4_KROW,									\
 	DR_4_ROWSA[NB:R,DR_4_ROWSARL,4][N:K,DR_4_ROWSAKL,4][O:DR_4_SAUREL,,5][O:BSO,99,5][O:#BSO,10,5]	\
 	[OT:DR_4_ROWSAH,38,4][OT:#DR_4_ROWSAH,74,4],#DR_4_KROW[NT:K],DR_4_KDISA02A;			\
@@ -1734,9 +1917,9 @@ $REQUIRE JMD_EU_DEF.TTT
     TX=DR 99 1791 + GmP Cranzahl - Oberwiesenthal 1989;							\
       C=DR_4_99_1789S,											\
 	(<DR_OOKSA2,2*DR_4_KBI02L,DR_4_KDISA02AL,DR_4_KROW,						\
-	2*(DR_4_ROWSA(L)[O:DR_EL5565(B|C|D|E),,5][BT:102,9,,3][OB:BSO,101,5][O:#BSO,7,5]		\
+	2*(DR_4_ROWSA(|L)[O:DR_EL5565(B|C|D|E),,5][BT:102,9,,3][OB:BSO,101,5][O:#BSO,7,5]		\
 	[OT:DR_4_ROWSAH,30,4][OT:#DR_4_ROWSAH,78,4]),							\
-	DR_4_ROWSA(L)[O:DR_4_E037,,5][BT:103,9,,3][OB:BSO,102,5][O:#BSO,7,5][OT:DR_4_ROWSAH,33,4]	\
+	DR_4_ROWSA(|L)[O:DR_4_E037,,5][BT:103,9,,3][OB:BSO,102,5][O:#BSO,7,5][OT:DR_4_ROWSAH,33,4]	\
 	[O:#DR_4_ROWSAH,76,4],#DR_4_KROW[NT:K]);							\
       F=SPRN4;
     TX=DR 99.17 Sachsen + Schneepflug;									\
@@ -1751,7 +1934,7 @@ $REQUIRE JMD_EU_DEF.TTT
 	DR_OOKSA2L;											\
       F=SNP4;
 
-    TX=DR 99 1777 + Güterzug Cranzahl - Oberwiesenthal 1990;						\
+    TX=DR 99 1777 + Gï¿½terzug Cranzahl - Oberwiesenthal 1990;						\
       C=DR_4_99_1785L,DR_4_KROW,									\
 	7*(DR_4_ROWSA(L)[O:DR_EL5565(B|C|D|E),,5][BT:102,9,,3][OB:BSO,101,5][O:#BSO,7,5]		\
 	[OT:DR_4_ROWSAH,30,4][OT:#DR_4_ROWSAH,78,4]),#DR_4_KROW[NT:K],DR_4_KD4ISA01;			\
@@ -1770,7 +1953,7 @@ $REQUIRE JMD_EU_DEF.TTT
     TX=DR 199 051;											\
       C=DR_199051;											\
       F=DNF4;
-    TX=DR 199 004, Industriebahn Halle;									\
+    TX=DR 199 004,Industriebahn Halle;									\
       C=DR_199_004,DR_ZAS_IH;										\
       F=DNP4;
 
@@ -1783,8 +1966,11 @@ $REQUIRE JMD_EU_DEF.TTT
 %ADDPOOL(POOL_GER,DR_ENV)
 
   {E5?
+TX=DR 01 137 + N 7119 Gera - Saalfeld 1993 (Plandampf);										\
+  C=DR_01137_1993(|L),DR_4B_DBVQE61GZS(R|L);		\
+  F=SP5;
     TX=DR 01.1531 + Sonderzug;										\
-      C=DR_5_01_1531(|L),(DR_BDS275DL,2*DR_B519D,DR_WRMA,2*DR_B519DL,2*DR_B518D,2*DR_B518DL);		\
+      C=DR_5_01_1531(|L),(DR_BDS275DL,2*DR_B519D,DR_WRMAZ,2*DR_B519DL,2*DR_B518D,2*DR_B518DL);		\
       F=SP5;
     TX=DR 38 1182 mit dem Zwickauer Traditionszug;							\
       C=DR_5_381182WA(|L),										\
@@ -1795,7 +1981,7 @@ $REQUIRE JMD_EU_DEF.TTT
       C=DR_50_849M,(<(4*DR_4D_BGHWE(|L)),DR_4D_BDGHWSE);						\
       F=SP5;
     TX=DR 50.35;											\
-      C=DR_5_50_3501(|L),DR4FL2;									\
+      C=DR_5_50_3501(|L),DR4FL2B;									\
       F=SF5;
     TX=DR 50.35 + Personenzug;										\
       C=DR_5_50_3501(|L),(<(4*DR_4D_BGHWE(|L)),DR_4D_BDGHWSE);						\
@@ -1806,9 +1992,22 @@ $REQUIRE JMD_EU_DEF.TTT
     TX=DR 204 + Personenzug;										\
       C=(<DR_204BR,DR_4B_DC7GZVSRR)|(<DR_4B_DC7GZVSRL,DR_204BR);					\
       F=DPRU5;
-    TX=DR 204 + Personenzug;										\
+    TX=DR 202 + Personenzug 1992;									\
+      C=DR_202_646_1992(|L),DR_5BYU2145GP(|L),DR_4BMH2140(|L);						\
+      F=DPR5;
+    TX=DR 201 + Gï¿½terzug;										\
+      C=DR_201_005_1993(|L),3*DR4FRB;									\
+      F=DF5;
+    TX=DR 204 + Sonderzug Wolfen 1991;									\
+      C=DR_5E04_01(|L),											\
+	($DIR((<DR_DBMQE2034O2L,2*DR_4STDBMUE2033O),(>DR_DBMQE2034O2,2*DR_4STDBMUE2033OL)));		\
+      F=EP5;
+    TX=DR 204 769 + N 7327 Naumburg - Saalfeld 1992;							\
+      C=(<DR_204_769_1992(|L),DR_4B_DBVQE61GZSR)|(<DR_4B_DBVQE61GZSL,DR_204_769_1992(|L));		\
+      F=DPRU5;
+    TX=DR 204 769 + N 7327 Naumburg - Saalfeld 1992;							\
       M=OPEN;												\
-      C=(<DR_204BR,DR_4B_DC7GZVSRR)|(<DR_4B_DC7GZVSRL,DR_204BR);					\
+      C=(<DR_204_769_1992(|L),DR_4B_DBVQE61GZSR)|(<DR_4B_DBVQE61GZSL,DR_204_769_1992(|L));		\
       F=DPRUT5;
     TX=DR 219 + D-Zug;											\
       C=BR219_1_AL,DR_4BMH2111L,DR_4BMH2140,DR_4BMH2111,DR_45ABGE,DR_45AGEL,				\
@@ -1821,22 +2020,24 @@ $REQUIRE JMD_EU_DEF.TTT
       C=BR219_0_AL,											\
 	(<DR_B519B,DR_B519DL,DR_4ABME3085,DR_A507D,DR_4WRME8870W,DR_AB512D,DR_4BME2185L,DR_4BDME8280);	\
       F=DP5;
-    TX=DR 2119, 229;											\
+    TX=DR 2119,229;											\
       C=DR_5_219_164L|DR_5_219_164|DR_5_219_025L|DR_5_219_025,DR4PRR;					\
       F=DF5;
-    TX=DR 219 + Schneeschleuder Dresden 730 033, Saalfeld 1992;						\
+    TX=DR 219 + Schneeschleuder Dresden 730 033,Saalfeld 1992;						\
       C=(<DR_4_SCHN_SAA2L,DR_5_219(M|_1)(|L))|(<DR_5_219(M|_1)(|L),DR_4_SCHN_SAA2);			\
       F=DFU5;
+    TX=DR 228 + Personenzug;										\
+      C=DR_5_228_505(|L)|DR_5_228_507(|L),DR_4B_DAA2(|L),3*DR_4B_BGHWE;					\
+      F=DPR5;
     TX=DR 228 + Doppelstockzug;										\
-      C=DR_5_228_505|DR_5_228_507,									\
+      C=DR_228_124|DR_228_114,										\
 	(<DR_5DBUZ2041_001L|DR_5DBUZ2041_001,DR_5DBMU2043_080L|DR_5DBMU2043_080,DR_5DBMU2043(|L));	\
       F=DPR5;
     TX=DR 228 + Personenzug;										\
-      C=DR_228_114|DR_228_124|DR_228_745|DR_228_794,							\
-	(<DR_4E_BDWSBL,4*(DR_EWB_BGCPM|DR_EWB_BGCM|DR_YB70_BGCM)(|L));					\
+      C=DR_228_(745|794)(|L),(<DR_4E_BDWSBL,4*(DR_EWB_BGCPM|DR_EWB_BGCM|DR_YB70_BGCM)(|L));		\
       F=DPR5;
     TX=DR 228.6;											\
-      C=DR_228_679|DR_228_696,DR4PRR;									\
+      C=DR_228_(679|696)(|L),DR4PRR;									\
       F=DPR5;
     TX=DR 229 + Regionalbahn;										\
       C=DR_5_229_106L|DR_5_229_106|DR_5_229_193L|DR_5_229_193,						\
@@ -1844,13 +2045,28 @@ $REQUIRE JMD_EU_DEF.TTT
 	DR_5BYU2143ML|DR_5BYU2143M|DR_5BYU2145G5L|DR_5BYU2145G5|DR_5BYU2145GPL,DR_5BYU2145000GP,	\
 	DR_5ABBD8480L|DR_5ABBD8480|DR_5ABDOMSBD8180|DR_5ABDOMSBD8180L);					\
       F=DPR5;
-    TX=DR 232 + Interregio;										\
-      C=DR_5_232051(|L),DR_BIMDZ8495(|L),5*(DR_BMZ2190IR|DR_BIMZ2295)(|L),DR_ARKIMBZ262_2(|L),		\
-	DR_AIMZ(1094|261_7)(|L)|DR_A506M(|L);								\
+    TX=DR 232 + Gï¿½terzug;										\
+      C=DR_132S3BX2BM(|L),Z_DR_E4_Kessel;								\
+      F=DF5;
+    TX=DR 234 + Interregio;										\
+      C=DR_234_578BX2BM(|L),DR5PI;									\
       F=DP5;
     TX=DR 234 + Sonderzug int1241;									\
       C=DR_232_1993,(<(2*DB_4BM234L),DSB_4ABL,DB_4BM234L,RZD_WL2~HEN,PKP_BDUNGU,2*DR_4BME2185);		\
       F=DP5;
+    TX=DR 232 + Interregio;										\
+      C=DR_5_232051(|L)|DR_232_663BX2BM(|L),DR_BIMDZ8495(|L),5*(DR_BMZ2190IR|DR_BIMZ2295)(|L),		\
+	DR_ARKIMBZ262_2(|L),DR_AIMZ(1094|261_7)(|L)|DR_A506M(|L);					\
+      F=DP5;
+    TX=DR 234 + Sonderzug int1241;									\
+      C=DR_232_1993,(<(2*DB_4BM234L),DSB_4ABL,DB_4BM234L,RZD_WL2~HEN,PKP_BDUNGU,2*DR_4BME2185);		\
+      F=DP5;
+    TX=DR 293 + Rangierzug;										\
+      C=DR_293_(1|0)M(|L),2*DR4FR;									\
+      F=DF5;
+    TX=DR 298 + Rangierzug;										\
+      C=DR_298_(3|0)M(|L),2*DR4FR;									\
+      F=DF5;
     TX=DR 311;												\
       C=DR_311_529L|DR_311_529,DR4FR;									\
       F=DF4;
@@ -1881,6 +2097,11 @@ $REQUIRE JMD_EU_DEF.TTT
       C=DR_5_112_002L|DR_5_112_002|DR_5_112_005L|DR_5_112_005|DR_5_112_021L|DR_5_112_021,DR5PI;		\
       F=EP5;
 #112.1
+    TX=DR 204 + Sonderzug Wolfen 1991;									\
+      C=DR_5E04_01(|L),											\
+	($DIR((<DR_DBMQE2034O2L,2*DR_4STDBMUE2033O),(>DR_DBMQE2034O2,2*DR_4STDBMUE2033OL)));		\
+      F=EP5;
+
     TX=DR 109 + Nahverkehrszug;										\
       C=DR_109OR(|L)|DR_5_109091(|L),									\
 	(DR_BDS275DL,DR_5BYU2145G5(|L),DR_5ABY3143GP(|L),DR_5BYU2145GP(|L),DR_4BMH2140ST(|L));		\
@@ -1890,26 +2111,33 @@ $REQUIRE JMD_EU_DEF.TTT
 	(<(2*DB_AVMZ111_0RWL|DB_AVMZ111_0RW),DB_APMZ121_0RWL,DR_5WRM8870L|DR_5WRM8870,			\
 	3*DB_BPMZ292_0RL,4*DR_5BMZ2190L);								\
       F=EF5;
-    TX=DR E18 (Museumslok) + Sonderzug;									\
+    TX=DR E18 (Museumslok)+ Sonderzug;									\
       C=DR_5E18_(19|31)(|L),(<DR_45ABGE,DR_45ABGE1,DR_44BGRE,4*DR_BGE4(I|J));				\
       F=EP5;
-    TX=DR 142 + Güterzug;										\
+    TX=DR 142 + Gï¿½terzug;										\
+      C=DR_142S1RH,DR4FL2B;										\
+      F=EF5;
+    TX=DR 142 + Gï¿½terzug;										\
       C=DR_142BR(|L)|DR_142_177,(10*DR_LAAEK4357);							\
       F=EF5;
     TX=DR 143 + Doppelstockzug;										\
       C=(<DR_5DABGBUZF3633L,DR_5DBMQ2042L|DR_5DBMQZ2042L|DR_5DBMQ817L,DR_5DBUZ2047,DR_5DBUZ2045,	\
-	DR_5DBMU2043|DR_5DBUZ2041,DR_5_143_198L)|							\
-	(<DR_5_143_198,DR_5DBUZ2041L,DR_5DBMU2043L|DR_5DBUZ2045L,DR_5DBUZ2047L,				\
+	DR_5DBMU2043|DR_5DBUZ2041,DR_5_143_198(|L))|							\
+	(<DR_5_143_198(|L),DR_5DBUZ2041L,DR_5DBMU2043L|DR_5DBUZ2045L,DR_5DBUZ2047L,			\
 	DR_5DBMQ817|DR_5DBMQZ2042|DR_5DBMQ2042|DR_5DABGBUZF3633);					\
-      F=EPR5;
-    TX=DR 143 + Güterzug;										\
+      F=EPRU5;
+    TX=DR 143 + Doppelstockzug;										\
+      C=(<DR_5_143_198(|L),2*DR_5DBMU2043(|L),DR_5DBUZ2041(|L),DR_5DABGBUZF)|				\
+	(>DR_5_143_198(|L),2*DR_5DBMU2043(|L),DR_5DBUZ2041(|L),DR_5DABGBUZFL);				\
+      F=EPRU5;
+    TX=DR 143 + Gï¿½terzug;										\
       C=DR_5_143_161(|L),										\
-	(<DR_4RES3936L,DR_LAADS,DR_ES3,DR_4_EAS5971FL,DR_IAEHQSZ8648,DR_LAAS,				\
+	(<DR_4RES3936L,DR_LAADS,DR_ES(|1|2|3|4|5|7)(|L),DR_4_EAS5971FL,DR_IAEHQSZ8648,DR_LAAS,		\
 	DR_SGGMRS715KOMBI[O:C3I_REICHENEDER1,67,11][O:C2I_SIEMENS1,175,11][O:C2_SCHENKER,259,11],	\
 	DR_UAAI9930);											\
       F=EF5;
     TX=DR 252;												\
-      C=DR_252_00(1|2|3|4),DR4FL2;									\
+      C=DR_252_00(1|2|3|4),DR4FL2B;									\
       F=EF5;
     TX=DR - VT 601 006 und 015 verkehrten als IC 130/139 "Max Liebermann" im August und September 1990 zwischen Hamburg und Berlin; \
       C=(<DR_601L,DR_901BRL,DR_901BPL,DR_901BRL,DR_901BP,DR_901WRL,DR_901AVL,DR_901AVK,DR_901AV,DR_601)| \
@@ -1922,28 +2150,28 @@ $REQUIRE JMD_EU_DEF.TTT
 
 #------------------------------------------------------------------------
 #    ZPAR 1991
-    TX=EC 54 "Gustave Eiffel" Leipzig <- Erfurt -( Gerstungen -) Bebra - Frankfurt (M) Hbf - Darmstadt - Mannheim - Saarbrücken - Forbach - Metz -> Paris Est (Abschnitt Leipzig - Bebra, Di-Sa)(anno 1991); \
+    TX=EC 54 "Gustave Eiffel" Leipzig <- Erfurt -(Gerstungen -)Bebra - Frankfurt (M) Hbf - Darmstadt - Mannheim - Saarbrï¿½cken - Forbach - Metz -> Paris Est (Abschnitt Leipzig - Bebra, Di-Sa)(anno 1991); \
       C=DR_132_105(|L),$DIR(SNCF_VU_B6DUL,SNCF_VU_B6DU),6*SNCF_VU_B11U_CO(|L),SNCF_RESTOC2(|L),		\
 	SNCF_VU_A9U_CO(|L),SNCF_VU_A11U_CO(|L),DB_4POSTMRZ(G|3:BB)(|L);					\
       F=DP5;
-    TX=EC 55 "Gustave Eiffel" Paris Est <- Metz - Forbach - Saarbrücken - Mannheim - Darmstadt - Frankfurt (M) Hbf - Bebra -( Gerstungen -) Erfurt -> Leipzig (Abschnitt Bebra - Leipzig)(anno 1991); \
+    TX=EC 55 "Gustave Eiffel" Paris Est <- Metz - Forbach - Saarbrï¿½cken - Mannheim - Darmstadt - Frankfurt (M) Hbf - Bebra -(Gerstungen -)Erfurt -> Leipzig (Abschnitt Bebra - Leipzig)(anno 1991); \
       C=DR_132_105(|L),SNCF_VU_A11U_CO(|L),SNCF_VU_A9U_CO(|L),SNCF_RESTOC2(|L),6*SNCF_VU_B11U_CO(|L),	\
 	$DIR(SNCF_VU_B6DU,SNCF_VU_B6DUL);								\
       F=DP5;
-    TX=EC 56 "Heinrich Heine" Dresden <- Leipzig - Erfurt -( Gerstungen -) Bebra - Frankfurt (M) Hbf - Darmstadt - Mannheim - Saarbrücken - Forbach - Metz -> Paris Est (Abschnitt Dresden - Leipzig) (anno 1991); \
+    TX=EC 56 "Heinrich Heine" Dresden <- Leipzig - Erfurt -(Gerstungen -)Bebra - Frankfurt (M) Hbf - Darmstadt - Mannheim - Saarbrï¿½cken - Forbach - Metz -> Paris Est (Abschnitt Dresden - Leipzig) (anno 1991); \
       C=DR_5_143_198(|L),SNCF_VU_A11U_CO(|L),SNCF_VU_A9U_CO(|L),SNCF_RESTOC2(|L),			\
 	6*SNCF_VU_B11U_CO(|L),$DIR(SNCF_VU_B6DU,SNCF_VU_B6DUL);						\
       F=EP5;
-    TX=IC 135 "Emil Nolde" Westerland <- Hamburg-Altona - (Büchen -) Berlin Stadtbahn -> Berlin (Sommer, Abschnitt HH-Altona - Berlin) (anno 1991); \
+    TX=IC 135 "Emil Nolde" Westerland <- Hamburg-Altona - (Bï¿½chen -) Berlin Stadtbahn -> Berlin (Sommer,Abschnitt HH-Altona - Berlin)(anno 1991); \
       C=DR_132_105(|L),2*DB_4BM(234|3:235)(|L),DB_4BDMS273(|L),3*DB_BPMZ291_(2|3|2RW|3R)(|L),		\
 	2*DB_4BM(234|3:235)(|L),DB_5ARMZ218(|L),							\
 	DB_(68:AVMZ107R(W|K)|264:(4AVMZ111_1|AVMZ111_1R(W|K)))(|L),DB_APMZ121(|RW)(|L);			\
       F=DP5;
-    TX=IC 139 "Max Liebermann" Hamburg-Altona <- (Büchen -) Berlin Stadtbahn -> Berlin (Di-Do) (anno 1991); \
+    TX=IC 139 "Max Liebermann" Hamburg-Altona <- (Bï¿½chen -)Berlin Stadtbahn -> Berlin (Di-Do) (anno 1991); \
       C=DR_132_105(|L),DR_IC_BMZ(|L),2*DB_BPMZ291_(2|3|2RW|3R)(|L),2*DR_IC_BMZ(|L),DR_5WRME8870(|L),	\
 	DB_APMZ121(|RW)(|L);										\
       F=DP5;
-    TX=IC 154 "Johann Sebastian Bach" Dresden <- Leipzig - Erfurt -( Gerstungen -) Bebra -> Frankfurt (M) Hbf (Fr, Kopfmachen in Leipzig)(anno 1991); \
+    TX=IC 154 "Johann Sebastian Bach" Dresden <- Leipzig - Erfurt -(Gerstungen -) Bebra -> Frankfurt (M)Hbf (Fr,Kopfmachen in Leipzig)(anno 1991); \
       M=HEAD;												\
       C=DB_APMZ121(|RW)(|L),DB_5ARMH217R(|L),2*DB_4BM(234|3:235)(|L),2*DB_BPMZ291_(2|3|2RW|3R)(|L),	\
 	3*DB_4BM(234|3:235)(|L);									\
@@ -1952,63 +2180,63 @@ $REQUIRE JMD_EU_DEF.TTT
       C2=DR_132_105(|L);										\
       V3=4-6; P=@-45-55; T1=10-20; T2=10-15; T3=10-20; W=5;						\
       F=EPO5;
-    TX=IC 174 "Havelland" Karlsruhe <- Mannheim - Frankfurt (M) Hbf - Hildesheim - Braunschweig - Helmstedt - Magdeburg - Potsdam Stadt - Berlin Stadtbahn -> Berlin (Abschnitt Helmstedt - Berlin)(anno 1991); \
+    TX=IC 174 "Havelland" Karlsruhe <- Mannheim - Frankfurt (M) Hbf - Hildesheim - Braunschweig - Helmstedt - Magdeburg - Potsdam Stadt - Berlin Stadtbahn -> Berlin (Abschnitt Helmstedt - Berlin) (anno 1991); \
       C=DR_132_105(|L),5*DB_BPMZ293R(W|S)(|L),DB_WRMZ137R(W|K)(|L),DB_AVMZ107R(W|K)(|L),		\
 	DB_APMZ117R(W|K)(|L);										\
       F=DP5;
-    TX=D 244 Warszawa Wschodnia <- Warszawa Centralne - Poznan Gl. - Kunowice - Frankfurt (O) - Berlin - Berlin Stadtbahn - Potsdam Stadt - Magdeburg - Helmstedt - Hannover - Köln -> Aachen (Sommer, Abschnitt Berlin - Helmstedt)(anno 1991); \
+    TX=D 244 Warszawa Wschodnia <- Warszawa Centralne - Poznan Gl. - Kunowice - Frankfurt (O) - Berlin - Berlin Stadtbahn - Potsdam Stadt - Magdeburg - Helmstedt - Hannover - Kï¿½ln -> Aachen (Sommer, Abschnitt Berlin - Helmstedt)(anno 1991); \
       C=DR_132_105(|L),2*RZD_WL2(|L)~HEN,SNCB_I10_2170O2(|L),SNCB_4_I5B10B2(|L),3*DR_HALB_BME,		\
 	DR_45DGE(|L),DR_HALB_BME,DR_AMZ1095(|L),DB_(4C_BCM243KOB|BCM243BBS)(|L),			\
 	(DB_4T2ST(|L)|3:DB_WLABMH175(A|B|C)D(|L)[BC:-20,-20]);						\
       F=DP5;
-    TX=D 245 Aachen <- Köln - Hannover - Helmstedt - Magdeburg - Potsdam Stadt - Berlin Stadtbahn -> Berlin (Winter, Abschnitt Helmstedt - Berlin)(anno 1991); \
+    TX=D 245 Aachen <- Kï¿½ln - Hannover - Helmstedt - Magdeburg - Potsdam Stadt - Berlin Stadtbahn -> Berlin (Winter, Abschnitt Helmstedt - Berlin)(anno 1991); \
       C=DR_132_105(|L),DB_(4T2ST|3:WLABMH175(A|B|C)D)(|L),DB_(4C_BCM243KOB|BCM243BBS)(|L),		\
 	DR_AMZ1095(|L),DR_HALB_BME,DR_45DGE(|L),3*DR_HALB_BME,SNCB_4_I5B10B2(|L),RZD_WL2(|L)~HEN,	\
 	DB_4POSTMRZ(G|3:BB)(|L);									\
       F=DP5;
-    TX=D 248 Moskwa <- Minsk - Brest - Terespol - Warszawa - Poznan Gl. - Frankfurt (O) -( NAR - Stendal - Oebisfelde -) Wolfsburg - Hannover - Dortmund - Düsseldorf -( Neuss -)> Köln (Sommer, Abschnitt Frankfurt(O) - Hannover)(anno 1991); \
+    TX=D 248 Moskwa <- Minsk - Brest - Terespol - Warszawa - Poznan Gl. - Frankfurt (O) -(NAR - Stendal - Oebisfelde -)Wolfsburg - Hannover - Dortmund - Dï¿½sseldorf -(Neuss -) > Kï¿½ln (Sommer,Abschnitt Frankfurt(O)- Hannover)(anno 1991); \
       C=DR_132_105(|L),PKP_4_PDN101CH1(|L),PKP_B_4,PKP_BC_4,2*PKP_B_4,10*RZD_WL2(|L)~HEN;		\
       F=DP5;
-    TX=D 270 "Vindobona" Wien Franz-Josefs-Bf <- Gemünd NÖ - Ceske Velebice - Praha hl n - Decin hl n - Bad Schandau - Dresden -( AR-)> Berlin-Lichtenberg (Abschnitt Dresden - Berlin)(anno 1991); \
+    TX=D 270 "Vindobona" Wien Franz-Josefs-Bf <- Gemï¿½nd Nï¿½ - Ceske Velebice - Praha hl n - Decin hl n - Bad Schandau - Dresden -(AR-) > Berlin-Lichtenberg (Abschnitt Dresden - Berlin)(anno 1991); \
       C=DR_5_112_021(|L)|2:DR_243_883,2*DR_HALB_BME,$DIR(DR_4BDME8280L,DR_4BDME8280),DR_IC_BMZ(|L),	\
 	3*OBB_2170O(|L),DR_5WRME8870(|L),DR_HALB_AME,OBB_1971O(|L);					\
       F=EP5;
-    TX=D 278 "Sanssouci" Wien Franz-Josefs-Bf <- Gemünd NÖ - Ceske Velebice - Praha hl n - Decin hl n - Bad Schandau - Dresden -( AR-)> Berlin-Lichtenberg (Sommer, Lokwechsel in Dresden)(anno 1991); \
+    TX=D 278 "Sanssouci" Wien Franz-Josefs-Bf <- Gemï¿½nd Nï¿½ - Ceske Velebice - Praha hl n - Decin hl n - Bad Schandau - Dresden -(AR-) > Berlin-Lichtenberg (Sommer,Lokwechsel in Dresden)(anno 1991); \
       M=CHANGE;												\
       C=2*DR_WLAB(177B|GE(1|2)B)(|L),2*DR_HALB_BCME,DR_HALB_ABME,2*DR_IC_BMZ(|L);			\
       C1=CSD_372_(001|2:005|2:011);									\
       C2=DR_5_112_021(|L)|2:DR_243_883;									\
       V2=2-3; V3=2-3; T1=5-8,PD,8-12,PBU,10-15; T2=15-20; T3=5-8,PD,15-20,PBU,10-15;			\
       F=EPO5;
-    TX=D 310 Dresden <-( AR -) Berlin-Lichtenberg -( AR -) Pasewalk - Greifswald - Stralsund Rügendamm - Bergen - Saßnitz - Saßnitz Hafen - Fähre 24125 - Trelleborg -> Malmö (Abschnitt Bergen - Saßnitz) (anno 1991); \
+    TX=D 310 Dresden <-(AR -)Berlin-Lichtenberg -(AR -) Pasewalk - Greifswald - Stralsund Rï¿½gendamm - Bergen - Saï¿½nitz - Saï¿½nitz Hafen - Fï¿½hre 24125 - Trelleborg -> Malmï¿½ (Abschnitt Bergen - Saï¿½nitz) (anno 1991); \
       C=DR_5_112_021(|L)|3:DR_243_883,0-1*DR_HALB_BME,DR_HALB_BDME,DR_HALB_ABME;			\
       F=EP5;
-    TX=D 311 Malmö <- Trelleborg - Fähre 23124 - Saßnitz Hafen - Saßnitz - Bergen - Stralsund Rügendamm - Neubrandenburg - Neustrelitz -( AR -)> Berlin-Lichtenberg (Abschnitt Stralsund - Neustrelitz) (anno 1991); \
+    TX=D 311 Malmï¿½ <- Trelleborg - Fï¿½hre 23124 - Saï¿½nitz Hafen - Saï¿½nitz - Bergen - Stralsund Rï¿½gendamm - Neubrandenburg - Neustrelitz -(AR -) > Berlin-Lichtenberg (Abschnitt Stralsund - Neustrelitz)(anno 1991); \
       C=DR_132_105(|L),2*DR_HALB_BME,DR_WRGE_(1:4(B|C)|4:EX_(1|2))(|L),DR_45AGE(|L),2*DR_HALB_BME,	\
 	DR_HALB_ABME,DR_HALB_BDME,0-1*DR_HALB_BME;
-    TX=D 315 "Gedania" Gdynia <- Lebork - Slupsk - Koszalin - Bialogard - Stargard Szcz - Stczecin Gl - Szczecin Gumience - Angermünde - Eberswalde - Bernau (b Berlin) -( AR -)> Berlin-Lichtenberg (Abschnitt Szczecin Gumience - Berlin) (anno 1991); \
+    TX=D 315 "Gedania" Gdynia <- Lebork - Slupsk - Koszalin - Bialogard - Stargard Szcz - Stczecin Gl - Szczecin Gumience - Angermï¿½nde - Eberswalde - Bernau (b Berlin) -(AR -)> Berlin-Lichtenberg (Abschnitt Szczecin Gumience - Berlin)(anno 1991); \
       C=DR_132_105(|L),PKP_BC_4,PKP_4_WLABD1(|L),PKP_A_4,6*PKP_B_4;					\
       F=DP5;
-    TX=D 318 "Saßnitz-Expreß" Berlin-Lichtenberg <-( AR -) Greifswald - Stralsund Rügendamm - Bergen - Saßnitz - Saßnitz Hafen - Fähre 24031 - Trelleborg -> Malmö (Winter Sa, Abschnitt Berlin - Saßnitz) (anno 1991); \
+    TX=D 318 "Saï¿½nitz-Expreï¿½" Berlin-Lichtenberg <-(AR -) Greifswald - Stralsund Rï¿½gendamm - Bergen - Saï¿½nitz - Saï¿½nitz Hafen - Fï¿½hre 24031 - Trelleborg -> Malmï¿½ (Winter Sa, Abschnitt Berlin - Saï¿½nitz)(anno 1991); \
       C=DR_5_112_021(|L)|3:DR_243_883,RZD_WL2(|L)~HEN,2*DR_WLAB(177B|GE(1|2)B)(|L),DR_HALB_BCME,	\
 	DR_(BIMZ259|2:IC_BMZ),2*DR_HALB_BME,DR_HALB_ABME,DR_HALB_BME;					\
       F=EP5;
-    TX=D 322 "Neptun" Praha hl n <- Decin hl n - Bad Schandau - Dresden -( IR-) Berlin-Lichtenberg -( AR -) Rostock - Warnemünde - Fähre 22181 - Gedser -> Kobenhavn (Abschnitt Dresden - Berlin) (anno 1991); \
+    TX=D 322 "Neptun" Praha hl n <- Decin hl n - Bad Schandau - Dresden -(IR-) Berlin-Lichtenberg -(AR -) Rostock - Warnemï¿½nde - Fï¿½hre 22181 - Gedser -> Kobenhavn (Abschnitt Dresden - Berlin) (anno 1991); \
       C=DR_5_112_021(|L)|2:DR_243_883,DSB_B(|L)~ZS,DSB_AB(|L),CSD_A72(|L),CSD_BDS(74|81)(|L),		\
 	CSD_WR69B(|L),6*CSD_B(65|77)(|L);								\
       F=EP5;
-    TX=D 327 Kobenhavn <- Gedser - Fähre 21151 - Warnemünde - Rostock - Güstrow - Waren (Müritz) -( AR -) > Berlin-Lichtenberg (Abschnitt Warnemünde - Rostock) (anno 1991); \
+    TX=D 327 Kobenhavn <- Gedser - Fï¿½hre 21151 - Warnemï¿½nde - Rostock - Gï¿½strow - Waren (Mï¿½ritz) -(AR -)> Berlin-Lichtenberg (Abschnitt Warnemï¿½nde - Rostock)(anno 1991); \
       C=DR_243_883,$DIR(DSB_BDL~ZS,DSB_BD~ZS),DSB_AB(|L),DSB_B(|L)~ZS;					\
       V=8;
-    TX=D 328 "Ostsee-Expreß" Berlin-Lichtenberg -( AR -) Waren (Müritz) - Güstrow - Rostock - Warnemünde - Fähre 22040 - Gedser -> Kobenhavn (Sommer, Di,Do, Abschnitt Neustrelitz - Rostock) (anno 1991); \
+    TX=D 328 "Ostsee-Expreï¿½" Berlin-Lichtenberg -(AR -)Waren (Mï¿½ritz) - Gï¿½strow - Rostock - Warnemï¿½nde - Fï¿½hre 22040 - Gedser -> Kobenhavn (Sommer,Di,Do, Abschnitt Neustrelitz - Rostock)(anno 1991); \
       C=DR_243_883,DR_(44POST(20|21)|POSTM(|E)D)(|L),DR_WLAB(177B|GE(1|2)B)(|L),DR_HALB_BCME,		\
 	3*DSB_B(|L)~ZS,4*DR_IC_BMZ(|L),DR_HALB_ABME;							\
       F=EP5;
-    TX=D 334 Berlin <- Berlin Stadtbahn - Wittenberge - Büchen -> Hamburg-Altona (Abschnitt Berlin - Büchen) (anno 1991); \
+    TX=D 334 Berlin <- Berlin Stadtbahn - Wittenberge - Bï¿½chen -> Hamburg-Altona (Abschnitt Berlin - Bï¿½chen) (anno 1991); \
       C=DR_132_105(|L),3*DR_HALB_BME,DR_WRGE_(1:4(B|C)|4:EX_(1|2))(|L),DR_Y_A4B,DR_HALB_BME,		\
 	DR_45DGE(|L),DR_HALB_BME,DR_HALB_ABME,DR_HALB_BME;						\
       F=DP5;
-    TX=D 334 Berlin <- Berlin Stadtbahn - Wittenberge - Büchen -> Hamburg-Altona (Abschnitt Berlin - Büchen)(05.01.1992); \
+    TX=D 334 Berlin <- Berlin Stadtbahn - Wittenberge - Bï¿½chen -> Hamburg-Altona (Abschnitt Berlin - Bï¿½chen) (05.01.1992); \
       C=DR_132_105(|L),DR_5WRME8870(|L),3*DR_HALB_BME,DR_WRGE_(1:4(B|C)|4:EX_(1|2))(|L),DR_Y_A4B,	\
 	DR_HALB_BME,DR_45DGE(|L),DR_HALB_BME,DR_HALB_ABME,DR_HALB_BME;					\
       F=DP5;

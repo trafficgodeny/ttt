@@ -12,13 +12,21 @@ $REQUIRE TRAINDEF.TTT
 
   {E1?
 # D
+    TX=Reicheisenbahnen Elsass-Lothringen T13 + Rangierzug;						\
+      C=KPEV_T13ELBERFELD7937[B:52,19,6,2][B:52,19,6,2][B:27,18,6,1],ELOT_O10,				\
+	ELOT_O10SH[O:((FR_TURNIP|FR_REPA1)(|[M])),12,22],						\
+	ELOT_O10H[O:((FR_TURNIP|FR_REPA1)(|[M])),12,22],						\
+	ELOT_O10SHL[O:((FR_TURNIP|FR_REPA1)(|[M])),18,22],						\
+	ELOT_OMKH[O:((FR_TURNIP|FR_REPA1)(|[M])),12,22],ELOT_O10HL,					\
+	ELOT_OMKHL[O:((FR_TURNIP|FR_REPA1)(|[M])),18,22];						\
+      F=SF1;
     TX=Reicheisenbahnen Elsass-Lothringen S2 + Schnellzug;						\
       C=KPEV_S3L[B:87,20,8,2,#303828],									\
 	(<KPEV_PWIPR92C[B:40,25,3,3,#663300][BC:-7,0,40,26,3,1],KPEV_PW3U97,				\
 	KPEV_C4U11A[B:46,15,6,4,#552A00][B:146,15,6,4,#552A00],						\
 	KPEV_ABC4U06L[B:31,15,6,4,#552A00][B:146,15,6,4,#243000],REL_CC4UE1951(|L),			\
 	REL_ABB4UE_1920(|L),REL_CC4UE1951U(|L));							\
-      F=SF1;
+      F=SP1;
     TX=Frankreich ETAT Thuile;										\
       C=THUILE,CIWL_F1204,CIWL_WR4U_D2419,3*CIWL_WL4U_1660A;						\
       F=SP1;
@@ -61,14 +69,14 @@ $REQUIRE TRAINDEF.TTT
       C=AL_T19L|AL_T19,F2FS;										\
       F=SF2;
     TX=Frankreich EST 241;										\
-      C=EST_241_002L|EST_241_002|EST_241_007L|EST_241_007|EST_41001L|EST_41001,F2PC;			\
+      C=EST_241_002L|EST_241_002|EST_241_007L|EST_241_007|EST_41001L|EST_41001,F2PES;			\
       F=SP2;
     TX=Frankreich ETAT 231.981-996;									\
       C=ETAT_2_2319(93|87|81)(|L),F2PC;									\
       F=SP2;
     TX=Frankreich ETAT ZZB 1000;									\
       C=ETAT_ZZB1000TL,ETAT_ZZB1000B|ETAT_ZZB1000T;							\
-      F=SF2;
+      F=DPU2;
     TX=Frankreich ETAT 241;										\
       C=ETAT_241_101L|ETAT_241_101,F2PC;								\
       F=SP2;
@@ -79,6 +87,9 @@ $REQUIRE TRAINDEF.TTT
     TX=Frankreich Nord 2641 75;										\
       C=NORD_2641_75(A|B)(|L),F2PC;									\
       F=SP2;
+    TX=Frankreich Compagnie du chemin de fer Paris et Orléans (PO)5300;					\
+      C=PO_5300M(|L),3*F2FPOS;										\
+      F=SF2;
     TX=Frankreich PLM 241C + Schnellzug;								\
       C=PLM_241C1_1930L[#D:L]|PLM_241C1_1930[#D:R]|PLM_241C1_1932L[#D:L]|PLM_241C1_1932[#D:R]|		\
 	PLM_241C1_1939L[#D:L]|PLM_241C1_1939[#D:R],F2PP;						\
@@ -87,7 +98,8 @@ $REQUIRE TRAINDEF.TTT
       C=PLM_262BD1A,F2PP;										\
       F=SP2;
     TX=Frankreich USTC S160;										\
-      C=USTC_2C_3(379|443|580|675)(|L),10*(NS_88101(E|N)[OB:BOX16,15,13][OB:BOX16,70,13]),USARMY_CAB2;	\
+      C=USTC_2C_3(379|443|580|675)(|L),5*USA_2C_16757(|L),7*USA_2C_22(9174|8075)(|L),			\
+	3*(USA_2C_420383(|L)[O:BARREL12,10,24][O:BARREL12,43,24]),USA_2C_900141(|L);			\
       F=SF2;
     TX=Frankreich USTC S160;										\
       C=USTC_2C_2737(|L),10*ACL_FM_7600(|L)[OB:(BOX6|BOX33|BOX28),,11],USARMY_CAB2;			\
@@ -101,6 +113,9 @@ $REQUIRE TRAINDEF.TTT
       C=BWD_2C78697(|L),(10*WUE_SSS95V[NB:B,BA8][O:RA_T72,14,12][OB:FIX01,7,12][OB:#FIX01,76,12]),	\
 	HR_HBOX[BC:-20,20,0,0,,9][BT:0,7,4,2][BT:7,7,4,2][OB:WIN_16_12,3,16][OT:BUFFER4R,>,8]		\
 	[OT:BUFFER4L,0,8][NB:B,BA8][BC:-10,20,2,33,64,1][BC:-10,20,2,35,64,2];				\
+      F=SF2;
+    TX=Frankreich SNCF 5-140J + train fret 1940;							\
+      C=SNCF_5_140J2M(|L),F2FCL;									\
       F=SF2;
 
 # E
@@ -119,7 +134,7 @@ $REQUIRE TRAINDEF.TTT
     TX=Frankreich MIDI BB 4800;										\
       C=MIDI_E4800B|MIDI_E4802|MIDI_E4821,F2PP;								\
       F=EP2;
-    TX=Frankreich PLM 161 A1, B 1-9;									\
+    TX=Frankreich PLM 161 A1,B 1-9;									\
       C=PLM_161AE1|PLM_161BE1|PLM_161BE9,F2FL;								\
       F=EF2;
     TX=Frankreich PLM 161 CE3;										\
@@ -140,7 +155,7 @@ $REQUIRE TRAINDEF.TTT
     TX=Frankreich PLM 262 AE1;										\
       C=PLM_262AE1,F2FL;										\
       F=EF2;
-    TX=Frankreich PO 262 E4, 63;									\
+    TX=Frankreich PO 262 E4,63;										\
       C=PO_E4|PO_E63,F2FS;										\
       F=EF2;
     TX=Frankreich PO E 500;										\
@@ -169,11 +184,20 @@ $REQUIRE TRAINDEF.TTT
   }
   {E3?
 # D
+    TX=SNCF 030A;											\
+      C=SNCF_5_030A40M(|L),3*F3FSA;		\
+      F=SF3;
+    TX=SNCF 030 TA;											\
+      C=SNCF_3_040TA_CFGM(|L),2*SNCF_OUEST_B7TM(|L);							\
+      F=SF3;
     TX=SNCF 030 TB;											\
       C=SNCF_5_030TBM(|L),CIWL_PCFOM(|L),CIWL_P(FO|CAN)M,CIWL_P(|C)EDNM(|L);				\
       F=SF3;
+    TX=SNCF 030 TB;											\
+      C=SNCF_2_030TB2M(|L),F3FSA;				\
+      F=SF3;
     TX=SNCF 030 TU;											\
-      C=SNCF_030TU2L,(<SNCF_K_CHAMP2,SNCF_OCEM3D(|L),SNCF_CIT2E_MM1,SNCF_G_OCEM29BL);			\
+      C=SNCF_030TU2(|L),(<SNCF_K_CHAMP2,SNCF_OCEM3D(|L),SNCF_CIT2E_MM1,SNCF_G_OCEM29BL);		\
       D=R;												\
       F=SF3;
     TX=SNCF 040D + Güterzug;										\
@@ -206,6 +230,13 @@ $REQUIRE TRAINDEF.TTT
     TX=SNCF 140U + Güterzug;										\
       C=SNCF_3_140U119(|L),F3FLS;									\
       F=SF3;
+    TX=Frankreich SNCF 5-140J + train fret 1955;							\
+      C=SNCF_5_140J2M(|L),10*(SNCF_3A_K(256|256E1R|256E2R|256E3R|256R|F256|F256B|F256R|F256RB)(|L));	\
+      F=SF3;
+    TX=SNCF 1-141C + Banlieure Montparnasse;								\
+      C=SNCF_3_141CKM(|L),$DIR(SNCF_3TALBOT_BDML,SNCF_3TALBOT_BDM),SNCF_3TALBOT_AM(|L),			\
+	5*SNCF_3TALBOT_BM;										\
+      F=SPR3;
     TX=SNCF 141R + Mistral;										\
       C=SNCF_141R1207_4P(|L),										\
 	(<SNCF_3METPLM3DML,CIWL_PCAM,CIWL_4271MISML,7*SNCF_IM56O_A8ML,SNCF_DX_U56BM(|L))|		\
@@ -233,15 +264,18 @@ $REQUIRE TRAINDEF.TTT
     TX=SNCF 1.141TB Region Est;										\
       C=SNCF_1_141TBM(|L),2*EST_B6TM(|L),SNCF_3OCEM(32|29)DM,SNCF_ARM18_B6TFM(|L);			\
       F=SPR3;
+    TX=SNCF 150P + Güterzug;										\
+      C=SNCF_150P_GM(|L),8-12*SNCF_3E1(A|B|C)(|L)[O:COAL3(7|8)([|M])];					\
+      F=SF3;
     TX=SNCF 150X + Güterzug;										\
       C=SNCF_150X_(962|720)(|L),8-12*SNCF_3E1(A|B|C)(|L)[O:COAL3(7|8)([|M])];				\
       F=SF3;
     TX=SNCF 150X + Güterzug;										\
       C=(SNCF_2C150X_1519|SNCF_2C150X_1701|SNCF_3_150X_29|SNCF_3_150X_138|SNCF_3_150X_146|		\
-	SNCF_3_150X_153|SNCF_3_150X_156)(|L),F3FLS;							\
+	SNCF_3_150X_153|SNCF_3_150X_156)(|L),F3FLSA;							\
       F=SF3;
     TX=SNCF 150Y + Güterzug;										\
-      C=(SNCF_3_150Y1993|SNCF_150Y|SNCF_150Y_123)(|L),F3FLS;						\
+      C=(SNCF_3_150Y1993|SNCF_150Y|SNCF_150Y_123)(|L),F3FLSA;						\
       F=SF3;
     TX=SNCF 150Z + Güterzug;										\
       C=SNCF_150Z_2217|SNCF_150ZW,									\
@@ -636,7 +670,7 @@ $REQUIRE TRAINDEF.TTT
       F=EGPRU3;
 
 # Frankreich Schmalspur
-    TX=Frankreich Provence-Eisenbahn ZZ-1-12, 22;							\
+    TX=Frankreich Provence-Eisenbahn ZZ-1-12,22;							\
       C=PROV_42ZZ7L|PROV_42ZZ7|PROV_35ZZ1L|								\
 	((PROV_59ZZ2L|PROV_59ZZ2|PROV_65ZZ3L|PROV_65ZZ3),(PROV_50AT1L|PROV_50AT1))|PROV_35ZZ1|		\
 	PROV_45ZZ1L|PROV_45ZZ1|PROV_56ZZ1L|PROV_56ZZ1|PROV_62ZZ1L|PROV_62ZZ1|PROV_86ZZ2L|PROV_86ZZ2|	\
@@ -659,7 +693,7 @@ $REQUIRE TRAINDEF.TTT
       C=SNCF_Y2100(G2|S)M(|L),F4FS;									\
       F=DF4;
     TX=SNCF Y2200 + Rangierzug;										\
-      C=SNCF_Y2200S1IM(|L),F4FS;									\
+      C=SNCF_Y2200S1IM(|L),SNCF_FAUT_BAR_FTSM;								\
       F=DF4;
     TX=SNCF Y6000 + Rangierzug;										\
       C=SNCF_Y60(13|20)M(|L),F4FS;									\
@@ -672,6 +706,9 @@ $REQUIRE TRAINDEF.TTT
       F=DF4;
     TX=SNCF 63000;											\
       C=SNCF_BB63000S2ANM(|L),8*SNCF_SGW;								\
+      F=DF4;
+    TX=SNCF 63000 1970;											\
+      C=SNCF_BB63000S1PGM|SNCF_BB63000S1GM,3*F4FRA;							\
       F=DF4;
     TX=SNCF 63000;											\
       C=SNCF_BB63000AL|SNCF_BB63000A|SNCF_BB63000BL|SNCF_BB63000B,F4FL;					\
@@ -711,6 +748,13 @@ $REQUIRE TRAINDEF.TTT
 	2*SNCF_BRUHAT_GM)|										\
 	(>(SNCF_METPLM_NP_A4DM,SNCF_BRUHAT_GM)|(SNCF_METPLM_B4DM,SNCF_METPLM26_A7M),2*SNCF_BRUHAT_GM);	\
       F=DPR4;
+    TX=SNCF A1AA1A 68000 + Train Grandes lignes Sud-Ouest;						\
+      C=SNCF_68000S2(|L),										\
+	(<SNCF_METSO39_A8M|SNCF_METSO46_A812M,SNCF_METSO46_A312B5M,2*SNCF_METSO48_B10M,SNCF_3OS_B5DM,	\
+	SNCF_3BRUHATM)|											\
+	(>SNCF_METSO39_A8ML|SNCF_METSO46_A812ML,SNCF_METSO46_A312B5ML,2*SNCF_METSO48_B10ML,		\
+	SNCF_3OS_B5DML,SNCF_3BRUHAT);									\
+      F=DP3;
     TX=SNCF A1AA1A 68000 + Güterzug;									\
       C=SNCF_68000M(|L),F4FCL;										\
       F=DF4;
@@ -824,7 +868,7 @@ $REQUIRE TRAINDEF.TTT
 	(SNCF_4BB15009(|L)[#D:R],SNCF_4IM56TEE_A8L,SNCF_Y_WRRBL,2*SNCF_4IM56TEE_A8,SNCF_4IM56TEE_A8L,	\
 	SNCF_4DX_U56EML);										\
       F=EP4;
-    TX=SNCF 15000 + Schnellzug;									\
+    TX=SNCF 15000 + Schnellzug;										\
       C=SNCF_BB15000(M|S1T1M)(|L),SNCF_PE18FLYM(|L),							\
 	(<5*(SNCF_875970SY|SNCF_875970_1967),SNCF_Y_WRR,SNCF_UIC_A9_1967,				\
 	SNCF_UIC_A7DY|SNCF_UIC_A7D_1967)|								\
@@ -935,6 +979,12 @@ $REQUIRE TRAINDEF.TTT
 
 # 1,5 KV DC
 
+    TX=SNCF 2D2 5500 + Train Grandes lignes Sud Quest;							\
+      C=SNCF_2D2_5500M,2*SNCF_OS_B10M(|L),								\
+	(SNCF_4METSO46_A812M(|L)|SNCF_4METSO39_A8M(|L)|SNCF_4METSO46_A8M),				\
+	$DIR(SNCF_4METSO46_A312B5M,SNCF_4METSO46_A312B5ML),3*SNCF_4A_USI62BM(|L),2*SNCF_D_METMIDI2EM,	\
+	$DIR(SNCF_4METSO46_B5DM,SNCF_4METSO46_B5DML);							\
+      F=EGP4;
     TX=SNCF 2D2 5500 + Train de Nuit Bordeaux - Milan;							\
       C=SNCF_2D2_5500M,											\
 	(<SNCF_ORADM,3*SNCF_OCEM32DM,SNCF_AOC50_B10G0M,2*SNCF_AOL_B10CGM,CIWL_YB_UM,SNCF_METPLM_A7CM,	\
@@ -1011,7 +1061,7 @@ $REQUIRE TRAINDEF.TTT
       F=GEP4;
     TX=SNCF 07100 + Special train CIWL;									\
       C=SNCF_CC7100GBM,											\
-	(<(2*SNCF_METSO46_B10GM),CIWL_BX4006UM(|L),CIWL_BDT4016UM(|L),CIWL_4BD4020M(|L),		\
+	(<(2*SNCF_4METSO46_B10M),CIWL_BX4006UM(|L),CIWL_BDT4016UM(|L),CIWL_4BD4020M(|L),		\
 	2*SNCF_4METSO39_A312B5M,SNCF_METSO46_B5DM);							\
       F=GEP4;
     TX=SNCF 07100;											\
@@ -1194,7 +1244,7 @@ $REQUIRE TRAINDEF.TTT
     TX=SNCF Z 600 StGervais-Vallorcine;									\
       C=SNCF_Z600ONM(|L),SNCF_ZR20600ONM(|L),SNCF_Z600ONM(|L),|(SNCF_ZR20600ONM(|L),SNCF_Z600ONM(|L));	\
       F=MNPR4;
-    TX=Frankreich Provence-Eisenbahn ZZ-1-12, 22;							\
+    TX=Frankreich Provence-Eisenbahn ZZ-1-12,22;							\
       C=((PROV_73ZZ6L|PROV_73ZZ6),(PROV_78_AT1L|PROV_78_AT1))|						\
 	((PROV_85ZZ10L|PROV_85ZZ10),(PROV_85XR1341L|PROV_85XR1341));					\
       F=DNPU4;
@@ -1232,13 +1282,13 @@ $REQUIRE TRAINDEF.TTT
       C=SNCF_BB64700ANM(|L),5*SNCF_FAL_SOLLACM;								\
       F=DF5;
     TX=SNCF 64700 + Güterzug;										\
-      C=SNCF_BB64700ANM(|L),SNCF_BB64800ANM(|L),6*F5FS|2*F5FCS;						\
+      C=SNCF_BB64700ANM(|L),SNCF_BB64800ANM(|L),(6*F5FS)|(2*F5FCS);					\
       F=DF5;
     TX=SNCF 66000 + Güterzug;										\
       C=SNCF_BB66000S1CM(|L)|FRET_BB66000S3M(|L)|SNCF_BB66000S4NM(|L),(6*F5FS)|(2*F5FCS);		\
       F=DF5;
     TX=SNCF 66700 + Güterzug;										\
-      C=SNCF_BB66700S2M(|L),6*F5FS|2*F5FCS;								\
+      C=SNCF_BB66700S2M(|L),(6*F5FS)|(2*F5FCS);								\
       F=DF5;
     TX=SNCF BB 67300 + Spécial;										\
       C=SNCF_BB67300S2RBCM(|L),SNCF_SCCNM(|L),SNCF_SU325BNM(|L),SNCF_CINE204SCCM(|L),			\
@@ -1251,7 +1301,7 @@ $REQUIRE TRAINDEF.TTT
 	SNCF_CEN_RIO_BX2ML);										\
       F=DPRU5;
     TX=SNCF 69400 + Güterzug;										\
-      C=FRET_BB69400M(|L),6*F5FS|2*F5FCS;								\
+      C=FRET_BB69400M(|L),(6*F5FS)|(2*F5FCS);								\
       F=DF5;
     TX=SNCF BB 67000 + Fret;										\
       C=SNCF_BB67000RBCM(|L),F5FL|F5FCL;								\
@@ -1293,13 +1343,13 @@ $REQUIRE TRAINDEF.TTT
       C=DG_BB63000(O2M|O3M|YM)(|L),F5FM;								\
       F=DF5;
     TX=SECO Rail 211;											\
-      C=SECO_211O2M(|L),F5FM|8*SECO_FADSM[O:BALLAST(38|39|40|41|42)(|[M])];				\
+      C=SECO_211O2M(|L),F5FM|(8*(SECO_FADSM[O:BALLAST(38|39|40|41|42)(|[M])]));				\
       F=DF5;
     TX=SECO Rail BB 63000;										\
-      C=SECO_BB63000M(|L),F5FM|8*SECO_FADSM[O:BALLAST(38|39|40|41|42)(|[M])];				\
+      C=SECO_BB63000M(|L),F5FM|(8*(SECO_FADSM[O:BALLAST(38|39|40|41|42)(|[M])]));				\
       F=DF5;
     TX=SECO Rail G 1206;										\
-      C=SECO_G1206M(|L),F5FM|8*SECO_FADSM[O:BALLAST(38|39|40|41|42)(|[M])];				\
+      C=SECO_G1206M(|L),F5FM|(8*(SECO_FADSM[O:BALLAST(38|39|40|41|42)(|[M])]));				\
       F=DF5;
     TX=ETF 211;												\
       C=ETF_211YM(|L),F5FM;										\
@@ -1481,11 +1531,8 @@ $REQUIRE TRAINDEF.TTT
       C=SNCF_BB25500S2BNM(|L),SNCF_MAUZIN214CNM(|L),SNCF_BB25500CBNM(|L)[PD];				\
       F=EF5;
     TX=SNCF BB 26000 + Fret;										\
-      C=SNCF_BB26096M,F5FL;										\
+      C=SNCF_BB26096(|I)M(|L),F5FL;									\
       F=EGF5;
-    TX=SNCF Z 7300  TER Aquitaine;									\
-      C=<SNCF_ZR17300_2S_T2BAQ1ML,SNCF_AQ_Z7300S2T2B1M;							\
-      F=EGPRU5;
     TX=SNCF Z 7500;											\
       C=SNCF_Z7500~GAG;											\
       F=GEUP5;
@@ -1539,8 +1586,8 @@ $REQUIRE TRAINDEF.TTT
     TX=SNCF BB 20200 + Wiesbaden - Port-Bou;								\
       C=SNCF_BB20200BNM(|L),3@SNCF_UIC_B10CH;								\
       F=EP5;
-    TX=SNCF BB 22000 + Schnellzug;										\
-      C=SNCF_4BB22210(|L),F5PC,;							\
+    TX=SNCF BB 22000 + Schnellzug;									\
+      C=SNCF_4BB22210(|L),F5PC,;									\
       F=EP5;
     TX=SNCF BB 22200 + Mesure;										\
       C=<SNCF_BB22200GBCM(|L),SNCF_HELENEBM(|L),SNCF_IES171M(|L),SNCF_MAUZIN(216RM|213NM)(|L),		\
@@ -1619,7 +1666,7 @@ $REQUIRE TRAINDEF.TTT
     TX=SNCF X 220 Blanc Argent;										\
       C=SNCF_X220_T1BM(|L);										\
       F=MNPR5;
-    TX=Frankreich Provence-Eisenbahn ZZ-1-12, 22;							\
+    TX=Frankreich Provence-Eisenbahn ZZ-1-12,22;							\
       C=(PROV_84ZZ6|PROV_84ZZ6L),									\
 	(PROV_2000XR1341L|PROV_2000XR1341|PROV_2000XR1342L|PROV_2000XR1342|PROV_2000XR1343L|		\
 	PROV_2000XR1343);										\
@@ -1681,7 +1728,7 @@ $REQUIRE TRAINDEF.TTT
 	F6FTL|(5*F6FCS)|(3*F6FS);									\
       F=DF6;
     TX=SNCF 66700 + Güterzug;										\
-      C=SNCF_BB66700AIM(|L)|SNCF_BB66700S1IM(|L)|SNCF_BB66700S2IM(|L),F6FTL|5*F6FCS|3*F6FS;		\
+      C=SNCF_BB66700AIM(|L)|SNCF_BB66700S1IM(|L)|SNCF_BB66700S2IM(|L),F6FTL|(5*F6FCS)|(3*F6FS);		\
       F=DF6;
     TX=SNCF 667210 + Bauzug;										\
       C=SNCF_667210,(<(2*GA17),2*SNCF_TDS_INFRA,GO03~CDP,GL42,INFRA_CONT,GO03~CDP[!E]);			\
@@ -1701,10 +1748,23 @@ $REQUIRE TRAINDEF.TTT
       C=SNCF_BB67300CPIM(|L)|SNCF_BB67300S2RBIM(|L)|SNCF_BB67300S2CPIM(|L),F6FCL|F6FL;			\
       F=DF6;
     TX=SNCF BB 67300 +  TER Centre;									\
+      C=(SNCF_BB67300_CP2M|SNCF_BB67300S2CP2IM)(|L),							\
+	(<2*SNCF_CEN_VU_B11BM,SNCF_REMI_VU_AQ_B11M,SNCF_CEN_VTU_BRM,SNCF_CEN_VTU_A3M)|			\
+	(>2*SNCF_CEN_VU_B11BML,SNCF_REMI_VU_AQ_B11ML,SNCF_CEN_VTU_BRML,SNCF_CEN_VTU_A3ML)|		\
+	(<SNCF_REMI_VU_CARM_B10UX60PM,SNCF_REMI_VU_AQ_B11M,SNCF_CEN_VTU84_ABM|SNCF_CEN_VTU84_IABM,	\
+	SNCF_REMI_VTU84_AB1M|SNCF_REMI_VTU84_AB2M,SNCF_CEN_VU_B6DU4M)|					\
+	(>SNCF_REMI_VU_CARM_B10UX60PML,SNCF_REMI_VU_AQ_B11ML,SNCF_CEN_VTU84_ABML|SNCF_CEN_VTU84_IABML,	\
+	SNCF_REMI_VTU84_AB1ML|SNCF_REMI_VTU84_AB2ML,SNCF_CEN_VU_B6DU4ML);				\
+      F=DPR6;
+    TX=SNCF BB 67300 +  TER Centre;									\
       C=SNCF_BB67300S2RBIM(|L),										\
 	(<SNCF_CEN_VTU_B2M,2*SNCF_CEN_USI66_B2IM,SNCF_CEN_USI66A2IM)|					\
 	(>SNCF_CEN_VTU_B2ML,2*SNCF_CEN_USI66_B2IML,SNCF_CEN_USI66I2AML);				\
       F=DPR6;
+    TX=SNCF BB 67400 + TER;										\
+      C=(SNCF_BB67400CP2IM|SNCF_BB67400CPB2M)(|L),(SNCF_VU_ICB7UHM|SNCF_VU_CIC_B7UHML),			\
+	3*SNCF_VTU_T2BCIC_BM(|L),SNCF_VTU2_IL2_AM(|L),SNCF_VTU2_IL2_BM(|L);				\
+      F=DP6;
     TX=SNCF 67400 + Güterzug;										\
       C=FRET_BB67400(PMM|PM2M)(|L),F6FCL;								\
       F=DF6;
@@ -1725,7 +1785,8 @@ $REQUIRE TRAINDEF.TTT
 	SNCF_GAS1|SNCF_GAS1B,SNCF_GAS2B|SNCF_GAS2C,SNCF_GAS2D,SNCF_GABSS|SNCF_GABSS50);			\
       F=DF56;
     TX=SNCF 68000;											\
-      C=FRET_68000~DK|SNCF_A1AA1A68000FIM(|L),SNCF_EAOS1,SNCF_EAOS2,SNCF_EAOS3,SNCF_EAOS4;		\
+      C=FRET_68000~DK|SNCF_A1AA1A68000FIM(|L),SNCF_4_EAOS5966(|L),SNCF_4_EAOS5327(|L),			\
+	SNCF_4_EAOS5334(|L),SNCF_EAOS4(|L),SNCF_4_EAS5950(|L),SNCF_4_EAOS802(|L);			\
       F=DF56;
     TX=SNCF BB 476000 Fret;										\
       C=FRET_BB76000M,F6FCL;										\
@@ -1819,10 +1880,10 @@ $REQUIRE TRAINDEF.TTT
     TX=Frasca 211;											\
       C=FRAS_V211A,F6FM;										\
       F=DF6;
-    TX=Euro Cargo Rail (EWS) 66010;									\
+    TX=Euro Cargo Rail (EWS)66010;									\
       C=ECR_66(010|249)(|L),F6FL|D6FCM|D6FZM;								\
       F=DF6;
-    TX=Euro Cargo Rail (EWS) 7701;									\
+    TX=Euro Cargo Rail (EWS)7701;									\
       C=ECR_77001(|L),F6FCL|F6FL|D6FCM|D6FZM;								\
       F=DF6;
     TX=Frankreich Europorte 4000;									\
@@ -1831,7 +1892,7 @@ $REQUIRE TRAINDEF.TTT
     TX=ETF 500;												\
       C=ETF_91815(01|05)(|L),Z_D_E6_Bauzug2;								\
       F=DF6;
-    TX=Euro Cargo Rail (EWS) FB 1547;									\
+    TX=Euro Cargo Rail (EWS)FB 1547;									\
       C=ECR_FB1547(|L),F6FL|D6FCM|D6FZM;								\
       F=DF6;
     TX=Garmatex 211;											\
@@ -1860,6 +1921,12 @@ $REQUIRE TRAINDEF.TTT
       F=DF6;
     TX=France RDT13 G 2000;										\
       C=RDT13_G2000M(|L),F6FL;										\
+      F=DF6;
+    TX=Regiorail G 1206;										\
+      C=REGR_G1206_BXM(|L),4*NACCO_TANOOS0689M(|L);							\
+      F=DF6;
+    TX=Regiorail Akiem 77500;										\
+      C=REGR_77500_AKIEME(|R)(|L),12*WASC_TANOOSB1M(|L),8*ONRAIL_TANOOS0689M(|L);			\
       F=DF6;
     TX=Seco Rail 1-20;											\
       C=SECO_(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20)(|L),Z_D_E6_Bauzug2;		\
@@ -1895,7 +1962,7 @@ $REQUIRE TRAINDEF.TTT
       C=VFLI_775(01|00AM|00BM)(|L),F6FL|D6FCM|D6FZM;							\
       F=DF6;
     TX=VFLI BB G 1206;											\
-      C=VFLI_G1206_ATBM(|L),F6FM;									\
+      C=(VFLI_G1206_ATBM|VFLI_G1206_ATB3M)(|L),F6FM;							\
       F=DF6;
     TX=Colas Rail 211;											\
       C=COLAS_211O2M(|L),F6FM;										\
@@ -1953,6 +2020,11 @@ $REQUIRE TRAINDEF.TTT
     TX=Travaux du Sud-Ouest G 1206;									\
       C=TSO_G1206_MCM(|L),F6FM;										\
       F=DF6;
+    TX=VFLI G 1206;											\
+      C=(TSO_G1206_MCM|MRCEDL_G1206_VFLIM)(|L),								\
+	8*(MILLET_TAGNPPS_AFR95Y27M|MILLET_TAGNPPS_AFR95M|ERMEWA_TAGNPPS_AFR95Y27M|			\
+	ERMEWA_TAGNPPS_AFR95PM)(|L);									\
+      F=DF6;
 
 #VT
 
@@ -1998,6 +2070,9 @@ $REQUIRE TRAINDEF.TTT
     TX=SNCF X 76500 Picardie;										\
       C=<SNCF_X76513_514L,SNCF_X76513_514M,SNCF_X76513_514;						\
       F=DPU6;
+    TX=SNCF X 85000 85000 Coradia Liner;								\
+      C=<SNCF_85000ICB1,SNCF_85000ICB2,SNCF_85000ICB5,SNCF_85000ICB3,SNCF_85000ICB4,SNCF_85000ICB6;	\
+      F=DPU6;
 
 # Frankreich 1,5 KV DC
 
@@ -2019,7 +2094,7 @@ $REQUIRE TRAINDEF.TTT
 	SNCF_VU_A11U_CP,2*SNCF_VU_A9U_CP);								\
       F=EGP6;
     TX=SNCF BB 9200 + Schnellzug;									\
-      C=SNCF_BB9200(S1|S2TR|)BIM(|L),									\
+      C=SNCF_BB9200(|S1|S2TR)BIM(|L),									\
 	(<SNCF_VTU82_CARM_AM,SNCF_VTU_CARM_A8TUM,SNCF_VU_CARM_B3SUM,SNCF_VU_CARM_B11M,			\
 	3*SNCF_VTU_CARM_B9TUM,2*SNCF_VU_CARM_A9,SNCF_VU_TEOZI_B3SU,4*SNCF_VTU82_CARM_BM,		\
 	SNCF_VTU_CARM_B9TUM)|										\
@@ -2184,6 +2259,9 @@ $REQUIRE TRAINDEF.TTT
 
 # Frankreich 25 KV AC privat
 
+    TX=AKIEM 186;											\
+      C=AKIEM_186_(365V|372)(|L),(25*NACCO_FALLS6681BM(|L));						\
+      F=EF6;
     TX=Akiem 27121;											\
       C=AKIEM_BB27121M,F6FL|F6FCL;									\
       F=EF6;
@@ -2202,6 +2280,11 @@ $REQUIRE TRAINDEF.TTT
     TX=Eurostar Three Capitals;										\
       C=<EUST_ML,EUST_R1L,3*EUST_R2L,(EUST_R6L|EUST_R6),3*EUST_R2,EUST_R9,EUST_R9L,3*EUST_R2L,		\
 	(EUST_R6L|EUST_R6),3*EUST_R2,EUST_R1,EUST_M;							\
+      F=EPU6;
+    TX=Eurostar TMST 373 IZY;										\
+      C=<EUST_TMST_IZY_M1,EUST_TMST_IZY1,4*EUST_TMST_IZY2,EUST_TMST_IZY6L,2*EUST_TMST_IZY2,		\
+	EUST_TMST_IZY9,EUST_TMST_IZY9L,2*EUST_TMST_IZY2L,EUST_TMST_IZY6,4*EUST_TMST_IZY2L,		\
+	EUST_TMST_IZY1L,EUST_TMST_IZY_M1L;								\
       F=EPU6;
     TX=Thalys PBKA;											\
       C=(1|2)												\
@@ -2299,7 +2382,8 @@ $REQUIRE TRAINDEF.TTT
       F=EPU6;
     TX=Infra BB 22200 + testtrain;									\
       C=INFRA_BB22200M(|L),SNCF_IES171IM(|L),SNCF_MAUZIN214IM(|L),SNCF_VU_CP2I_B11M(|L),		\
-	INFRA_BB22200G2M(|L)[PD];
+	INFRA_BB22200G2M(|L)[PD];									\
+      F=EF6;
 
 # Triebwagen 25 KV AC
 
@@ -2390,7 +2474,7 @@ $REQUIRE TRAINDEF.TTT
 	(TGV_CARM1ML,SNCF_TGV_RES3G,SNCF_TGV_RES3F,SNCF_TGV_RES3E,SNCF_TGV_RES3CL,2*SNCF_TGV_RES3CL,	\
 	SNCF_TGV_RES3B),$DIR(SNCF_TGV_RES3A[P1U],SNCF_TGV_RES3A[PD]));					\
       F=EPU6;
-    TX=SNCF B 82500 Transilien-Netz P Paris Est nach Provins, Meaux und La Ferté-Milon;			\
+    TX=SNCF B 82500 Transilien-Netz P Paris Est nach Provins,Meaux und La Ferté-Milon;			\
       C=(<SNCF_TRA_B82500_1L,										\
 	((SNCF_TRA_B82500_2L,SNCF_TRA_B82500_3)|(SNCF_TRA_B82500_3L,SNCF_TRA_B82500_2)),		\
 	SNCF_TRA_B82500_1)|										\
@@ -2405,7 +2489,7 @@ $REQUIRE TRAINDEF.TTT
       C=<SNCF_MGV_MML,SNCF_MGV_R1ML,SNCF_MGV_R2ML,SNCF_MGV_R3ML,SNCF_MGV_R4ML,SNCF_MGV_R5ML,		\
 	2*SNCF_MGV_R6M,SNCF_MGV_R8M,SNCF_MGV_MM;							\
       F=EFU6;
-    TX=SNCF B 82500 Transilien-Netz P Paris Est nach Provins, Meaux und La Ferté-Milon;			\
+    TX=SNCF B 82500 Transilien-Netz P Paris Est nach Provins,Meaux und La Ferté-Milon;			\
       C=(<SNCF_TRA_B82500_1L,										\
 	((SNCF_TRA_B82500_2L,SNCF_TRA_B82500_3)|(SNCF_TRA_B82500_3L,SNCF_TRA_B82500_2)),		\
 	SNCF_TRA_B82500_1)|										\
@@ -2419,6 +2503,13 @@ $REQUIRE TRAINDEF.TTT
     TX=SNCF Z 5600  RER C;										\
       C=<SNCF_Z20900IIML,2@SNCF_IF_ZR202900BM(|L),SNCF_Z20900IIM;					\
       F=EGPRU6;
+    TX=SNCF REGIOLIS Z 31500 - TER Auvergne Rhône-Alpes;						\
+      C=1-2@REGIOLIS_Z4R_ARA_B;										\
+      F=EPRU6;
+
+    TX="SNCF TER Grand Est Z 27500 (BGC ex Alsace)";							\
+      C=AGCBIBI_T2ALSGDEST;										\
+      F=EPRU6;
 
 # 1,5 KV DC
     TX=SNCF 06500;											\
@@ -2489,6 +2580,12 @@ $REQUIRE TRAINDEF.TTT
     TX=SNCF 09200 FRET;											\
       C=FRET_BB9200~NEK2,F6FL;										\
       F=GEF6;
+    TX=SNCF 22200 + train croisières;									\
+      C=SNCF_BB22352,											\
+	(2*SNCF_VTU_A10RTU,SNCF_VTU_B5RTUX,SNCF_VU75_B6DD2L,SNCF_SUR_CLUB,2*SNCF_B9C9X_UIC)|		\
+	(2*SNCF_VTU_A10RTU,SNCF_VTU_B5RTUXL,SNCF_VU75_B6DD2,SNCF_SUR_CLUBL|SNCF_SUR_CLUB_A,		\
+	2*SNCF_B9C9X_UIC);										\
+      F=GEP6;
     TX=SNCF 22200 FRET;											\
       C=FRET_BB22200IM(|L),F6FL;									\
       F=GEF6;
@@ -2541,20 +2638,39 @@ $REQUIRE TRAINDEF.TTT
 	SNCF_REGIO2N_VI1N3PPML,SNCF_REGIO2N_VI2NLPPM,SNCF_REGIO2N_VI1N4PPML,SNCF_REGIO2N_VI2NLPPM,	\
 	SNCF_REGIO2N_VE2NPPML);										\
       F=EGPRU6;
-    TX=SNCF TGV TMS IZY;										\
-      C=<SNCF_IZY_TMST_M1L,SNCF_IZY_TMST_R1L,4*SNCF_IZY_TMST_R2,SNCF_IZY_TMST_R6,2*SNCF_IZY_TMST_R2,	\
-	SNCF_IZY_TMST_R9,SNCF_IZY_TMST_R9L,2*SNCF_IZY_TMST_R2L,SNCF_IZY_TMST_R6L,4*SNCF_IZY_TMST_R2L,	\
-	SNCF_IZY_TMST_R1,SNCF_IZY_TMST_M1;								\
+
+# Privat E
+
+    TX=Akiem BB 27000;											\
+      C=AKIEM_27000_AK_DC,F6FCR;									\
+      F=EFG6;
+    TX=Regiorail BB 27000 Akiem;									\
+      C=REGIORAIL_27000_AKIEM_AC,D6FCM|D6FZM;								\
+      F=EF6;
+    TX=Regiorail BB 37000 Akiem;									\
+      C=REGIORAIL_37300_BEACONEXTRANS_DC,D6FP2;								\
+      F=EGF6;
+    TX=Beacon Rail BB 27300;										\
+      C=BEACON_BB27300_EXTRANS_AC,D6FCM|D6FZM;								\
+      F=EF6;
+    TX=Thalys TGV TMS IZY;										\
+      C=<THAL_IZY_TMST_M1L,THAL_IZY_TMST_R1L,4*THAL_IZY_TMST_R2,THAL_IZY_TMST_R6,2*THAL_IZY_TMST_R2,	\
+	THAL_IZY_TMST_R9,THAL_IZY_TMST_R9L,2*THAL_IZY_TMST_R2L,THAL_IZY_TMST_R6L,4*THAL_IZY_TMST_R2L,	\
+	THAL_IZY_TMST_R1,THAL_IZY_TMST_M1;								\
       F=EPU6;
     TX=Thello BB 36000 + Thello IC Milano - Nice;							\
       C=THELLO_BB36000(|L),										\
 	(<THELLO_UICZ2CABSXL,4*THELLO_UICZ2L,THELLO_GC88,THELLO_GC19,THELLO_GC18)|			\
 	(<THELLO_GC18L,THELLO_GC18L,THELLO_GC19L,THELLO_GC88L,4*THELLO_UICZ2,THELLO_UICZ2CABSXL);	\
       F=GEP6;
-    TX=Thello 36000;											\
+    TX=Thello 36000 +;											\
       C=THELLO_BB36000(|L),										\
 	(<2*THELLO_GC70_AML,THELLO_GC70_BRHML,5*THELLO_UICZ85_BML)|					\
 	(>2*THELLO_GC70_AM,THELLO_GC70_BRHM,5*THELLO_UICZ85_BM);					\
+      F=GEP6;
+    TX=Thello 36000 + EN 200 Venezia Santa Lucia - Paris Gare de Lyon 2019;				\
+      C=THELLO_BB36000(|L),6*THELLO_BC5070A,THELLO_WR8890A,2*THELLO_WLABM_T3S,THELLO_WLABM_MU2,		\
+	THELLO_BC5070A;											\
       F=GEP6;
     TX=Thello 36000;											\
       C=THELLO_BB36000(|L),										\
@@ -2591,11 +2707,11 @@ $REQUIRE TRAINDEF.TTT
     $DEF SNCF_M65M_DE=3*SNCF_IM56TEEM_A8(|L)[NT:P]
     $DEF SNCF_M65L_DE=CIWL_WRL,4*SNCF_IM56TEEM_A8(|L)[NT:P]
 
-    TX=TEE 47 "Arbalète" Paris - Mulhouse (- Zürich) 1957;						\
+    TX=TEE 47 "Arbalète" Paris - Mulhouse (- Zürich)1957;						\
       C=<SNCF_RGP1G1XL,SNCF_RGPG1XR,(0|1)*(SNCF_RGPG1XR|SNCF_RGP1TEEXR),SNCF_RGP1TEEXR,SNCF_RGP1TEEX;	\
       D=R;												\
       F=DPUO3;
-    TX=TEE 47 "Arbalète" (Paris - Zürich) wird 1957 in Mulhouse um die Inlandseinheit gekürzt;		\
+    TX=TEE 47 "Arbalète" (Paris - Zürich)wird 1957 in Mulhouse um die Inlandseinheit gekürzt;		\
       M=CUT; D=R; V=8;											\
       C1=<SNCF_RGP1G1XL,SNCF_RGPG1XR;									\
       D1=R; V1=4;											\
@@ -2603,15 +2719,15 @@ $REQUIRE TRAINDEF.TTT
       D2=L; V2=8; P=<5;											\
       AP=|[C1+=,SNCF_RGPG1XR]|[C2+=,SNCF_RGP1TEEXR];							\
       F=DPUO3;
-    TX=TEE 47/PZ "Arbalète" (Paris -) Mulhouse - Zürich 1957;						\
+    TX=TEE 47/PZ "Arbalète" (Paris -)Mulhouse - Zürich 1957;						\
       C=<(1-2)*SNCF_RGP1TEEXR,SNCF_RGP1TEEX;								\
       D=R;												\
       F=DPUO3;
-    TX=TEE ZP/40 "Arbalète" Zürich - Mulhouse (- Paris) 1957;						\
+    TX=TEE ZP/40 "Arbalète" Zürich - Mulhouse (- Paris)1957;						\
       C=<(1-2)*SNCF_RGP1TEEXL,SNCF_RGP1TEEXRL;								\
       D=L;												\
       F=DPUO3;
-    TX=TEE 40 "Arbalète" (Zürich - Paris) wird 1957 in Mulhouse um die Inlandseinheit verstärkt;	\
+    TX=TEE 40 "Arbalète" (Zürich - Paris)wird 1957 in Mulhouse um die Inlandseinheit verstärkt;		\
       M=UNIT; D=L; V=8;											\
       C1=<SNCF_RGP1G1XL,SNCF_RGPG1XR;									\
       D1=R; V1=4;											\
@@ -2619,16 +2735,16 @@ $REQUIRE TRAINDEF.TTT
       D2=L; V2=8; P=<5;											\
       AP=|[C1+=,SNCF_RGPG1XR]|[C2-=SNCF_RGP1TEEXR,];							\
       F=DPUO3;
-    TX=TEE 40 "Arbalète" (Zürich -) Mulhouse - Paris 1957;						\
+    TX=TEE 40 "Arbalète" (Zürich -)Mulhouse - Paris 1957;						\
       C=<SNCF_RGP1G1XL,SNCF_RGPG1XR,(0|1)*(SNCF_RGPG1XR|SNCF_RGP1TEEXR),SNCF_RGP1TEEXR,SNCF_RGP1TEEX;	\
       D=L;												\
       F=DPUO3;
 
-    TX=TEE 2 "Mistral" Nice - Marseille (- Paris) 1965;							\
+    TX=TEE 2 "Mistral" Nice - Marseille (- Paris)1965;							\
       C=<SNCF_BB670003_GP,SNCF_M65N_DE;									\
       D=L;												\
       F=DPO3;
-    TX=TEE 2 "Mistral" (Nice - Paris) macht 1965 in Marseille Saint-Charles Kopf;			\
+    TX=TEE 2 "Mistral" (Nice - Paris)macht 1965 in Marseille Saint-Charles Kopf;			\
       M=HEAD;												\
       C=<SNCF_M65N_DE;											\
       D=L;												\
@@ -2638,11 +2754,11 @@ $REQUIRE TRAINDEF.TTT
       V2=4; V3=8; P=>5; T2=4-6,C2.P1U,2-3;								\
       F=EGPO3;												\
       V4=4;
-    TX=TEE 2 "Mistral" (Nice -) Marseille - Lyon (- Paris) 1965;					\
+    TX=TEE 2 "Mistral" (Nice -)Marseille - Lyon (- Paris)1965;						\
       C=<SNCF_M65N_DE,SNCF_M65M_DE,SNCF_BB92003_GP;							\
       D=R;												\
       F=EGP3;
-    TX=TEE 2 "Mistral" (Nice - Paris) wird 1965 in Lyon verstärkt;					\
+    TX=TEE 2 "Mistral" (Nice - Paris)wird 1965 in Lyon verstärkt;					\
       M=CHANGE;												\
       C=<SNCF_M65N_DE,SNCF_M65M_DE;									\
       D=R; V=8;												\
@@ -2652,15 +2768,15 @@ $REQUIRE TRAINDEF.TTT
       V2=4; V3=8; P=>30; T3=4-6,C2.P1U,2-3;								\
       FG=(TRBED11:..,^0;FL_SNCFC_F,FL_SNCFC_M1:..,-4,#);						\
       F=EGPO3;
-    TX=TEE 2 "Mistral" (Nice -) Lyon - Paris 1965;							\
+    TX=TEE 2 "Mistral" (Nice -)Lyon - Paris 1965;							\
       C=<SNCF_M65N_DE,SNCF_M65M_DE,SNCF_M65L_DE,SNCF_BB92003_GP;					\
       D=R;												\
       F=EGP3;
-    TX=TEE 1 "Mistral" Paris - Lyon (- Nice) 1965;							\
+    TX=TEE 1 "Mistral" Paris - Lyon (- Nice)1965;							\
       C=<SNCF_BB92003_GP,SNCF_M65N_DE,SNCF_M65M_DE,SNCF_M65L_DE;					\
       D=L;												\
       F=EGP3;
-    TX=TEE 1 "Mistral" (Paris - Nice) wird 1965 in Lyon gekürzt;					\
+    TX=TEE 1 "Mistral" (Paris - Nice)wird 1965 in Lyon gekürzt;						\
       M=CHANGE;												\
       C=<SNCF_M65L_DE;											\
       D=L; V=8;												\
@@ -2670,11 +2786,11 @@ $REQUIRE TRAINDEF.TTT
       V2=4; V3=4; P=>140;										\
       FG=(TRBED11:..,^0;FL_SNCFC_F,FL_SNCFC_M1:..,-4,#);						\
       F=EGPO3;
-    TX=TEE 1 "Mistral" (Paris -) Lyon - Marseille (- Nice) 1965;					\
+    TX=TEE 1 "Mistral" (Paris -)Lyon - Marseille (- Nice)1965;						\
       C=<SNCF_BB92003_GP,SNCF_M65N_DE,SNCF_M65M_DE;							\
       D=L;												\
       F=EGP3;
-    TX=TEE 1 "Mistral" (Paris - Nice) macht 1965 in Marseille Saint-Charles Kopf;			\
+    TX=TEE 1 "Mistral" (Paris - Nice)macht 1965 in Marseille Saint-Charles Kopf;			\
       M=HEAD;												\
       C=<SNCF_M65N_DE;											\
       D=L;												\
@@ -2684,7 +2800,7 @@ $REQUIRE TRAINDEF.TTT
       V2=4; V3=8; P=<8; T1=1-2,C1.PD; T3=1-2,C1.P1U,2-3;						\
       F=EGPO3;												\
       V4=4;
-    TX=TEE 1 "Mistral" (Paris -) Marseille - Nice 1965;							\
+    TX=TEE 1 "Mistral" (Paris -)Marseille - Nice 1965;							\
       C=<SNCF_M65N_DE,SNCF_BB670003_GP;									\
       D=R;												\
       F=DPO3;

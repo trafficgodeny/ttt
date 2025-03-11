@@ -163,11 +163,15 @@ $REQUIRE MLG_DEF.TTT
 	(<SNCF_3TOR_A4B4,SNCF_3TOR_A4B4L),SNCF_3TOR_B10(|L),SNCF_3METO_D(|L)|SNCF_3TOR_D(|L);		\
       V=14;												\
       F=EPU3;
+TX=DB E344  + PARIS - COLOGNE;												\
+  C=DB_E344_25KV,(2*SNCF_3AOC_A8G(|L))|(3*SNCF_INOXCO_A8(|L));						\
+  V=10;												\
+      F=EP3;
 
 ;ROME EXPRESS
     TX=SNCF CC 7100 + ROME EXPRESS;									\
       C=[PD]SNCF_CC7100(|L),SNCF_2CC2_3400V2,2*SNCF_3METPLMB_D(|L),CIWL_LX(|L),OCEMRA_TN_A3B5,		\
-	2*FS_T46_BZE(|L),OCEMRA_TN_A3B5,CIWL_LX(|L),SNCF_3AOC52_B9C(|L),SNCF_3AOL_Y20_B10C(|L),		\
+	2*FS_BZ33000E(|L),OCEMRA_TN_A3B5,CIWL_LX(|L),SNCF_3AOC52_B9C(|L),SNCF_3AOL_Y20_B10C(|L),	\
 	SNCF_3METPLM_A3B5(|L);										\
       V=10;												\
       F=MP3;
@@ -319,8 +323,9 @@ $REQUIRE MLG_DEF.TTT
       F=SP3;
 ;TERGNIER - PARIS
     TX=SNCF 2-231K1 + TERGNIER - PARIS;									\
-      C=SNCF_2_231K1(|L),SNCF_3NORD2D,$DIR(SNCF_3TOR_A6DL,SNCF_3TOR_A6D),SNCF_3TOR_A9(|L),		\
-	6*SNCF_3EXN_B11(|L),$DIR(SNCF_3EXN_B4DV,SNCF_3EXN_B4DVL);					\
+      C=SNCF_2_231K1(|L),										\
+	(SNCF_3NORD2D,$DIR(SNCF_3TOR_A6DL,SNCF_3TOR_A6D),SNCF_3TOR_A9(|L),6*SNCF_3EXN_B11(|L),		\
+	$DIR(SNCF_3EXN_B4DV,SNCF_3EXN_B4DVL));								\
       V=12;												\
       F=SP3;
 
@@ -577,7 +582,12 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=EGP3;
 
-    TX=SNCF 2D2 5500  + TRAIN REGION SUD-OUEST;								\
+    TX=SNCF 2D2 5300  + Train Region Sud-Ouest;								\
+      C=SNCF_2D2_5301|SNCF_2D2_5300S,SNCF_3ESTDD2(|L),2*SNCF_3ORAD(|L),2*SNCF_3USI62GB(|L),		\
+	3*SNCF_3BRUHAT,2*SNCF_3USI62GB(|L),SNCF_3BRUHAT,2*SNCF_3A_USI62A(|L);				\
+      V=13;												\
+      F=EGP3;
+    TX=SNCF 2D2 5500  + Train Region Sud-Ouest;								\
       C=SNCF_2D2_5500D,SNCF_3OCEM29D,SNCF_3D_METMIDI2E,OCEMRA_TN_A8,2*SNCF_3BRUHAT;			\
       V=12;												\
       F=EGP3;
@@ -673,23 +683,25 @@ $REQUIRE MLG_DEF.TTT
       C=1:SNCF_BB9200S1GJ(|L)|3:SNCF_BB9200GJ|4:SNCF_BB9300(|L),SNCF_DX_U56B(|L)|SNCF_DX_U56BS(|L),	\
 	CIWL_PCA,CIWL_BREDA(|L),8-10*SNCF_IM56TEEM_A8(|L);						\
       V=16;												\
-      F=EGP3;
-#
+      F=EP3;
+    TX=SNCF BB 25500 + MISTRAL;										\
+      C=BB25500_1S_VNR_AC,SNCF_DX_U56B(|L),CIWL_PCA,CIWL_BREDA(|L),8-10*SNCF_IM56TEEM_A8(|L);		\
+      V=13;												\
+      F=EP3;
     TX=SNCF 141R + MISTRAL;										\
       C=SNCF_141R_FN1,SNCF_3METPLM3D(|L),CIWL_PCA,CIWL_BREDA(|L),7*SNCF_IM56O_A8(|L),SNCF_DX_U56B(|L);	\
       V=10;												\
       F=SP3;
-#
     TX=SNCF BB 67000 + MISTRAL;										\
       C=BB67000_O,8*SNCF_IM56TEEM_A8(|L),CIWL_BREDA(|L),CIWL_PCA,SNCF_DX_U56B(|L)|SNCF_DX_U56BS(|L);	\
-      V=14;												\
+      V=13;												\
       F=DP3;
 
 ;LYON - GRENOBLE
     TX=SNCF CC 72000 + LYON - GRENOBLE;									\
       C=SNCF_CC72000W2(|L),$DIR(SNCF_3METPLM_A4DL,SNCF_3METPLM_A4D(|L)),SNCF_3AOL_A9S(|L),		\
 	2*SNCF_3UIC_B10S(|L);										\
-      V=14;												\
+      V=12;												\
       F=DP3;
 
 ;PARIS - STETIENNE
@@ -871,22 +883,22 @@ $REQUIRE MLG_DEF.TTT
       V2=4; A2=0.04; B2=0.07; V3=8; P=70; T1=1; T2=2; T3=1;						\
       F=DPO3;
 ;PARIS-BRIANÇON
-    TX=SNCF 5-141F + PARIS-BRIANÇON;									\
+    TX=SNCF 5-141F + Paris-Briançon;									\
       C=SNCF_5_141F_V2(|L),SNCF_3BRUHAT,SNCF_3PA21(|L),OCEMRA_TN_A8,SNCF_3METPLM_A7C(|L),		\
 	2*SNCF_3AOL_B10(|L);										\
       V=9;												\
       F=SP3;
-    TX=SNCF BB 66000 + 141 F PARIS-BRIANÇON;								\
+    TX=SNCF BB 66000 + 5-141 F Paris-Briançon;								\
       C=SNCF_BB66000S1O(|L),SNCF_5_141F_V2(|L),SNCF_3OS_B10(|L),SNCF_3PA21(|L),OCEMRA_TN_A8,		\
 	SNCF_3METPLM_A7C(|L),2*SNCF_3AOL_B10(|L),4*SNCF_3AOC52_B10(|L),SNCF_3METPLMB_D(|L);		\
       V=10;												\
       F=SP3;
-    TX=SNCF BB 66000 + PARIS-BRIANÇON;									\
+    TX=SNCF UM BB 66000 + Paris-Briançon;								\
       C=SNCF_BB66000S1O(|L),SNCF_BB66000S2O(|L),SNCF_3AOC_A8G(|L),SNCF_3METPLM_A7C(|L),			\
 	2*SNCF_3AOC_B10G(|L),2*SNCF_3OF_B10(|L),SNCF_3AOC4_B10(|L),2*SNCF_3OF_B10(|L),SNCF_3OCEM29D;	\
       V=12;												\
       F=DP3;
-    TX=SNCF BB 67000 + PARIS-BRIANÇON;									\
+    TX=SNCF BB 67400 UM + Paris-Briançon;								\
       C=2*BB67000_O,SNCF_FC1300K_MS,4*(SNCF_3AOC_B10G(|L)|SNCF_3AOC52_B10(|L)),				\
 	2*SNCF_3AOL_Y20_B10C(|L),SNCF_3METPLM_A7C(|L),SNCF_3OF_A8(|L),					\
 	$DIR(SNCF_3METPLM_A3B5L,SNCF_3METPLM_A3B5(|L)),CIWL_UB(|L),SNCF_3METPLMB_D(|L),SNCF_3PA21(|L);	\
@@ -943,9 +955,7 @@ $REQUIRE MLG_DEF.TTT
     TX=SNCF CC 20002  SAVOIE;										\
       C=SNCF_CC20002,5*SNCF_3MET3_B6(|L),SNCF_D_PLM3E;							\
       V=8;												\
-      FG=(VOIE1:..,-6,0-5;FL_SNCF_25KV1:..,-6,0-300);							\
-      ABOVE=25;
-
+      F=EP3;
     TX=SNCF BB 9200  SAVOIE;										\
       C=SNCF_BB9200GJ,SNCF_3METPLM_B10(|L),SNCF_3METPLM_B4DS,4*SNCF_3METPLM_B10(|L),			\
 	SNCF_3METPLM_A3B5(|L),SNCF_3OF_A8L;								\
@@ -976,7 +986,7 @@ $REQUIRE MLG_DEF.TTT
       F=SP3;
 #
 ;LILLE - REIMS
-    TX=SNCF BB 16500 + LILLE - REIMS;									\
+    TX=SNCF BB 16500 + Lille - Reims;									\
       M=CHANGE;												\
       C=SNCF_3NORD2D,SNCF_DR28_B10(|L),SNCF_DR28_B9(|L)|SNCF_DR35_B9(|L)|SNCF_DR36_B9(|L),		\
 	SNCF_DR28_B10(|L),SNCF_DR26_A8(|L)|SNCF_DR28_A8(|L),2*SNCF_DR28_B10(|L),SNCF_3EST_1B4D(|L);	\
@@ -986,7 +996,15 @@ $REQUIRE MLG_DEF.TTT
       C2=SNCF_141R_CN1;											\
       V2=5; A2=0.04; B2=0.07; V3=10; P=75; T1=1; T2=2; T3=1;						\
       F=EPO3;
-#
+
+;FLANDRES - RIVIERA;
+    TX=Flandres - Riviera (SNCF BB 25500);								\
+      C=BB25500_1S_VNR_AC,SNCF_3PEMED(|L),SNCF_3AOL_B10(|L),SNCF_3FAUT_BP,SNCF_3AOL_A4B5C(|L),		\
+	FS_AZO_WR2,CIWL_U_P(|L),SNCF_3DD4SG(|L),SNCF_3AOL_A9(|L),2*SNCF_3AOL_B10(|L),			\
+	SNCF_3METPLM_A7C(|L),SNCF_3AOL_B10(|L),SNCF_3METPLM_B10(|L),3*SNCF_3AOL_B10(|L),;		\
+      V=13;												\
+      F=EP3;
+
 ;LILLE - DIJON
     TX=SNCF 5-231G1 + LILLE - REIMS;									\
       C=SNCF_1_231G1(|L),SNCF_DR26_A8(|L),3*SNCF_DR28_B10(|L),SNCF_3DR29D(|L),SNCF_3NORD2D,		\
@@ -1063,8 +1081,9 @@ $REQUIRE MLG_DEF.TTT
       V=9;												\
       F=DP3;
     TX=SNCF A1AA1A 68000 + VICHY - BORDEAUX;								\
-      C=SNCF_68000S2(|L),SNCF_METSO39_A312B5_SR,SNCF_METSO48_A312B5,SNCF_METSO48_B10,SNCF_3OS_B5D,	\
-	SNCF_3BRUHAT;											\
+      C=SNCF_68000S2(|L),										\
+	(<SNCF_METSO39_A312B5_SR,SNCF_METSO48_A312B5,SNCF_METSO48_B10,SNCF_3OS_B5D,SNCF_3BRUHAT)|	\
+	(>SNCF_METSO39_A312B5_SRL,SNCF_METSO48_A312B5L,SNCF_METSO48_B10L,SNCF_3OS_B5DL,SNCF_3BRUHAT);	\
       V=12;												\
       F=DP3;
 
@@ -1122,7 +1141,7 @@ $REQUIRE MLG_DEF.TTT
 #
 ;AVIGNON - TOULOUSE
     TX=SNCF 2D2 5500 + AVIGNAN – TOULOUSE;								\
-      C=SNCF_2D2_5500,6*SNCF_3OR_B9L,SNCF_3METPLM26_A7(|L);						\
+      C=SNCF_2D2_5500A2(|L),6*SNCF_3OR_B9L,SNCF_3METPLM26_A7(|L);						\
       V=14;												\
       F=EGP3;
 ;LYON - PORT-BOU
@@ -1183,95 +1202,85 @@ $REQUIRE MLG_DEF.TTT
       C=A1AA1A68000,SNCF_3OCEM32D,3*SNCF_3METETAT_B9;							\
       V=12;												\
       F=DP3;
-    TX=SNCF 241P  + EXPRESS;										\
-      C=SNCF_241P1(|L),SNCF_3PE18FL(|L),SNCF_3OCEM29D,SNCF_3AOC_B10G(|L),2*SNCF_3AOC48_B10G(|L),	\
+    TX=SNCF 241P + EXPRESS;										\
+      C=SNCF_241P,SNCF_3PE18FL(|L),SNCF_3OCEM29D,SNCF_3AOC_B10G(|L),2*SNCF_3AOC48_B10G(|L),		\
 	SNCF_3OF_B10(|L),SNCF_3AOC_B10G(|L),2*SNCF_3AOC48_B10G(|L),					\
 	(SNCF_3OF_A8(|L),SNCF_3OF_A8(|L)|SNCF_3AOC_A8G(|L)),2*SNCF_3AOC4_B10(|L);			\
       V=12;												\
       F=SP3;
-    TX=SNCF 241P1  + EXPRESS;										\
+    TX=SNCF 241P1 + EXPRESS;										\
       C=SNCF_241P1(|L)~MLG,SNCF_3METPLM_A4D(|L),SNCF_3AOC_A8GS(|L),SNCF_3AOC_A8G(|L),			\
 	SNCF_INOXLO_A6R(|L),3*SNCF_3AOC_A8G(|L);							\
       V=12;												\
       F=SP3;
-    TX=SNCF BB 16000  + EXPRESS;									\
+    TX=SNCF BB 16000 + EXPRESS;									\
       C=SNCF_BB16000GJ(|L),2*SNCF_INOXLO_A9(|L),SNCF_INOXLO_A6R(|L),2*SNCF_INOXLO_A9(|L),		\
 	$DIR(SNCF_RCP_A7D,SNCF_RCP_A7DL)[B:114,15,17,2,#E6E6E6];					\
       V=16;												\
       F=EP3;
-    TX=SNCF 2D2 5500  + EXPRESS;									\
+    TX=SNCF 2D2 5500 + EXPRESS;									\
       C=SNCF_2D2_5500B~MLG|SNCF_2D2_5500D,2*METSO_TN_A8,6*SNCF_ROME_B(|L),SNCF_3OCEM38D;		\
       V=12;												\
       F=EGP3;
-    TX=SNCF 2D2 5500  + EXPRESS;									\
-      C=SNCF_2D2_5500~MLG,SNCF_3ESTDD2(|L)|SNCF_3ESTDD2(|L),2*METSO_B,0-1*METSO_AB,1-2*METSO_TN_A8,	\
-	3-5*METSO_B;											\
-      V=14;												\
-      F=EGP3;
-    TX=SNCF A1AA1A 68000  + EXPRESS;									\
+     TX=SNCF A1AA1A 68000 + EXPRESS;									\
       C=A1AA1A68000,$DIR(SNCF_METSO46_B5DL|SNCF_METSO48_B5DL,SNCF_METSO48_B5D),SNCF_3OF_A4B5(|L),	\
 	SNCF_METSO39_A312B5L|SNCF_METSO39_A312B5,2*SNCF_3OF_B10(|L),SNCF_3OCEM38D;			\
       V=13;												\
       F=DP3;
-    TX=SNCF BB 13000  + EXPRESS;									\
+    TX=SNCF BB 13000 + EXPRESS;									\
       C=BB13000_B|SNCF_BB13000G,4*SNCF_3OR_B9S(|L),SNCF_3EST_1A8(|L),SNCF_3OCEM32D|SNCF_OCEM3D(|L);	\
       V=12;												\
       F=EP3;
-    TX=SNCF BB 5500  + EXPRESS;										\
+    TX=SNCF BB 5500 + EXPRESS;										\
       C=1:SNCF_2D2_5500B~MLG|3:SNCF_2D2_5500~MLG,2*OCEMRA_TN_A8,6*SNCF_3OR_B9(|L),SNCF_3OR_B4D(|L);	\
       V=14;												\
       F=EP3;
-    TX=SNCF BB 67000  + EXPRESS;									\
+    TX=SNCF BB 67000 + EXPRESS;									\
       C=BB67000_O,2*SNCF_3A_USI62A(|L),4*SNCF_3USI61GB(|L),SNCF_3METPLM_B4D(|L);			\
       V=14;												\
       F=DP3;
-    TX=SNCF 2D2 9100  + EXPRESS;									\
+    TX=SNCF 2D2 9100 + EXPRESS;									\
       C=SNCF_2D2_9100~MLG,SNCF_PA21S_B(|L),SNCF_3METPLM_B4D(|L),2-3*SNCF_3AOC_A8G(|L),			\
 	0-1*SNCF_3AOC4_A212B6G(|L),6*SNCF_3AOC_B10G(|L);						\
       V=14;												\
       F=EGP3;
-    TX=SNCF CC 7100  + EXPRESS;										\
+    TX=SNCF CC 7100 + EXPRESS;										\
       C=SNCF_CC7100(|L),$DIR(SNCF_3OS_B5DL,SNCF_3OS_B5D),OCEMRA_TN_A8,5*SNCF_3OF_B10(|L);		\
       V=14;												\
       F=EGP3;
-    TX=SNCF BB 67000  + EXPRESS;									\
+    TX=SNCF BB 67000 + EXPRESS;									\
       C=BB67000_O,SNCF_FC1300K_MS,SNCF_3PA21(|L),OCEMRA_TN_A3B5,SNCF_3AOC_B10G(|L),SNCF_3AOC4_B10(|L),	\
 	SNCF_3OS_B10(|L),SNCF_3AOC_B10G(|L),$DIR(SNCF_3OS_B5D,SNCF_3OS_B5DL);				\
       V=12;												\
       F=DP3;
-    TX=SNCF BB 9200  + EXPRESS;										\
+    TX=SNCF BB 9200 + EXPRESS;										\
       C=1:SNCF_BB9200S1GJ(|L)|3:SNCF_BB9200GJ,SNCF_3OR_B4D(|L),6*(SNCF_3OR_B9S(|L)|SNCF_3OR_B9(|L)),	\
 	(<2*OCEMRA_TN_A8,3:SNCF_3OR_A3B5(|L)),5*SNCF_3AOC4_B10(|L),SNCF_3OCEM32D;			\
       V=14;												\
       F=EGP3;
-    TX=SNCF BB 16000  + EXPRESS;									\
+    TX=SNCF BB 16000 + EXPRESS;									\
       C=2:SNCF_BB16000GP(|L)|1:SNCF_BB16000GJ(|L),SNCF_3ESTDD2(|L),3*SNCF_3AOC48_B10G(|L),		\
 	SNCF_3AOC_A8G(|L),SNCF_3METPLM_B4D(|L),SNCF_3AOC_B10G(|L);					\
       V=14;												\
       F=EP3;
-    TX=SNCF 141R  + EXPRESS;										\
+    TX=SNCF 141R + EXPRESS;										\
       C=SNCF_141R_CV1(|L)|SNCF_141R_CV2(|L)|SNCF_141R_CN1(|L),2*MET2EO_D,				\
 	$DIR(SNCF_3METPLM_A5B3C(|L),SNCF_3METPLM_A5B3CL),						\
 	$DIR(SNCF_3METETAT_A3B5(|L),SNCF_3METETAT_A3B5L),3*SNCF_3METETAT_B9,SNCF_3OR_B4D(|L);		\
       V=10;												\
       F=SP3;
-    TX=SNCF 141R  + EXPRESS;										\
+    TX=SNCF 141R + EXPRESS;										\
       C=SNCF_141R_CV1(|L)|SNCF_141R_CV2(|L)|SNCF_141R_CN1(|L),MET2EO_D,SNCF_3METETAT_S1A7,		\
 	4*(SNCF_3METETAT_B8|SNCF_3METETAT_S1B8),SNCF_3METETAT_A3B5(|L),					\
 	$DIR(SNCF_3METETAT_S1B4D|SNCF_3METETAT_B4D,SNCF_3METETAT_S1B4DL|SNCF_3METETAT_B4DL);		\
       V=10;												\
       F=SP3;
-    TX=SNCF 141R  + EXPRESS;										\
+    TX=SNCF 141R + EXPRESS;										\
       C=SNCF_141R_CV1(|L)|SNCF_141R_CV2(|L)|SNCF_141R_CN1(|L),2*SNCF_3A_USI62A(|L),			\
 	4*SNCF_3USI61GB(|L),SNCF_3OR_B4D(|L);								\
       V=10;												\
       F=SP3;
-    TX=SNCF 2D2 5301  + EXPRESS;									\
-      C=SNCF_2D2_5301|SNCF_2D2_5300S,SNCF_3ESTDD2(|L),2*SNCF_3ORAD(|L),2*SNCF_3USI62GB(|L),		\
-	3*SNCF_3BRUHAT,2*SNCF_3USI62GB(|L),SNCF_3BRUHAT,2*SNCF_3A_USI62A(|L);				\
-      V=14;												\
-      F=EGP3;
-    TX=SNCF BB 66000  + EXPRESS;									\
+    TX=SNCF BB 66000 + EXPRESS;									\
       C=SNCF_BB66000S2O(|L),9-12*SNCF_3AOC52_B9C(|L),SNCF_3METPLM_A7C(|L);				\
       V=12;												\
       F=DP3;
@@ -1283,7 +1292,7 @@ $REQUIRE MLG_DEF.TTT
 ;PARIS - MILAN
     TX=BB 12000  + TRAIN DE NUIT PARIS - MILAN;								\
       C=SNCF_BB12000BPO(|L),SNCF_3METPLMB_D(|L),SNCF_3AOC52_B10(|L),CIWL_4LX(|L),SNCF_3OF_A8L,		\
-	2*FS_T46_BZI(|L),SNCF_3AOC52_B10(|L),FS_T37_AZI(|L),FS_T46_BZI(|L),SNCF_3OCEM32D;		\
+	2*FS_BZ33000I(|L),SNCF_3AOC52_B10(|L),FS_AZ52000I(|L),FS_BZ33000I(|L),SNCF_3OCEM32D;		\
       V=12;												\
       F=EP3;
 #
@@ -1413,10 +1422,16 @@ $REQUIRE MLG_DEF.TTT
 	4*STVA_TA260L_E1A;										\
       V=12;												\
       F=EGP3;
-#
+
+;TAC NARBONNE - ETAPLES
+TX=SNCF 2D2 5500 TAC Narbonne - Etaples;									\
+  C=SNCF_2D2_5500(|L)~MLG,CIWL_WRT3341(|L),2*SNCF_3AOL_Y20_B10C(|L),4*CIWL_U_P(|L),			\
+    7*(SNCF_LESS_TA260B|STVA_TA260L_E1A);								\
+  V=12;												\
+      F=EGXP3;
 
 ;TAC NARBONNE - PARIS
-    TX=SNCF BB 9200 + TAC NARBONNE - PARIS;								\
+    TX=SNCF BB 9200 + TAC Paris - Narbonne;								\
       C=1:SNCF_BB9200S1GJ(|L)|3:SNCF_BB9200GJ,2*SNCF_3AOL_B10(|L),CIWL_P(|L),2*CIWL_Z(|L),		\
 	9*SNCF_LESS_TA260B;										\
       V=16;												\
@@ -1595,7 +1610,7 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=SPR3;
     TX=SNCF BB 800 + BANLIEUE MONTPARNASSE;								\
-      C=SNCF_BB800_2P(|L),4*SNCF_3E2N_B,SNCF_BB800_2P(|L);						\
+      C=SNCF_BB800_I(|L)|SNCF_BB800_2P(|L),4*SNCF_3E2N_B,SNCF_BB800_2P(|L)|SNCF_BB800_2P(|L);		\
       V=8;												\
       F=EGPR3;
 #
@@ -1674,11 +1689,11 @@ $REQUIRE MLG_DEF.TTT
 
 ;LIGNE DE SCEAUX (RATP)
 ;----------------------
-    TX=RATP Z S1, LIGNE DE SCEAUX;									\
+    TX=RATP Z S1,LIGNE DE SCEAUX;									\
       C=2-3*(<(3:RATP_Z_S1GL|1:RATP_Z_S2GL),(3:RATP_Z_S1G|1:RATP_Z_S2G));				\
       V=10;												\
       F=EGPRU3;
-    TX=RATP Z S1, LIGNE DE SCEAUX;									\
+    TX=RATP Z S1,LIGNE DE SCEAUX;									\
       C=(<RATP_Z_S1GL,RATP_Z_S1GL,RATP_Z_S1G),								\
 	0-1*(3:(<RATP_Z_S1GL,RATP_Z_S1GL,RATP_Z_S1G)|1:(<RATP_Z_S2GL,RATP_Z_S2GL,RATP_Z_S2G));		\
       V=10;												\
@@ -2154,13 +2169,13 @@ $REQUIRE MLG_DEF.TTT
       F=DPR3;
 ;TOULON - MARSEILLE
     TX=SNCF BB 25500 + TOULON - MARSEILLE;								\
-      C=SNCF_BB25500S1GN(|L),$DIR(SNCF_3DEVU46_BDL,SNCF_3DEVU46_BD(|L)),4*SNCF_3MET3_B6(|L),		\
+      C=BB25500_1S_VNR_AC,$DIR(SNCF_3DEVU46_BDL,SNCF_3DEVU46_BD(|L)),4*SNCF_3MET3_B6(|L),		\
 	SNCF_3DEVU46_B(|L),SNCF_3MET3_B6(|L);								\
       V=10;												\
       F=EPR3;
     TX=SNCF BB 25500 + TOULON - MARSEILLE;								\
-      C=SNCF_BB25500CGR(|L),SNCF_3DEVU46_AD(|L),6*SNCF_3DEVU46_B(|L),SNCF_3MET3_B8(|L),			\
-	SNCF_3MET3_A7(|L),2*SNCF_3MET3_B8(|L),$DIR(SNCF_3MET3_B4DL,SNCF_3MET3_B4D);			\
+      C=BB25500_CR_VNR_AC,$DIR(SNCF_3DEVU46_ADL,SNCF_3DEVU46_AD),6*SNCF_3DEVU46_B(|L),			\
+	SNCF_3MET3_B8(|L),SNCF_3MET3_A7(|L),2*SNCF_3MET3_B8(|L),$DIR(SNCF_3MET3_B4DL,SNCF_3MET3_B4D);	\
       V=10;												\
       F=EPR3;
 
@@ -2268,7 +2283,7 @@ $REQUIRE MLG_DEF.TTT
       V=12;												\
       F=EGPRU3;
     TX=SNCF Z 9055 + Z 6004;										\
-      C=<SNCF_Z9055L,SNCF_Z6004RAB|SNCF_Z6004B;								\
+      C=<SNCF_Z9055L,SNCF_Z6004RABL,SNCF_Z6004B;								\
       V=12;												\
       F=EGPRU3;
     TX=SNCF Z 4700;											\
@@ -2296,34 +2311,52 @@ $REQUIRE MLG_DEF.TTT
       C=TAR36;												\
       V=16;												\
       F=DPRU3;
-    TX=SNCF X 22000;											\
+    TX=SNCF X 22000 (ADN);										\
       C=SNCF_X22000(|L)|SNCF_X22200(|L);								\
       V=10;												\
       F=DPRU3;
-    TX=SNCF X 22000 , X 3800;										\
-      C=(<(2:SNCF_X22200L|1:SNCF_X3800C1,SNCF_XR7800C(|L)|SNCF_XR8100C(|L),SNCF_X22200(|L)))|		\
-	(SNCF_X22200(|L),SNCF_XR8800);									\
+    TX=SNCF X 22000 (ADN);										\
+      C=<2:SNCF_X22200L|1:SNCF_X22000L,SNCF_XR7800C(|L)|SNCF_XR8100C(|L),SNCF_X22200;			\
       V=10;												\
       F=DPRU3;
-    TX=SNCF X 22000 , X 8800 / 7800;									\
-      C=SNCF_X22200(|L),SNCF_XR8800,|(SNCF_XR7800C(|L),SNCF_X2800C(|L));				\
+    TX=SNCF X 22000 (ADN),X 8800 / 7800;								\
+      C=SNCF_X22200(|L),SNCF_XR8800|SNCF_XR7800C(|L);							\
       V=10;												\
       F=DPRU3;
-#
-    TX=SNCF BB 66000;											\
-      C=(SNCF_BB66000S3,SNCF_XR8850(|L),SNCF_XR8860(|L),SNCF_XR7800C(|L)|SNCF_XR8100C(|L),		\
-	SNCF_XR8850(|L))|(SNCF_BB63500S1PG|SNCF_BB63500S1PGL,3*SNCF_XR8860(|L));			\
+    TX=SNCF X 22000 (ADN)+ X 2800;									\
+      C=SNCF_X22200(|L),SNCF_XR8800,SNCF_XR7800C(|L),SNCF_X2800C(|L);					\
       V=10;												\
       F=DPRU3;
-    TX=SNCF X 2051;											\
-      C=3:(SNCF_X2051(|L),0-1*SNCF_XR8836EL)|1:(SNCF_X2400C(|L),SNCF_XR8836EL);				\
-      V=12;												\
+    TX=SNCF X 22000 (ADN)+ X 3800 Picasso;								\
+      C=<(SNCF_X3800C1(|L),SNCF_XR7800C(|L)|SNCF_XR8100C(|L),SNCF_X22200)|				\
+	(SNCF_X22200L,SNCF_XR7800C(|L)|SNCF_XR8100C(|L),SNCF_X3800C1(|L));				\
+      V=10;												\
+      F=DPRU3;
+
+    TX=SNCF X 23000 Standard;										\
+      C=X23000,0-2*SNCF_XR8831(|L);									\
+      V=10;												\
+      F=DPRU3;
+    TX=SNCF X 23000 Standard;										\
+      C=X23000,(2*SNCF_XR8831(|L),SNCF_XR8860(|L),X23000)|(SNCF_XR8860(|L),SNCF_XR8835(|L));		\
+      V=10; W=X;											\
+      F=DPR3;
+    TX=SNCF X 23000 Standard;										\
+      C=X23000,(2*SNCF_XR9400)|(SNCF_XR9400,XR9800)|(SNCF_XR9400,3*SNCF_XR8860(|L),X23000);		\
+      V=9; W=X;												\
+      F=DPR3;
+    TX=SNCF X 23000 Standard;										\
+      C=X23000,1-2*(SNCF_XR7800C(|L)|SNCF_XR8100C(|L));							\
+      V=10;												\
+      F=DPR3;
+    TX=SNCF X 23000 Standard;										\
+      C=X23000,2*(SNCF_XR7800C(|L)|SNCF_XR8100C(|L)),X23000;						\
+      V=10;												\
       F=DPR3;
     TX=SNCF ABJ + XR 4130;										\
       C=SNCF_ABJ1C(|L)|SNCF_ABJ3C(|L),SNCF_XR4130(|L);							\
       V=10;												\
       F=DPR3;
-#
     TX=SNCF ABJ1;											\
       C=SNCF_ABJ1C(|L)|SNCF_ABJ4C(|L),SNCF_XR7800C(|L)|SNCF_XR8100C(|L);				\
       V=10;												\
@@ -2365,7 +2398,7 @@ $REQUIRE MLG_DEF.TTT
       V=9;												\
       F=DPR3;
     TX=SNCF ADP2;											\
-      C=SNCF_ADP2_VF(|L),0|1*(SNCF_XR7200C(|L)|SNCF_XR7800C(|L)|SNCF_XR8100C(|L));			\
+      C=SNCF_ADP2_VF(|L),(0|1)*(SNCF_XR7200C(|L)|SNCF_XR7800C(|L)|SNCF_XR8100C(|L));			\
       V=10;												\
       F=DPR3;
 #
@@ -2447,6 +2480,10 @@ $REQUIRE MLG_DEF.TTT
       C=<SNCF_RGP1G1XL,SNCF_RGP1XG1,0-1*SNCF_RGP1XG1(|L);						\
       V=14;												\
       F=DPRU3;
+    TX=SNCF X 2051;											\
+      C=3:(SNCF_X2051(|L),0-1*SNCF_XR8836EL)|1:(SNCF_X2400C(|L),SNCF_XR8836EL);				\
+      V=12;												\
+      F=DPR3;
 
     TX=SNCF X 2400;											\
       C=SNCF_X2400C(|L);										\
@@ -2684,23 +2721,6 @@ $REQUIRE MLG_DEF.TTT
       C=SNCF_X42110TC(|L)|SNCF_X42620TC(|L),SNCF_DR2E_XR(|L);						\
       V=12;												\
       F=DPR3;
-
-    TX=SNCF X 23000;											\
-      C=X23000,1-2*SNCF_XR8831(|L);									\
-      V=10;												\
-      F=DPRU3;
-    TX=SNCF X 23000;											\
-      C=X23000,(2*SNCF_XR8831(|L),SNCF_XR8860(|L),X23000)|(SNCF_XR8860(|L),SNCF_XR8835(|L));		\
-      V=10;												\
-      F=DPRU3;
-    TX=SNCF X 23000;											\
-      C=X23000,2*(SNCF_XR7800C(|L)|SNCF_XR8100C(|L)),|(2*(SNCF_XR7800C(|L)|SNCF_XR8100C(|L)),X23000);	\
-      V=10;												\
-      F=DPRU3;
-    TX=SNCF X 23000;											\
-      C=X23000,(2*SNCF_XR9400)|(SNCF_XR9400,XR9800)|(SNCF_XR9400,3*SNCF_XR8860(|L),X23000);		\
-      V=10;												\
-      F=DPRU3;
     TX=SNCF X B4000;											\
       C=2*SNCF_XB4000;											\
       V=12;												\
@@ -2755,7 +2775,7 @@ $REQUIRE MLG_DEF.TTT
       C=SNCF_X5500TC(|L),SNCF_XR9500TC(|L),SNCF_X5500TC(|L);						\
       V=10;												\
       F=DPRU3;
-    TX=SNCF X 5500;											\
+    TX=SNCF X 5500 / 5800;										\
       C=0-1*(SNCF_X5500TC(|L)|SNCF_X5800TC(|L)),2*SNCF_X5500TC(|L);					\
       V=10;												\
       F=DPR3;
@@ -2775,7 +2795,7 @@ $REQUIRE MLG_DEF.TTT
       C=>2*(SNCF_X5800S2TCL,SNCF_XR9500TC);								\
       V=10;												\
       F=DPRU3;
-    TX=SNCF X 5800;											\
+    TX=SNCF X 5500 / 5800;										\
       C=<SNCF_X5800TC(|L),SNCF_X5500TC,SNCF_XR9200L~MLG,SNCF_X5800TC(|L);				\
       V=10;												\
       F=DPRU3;
@@ -2823,6 +2843,17 @@ $REQUIRE MLG_DEF.TTT
       V=12;												\
       F=DPRU3;
 
+;Trains de remorques
+    TX=SNCF BB 66000 + remorques Standard;								\
+      C=SNCF_BB66000S3(|L),SNCF_XR8850(|L),SNCF_XR8860(|L),SNCF_XR7800C(|L)|SNCF_XR8100C(|L),		\
+	SNCF_XR8850(|L);										\
+      V=10;												\
+      F=DPRU3;
+    TX=SNCF BB 63000 + remorques Standard;								\
+      C=SNCF_BB63500S1PG(|L),3*SNCF_XR8860(|L);								\
+      V=8;												\
+      F=DPRU3;
+
 ;==========
 ;=== MV ===
 ;==========
@@ -2851,13 +2882,25 @@ $REQUIRE MLG_DEF.TTT
 	SNCF_K_UIC_RW[OB:C2R_CNCG1,,13],2*(SNCF_G4|SNCF_G4BOIS),SNCF_GS3_11B|SNCF_GS3_11;		\
       V=7;												\
       F=SPR3;
-#
+    TX=SNCF 3-141C + MV RÉSEAU QUST;									\
+      C=SNCF_3_141C(|L),2*SNCF_ROME_B(|L),SNCF_3OCEM29D,2*SNCF_G_ETAT1904,F_3OCEM29B,3*SNCF_3PRIM_STD,	\
+	3-5*(SNCF_3CER2EFRB_CTCL|SNCF_3CER2EFRC_CTC(|L));						\
+      V=8;												\
+      F=SPR3;
 
 ;RÉSEAU BRETON
     TX=SNCF 3-141TC + MV RÉSEAU BRETON;									\
       C=SNCF_3_141TC,SNCF_MET2EO_B(|L),1-4*(SNCF_I_STD_STEF|SNCF_3PRIM_OCEM29|SNCF_G_STDA);		\
       V=7;												\
       F=SPR3;
+
+;SUD - OUEST
+;-----------
+
+    TX=SNCF 2D2 5300 + MV Sud - Ouest;									\
+      C=SNCF_2D2_5300S,SNCF_3OCEM29D,4*MET2ESO_B,2*SNCF_I_STD_STEF,SNCF_G_STDA;				\
+      V=8;												\
+      F=EGPR3;
 
 ;SUD-EST
 ;-------
@@ -2881,16 +2924,6 @@ $REQUIRE MLG_DEF.TTT
       C=SNCF_2_230DG(|L),SNCF_PO_B5DTF(|L),SNCF_TYNORD_1B(|L),SNCF_3STDD(|L);				\
       V=8;												\
       F=SPR3;
-    TX=SNCF 3-141C + TRAIN MV;										\
-      C=SNCF_3_141C(|L),2*SNCF_ROME_B(|L),SNCF_3OCEM29D,2*SNCF_G_ETAT1904,F_3OCEM29B,3*SNCF_3PRIM_STD,	\
-	3-5*(SNCF_3CER2EFRB_CTCL|SNCF_3CER2EFRC_CTC(|L));						\
-      V=8;												\
-      F=SPR3;
-    TX=SNCF 3-141C + TRAIN MV;										\
-      C=SNCF_3_141C(|L),(MET2EO_D,SNCF_MET2EO_B(|L))|SNCF_MET2EO_BD(|L),SNCF_G_ETAT1904,		\
-	(SNCF_G_OCEM19,SNCF_G_STDA)|(SNCF_I_MM_DR3,SNCF_K_OCEM29_UFR[OB:UFR_FOURG3,,13]);		\
-      V=7;												\
-      F=SPR3;
     TX=SNCF BB 4200 + TRAIN MV;										\
       C=SNCF_BB4200OH|SNCF_BB4200OE,SNCF_3OCEM29D,SNCF_3MET3_A7(|L),2*SNCF_3MET3_B8(|L),2:K_OCEM,	\
 	SNCF_G_OCEM29|SNCF_G_UIC_BOIS_B;								\
@@ -2901,10 +2934,6 @@ $REQUIRE MLG_DEF.TTT
 	5-8*(G_OCEM|SNCF_G_UIC_BOIS_B);									\
       V=8;												\
       F=DPR3;
-    TX=SNCF 2D2 5300 + TRAIN MV;									\
-      C=SNCF_2D2_5300S,SNCF_3OCEM29D,4*MET2ESO_B,2*SNCF_I_STD_STEF;					\
-      V=8;												\
-      F=EGPR3;
     TX=SNCF BB 63500 + TRAIN MV;									\
       C=SNCF_BB63500S2G|SNCF_BB63500S2GL,								\
 	2:(MET2EO_D,2*SNCF_MET2EO_B(|L),|(SNCF_E_UIC2S,2*SNCF_G_OCEM29,SNCF_K_OCEM29))|			\
@@ -3005,7 +3034,7 @@ $REQUIRE MLG_DEF.TTT
       V=6;												\
       F=EF3;
     TX=SNCF CC 14000 + FRET EST;									\
-      C=SNCF_CC14000B|SNCF_CC14000G|SNCF_CC14100B|SNCF_CC14100GPR(|L),					\
+      C=SNCF_CC14000OB(|L)|SNCF_CC14000B(|L)~MLG|SNCF_CC14000G1(|L),					\
 	(25-30*SGW_MH30_SGMF_E3[O:FR_KO42|FR_KO43|FR_KO44]);						\
       V=6;												\
       F=EF3;
@@ -3024,6 +3053,10 @@ $REQUIRE MLG_DEF.TTT
     TX=SNCF BB 16500 + TRAIN EDF EST;									\
       C=2*SNCF_BB16500C(|L),40*SGW_EF_E3;								\
       V=8;												\
+      F=EF3;
+TX=DB E344  + FRET EST;												\
+  C=DB_E344_25KV,40*SGW_EF_E3;										\
+  V=8;												\
       F=EF3;
 
 ;NORD
@@ -3045,8 +3078,6 @@ $REQUIRE MLG_DEF.TTT
       C=SNCF_1_140C_T18K1(|L),8-10*SNCF_4PLAT_TP_Q4[O:BALLAST5(6|7|8)(|[M]),,];				\
       V=7;												\
       F=SF3;
-#
-#
     TX=SNCF 3-141C + FRET OUEST;									\
       C=SNCF_3_141C(|L),SNCF_141R_CN1(|L),SGW_3TH40_CFMCF35_SCRC(|L),SGW_3TH30VRW,,			\
 	SGW_THARBEL_E3E(|L),,SGW_E_TPRW,SNCF_E_TP_SGW,3*SGW_3TH30V,SNCF_E_TP_SGW,SGW_3TH30V,		\
@@ -3054,7 +3085,12 @@ $REQUIRE MLG_DEF.TTT
 	8-10*(SGW_3TH30V|SNCF_E_TP_SGW);								\
       V=8;												\
       F=SF3;
-
+    TX=SNCF 3-141C + FRET OUEST;									\
+      C=SNCF_3_141C_ACFI(|L),SNCF_UR_N,2*STEF_I_TPISO_STEF,SNCF_3STDD(|L),SNCF_G_STDA_RW,		\
+	SNCF_G_UIC_BOIS_RW,2*SNCF_G_OCEM29,SNCF_G_UIC_BOIS_B,SNCF_G_STDA,STEF_I_TPISO_STEF,		\
+	STEF_I_UIC_STEF_E3;										\
+      V=8;												\
+      F=SF3;
     TX=SNCF 141R + FRET OUEST;										\
       C=SNCF_141R_FV1(|L),25*(3:SNCF_G_STDA|1:SNCF_G_UIC_BOIS_B);					\
       V=8;												\
@@ -3092,27 +3128,32 @@ $REQUIRE MLG_DEF.TTT
       C=SNCF_2D2_5400~MLG,15-20*(SNCF_I_STD_STEF|STEF_I_STD_STEF1);					\
       V=8;												\
       F=EGF3;
-#
-#
-    TX=SNCF BB 63500 + FRET OUEST;									\
+
+    TX=SNCF BB 25500 + Fret Ouest;									\
+      C=BB25500_1S_V1_AC,										\
+	25-30*(4:SNCF_G_UIC_BOIS_B|5:SNCF_G_STDA|4:SNCF_G_STDB|3:SNCF_G_OCEM29|3:SNCF_G_OCEM19|		\
+	1:SNCF_G_ETAT1904);										\
+      V=8;												\
+      F=EF3;
+    TX=SNCF BB 63500 + FRET Ouest;									\
       C=SNCF_BB63500S2G(|L),SNCF_G_OCEM29BRW,SNCF_G_OCEM19,2*SNCF_G_OCEM29;				\
       V=7;												\
       F=DF3;
 
 ;SUD-OUEST
 ;---------
-    TX=SNCF 5-141F + FRET SUD-OUEST;									\
+    TX=SNCF 5-141F + FRET Sud-Ouest;									\
       C=SNCF_5_141F_V2(|L),SNCF_M_E4,SNCF_G_UIC_BOIS_B,SNCF_3PRIM_STD,SNCF_G_UIC_BOIS_B,		\
 	SNCF_CER2E3_CTC3(|L),SNCF_I_STEF_BERLIN;							\
       V=8;												\
       F=SF3;
-    TX=SNCF 4-141TA + FRET SUD-OUEST;									\
+    TX=SNCF 4-141TA + FRET Sud-Ouest;									\
       C=SNCF_4_141TA_K1(|L),										\
 	SNCF_K_OCEM29[OB:SNCF_TRACTEUR1,8,12][OB:SNCF_TRACTEUR1,28,12][OB:SNCF_TRACTEUR1,48,12]		\
 	[OB:SNCF_TRACTEUR1,68,12],4*SNCF_K_OCEM29 [O:SOIL8|SOIL7,,16],3*SNCF_G_STDA;			\
       V=7;												\
       F=SF3;
-    TX=SNCF 4-141TA + FRET SUD-OUEST;									\
+    TX=SNCF 4-141TA + FRET Sud-Ouest;									\
       C=SNCF_4_141TA,SNCF_RW(|L),5*SNCF_FCS40_2(|L),12*SGW_EF_E3;					\
       V=6;												\
       F=SF3;
@@ -3122,6 +3163,11 @@ $REQUIRE MLG_DEF.TTT
 	1:PLAT_DEM);											\
       V=6;												\
       F=SF3;
+    TX=SNCF 2D2 5300 + FRET SUD-OUEST;									\
+      C=SNCF_2D2_5300S,SNCF_G_UIC_BOIS_B,3*(4:SNCF_G_STDA|1:SNCF_G_STDB),				\
+	2@(2:SNCF_I_STD_STEF|1:SNCF_I_MM);								\
+      V=8;												\
+      F=EGXF3;
     TX=SNCF 2D2 5400 + FRET SUD-OUEST;									\
       C=SNCF_2D25400_RG,30*(3:F_3OCEM19|1:F_3OCEM29B);							\
       V=9;												\
@@ -3140,13 +3186,12 @@ $REQUIRE MLG_DEF.TTT
       F=EGF3;
 #
     TX=SNCF 2D2 5500 + ROUTE ROULANTE "POIDS-LOURDS EXPRESS";						\
-      C=SNCF_2D2_5500~MLG,SNCF_ROMILLY_SXZ,								\
+      C=SNCF_2D2_5500(|L)~MLG,SNCF_ROMILLY_SXZ,								\
 	(<SNCF_HMYV_EXTRPL,SNCF_HMYV_EXTRL[OB:CAMIONBACHE1L,38,8],SNCF_HMYV_INTER,SNCF_HMYV_EXTRP),	\
 	7-9*(SNCF_KANG_ALGECO|SNCF_KANG2)								\
 	[O:STRAIL_CALBERSON|STRAIL_GERVAIS|STRAIL_MONDIA|STRAIL_ROUCH,9,4];				\
       V=8;												\
       F=EGF3;
-#
 
 ;SUD-EST
 ;-------
@@ -3167,10 +3212,10 @@ $REQUIRE MLG_DEF.TTT
       F=EGF3;
 #
     TX=SNCF BB 25500 + FRET SUD-EST;									\
-      C=SNCF_BB25500S1A(|L),SNCF_BB25500S1B(|L),							\
+      C=BB25500_1S_V1VA_DC,BB25500_1S_V1_DC,								\
 	25-30*(4:SNCF_G_UIC_BOIS_B|3:SNCF_G_STDA|2:SNCF_G_STDB|1:SNCF_G_OCEM29);			\
       V=8;												\
-      F=EF3;
+      F=EGF3;
     TX=SNCF BB 63500 + FRET SUD-EST;									\
       C=SNCF_BB63500S1PG(|L),SNCF_G_STDA,DB_OMM52EUROP,DB_OMM37EUROP,2*SNCF_E_UIC2S,SNCF_COUV_TP4P,	\
 	SNCF_G_STDA,2*SNCF_G_UIC_BOIS_B,SNCF_3STDD(|L);							\
@@ -3239,8 +3284,8 @@ $REQUIRE MLG_DEF.TTT
       V=8;												\
       F=MF3;
 #
-    TX=SNCF BB 1CC1 3700 MAURIENNE;									\
-      C=[PD]SNCF_1CC1_3700|SNCF_1CC1_3800,10-12*SNCF_G_UIC_BOIS_B;					\
+    TX=SNCF BB 1CC1 3700/3800 MAURIENNE;								\
+      C=[PD]SNCF_1CC1_3700|SNCF_1CC13800,10-12*SNCF_G_UIC_BOIS_B;					\
       V=7;												\
       F=MF3;
 #
@@ -3269,7 +3314,7 @@ $REQUIRE MLG_DEF.TTT
       V=4;												\
       F=DF3;
     TX=SNCF 030TU + FRET;										\
-      C=SNCF_030TU,2*SNCF_E_UIC2S[O:FR_KO42|FR_KO43,,27];						\
+      C=SNCF_030TU1(|L),2*SNCF_E_UIC2S[O:FR_KO42|FR_KO43,,27];						\
       V=4;												\
       F=SF3;
     TX=SNCF A1AA1A 62000 + FRET;									\
@@ -3279,11 +3324,6 @@ $REQUIRE MLG_DEF.TTT
     TX=SNCF CC 6001 + FRET;										\
       C=SNCF_CC6001|SNCF_BBB6002|SNCF_BBB6003(|L),(0|2)*SNCF_LES_TA52_GEFCO_S,2*SNCF_R_TP_BB,		\
 	SNCF_E_STD_C,SNCF_R_TP,SNCF_R_PLM,3-5*(SNCF_G_STDA|SNCF_G_STDB),3*SNCF_E_UIC2S,EVS_HS_SNAV2O;	\
-      V=8;												\
-      F=EGF3;
-    TX=SNCF 2D2 5300 + FRET;										\
-      C=SNCF_2D2_5300S,SNCF_G_UIC_BOIS_B,3*(4:SNCF_G_STDA|1:SNCF_G_STDB),				\
-	2@(2:SNCF_I_STD_STEF|1:SNCF_I_MM);								\
       V=8;												\
       F=EGF3;
     TX=SNCF BB 100 + FRET;										\
@@ -3324,10 +3364,11 @@ $REQUIRE MLG_DEF.TTT
 	[OB:DAUPHINE_L,130,27]);									\
       V=8;												\
       F=EGF3;
-    TX=SNCF C 61000, 61100  + FRET;									\
-      C=(3*SNCF_E_STD_C)|SNCF_G_EST20T,(4*SNCF_3PRIM_STD)|(3*SNCF_K_VIN_JCOMTE),3*SNCF_K_STD,		\
-	5*(SNCF_G_STDA|SNCF_G_STDB),(3*SNCF_G_UIC_BOIS_B)|(2*SNCF_R_TP|SNCF_R_PLM),2*SNCF_TYW_TP,	\
-	(<((SNCF_TC61100S,SNCF_C61000SL)|(SNCF_C61000S,SNCF_TC61100S)|(SNCF_C61000S,SNCF_C61000SL)));	\
+    TX=SNCF C 61000,61100  + FRET;									\
+      C=((3*SNCF_E_STD_C)|SNCF_G_EST20T,(4*SNCF_3PRIM_STD)|(3*SNCF_K_VIN_JCOMTE),			\
+	(3*SNCF_K_STD)|(5*(SNCF_G_STDA|SNCF_G_STDB))|(3*SNCF_G_UIC_BOIS_B)|(2*SNCF_R_TP|SNCF_R_PLM),	\
+	2*SNCF_TYW_TP),											\
+	(<((SNCF_TC61100S,SNCF_C61000SL)|(SNCF_C61000SL,SNCF_TC61100S)|(SNCF_C61000S,SNCF_C61000SL)));	\
       V=8;												\
       F=DF3;
     TX=SNCF 2D2 5500 + FRET;										\
@@ -3363,9 +3404,9 @@ $REQUIRE MLG_DEF.TTT
       V=8;												\
       F=SF3;
 
-;TRAINS DE FOURGONS
+;Trains de fourgons
 ;------------------
-    TX=SNCF 141R + TRAINS DE FOURGONS;									\
+    TX=SNCF 141R + Trains de fourgons;									\
       C=SNCF_141R_FN1(|L),2*SNCF_3METPLM3D(|L),SNCF_DEV52D(|L),SNCF_3METPLMB_D(|L),SNCF_DEV52D(|L),	\
 	SNCF_3OCEM38D,SNCF_3METPLM3D(|L);								\
       V=10;												\
@@ -3378,7 +3419,7 @@ $REQUIRE MLG_DEF.TTT
 ;MANOEUVRES
     TX=SNCF BB 1500  MANOEUVRES;									\
       C=<SNCF_BB1500V|SNCF_BB1500VL|SNCF_BB1600|SNCF_BB1300|SNCF_BB1400,				\
-	1-2*(SNCF_3ORAD(|L)|SNCF_D_PLM3E|SNCF_3OCEM38D|SNCF_3ESTDD2(|L)|SNCF_3ESTDD2(|L)),		\
+	1-2*(SNCF_3ORAD(|L)|SNCF_D_PLM3E|SNCF_3OCEM38D|SNCF_3ESTDD2(|L)),				\
 	1-3*(SNCF_3PA21(|L)|SNCF_3PA10|SNCF_3PA10L|SNCF_3PE10P|SNCF_3PE10PL|SNCF_PE16_1914|		\
 	SNCF_PE16_1924|SNCF_PE16DE|SNCF_3PE18|SNCF_3PE18FL|SNCF_3PE18FLL|SNCF_3PEMED|SNCF_3PEMEDL|	\
 	SNCF_PE21TN(|L));										\
@@ -3390,25 +3431,25 @@ $REQUIRE MLG_DEF.TTT
       F=DF3;
 
 ;TRAINS DE MACHINES, MANOEUVRES AU DÉPÔT
-    TX=SNCF BB 4200 + TRAIN DE MACHINES, MANOEUVRES AU DÉPÔT;						\
+    TX=SNCF BB 4200 + TRAIN DE MACHINES,MANOEUVRES AU DÉPÔT;						\
       C=3*SNCF_BB4200OE;										\
       V=6;												\
       F=EGF3;
-    TX=SNCF Y J19000 + TRAIN DE MACHINES, MANOEUVRES AU DÉPÔT;						\
+    TX=SNCF Y J19000 + TRAIN DE MACHINES,MANOEUVRES AU DÉPÔT;						\
       C=[PD]SNCF_YJ19000|SNCF_YJ19000L,									\
-	SNCF_BB4200E|SNCF_2D2_5100S|SNCF_2D2_5500~MLG|SNCF_2D2_5500B~MLG|SNCF_2D2_5500D;		\
+	SNCF_BB4200E|SNCF_2D2_5100S|SNCF_2D2_5500(|L)~MLG|SNCF_2D2_5500B~MLG|SNCF_2D2_5500D;		\
       V=2; W=3;												\
       F=DF3;
-    TX=SNCF CC 14165 L  + TRAIN DE MACHINES, MANOEUVRES AU DÉPÔT;					\
+    TX=SNCF CC 14165 L  + TRAIN DE MACHINES,MANOEUVRES AU DÉPÔT;					\
       C=SNCF_CC14165A(|L),SNCF_CC14100G1(|L)[PD];							\
       V=6;												\
       F=EF3;
-    TX=SNCF BB 12013 + TRAIN DE MACHINES, MANOEUVRES AU DÉPÔT;						\
-      C=SNCF_BB12013BS,SNCF_CC14100G1(|L)[PD],SNCF_CC14100B(1P|2)[PD];					\
+    TX=SNCF BB 12013 + TRAIN DE MACHINES,MANOEUVRES AU DÉPÔT;						\
+      C=SNCF_BB12013BS(|L),SNCF_CC14100G1(|L)[PD],SNCF_CC14100B(1P|2)[PD];				\
       V=7;												\
       F=EF3;
 
-    TX=SNCF BB 63500 + TRAIN DE MACHINES, MANOEUVRES AU DÉPÔT;						\
+    TX=SNCF BB 63500 + TRAIN DE MACHINES,MANOEUVRES AU DÉPÔT;						\
       C=SNCF_BB63500S1PGOL|SNCF_CC7100(|L),SNCF_SSMYFI439L;						\
       D=R; V=8;												\
       F=DF3;
@@ -3420,7 +3461,7 @@ $REQUIRE MLG_DEF.TTT
 
 ;NAVETTES
     TX=SNCF BB 800 + NAVETTES;										\
-      C=SNCF_BB800_2P(|L),2*SNCF_3TALBOT_B,SNCF_BB800_2P(|L)[PD];					\
+      C=SNCF_BB800_I(|L),2*SNCF_3TALBOT_B,SNCF_BB800_I(|L)[PD];						\
       V=6;												\
       F=EGF3;
     TX=SNCF BB 1292 + NAVETTES;										\
@@ -3441,6 +3482,12 @@ $REQUIRE MLG_DEF.TTT
       C=$DIR(SNCF_4P621_TCL,SNCF_4P621_TC),SNCF_MAUZR|SNCF_MAUZRL;					\
       V=6;												\
       F=DF3;
+    TX=SNCF 030 TU;											\
+      C=$DIR(SNCF_030TUKL,SNCF_030TUK),SNCF_PLATTP_VB[OB:SOIL109,,17],					\
+	2*SNCF_PLATNORD_VB[OB:SOIL31_(1|2|3),6,18][OB:SOIL31_(1|2|3),40,18][OB:SOIL31_(1|2|3),74,18],	\
+	SNCF_PLATANCIEN1_VB[OB:SOIL75,,16];								\
+      V=6;												\
+      F=SF3;
 
 ;==============
 ;=== PRIVÉS ===
@@ -3507,32 +3554,32 @@ $REQUIRE MLG_DEF.TTT
 
 # ZUSATZ
 
-    TX=SNCF BB 30000, CC 40100 + TRAIN REGION NORD;							\
+    TX=SNCF BB 30000,CC 40100 + TRAIN REGION NORD;							\
       C=1:SNCF_BB30000[P1U]|2:SNCF_CC40100O(|L)|4:SNCF_CC40100E2(|L),					\
 	(<SNCF_TEEPBA_AD1L,3*SNCF_TEEPBA_ATU1,SNCF_TEEPBA_ABAR1,3*SNCF_TEEPBA_ATU1,SNCF_TEEPBA_AD1);	\
       V=16;												\
       F=EP3;
-    TX=SNCF BB 69000  + EXPRESS;									\
+    TX=SNCF BB 69000 + EXPRESS;									\
       C=SNCF_BB69000B1|SNCF_CC70000,SNCF_FC1300K_MS,|SNCF_3PA21(|L),2*SNCF_3ESTDD2(|L),			\
 	3*SNCF_3AOC48_B10G(|L)|SNCF_3AOC_B10G(|L),SNCF_3AOC_A8G(|L);					\
       V=14;												\
       F=DP3;
-    TX=SNCF BB 67000  + EXPRESS;									\
+    TX=SNCF BB 67000 + EXPRESS;									\
       C=BB67000_O,SNCF_FC1300K_MS,SNCF_3PA21(|L),3*SNCF_3AOC_B10G(|L),2*SNCF_3AOC_A8G(|L),		\
 	4*SNCF_3AOC_B10G(|L),SNCF_3METPLM_B4D(|L);							\
       V=13;												\
       F=DP3;
-    TX=SNCF 2D2 5400  + EXPRESS;									\
+    TX=SNCF 2D2 5400 + EXPRESS;									\
       C=2:SNCF_2D2_5400~MLG|1:SNCF_2D25400_RG,2*SNCF_3OCEM29D,SNCF_3OF_A8(|L),SNCF_3AOC_A8G(|L),	\
 	8-9*(1:SNCF_3OF_B10(|L)|2:SNCF_3AOC4_B10(|L)|1:SNCF_3AOC_B10G(|L));				\
       V=14;												\
       F=EGP3;
-    TX=SNCF BB 9200  + EXPRESS;										\
+    TX=SNCF BB 9200 + EXPRESS;										\
       C=1:SNCF_BB9200S1GJ(|L)|3:SNCF_BB9200GJ,SNCF_3METPLM_B10(|L),SNCF_3METPLM_B4DS,			\
 	4*SNCF_3METPLM_B10(|L),SNCF_3METPLM_A3B5(|L),SNCF_3OF_A8(|L);					\
       V=14;												\
       F=EGP3;
-    TX=SNCF CC 65000  + EXPRESS;									\
+    TX=SNCF CC 65000 + EXPRESS;									\
       C=2*SNCF_CC65000O(|L),SNCF_3OCEM29D,3*(SNCF_3OR_B10(|L)|SNCF_3OR_B9(|L)),				\
 	(>3:SNCF_3OR_A3B5(|L),OCEMRA_TN_A8),2*SNCF_3OF_B10(|L),SNCF_3OR_B10(|L),2*SNCF_3OF_B10(|L);	\
       V=12;												\
@@ -3546,18 +3593,18 @@ $REQUIRE MLG_DEF.TTT
       C2=SNCF_241P2L;											\
       V2=5; A2=0.04; B2=0.07; V3=12; P=33; T1=1; T2=2; T3=1;						\
       F=EGPO3;
-    TX=SNCF 2D2 5400  + EXPRESS;									\
+    TX=SNCF 2D2 5400 + EXPRESS;									\
       C=SNCF_2D2_5400~MLG|SNCF_2D25400_RG|SNCF_BB9003A|SNCF_BB9003B|SNCF_BB9001A|SNCF_BB9001B,		\
 	SNCF_3OCEM29D,SNCF_3PE18FL(|L),SNCF_3OCEM29D,7*SNCF_3OF_B10(|L),3*SNCF_3OF_A8(|L),		\
 	3*SNCF_3METETAT_B10;										\
       V=14;												\
       F=EGP3;
-    TX=SNCF BB 9003  + EXPRESS;										\
+    TX=SNCF BB 9003 + EXPRESS;										\
       C=SNCF_BB9003A|SNCF_BB9003B,SNCF_3OR_B4D(|L),3-4*SNCF_3METETAT_B10,SNCF_3METETAT_A3B5(|L),	\
 	OCEMRA_TN_A8|SNCF_3AOC_A8G(|L),3-4*SNCF_3AOC_B10G(|L);						\
       V=14;												\
       F=EGP3;
-    TX=SNCF BB 25200  + EXPRESS;									\
+    TX=SNCF BB 25200 + EXPRESS;									\
       C=BB25200_1S_V_DC,SNCF_CINE204G(|L),SNCF_INOXLO_A6R(|L),SNCF_INOXL_Y20O_A9T(|L),			\
 	2*SNCF_INOXLO_A9(|L),5*SNCF_INOXLO_B10(|L),SNCF_3OCEM29D;					\
       V=16;												\
@@ -3612,7 +3659,7 @@ $REQUIRE MLG_DEF.TTT
       F=DPRU3;
     TX=SNCF AEK;											\
       C=1:SNCF_AEK1|1:SNCF_AEK1L|8:(1-2*(SNCF_AEK2_GMH|SNCF_AEK2_GMHL|SNCF_AEK2_PMH|SNCF_AEK2_PMHL))|	\
-	4:(1-2*SNCF_AEK2_PMF_L);									\
+	4:(1-2*SNCF_AEK2_X7100L);									\
       V=12;												\
       F=DPR3;
     TX=SNCF BB 16500 + FRET EST;									\
@@ -3651,7 +3698,7 @@ $REQUIRE MLG_DEF.TTT
 	SNCF_K_STD[OB:CDEV_A2_72CNC|COCEM_A2B102CNC,16,12][OB:CDEV_A2_72CNC|COCEM_A2B102CNC,70,12]),	\
 	1-3*SNCF_E_STD_C,										\
 	2*SNCF_K_OCEM19[OB:TANK_STEF1,12,12][OB:TANK_STEF1,35,12][OB:TANK_STEF1,58,12],			\
-	2-3*(G_OCEM|SNCF_G_UIC_BOIS_B)									\
+	2-3*(G_OCEM|SNCF_G_UIC_BOIS_B),									\
 	2-4*(SNCF_R_TP_UFR[OB:UFR_FOURG2,<19,13][OB:UFR_FOURGL1,>180,13]|				\
 	SNCF_R_TP_UFR[OB:UFR_FOURG|UFR_CIT1,,13][OB:UFR_FOURG,<9,13][OB:UFR_FOURG,>187,13]|		\
 	SNCF_K_OCEM29_UFR[OB:UFR_FOURG,,13]);								\
@@ -3677,8 +3724,8 @@ $REQUIRE MLG_DEF.TTT
       V=10;												\
       F=EGF3;
 
-    TX=SNCF 1CC1 3700 + FRET;										\
-      C=[PD]SNCF_1CC1_3700|SNCF_1CC1_3800,10-12*SNCF_G_UIC_BOIS_B;					\
+    TX=SNCF 1CC1 3700/3800 + FRET;									\
+      C=[PD]SNCF_1CC1_3700|SNCF_1CC13800,10-12*SNCF_G_UIC_BOIS_B;					\
       V=7;												\
       F=MF3;
     TX=SNCF BB 1-80 + FRET;										\
@@ -3721,6 +3768,13 @@ $REQUIRE MLG_DEF.TTT
 	(25-30*SNCF_TREMIE_MH30_SGMF[O:FR_KO42|FR_KO43|FR_KO44]);					\
       V=6;												\
       F=EF3;
+
+# ZUSATZ
+    TX=SNCF BB 66000;											\
+      C=(SNCF_BB66000S3(|L),SNCF_XR8850(|L),SNCF_XR8860(|L),SNCF_XR7800C(|L)|SNCF_XR8100C(|L),		\
+	SNCF_XR8850(|L))|(SNCF_BB63500S1PG(|L),3*SNCF_XR8860(|L));					\
+      V=10;												\
+      F=DPRU3;
 
   }
 %ENDPOOL;

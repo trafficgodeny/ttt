@@ -2,7 +2,6 @@
   $INCLUDE SINGLE.TTT
 }
 $REQUIRE TRAINDEF.TTT
-$REQUIRE JMD_EU_DEF.TTT
 
 #
 # Italy
@@ -14,13 +13,16 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
 %ADDPOOL(POOL_I,I_ENV)
   {E1?
 # Italien EP I
+    TX=Italien RM 4361 + Personenzug;									\
+      C=RM_4361,RM_DUI97000,RA_BR2800,RA_AAR453,RA_CT7001,RA_BRN6480,SFAI_AF21000;			\
+      F=SPR1;
     TX=Italien RM 4361 + Güterzug;									\
       C=RM_4361,(4*F1F(ES|NO|ET|PO|PLM|MI)S);								\
       F=SF1;
     TX=Italien RM 4361 + Schnellzug;									\
       C=RM_4361,(<RM_CFC10000,RM_ARG801,RM_A1000,CIWL_WR1,RM_AB59000,RM_DUI97000);			\
       F=SP1;
-    TX=Italien SCTC (Gozzano) - Società Cusiana Trasporti Costruzioni - Locale Alzo - Gozzano, locomotiva 'Alzo' + carro trasporto blocchi granito + carrozza 1; \
+    TX=Italien SCTC (Gozzano)- Società Cusiana Trasporti Costruzioni - Locale Alzo - Gozzano, locomotiva 'Alzo' + carro trasporto blocchi granito + carrozza 1; \
       C=SCTC_ALZO,SCTC_K,SCTC_1(|L);									\
       F=SP1;
     TX=Italien RM MACE + RACE;										\
@@ -53,7 +55,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C=FS_GR685A,(<FS_CZ36000,FS_CDIY67400A,FS_VVLR808600D);						\
       D=R;												\
       F=SP2;
-    TX=FS 685.16 1912, photo livery;									\
+    TX=FS 685.16 1912,photo livery;									\
       C=FS_685G;											\
       F=SF2;
     TX=FS A.691 + Direttissimo 1940;									\
@@ -128,7 +130,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=FS ET.101 EB;											\
       C=FS_E101,FS_RACZ62420;										\
       F=MP2;
-    TX=FS ET 151, 201;											\
+    TX=FS ET 151,201;											\
       C=<FS_E151,FS_E201;										\
       F=MPU2;
 
@@ -139,7 +141,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=FS E.333;											\
       C=FS_E333K,I2PD;											\
       F=EXP2;
-    TX=FS E 431, 333 + Expresstrain;									\
+    TX=FS E 431,333 + Expresstrain;									\
       C=FS_E431K|FS_E333K,(0-1*(FS_E431K|FS_E333K)),CIWL_WR2749,(1-2*FS_CZ30000GD),			\
 	(1-2*(FS_CZ30000GD|FS_CZ32000IS2)),FS_BZ20000GD,FS_AZ10000G,FS_DZ80000IS,|CIWL_WL40;		\
       F=EXP2;
@@ -148,23 +150,23 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       F=EXP2;
 
 # Italien Privat
-    TX=Italien ACIT (Pisa-Livorno) - PPC Pisa-Pontedera;						\
+    TX=Italien ACIT (Pisa-Livorno)- PPC Pisa-Pontedera;							\
       C=ACIT_101A,(<ACIT_BB1AR,ACIT_B1A,ACIT_A1A,ACIT_C1A)|(<ACIT_C1A,ACIT_A1A,ACIT_B1A,ACIT_BB1AL);	\
       F=DP2;
-    TX=Italien ACIT (Pisa-Livorno) - PPC Pontedera-Pisa;						\
+    TX=Italien ACIT (Pisa-Livorno)- PPC Pontedera-Pisa;							\
       C=ACIT_101B,(<ACIT_BB1BR,ACIT_B1B,ACIT_A1B,ACIT_C1B)|(<ACIT_C1B,ACIT_A1B,ACIT_B1B,ACIT_BB1BL);	\
       F=DP2;												\
       LOCOMOTIVA ACCUMULATORI 101-103+CARROZZE BB 1-5+B 1-5+A 1-6+C 1-5EX FS CN 901;
-    TX=Italien Ferrovia Verona (FVCG) Misto Verona - Caprino, locomotiva SV 210-215, bagagliaio D 1-2, carrozza C 1-7, carro chiuso N 1-3; \
+    TX=Italien Ferrovia Verona (FVCG)Misto Verona - Caprino,locomotiva SV 210-215,bagagliaio D 1-2, carrozza C 1-7,carro chiuso N 1-3; \
       C=SAER_210(|L),SAER_D01,SAER_C01,SAER_N01;							\
       F=SP2;
-    TX=Italien Ferrovia Verona (FVCG) Misto Verona - Caprino, locomotiva SV 210-215, carrozza AB 1-8 + C 8 -13; \
+    TX=Italien Ferrovia Verona (FVCG)Misto Verona - Caprino,locomotiva SV 210-215, carrozza AB 1-8 + C 8 -13; \
       C=SAER_210(|L),SAER_C02,SAER_AB01(|L);								\
       F=SP2;
-    TX=Italien Società Anonima Esercizi Riuniti (SAER) Locale Verona - Garda, elettromotrice ad accumulatori E 41-43; \
+    TX=Italien Società Anonima Esercizi Riuniti (SAER)Locale Verona - Garda, elettromotrice ad accumulatori E 41-43; \
       C=SAER_A41;											\
       F=DP2;
-    TX=Italien Società Anonima Esercizi Riuniti (SAER) Locale Verona - Garda, elettromotrice ad accumulatori E 75-78; \
+    TX=Italien Società Anonima Esercizi Riuniti (SAER)Locale Verona - Garda, elettromotrice ad accumulatori E 75-78; \
       C=SAER_A75;											\
       F=DP2;
     TX=Italien SFB - Strade Ferrate di Biella SA - Locale Biella-Santhià marcia a ritroso;		\
@@ -198,16 +200,16 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien FEB - Ferrovie Elettriche Biellesi - Locale Biella - Vallemosso, ELETTROMOTRICE 13 E RIMORCHIO 53; \
       C=FEB_13(|L),FEB_53;										\
       F=EP2;
-    TX=FG: Ferrovia del Gargano E52;									\
+    TX=FG:Ferrovia del Gargano E52;									\
       C=FDG_E52;											\
       F=EP2;
-    TX=Italien FP: Ferrovia Padane N 21;								\
-      C=FP_N21,FS_GHMS2A,FS_GHMS8A;									\
+    TX=Italien FP:Ferrovia Padane N 21;									\
+      C=FP_N21,FS_GHMS2A,FS_GHMS8A,FP_3_F;								\
       F=SF2;
-    TX=Italien FP: Ferrovia Padane N 60;								\
+    TX=Italien FP:Ferrovia Padane N 60;									\
       C=FP_N60,FS_P1,FS_P,FS_P;										\
       F=SF2;
-    TX=Italien FP: Ferrovia Padane N 61;								\
+    TX=Italien FP:Ferrovia Padane N 61;									\
       C=FP_N61,FP_DU551,FP_C521,FP_AC501;								\
       F=SP2;
     TX=Italien LFI Trasporto Ferroviario Toscano Locale Arezzo - Sinalunga - automotrice 001-005 + carrozza C 101-108 + D 201-203 + E 401-410 + P 501-510 + F 301-310; \
@@ -216,10 +218,10 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien LFI Trasporto Ferroviario Toscano Locale misto Sinalunga - Arezzo automotrice 001-005 + 3 carrozze C 101-108; \
       C=LFI_001L,3*LFI_C101A;										\
       F=EP2;
-    TX=Italien FTP: Ferrovie e Tramvie Padane N22;							\
+    TX=Italien FTP:Ferrovie e Tramvie Padane N22;							\
       C=FTP_N22,FTP_NP151W,FTP_NL251W,FTP_NF131W,FTP_NF131P,FTP_NF301,FTP_NH254;			\
       F=SF2;
-    TX=Italien FTP: Ferrovie e Tramvie Padane 41;							\
+    TX=Italien FTP:Ferrovie e Tramvie Padane 41;							\
       C=FTP_41,												\
 	(<FTP_NBD151[BC:-80,-40,18,20,4,4][BC:-80,-40,18,25,4,2][BC:-80,-40,7,20,4,4]			\
 	[BC:-80,-40,33,25,4,4][BC:-80,-40,33,20,4,4][BC:-80,-40,55,20,4,9][BC:-80,-40,60,20,4,9]	\
@@ -232,50 +234,50 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
 	[BC:-80,-40,81,20,4,9][BC:-80,-40,108,25,4,4][BC:-80,-40,99,20,4,9][BC:-80,-40,94,20,4,9]	\
 	[BC:-80,-40,108,20,4,4][BC:-80,-40,47,20,4,9][BC:-80,-40,42,20,4,9]));				\
       F=SPR2;
-    TX=MCU Mediterranea Centrale Umbra, Locale Umbertide - Terni, AUTOMOTRICE B 104+CARROZZA C 411EX FNM; \
+    TX=MCU Mediterranea Centrale Umbra,Locale Umbertide - Terni,AUTOMOTRICE B 104+CARROZZA C 411EX FNM;	\
       C=MCU_B104(|L),MCU_C411B,MCU_B1850(|L);								\
       F=EP2;
-    TX=MCU Mediterranea Centrale Umbra, Locale Perugia S.Anna - Umbertide ELETTROMOTRICE B 105;		\
+    TX=MCU Mediterranea Centrale Umbra,Locale Perugia S.Anna - Umbertide ELETTROMOTRICE B 105;		\
       C=MCU_B105(|L);											\
       F=EP2;
-    TX=MCU Mediterranea Centrale Umbra, Locale Perugia S.Anna - Terni, ELETTROMOTRICE B 103;		\
+    TX=MCU Mediterranea Centrale Umbra,Locale Perugia S.Anna - Terni,ELETTROMOTRICE B 103;		\
       C=MCU_B103(|L);											\
       F=EP2;
-    TX=MCU Mediterranea Centrale Umbra, Locale Terni - Perugia S.Anna, ELETTROMOTRICE A 50-51EX SEETALBAHN; \
+    TX=MCU Mediterranea Centrale Umbra,Locale Terni - Perugia S.Anna, ELETTROMOTRICE A 50-51EX SEETALBAHN; \
       C=MCU_A50(|L);											\
       F=EP2;
-    TX=MCU Mediterranea Centrale Umbra, Locale Terni - Perugia S.Anna, ELETTROMOTRICE A 50-51EX SEETALBAHN; \
+    TX=MCU Mediterranea Centrale Umbra,Locale Terni - Perugia S.Anna, ELETTROMOTRICE A 50-51EX SEETALBAHN; \
       C=MCU_A50(|L);											\
       F=EP2;
-    TX=MCU Mediterranea Centrale Umbra, Corsa a spola Perugia S.Anna - Perugia Ponte S.Giovanni, LOCOMOTIVA 102-107SEMPRE A VALLE+CARROZZE BLOCCATE ADT - CT; \
+    TX=MCU Mediterranea Centrale Umbra,Corsa a spola Perugia S.Anna - Perugia Ponte S.Giovanni, LOCOMOTIVA 102-107SEMPRE A VALLE+CARROZZE BLOCCATE ADT - CT; \
       C=MCU_101,MCU_ADT_CTA(|L);									\
       F=EP2;
-    TX=MCU Mediterranea Centrale Umbra, Locale Umbdrtide - Terni, locomotiva 102-107 + D 2250-2257 + ADT + 3 carrozze CT; \
+    TX=MCU Mediterranea Centrale Umbra,Locale Umbdrtide - Terni, locomotiva 102-107 + D 2250-2257 + ADT + 3 carrozze CT; \
       C=MCU_101,											\
 	(<MCU_DUT2250AL,3*MCU_AT1450AL,MCU_ABT1451L|MCU_ADT1451AL)|					\
 	(<(MCU_ABT1451|MCU_ADT1451A),3*MCU_AT1450A,MCU_DUT2250A);					\
       F=EP2;
-    TX=MCU Mediterranea Centrale Umbra, Locale, locomotiva 102-107 + ADT + C 411 + 3 carrozze CT;	\
+    TX=MCU Mediterranea Centrale Umbra,Locale,locomotiva 102-107 + ADT + C 411 + 3 carrozze CT;		\
       C=MCU_101,MCU_ADT1451A(|L),MCU_C411A,3*MCU_AT1450A(|L);						\
       F=EP2;
-    TX=MCU Mediterranea Centrale Umbra, Locale, locomotiva 102-107 + D 2250-2257 + ADT + CT 1850 + 3 carrozze CT; \
+    TX=MCU Mediterranea Centrale Umbra,Locale, locomotiva 102-107 + D 2250-2257 + ADT + CT 1850 + 3 carrozze CT; \
       C=MCU_101,MCU_DUT2250B(|L),MCU_ADT1451B(|L),MCU_CT1850B(|L),MCU_CT1850C(|L),2*MCU_AT1450B(|L);	\
       F=EP2;
-    TX=MCU Mediterranea Centrale Umbra, Treno estivo popolare Terni - Umbertide, LOCOMOTIVA 102-107+7 CARROZZE CT; \
+    TX=MCU Mediterranea Centrale Umbra,Treno estivo popolare Terni - Umbertide, LOCOMOTIVA 102-107+7 CARROZZE CT; \
       C=MCU_101,7*MCU_CT1850A;										\
       F=EP2;
-    TX=MCU Mediterranea Centrale Umbra, Misto Perugia - Terni del mattino,LOCOMOTIVA 101,151-156+D 2250-2257+CT+LF 980-998+L 950-968+GF 450-471; \
+    TX=MCU Mediterranea Centrale Umbra,Misto Perugia - Terni del mattino,LOCOMOTIVA 101, 151-156+D 2250-2257+CT+LF 980-998+L 950-968+GF 450-471; \
       C=MCU_101,											\
 	(<MCU_DUT2250A,MCU_CT1850AL,MCU_LF980L,MCU_L9850,MCU_GF450)|					\
 	(<MCU_GF450L,MCU_L9850,MCU_LF980,MCU_CT1850A,MCU_DUT2250AL);					\
       F=EP2;
-    TX=MCU Mediterranea Centrale Umbra, Corsa a spola Perugia S.Anna - Perugia Ponte S.Giovanni, LOCOMOTIVA 102-107+CARROZZE BLOCCATE CT - ADT/AT RIVERNICIATE; \
+    TX=MCU Mediterranea Centrale Umbra,Corsa a spola Perugia S.Anna - Perugia Ponte S.Giovanni, LOCOMOTIVA 102-107+CARROZZE BLOCCATE CT - ADT/AT RIVERNICIATE; \
       C=MCU_101,MCU_(ADT_CTB|AT_CTA|ADT_CTA|AT_CTB)(|L);						\
       F=EP2;
-    TX=Italien Società Anonima Esercizi Riuniti (SAER) Locale Verona P.ta Vescovo - San Bonifacio, elettromotrice E 11-12; \
+    TX=Italien Società Anonima Esercizi Riuniti (SAER)Locale Verona P.ta Vescovo - San Bonifacio, elettromotrice E 11-12; \
       C=SAER_E11;											\
       F=EP2;
-    TX=Italien Società Anonima Esercizi Riuniti (SAER) Merci in manovra a Verona P.ta Vescovo, locomotiva E 31-32 + carri chiusi; \
+    TX=Italien Società Anonima Esercizi Riuniti (SAER)Merci in manovra a Verona P.ta Vescovo, locomotiva E 31-32 + carri chiusi; \
       C=SAER_E32,2*SAER_N01;										\
       F=EF2;
 
@@ -318,13 +320,13 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Ferrovia Ferrovia Alto Pistoiese A1;							\
       C=FAP_A1A;											\
       F=ENP2;
-    TX=Italien SFSM: Strade Ferrate Secondarie Meridionali (Ferrovia Circumvesuviana) 302;		\
+    TX=Italien SFSM:Strade Ferrate Secondarie Meridionali (Ferrovia Circumvesuviana)302;		\
       C=CVE_302,CVE_BD0204R;										\
       F=ENF2;
-    TX=Italien SFSM: Strade Ferrate Secondarie Meridionali (Ferrovia Circumvesuviana) BD 103;		\
+    TX=Italien SFSM:Strade Ferrate Secondarie Meridionali (Ferrovia Circumvesuviana)BD 103;		\
       C=CVE_BD0103;											\
       F=ENPU2;
-    TX=Italien SFSM: Strade Ferrate Secondarie Meridionali (Ferrovia Circumvesuviana) BD 204;		\
+    TX=Italien SFSM:Strade Ferrate Secondarie Meridionali (Ferrovia Circumvesuviana)BD 204;		\
       C=<CVE_BD0204R,CVE_BD0204;									\
       F=ENPU2;
     TX=Italien Societa Subaplina Imprese Ferroviarie Domodossola - Locarno BCFe 4/4;			\
@@ -433,7 +435,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C=FS_GR685,FS_DZ88000CA,FS_CZ36000IS,FS_FAR0,FS_FARH,FS_FAR,FS_FAR1,FS_FAR,FS_FARH1,FS_FAR2,	\
 	FS_FAR3,FS_FARH2,FS_FAR5,FS_FARW,FS_FARCH,FS_FAR4;						\
       F=SP3;
-    TX=FS 685, 683 50's;										\
+    TX=FS 685,683 50's;											\
       C=1-2*(FS_GR685|FS_GR683),1-2*(FS_DZ88000CA|FS_DUZ94200CA|FS_DZ80000IS),0-1*CIWL_SGM(|L),		\
 	3*FS_CZ33010BL,(FS_ABZ52000BC(|L)|FS_ABZ60000IS),FS_AZ10000CA,2*FS_BZ33010CL,FS_BZ45000CA1(|L);	\
       F=SP3;
@@ -562,7 +564,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
 
 # Italien V
     TX=FS D.341.1000;											\
-      C=FS_D341_1000~VIA,FS_VRZ808800|FS_VVLR808600,							\
+      C=FS_D341S1_1000M(|L),FS_VRZ808800|FS_VVLR808600,							\
 	(<FS_CZ37300A(|L),FS_CIY35_006B,FS_CIY34000B,FS_CDIY67400B);					\
       F=DP3;
     TX=FS D.342 3000;											\
@@ -661,7 +663,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C2=FS_ALN772~VIA;											\
       D2=r; T1=3; T2=5;											\
       F=DPO3;
-    TX=FS ALN 873 mit ALN 556, Altn 444, Aln 668;							\
+    TX=FS ALN 873 mit ALN 556,Altn 444,Aln 668;								\
       M=back;												\
       C=2*(FS_ALN873_3501|FS_ALN873_3501L)|FS_ALN556F|FS_ALTN444B|FS_ALN668_2404,FS_ALN668_2431;	\
       W=3;												\
@@ -810,6 +812,13 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=FS E.636.117;											\
       C=FS_E636117,A3F;											\
       F=EF3;
+    TX=FS E.645 + Diretto 1958;										\
+      C=FS_E645II,											\
+	(<FS_DZ83000B,2*FS_T57_BZIM,2*(FS_T55_AZIM|FS_AZ23000IM),FS_T55_ABZIM|FS_T57_ABZIM,		\
+	2*FS_T57_BZIM,FS_T59_BZIM)|									\
+	(>FS_DZ83000BL,2*FS_T57_BZIML,2*(FS_T55_AZIML|FS_AZ23000IML),FS_T55_ABZIML|FS_T57_ABZIML,	\
+	2*FS_T57_BZIML,FS_T59_BZIML);									\
+      F=EP3;
     TX=FS E.645 + Diretto 1967;										\
       C=FS_E645II,I3PC6L;										\
       F=EP3;
@@ -836,10 +845,17 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=FS E.645 + Messwagen;										\
       C=FS_E645082L|FS_645M~GI|FS_E645082,FS_VVLCZ_ALDEBARAN1;						\
       F=EF3;
+    TX=FS E.646 + Diretto 1962;										\
+      C=FS_E646_(158G|131)(|L),										\
+	(<FS_DZ83000B2,2*FS_T59_BZNM,FS_T59_ABZNM|FS_T57_ABZNM,FS_T59_AZNM,FS_T55_AZNM,FS_T57_BZNM,	\
+	FS_BZ45000B,FS_3B_ABZ61000B|FS_T55_ABZNM)|							\
+	(>FS_DZ83000B2L,2*FS_T59_BZNML,FS_T59_ABZNML|FS_T57_ABZNML,FS_T59_AZNML,FS_T55_AZNML,		\
+	FS_T57_BZNML,FS_BZ45000BL,FS_3B_ABZ61000BL|FS_T55_ABZNML);					\
+      F=EP3;
 
 # R30/R33 "Treno Azzurro" 1960
 
-    TX=R33 "Treno Azzurro" Milano - Roma (- Napoli) 1960;						\
+    TX=R33 "Treno Azzurro" Milano - Roma (- Napoli)1960;						\
       C=FS_E646(1:I(|L)~VIA|40:II(|L)),I3PTA60W,FS_AZ13010AZU(|L);					\
       D=R;												\
       F=EP3;
@@ -852,11 +868,11 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C2=FS_213905;											\
       V2=4; V3=4; P=@-0+(10-30);									\
       F=EP3O;
-    TX=R33 "Treno Azzurro" (Milano -) Roma - Napoli 1960;						\
+    TX=R33 "Treno Azzurro" (Milano -)Roma - Napoli 1960;						\
       C=FS_E646(1:I(|L)~VIA|40:II(|L)),I3PTA60W;							\
       D=R;												\
       F=EP3;
-    TX=R33 "Treno Azzurro" Milano - Roma (- Napoli) 1960;						\
+    TX=R33 "Treno Azzurro" Milano - Roma (- Napoli)1960;						\
       C=FS_E646(1:I(|L)~VIA|40:II(|L)),I3PTA60O,FS_AZ13010AZU(|L);					\
       D=L;												\
       F=EP3;
@@ -869,11 +885,11 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C2=FS_213905;											\
       V2=4; V3=4; P=@-0+(10-30);									\
       F=EP3O;
-    TX=R33 "Treno Azzurro" (Milano -) Roma - Napoli 1960;						\
+    TX=R33 "Treno Azzurro" (Milano -)Roma - Napoli 1960;						\
       C=FS_E646(1:I(|L)~VIA|40:II(|L)),I3PTA60O;							\
       D=L;												\
       F=EP3;
-    TX=R30 "Treno Azzurro" Napoli - Roma (- Milano) 1960;						\
+    TX=R30 "Treno Azzurro" Napoli - Roma (- Milano)1960;						\
       C=FS_E646(1:I(|L)~VIA|40:II(|L)),I3PTA60O;							\
       D=R;												\
       F=EP3;
@@ -886,11 +902,11 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C2=FS_213905;											\
       V2=4; V3=8; P=@-0+(75-95);									\
       F=EP3O;
-    TX=R30 "Treno Azzurro" (Napoli -) Roma - Milano 1960;						\
+    TX=R30 "Treno Azzurro" (Napoli -)Roma - Milano 1960;						\
       C=FS_E646(1:I(|L)~VIA|40:II(|L)),I3PTA60O,FS_AZ13010AZU(|L);					\
       D=R;												\
       F=EP3;
-    TX=R30 "Treno Azzurro" Napoli - Roma (- Milano) 1960;						\
+    TX=R30 "Treno Azzurro" Napoli - Roma (- Milano)1960;						\
       C=FS_E646(1:I(|L)~VIA|40:II(|L)),I3PTA60W;							\
       D=L;												\
       F=EP3;
@@ -903,14 +919,14 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C2=FS_213905;											\
       V2=4; V3=8; P=@-0+(75-95);									\
       F=EP3O;
-    TX=R30 "Treno Azzurro" (Napoli -) Roma - Milano 1960;						\
+    TX=R30 "Treno Azzurro" (Napoli -)Roma - Milano 1960;						\
       C=FS_E646(1:I(|L)~VIA|40:II(|L)),I3PTA60W,FS_AZ13010AZU(|L);					\
       D=L;												\
       F=EP3;
 
 # R30/R33 "Treno Azzurro" 1962
 
-    TX=R33 "Treno Azzurro" Milano - Roma (- Napoli) 1962;						\
+    TX=R33 "Treno Azzurro" Milano - Roma (- Napoli)1962;						\
       C=FS_E646_AZ(|L)~VIA,I3PTA62W,FS_AZ23600AZU(|L);							\
       D=R;												\
       F=EP3;
@@ -923,11 +939,11 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C2=FS_213905;											\
       V2=4; V3=4; P=@-0+(10-30);									\
       F=EP3O;
-    TX=R33 "Treno Azzurro" (Milano -) Roma - Napoli 1962;						\
+    TX=R33 "Treno Azzurro" (Milano -)Roma - Napoli 1962;						\
       C=FS_E646_AZ(|L)~VIA,I3PTA62W;									\
       D=R;												\
       F=EP3;
-    TX=R33 "Treno Azzurro" Milano - Roma (- Napoli) 1962;						\
+    TX=R33 "Treno Azzurro" Milano - Roma (- Napoli)1962;						\
       C=FS_E646_AZ(|L)~VIA,I3PTA62O,FS_AZ23600AZU(|L);							\
       D=L;												\
       F=EP3;
@@ -940,11 +956,11 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C2=FS_213905;											\
       V2=4; V3=4; P=@-0+(10-30);									\
       F=EP3O;
-    TX=R33 "Treno Azzurro" (Milano -) Roma - Napoli 1962;						\
+    TX=R33 "Treno Azzurro" (Milano -)Roma - Napoli 1962;						\
       C=FS_E646_AZ(|L)~VIA,I3PTA62O;									\
       D=L;												\
       F=EP3;
-    TX=R30 "Treno Azzurro" Napoli - Roma (- Milano) 1962;						\
+    TX=R30 "Treno Azzurro" Napoli - Roma (- Milano)1962;						\
       C=FS_E646_AZ(|L)~VIA,I3PTA62O;									\
       D=R;												\
       F=EP3;
@@ -957,11 +973,11 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C2=FS_213905;											\
       V2=4; V3=8; P=@-0+(75-95);									\
       F=EP3O;
-    TX=R30 "Treno Azzurro" (Napoli -) Roma - Milano 1962;						\
+    TX=R30 "Treno Azzurro" (Napoli -)Roma - Milano 1962;						\
       C=FS_E646_AZ(|L)~VIA,I3PTA62O,FS_AZ23600AZU(|L);							\
       D=R;												\
       F=EP3;
-    TX=R30 "Treno Azzurro" Napoli - Roma (- Milano) 1962;						\
+    TX=R30 "Treno Azzurro" Napoli - Roma (- Milano)1962;						\
       C=FS_E646_AZ(|L)~VIA,I3PTA62W;									\
       D=L;												\
       F=EP3;
@@ -974,14 +990,14 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C2=FS_213905;											\
       V2=4; V3=8; P=@-0+(75-95);									\
       F=EP3O;
-    TX=R30 "Treno Azzurro" (Napoli -) Roma - Milano 1962;						\
+    TX=R30 "Treno Azzurro" (Napoli -)Roma - Milano 1962;						\
       C=FS_E646_AZ(|L)~VIA,I3PTA62W,FS_AZ23600AZU(|L);							\
       D=L;												\
       F=EP3;
 
 # R30/R33 "Treno Azzurro" Mitte der 60er
 
-    TX=R33 "Treno Azzurro" Milano - Roma (- Napoli) Mitte der 60er;					\
+    TX=R33 "Treno Azzurro" Milano - Roma (- Napoli)Mitte der 60er;					\
       C=FS_E646_AZ(|L)~VIA,I3PTA6XW,FS_AZ23600AZU(|L);							\
       D=R;												\
       F=EP3;
@@ -994,11 +1010,11 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C2=FS_213905;											\
       V2=4; V3=4; P=@-0+(10-30);									\
       F=EP3O;
-    TX=R33 "Treno Azzurro" (Milano -) Roma - Napoli Mitte der 60er;					\
+    TX=R33 "Treno Azzurro" (Milano -)Roma - Napoli Mitte der 60er;					\
       C=FS_E646_AZ(|L)~VIA,I3PTA6XW;									\
       D=R;												\
       F=EP3;
-    TX=R33 "Treno Azzurro" Milano - Roma (- Napoli) Mitte der 60er;					\
+    TX=R33 "Treno Azzurro" Milano - Roma (- Napoli)Mitte der 60er;					\
       C=FS_E646_AZ(|L)~VIA,I3PTA6XO,FS_AZ23600AZU(|L);							\
       D=L;												\
       F=EP3;
@@ -1011,11 +1027,11 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C2=FS_213905;											\
       V2=4; V3=4; P=@-0+(10-30);									\
       F=EP3O;
-    TX=R33 "Treno Azzurro" (Milano -) Roma - Napoli Mitte der 60er;					\
+    TX=R33 "Treno Azzurro" (Milano -)Roma - Napoli Mitte der 60er;					\
       C=FS_E646_AZ(|L)~VIA,I3PTA6XW;									\
       D=L;												\
       F=EP3;
-    TX=R30 "Treno Azzurro" Napoli - Roma (- Milano) Mitte der 60er;					\
+    TX=R30 "Treno Azzurro" Napoli - Roma (- Milano)Mitte der 60er;					\
       C=FS_E646_AZ(|L)~VIA,I3PTA6XO;									\
       D=R;												\
       F=EP3;
@@ -1028,11 +1044,11 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C2=FS_213905;											\
       V2=4; V3=8; P=@-0+(75-95);									\
       F=EP3O;
-    TX=R30 "Treno Azzurro" (Napoli -) Roma - Milano Mitte der 60er;					\
+    TX=R30 "Treno Azzurro" (Napoli -)Roma - Milano Mitte der 60er;					\
       C=FS_E646_AZ(|L)~VIA,I3PTA6XO,FS_AZ23600AZU(|L);							\
       D=R;												\
       F=EP3;
-    TX=R33 "Treno Azzurro" Napoli - Roma (- Milano) Mitte der 60er;					\
+    TX=R33 "Treno Azzurro" Napoli - Roma (- Milano)Mitte der 60er;					\
       C=FS_E646_AZ(|L)~VIA,I3PTA6XW;									\
       D=L;												\
       F=EP3;
@@ -1045,7 +1061,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C2=FS_213905;											\
       V2=4; V3=8; P=@-0+(75-95);									\
       F=EP3O;
-    TX=R33 "Treno Azzurro" (Napoli -) Roma - Milano Mitte der 60er;					\
+    TX=R33 "Treno Azzurro" (Napoli -)Roma - Milano Mitte der 60er;					\
       C=FS_E646_AZ(|L)~VIA,I3PTA6XO,FS_AZ23600AZU(|L);							\
       D=L;												\
       F=EP3;
@@ -1057,17 +1073,17 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=FS E428 + D 1956;										\
       C=FS_E428IB|FS_E428IIIB|FS_E428IIIC,I3PB6L;							\
       F=EP3;
-    TX=FS E428, 646 60's;										\
+    TX=FS E428,646 60's;										\
       C=FS_646N~GI|FS_E428IB|(1-2*FS_E428IIIB)|FS_E428IIIC|FS_646N~GI|FS_646A~GI,0-1*(FS_DUZ93100AZ),	\
 	1-2*(FS_ABZ64500CA2(|L)|FS_BZ45000CA1(|L)|FS_AZ13010AZUL),0-1*CIWL_4_WR4202(|L),		\
 	3-4*(FS_BZ33010CL|FS_BZ45000CA1(|L)|FS_BZ45000AZUL);						\
       F=EP3;
-    TX=FS E428, 646 60's;										\
+    TX=FS E428,646 60's;										\
       C=FS_646N~GI|FS_E428IB|(1-2*FS_E428IIIB)|FS_E428IIIC|FS_646N~GI|FS_E646N2,0-1*(FS_DUZ93100AZ),	\
 	1-2*(FS_ABZ64500CA2(|L)|FS_BZ45000CA1(|L)|FS_AZ13010AZUL),0-1*CIWL_4_WR4202(|L),		\
 	3-4*(FS_BZ33010CL|FS_BZ45000CA1(|L)|FS_BZ45000AZUL);						\
       F=EP3;
-    TX=FS E 428, 444, 646 60's;										\
+    TX=FS E 428,444,646 60's;										\
       C=FS_E428IIICL|FS_E428IIIC|FS_646N~GI|FS_E646N2|FS_E444_044,0-1*FS_646N~GI[pd],			\
 	1-2*(FS_4A_A1100),0-1*ciwl_wr,3-4*(4:FS_4A_B2100KT|FS_4ABZ64500E(|L)),0-1*FS_DXE;		\
       F=EP3;
@@ -1115,7 +1131,8 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C=FS_ETR232L|FS_ETR232;										\
       F=EPU45;
     TX=FS ETR 250 Arlecchino;										\
-      C=FS_ETR250~VIA|FS_ETR250~GI;									\
+      C=(<FS_ETR250AL,FS_ETR250B,FS_ETR250C,FS_ETR250D)|						\
+	(>FS_ETR250A,FS_ETR250BL,FS_ETR250CL,FS_ETR250DL);						\
       F=EPU34;
     TX=FS ETR 300 Settebello;										\
       C=FS_ETR300;											\
@@ -1138,7 +1155,14 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=FS ALe.540 I + LE;										\
       C=(<(FS_LE760B|FS_LE540|FS_LE800B|FS_LE600),FS_ALE540(D|E))|					\
 	(<FS_ALE540(D|E),(FS_LE760B|FS_LE540|FS_LE800B|FS_LE600));					\
-      F=EPU4;
+      F=EPU3;
+    TX=FS ALe.882;											\
+      C=2*FS_ALE882M(|L),FS_BZ39000C;									\
+      F=EPU3;
+    TX=FS ALe.880 + Le 640;										\
+      C=(<FS_ALE880_3(A|SR|S)ML,1-2*FS_LE640AM(|L),FS_ALE880_2(S|A)M)|					\
+	(>FS_ALE880_3(A|S)M,1-2*FS_LE640AM(|L),FS_ALE880_2(S|A)ML);					\
+      F=EPU3;
 
 # Italien E triphase
     TX=FS E.330;											\
@@ -1192,17 +1216,17 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C=(1-2*fs_e431)|fs_e432|(fs_e431,fs_e333),(0-1)*FS_DUZ93100IS,0-3*FS_BZ45000AZUL,			\
 	3-5*(3:FS_BZ33010CL|2:FS_BZ45000CA1(|L)|1:FS_BZ33000CAP),1-2*FS_AZ10000CA;			\
       F=EXP3;
-    TX=FS 550, 551, 555 Ep III;										\
+    TX=FS 550,551,555 Ep III;										\
       C=(3:1|2:2)@(3:fs_e554|2:fs_e551|1:fs_e550),(0|1)*FS_DMB,						\
 	(4-8)*(FS_GHMS6A|fs_f|fs_f_grain|FS_G2|fs_ff);							\
       F=EXF3;
-    TX=FS E 333, 432 Le Train Bleu;									\
+    TX=FS E 333,432 Le Train Bleu;									\
       C=fs_e333|fs_e431,(3:1|1:2)@FS_ABZ52000BC(|L)|FS_ABZ64500CA2(|L),ciwl_wl;				\
       F=EXP3;
     TX=FS Ale 840 Bicorrenti con rinforzo di carrozze ordinarie;					\
       C=1-2*fs_ale840;											\
       F=EPXU34;
-    TX=FS E 333, 431, 432, 551 CIWL Ep. III;								\
+    TX=FS E 333,431,432,551 CIWL Ep. III;								\
       C=(fs_e333,fs_e551)|fs_e431|FS_E432K,(0-1)*FS_DZ80000IS,(1-2)*ciwl_wl,CIWL_WLAB_P|CIWL_WLAB_PL,	\
 	FS_ABZ52000BC(|L),(0-1)*FS_CZ33010BL;								\
       F=EXP3;
@@ -1222,10 +1246,6 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       F=EXP3;
 
 # Italien Privat
-
-    TX=FG:Italien: Ferrovia Centrale Umbria AT 520 04;							\
-      C=FCU_AT520_02;											\
-      F=DPR3;
     TX=Italien Ferrovia Suzzara Ferrara ALb 80;								\
       C=FSF_ALB80;											\
       F=DPU3;
@@ -1235,7 +1255,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien SFEN VT BC76 + FS Aln 776;								\
       C=SFEN_BC76,FS_ALN7761001;									\
       F=DP34;
-    TX=Italien FCU: Ferrovia Centrale Umbra ALN 776;							\
+    TX=Italien FCU:Ferrovia Centrale Umbra ALN 776;							\
       C=(1-2*(FCU_SEATRAIN_ALN776B))|(<FCU_SEATRAIN_ALN776ML,FCU_SEATRAIN_ALN776M)|			\
 	(1-2*(FCU_ALN776B3))|(<FCU_ALN776M3L,FCU_ALN776M3)|(1-2*(FCU_ALN776B2|FCU_ALN776B2G))|		\
 	(<FCU_ALN776M2L,FCU_ALN776M2)|(1-2*(FCU_ALN776B1))|(<(FCU_ALN776M1L,FCU_ALN776M1));		\
@@ -1255,10 +1275,10 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Ferrovie del Sud-Est AD 02;								\
       C=FSE_AD02L|FSE_AD02;										\
       F=DPU34;
-    TX=FMP: Ferrovia Mantova-Peschiera 870;								\
+    TX=FMP:Ferrovia Mantova-Peschiera 870;								\
       C=FMP_870(|L),I3FS;										\
       F=DF3;
-    TX=FMP: Ferrovia Mantova-Peschiera ALn 60;								\
+    TX=FMP:Ferrovia Mantova-Peschiera ALn 60;								\
       C=FMP_ALN60;											\
       F=DPU3;
     TX=Italien Ferrovia Mantova-Peschiera ALN 72 + LN 88;						\
@@ -1288,7 +1308,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Ferrovia Val d'Orba Aln 556;								\
       C=FVO_ALN556;											\
       F=DPU3;
-    TX=Italien La Ferrovia Italiana ALN 301, 304;							\
+    TX=Italien La Ferrovia Italiana ALN 301,304;							\
       C=LFI_ALN301|LFI_ALN304;										\
       F=DPU3;
     TX=Italien  Società Azioni Torinese Trasporti Intercomunali Locale misto Rivarolo - Torino;		\
@@ -1316,22 +1336,22 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien SNFT An 68;										\
       C=<SNFT_AB68|SNFT_ABDU68,SNFT_AN68_111;								\
       F=DPU34;
-    TX=Italien Societá Anonima Imprese E Trasporti, Pisa ANZ 601;					\
+    TX=Italien Societá Anonima Imprese E Trasporti,Pisa ANZ 601;					\
       C=SAIET_ANZ601;											\
       F=DPU3;
-    TX=Italien Societá Anonima Imprese E Trasporti, Pisa ANZ 602;					\
+    TX=Italien Societá Anonima Imprese E Trasporti,Pisa ANZ 602;					\
       C=SAIET_ANZ602;											\
       F=DPU3;
-    TX=Italien Strada Ferrata di Biella, Biella-Santhiá BCZ 48;						\
+    TX=Italien Strada Ferrata di Biella,Biella-Santhiá BCZ 48;						\
       C=SFB_BCZ48_22;											\
       F=DPU3;
-    TX=Italien Strada Ferrata di Biella, Biella-Santhiá BCZ 64;						\
+    TX=Italien Strada Ferrata di Biella,Biella-Santhiá BCZ 64;						\
       C=SFB_BCZ64_36;											\
       F=DPU3;
     TX=Italien Strade Ferrate Sovvenzionate AD1;							\
       C=SFS_AD1L|SFS_AD1;										\
       F=DPU3;
-    TX=Italien Strade Ferrate Sovvenzionate ALn 401, 406;						\
+    TX=Italien Strade Ferrate Sovvenzionate ALn 401,406;						\
       C=SFS_ALN56401|SFS_ALN56406;									\
       F=DPU3;
     TX=Italien Tramvia Bologna P Malalbergo ALn 56;							\
@@ -1343,19 +1363,19 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Ferrovie del Sud-Est Locale Novoli - Gagliano, automotrice Ad 51-80 + rimorchio R 551-572 1960; \
       C=(<FSE_R551A,FSE_AD51A)|(<FSE_AD51AL,FSE_R551A);							\
       F=DPU3;
-    TX=Italien FTV: Ferrovie Tramvie Vicentine DL 051;							\
+    TX=Italien FTV:Ferrovie Tramvie Vicentine DL 051;							\
       C=FTV_DL051,FTV_505;										\
       F=DF3;
-    TX=Italien FTV: Ferrovie Tramvie Vicentine ALn 021, 026, 221;					\
+    TX=Italien FTV:Ferrovie Tramvie Vicentine ALn 021,026,221;						\
       C=FTV_(021|026|221);										\
       F=DPU3;
-    TX=Italien STV - Ferrovie Tramvie Vicentine Vicenza: manovra in scalo con locomotiva 41 + rimorchi tramviari; \
+    TX=Italien STV - Ferrovie Tramvie Vicentine Vicenza:manovra in scalo con locomotiva 41 + rimorchi tramviari; \
       C=FTV_41,FTV_421L[OB:BOX40,5,11][OB:BOX37,39,11],FTV_641(|L);					\
       F=DP3;
-    TX=Italien FTV: Ferrovie Tramvie Vicentine ALn De 041;						\
+    TX=Italien FTV:Ferrovie Tramvie Vicentine ALn De 041;						\
       C=FTV_DE041;											\
       F=DPU3;
-    TX=Italien FVO - Ferrovia Val d'Orba - Locale Ovada - Novi, automotrice 1-5;			\
+    TX=Italien FVO - Ferrovia Val d'Orba - Locale Ovada - Novi,automotrice 1-5;				\
       C=FVO_ALN556C;											\
       F=DPU3;
     TX=Italien FVS - Ferrovia Valle Seriana AD 560x;							\
@@ -1364,17 +1384,17 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien FVS - Ferrovia Valle Seriana AD 600x;							\
       C=FVS_R600(1|3|4);										\
       F=DPU3;
-    TX=MCU Mediterranea Centrale Umbra, Locale Umbertide - Perugia Ponte S.Giovanni;			\
+    TX=MCU Mediterranea Centrale Umbra,Locale Umbertide - Perugia Ponte S.Giovanni;			\
       C=MCU_A21(|L);											\
       F=DP3;												\
       AUTOMOTRICE A 21;
-    TX=MCU Mediterranea Centrale Umbra, Treno inaugurale Sansepolcro - Umbertide 25-5-1956, AUTOMOTRICE 520.01EX FNM; \
+    TX=MCU Mediterranea Centrale Umbra,Treno inaugurale Sansepolcro - Umbertide 25-5-1956, AUTOMOTRICE 520.01EX FNM; \
       C=MCU_520_01;											\
       F=DP3;
-    TX=Italien Società Anonima Esercizi Riuniti (SAER) Locale Verona - Garda, Coppia automotrici AD 302-304 (ex FS ALn 556 2024, 2034, 2281); \
+    TX=Italien Società Anonima Esercizi Riuniti (SAER)Locale Verona - Garda, Coppia automotrici AD 302-304 (ex FS ALn 556 2024,2034,2281); \
       C=2*SAER_AD304;											\
       F=DPU3;
-    TX=Italien Società Anonima Esercizi Riuniti (SAER) Locale Verona - Garda, automotrice AD 301 (ex FS Aln 56 2020); \
+    TX=Italien Società Anonima Esercizi Riuniti (SAER)Locale Verona - Garda, automotrice AD 301 (ex FS Aln 56 2020); \
       C=SAER_AD301;											\
       F=DPU3;
     TX=Italien SFB - Strade Ferrate di Biella SA - Locale Santhià-Biella, LOCOMOTIVA GR 941-942-943+CARROZZE CIZ 1351-1356+CARROZZE CZ 1300-1309; \
@@ -1417,10 +1437,10 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien ACIT LEDZ 201;										\
       C=ACIT_LEDZ201,FS_GHMS6AL,FTP_L201[L!M][O:BARREL4,14,21];						\
       F=EF3;
-    TX=FTV: Ferrovie Tramvie Vicentine DE033;								\
+    TX=FTV:Ferrovie Tramvie Vicentine DE033;								\
       C=FTV_DE033,FS_HFHS2B;										\
       F=EF3;
-    TX=FTV: Ferrovie Tramvie Vicentine E003 + AB 171;							\
+    TX=FTV:Ferrovie Tramvie Vicentine E003 + AB 171;							\
       C=(<FTV_E003,FTV_AB171)|(<FTV_AB171,FTV_E003);							\
       F=EPU3;
     TX=Italien FAP E25;											\
@@ -1441,7 +1461,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C=FEB_14(|L),2*FEB_54;										\
       F=EP3;												\
       ELETTROMOTRICE 14+RIMORCHI 51-54;
-    TX=Italien SEPSA: Societá per l'Esercizio di Pubblici Servizi EP 201;				\
+    TX=Italien SEPSA:Societá per l'Esercizio di Pubblici Servizi EP 201;				\
       C=<SEPSA_EP201ALN,SEPSA_EP201LN;									\
       F=EPU3;
     TX=Italien STEFER Rom MR 101;									\
@@ -1453,21 +1473,21 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Ferrovia Voghera - Varzi E52;								\
       C=FVVA_E52,2*FVVA_TPXXF[OB:STEEL4,23,12];								\
       F=EPU3;
-    TX=Italien Ferrovia Transatesina (Bolzano - Caldaro) AC1 + 763;					\
+    TX=Italien Ferrovia Transatesina (Bolzano - Caldaro)AC1 + 763;					\
       C=FTA_AC1,FTA_0763;										\
       F=EP3;
-    TX=Italien Ferrovia Torino Ceres Locale Torino - Ceres fine anni '50, locomotiva 11-17 + carrozza Moncenisio ACz 5-7, Cz 5-9 + carrozze MAN ACz 1-4, Cz 1-4; \
+    TX=Italien Ferrovia Torino Ceres Locale Torino - Ceres fine anni '50, locomotiva 11-17 + carrozza Moncenisio ACz 5-7,Cz 5-9 + carrozze MAN ACz 1-4,Cz 1-4; \
       C=<FTC_11A(|L),											\
 	(<FTC_ACZ5,FTC_CZ1|FTC_ACZ1)|(<FTC_CZ1|FTC_ACZ1L,FTC_ACZ5L)|(<FTC_ABZ5,FTC_BZ5,FTC_BZ1)|	\
 	(<FTC_BZ1,FTC_BZ5,FTC_ABZ5L);									\
       F=EP3;
-    TX=Italien Ferrovia Torino Ceres Locale Ceres - Torino, carrozze MAN con mista AB e carrozza MON (ora Bz) ancora in castano e isabella; \
+    TX=Italien Ferrovia Torino Ceres Locale Ceres - Torino, carrozze MAN con mista AB e carrozza MON (ora Bz)ancora in castano e isabella; \
       C=FTC_11A(|L),(<FTC_CZ5,FTC_ABZ1L,FTC_BZ1,2*FTC_BZ1)|(<(2*FTC_BZ1),FTC_ABZ1,FTC_CZ5);		\
       F=EP3;
     TX=Italien Ferrovia Torino Ceres Locale Torino - Germagnano, elettromotrice 16-17 'pita' + carrozze ex SFB (Bz 1352-1357); \
       C=FTC_16(|L),(2*FTC_BZ1352(|L))|(2*FTC_BZ1352B(|L));						\
       F=EP3;
-    TX=Italien Ferrovia Torino Ceres Locale minimo verso Ceres, locomotiva 13 + carrozza MAN;		\
+    TX=Italien Ferrovia Torino Ceres Locale minimo verso Ceres,locomotiva 13 + carrozza MAN;		\
       C=FTC_11B(|L),FTC_BZ1;										\
       F=EP3;
     TX=Italien Ferrovia Voghera - Varzi A+B 22;								\
@@ -1476,7 +1496,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien La Ferrovia Italiana E403;								\
       C=LFI_E403;											\
       F=EP3;
-    TX=Italien FVB - Ferrovia Valle Brembana / Bergamo L3 + ALN, 1964;					\
+    TX=Italien FVB - Ferrovia Valle Brembana / Bergamo L3 + ALN,1964;					\
       C=FVB_L3,2*FVB_LN;										\
       F=EPR3;
     TX=Italien STV - Ferrovie Tramvie Vicentine Locale Valdagno - Recoaro, elettromotrice isolata 001-009; \
@@ -1488,65 +1508,65 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Ferrovia Voghera - Varzi Locale Voghera - Varzi, elettromotrice ABD 22 e rimorchio pilota 35; \
       C=<FVVA_ABD22A|FVVA_ABD22AL,FVVA_35;								\
       F=EPU3;
-    TX=Italien Ferrovia Voghera - Varzi merci Salice Terme - Voghera, locomotiva 11-12 + carri vari FS;	\
+    TX=Italien Ferrovia Voghera - Varzi merci Salice Terme - Voghera,locomotiva 11-12 + carri vari FS;	\
       C=FVVA_L51|FVVA_L51L,FVVA_GO2[OB:FKRT301,,11],FVVA_GG,FVVA_GO[OB:BOX2,,12];			\
       F=EF3;
-    TX=MUA Mediterranea Umbro Aretina, Locale Perugia Ponte S.Giovanni - Perugia S.Anna, doppia composizione elettromotrice E 101-107 + R 221-222 (ex FVS); \
+    TX=MUA Mediterranea Umbro Aretina,Locale Perugia Ponte S.Giovanni - Perugia S.Anna, doppia composizione elettromotrice E 101-107 + R 221-222 (ex FVS); \
       C=(MUA_E101L,MUA_R223,MUA_E101L,MUA_R223),(MUA_E101,MUA_R223L,MUA_E101,MUA_R223L);		\
       F=EP3;
-    TX=MUA Mediterranea Umbro Aretina, Merci Terni - Sansepolcro, locomotiva L 151-153 + D 1861 (ex B 1861) + 2 carri Gf + carri FS; \
+    TX=MUA Mediterranea Umbro Aretina,Merci Terni - Sansepolcro, locomotiva L 151-153 + D 1861 (ex B 1861)+ 2 carri Gf + carri FS; \
       C=MUA_L151(|L),MUA_D1861(|L),2*MCU_GF450(|L),3*LFI_GS(|1);					\
       F=EF3;
-    TX=MUA Mediterranea Umbro Aretina, Locale Sansepolcro - Perugia Ponte S.Giovanni, locomotiva L 151-153 (convertita 3000 V DC) + 3 carrozze CT + BD; \
+    TX=MUA Mediterranea Umbro Aretina,Locale Sansepolcro - Perugia Ponte S.Giovanni, locomotiva L 151-153 (convertita 3000 V DC)+ 3 carrozze CT + BD; \
       C=MUA_L151(|L),											\
 	(MCU_CT1850CL,MCU_B1850L,MUA_B18(61|50)L,MUA_BD1867L)|						\
 	(MUA_BD1867,MUA_B18(61|50),MCU_CT1850C,MCU_B1850);						\
       F=EP3;
-    TX=Italien La Ferrovia Italiana, Locale Arezzo - Sinalunga, complesso automotrice 1-3 + carrozza attrezzata 111 + carrozza pilota 010-012; \
+    TX=Italien La Ferrovia Italiana,Locale Arezzo - Sinalunga, complesso automotrice 1-3 + carrozza attrezzata 111 + carrozza pilota 010-012; \
       C=(<LFI_1BL,LFI_111(B|C)L,LFI_010B)|(<LFI_010BL,LFI_111(B|C),LFI_1B)|				\
 	(<LFI_1AL,LFI_111AL,LFI_010A)|(<LFI_010AL,LFI_111A,LFI_1A);					\
       F=EPU3;
-    TX=Italien La Ferrovia Italiana, Diretto Arezzo - Sinalunga, elettromotrice 4 + rimorchio 14;	\
+    TX=Italien La Ferrovia Italiana,Diretto Arezzo - Sinalunga,elettromotrice 4 + rimorchio 14;		\
       C=(<LFI_14A,LFI_4AL)|(<LFI_4A,LFI_14AL);								\
       F=EPU3;
-    TX=Italien La Ferrovia Italiana, Locale Arezzo - Stia, locomotiva 001-002 + carrozze ex SEPSA 116-117; \
+    TX=Italien La Ferrovia Italiana,Locale Arezzo - Stia,locomotiva 001-002 + carrozze ex SEPSA 116-117; \
       C=LFI_EDZ1(|L),(<LFI_116,LFI_116L);								\
       F=EPU3;
-    TX=Italien La Ferrovia Italiana, manovra Arezzo Pescaiola, locomotiva E6 (ex 3) + carro F 301-310;	\
+    TX=Italien La Ferrovia Italiana,manovra Arezzo Pescaiola,locomotiva E6 (ex 3)+ carro F 301-310;	\
       C=LFI_003,LFI_F301;										\
       F=EF3;
     TX=Italien SATED (Monchiero) - SA Tramvie Elettriche Dogliani - Locale Locomotore 01 + tutte le 4 carrozzette; \
       C=SATED_L10(|L),4*SATED_B01;									\
       F=EP3;												\
       IL DISEGNO È ISPIRATO AL REALE 1950;
-    TX=Italien SEPSA: Societá per l'Esercizio di Pubblici Servizi E6;					\
+    TX=Italien SEPSA:Societá per l'Esercizio di Pubblici Servizi E6;					\
       C=SEPSA_E6;											\
       F=EPU3;
-    TX=SFS: Strade Ferrate Sovvenzionate 506 + 515;							\
+    TX=SFS:Strade Ferrate Sovvenzionate 506 + 515;							\
       C=(<SFS_E506,SFS_RP515)|(<SFS_RP515,SFS_E506);							\
       F=EPU3;
-    TX=SIFT: Societá Italiana Ferrovie e Tranvie 54;							\
+    TX=SIFT:Societá Italiana Ferrovie e Tranvie 54;							\
       C=(<SIFT_MACD54B,SIFT_MACD54A)|(<SIFT_MACD54A,SIFT_MACD54B);					\
       F=EPU3;
-    TX=SIFT: Societá Italiana Ferrovie e Tranvie Locale Piacenza - Bettola;				\
+    TX=SIFT:Societá Italiana Ferrovie e Tranvie Locale Piacenza - Bettola;				\
       C=(<SIFT_MACD51AL,SIFT_RC101AL)|(<SIFT_RC101A,SIFT_MACD51A);					\
       F=EPU3;												\
       ELETTROMOTRICE MACD 51-54+RIMORCHIO RC 101-103COLORAZIONE D'ORIGINE;
-    TX=SIFT: Societá Italiana Ferrovie e Tranvie Merci in partenza da Bettola per Piacenza, locomotiva Ld 1-2 + 2 carri F; \
+    TX=SIFT:Societá Italiana Ferrovie e Tranvie Merci in partenza da Bettola per Piacenza, locomotiva Ld 1-2 + 2 carri F; \
       C=SIFT_LD1A(|L),2*SIFT_F;										\
       F=EF3;
-    TX=SIFT: Societá Italiana Ferrovie e Tranvie Locale Piacenza - Bettola;				\
+    TX=SIFT:Societá Italiana Ferrovie e Tranvie Locale Piacenza - Bettola;				\
       C=<SIFT_MACD51BL,SIFT_RC101B,SIFT_RC101BL,SIFT_MACD51B;						\
       F=EPU3;												\
       ELETTROMOTRICE MACD 51-54+RIMORCHI RC 101-103+ALTRA ELETTROMOTRICE;
-    TX=SIFT: Societá Italiana Ferrovie e Tranvie Merci in partenza da Bettola per Piacenza, locomotiva Ld 1-2 con carri varie amministrazioni; \
+    TX=SIFT:Societá Italiana Ferrovie e Tranvie Merci in partenza da Bettola per Piacenza, locomotiva Ld 1-2 con carri varie amministrazioni; \
       C=SIFT_LD1B(|L),											\
 	7*(DB_3B_OM19N28B[O:FER4(|[M]),,28],DB_3B_OMM49U[O:FER4(|[M]),,27],DB_3OMM52[O:FER4(|[M]),,26]); \
       F=EF3;
-    TX=SIFT: Societá Italiana Ferrovie e Tranvie D2;							\
+    TX=SIFT:Societá Italiana Ferrovie e Tranvie D2;							\
       C=SIFT_LD2,SIFT_E35;										\
       F=EF3;
-    TX=SSIF (Spoleto-Norcia) - Società Subalpina Imprese Ferroviarie - Locale con elettromotrice A 5;	\
+    TX=SSIF (Spoleto-Norcia)- Società Subalpina Imprese Ferroviarie - Locale con elettromotrice A 5;	\
       C=SSIF_A5(|L);											\
       F=EP3;
     TX=SSIF (Spoleto-Norcia) - Società Subalpina Imprese Ferroviarie - Locale con elettromotrice A 5 + carrozze 50-57; \
@@ -1555,19 +1575,19 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=SSIF (Spoleto-Norcia) - Società Subalpina Imprese Ferroviarie - Locale con elettromotrice A 1-4 + carrozza 50-57; \
       C=SSIF_A1(|L),SSIF_50B;										\
       F=EP3;
-    TX=Italien LFI Trasporto Ferroviario Toscano Merci Arezzo - Stia, LOCOMOTIVA EDZ 11,14EX 004,005+CARRI E 401-410+BAGAGLIAIO B601-603; \
+    TX=Italien LFI Trasporto Ferroviario Toscano Merci Arezzo - Stia,LOCOMOTIVA EDZ 11,14EX 004, 005+CARRI E 401-410+BAGAGLIAIO B601-603; \
       C=LFI_EDZ11B,LFI_E401,LFI_E401[O:WOOD11,,21],LFI_B601;						\
       F=EF3;
-    TX=Italien LFI Trasporto Ferroviario Toscano Locale Arezzo - Sinalunga, locomotiva 004,005 + carrozze 101 - 102 - 201 (ex FP) - 103; \
+    TX=Italien LFI Trasporto Ferroviario Toscano Locale Arezzo - Sinalunga,locomotiva 004, 005 + carrozze 101 - 102 - 201 (ex FP)- 103; \
       C=LFI_EDZ11A,LFI_C101B,LFI_C102,LFI_201,LFI_C102;							\
       F=EP3;
-    TX=Italien LFI Trasporto Ferroviario Toscano Locale, locomotiva 004,005 + carrozze 101 - 108, 601;	\
+    TX=Italien LFI Trasporto Ferroviario Toscano Locale,locomotiva 004,005 + carrozze 101 - 108,601;	\
       C=LFI_EDZ11A,LFI_C101B,LFI_C102,LFI_C104,LFI_B601;						\
       F=EP3;
-    TX=MUA Mediterranea Umbro Aretina, Diretto Sansepolcro - Terni, COMPLESSO E 101-107+RIMORCHIO PILOTA R 207-210; \
+    TX=MUA Mediterranea Umbro Aretina,Diretto Sansepolcro - Terni, COMPLESSO E 101-107+RIMORCHIO PILOTA R 207-210; \
       C=(<MUA_E101L,MUA_R207L)|(<MUA_R207,MUA_E101);							\
       F=EPU3;
-    TX=MCU Mediterranea Centrale Umbra, Locale Perugia Ponte S.Giovanni - Umbertide, LOCOMOTIVA 102-107+BD 511EX FNM+B 1850RICOSTRUITA; \
+    TX=MCU Mediterranea Centrale Umbra,Locale Perugia Ponte S.Giovanni - Umbertide, LOCOMOTIVA 102-107+BD 511EX FNM+B 1850RICOSTRUITA; \
       C=MCU_101,MCU_BD511,MCU_B1850;									\
       F=EP3;
 
@@ -1604,7 +1624,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=FS R440 + Personenzug;										\
       C=FS_R440,FS_NG_BD4;										\
       F=SNF23;
-    TX=FS RALn 60 + RLDn 32 Schmalspur, Sizilien;							\
+    TX=FS RALn 60 + RLDn 32 Schmalspur,Sizilien;							\
       C=<FS_RALN60,FS_RLDN62;										\
       F=DNF23;
     TX=Italien FCL Ferrovie Calabro Lucane AB 34;							\
@@ -1636,7 +1656,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Ferrovia Stresa Mottarone;								\
       C=FSM_01,FSM_21,FSM_22;										\
       F=ENF23;
-    TX=Italien FEB: Ferrovie Elettriche Biellesi A4;							\
+    TX=Italien FEB:Ferrovie Elettriche Biellesi A4;							\
       C=FEB_A4;												\
       F=ENP3;
     TX=Italien FTM ET 001;										\
@@ -1648,7 +1668,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien FTM ET 011;										\
       C=FTM_ET11A|FTM_ET11B;										\
       F=ENP345;
-    TX=Italien FTM ET 007, 008;										\
+    TX=Italien FTM ET 007,008;										\
       C=FTM_ET008|FTM_ET007;										\
       F=ENP345;
     TX=Italien SVEFT Rimini - San Marino;								\
@@ -1708,11 +1728,11 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C=FS_GR685_410,(<FS_BZ34100EL,FS_BZ38000EL,FS_BZ38000E|FS_TERR_BTEL,FS_TERR_BTE,FS_TERR_ABDTE);	\
       D=L;												\
       F=SP4;
-    TX=FS 740, 880 70's;										\
+    TX=FS 740,880 70's;											\
       C=[mi:20](1:2|3:1)*FS_4_740(038|306)(|L)|FS_4_8801(08|59)(|L),FS_DM~GI,				\
 	7-15*(1-3@(FS_GHMS6A|fs_f|fs_ff|fs_hg1));							\
       F=SF4;
-    TX=FS 740, 880 70's;										\
+    TX=FS 740,880 70's;											\
       C=(1:2|3:1)*(FS_4_740(038|306)(|L)|FS_4_8801(08|59)(|L)),FS_DM~GI,				\
 	7-15*(1-3@(FS_GHMS6A|fs_f|fs_ff|fs_hg1));							\
       F=SF4;
@@ -1738,7 +1758,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=FS 880 + Short Train;										\
       C=FS_4_8801(08|59)(|L),FS_DM~GI,2-3*FS_GHMS6A|FS_FF,0-2*FS_E;					\
       F=SF4;
-    TX=FS 880, 940 70's;										\
+    TX=FS 880,940 70's;											\
       C=FS_4_8801(08|59)(|L),FS_4_940044(|L),FS_DM~GI,(0|4|6)@(fs_vt|fs_l),(0|1)*FS_GHMS6A;		\
       F=SF4;
     TX=FS 940 + Güterzug;										\
@@ -1839,8 +1859,12 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=FS D.341.4000;											\
       C=FS_D341_4001,FS_VOZ9969007,FS_UMIZ9078879,FS_UMIZ9078800,FS_K70998CELL;				\
       F=DF34;
-    C=FS_D341_1000~GI|FS_D341_2000~VIA|(1-2*(FS_D343(|L))),3-5*(FS_BZ38244E|FS_BZ36000|FS_BI35300EL),	\
-	FS_AZ50000E;											\
+    TX=FS D.341.2000;											\
+      C=FS_D341S1_2000M,FS_T27_DIEM(|L),FS_BZ36000,FS_ABZ66504,FS_BZ39000C;				\
+      F=DP34;
+    TX=FS D.341;											\
+      C=FS_D341_1000~GI|FS_D341_2000~VIA|(1-2*(FS_D343(|L))),						\
+	3-5*(FS_BZ38244E|FS_BZ36000|FS_BI35300EL),FS_AZ50000E;						\
       F=DP34;
     TX=FS D.342 2001;											\
       C=FS_D342_2001(|L),I4FS;										\
@@ -1894,12 +1918,14 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C=FS_D345_1083(|L),(<FS_4VDRZ68E,FS_4UM8449E,FS_BZ39000C,2*FS_BZ36000);				\
       F=DP4;
     TX=FS D.345 + Locale;										\
-      C=FS_D345_1083(|L),										\
-	(<FS_VVLR808600C|FS_VVLR808600CZ,FS_4DUI97100BE(|L),FS_EABZ669202E(|L),2*FS_BZ69700E(|L));	\
+      C=FS_D345_1083(|L),(<FS_VVLR808600C|FS_VVLR808600CZ,FS_4_PBG,FS_5_PBO(|L));			\
       F=DP4;
     TX=FS D.345 + freight train in Valsugana 1980;							\
       C=FS_D345_1083(|L),(<FS_DM~GI,FS_E_C1,FS_E_C,FS_E_C2,FS_EH_C1,FS_E_C3,FS_E_C5,FS_E_C4);		\
       F=DF4;
+    TX=FS D 345 + Locale;										\
+      C=FS_D345_1083(|L),FS_NVREC1983|FS_NVREC1983R,FS_4_PBG(|L),FS_5_PBO(|L);				\
+      F=DP4;
     TX=FS D.356;											\
       C=FS_356,I4FS;											\
       F=DF34;
@@ -1966,7 +1992,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       F=DP45;
     TX=FS ALn.668.1500 night view;									\
       C=FS_A668_1500N;											\
-      F=DPU45;
+      F=DPU45B;
     TX=FS ALn.668.3000;											\
       C=<FS_ALN668L,FS_ALN668;										\
       F=DPU45;
@@ -2031,8 +2057,8 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=FS ALn.990;											\
       C=<(2*FS_ALN990_3),FS_LN990_3;									\
       F=DPU345;
-    TX=FS Alb 80 + Aln 873, 556, Altn 444, Aln 668;							\
-      C=1-2*FS_ALB80|2*(FS_ALN873_3501|FS_ALN873_3501L)|FS_ALN556F|FS_ALTN444B|FS_ALN668_2404,		\
+    TX=FS Alb 80 + Aln 873,556,Altn 444,Aln 668;							\
+      C=(1-2*FS_ALB80)|(2*FS_ALN873_3501|FS_ALN873_3501L)|FS_ALN556F|FS_ALTN444B|FS_ALN668_2404,		\
 	FS_ALN668_2431;											\
       F=DP34;
 #movements
@@ -2178,7 +2204,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
 	FS_4B_BR8551KTL|FS_4B_BR8551KT,FS_4B_B2100L,FS_4B_B2100KL,FS_4B_B2100KTD,FS_4B_B2100KTL,	\
 	2*FS_4B_B2100TL,FS_4B_AB3100L|FS_4B_AB3100|FS_4B_AB3100KL|FS_4B_AB3100K,);			\
       F=EP45;
-    TX=FS E.633, E.636 + coils Genova Sestri P. - Ronco;						\
+    TX=FS E.633,E.636 + coils Genova Sestri P. - Ronco;							\
       C=FS_E633~GI,10*(FS_COILS2[M:0,0,120,12]|FS_COILS1[M:0,0,120,12]),				\
 	FS_E636004B|FS_SMMP[O:#COIL5,20][O:COIL16V,90,12][O:#COIL7,55,12]|				\
 	FS_SMMP[O:COIL16V,15][O:#COIL6,83,12][O:COIL21V,48,12];						\
@@ -2196,6 +2222,11 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
 	(<2*FS_BZ45000G,FS_T55_AEM,FS_AZ23000GL,FS_T55_ABEML|FS_ABZ64000GL,2*FS_T57_GA_BM)|		\
 	(>2*FS_BZ45000GL,FS_T55_AEML,FS_AZ23000G,FS_T55_ABEM|FS_ABZ64000G,2*FS_T57_GA_BML);		\
       F=EP45;
+    TX=FS E.636 + Schnellzug;										\
+      C=FS_E636(277|284BL|_284L|284B|_284),(FS_D80000EM|FS_T64_DUZEM)(|L),FS_4BZ31000E2(|L),		\
+	(FS_4AZ11000E2|FS_4AZ21000E2|FS_AZ52000G)(|L)|(FS_4ABZ11000E2|FS_4A_ABZ61000B)(|L),		\
+	2*FS_BZ32000G(|L),2*FS_30000E(|L);								\
+      F=EP4;
     TX=FS E.636 + Schnellzug;										\
       C=FS_E636(284B|_284)(|L),(<FS_4ABZ64560EL,FS_4A_B2100L,FS_4A_B2100KL,FS_4A_A1100KL);		\
       F=EP45;
@@ -2237,7 +2268,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C=(<FS_68020NPABDZL,FS_AZ10000GY,FS_4DI90000EL,FS_BZ38244E,FS_E636199(|L))|			\
 	(<FS_E636199(|L),4*FS_BZ38244EL,FS_4DI90000E,FS_AZ10000GYL,FS_68020NPABDZ);			\
       F=EPU4;
-    TX=FS E.645.0 + Locale 'Piano Ribassato' [low floor] 1973;						\
+    TX=FS E.645.0 + Locale 'Piano Ribassato' [low floor]1973;						\
       C=(<FS_E645104|FS_E645104L,2*FS_NBZ_PREL,FS_NPBDZ_PR75E_PIL)|					\
 	(<FS_NPBDZ_PRE,2*FS_NBZ_PRE,FS_E645104|FS_E645104L);						\
       F=EPU4;
@@ -2270,8 +2301,9 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       F=EP4;
     TX=FS E.645 + Rapido;										\
       C=FS_E645_(004|013|014|023|020)(|L),								\
-	(2*FS_T57_GA_BM,FS_T55_ABEM,FS_T55_AEM,FS_T46_AZEM,3*FS_T57_GA_BM,FS_T(64_GA_DZ|46_DZE)M(|L))|	\
-	(3*FS_T57_GA_BML,FS_T46_AZEML,FS_T55_AEML,FS_T55_ABEML,2*FS_T57_GA_BML,				\
+	(2*FS_T57_GA_BM,FS_T55_ABEM,FS_T55_AEM,FS_T46_AZEM|FS_AZ23000EM,3*FS_T57_GA_BM,			\
+	FS_T(64_GA_DZ|46_DZE)M(|L))|									\
+	(3*FS_T57_GA_BML,FS_T46_AZEML|FS_AZ23000EML,FS_T55_AEML,FS_T55_ABEML,2*FS_T57_GA_BML,		\
 	FS_T(64_GA_DZ|46_DZE)M(|L));									\
       F=EP4;
     TX=FS E.646 + Rapido Notte;										\
@@ -2298,7 +2330,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
 	FS_4A_BR8551T|FS_4A_BR8551KTL|FS_4A_BR8550KL|FS_4A_BR8550K|FS_4A_BR8551L|FS_4A_BR8551|		\
 	FS_4A_BR8551KL,2*FS_4A_B2100,2*FS_4A_B2100TL,2*FS_4A_B2100KTL);					\
       F=EP45;
-    TX=FS E.646 + Locale 'Piano Ribassato' [low floor] 1985;						\
+    TX=FS E.646 + Locale 'Piano Ribassato' [low floor]1985;						\
       C=(<FS_E646_4~GI,FS_NB_PR75E,FS_PRSL,2*FS_NB_PRE,FS_NB_PR75OV,FS_NPBDZ_PR75OVL)|			\
 	(<FS_NPBDZ_PR75OV,FS_NB_PR75OV,2*FS_NB_PREL,FS_PRS,FS_NB_PR75EL,FS_E646_4~GI);			\
       F=EPU4;
@@ -2398,7 +2430,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=FS E.656 + ICN;											\
       C=FS_E656G,(<FS_5990A,FS_5978A,FS_TEN1,FS_EXCELSIOR|FS_EXCELSIOR2,3*FS_CCXMPR);			\
       F=EP45;
-    TX=FS E.656 + Riviera Express summer time, 1988;							\
+    TX=FS E.656 + Riviera Express summer time,1988;							\
       C=FS_E656_159L|FS_E656_159,									\
 	(<DB_BCM243BBS|DB_4C_BCM243KOBL,DB_WLABMH174AD[BC:-20,-20],2*(DB_BCM243BBSL|DB_4C_BCM243KOB),	\
 	FS_4ABZ64560EL,3*FS_4B_B2100KT,FS_4A_B2100KTL,FS_BZ20500,FS_AZ32010TRG(|L));			\
@@ -2474,7 +2506,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C=4:fs_e636|1:fs_e636[PDU]|1:FS_E645IB|1:fs_e645B|2:FS_E428IIID,(4:0|1:1)*fs_e636[pd],		\
 	4*(FS_BZ33010DL|FS_4B_B2100K|FS_4A_B2100T|FS_4ABZ64560EL|FS_AZ32010TRG(|L));			\
       F=EP45;
-    TX=FS E 636 Savona-Acqui, Cuneo-Fossano;								\
+    TX=FS E 636 Savona-Acqui,Cuneo-Fossano;								\
       C=fs_e636,FS_AZ50000E,2*(FS_BI35300EL|FS_BZ38244E|FS_BZ69700E);					\
       F=EP45;
     TX=FS Treno di bagagliai Savona-Ventimiglia;							\
@@ -2544,7 +2576,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=FS Ale.540 I + Le.540;										\
       C=<FS_ALE540A,FS_LE540I;										\
       F=EPU56;
-    TX=FS ALe 582 + Le 884, 582;									\
+    TX=FS ALe 582 + Le 884,582;										\
       C=1-2*(<FS_ALE582,1-2*FS_LE582,FS_LE582CAB);							\
       F=EPU45;
     TX=FS ALe.601 + Le.480,481,601 - Freccia della Laguna 1962-1982;					\
@@ -2732,11 +2764,11 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C2=FS_E444~GI[pru]|FS_E656~GI[pru]|FS_646N~GI[pru];						\
       P=*35;												\
       F=EPO4;
-    TX=FS Ale 601 mit Le 601, 481;									\
+    TX=FS Ale 601 mit Le 601,481;									\
       C=FS_ALE601A,FS_LE601M,0-1*(FS_ALE601_R~GI,FS_LE601M,FS_ALE601A),FS_LE481|FS_LE481;		\
       D=L;												\
       F=EPU345;
-    TX=FS Ale 601 mit Le 601, 481;									\
+    TX=FS Ale 601 mit Le 601,481;									\
       M=cut; D=l;											\
       C1=FS_ALE601A,FS_LE481;										\
       D1=r;												\
@@ -2792,29 +2824,29 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C=FS_E554,											\
 	(<FS_GS2B,FS_GHMS6B,FS_GMS3B,FS_DM~GI,DB_HBIS_T297A,DB_4A_TS851EL,DB_4A_TS851E,FS_GHMS11A);	\
       F=EXF4;
-    TX=FS E.431, E.554 + E.626 anphibious Alessandria;							\
+    TX=FS E.431,E.554 + E.626 anphibious Alessandria;							\
       C=FS_E431,FS_E554,FS_E626_1[PD];									\
       F=EXF4;
     TX=FS E 554 EP IV;											\
       C=(3:1|2:2)*fs_e554,(0|1)*FS_DM~GI,(5|9|12)*(FS_GHMS6A|fs_f|fs_f_grain|FS_G2|fs_ff);		\
       F=EXF4;
-    TX=FS 432, 554 Ceva-Ormea;										\
+    TX=FS 432,554 Ceva-Ormea;										\
       C=fs_e554|fs_e432,FS_DI92000,2*FS_BZ69700E|FS_BZ69100EL|FS_BI35300EL|FS_BZ38244E;			\
       F=EXP4;
-    TX=FS E431, 432, 554 Locale ep. IVa;								\
+    TX=FS E431,432,554 Locale ep. IVa;									\
       C=FS_E431|FS_E432,1-2*(FS_88000E|FS_D97000E),0-2*(FS_AZ50000E,FS_BZ33010CL,FS_4AZE),		\
 	1-3*(FS_BI35300NL|FS_BZ69700E|FS_35000BICL|FS_BZ36000),0-1*FS_E554;				\
       F=EXP4;
-    TX=FS E431, 432, 554 Locale ep. IVa;								\
+    TX=FS E431,432,554 Locale ep. IVa;									\
       C=fs_e554|fs_e431|fs_e432,FS_D2E|FS_DI92000|FS_DI92000E|FS_DXE,					\
 	3-5*(FS_BZ36000|FS_AZ50000E|FS_BZ38244E|FS_BZ33010DL|FS_4ABZ64560EL|FS_4A_B2100KT),		\
 	(1:1|3:0)*(fs_ff|FS_GHMS6A);									\
       F=EXP4;
 
 # Italien Privat
-    TX=Italien ACOTRAL Azienda Consortile trasporti nel Lazio - Ferrovie Roma del Nord ECD 21;		\
-      C=ACOT_ECD_21;											\
-      F=EPU4;
+    TX=Italien ACT - Azienda Consorziale Transporti Reggio Emilia ALn 1200;				\
+      C=ACT_ALN1200M,ACT_R2000M;									\
+      F=DPR4;
     TX=Italien ACT - Azienda Consorziale Transporti Reggio Emilia ALn 2456 + Ln 4102;			\
       C=(<ACT_ALN2456,ACT_LN4102)|(ACT_LN4102,ACT_ALN2456);						\
       F=DPU4;
@@ -2836,6 +2868,9 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Ferrovia Padane ALN 773;									\
       C=FP_ALN773_3516;											\
       F=DPU45;
+    TX=Italien Ferrovie Emilia Romagna ALn 663;								\
+      C=FER_ALN663S2FP_FPM(|L)|FER_ALN663S1FP_FPM(|L);							\
+      F=DPRU5;
     TX=Italien Ferrovia Padane 220 074 + Personenzug;							\
       C=FP_220074,2*FP_2969;										\
       F=DP45;
@@ -2862,11 +2897,11 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
 	(<FS_EAOSB[O:BALLAST36],FS_EAOSBL[O:#BALLAST36],4*FS_RMMS[OB:SQUAREPIPE,,11],			\
 	FS_RGS1[OB:WOOD111,20,10][OB:WOOD112,75,10][OB:WOOD113,130,10]);				\
       F=DF34;
-    TX=Italien SNFT ALn 668;										\
-      C=SNFT_A663IS;											\
-      F=DPU34;
+    TX=Italien SNFT ALn 668 110;									\
+      C=(SNFT_ALN668_110BM|SNFT_ALN668_110AM)(|L);							\
+      F=DPU4;
     TX=Italien SNFT ALn 668-122;									\
-      C=SNFT_A668IS1;											\
+      C=SNFT_ALN668_120ABM(|L);										\
       F=DPU34;
     TX=Italien SNFT ALn 668 + B68;									\
       C=SNFT_A668IS,FS_AB68A;										\
@@ -2877,28 +2912,28 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien FT Bari-Barletta V80 + Personenzug;							\
       C=FT_V80_1,4*FT_MDVC;										\
       F=DP45;
-    TX=FG:Italien: Ferrovia Centrale Umbria R 223;							\
+    TX=FG:Italien:Ferrovia Centrale Umbria R 223;							\
       C=FCU_R223;											\
       F=DPU4;
     TX=Italien Ferrovie del Sud-Est BB 151 + Locale Martina Franca - Bari C.le 1988;			\
       C=FSE_BB151B,FSE_ABZ751,2*FSE_BZ601;								\
       F=DF4;
-    TX=Italien Ferrovie del Sud-Est Locale Gallipoli - Casarano, automotrice Ad 01-10 1980;		\
+    TX=Italien Ferrovie del Sud-Est Locale Gallipoli - Casarano,automotrice Ad 01-10 1980;		\
       C=FSE_AD01B(|L);											\
       F=DPU4;
-    TX=Italien Ferrovie del Sud-Est Locale Gallipoli - Zollino, automotrice Ad 51-80 1980;		\
+    TX=Italien Ferrovie del Sud-Est Locale Gallipoli - Zollino,automotrice Ad 51-80 1980;		\
       C=FSE_AD51C(|L)|(<FSE_AD51CL,FSE_R551C);								\
       F=DPU4;
     TX=Italien Ferrovie del Sud-Est Merci derrate sulla linea Bari - Martina Franca con locomotiva BB 151-163 1975; \
       C=FSE_BB151C,2*GF_INTERFRIGO1,DB_IHS377,2*DB_TMMEHS50~MHO;					\
       F=DF6;
     TX=Italien Ferrovie del Sud-Est Diretto Bari - Lecce, complesso automotrici Ad 31-45 e rimorchi R 331-337 1980; \
-      C=<FSE_AD31C,2*FSE_R331C(|L),FSE_AD31CL;								\
-      F=DPU4;
+      C=(<FSE_AD30B1M,2*FSE_R330B1M,FSE_AD30B1M)|(>FSE_AD30B1ML,2*FSE_R330B1ML,FSE_AD30B1ML);		\
+      F=DPRU4;
     TX=Italien Ferrovie del Sud-Est Locale Bari - Taranto, locomotica BB 151-163 + 3 carrozze Bz 601-615 + ABz 751-765 1975; \
       C=FSE_BB151CL,(<FSE_BZ601AL,FSE_ABZ751B,2*FSE_BZ601B)|(<(2*FSE_BZ601BL),FSE_ABZ751BL,FSE_BZ601AL); \
       F=DP4;
-    TX=Italien Ferrovie del Sud-Est Locale Bari - Putignano via Casamassima, automotrice Ad 51-80 1980;	\
+    TX=Italien Ferrovie del Sud-Est Locale Bari - Putignano via Casamassima,automotrice Ad 51-80 1980;	\
       C=FSE_AD51B(|L)|(<FSE_R551B,FSE_AD51B);								\
       F=DPU4;
     TX=Italien Ferrovie del Sud-Est Locale Martina Franca - Bari, locomotiva BB 151-163 + ABz 751-765 + 3 carrozze Bz 601-615 1975; \
@@ -2909,10 +2944,10 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien FTV - Ferrovie Tramvie Vicentine - Locale Vicenza - Noventa automotrice 026-029 + rimorchio 221-223; \
       C=<FTV_026D,FTV_121;										\
       F=DPU4;
-    TX=Italien FTV - Ferrovie Tramvie Vicentine - Locale Vicenza - Noventa, automotrice isolata 021-024; \
+    TX=Italien FTV - Ferrovie Tramvie Vicentine - Locale Vicenza - Noventa,automotrice isolata 021-024;	\
       C=FTV_021D;											\
       F=DPU4;
-    TX=Italien La Ferrovia Italiana, Locale Arezzo - Stia;						\
+    TX=Italien La Ferrovia Italiana,Locale Arezzo - Stia;						\
       C=2*LFI_AD301;											\
       F=DPU;												\
       AUTOMOTRICI 301+304EX SAER;
@@ -2931,10 +2966,19 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Societá Veneta ALn MAN;									\
       C=SV_MAN;												\
       F=DPU4;
-    TX=Italien Societá Veneta ADn 601-612;								\
-      C=SV_ADN605|SV_ADN610|SV_ADN612|SV_ADN602|SV_ADN603|SV_ADN604;					\
+    TX=Italien Societá Veneta ADn 601-602;								\
+      C=SV_ADN601BM(|L)|SV_ADN601CM(|L);								\
       F=DPU45;
-    TX=Italien Societá Veneta ADn 501 + CD 301, 306;							\
+    TX=Italien Societá Veneta ADn 603-604;								\
+      C=SV_ADN603BM(|L)|SV_ADN603CM(|L);								\
+      F=DPU45;
+    TX=Italien Societá Veneta ADn 605-610;								\
+      C=SV_ADN605BM(|L)|SV_ADN605CM(|L);								\
+      F=DPU45;
+    TX=Italien Societá Veneta ADn 611-613;								\
+      C=SV_ADN611BM(|L);										\
+      F=DPU45;
+    TX=Italien Societá Veneta ADn 501 + CD 301,306;							\
       C=(SV_ADN501L|SV_ADN501),(SV_CD301L|SV_CD301|SV_CD306L|SV_CD306);					\
       F=DP34;
     TX=Italien Societá Veneta ADn 502 + CD 302;								\
@@ -2951,7 +2995,10 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       F=DP4;
 
 # Italien Privat E
-    TX=Italien ACTM Azienda Trasporti Collettivi e Mobilita (Modena) ALe 880;				\
+    TX=Italien ACT - Azienda Consorziale Transporti Reggio Emilia ALn 2457 - 2462;			\
+      C=ACT_ALNMAK_OHEM(|L);										\
+      F=DPRU4;
+    TX=Italien ACTM Azienda Trasporti Collettivi e Mobilita (Modena)ALe 880;				\
       C=ATCM_ALE880117;											\
       F=EF4;
     TX=Italien FAP - Ferrovia Aosta Pré Saint Didier - FS E 400.001 + ABiz 62.902 + Biz 41.101 1969;	\
@@ -2978,10 +3025,10 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Ferrovia Bari Norda ALe 03+ Le 02;							\
       C=<FBN_ET03,FBN_LE002;										\
       F=EP45;
-    TX=FG:Italien: Ferrovia Centrale Umbria E 153;							\
+    TX=FG:Italien:Ferrovia Centrale Umbria E 153;							\
       C=FCU_E153,I4FS;											\
       F=EF4;
-    TX=FG: Ferrovia del Gargano ALe 80;									\
+    TX=FG:Ferrovia del Gargano ALe 80;									\
       C=FDG_ALE80;											\
       F=EP4;
     TX=Italien Ferrovie del Sud-Est AD 63;								\
@@ -3045,10 +3092,10 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien LFI La Ferrovia Italiana E624;								\
       C=<LFI_PBIZ734AL,LFI_EBIZ734A,LFI_E624;								\
       F=EPU4;
-    TX=Italien LFI La Ferrovia Italiana Locale Arezzo - Stia - locomotiva Edz 11,14 + (AB) 202 + (B) 205; \
+    TX=Italien LFI La Ferrovia Italiana Locale Arezzo - Stia - locomotiva Edz 11,14 + (AB)202 + (B)205;	\
       C=LFI_EDZ11C,(LFI_C202L,LFI_C205L)|(LFI_C205,LFI_C202);						\
       F=EP4;
-    TX=Italien La Ferrovia Italiana, Diretto Arezzo - Sinalunga, ELETTROMOTRICE EBIZ 10EX 4+PBIZ 121EX 14+304DEMOTORIZZATA; \
+    TX=Italien La Ferrovia Italiana,Diretto Arezzo - Sinalunga, ELETTROMOTRICE EBIZ 10EX 4+PBIZ 121EX 14+304DEMOTORIZZATA; \
       C=(<LFI_4BL,LFI_14BL)|(<LFI_14B,LFI_4B),LFI_AD301P;						\
       F=EP4;
     TX=Italien La Ferrovia Italiana - Locale Stia - Subbiano - elettromotrice Ebiz 7-9 + semipilota pBiz 118-120; \
@@ -3057,11 +3104,11 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien La Ferrovia Italiana - Locale Stia - Subbiano - elettromotrice Eabiz 10 + semipilota pBiz 121; \
       C=<LFI_EBIZ10B,LFI_EBIZ10;									\
       F=EPU5;
-    TX=MUA Mediterranea Umbro Aretina, Locale Perugia Ponte S.Giovanni;					\
+    TX=MUA Mediterranea Umbro Aretina,Locale Perugia Ponte S.Giovanni;					\
       C=MUA_L151L,MUA_D1861L,2*MCU_GF450,2*LFI_GS1,LFI_GS;						\
       F=EP4;												\
       LOCOMOTIVA L 151-153+B 1850+B 1861+B 1875+BD 1867;
-    TX=MUA Mediterranea Umbro Aretina, Locale Sansepolcro - Terni, ELETTROMOTRICE E 403+R 223-226EX FNM - FS+R 306-308EX FNM - FS; \
+    TX=MUA Mediterranea Umbro Aretina,Locale Sansepolcro - Terni, ELETTROMOTRICE E 403+R 223-226EX FNM - FS+R 306-308EX FNM - FS; \
       C=(MUA_E403L,MUA_R223L,MUA_R306L)|(MUA_E403,MUA_R223,MUA_R306);					\
       F=EP4;
 
@@ -3069,6 +3116,9 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien FNM DE 500 + Güterzug;									\
       C=FNM_DE500,FS_GHMS11C,FS_GHMS4C,FS_3FF_L1;							\
       F=DF4;
+    TX=Italien FNM D.343 + Regional train;								\
+      C=FNM_D343OM(|L),2*FNM_BZ80_SNFT2M;								\
+      F=DP4;
 
 # Italien FNM E
     TX=FNM E.600 + Regionale;										\
@@ -3076,9 +3126,6 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       F=EP4;
     TX=FNM E.600 + Regionale;										\
       C=2*FNM_E600G,(<FNM_P2AG,FNM_P2ABG,3*FNM_P2BG);							\
-      F=EP45;
-    TX=FNM E.600 + Socimi Wagen;									\
-      C=FNM_E610Y,(<FNM_SOCYZ,FNM_EB900,3*FNM_SOCYZ);							\
       F=EP45;
     TX=FNM E.610 + 2-axe coachesv;									\
       C=FNM_E610001(|L),(<(4*FNM_B355),FNM_AZ101,2*FNM_B355);						\
@@ -3097,17 +3144,20 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C=(<FNM_E610002(|L),3*FNM_SOCY,FNM_SOCY_P)|(>FNM_E610002(|L),3*FNM_SOCYL,FNM_SOCY_PL);		\
       F=EPRU45;
     TX=FNM E610 + Güterzug;										\
-      C=FNM_E600N,(<FNM_EF819,2*FNM_EF813,2*FNM_K1,FNM_EF819);						\
+      C=FNM_E600N,(<FNM_EF819M,2*FNM_EF813M,2*FNM_K1,FNM_EF819M);					\
       F=EP45;
     TX=FNM E.610 + Regionale;										\
       C=FNM_E61000(2|3)(|L),(<FNM_P2AO,3*FNM_P2BO);							\
       F=EP45;
+
     TX=FNM E.620 + Socimi-Wendezug;									\
-      C=<FNM_EA870L,4*FNM_EB960,FNM_E620A;								\
-      F=EPU45;
+      C=(<FNM_EA870O1ML,4*FNM_EA970O1ML,FNM_E620_001(|L))|						\
+	(>FNM_EA870O1M,4*FNM_EA970O1M,FNM_E620_001(|L));						\
+      F=EPRU45;
     TX=FNM E.620 + Wendezug;										\
-      C=FNM_E620A,3*FNM_EB950,FNM_EA870;								\
-      F=EP45;
+      C=(<FNM_E620_001(|L),3*FNM_EB950O1M,FNM_EA870O1M)|						\
+	(>FNM_E620_001(|L),3*FNM_EB950O1ML,FNM_EA870O1ML);						\
+      F=EPRU4;
     TX=FNM 750;												\
       C=FNM_750820|FNM_750820B;										\
       F=EPU45;
@@ -3130,11 +3180,15 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C=<FNM_EB840,FNM_SBB~GI,FNM_EAB810;								\
       F=EPU45;
     TX=FNM EB750;											\
+      C=(<FNM_EAB850O1ML,FNM_EB950O1M,FNM_EA970O1M,FNM_EB750AO1M)|					\
+	(>FNM_EAB850O1M,FNM_EB950O1ML,FNM_EA970O1ML,FNM_EB750AO1ML);					\
+      F=EPRU4;
+    TX=FNM EB750;											\
       C=(<FNM_2PA_PL,FNM_2PA,FNM_SOCY,FNM_E750Y)|(>FNM_2PA_P,FNM_2PAL,FNM_SOCYL,FNM_E750YL);		\
-      F=EPRU45;
+      F=EPRU4;
     TX=FNM EB 760;											\
       C=<FNM_EB760L,2*FNM_EB760M,FNM_EB760;								\
-      F=EPU6;
+      F=EPU4;
     TX=FNM EB 245;											\
       C=FNM_ETR245;											\
       F=EPU6;
@@ -3143,7 +3197,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       F=EPU6;
     TX=FNM TSR 2005;											\
       C=<FS_TSRAL,3*FS_TSRB,FS_TSRA;									\
-      F=EPU6;
+      F=EPU4;
     TX=FNM E 600;											\
       C=FNM_E600G,4-6@(FNM_SOCYZ|FNM_SOCG);								\
       F=EP45;
@@ -3162,10 +3216,6 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=FNM 810;												\
       C=<FNM_EB840G,1-2*FNM_SBBG3,1-2*(FNM_EAB810G|FNM_EAB810);						\
       F=EP45;
-    TX=FNM E 620;											\
-      C=<FNM_E620_00(1|2)(|L),4@(FNM_2PAZ|FNM_2PV|FNM_SOCYZ|FNM_SOCG),FNM_SOCY_PZ|FNM_SOCG_P;		\
-      D=L;												\
-      F=EPU45;
 
 # Schmalspur
     TX=Italien Ferrovie Trento-Male LC 21;								\
@@ -3229,14 +3279,19 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
 	FS_GC(70|83)_XMPR_RML|FS_WRSS_XMPR_SELFML|FS_WRSS79_XMPR_RESTOML,FS_UICZ93_XMPR_BML,		\
 	6*FS_VSE_BXML);											\
       F=EP5;
-    TX=FS E.402P.000 + E.444.079 test run, 1986;							\
+    TX=FS E.402P.000 + E.444.079 test run,1986;								\
       C=FS_E402PW,FS_E444066L,FS_EMEAS;									\
       F=EF5;
     TX=E.402A + IC;											\
       C=FS_E402A(013|030)(|L),I5PI;									\
       F=EP5;
-    TX=E.402B + IC;											\
+    TX=FS E.402B + IC;											\
       C=FS_E402B105(|L),I5PI;										\
+      F=EP5;
+    TX=FS E.402B + EN 226 Palatino: Roma Termini - Paris Bercy 2009;					\
+      C=FS_E402B133(|L),										\
+	(<4*FS_BC5070_ARTESIA,4*FS_WLABM_MU_ARTESIA,FS_WR8890_ARTESIA,7*FS_BC5070_ARTESIA)|		\
+	(>4*FS_BC5070_ARTESIAL,4*FS_WLABM_MU_ARTESIAL,FS_WR8890_ARTESIA,7*FS_BC5070_ARTESIAL);		\
       F=EP5;
     TX=FS E.402A + Schnellzug;										\
       C=<FS_8090XL,FS_1990XN2L,FS_1990P2L,FS_8890XN,FS_2190XNL,FS_2190XL,FS_2190P2L,FS_E402120;		\
@@ -3245,7 +3300,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C=FS_E405,FS_DIENST_BM,2*FS_AMBR_D,FS_E405,FS_9590E;						\
       F=EF5;
     TX=FS E 424 + Regionale 2000;									\
-      C=(<FS_E424XMPR(|L),2*FS_PBB_XMPR,2*FS_PBBC_XMPR)|(<FS_PBBC_XMPL,2*FS_PBB_XMPRL,FS_E424XMPR(|L));	\
+      C=(<FS_E424XMPR(|L),2*FS_PBB_XMPR,FS_PBBC_XMPR)|(<FS_PBBC_XMPL,2*FS_PBB_XMPRL,FS_E424XMPR(|L));	\
       F=EPUR5;
     TX=FS E424 + ALE506 -_LE736_Test Train 1996;							\
       C=(<FS_E424GS(|L),2*FS_736000B,FS_506000B)|(<FS_506000BL,2*FS_736000B,FS_E424GS(|L));		\
@@ -3478,20 +3533,29 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C=ACT_260,5*ACT_VT;										\
       F=DF5;
     TX=Italien ACT - Azienda Consorziale Transporti Reggio Emilia 1900;					\
-      C=ACT_1900_007~SKU,I6G1;										\
+      C=ACT_1900BBM(|L),I6G1;										\
       F=DF45;
+    TX=Italien ACT - Azienda Consorziale Transporti Reggio Emilia DE 122 + Regionale;			\
+      C=(<ACT_DE122M(|L),2*ACT_SBBL_BM,ACT_SBBL_BSPM)|(>ACT_DE122M(|L),2*ACT_SBBL_BM,ACT_SBBL_BSPML);	\
+      F=DPRU5;
     TX=Italien ACT - Azienda Consorziale Transporti Reggio Emilia ALn 9001;				\
       C=ACT_ALN9001L|ACT_ALN9001|ACT_ALN9001O;								\
       F=DPU45;
+    TX=Italien ACT - Azienda Consorziale Transporti Reggio Emilia ALn 2457 - 2462;			\
+      C=ACT_ALNMAK_OM(|L)|ACT_ALNMAK_RCM(|L);								\
+      F=DPRU5;
     TX=Italien ACT - Azienda Consorziale Transporti Reggio Emilia ALn 2463;				\
       C=ACT_ALN2463;											\
       F=DPU45;
     TX=Italien ACT - Azienda Consorziale Transporti Reggio Emilia ALn 2462;				\
       C=ACT_ALN2462L|ACT_ALN2462;									\
       F=DPU45;
-    TX=ATCM: Azienda Trasporti Collettivi e Mobilita (Modena)E8 +3 + 642;				\
+    TX=ATCM:Azienda Trasporti Collettivi e Mobilita (Modena)E8 +3 + 642;				\
       C=ATCM_E8,ATCM_0003,ATCM_TC642;									\
       F=EP5;
+    TX=ATCM:Azienda Trasporti Collettivi e Mobilita (Modena)ALe 288;					\
+      C=ATCM_AM54YM(|L)|ATCM_AM55YM(|L);								\
+      F=EPRU5;
     TX=Italien CTP I51;											\
       C=CTP_I51,FS_4E2[O:SAND15,,28],FS_4E[O:SAND1,,28];						\
       F=DF56;
@@ -3501,6 +3565,12 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien CTP Aln 880;										\
       C=CTP_ALN880;											\
       F=DPU56;
+    TX=Trasporto Pubblico Emilia Romagna 663;								\
+      C=1-2*FP_ALN663(A|AC|B|BC)M(|L);									\
+      F=DPRU5;
+    TX=Italien Ferrovia Bologna-Portomaggiore ALn 668;							\
+      C=FBP_ALN668S2AM(|L);										\
+      F=EPU5;
     TX=Italien TFT - Trasporto Ferroviario Toscano LFI Merci Ne 700.003 + P 501-510 + carri FS;		\
       C=LFI_700_003,LFI_P501,2*LFI_FI,LFI_GS;								\
       F=DF56;
@@ -3510,12 +3580,21 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Ferrovie Emilia Romagna ALn 663;								\
       C=FER_ALE663020;											\
       F=DPU56;
-    TX=Italien FCE: Ferrovie Circumetna E3;								\
+    TX=Italien Ferrovie Emilia Romagna ALn 663 1016 - 1021 + Ln 778;					\
+      C=(<FER_ALN663S1M|FER_ALN663S2FPM,FER_LN778M)|(>FER_ALN663S1ML|FER_ALN663S2FPML,FER_LN778ML);	\
+      F=DPRU5;
+    TX=Italien Ferrovie Emilia Romagna ALn 663 1-9 + Ln 664;						\
+      C=(FER_ALN663S1FPM,FER_LN664M)|(FER_ALN663S1FPML,FER_LN664ML);					\
+      F=DPRU5;
+    TX=Italien FCE:Ferrovie Circumetna E3;								\
       C=FCE_E3;												\
       F=DPU5;
     TX=Italien FMT + Güterzug;										\
       C=FMT_0488,I6G2;											\
       F=DF56;
+    TX=Italien Ferrovie del Sud-Est DE + Regonale;							\
+      C=FSE_DE122(A|B)M(|L),FSE_BYGM,FSE_ABYGM(|L),FSE_BYGM;						\
+      F=DPR5;
     TX=Italien Ferrovie del Sud-Est De 753 + Bauzug;							\
       C=FSE_D753_702,2*(FSE_GS_GKKS[OB:RAIL6,25,12][OB:RAIL6,211,12]);					\
       F=DP56;
@@ -3532,7 +3611,8 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C=FSE_BB17(0|1),FSE_BZ,FSE_BZ1,FSE_ABZ762;							\
       F=DP56;
     TX=Italien Ferrovie del Sud-Est DE 122;								\
-      C=<FSE_DE122_401,FSE_P1,FSE_P1P;									\
+      C=(<FSE_DE122BM,FSE_DPC_BZ_NAVM,FSE_DPC_NPABZ_NAVM)|						\
+	(>FSE_DE122BML,FSE_DPC_BZ_NAVML,FSE_DPC_NPABZ_NAVML);						\
       F=DPU56;
     TX=Italien Ferrovie del Sud-Est DE 168;								\
       C=<FSE_ABP460,FSE_ABN419,FSE_ABN420,FSE_DE168;							\
@@ -3552,12 +3632,18 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Ferrovia Padane ALN 663;									\
       C=FP_ALN663_1016;											\
       F=DPU56;
-    TX=Italien FT: Ferrotramviaria (Ferrovia Bari Nord Bari-Barletta) 201;				\
+    TX=Italien FT:Ferrotramviaria (Ferrovia Bari Nord Bari-Barletta)201;				\
       C=FT_GT_STARTER;											\
       F=DPU56;
-    TX=MCNE: MetroCampania NordEst I54;									\
+    TX=MCNE:MetroCampania NordEst I54;									\
       C=FABN_I54,I6G2;											\
       F=EF56;
+    TX=Societa Ferrovie Udine-Cividale ATR 110;								\
+      C=(<FUC_ATR110BLML,FUC_ATR110ALM)|(<FUC_ATR110ALML,FUC_ATR110BLM);				\
+      F=EPRU6;
+    TX=Italien Societá Veneta ADn 605-610 + BP 372 - 378;						\
+      C=(<SV_AD900CML,SV_BP370CM)|(>SV_AD900CM,SV_BP370CML);						\
+      F=DPRU5;
 
 # Italien Privat        E
     TX=Italien Ferrovia Alifana ETR 82;									\
@@ -3578,28 +3664,32 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Ferrovie Emilia Romagna ALe 2201+2202;							\
       C=<FER_ALE052202,FER_ALE052201;									\
       F=DPU56;
-    TX=Italien Ferrovia Bari Nord (Ferrotranviaria) Le 101;						\
+    TX=Italien Ferrovia Bari Nord (Ferrotranviaria)Le 101;						\
       C=FBN_LE101,FBN_NB04;										\
       F=DP5;
-    TX=Italien Ferrovia Bari Nord (Ferrotranviaria) El 12;						\
+    TX=Italien Ferrovia Bari Nord (Ferrotranviaria)El 12;						\
       C=FBN_EL12;											\
       F=DP5;
-    TX=FCU Ferrovia Centrale Umbra, Locale 26 Terni - Sansepolcro;					\
+    TX=FCU Ferrovia Centrale Umbra,Locale 26 Terni - Sansepolcro;					\
       C=(MUA_E121L,MUA_R223L)|(MUA_E121,MUA_R223);							\
       F=EP5;												\
       E 121+R 222-223EX FVS;
-    TX=FCU Ferrovia Centrale Umbra, Locale 31 Sansepolcro - Perugia S.Anna, L 151+R 211-212+BD 1867;	\
+    TX=FCU Ferrovia Centrale Umbra,Locale 31 Sansepolcro - Perugia S.Anna,L 151+R 211-212+BD 1867;	\
       C=(MUA_L151L,MUA_R211L,MUA_BD1867L)|(MUA_L151,MUA_R211,MUA_BD1867);				\
       F=EP5;
-    TX=FCU Ferrovia Centrale Umbra, Locale 31 Sansepolcro - Perugia S.Anna, L 151+R 211-212+BD 1867;	\
+    TX=FCU Ferrovia Centrale Umbra,Locale 31 Sansepolcro - Perugia S.Anna,L 151+R 211-212+BD 1867;	\
       C=(MUA_L151L,MUA_R211L,MUA_BD1867L)|(MUA_L151,MUA_R211,MUA_BD1867);				\
       F=EP5;
-    TX=FG: Ferrovia del Gargano E200;									\
+    TX=FG:Ferrovia del Gargano E200;									\
       C=<FDG_E200ML,FDG_E200P;										\
       F=EPU5;
-    TX=FSAS Locale Arezzo - Subbiano, elettromotrice Ebiz 7-9 + semipilota pBiz 118-120;		\
+    TX=FSAS Locale Arezzo - Subbiano,elettromotrice Ebiz 7-9 + semipilota pBiz 118-120;			\
       C=(<FSAS_EABIZ7L,FSAS_PBIZ118A)|(<FSAS_PBIZ118AL,FSAS_EABIZ7);					\
       F=EPU5;
+    TX=Italien Ferrovie del Sud-Est Automotrici Ad 31-45 e rimorchi R 331-337;				\
+      C=(<FSE_AD30B2M,2*FSE_R330B2M,FSE_AD30B2M)|(>FSE_AD30B2ML,2*FSE_R330B2ML,FSE_AD30B2ML)|		\
+	(<FSE_AD30BM,2*FSE_R330B3M,FSE_AD30BM)|(>FSE_AD30BML,2*FSE_R330B3ML,FSE_AD30BML);		\
+      F=DPRU5;
     TX=Italien TFT - Trasporto Ferroviario Toscano E626 + Güterzug;					\
       C=LFI_006(|L),I6G2;										\
       F=EF56;
@@ -3611,22 +3701,22 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien TFT - Trasporto Ferroviario Toscano, Locale Arezzo Pescaiola -  manovra E6 con rimorchi vari; \
       C=LFI_E6(|L),(LFI_F301,FSAS_BI112L,FSAS_EBZ122)|(FSAS_EBZ122L,FSAS_BI112,LFI_F301);		\
       F=EF56;
-    TX=Italien TFT - Trasporto Ferroviario Toscano, Locale Arezzo - Stia - locomotiva Edz 17 (ex 001) + 3 carrozze eBiz 113-117; \
+    TX=Italien TFT - Trasporto Ferroviario Toscano, Locale Arezzo - Stia - locomotiva Edz 17 (ex 001)+ 3 carrozze eBiz 113-117; \
       C=LFI_EDZ17(|L),LFI_BI112(|L),2*FSAS_BI112(|L);							\
       F=EP5;
-    TX=Italien TFT - Trasporto Ferroviario Toscano, Locale - locomotiva Edz 18 (ex 001) + 3 carrozze eBiz 111-117; \
+    TX=Italien TFT - Trasporto Ferroviario Toscano, Locale - locomotiva Edz 18 (ex 001)+ 3 carrozze eBiz 111-117; \
       C=LFI_EDZ18(|L),LFI_BI112(|L),FSAS_BI111(|L),FSAS_BI112(|L);					\
       F=EP5;
     TX=Italien TFT - Trasporto Ferroviario Toscano, Locale Stia - Arezzo treno reversibile con pilota eBiz 10 (ex motrice) + pilota pBiz 121 + locomotiva Edz 12; \
       C=(<FSAS_PBIZ120L,LFI_PBIZ121,LFI_EDZ12)|(<LFI_EDZ12L,LFI_PBIZ121,FSAS_PBIZ120);			\
       F=EP5;
-    TX=Italien TFT - Trasporto Ferroviario Toscano, Locale;						\
+    TX=Italien TFT - Trasporto Ferroviario Toscano,Locale;						\
       C=(<LFI_PBIZ121L,LFI_EABIZ10)|(<LFI_EABIZ10L,LFI_PBIZ121);					\
       F=EP5;
-    TX=Italien TFT - Trasporto Ferroviario Toscano, Locale Arezzo - Sinalunga, elettromotrice E 624.002 + pilota pBiz 734; \
+    TX=Italien TFT - Trasporto Ferroviario Toscano,Locale Arezzo - Sinalunga, elettromotrice E 624.002 + pilota pBiz 734; \
       C=<LFI_PBIZ734BL,FSAS_E624_001B;									\
       F=EPU5;
-    TX=Italien TFT - Tra(|L)sporto Ferroviario Toscano, Locale Arezzo - Stia, pBiz 118-120 + eBiz 735 + E624.001; \
+    TX=Italien TFT - Tra(|L)sporto Ferroviario Toscano,Locale Arezzo - Stia, pBiz 118-120 + eBiz 735 + E624.001; \
       C=<FSAS_PBIZ118AL,LFI_EBIZ735852L,FSAS_E624_001;							\
       F=EPU5;
     TX=Italien TFT - Trasporto Ferroviario Toscano, Locale Stia - Arezzo - treno reversibile con locomotiva Edz 12 + rimorchi eBz 113-117 + pilota pBiz 121; \
@@ -3639,7 +3729,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Ferrovia Alifana e Benevento Napoli I54;							\
       C=FABN_I54,I6GR;											\
       F=DF5;
-    TX=MCNE: MetroCampania NordEst 502;									\
+    TX=MCNE:MetroCampania NordEst 502;									\
       C=(<FABN_E502R,FABN_E502)|(<FABN_E502,FABN_E502R);						\
       F=EPU56;
     TX=Italien SATTI E.626 + Nebenbahnzug Torino-Germagnano 1997;					\
@@ -3657,6 +3747,9 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Strade Ferrate Sovvenzionate ALn 880;							\
       C=SFS_ALN880_00(8|7);										\
       F=DPU5;
+    TX=Italien Sistemi Territorali ALn 663 + Ln 664;							\
+      C=(<STPA_ALN663_9C,STPA_LN664C)|(>STPA_ALN663_9CL,STPA_LN664CL);					\
+      F=DPRU5;
 
 # Italien FNM
     TX=Italien FNM DE 500;										\
@@ -3667,6 +3760,9 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       F=DF5;
     TX=Italien FNM D.343 + Regional train Breno-Iseo;							\
       C=FNM_D343,(<FNM_SBBG2,FNM_SBBG3);								\
+      F=DP5;
+    TX=Italien FNM D.343 + Regional train;								\
+      C=FNM_D343OM(|L),2*FNM_BZ80G1M;									\
       F=DP5;
     TX=Italien FNM ALn 668 + B68;									\
       C=<FNM_ALN668A,FNM_B68|FNM_B68_08,FNM_ALN668B;							\
@@ -3685,27 +3781,62 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=FNM E.600 + Güterzug;										\
       C=FNM_E60002|FNM_E60004,I6G2;									\
       F=EF5;
+    TX=FNM E.600 + Socimi Wagen;									\
+      C=FNM_E610Y,FNM_EA970OM(|L),FNM_EB900G1M(|L),3*FNM_EA970OM(|L);					\
+      F=EP5;
     TX=FNM E.610 + Nebenbahnzug Vanzaghello-Novara 1990;						\
       C=FNM_E61001|FNM_E61004|FNM_E610Y,4*FNM_B4B(|L);							\
       F=EP5;
     TX=FNM E.610 + Socimi Wagen;									\
-      C=FNM_E610004(|L),(<FNM_SOCYZ,2*FNM_EB900,FNM_SOCYZ);						\
-      F=EP56;
+      C=(<FNM_E610004(|L),2*FNM_EB960OM,FNM_EA970OM,FNM_EB860OML)|					\
+	(>FNM_E610004(|L),2*FNM_EB960OML,FNM_EA970OML,FNM_EB860OML);					\
+      F=EP5;
     TX=FNM E.620 + Socimi-Wendezug;									\
-      C=<FNM_E620_001(|L),3*FNM_SOCG,FNM_SOCG_P;							\
+      C=(<FNM_E620_002(|L),3*FNM_EB960G1M,FNM_EA870G1M)|						\
+	(>FNM_E620_002(|L),3*FNM_EB960G1ML,FNM_EA870G1ML);						\
+      F=EPUR5;
+    TX=FNM E.630 + SNCB Wagen;										\
+      C=(<FNM_EB880G1ML,4*FNM_EB900G1ML,FNM_6_E630_07|FNM_6_E630_02)|					\
+	(>FNM_EB880G1M,4*FNM_EB900G1M,FNM_6_E630_07|FNM_6_E630_02);					\
       F=EPU56;
     TX=FNM E.630 + SNCB Wagen;										\
-      C=<FNM_EB880L,4*FNM_EB900,FNM_6_E630_07|FNM_6_E630_02;						\
-      F=EPU56;
+      C=(<FNM_EB860GML,2*FNM_EA970GM,3*FNM_EB960GM,FNM_E630GM(|L))|					\
+	(>FNM_EB860GM,FNM_EA970GML,3*FNM_EB960GML,FNM_E630GM(|L))|					\
+	(<FNM_EA870GML,2*FNM_EA970GM,3*FNM_EB960GM,FNM_E630GM(|L))|					\
+	(>FNM_EA870GM,2*FNM_EA970GML,3*FNM_EB960GML,FNM_E630GM(|L));					\
+      F=EPRU5;
+    TX=FNM EB750;											\
+      C=(<FNM_EB850G1ML,FNM_EB980G1ML,FNM_EB950G1ML,FNM_EA750BG1M)|					\
+	(>FNM_EB850G1M,FNM_EB980G1M,FNM_EB950G1M,FNM_EA750BG1ML);					\
+      F=EPRU5;
+    TX=FNM EB750;											\
+      C=(<FNM_EAB850OML,2*FNM_EB980OML,FNM_EB750AOM)|(>FNM_EAB850OM,2*FNM_EB980OM,FNM_EB750AOML);	\
+      F=EPRU5;
+    TX=FNM EB750;											\
+      C=(<FNM_EB860G1ML,FNM_EA970G1ML,FNM_EB960G1ML,FNM_EA750AG1M)|					\
+	(>FNM_EB860G1M,FNM_EA970G1M,FNM_EB960G1M,FNM_EA750AG1ML);					\
+      F=EPRU5;
+    TX=FNM EB 750;											\
+      C=(<FNM_EAB850OML,FNM_EB950OM,FNM_EA970OM,FNM_EB750AOM)|						\
+	(>FNM_EAB850OM,FNM_EB950OML,FNM_EA970OML,FNM_EB750AOML);					\
+      F=EPRU4;
     TX=FNM E 750;											\
-      C=1-2*(FNM_E750G|FNM_E750GB,1-2*FNM_2PV,FNM_2PV_P);						\
-      D=L;												\
-      F=EP56;
+      C=1-2*((<FNM_EA750AG1ML,1-2*FNM_EB950G1ML,FNM_EB850G1M)|						\
+	(>FNM_EA750AG1M,1-2*FNM_EB950G1M,FNM_EB850G1ML));						\
+      F=EP5;
+    TX=FNM E 750;											\
+      C=1-2*((<FNM_EA750AGML,1-2*FNM_EB950GML,FNM_EB850GM)|(>FNM_EA750AGM,1-2*FNM_EB950GM,FNM_EB850GML)); \
+      F=EP5;
     TX=FNM TAF EA 740/750;										\
       C=(<FNM_TAF23AL,2*FNM_TAF23BL,FNM_TAF23C)|(<FNM_TAF23CL,2*FNM_TAF23B,FNM_TAF23A)|			\
 	(<FNM_TAF05AL,2*FNM_TAF23BL,FNM_TAF05C)|(<FNM_TAF05CL,2*FNM_TAF23B,FNM_TAF05A);			\
       F=EPUR5;
-
+    TX=FNM TAF EB 760;											\
+      C=(<FNM_EA761TML,2*FNM_EB990TM,FNM_EB760TM)|(>FNM_EA761TM,2*FNM_EB990TML,FNM_EB760TL);		\
+      F=EPRUR5;
+    TX=FNM TAF EB 760 Malpensa Express;									\
+      C=(<FNM_EB760TMXL,2*FNM_EB990MXM,FNM_EA761MXM)|(>FNM_EB760MXM,2*FNM_EB990MXML,FNM_EA761MXML);	\
+      F=EPRUR5;
 # Italien Schmalspur
     TX=Italien FCL Ferrovie Calabro Lucane 606;								\
       C=FCLB_LM4_606,2*FCLB_G1;										\
@@ -3787,7 +3918,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Stefer 462 und 114;										\
       C=<STEFER_462,STEFER_114;										\
       F=ENUP45;
-    TX=Stefer 422-424 + 052, 064;									\
+    TX=Stefer 422-424 + 052,064;									\
       C=<STEFER_064,STEFER_422|STEFER_424,STEFER_052;							\
       F=ENPU456;
     TX=Stefer 101 + Bw104;										\
@@ -3841,7 +3972,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
 	(<FS_VOS9990000,FS_OSCILLOGRAFICA_UTRL,FS_VLME9999012);						\
       F=DF6;
     TX=FS D255 2000;											\
-      C=FS_D255,FS_UICX1|FS_EN_PALATINO|FS_8890999|FS_Z1_PIZZA|FS_T1959|FS_D1964T;			\
+      C=FS_D255,FS_UICX1|FS_WR8890_ARTESIA|FS_8890999|FS_Z1_PIZZA|FS_T1959|FS_D1964T;			\
       F=DF6;
     TX=FS D255 2101;											\
       C=FS_D255_2101,FS_BARELLATAL,FS_BHR_CATERING,FS_VOS9999098,RFI_VIF9989040;			\
@@ -3867,7 +3998,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=FS ALn.663 1121;											\
       C=FS_ALN663_1121;											\
       F=DPU6;
-    TX=FS ALn.668.1600, 668.1200 + Ln.664.1400;								\
+    TX=FS ALn.668.1600,668.1200 + Ln.664.1400;								\
       C=<FS_LN664_1400R,FS_ALN668_1600R,FS_ALN668_1200R;						\
       F=DPU6;
     TX=FS ALn.668.1000;											\
@@ -3895,6 +4026,10 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=FS E.401 + IC Sun 2018;										\
       C=(<FS_E401_013L,2*FS_6_AGCSUN,FS_6_BMSUN,4*FS_6_BEFSUN,FS_BF_ICSUN)|				\
 	(<FS_BF_ICSUNL,4*FS_6_BEFSUNL,FS_6_BMSUNL,2*FS_6_AGCSUNL,FS_E401_013);				\
+      F=EPU6;
+    TX=FS E.401 + IC 505/507/36457 Intercity Giorno Ventimiglia - Roma Termini 2025;			\
+      C=(<FS_E401ICSUNL,2*FS_A1990GC_IC2024,FS_BHR8590SELF_IC2024,4*FS_B2990_IC2024,FS_NPB8098_IC2024)|	\
+	(>FS_E401ICSUN,2*FS_A1990GC_IC2024,FS_BHR8590SELF_IC2024,4*FS_B2990_IC2024,FS_NPB8098_IC2024L);	\
       F=EPU6;
     TX=FS E.401 + IC 583 Milano Centrale - Napoli Centrale 2020;					\
       C=(<FS_NPB8098ICSUNL,2*FS_A1990GC_ICSUN,FS_BHR8590WR_ICSUN,4*FS_B2990ICSUN,FS_E401ICSUN)|		\
@@ -3975,11 +4110,9 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
 	(<FS_E402B_FBA,2*(FS_1990A5FB|FS_1990AFB),FS_8590SELFFB,FB_8590BHZFB,5*FS_2990BFB(|3|2),	\
 	FS_8090NPBFB);											\
       F=EPU6;
-    TX=FS E.402B + ICN 789 Roma Termini - Lecce 2020;							\
-      C=(<FS_NPB8098ICSUNL,FS_B2190ICN,3*FS_BC5990ICNU,FS_WLABM_MU_ICN,FS_BC5990ICNU,FS_BC5978ICN,	\
-	FS_E402B_ICSUNA)|										\
-	(>FS_NPB8098ICSUN,FS_B2190ICN,3*FS_BC5990ICNU,FS_WLABM_MU_ICN,FS_BC5990ICNU,FS_BC5978ICN,	\
-	FS_E402B_ICSUNA);										\
+    TX=FS E.402B + IC Sun 2018;										\
+      C=(<FS_E402BICSUN(|L),2*FS_6_AGCSUN,FS_6_BMSUN,4*FS_6_BEFSUN,FS_BF_ICSUN)|			\
+	(<FS_BF_ICSUNL,4*FS_6_BEFSUNL,FS_6_BMSUNL,2*FS_6_AGCSUNL,FS_E402BICSUN(|L));			\
       F=EPU6;
     TX=FS E.402 B + IC Sun 2018;									\
       C=(<FS_E402BICSUN(|L),2*FS_6_AGCSUN,FS_6_BMSUN,4*FS_6_BEFSUN,FS_BF_ICSUN)|			\
@@ -3991,8 +4124,12 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
 	FS_UICX95R_C_XMPRT_BML,FS_UICX95R_L_XMPRT_BML)|							\
 	(>2*FS_UICX75_XMPRT_ABM,3*FS_UICX75_XMPRT_BM,FS_UICX95R_C_XMPRT_BM,FS_UICX95R_L_XMPRT_BM);	\
       F=EP6;
-    TX=FS E402B +  ICN 754: Lecce - Torino Porta Nuova 2020;						\
+    TX=FS E402B +  ICN 754:Lecce - Torino Porta Nuova 2020;						\
       C=FS_E402BICSUN(|L),(FS_2990BFB3,3*FS_B2190ICN,3*FS_BC5990ICN,2*FS_WLABM_MU_ICN,3*FS_BC5990ICN);	\
+      F=EP6;
+    TX=FS E.403 + ICN 1962: (Siracusa -) Villa San Giovanni - Milano Centrale 2024;			\
+      C=2*FS_E403_ICM(|L),										\
+	(<3*FS_BC5990ICNU,FS_T3SICN,FS_WLABM_MU_ICN,4*FS_BC5990ICNU,FS_WLABM_MU_ICN,3*FS_BC5990ICNU);	\
       F=EP6;
     TX=FS E.403 + EC 295 München Hbf - Roma Termini 2018;						\
       C=FS_6_E403,											\
@@ -4025,7 +4162,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
 	(<(5-6*FS_ESCI_2990(703|528|462)BL),FS_ESCI_BRH8590050L,2*FS_ESCI_1990258AL)|			\
 	(<(2*FS_ESCI_1990258A),FS_ESCI_BRH8590050,5-6*FS_E414ESCI);					\
       F=EPU6;
-    TX=FS E.414 + FB 35801 Frecciabianca: Venezia Santa Lucia - Lecce 2018;				\
+    TX=FS E.414 + FB 35801 Frecciabianca:Venezia Santa Lucia - Lecce 2018;				\
       C=(<FS_E412FBL,2*FS_2990BFB3,3*FS_2990BFB2,2*FS_2990BFB,FS_8590WRFB,FS_1990AFB,FS_1990A5FB,	\
 	FS_E412FB)|											\
 	(<FS_E412FBL,FS_E412FB,FS_1990A5FB,FS_8590WRFBL,2*FS_2990BFB,3*FS_2990BFB2,2*FS_2990BFB3,	\
@@ -4110,11 +4247,18 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=FS E.464 + Wendezug;										\
       C=<FS_PRREVPL,FS_PRREVL,2*FS_PRREV,FS_E464;							\
       F=EPU6;
-    TX=FS E.464 + Wendezug;										\
-      C=<FS_E464_324L,3*FS_DI2,FS_DI2P;									\
-      F=EPU6;
-    TX=FS E464 + ICN 1957: Messina Centrale - Palermo Centrale 2020;					\
+    TX=FS E.464 + Wendezug Vialto;									\
+      C=(<FS_E464_VIVALTOML,FS_VIVALTO1_NB1ML,FS_VIVALTO1_NA1ML,FS_VIVALTO1_NB1ML,FS_VIVALTO1_NPBH1M)|	\
+	(>FS_E464_VIVALTOM,FS_VIVALTO1_NB1M,FS_VIVALTO1_NA1M,FS_VIVALTO1_NB1M,FS_VIVALTO1_NPBH1ML)|	\
+	(<FS_E464_VIVALTOML,3*FS_VIVALTO2_NB1M,FS_VIVALTO2_NPBH1M)|					\
+	(>FS_E464_VIVALTOM,3*FS_VIVALTO2_NB1ML,FS_VIVALTO2_NPBH1ML);					\
+      F=ERPU6;
+    TX=FS E464 + ICN 1957:Messina Centrale - Palermo Centrale 2020;					\
       C=<FS_E464ICSUNL,2*FS_BC5990ICN,FS_B2190ICN,FS_WLABM_MU_ICN,3*FS_BC5990ICN,FS_E464ICSUN;		\
+      F=EPU6;
+    TX=FS E464 + ICN 1957: (Torino Porta Nuova -) Alessandria - Lecce 2024;				\
+      C=<FS_E464ICSUNL,FS_BC5978ICN,FS_BC5990ICNU,FS_WLABM_MU_ICN,2*FS_BC5978ICN,3*FS_B2990ICN,		\
+	FS_E464ICSUN;											\
       F=EPU6;
     TX=FS E.632 + Doppelstockzug;									\
       C=(<I6PRDL,FS_E632_0(19|11|05)(|L))|(<FS_E632_0(19|11|05)(|L),I6PRDR);				\
@@ -4126,6 +4270,9 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
 	([O:C(|T)60_26,15,11][O:C(|T)60_26,76,11][O:C(|T)60_26,204,11][O:C(|T)60_26,265,11])|		\
 	([O:C60_2(5|6),15,11][O:C(|T)91_26,75,11][O:C(|T)91_26,173,11][O:C60_2(5|6),265,11])|		\
 	([O:C61_25,14,11][O:C61_26,76,11][O:C61_26,203,11][O:C61_26,265,11])));				\
+      F=EF6;
+    TX=FS E.633;											\
+      C=FS_E633X2M(|L),D6FCM;										\
       F=EF6;
     TX=FS E.633 + Doppelstockzug;									\
       C=(<I6PRDL,FS_E633XMPR)|(<FS_E633031(|L),I6PRDR);							\
@@ -4148,7 +4295,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
 	(>FS_E646_120(|L),4*FS_ADP_NB_XADL,FS_ADP_NPBH_XBL);						\
       F=EPRU6;
     TX=FS E.646 + Regionale;										\
-      C=1,FS_E646_(127|120)(|L),5*FS_MDVE2008_(W2|W1|G2|G1)(|L);					\
+      C=1,FS_(E646_127|E646_120|646XC)(|L),5*FS_MDVE2008_(W2|W1|G2|G1)(|L);				\
       F=EPR6;
     TX=FS E.646;											\
       C=FS_E646_(027|082)(|L),										\
@@ -4184,6 +4331,9 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C=FS_E655_(065|177)(|L),6*ILVA_RMMS[OB:STEEL5,,13],						\
 	8*ILVA_SAHMMS[OB:COIL8,*18,15][OB:COIL8,*41,15][OB:COIL8,*62,15][OB:COIL8,*82,15]		\
 	[OB:COIL8,*102,15][OB:COIL8,*122,15][OB:COIL8,*145,15];						\
+      F=EF6;
+    TX=FS E.655 + Güterzug;										\
+      C=[PFU]FS_E655S(1XCM|1XCML|2BCM|2BCML|2XCM|2XCML|3BCM|3XCM),D6FZM;				\
       F=EF6;
     TX=FS E.655 + Güterzug;										\
       C=FS_E655_(065|177)(|L),D6FCM;									\
@@ -4302,11 +4452,27 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
 	(<FS_ETR470FB1L,FS_ETR470FB2,FS_ETR470FB3,FS_ETR470FB4,FS_ETR470FB5,FS_ETR470FB6,FS_ETR470FB7,	\
 	FS_ETR470FB8,FS_ETR470FB9);									\
       F=EPU6;
+    TX=FS ETR 470 ex Cisalpino;										\
+      C=(<FS_ETR470_BAC11L,FS_ETR470_BB12,FS_ETR470_RA13,FS_ETR470_RB14,FS_ETR470_BB15,			\
+	FS_ETR470_BAH16,FS_ETR470_RA17,FS_ETR470_BB18,FS_ETR470_BAC19)|					\
+	(>FS_ETR470_BAC11,FS_ETR470_BB12L,FS_ETR470_RA13L,FS_ETR470_RB14L,FS_ETR470_BB15L,		\
+	FS_ETR470_BAH16L,FS_ETR470_RA17L,FS_ETR470_BB18L,FS_ETR470_BAC19L);				\
+      F=EPU6;
+    TX=FS ETR 470;											\
+      C=(<FS_ETR470_BAC21L,FS_ETR470_BB22,FS_ETR470_RA23,FS_ETR470_RB24,FS_ETR470_BB25,			\
+	FS_ETR470_BAH26,FS_ETR470_RA27,FS_ETR470_BB28,FS_ETR470_BAC29)|					\
+	(>FS_ETR470_BAC21,FS_ETR470_BB22L,FS_ETR470_RA23L,FS_ETR470_RB24L,FS_ETR470_BB25L,		\
+	FS_ETR470_BAH26L,FS_ETR470_RA27L,FS_ETR470_BB28L,FS_ETR470_BAC29L);				\
+      F=EPU6;
     TX=FS ETR 485 - FA AV 8507 Frecciargento Bolzano (Bozen)- Napoli Centrale 2018;			\
       C=(<FS_ETR485_FA_9L,FS_ETR485_FA_8L,FS_ETR485_FA_7L,FS_ETR485_FA_6L,FS_ETR485_FA_5L,		\
 	FS_ETR485_FA_4L,FS_ETR485_FA_3L,FS_ETR485_FA2L,FS_ETR485_FA1)|					\
 	(<FS_ETR485_FA1L,FS_ETR485_FA2,FS_ETR485_FA3,FS_ETR485_FA4,FS_ETR485_FA5,FS_ETR485_FA6,		\
 	FS_ETR485_FA7,FS_ETR485_FA8,FS_ETR485_FA9);							\
+      F=EPU6;
+    TX=FS ETR 500;											\
+      C=(<FS_ETR500FR1L,4*FS_ETR500FR2L,FS_ETR500FR6L,6*FS_ETR500FR2L,FS_ETR500FR1)|			\
+	(>FS_ETR500FR1L,4*FS_ETR500FR2,FS_ETR500FR6,6*FS_ETR500FR2,FS_ETR500FR1);			\
       F=EPU6;
     TX=FS ETR 500;											\
       C=(<FS_ETR500_27EL,4*FS_ETR500_27AL,FS_ETR500_27WL,6*FS_ETR500_27BL,FS_ETR500_27E)|		\
@@ -4316,12 +4482,33 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C=(<FS_ETR500_45EL,4*FS_ETR500_45AL,FS_ETR500_45WL,6*FS_ETR500_45BL,FS_ETR500_45E)|		\
 	(<FS_ETR500_45EL,6*FS_ETR500_45B,FS_ETR500_45W,4*FS_ETR500_45A,FS_ETR500_45E);			\
       F=EPU6;
-    TX=FS ETR 500 FR AV 9805 Frecciarossa: Torino Porta Nuova - Lecce 2020;				\
-      C=(<ETR500FRAL,6*ETR500FR2,ETR500FRR,4*ETR500FR1,ETR500FRA)|					\
-	(>ETR500FRA,6*ETR500FR2,ETR500FRRL,4*ETR500FR1,ETR500FRAL);					\
+    TX=FS ETR 500 FR AV 9805 Frecciarossa:Torino Porta Nuova - Lecce 2020;				\
+      C=(<FS_ETR500FREL,6*FS_ETR500FRB,FS_ETR500FRWR,4*FS_ETR500FRA,FS_ETR500FRE)|			\
+	(>FS_ETR500FRE,6*FS_ETR500FRB,FS_ETR500FRWR,4*FS_ETR500FRA,FS_ETR500FREL);			\
       F=EPU6;
     TX=FS ETR 563  R 1891 Udine - Ljubljana 2020;							\
       C=<FS_ETR563AL,FS_ETR563B,FS_ETR563C,FS_ETR563D,FS_ETR563E;					\
+      F=EPU6;
+    TX=FS ETR 600;											\
+      C=(<FS_ETR600_07AL,FS_ETR600_07B,FS_ETR600_07C,FS_ETR600_07D,FS_ETR600_07E,FS_ETR600_07F,		\
+	FS_ETR600_07G)|											\
+	(>FS_ETR600_07A,FS_ETR600_07BL,FS_ETR600_07CL,FS_ETR600_07DL,FS_ETR600_07EL,FS_ETR600_07FL,	\
+	FS_ETR600_07GL);										\
+      F=EPU6;
+    TX=FS ETR 600;											\
+      C=(<FS_ETR600_08AL,FS_ETR600_08B,FS_ETR600_08C,FS_ETR600_08D,FS_ETR600_08E,FS_ETR600_08F,		\
+	FS_ETR600_08G)|											\
+	(>FS_ETR600_08A,FS_ETR600_08BL,FS_ETR600_08CL,FS_ETR600_08DL,FS_ETR600_08EL,FS_ETR600_08FL,	\
+	FS_ETR600_08GL);										\
+      F=EPU6;
+    TX=FS ETR 600;											\
+      C=(<FS_ETR600_22AL,FS_ETR600_22B,FS_ETR600_22C,FS_ETR600_22D,FS_ETR600_22E,FS_ETR600_22F,		\
+	FS_ETR600_22G)|											\
+	(>FS_ETR600_22A,FS_ETR600_22BL,FS_ETR600_22CL,FS_ETR600_22DL,FS_ETR600_22EL,FS_ETR600_22FL,	\
+	FS_ETR600_22GL);										\
+      F=EPU6;
+    TX=FS ETR 610;											\
+      C=TI_ETR610ECWIT(L|R);										\
       F=EPU6;
     TX=FS ETR 700;											\
       C=(<FS_ETR700FA1L,FS_ETR700FA2,FS_ETR700FA3,FS_ETR700FA4,FS_ETR700FA5,FS_ETR700FA6,FS_ETR700FA7,	\
@@ -4378,9 +4565,6 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
 
 # Italien Privat
 
-    TX=Italien Armafer 4145;										\
-      C=ARMAFER_4145,I6FM1;										\
-      F=DF6;
     TX=Italien Armafer BA 4062;										\
       C=ARMAFER_BA4062,I6FM1;										\
       F=DF6;
@@ -4411,7 +4595,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Arena Ways G 2000;									\
       C=ARENA_G2000_033,ARENA_2290901;									\
       F=DF6;
-    TX=ATCM: Azienda Trasporti Collettivi e Mobilita (Modena)E 126;					\
+    TX=ATCM:Azienda Trasporti Collettivi e Mobilita (Modena)E 126;					\
       C=<ATCM_E126AL,ATCM_E126B,ATCM_E126C;								\
       F=DPU6;
     TX=Italien Dalmine Steel GE;									\
@@ -4432,13 +4616,13 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
 	DB_LAAEKS_SKODA7,DB_LAAEKS_SKODA8,DB_LAAEKS_SKODA9,DB_LAAEKS_SKODA10,DB_LAAEKS_SKODA11,		\
 	DB_LAAEKS_SKODA12,DB_LAAEKS_SKODA13);								\
       F=DF6;
-    TX=Italien FA: Ferrovia Alifana Aln 668 307;							\
+    TX=Italien FA:Ferrovia Alifana Aln 668 307;								\
       C=FAL_ALN668_307;											\
       F=DP6;
-    TX=Italien FAS: Ferrovia Adriatico-Sangritana D343 1036;						\
+    TX=Italien FAS:Ferrovia Adriatico-Sangritana D343 1036;						\
       C=FAS_D3431038,I6G2;										\
       F=DF6;
-    TX=Italien FAS: Ferrovia Adriatico-Sangritana 753;							\
+    TX=Italien FAS:Ferrovia Adriatico-Sangritana 753;							\
       C=FAS_753,I6G2;											\
       F=DF6;
     TX=Italien Ferrovia Casalecchio - Vignola ALn 668;							\
@@ -4450,6 +4634,9 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Ferrovie Emilia Romagna D 220;								\
       C=FER_D220R01,I6G2;										\
       F=DF6;
+    TX=Italien Ferrovie Emilia Romagna ALN 668 201;							\
+      C=FER_ALN668_2FBP2M(|L);										\
+      F=DPRU6;
     TX=Italien Ferrovie Emilia Romagna ALN 663 903;							\
       C=FER_ALN663_903;											\
       F=DPU6;
@@ -4462,6 +4649,9 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Ferrovia Milano Nord ALn 668;								\
       C=FNM_ALN668_131;											\
       F=DF5;
+    TX=FNM EB750;											\
+      C=(<FNM_EB850GML,2*FNM_EB980GML,FNM_EA750BG1M)|(>FNM_EB850GM,2*FNM_EB980GM,FNM_EA750BG1ML);	\
+      F=EPRU6;
     TX=Italien Ferrovia Milano Nord DE 520;								\
       C=FNME_753|FNMC_DE520_01,I6G2;									\
       F=DF6;
@@ -4471,7 +4661,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Ferrovie del Sud-Est D751 702 + Güterzug;						\
       C=FSE_D753_702,I6G2;										\
       F=DF56;
-    TX=Italien Ferrovie del Sud-Est 2008-2009 Allestimento treno storico FSE, locomotiva BB 162 + CTcr 454 (ex FS CT 43257) + 2 carrozze ABz e Bz + DU 950; \
+    TX=Italien Ferrovie del Sud-Est 2008-2009 Allestimento treno storico FSE, locomotiva BB 162 + CTcr 454 (ex FS CT 43257)+ 2 carrozze ABz e Bz + DU 950; \
       C=FSE_BB151AL,FSE_HIST1,FSE_BZ601HL,FSE_ABZ751H,FSE_DH;						\
       F=DP6;
     TX=Italien FRET Italia D 800 209;									\
@@ -4480,6 +4670,9 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien FRET Italia D 1001 105;									\
       C=FRETIT_D100105,I6GR;										\
       F=DF6;
+    TX=Italien Ferrovie del Sud-Est Automotrici Ad 31-45;						\
+      C=<2@FSE_AD30BCM(|L)|FSE_AD30BRM(|L);								\
+      F=DPRU5;
     TX=Italien Ferrovia Torino Ceres Locale Torino - Ceres, complesso automotrici M. 001-007 + rimorchio R 1-5; \
       C=<FTC_ALN668_M001,FTC_LN882_R001,FTC_ALN668_M001;						\
       F=DPU4;
@@ -4513,16 +4706,38 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Servizio Ferroviario Metropolitano Bolognese 753;					\
       C=SFMB_753|SFMB_753_509,I6G2;									\
       F=DF6;
-    TX=Italien SV: Societá Veneta D753;									\
+
+    TX=Italien SBB RABe 501 Testfahrten 2020;								\
+      C=(<SBB_RABE501_TEST_ML,SBB_RABE501TEST_KL,SBB_RABE501TEST_JL,SBB_RABE501TEST_HL[PD],		\
+	SBB_RABE501TEST_GL,$DIR(SBB_RABE501TEST_FL[PD],SBB_RABE501TEST_FL[PU]),SBB_RABE501TEST_EL,	\
+	$DIR(SBB_RABE501TEST_DL[PU],SBB_RABE501TEST_DL[PD]),SBB_RABE501TEST_CL,SBB_RABE501TEST_BL[PD],	\
+	SBB_RABE501TEST_A)|										\
+	(>SBB_RABE501_TEST_M,SBB_RABE501TEST_K,SBB_RABE501TEST_J,SBB_RABE501TEST_H[PD],			\
+	SBB_RABE501TEST_G,$DIR(SBB_RABE501TEST_F[PU],SBB_RABE501TEST_F[PD]),SBB_RABE501TEST_E,		\
+	$DIR(SBB_RABE501TEST_D[PD],SBB_RABE501TEST_D[PU]),SBB_RABE501TEST_C,SBB_RABE501TEST_B[PD],	\
+	SBB_RABE501TEST_AL);										\
+      F=EF6;
+
+    TX=Italien SBB RABe 501 + EC 326 Sestri Levante - Zürich 2024;					\
+      C=(<SBB_RABE501011AL,SBB_RABE501ZWICH,SBB_RABE501011M)|						\
+	(<SBB_RABE501001Al,SBB_RABE501ZWICH,SBB_RABE501001M)|						\
+	(<SBB_RABE501006AL,SBB_RABE501ZWICH,SBB_RABE501006M)|						\
+	(<SBB_RABE501012AL,SBB_RABE501ZWICH,SBB_RABE501012M)|						\
+	(<SBB_RABE501016AL,SBB_RABE501ZWICH,SBB_RABE501016M)|						\
+	(<SBB_RABE501015ML,SBB_RABE501ZWICHL,SBB_RABE501015M)|						\
+	(<SBB_RABE501019ML,SBB_RABE501ZWICHL,SBB_RABE501019M)|						\
+	(<SBB_RABE501022ML,SBB_RABE501ZWICHL,SBB_RABE501022M);						\
+      F=EPU6;
+    TX=Italien SV:Societá Veneta D753;									\
       C=SV_D753001,I6G2;										\
       F=DF6;
-    TX=Italien SV: Societá Veneta Dw 424;								\
+    TX=Italien SV:Societá Veneta Dw 424;								\
       C=SV_DE424009,I6G2;										\
       F=DF6;
-    TX=Italien SV: Societá Veneta ALN 663;								\
+    TX=Italien SV:Societá Veneta ALN 663;								\
       C=SV_ALN663909;											\
       F=DPU6;
-    TX=Italien SV: Societá Veneta BD 362;								\
+    TX=Italien SV:Societá Veneta BD 362;								\
       C=SV_BD362;											\
       F=DPU6;
     TX=Italien Trenord ALn 668;										\
@@ -4534,6 +4749,26 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Impresa Francesco Ventura Paola RC 0198;							\
       C=FVCF_RC0198,I6FM1;										\
       F=DF6;
+    TX=Italien Sistemi Territorali ALn 663 + Ln 664;							\
+      C=(<STPA_ALN663_9D,STPA_LN664D)|(>STPA_ALN663_9DL,STPA_LN664DL);					\
+      F=DPRU6;
+    TX=Italien Sistemi Territorali ALn 668;								\
+      C=STPA_ALN668_3DM(|L);										\
+      F=DPRU6;
+    TX=Italien Sistemi Territorali ATR 110;								\
+      C=(<STPA_ATR110AML,STPA_ATR110BM)|(<STPA_ATR110BML,STPA_ATR110AM);				\
+      F=DPRU6;
+    TX=Italien Sistemi Territorali ATR 116;								\
+      C=(<STPA_ATR116AML,STPA_ATR116BM)|(<STPA_ATR116BML,STPA_ATR116AM);				\
+      F=DPRU6;
+    TX=Italien Sistemi Territorali ATR 120;								\
+      C=(<STPA_ATR120AML,STPA_ATR120BM,STPA_ATR120BML,STPA_ATR120AM)|					\
+	(<STPA_ATR120AML,STPA_ATR120BM,STPA_ATR120B1ML,STPA_ATR120AM);					\
+      F=DPRU6;
+    TX=Italien Sistemi Territorali ATR 126;								\
+      C=(<STPA_ATR126AML,STPA_ATR120BM,STPA_ATR120BML,STPA_ATR126AM)|					\
+	(<STPA_ATR126AML,STPA_ATR120BM,STPA_ATR120B1ML,STPA_ATR126AM);					\
+      F=DPRU6;
 
 # Italien Privat        E
     TX=Italien Arena E 483;										\
@@ -4549,9 +4784,12 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Arena E 484;										\
       C=ARENA_E484_901,6*ARENA_B(2|1)L;									\
       F=EP6;
-    TX=Italien ACTM Azienda Trasporti Collettivi e Mobilita (Modena) ALe 072/073;			\
+    TX=Italien ACTM Azienda Trasporti Collettivi e Mobilita (Modena)ALe 072/073;			\
       C=(<ATCM_ALE072T,ATCM_ALE072)|(<ATCM_ALE073T,ATCM_ALE073);					\
       F=EPU6;
+    TX=Italien Captrain 483;										\
+      C=AKIEM_E483CAPTM(|L),D6FZM|D6FCM;								\
+      F=EF6;
     TX=Italien Compagnia Ferroviaria Italiana 190;							\
       C=CFIT_190_32(1|2)(|L),I6G1;									\
       F=EF6;
@@ -4582,6 +4820,9 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Ferrovia Bari Norda ELT 201;								\
       C=FT_ELT201;											\
       F=EPU6;
+    TX=Italien Ferrovia Bologna-Portomaggiore ALn 668;							\
+      C=FBP_ALN668S2BM(|L);										\
+      F=EPU6;
     TX=Italien Ferrovia Casalecchio - Vignola ALe 122;							\
       C=<FCV_ALE122L,FCV_LE122;										\
       F=EPU6;
@@ -4594,7 +4835,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Ferrovia Centrale Umbra E 122;								\
       C=FCU_E122;											\
       F=EPU6;
-    TX=FG: Ferrovia del Gargano 330 001;								\
+    TX=FG:Ferrovia del Gargano 330 001;									\
       C=FDG_ETR330001;											\
       F=EP6;
     TX=Ferrovia Casalecchio - Vignola E 626;								\
@@ -4630,10 +4871,18 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Ferrovie Milano Nord Cargo E 483;							\
       C=FNMC_E483_008|FNMC_E483101,D6FCM;								\
       F=EF6;
+    TX=FNM E.610 + Socimi Wagen;									\
+      C=(<FNM_E610004(|L),2*FNM_EB960O1M,FNM_EA970O1M,FNM_EB860O1M)|					\
+	(>FNM_E610004(|L),2*FNM_EB960O1ML,FNM_EA970O1ML,FNM_EB860O1ML);					\
+      F=EP6;
+    TX=FNM E 620;											\
+      C=(<FNM_E620_001(|L),4*FNM_EB960OM,FNM_EB860OML)|(<FNM_E620_001(|L),4*FNM_EA970OM,FNM_EA870OM)|	\
+	(>FNM_E620_001(|L),4*FNM_EB960OML,FNM_EB860OML)|(>FNM_E620_001(|L),4*FNM_EA970OML,FNM_EA870OML); \
+      F=EPRU5;
     TX=Italien Ferrovie Roma Nord E 108+55861+55863;							\
       C=<FRN_E108L,FRN_D55861,FRN_D55863;								\
       F=EPU56;
-    TX=Italien Ferrovia Torino Ceres Locale Torino - Venaria Reale, locomotiva 13 + carrozze Bz 100 ABz 101,102, 106, 107 - Bz 103, 104, 105, 108, 109; \
+    TX=Italien Ferrovia Torino Ceres Locale Torino - Venaria Reale, locomotiva 13 + carrozze Bz 100 ABz 101,102,106,107 - Bz 103,104,105,108,109; \
       C=FTC_11C(|L),4*FTC_BZ103;									\
       F=EP4;
     TX=Italien Ferrovie Udine Cividale E190;								\
@@ -4677,13 +4926,13 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien TILO RABE 524;										\
       C=TILO_RABE524;											\
       F=EPU6;
-    TX=Italien EPSA: Societá per l'Esercizio di Pubblici Servizi SpA 302;				\
+    TX=Italien EPSA:Societá per l'Esercizio di Pubblici Servizi SpA 302;				\
       C=<SEPSA_EN302L,SEPSA_RN302;									\
       F=EPU6;
-    TX=Italien EPSA: Societá per l'Esercizio di Pubblici Servizi ET 102;				\
+    TX=Italien EPSA:Societá per l'Esercizio di Pubblici Servizi ET 102;					\
       C=SEPSA_ET102;											\
       F=EF6;
-    TX=Italien EPSA: Societá per l'Esercizio di Pubblici Servizi SpA 400;				\
+    TX=Italien EPSA:Societá per l'Esercizio di Pubblici Servizi SpA 400;				\
       C=<SEPSA_ET400L,SEPSA_RT400;									\
       F=EPU6;
     TX=Italien NTV ETR 575 AV 9901/9903 .italo Milano Centrale - Salerno 2017;				\
@@ -4692,7 +4941,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
 	(<NTV_ETR575_11L,2*NTV_ETR575_09_10L,NTV_ETR575_08L,NTV_ETR575_07L,NTV_ETR575_06L,		\
 	NTV_ETR575_05L,NTV_ETR575_04L,2*NTV_ETR575_0203L,NTV_ETR575_01);				\
       F=EPU6;
-    TX=Italien NTV ETR 675 AV 8970 Italo EVO: Venezia Santa Lucia - Torino Porta Susa 2018;		\
+    TX=Italien NTV ETR 675 AV 8970 Italo EVO:Venezia Santa Lucia - Torino Porta Susa 2018;		\
       C=(<NTV_ETR675_1L,NTV_ETR675_2,NTV_ETR675_3,NTV_ETR675_4,NTV_ETR675_5,NTV_ETR675_6,NTV_ETR675_7)|	\
 	(<NTV_ETR675_7L,NTV_ETR675_6L,NTV_ETR675_5L,NTV_ETR675_4L,NTV_ETR675_3L,NTV_ETR675_2L,		\
 	NTV_ETR675_1);											\
@@ -4704,7 +4953,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Italien Societa per Azioni Transporti Torinesi Intercommunali;					\
       C=<SATTI_LE080,SATTI_056008;									\
       F=EPU6;
-    TX=SV: Societá Veneta E190;										\
+    TX=SV:Societá Veneta E190;										\
       C=SV_E190_025,I6G2;										\
       F=DF6;
     TX=Fersalento Nt 649;										\
@@ -4721,6 +4970,14 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
       C=(<TNOR_E464L,4*TNOR_ADP_NB36(|L),TNOR_ADP_NPB)|(>TNOR_E464,4*TNOR_ADP_NB36(|L),TNOR_ADP_NPBL)|	\
 	(<TNOR_E464L,4*TNOR_ADP_NBL,TNOR_ADP_NPBH2)|(>TNOR_E464,4*TNOR_ADP_NB,TNOR_ADP_NPBH2L);		\
       F=EPRU6;
+    TX=Trenord E464 + Regionale8;									\
+      C=(<TNOR_E464L,3*TNOR_PR73RQ_NBM,TNOR_MDVC_NABM,TNOR_MDVC_NPBD2M)|				\
+	(>TNOR_E464,3*TNOR_PR73RQ_NBML,TNOR_MDVC_NABML,TNOR_MDVC_NPBD2ML);				\
+      F=EPRU6;
+    TX=Trenord ETR 245;											\
+      C=(<TNOR_ETR245AMXML,TNOR_ETR245BMXM,TNOR_ETR245CMXM,TNOR_ETR245DMXM,TNOR_ETR245AMXM)|		\
+	(>TNOR_ETR245AMXM,TNOR_ETR245BMXML,TNOR_ETR245CMXML,TNOR_ETR245DMXML,TNOR_ETR245AMXML);		\
+      F=EPRU6;
 
 # Schmalspur
     TX=Circumvesuviana ETR 038;										\
@@ -4732,7 +4989,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Circumvesuviana ETR 201;										\
       C=CVE_ETR201_001;											\
       F=ENUP6;
-    TX=Ferrovie Circumetna ADe 21, 15;									\
+    TX=Ferrovie Circumetna ADe 21,15;									\
       C=FCE_ADE21|FCE_ADE15;										\
       F=DNUP6;
     TX=Ferrovie Trento-Male ET 140;									\
@@ -4741,7 +4998,7 @@ $DEF FS_ETR220_GP=FS_ETR220|FS_ETR220L|FS_ETR224L|FS_ETR224|FS_ETR231L|FS_ETR231
     TX=Stefer 422;											\
       C=<STEFER_TRENO_422A,STEFER_TRENO_422B,STEFER_TRENO_422C;						\
       F=ENUP6;
-    TX=Trentino Trasporti Spa (Trento-Malè) 401 -401;							\
+    TX=Trentino Trasporti Spa (Trento-Malè)401 -401;							\
       C=FTM_401;											\
       F=ENUP6;
   }

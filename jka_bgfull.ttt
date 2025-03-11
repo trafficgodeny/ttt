@@ -22,8 +22,8 @@ $DEF OSMIST=0-1*(CSD_F),CSD_1DD,2-3*(CSD_CI4C|CSD_CI4A|CSD_CI3_9G|CSD_CI4_19),		
 
 # Bustehrad Railway passenger train Chomutov - Vejprty 1922 #
 $DEF OSBD=CSD_524_1BD|CSD_524_1BDL,0-1*(CSD_FK5_1402|CSD_FK5_1402),CSD_DDKBD,				\
-    0-1*(CSD_BCEBD|CSD_BEBD|CSD_BE2_15),2-3*(CSD_CI4_41|CSD_CIBD|CSD_CIBDL),0-1*(CSD_ABEBD|CSD_ABEBDL),	\
-    2-3*(CSD_CI4_41|CSD_CIBD|CSD_CIBDL),0-1*(CSD_BCEBD|CSD_BEBD|CSD_BE2_15)
+    0-1*(CSD_BCEBD|CSD_BEBD|CSD_BE2_15),2-3*(CSD_CI4_41|CSD_CIBD|CSD_CIBDL),				\
+    0-1*(CSD_ABEBD|CSD_ABEBDL),2-3*(CSD_CI4_41|CSD_CIBD|CSD_CIBDL),0-1*(CSD_BCEBD|CSD_BEBD|CSD_BE2_15)
 
 # Local lines passenger trains 1930s #
 $DEF OSLOKDLOUHY=CSD_DF6_73|CSD_DF6_77|CSD_DDK_6_3707|CSD_DDK_6_3707L,CSD_BCI2_76|CSD_BI2_2623,		\
@@ -71,320 +71,421 @@ $DEF CSD2B=CSD_534_001GL|CSD_534_068GL|CSD_434_1HL|CSD_434_0GL|CSD_434_2L
 $DEF CSD_387_0KL=CSD_387_0K
 
 $POOL N=ZDICE;
-  C=(CSD_354_0|CSD_354_0K|CSD_264_1)(|L),OSMIST; V=6;
-  C=CSD_434_0G(|L),KAL,MNHL,$DIR(XDRV3,); V=5;
-  D=L; C=CSD_434_0GL|CSD_324_2,KAL,VNUHLI,KAL; V=5;
-  D=R; C=CSD_324_2,CSD_434_0G,KAL,2*PNUHLI,KAL; V=5;
-  D=R; C=CSD_434_0G,KAL,2*PNUHLI,KAL,CSD_324_2; V=5;
-  D=L; C=CSD_324_2; V=6;
-  C=CSD_M120_401,|(CSD_CDLM4_9413,|(CSD_CLM4_6065)); V=7;
-$ENDPOOL 
+  C=(CSD_354_0|CSD_354_0K|CSD_264_1)(|L),OSMIST;							\
+    V=6;
+  C=CSD_434_0G(|L),KAL,MNHL,$DIR(XDRV3,);								\
+    V=5;
+  C=CSD_434_0GL|CSD_324_2,KAL,VNUHLI,KAL;								\
+    D=L; V=5;
+  C=CSD_324_2,CSD_434_0G,KAL,2*PNUHLI,KAL;								\
+    D=R; V=5;
+  C=CSD_434_0G,KAL,2*PNUHLI,KAL,CSD_324_2;								\
+    D=R; V=5;
+  C=CSD_324_2;												\
+    D=L; V=6;
+  C=CSD_M120_401,|(CSD_CDLM4_9413,|(CSD_CLM4_6065));							\
+    V=7;
+$ENDPOOL
 
-$DEF MOLSUN=<CSD_1DD,2-3*(CSD_CI4C|CSD_CI4A|CSD_CI3_9G|CSD_CI4_19),		\
-    (CSD_BCI2_77|CSD_BCI2|CSD_BCI2C|CSD_BI2_2000A),                             \
-    2-3*(CSD_CI4C|CSD_CI4A|CSD_CI3_9G|CSD_CI4_19)
+$DEF MOLSUN=<CSD_1DD,2-3*(CSD_CI4C|CSD_CI4A|CSD_CI3_9G|CSD_CI4_19),					\
+    (CSD_BCI2_77|CSD_BCI2|CSD_BCI2C|CSD_BI2_2000A),2-3*(CSD_CI4C|CSD_CI4A|CSD_CI3_9G|CSD_CI4_19)
 #------------------------------------------------------------------------------
 #
-#	Background: Libomysl
+# Background: Libomysl
 #
 $SECTION ML=1;
-  $GROUP NAME=JKA_LIBOMYSL1; SEQ=D; LC=3; W=X; Y=*;				\
-	DX=1090; BL=244; AB=549;						\
-	BG=BgJk/LIBOMYSL.JPG:,-244;						\
-	TX=Libomysl;
-    POOL=ZDICE;
-  $ENDGROUP
-$ENDSECTION	
-#------------------------------------------------------------------------------
-#
-#	Background: Lohovice
-#
-$SECTION ML=1;
-  $GROUP NAME=JKA_LOHOVICE; SEQ=D; LC=3; W=X; Y=*;				\
-	BL=237;AB=448;DX=1065;							\
-	BG=BgJk/LOCHOVICEB.JPG:,-237;						\
-	FG=BgJk/LOCHOVICEB.JPG[MSK:BgJk/LOCHOVICEM.GIF,#000000,0,237]:,-237;	\
-	TX=Lohovice;
+  $GROUP 												\
+      NAME=JKA_LIBOMYSL1;										\
+      TX=Libomysl;											\
+      LC=3; SEQ=D; DX=1090; AB=549; BL=244; W=X;							\
+      BG=LIBOMYSL:,-244;									\
+      Y=*;
     POOL=ZDICE;
   $ENDGROUP
 $ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Background: Mikulovský viadukt
+# Background: Lohovice
 #
 $SECTION ML=1;
-  $GROUP NAME=JKA_MIKULOV; SEQ=D; W=X; LC=3; Y=*;                               \
-        DX=823; AB=469; BL=278;                                                 \
-        BG=BgJk/MIKULOV.JPG:,-278;						\
-        FG=FENCE1A,FENCE1B:..;
-    V=4; D=L; C=(CSD_414_0L|CSD_403_2L),CSD_524_21L|CSD_524_22L,KAL,PNUHLI,KAL;    
-    V=6; D=R; C=(CSD_414_0|CSD_403_2|CSD_524_21|CSD_524_22),(KAL),VNUHLI,KAL;      
-    V=4; D=L; C=CSD_524_21L|CSD_524_22L,KAL,PNUHLI,KAL,(CSD_414_0L|CSD_403_2L);  
-    V=7; C=CSD_354_0|CSD_354_0K,MOLSUN;
-    V=5; C=CSD_354_0L|CSD_354_0KL,MOLSUN,CSD_354_0L|CSD_354_0KL|CSD_414_0L;
+  $GROUP 												\
+      NAME=JKA_LOHOVICE;										\
+      TX=Lohovice;											\
+      LC=3; SEQ=D; DX=1065; AB=448; BL=237; W=X;							\
+      BG=LOCHOVICEB:,-237;									\
+      FG=LOCHOVICEB[MSK:LOCHOVICEM,#000000,0,237]:,-237;				\
+      Y=*;
+    POOL=ZDICE;
   $ENDGROUP
 $ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Background: Cisovice
+# Background: Mikulovský viadukt
 #
 $SECTION ML=1;
-  $GROUP NAME=JKA_CISOVICE; SEQ=D; LC=3; W=X; Y=*;				\
-	DX=1081; BL=330; AB=461; 						\
-	BG=BgJk/CISOVICEB.JPG:,-330;						\
-	FG=BgJk/CISOVICEB.JPG[MSK:BgJk/CISOVICEM.GIF,#FFFFFF,,330]:,-330;	\
-	TX=Cisovice;
-    V=4; C=CSD_422_0,OSLOKKRATKY,MNLOK,|XDRV1;
-    V=6; C=CSDMOTOR;
+  $GROUP 												\
+      NAME=JKA_MIKULOV;											\
+      LC=3; SEQ=D; DX=823; AB=469; BL=278; W=X;								\
+      BG=MIKULOV:,-278;									\
+      FG=FENCE1A,FENCE1B:..;										\
+      Y=*;
+    C=(CSD_414_0L|CSD_403_2L),CSD_524_21L|CSD_524_22L,KAL,PNUHLI,KAL;					\
+      D=L; V=4;
+    C=(CSD_414_0|CSD_403_2|CSD_524_21|CSD_524_22),(KAL),VNUHLI,KAL;					\
+      D=R; V=6;
+    C=CSD_524_21L|CSD_524_22L,KAL,PNUHLI,KAL,(CSD_414_0L|CSD_403_2L);					\
+      D=L; V=4;
+    C=CSD_354_0|CSD_354_0K,MOLSUN;									\
+      V=7;
+    C=CSD_354_0L|CSD_354_0KL,MOLSUN,CSD_354_0L|CSD_354_0KL|CSD_414_0L;					\
+      V=5;
   $ENDGROUP
 $ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Background: Nová Ves pod Plesi
+# Background: Cisovice
 #
 $SECTION ML=1;
-  $GROUP NAME=JKA_PLES; SEQ=D; LC=3; W=X; Y=*;					\
-	DX=1127; AB=405; BL=364; 						\
-	BG=BgJk/PLES6B.JPG:,-364; 						\
-	FG=BgJk/PLES6B.JPG[MSK:BgJk/PLES6M.GIF,#FFFFFF,253,364]:,-364;
-    V=4; C=CSD_422_0,OSLOKKRATKY,MNLOK,|XDRV1;
-    V=6; C=CSDMOTOR;
+  $GROUP 												\
+      NAME=JKA_CISOVICE;										\
+      TX=Cisovice;											\
+      LC=3; SEQ=D; DX=1081; AB=461; BL=330; W=X;							\
+      BG=CISOVICEB:,-330;									\
+      FG=CISOVICEB[MSK:CISOVICEM,#FFFFFF,,330]:,-330;					\
+      Y=*;
+    C=CSD_422_0,OSLOKKRATKY,MNLOK,|XDRV1;								\
+      V=4;
+    C=CSDMOTOR;												\
+      V=6;
   $ENDGROUP
 $ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Rusová
+# Background: Nová Ves pod Plesi
 #
 $SECTION ML=1;
-  $GROUP NAME=JKA_RUSOVA; DX=1069; AB=413; BL=326; Y=*;				\
-	BG=BgJk/RUSOVA2B.JPG:,-326; 						\
-	FG=BgJk/RUSOVA2B.JPG[MSK:BgJk/RUSOVA2M.GIF,#FFFFFF,,326]:,-326;
-    V=5; C=OSBD;
+  $GROUP 												\
+      NAME=JKA_PLES;											\
+      LC=3; SEQ=D; DX=1127; AB=405; BL=364; W=X;							\
+      BG=PLES6B:,-364;										\
+      FG=PLES6B[MSK:PLES6M,#FFFFFF,253,364]:,-364;					\
+      Y=*;
+    C=CSD_422_0,OSLOKKRATKY,MNLOK,|XDRV1;								\
+      V=4;
+    C=CSDMOTOR;												\
+      V=6;
   $ENDGROUP
 $ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Jeleni vrch
+# Rusová
 #
 $SECTION ML=1;
-  $GROUP NAME=JKA_JELENIVRCH; SEQ=D; W=X; LC=3; Y=*;				\
-        DX=1048; AB=479; BL=272;                                       		\
-        BG=BgJk/JELENIVRCHB.JPG:,-272;                                		\
-        FG=BgJk/JELENIVRCHB.JPG[MSK:BgJk/JELENIVRCHM.GIF,#FFFFFF,,272]:,-272;
-    V=5; C=OSBD;
+  $GROUP 												\
+      NAME=JKA_RUSOVA;											\
+      DX=1069; AB=413; BL=326;										\
+      BG=RUSOVA2B:,-326;									\
+      FG=RUSOVA2B[MSK:RUSOVA2M,#FFFFFF,,326]:,-326;					\
+      Y=*;
+    C=OSBD;												\
+      V=5;
   $ENDGROUP
 $ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Background: Blazejov
-#	Narrow gauge line Jindrichuv Hradec - Nova Bystrice
+# Jeleni vrch
 #
 $SECTION ML=1;
-  $GROUP NAME=JKA_BLAZEJOV; SEQ=D; LC=2; W=X; Y=*;				\
-	DX=1030; BL=282; AB=431;						\
-	BG=BgJk/BLAZEJOV.JPG:,-282;	
-    V=5; C=CSD_M11_0Z,0-1*(CSD_CDVU|CSD_CI_U351);
+  $GROUP 												\
+      NAME=JKA_JELENIVRCH;										\
+      LC=3; SEQ=D; DX=1048; AB=479; BL=272; W=X;							\
+      BG=JELENIVRCHB:,-272;									\
+      FG=JELENIVRCHB[MSK:JELENIVRCHM,#FFFFFF,,272]:,-272;				\
+      Y=*;
+    C=OSBD;												\
+      V=5;
   $ENDGROUP
-$ENDSECTION	
+$ENDSECTION
+#------------------------------------------------------------------------------
+#
+# Background: Blazejov
+# Narrow gauge line Jindrichuv Hradec - Nova Bystrice
+#
+$SECTION ML=1;
+  $GROUP 												\
+      NAME=JKA_BLAZEJOV;										\
+      LC=2; SEQ=D; DX=1030; AB=431; BL=282; W=X;							\
+      BG=BLAZEJOV:,-282;									\
+      Y=*;
+    C=CSD_M11_0Z,0-1*(CSD_CDVU|CSD_CI_U351);								\
+      V=5;
+  $ENDGROUP
+$ENDSECTION
 #-------------------------------------------------------------------------------
 #
-#	Background: Vseborsko
+# Background: Vseborsko
 #
 $SECTION ML=1;
-  $GROUP NAME=JKA_VSEBORSKO; SEQ=D; LC=3; W=X; Y=*;				\
-	DX=899; BL=262; AB=367;							\
-	BG=BgJk/VSEBORSKO.JPG:,-262;						\
-	FG=CABLE2:..,-10,146;
+  $GROUP 												\
+      NAME=JKA_VSEBORSKO;										\
+      LC=3; SEQ=D; DX=899; AB=367; BL=262; W=X;								\
+      BG=VSEBORSKO:,-262;									\
+      FG=CABLE2:..,-10,146;										\
+      Y=*;
     POOL=POOL_2CSD;
   $ENDGROUP
-$ENDSECTION	
+$ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Background: Bezdez
+# Background: Bezdez
 #
 $SECTION ML=1;
-  $GROUP NAME=JKA_BEZDEZ; SEQ=D; W=X; LC=3; Y=*;                                \
-        DX=1111; AB=519; BL=253;                                               	\
-        BG=BgJk/BEZDEZ.JPG:,-253;
-    V=7; C=CSD_354_0K(|L),OSMIST;
-    V=7; C=CSD_354_0(|L),OSMIST;
-    V=5; C=(CSD_434_0G|CSD_524_21|CSD_524_22)(|L),KAL,MNHL,$DIR(XDRV3,);
-    V=7; C=CSD_353_0(|L),OSMIST;        
+  $GROUP 												\
+      NAME=JKA_BEZDEZ;											\
+      LC=3; SEQ=D; DX=1111; AB=519; BL=253; W=X;							\
+      BG=BEZDEZ:,-253;										\
+      Y=*;
+    C=CSD_354_0K(|L),OSMIST;										\
+      V=7;
+    C=CSD_354_0(|L),OSMIST;										\
+      V=7;
+    C=(CSD_434_0G|CSD_524_21|CSD_524_22)(|L),KAL,MNHL,$DIR(XDRV3,);					\
+      V=5;
+    C=CSD_353_0(|L),OSMIST;										\
+      V=7;
   $ENDGROUP
 $ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Background: Ceská Kamenice
+# Background: Ceská Kamenice
 #
 $SECTION ML=1;
-  $GROUP NAME=JKA_KAMENICE; SEQ=D; W=X; LC=3; Y=*;                              \
-        DX=1080; AB=540; BL=254;                                               	\
-        BG=BgJk/CKAMENICE.JPG:,-254;						\
-        FG=(CABLE5:..,-6;PIKE3:56,-6);
-    V=7; C=CSD_M220_3;
-    V=6; C=CSD_354_0(|K)(|L),OSMIST;
-    V=5; C=(CSD_434_0G|CSD_524_21|CSD_524_22|CSD_414_0)(|L),KAL,MNHL,$DIR(XDRV3,);
-    V=7; C=CSD_353_0(|L),OSMIST;        
+  $GROUP 												\
+      NAME=JKA_KAMENICE;										\
+      LC=3; SEQ=D; DX=1080; AB=540; BL=254; W=X;							\
+      BG=CKAMENICE:,-254;									\
+      FG=(CABLE5:..,-6;PIKE3:56,-6);									\
+      Y=*;
+    C=CSD_M220_3;											\
+      V=7;
+    C=CSD_354_0(|K)(|L),OSMIST;										\
+      V=6;
+    C=(CSD_434_0G|CSD_524_21|CSD_524_22|CSD_414_0)(|L),KAL,MNHL,$DIR(XDRV3,);				\
+      V=5;
+    C=CSD_353_0(|L),OSMIST;										\
+      V=7;
   $ENDGROUP
 $ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Background: Most pres údolí Polepky, Cervene Pecky
+# Background: Most pres údolí Polepky, Cervene Pecky
 #
 $SECTION ML=1;
-  $GROUP NAME=JKA_CERPECKY; SEQ=D; W=X; LC=3; Y=*;                              \
-        DX=1050; AB=360; BL=380;                                                \
-        BG=BgJk/CERPECKYB.JPG:,-380;						\
-        FG=FENCE1A,FENCE1B:..;
-    V=5; C=CSD_423_009|CSD_423_057,OSLOKDLOUHY;                                     
-    V=4; C=CSD_423_009|CSD_423_057,KAL,1-2*(MNLOK),|XDRV1;         
-    V=6; C=CSDMOTOR;
+  $GROUP 												\
+      NAME=JKA_CERPECKY;										\
+      LC=3; SEQ=D; DX=1050; AB=360; BL=380; W=X;							\
+      BG=CERPECKYB:,-380;									\
+      FG=FENCE1A,FENCE1B:..;										\
+      Y=*;
+    C=CSD_423_009|CSD_423_057,OSLOKDLOUHY;								\
+      V=5;
+    C=CSD_423_009|CSD_423_057,KAL,1-2*(MNLOK),|XDRV1;							\
+      V=4;
+    C=CSDMOTOR;												\
+      V=6;
   $ENDGROUP
 $ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Background: Klasterec
+# Background: Klasterec
 #
 $SECTION ML=1;
-  $GROUP NAME=JKA_KLASTEREC; SEQ=D; W=X; LC=3; Y=*;                             \
-        DX=1024; AB=384; BL=400;                                                \
-        BG=BgJk/KLASTEREC.JPG:,-400;						\
-        FG=FENCE1A,FENCE1B:0+237..;
-    D=R; C=CSD2A,KAL,2*MNHL,KAL,CSD2A;
-    V=5; C=CSD_434_1HL|CSD_434_0GL|CSD_524_21L|CSD_524_22L|CSD_414_0L,KAL,2*MNHL,KAL;
-    V=8; C=$DIR(CSD_364_0L,CSD_264_4|CSD_354_444,CSD_364_0),(<CSD_DA1930,	\
-	3-5*(2:CSD_CA1925|CSD_CA1930),CSD_BCA1930,SBB_WR_TRH,DRG_AB4U2(3A|8),	\
-	DRG_C4U2(6L|8),DRG_PW4UPR02);
-    V=5; C=(CSD_434_1H|CSD_434_0G|CSD_524_21|CSD_524_22|CSD_414_0)(|L),KAL,MNHL,XDRV3;
-    V=8; C=$DIR(CSD_364_0L,(CSD_264_4,CSD_354_444)|CSD_364_0),CSD_DA6_54BD,	\
-	CSD_BCA2_8692,3-5*(3:CSD_CA1925|2:CSD_CA4_5|CSD_CA4_57BD);
-    V=5; C=CSD_534_001G|CSD_534_068G|CSD_434_1H|CSD_434_0G|CSD_524_21|CSD_524_22,KAL,\
-	2*PNUHLI,KAL,CSD_414_0|CSD_434_1H|CSD_434_0G|CSD_524_21|CSD_524_22;
-    V=7; C=CSD_354_4BD(|L),OSMIST;
-    V=7; C=CSD_354_7L,OSDALK;
-    V=5; C=CSD_534_001GL|CSD_534_068GL|CSD_434_1HL|CSD_434_0GL|CSD_524_21L|     \
-        CSD_524_22L|CSD_414_0L,KAL,VNUHLI,KAL;
+  $GROUP 												\
+      NAME=JKA_KLASTEREC;										\
+      LC=3; SEQ=D; DX=1024; AB=384; BL=400; W=X;							\
+      BG=KLASTEREC:,-400;									\
+      FG=FENCE1A,FENCE1B:0+237..;									\
+      Y=*;
+    C=CSD2A,KAL,2*MNHL,KAL,CSD2A;									\
+      D=R;
+    C=CSD_434_1HL|CSD_434_0GL|CSD_524_21L|CSD_524_22L|CSD_414_0L,KAL,2*MNHL,KAL;			\
+      V=5;
+    C=$DIR(CSD_364_0L,CSD_264_4|CSD_354_444,CSD_364_0),							\
+	(<CSD_DA1930,3-5*(2:CSD_CA1925|CSD_CA1930),CSD_BCA1930,SBB_WR_TRH,DRG_AB4U2(3A|8),		\
+	DRG_C4U2(6L|8),DRG_PW4UPR02);									\
+      V=8;
+    C=(CSD_434_1H|CSD_434_0G|CSD_524_21|CSD_524_22|CSD_414_0)(|L),KAL,MNHL,XDRV3;			\
+      V=5;
+    C=$DIR(CSD_364_0L,(CSD_264_4,CSD_354_444)|CSD_364_0),CSD_DA6_54BD,CSD_BCA2_8692,			\
+	3-5*(3:CSD_CA1925|2:CSD_CA4_5|CSD_CA4_57BD);							\
+      V=8;
+    C=CSD_534_001G|CSD_534_068G|CSD_434_1H|CSD_434_0G|CSD_524_21|CSD_524_22,KAL,2*PNUHLI,KAL,		\
+	CSD_414_0|CSD_434_1H|CSD_434_0G|CSD_524_21|CSD_524_22;						\
+      V=5;
+    C=CSD_354_4BD(|L),OSMIST;										\
+      V=7;
+    C=CSD_354_7L,OSDALK;										\
+      V=7;
+    C=CSD_534_001GL|CSD_534_068GL|CSD_434_1HL|CSD_434_0GL|CSD_524_21L|CSD_524_22L|CSD_414_0L,KAL,	\
+	VNUHLI,KAL;											\
+      V=5;
   $ENDGROUP
 $ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Background: Libomysl 2
+# Background: Libomysl 2
 #
 $SECTION ML=1;
-  $GROUP NAME=JKA_LIBOMYSL2; SEQ=D; LC=3; W=X; Y=*;				\
-	DX=1044; BL=304; AB=471;						\
-	BG=BgJk/LIBOMYSL2.JPG:,-304;						\
-	TX=Libomysl 2;
+  $GROUP 												\
+      NAME=JKA_LIBOMYSL2;										\
+      TX=Libomysl 2;											\
+      LC=3; SEQ=D; DX=1044; AB=471; BL=304; W=X;							\
+      BG=LIBOMYSL2:,-304;									\
+      Y=*;
     POOL=ZDICE;
   $ENDGROUP
-$ENDSECTION	
+$ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Background: Negrelli viadukt
+# Background: Negrelli viadukt
 #
 $SECTION ML=1;
-  $GROUP NAME=JKA_NEGRELLI; SEQ=D; W=X; LC=3; Y=*;                              \
-        DX=1108; AB=320; BL=437;                                                \
-        BG=BgJk/NEGRELLI.JPG:,-437;						\
-        FG=FENCE1A,FENCE1B:..;        
-    V=8; C=(CSD_387_0K|CSD_375_0D|CSD_364_0)(|L),RVNITRODLOUHY|RVNITROKRATKY;
-    V=4; C=CSD_334_5|CSD_333_0,(SBB_WR_TRH|CSD_FA1921|CSD_DA1930|CSD_CA1930|	\
-	CSD_CA1925|CSD_ABA1_6|CSD_BCA1930);
+  $GROUP 												\
+      NAME=JKA_NEGRELLI;										\
+      LC=3; SEQ=D; DX=1108; AB=320; BL=437; W=X;							\
+      BG=NEGRELLI:,-437;									\
+      FG=FENCE1A,FENCE1B:..;										\
+      Y=*;
+    C=(CSD_387_0K|CSD_375_0D|CSD_364_0)(|L),RVNITRODLOUHY|RVNITROKRATKY;				\
+      V=8;
+    C=CSD_334_5|CSD_333_0,										\
+	(SBB_WR_TRH|CSD_FA1921|CSD_DA1930|CSD_CA1930|CSD_CA1925|CSD_ABA1_6|CSD_BCA1930);		\
+      V=4;
   $ENDGROUP
 $ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Background: Kryštofovo údolí
+# Background: Kryštofovo údolí
 #
 $SECTION ML=1;
-  $GROUP NAME=JKA_NOVINA; SEQ=D; W=X; LC=3; Y=*;                                \
-        DX=1024; AB=433; BL=309;                                                \
-        BG=BgJk/NOVINA.JPG:,-309;						\
-        FG=FENCE1A,FENCE1B:..;        
-    V=5; C=(CSD_434_0G|CSD_524_21|CSD_524_22)(|L),KAL,MNHL,$DIR(XDRV3,		\
-     	(KAL,CSD_414_0|CSD_434_0G|CSD_524_21|CSD_524_22));
-    V=8; C=(CSD_354_11|CSD_354_7)(|L),OSDALK|OSMIST;	     
+  $GROUP 												\
+      NAME=JKA_NOVINA;											\
+      LC=3; SEQ=D; DX=1024; AB=433; BL=309; W=X;							\
+      BG=NOVINA:,-309;										\
+      FG=FENCE1A,FENCE1B:..;										\
+      Y=*;
+    C=(CSD_434_0G|CSD_524_21|CSD_524_22)(|L),KAL,MNHL,							\
+	$DIR(XDRV3,(KAL,CSD_414_0|CSD_434_0G|CSD_524_21|CSD_524_22));					\
+      V=5;
+    C=(CSD_354_11|CSD_354_7)(|L),OSDALK|OSMIST;								\
+      V=8;
   $ENDGROUP
 $ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Background: Žampach
+# Background: Žampach
 #
 $SECTION ML=1;
-  $GROUP NAME=JKA_ZAMPACH; SEQ=D; W=X; LC=3; Y=*;                               \
-        DX=1055; AB=475; BL=260;                                                \
-        BG=BgJk/ZAMPACHB.JPG:,-260;                                             \
-        FG=BgJk/ZAMPACHB.JPG[MSK:BgJk/ZAMPACHM.GIF,#FFFFFF,,260]:,-260;
-    V=5; C=CSD_423_009|CSD_423_057,OSLOKDLOUHY;  
-    V=4; C=CSD_423_009|CSD_423_057,KAL,1-2*(MNLOK),|XDRV1;      
-    V=6; C=CSDMOTOR;
+  $GROUP 												\
+      NAME=JKA_ZAMPACH;											\
+      LC=3; SEQ=D; DX=1055; AB=475; BL=260; W=X;							\
+      BG=ZAMPACHB:,-260;									\
+      FG=ZAMPACHB[MSK:ZAMPACHM,#FFFFFF,,260]:,-260;					\
+      Y=*;
+    C=CSD_423_009|CSD_423_057,OSLOKDLOUHY;								\
+      V=5;
+    C=CSD_423_009|CSD_423_057,KAL,1-2*(MNLOK),|XDRV1;							\
+      V=4;
+    C=CSDMOTOR;												\
+      V=6;
   $ENDGROUP
 $ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Background: Praha Smíchov
+# Background: Praha Smíchov
 #
 $SECTION ML=1;
-  $GROUP NAME=JKA_VYSEHRAD; SEQ=D; W=X; LC=3; Y=*;                              \
-        DX=1058; AB=400; BL=340;                                                \
-        BG=BgJk/VYSEHRADB.JPG:,-340;                                            \
-        FG=BgJk/VYSEHRADB.JPG[MSK:BgJk/VYSEHRADM.GIF,#FFFFFF,,340]:,-340;
-    V=8; C=CSD_E467_0[PDU],RVNITRODLOUHY|RVNITROKRATKY;
+  $GROUP 												\
+      NAME=JKA_VYSEHRAD;										\
+      LC=3; SEQ=D; DX=1058; AB=400; BL=340; W=X;							\
+      BG=VYSEHRADB:,-340;									\
+      FG=VYSEHRADB[MSK:VYSEHRADM,#FFFFFF,,340]:,-340;					\
+      Y=*;
+    C=CSD_E467_0[PDU],RVNITRODLOUHY|RVNITROKRATKY;							\
+      V=8;
   $ENDGROUP
 $ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Background: 
+# Background:
 #
 $SECTION ML=1;
-  $GROUP NAME=JKA_VILEMOV; SEQ=D; W=X; LC=3; Y=*;                               \
-        DX=1193; AB=474; BL=357;                                                \
-        BG=BgJk/VILEMOVB.JPG:,-357;                                             \
-        FG=(									\
-            FENCE2B,FENCE2C,FENCE2D:..;						\
-            BgJk/VILEMOVB.JPG[MSK:BgJk/VILEMOVM.GIF,#FFFFFF,364,357]:,-357;	\
-           );
-    V=5; C=CSD_313_4,OSLOKKRATKY;  
-    V=4; C=CSD_313_4,KAL,1-2*(MNLOK),0-2*XDRV1;         
+  $GROUP 												\
+      NAME=JKA_VILEMOV;											\
+      LC=3; SEQ=D; DX=1193; AB=474; BL=357; W=X;							\
+      BG=VILEMOVB:,-357;									\
+      FG=(FENCE2B,FENCE2C,FENCE2D:..; VILEMOVB[MSK:VILEMOVM,#FFFFFF,364,357]:,-357;);	\
+      Y=*;
+    C=CSD_313_4,OSLOKKRATKY;										\
+      V=5;
+    C=CSD_313_4,KAL,1-2*(MNLOK),0-2*XDRV1;								\
+      V=4;
   $ENDGROUP
 $ENDSECTION
 #------------------------------------------------------------------------------
 #
-#	Background: Brno, Svratka
+# Background: Brno, Svratka
 #
 $SECTION ML=1;
-  $GROUP NAME=JKA_SVRATKA; SEQ=D; W=X; LC=3; Y=*;                               \
-        DX=822; AB=363; BL=261;                                                 \
-        BG=BgJk/SVRATKAB.JPG:,-261;                                             \
-        FG=BgJk/SVRATKAB.JPG[MSK:BgJk/SVRATKAM.GIF,#FFFFFF,,261]:,-261;
-    V=5; C=(CSD_354_0|CSD_354_0K)(|L),OSMIST;
-    V=5; C=(CSD_354_6A|CSD_354_7)(|L),OSDALK;
-    V=5; C=CSD_354_11(|L),CSD_DDO,CSD_ABEG,3-5*CSD_CEG;
-    V=5; C=CSD_375_0D(|L),RVNITROKRATKY;
-    V=5; C=CSD_387_0K,RVNITRODLOUHY;
+  $GROUP 												\
+      NAME=JKA_SVRATKA;											\
+      LC=3; SEQ=D; DX=822; AB=363; BL=261; W=X;								\
+      BG=SVRATKAB:,-261;									\
+      FG=SVRATKAB[MSK:SVRATKAM,#FFFFFF,,261]:,-261;					\
+      Y=*;
+    C=(CSD_354_0|CSD_354_0K)(|L),OSMIST;								\
+      V=5;
+    C=(CSD_354_6A|CSD_354_7)(|L),OSDALK;								\
+      V=5;
+    C=CSD_354_11(|L),CSD_DDO,CSD_ABEG,3-5*CSD_CEG;							\
+      V=5;
+    C=CSD_375_0D(|L),RVNITROKRATKY;									\
+      V=5;
+    C=CSD_387_0K,RVNITRODLOUHY;										\
+      V=5;
   $ENDGROUP
 $ENDSECTION
 #-------------------------------------------------------------------------------
 #
-#	Background: Jezernice, stone viaduct
+# Background: Jezernice, stone viaduct
 #
 $SECTION ML=1;
-  $GROUP NAME=JKA_JEZERNICE; SEQ=D; W=X; LC=3; Y=*;                             \
-        DX=807; AB=278; BL=267;                                                 \
-        BG=BgJk/JEZERNICEB.JPG:,-267;                                           \
-        FG=BgJk/JEZERNICEB.JPG[MSK:BgJk/JEZERNICEM.GIF,#FFFFFF,,267]:,-267;
-    V=7; C=(CSD_354_6A|CSD_354_7)(|L),OSDALK;
-    V=8; C=(CSD_375_0D|CSD_387_0K)(|L),RVNITRODLOUHY;
-    V=5; C=CSD2B,KAL,PNUHLI,KAL;
-    V=5; C=2*CSD2B,KAL,2*PNUHLI,KAL;
-    V=5; D=R; C=CSD_333_1|CSD_534_001g|CSD_534_068G|CSD_434_1H|CSD_434_0G|CSD_434_2, \
-	KAL,VNUHLI,KAL;
-    V=5; C=CSD2B,KAL,PNUHLI,KAL;
-    V=5; C=2*CSD2B,KAL,2*PNUHLI,KAL;
-    V=5; D=R; C=(CSD_333_1|CSD_534_001G|CSD_534_068G|CSD_434_1H|CSD_434_0G|CSD_434_2), \
-	KAL,VNUHLI,KAL;
-    V=5; C=CSD2B,KAL,2*PNUHLI,KAL,CSD2B;
-    V=4; D=L; C=CSD_333_1;
+  $GROUP 												\
+      NAME=JKA_JEZERNICE;										\
+      LC=3; SEQ=D; DX=807; AB=278; BL=267; W=X;								\
+      BG=JEZERNICEB:,-267;									\
+      FG=JEZERNICEB[MSK:JEZERNICEM,#FFFFFF,,267]:,-267;				\
+      Y=*;
+    C=(CSD_354_6A|CSD_354_7)(|L),OSDALK;								\
+      V=7;
+    C=(CSD_375_0D|CSD_387_0K)(|L),RVNITRODLOUHY;							\
+      V=8;
+    C=CSD2B,KAL,PNUHLI,KAL;										\
+      V=5;
+    C=2*CSD2B,KAL,2*PNUHLI,KAL;										\
+      V=5;
+    C=CSD_333_1|CSD_534_001g|CSD_534_068G|CSD_434_1H|CSD_434_0G|CSD_434_2,KAL,VNUHLI,KAL;		\
+      D=R; V=5;
+    C=CSD2B,KAL,PNUHLI,KAL;										\
+      V=5;
+    C=2*CSD2B,KAL,2*PNUHLI,KAL;										\
+      V=5;
+    C=(CSD_333_1|CSD_534_001G|CSD_534_068G|CSD_434_1H|CSD_434_0G|CSD_434_2),KAL,VNUHLI,KAL;		\
+      D=R; V=5;
+    C=CSD2B,KAL,2*PNUHLI,KAL,CSD2B;									\
+      V=5;
+    C=CSD_333_1;											\
+      D=L; V=4;
   $ENDGROUP
 $ENDSECTION
 

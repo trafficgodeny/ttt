@@ -12,281 +12,361 @@ $REQUIRE LTC_DEF.TTT
 #
 # LTC Full-width
 #
-$SCENE NAME=LTC1; DY=300; YDIR=U; Y=*; IMGY=153; \
-    FG=LTC_FL_J1:..,1,#; \
-    BG=( \
-    	LTC_TRBED1:0..70,0; \
-    	LTC_DEPO1E:<70,0; \
-    	LTC_DEPO1A:70+60..100,0; \
-    	LTC_SCENE1:..,15; \
-    	SKYB02:..,113; \
-    ); 
+$SCENE 													\
+    NAME=LTC1;												\
+    DY=300; YDIR=U;											\
+    BG=(LTC_TRBED1:0..70,0; LTC_DEPO1E:<70,0; LTC_DEPO1A:70+60..100,0; LTC_SCENE1:..,15; SKYB02:..,113;); \
+    FG=LTC_FL_J1:..,1,#;										\
+    Y=*;												\
+    IMGY=153;
   $PATH Y=15; LC=2;
     POOL=LTC_EMU1; D=L; V=15-30;
-  $ENDPATH 
-  $PATH Y=15; LC=2; 
+  $ENDPATH
+  $PATH Y=15; LC=2;
     POOL=LTC_EMU1; D=R; V=15-30;
-  $ENDPATH 
+  $ENDPATH
 $ENDSCENE
 #------------------------------------------------------------------------------
 #
 # Freight line
 #
-$SCENE NAME=LTC2; DX=800; DY=500; YDIR=U; BG=BGLTC/LTC_FREIGHT.JPG;						\
-  FG=BGLTC/LTC_FREIGHT.JPG[MSK:BGLTC/LTC_FREIGHTM.GIF,#FFFFFF];
-  $PATH Y=30; BG=BGLTC/LTC_FREIGHT.JPG[MSK:BGLTC/LTC_FREIGHTM.GIF,#0000FF]:,-30;
+$SCENE 													\
+    NAME=LTC2;												\
+    DX=800; DY=500; YDIR=U;										\
+    BG=LTC_FREIGHT;										\
+    FG=LTC_FREIGHT[MSK:LTC_FREIGHTM,#FFFFFF];
+  $PATH Y=30;												\
+      BG=LTC_FREIGHT[MSK:LTC_FREIGHTM,#0000FF]:,-30;
     POOL=POOL_LTC_FRS;
-  $ENDPATH 
+  $ENDPATH
   $PATH Y=220;
     POOL=POOL_LTC_FRS;
-  $ENDPATH 
-$ENDSCENE 
+  $ENDPATH
+$ENDSCENE
 #------------------------------------------------------------------------------
 #
 # Autumn
 #
-$GROUP NAME=LTC3; IMGY=153; AB=107; BL=140; W=X; BG=BGLTC/LTC_AUTUMN.JPG:,-140;					\
-  FG=BGLTC/LTC_AUTUMN.JPG[MSK:BGLTC/LTC_AUTUMNM.GIF,#FFFFFF,,140]:,-140; DX=600;
-  C=<LTC_JNR_KIHA47_506L,LTC_JNR_KIHA40_521L; V=20;
+$GROUP 													\
+    NAME=LTC3;												\
+    DX=600; IMGY=153; AB=107; BL=140; W=X;								\
+    BG=LTC_AUTUMN:,-140;									\
+    FG=LTC_AUTUMN[MSK:LTC_AUTUMNM,#FFFFFF,,140]:,-140;
+  C=<LTC_JNR_KIHA47_506L,LTC_JNR_KIHA40_521L;								\
+    V=20;
   C=LTC_JNR_KIHA40(C|_101|_101L|_117|_117L|_1700|_1700L|_2001|_2001L|_400|_400L|_521|_521L|_554|_554L|	\
       _700|_700L|_700O|_700OL|_826|_826L);
-$ENDGROUP 
+$ENDGROUP
 #------------------------------------------------------------------------------
 #
 # Azusa express
 #
-$SCENE NAME=LTC4; DX=800; DY=300; YDIR=U; BG=BGLTC/LTC_AZUSA.JPG;							\
-  FG=BGLTC/LTC_AZUSA.JPG[MSK:BGLTC/LTC_AZUSAM.GIF,#FFFFFF];
-  $PATH Y=25; BG=BGLTC/LTC_AZUSA.JPG[MSK:BGLTC/LTC_AZUSAM.GIF,#0000FF]:,-25; LC=2;
+$SCENE 													\
+    NAME=LTC4;												\
+    DX=800; DY=300; YDIR=U;										\
+    BG=LTC_AZUSA;										\
+    FG=LTC_AZUSA[MSK:LTC_AZUSAM,#FFFFFF];
+  $PATH Y=25; LC=2;											\
+      BG=LTC_AZUSA[MSK:LTC_AZUSAM,#0000FF]:,-25;
     POOL=POOL_LTC_AZUSA; D=L;
-  $ENDPATH 
+  $ENDPATH
   $PATH Y=54; LC=2;
     POOL=POOL_LTC_AZUSA; D=R;
-  $ENDPATH 
-$ENDSCENE 
+  $ENDPATH
+$ENDSCENE
 #------------------------------------------------------------------------------
 #
 # Coast line
 #
-$SCENE NAME=LTC5; DX=800; DY=300; YDIR=U; BG=BGLTC/LTC_COAST.JPG;							\
-  FG=BGLTC/LTC_COAST.JPG[MSK:BGLTC/LTC_COASTM.GIF,#FFFFFF];
+$SCENE 													\
+    NAME=LTC5;												\
+    DX=800; DY=300; YDIR=U;										\
+    BG=LTC_COAST;										\
+    FG=LTC_COAST[MSK:LTC_COASTM,#FFFFFF];
   $PATH Y=20; LC=2;
     POOL=POOL_LTC_COAST; D=L;
-  $ENDPATH 
+  $ENDPATH
   $PATH Y=20; LC=2;
     POOL=POOL_LTC_COAST; D=R;
-  $ENDPATH 
-$ENDSCENE 
+  $ENDPATH
+$ENDSCENE
 #------------------------------------------------------------------------------
 #
 # DMU workshop
 #
-$GROUP NAME=LTC6; LC=2; SEQ=D; AB=110; BL=37; W=X; BG=BGLTC/LTC_DCBASE.JPG:,-37;					\
-  FG=BGLTC/LTC_DCBASE.JPG[MSK:BGLTC/LTC_DCBASEM.GIF,#FFFFFF,,37]:,-37; Y=*; DX=800;
+$GROUP 													\
+    NAME=LTC6;												\
+    LC=2; SEQ=D; DX=800; AB=110; BL=37; W=X;								\
+    BG=LTC_DCBASE:,-37;									\
+    FG=LTC_DCBASE[MSK:LTC_DCBASEM,#FFFFFF,,37]:,-37;				\
+    Y=*;
   AP=[C=LTC_D1]|4:[POOL=LTC_DMU1];
-$ENDGROUP 
+$ENDGROUP
 
 #------------------------------------------------------------------------------
 #
 # JRE Shinkansen
 #
-$SCENE NAME=LTC7; DX=800; DY=500; YDIR=U; BG=BGLTC/LTC_ECHIGO.JPG;							\
-  FG=BGLTC/LTC_ECHIGO.JPG[MSK:BGLTC/LTC_ECHIGOM.GIF,#FFFFFF];
+$SCENE 													\
+    NAME=LTC7;												\
+    DX=800; DY=500; YDIR=U;										\
+    BG=LTC_ECHIGO;										\
+    FG=LTC_ECHIGO[MSK:LTC_ECHIGOM,#FFFFFF];
   $PATH Y=150; LC=2;
     POOL=POOL_LTC_SHE; D=L; V=30; TB=30;
-  $ENDPATH 
+  $ENDPATH
   $PATH Y=150; LC=2;
     POOL=POOL_LTC_SHE; D=R; V=30; TE=30;
-  $ENDPATH 
-$ENDSCENE 
+  $ENDPATH
+$ENDSCENE
 #------------------------------------------------------------------------------
 #
 # Evening sun
 #
-$SCENE NAME=LTC8; DX=800; DY=300; YDIR=U; BG=BGLTC/LTC_EVENINGSUN.JPG;						\
-  FG=BGLTC/LTC_EVENINGSUN.JPG[MSK:BGLTC/LTC_EVENINGSUNM.GIF,#FFFFFF];
+$SCENE 													\
+    NAME=LTC8;												\
+    DX=800; DY=300; YDIR=U;										\
+    BG=LTC_EVENINGSUN;									\
+    FG=LTC_EVENINGSUN[MSK:LTC_EVENINGSUNM,#FFFFFF];
   $PATH Y=20; LC=2;
     POOL=LTC_EMU1; D=L; V=15-20;
-  $ENDPATH 
+  $ENDPATH
   $PATH Y=20; LC=2;
     POOL=LTC_EMU1; D=R; V=15-20;
-  $ENDPATH 
-$ENDSCENE 
+  $ENDPATH
+$ENDSCENE
 #------------------------------------------------------------------------------
 #
 # Freight terminal
 #
-$GROUP NAME=LTC9; LC=2; SEQ=D; AB=110; BL=47; W=X; BG=BGLTC/LTC_FREIGHTTERMINAL.JPG:,-47;				\
-  FG=BGLTC/LTC_FREIGHTTERMINAL.JPG[MSK:BGLTC/LTC_FREIGHTTERMINALM.GIF,#FFFFFF,154,47]:,-47; Y=*; DX=800;
+$GROUP 													\
+    NAME=LTC9;												\
+    LC=2; SEQ=D; DX=800; AB=110; BL=47; W=X;								\
+    BG=LTC_FREIGHTTERMINAL:,-47;								\
+    FG=LTC_FREIGHTTERMINAL[MSK:LTC_FREIGHTTERMINALM,#FFFFFF,154,47]:,-47;		\
+    Y=*;
   C=LTC_D1;
   C=LTC_D1,1-4*LTC_K50;
   C=LTC_D2,10-20*LTC_K50;
   C=LTC_D1,3-6*LTC_JRF_WAMU80000N|LTC_JRF_WAMU80000B;
-$ENDGROUP 
+$ENDGROUP
 #------------------------------------------------------------------------------
 #
 # Mt. Fuji
 #
-$SCENE NAME=LTC10; DX=800; DY=300; YDIR=U; BG=BGLTC/LTC_FUJI.JPG;							\
-  FG=BGLTC/LTC_FUJI.JPG[MSK:BGLTC/LTC_FUJIM.GIF,#FFFFFF];
+$SCENE 													\
+    NAME=LTC10;												\
+    DX=800; DY=300; YDIR=U;										\
+    BG=LTC_FUJI;										\
+    FG=LTC_FUJI[MSK:LTC_FUJIM,#FFFFFF];
   $PATH Y=52; LC=2;
     POOL=POOL_LTC_SHW; D=L; V=30;
-  $ENDPATH 
+  $ENDPATH
   $PATH Y=52; LC=1;
     POOL=POOL_LTC_SHW; D=R; V=30; TB=20;
-  $ENDPATH 
-$ENDSCENE 
+  $ENDPATH
+$ENDSCENE
 #------------------------------------------------------------------------------
 #
 # Hokuhoku line
 #
-$GROUP NAME=LTC11; LC=2; SEQ=D; AB=132; BL=15; W=X; BG=BGLTC/LTC_HOKUHOKU.JPG:,-15;					\
-  FG=BGLTC/LTC_HOKUHOKU.JPG[MSK:BGLTC/LTC_HOKUHOKUM.GIF,#FFFFFF,,15]:,-15; Y=*; DX=800;
+$GROUP 													\
+    NAME=LTC11;												\
+    LC=2; SEQ=D; DX=800; AB=132; BL=15; W=X;								\
+    BG=LTC_HOKUHOKU:,-15;									\
+    FG=LTC_HOKUHOKU[MSK:LTC_HOKUHOKUM,#FFFFFF,,15]:,-15;				\
+    Y=*;
   M=STOP; POOL=LTC_EMU1; V=15-20; P=<20;
-$ENDGROUP 
+$ENDGROUP
 #------------------------------------------------------------------------------
 #
 # Ajigura station
 #
-$GROUP NAME=LTC12; LC=2; SEQ=D; AB=347; BL=100; W=X; BG=BGLTC/LTC_AJIGURA.JPG:,-100;				\
-  FG=BGLTC/LTC_AJIGURA.JPG[MSK:BGLTC/LTC_AJIGURAM.GIF,#FFFFFF,,100]:,-100; Y=*; DX=800;
+$GROUP 													\
+    NAME=LTC12;												\
+    LC=2; SEQ=D; DX=800; AB=347; BL=100; W=X;								\
+    BG=LTC_AJIGURA:,-100;									\
+    FG=LTC_AJIGURA[MSK:LTC_AJIGURAM,#FFFFFF,,100]:,-100;				\
+    Y=*;
   M=STOP; POOL=LTC_DMU1; D=X; P=*50; T=10;
-$ENDGROUP 
+$ENDGROUP
 #------------------------------------------------------------------------------
 #
 # Small train stop
 #
-$GROUP NAME=LTC13; LC=2; SEQ=D; AB=347; BL=20; W=X; BG=BGLTC/LTC_JNRDC.JPG:,-20;					\
-  FG=BGLTC/LTC_JNRDC.JPG[MSK:BGLTC/LTC_JNRDCM.GIF,#FFFFFF,,20]:,-20; Y=*; DX=800;
+$GROUP 													\
+    NAME=LTC13;												\
+    LC=2; SEQ=D; DX=800; AB=347; BL=20; W=X;								\
+    BG=LTC_JNRDC:,-20;									\
+    FG=LTC_JNRDC[MSK:LTC_JNRDCM,#FFFFFF,,20]:,-20;					\
+    Y=*;
   M=STOP; POOL=LTC_DMU1; D=X; P=<25; T=10;
-$ENDGROUP 
+$ENDGROUP
 #------------------------------------------------------------------------------
 #
 # Local station
 #
-$GROUP NAME=LTC14; LC=2; SEQ=D; AB=117; BL=30; W=X; BG=BGLTC/LTC_LOCALSTATION.JPG:,-30;				\
-  FG=BGLTC/LTC_LOCALSTATION.JPG[MSK:BGLTC/LTC_LOCALSTATIONM.GIF,#FFFFFF,,30]:,-30; Y=*; DX=800;
+$GROUP 													\
+    NAME=LTC14;												\
+    LC=2; SEQ=D; DX=800; AB=117; BL=30; W=X;								\
+    BG=LTC_LOCALSTATION:,-30;									\
+    FG=LTC_LOCALSTATION[MSK:LTC_LOCALSTATIONM,#FFFFFF,,30]:,-30;			\
+    Y=*;
   M=STOP; POOL=LTC_EMU1; D=X; P=>45; T=10;
-$ENDGROUP 
+$ENDGROUP
 #------------------------------------------------------------------------------
 #
 # Nozomi
 #
-$SCENE NAME=LTC15; DX=800; DY=300; YDIR=U; BG=BGLTC/LTC_NOZOMI.JPG;							\
-  FG=BGLTC/LTC_NOZOMI.JPG[MSK:BGLTC/LTC_NOZOMIM.GIF,#FFFFFF,,37];
+$SCENE 													\
+    NAME=LTC15;												\
+    DX=800; DY=300; YDIR=U;										\
+    BG=LTC_NOZOMI;										\
+    FG=LTC_NOZOMI[MSK:LTC_NOZOMIM,#FFFFFF,,37];
   $PATH Y=37; LC=2;
     POOL=POOL_LTC_NOZOMI; D=L; V=30;
-  $ENDPATH 
+  $ENDPATH
   $PATH Y=37; LC=1;
     POOL=POOL_LTC_NOZOMI; D=R; V=30; TB=20;
-  $ENDPATH 
-$ENDSCENE 
+  $ENDPATH
+$ENDSCENE
 
 #------------------------------------------------------------------------------
 #
 # Paddy
 #
-$SCENE NAME=LTC16; DX=800; DY=300; YDIR=U; BG=BGLTC/LTC_PADDY.JPG;							\
-  FG=BGLTC/LTC_PADDY.JPG[MSK:BGLTC/LTC_PADDYM.GIF,#FFFFFF];
+$SCENE 													\
+    NAME=LTC16;												\
+    DX=800; DY=300; YDIR=U;										\
+    BG=LTC_PADDY;										\
+    FG=LTC_PADDY[MSK:LTC_PADDYM,#FFFFFF];
   $PATH Y=113; LC=1;
     POOL=POOL_LTC1; D=L; TB=15;
-  $ENDPATH 
+  $ENDPATH
   $PATH Y=113; LC=2;
     POOL=POOL_LTC1; D=R;
-  $ENDPATH 
-$ENDSCENE 
+  $ENDPATH
+$ENDSCENE
 #------------------------------------------------------------------------------
 #
 # Town (1)
 #
-$SCENE NAME=LTC17; DX=800; DY=300; YDIR=U; BG=BGLTC/LTC_TOWN1.JPG;							\
-  FG=BGLTC/LTC_TOWN1.JPG[MSK:BGLTC/LTC_TOWN1M.GIF,#FFFFFF];
+$SCENE 													\
+    NAME=LTC17;												\
+    DX=800; DY=300; YDIR=U;										\
+    BG=LTC_TOWN1;										\
+    FG=LTC_TOWN1[MSK:LTC_TOWN1M,#FFFFFF];
   $PATH Y=63; LC=1;
     POOL=POOL_LTC1; D=L; TB=15;
-  $ENDPATH 
+  $ENDPATH
   $PATH Y=76; LC=2;
     POOL=POOL_LTC1; D=R;
-  $ENDPATH 
-$ENDSCENE 
+  $ENDPATH
+$ENDSCENE
 #------------------------------------------------------------------------------
 #
 # Sakura
 #
-$GROUP NAME=LTC18; LC=2; SEQ=D; AB=78; BL=69; W=X; BG=BGLTC/LTC_SANGAKU.JPG:,-69;					\
-  FG=BGLTC/LTC_SANGAKU.JPG[MSK:BGLTC/LTC_SANGAKUM.GIF,#FFFFFF,,69]:,-69; Y=*; DX=800;
+$GROUP 													\
+    NAME=LTC18;												\
+    LC=2; SEQ=D; DX=800; AB=78; BL=69; W=X;								\
+    BG=LTC_SANGAKU:,-69;									\
+    FG=LTC_SANGAKU[MSK:LTC_SANGAKUM,#FFFFFF,,69]:,-69;				\
+    Y=*;
   POOL=LTC_DMU1;
-$ENDGROUP 
+$ENDGROUP
 #------------------------------------------------------------------------------
 #
 # Tohuku Shinkansen
 #
-$SCENE NAME=LTC19; DX=800; DY=300; YDIR=U; BG=BGLTC/LTC_TOKUHU.JPG;							\
-  FG=BGLTC/LTC_TOKUHU.JPG[MSK:BGLTC/LTC_TOKUHUM.GIF,#FFFFFF];
+$SCENE 													\
+    NAME=LTC19;												\
+    DX=800; DY=300; YDIR=U;										\
+    BG=LTC_TOKUHU;										\
+    FG=LTC_TOKUHU[MSK:LTC_TOKUHUM,#FFFFFF];
   $PATH Y=26; LC=1;
     M=OPEN; POOL=POOL_LTC_TOKUHU; D=L; V=50; A=0.5; B=0.4; P=>0+310; TB=15;
-  $ENDPATH 
+  $ENDPATH
   $PATH Y=26; LC=2;
     M=STOP; POOL=POOL_LTC_TOKUHU; D=R; V=50; A=0.5; B=0.4; P=>0+360;
-  $ENDPATH 
-$ENDSCENE 
+  $ENDPATH
+$ENDSCENE
 #------------------------------------------------------------------------------
 #
 # Tokyo commuter
 #
-$SCENE NAME=LTC20; DX=800; DY=300; YDIR=U; BG=BGLTC/LTC_TOKYO1.JPG;							\
-  FG=BGLTC/LTC_TOKYO1.JPG[MSK:BGLTC/LTC_TOKYO1M.GIF,#FFFFFF];
-  $PATH Y=17; LC=1; BG=BGLTC/LTC_TOKYO1.JPG[MSK:BGLTC/LTC_TOKYO1M.GIF,#0000FF]:,-17;
+$SCENE 													\
+    NAME=LTC20;												\
+    DX=800; DY=300; YDIR=U;										\
+    BG=LTC_TOKYO1;										\
+    FG=LTC_TOKYO1[MSK:LTC_TOKYO1M,#FFFFFF];
+  $PATH Y=17; LC=1;											\
+      BG=LTC_TOKYO1[MSK:LTC_TOKYO1M,#0000FF]:,-17;
     M=OPEN; POOL=POOL_LTC_TOKYO; D=L; V=30; A=0.5; B=0.4; P=>0+300; TB=15;
-  $ENDPATH 
+  $ENDPATH
   $PATH Y=17; LC=2;
     M=STOP; POOL=POOL_LTC_TOKYO; D=R; V=30; A=0.5; B=0.4; P=>0+490;
-  $ENDPATH 
-$ENDSCENE 
+  $ENDPATH
+$ENDSCENE
 #------------------------------------------------------------------------------
 #
 # Truss bridge
 #
-$SCENE NAME=LTC21; DX=800; DY=300; YDIR=U; BG=BGLTC/LTC_TRUSS.JPG;							\
-  FG=BGLTC/LTC_TRUSS.JPG[MSK:BGLTC/LTC_TRUSSM.GIF,#FFFFFF];
+$SCENE 													\
+    NAME=LTC21;												\
+    DX=800; DY=300; YDIR=U;										\
+    BG=LTC_TRUSS;										\
+    FG=LTC_TRUSS[MSK:LTC_TRUSSM,#FFFFFF];
   $PATH Y=29; LC=1;
     POOL=POOL_LTC1; D=L; TB=15;
-  $ENDPATH 
+  $ENDPATH
   $PATH Y=29; LC=2;
     POOL=POOL_LTC1; D=R;
-  $ENDPATH 
-$ENDSCENE 
+  $ENDPATH
+$ENDSCENE
 #------------------------------------------------------------------------------
 #
 # Tsubasa
 #
-$SCENE NAME=LTC22; DX=800; DY=200; YDIR=U; BG=BGLTC/LTC_TSUBASA.JPG;						\
-  FG=BGLTC/LTC_TSUBASA.JPG[MSK:BGLTC/LTC_TSUBASAM.GIF,#FFFFFF];
+$SCENE 													\
+    NAME=LTC22;												\
+    DX=800; DY=200; YDIR=U;										\
+    BG=LTC_TSUBASA;										\
+    FG=LTC_TSUBASA[MSK:LTC_TSUBASAM,#FFFFFF];
   $PATH Y=0; LC=1;
 #M=UNIT;
     M=STOP; POOL=LTC_EMU1; D=L; V=15-25; P=>80;
-  $ENDPATH 
+  $ENDPATH
   $PATH Y=0; LC=2;
     M=STOP; POOL=LTC_EMU1; D=R; V=15-25; P=>90;
-  $ENDPATH 
-$ENDSCENE 
+  $ENDPATH
+$ENDSCENE
 #------------------------------------------------------------------------------
 #
 # Usui pass
 #
-$SCENE NAME=LTC23; DX=800; DY=300; YDIR=U; BG=BGLTC/LTC_USUI.JPG;							\
-  FG=BGLTC/LTC_USUI.JPG[MSK:BGLTC/LTC_USUIM.GIF,#FFFFFF];
+$SCENE 													\
+    NAME=LTC23;												\
+    DX=800; DY=300; YDIR=U;										\
+    BG=LTC_USUI;										\
+    FG=LTC_USUI[MSK:LTC_USUIM,#FFFFFF];
   $PATH Y=91; LC=1;
     POOL=POOL_LTC_FRS; D=R; V=9-12;
-  $ENDPATH 
+  $ENDPATH
   $PATH Y=91; LC=2;
     POOL=POOL_LTC_FRS; D=L; V=9-12;
-  $ENDPATH 
-$ENDSCENE 
+  $ENDPATH
+$ENDSCENE
 #------------------------------------------------------------------------------
 #
 # Mt. Fuji in winter
 #
-$GROUP NAME=LTC24; SEQ=D; AB=103; BL=44; W=X; BG=BGLTC/LTC_WINTERFUJI.JPG:,-44;					\
-  FG=BGLTC/LTC_WINTERFUJI.JPG[MSK:BGLTC/LTC_WINTERFUJIM.GIF,#FFFFFF,640,44]:,-44; Y=*; DX=800;
-  C=LTC_JRE_115_1000SHONAN; V=25;
-$ENDGROUP 
+$GROUP 													\
+    NAME=LTC24;												\
+    SEQ=D; DX=800; AB=103; BL=44; W=X;									\
+    BG=LTC_WINTERFUJI:,-44;									\
+    FG=LTC_WINTERFUJI[MSK:LTC_WINTERFUJIM,#FFFFFF,640,44]:,-44;			\
+    Y=*;
+  C=LTC_JRE_115_1000SHONAN;										\
+    V=25;
+$ENDGROUP

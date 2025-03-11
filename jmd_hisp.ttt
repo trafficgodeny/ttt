@@ -24,6 +24,11 @@ $REQUIRE JMD_DEF.TTT
 	F=EP2;
       C=1-2*FSSA_ET,0-2*FSSA_1,0-2*FSSA_2,0-1*FSSA_D;							\
 	F=E2;
+      C=(<RF_300E2,RF_300T)|(<RF_300FL,RF_300E);							\
+	F=EFU2;
+      C=RF_7401,RF_JG(|H|HL),RF_MMQ_250273E[OB:BOX18,,13],RF_MMQ_250273E[OB:BOILER1,,13],		\
+	  3*RF_J1(|A|C|D),RF_X1P(1|2|3|4|5),12*6:RF_J1(|A|C|D)|RF_J1H(|L)|RF_J2(6:|H|HL)|RF_J3;		\
+	F=EF2;
       TX=Elgoibar <-> San Sebastian (02.1941);								\
 	C=VASC_FV1,VASC_TCDW,VASC_TA,VASC_TCE,3*VASC_TC,VASC_TCW,VASC_ABW,VASC_TDW;			\
 	D=L;												\
@@ -34,13 +39,13 @@ $REQUIRE JMD_DEF.TTT
       TX=Gijon <-> Madrid (anno 1944);									\
 	C=2*RF_6001,RF_D3,RF_DDGG417,RF_WL3382,RF_AA01,MZA_BB2,MZA_CC2,SMED_BB19L;			\
 	F=EP2;
-      C=RF_6001,5*RF_X1P(1|2|3|4|5),NORTE_J1,6*RF_X3|RF_X3HL,MZA_D32320;				\
+      TX=Ujo (1946);											\
+	C=RF_6001,5*RF_X1P(1|2|3|4|5),NORTE_J1,6*RF_X3|RF_X3HL,MZA_D32320;				\
 	F=EF2;
-; Ujo (anno 1946)
-      C=RF_6101,NORTE_D1,NORTE_JHL,3*RF_J1,NORTE_J(1|2),NORTE_JHL,7-10*RF_X(1|3|3HL),RF_FVBH,		\
+      TX=Ujo (1947);											\
+	C=RF_6101,NORTE_D1,NORTE_JHL,3*RF_J1,NORTE_J(1|2),NORTE_JHL,7-10*RF_X(1|3|3HL),RF_FVBH,		\
 	  RF_M1[O:FR_T2,,16],NORTE_JHL;									\
 	F=EF2;
-; Ujo (1947)
       TX=Ponferrada <-> Brañuelas (anno 1947);								\
 	C=RF_151_5001,NORTE_D1,8*3:RF_X1[O:FR_KO27,,28]|RF_X1HL[O:FR_KO27,,28],				\
 	  8*RF_X300000(M|MB|MHL|W|WB|WH)[O:FR_KO34,,23],4*RF_X4(3:|HL)[O:FR_KO27,,28],			\
@@ -49,12 +54,16 @@ $REQUIRE JMD_DEF.TTT
     }
 #------------------------------------------------------------------------------
     {E3?
+      TX=Madrid (anno 1952);										\
+	C=RF_ABJ|RF_ABJE;
+      TX=Cordoba (anno 1952);										\
+	C=<RF_595L,RF_595M,RF_595;
       TX=Carcagente <-> Valencia (anno 1953);								\
 	C=TS_030,NORTE_D2,MZA_B1435(|L),NOR_CI2501L,NOR_CI2502;						\
 	F=S3;
-      C=RF_7002|RF_7004,MZA_D1,16*RF_J300000Y(3:|B|H|HH|HHL);						\
+      TX=Avila las Matas (anno 1954);									\
+	C=RF_7002|RF_7004,MZA_D1,16*RF_J300000Y(3:|B|H|HH|HHL);						\
 	F=EF3;
-; anno 1954 in Avila las Matas
       TX=Santa Fé <-> Gergal (anno 1954);								\
 	C=AND_1A7,NORTE_D1,10*RF_J1(3:|H|HL),3*RF_M1(3:|H|HL),3*RF_J300000E(3:|BL|H|HL);		\
 	V=2-4;												\
@@ -68,14 +77,16 @@ $REQUIRE JMD_DEF.TTT
 	D=L;												\
 	F=SF3;
 ; 1955
+      C=RF_7601,MZA_DDE1G,OESTE_CC1261L,OESTE_CC1261,2*OESTE_CC1261L,OESTE_BB,OESTE_CC1261L;		\
+	F=EP3;
       TX=Alssua <-> Irún (anno 1955);									\
 	C=RF_7101A,NORTE_J2,NORTE_JHL,3*RF_J200000(A|B|C),RF_J300000Y,RF_J1,				\
 	  11*RF_J1|RF_J2|RF_J300000E|RF_J300000EBL;							\
 	F=EF3;
-      C=RF_2400,MZA_D1,2*RF_JF1,2*RF_J1(3:|H|HL),12*RF_JF1,RF_JF1HL;					\
+      TX=Catalyud y Madrid - Mercado de Legazpi (anno 1955);						\
+	C=RF_2400,MZA_D1,2*RF_JF1,2*RF_J1(3:|H|HL),12*RF_JF1,RF_JF1HL;					\
 	D=R;												\
 	F=SF3;
-; Catalyud y Madrid - Mercado de Legazpi (anno 1955)
       TX="El Ruta" Torralba <-> Arcos (anno 1956);							\
 	C=RF_2400,MZA_D1,RF_AG,4*RF_J1(3:|H|HL),NORTE_J2,RF_X1,RF_FVG,2*RF_M1[O:FR_WOOD15,,16],		\
 	  2*RF_M1[O:FR_TRACTOR1,,16],RF_FVE,NORTE_J1,NORTE_JHL,RF_J300000E,4*RF_X5(A|B|C),		\
@@ -85,15 +96,15 @@ $REQUIRE JMD_DEF.TTT
       TX=Madrid <-> Cartegena (anno 1956);								\
 	C=RF_2200L,MZA_DD1G,RF_FFF8,MZA_CC300I,2*MZA_CC1,RF_BB5000G,MZA_AA1,RF_WL3382,2*MZA_CC1;	\
 	F=SP3;
-      C=RF_7002|RF_7004,NORTE_D1,									\
+      TX=Irún (anno 1956);										\
+	C=RF_7002|RF_7004,NORTE_D1,									\
 	  RF_X300000T[O:BOX15,<5,23][O:BOX11,<32,23][O:BOX11,<47,23][O:BOX15,<67,23],			\
 	  RF_X300000THL[O:BOX24,<13,23][O:BOX24,>88,23],RF_X300000T[O:BOX12,10,23][O:BOX12,>86,23],	\
 	  12*RF_X300000W(3:|B|H)[O:FR_T1,,23];								\
 	F=EF3;
-; Irún anno 1956
       TX=Madrid <- Lerida -> Barcelona (anno 1956);							\
-	C=MZA_1700,RF_D3,MZA_AA1,RF_BB01,2*MZA_CC1;							\
-	D=R;												\
+	C=MZA_1700[B:0,41,71,17][B:67,44,157,14],RF_D3,MZA_AA1,RF_BB01,2*MZA_CC1;			\
+	D=L;												\
 	F=SP3;
       TX=Madrid Atocha <-> Siguenza (anno 1956);							\
 	C=MZA_1700L,AND_DD3013,RF_DFG_CORREOS,SMED_BB19L,3*SMED_BB19;					\
@@ -104,6 +115,8 @@ $REQUIRE JMD_DEF.TTT
 	  4*RF_X300000(T|TB|TH|THL|WT),4*RF_J600000(A|B|C|H|HL),2*RF_J300000E;				\
 	D=R;												\
 	F=SF3;
+      C=<RF_600A1EL,RF_600A1M,RF_600A1E;								\
+	F=EPU3;
       TX=Málaga <- Algeciras -> Madrid (anno 1957);							\
 	C=2*$DIR(RF_1601L,RF_1601),MZA_DD1G,RF_FFF7,RF_DGDC2003,2*RF_CC5000A|RF_CC5000G,RF_BB5000G,	\
 	  RF_AA5000B|RF_AA5000G,RF_AA3000V,RF_WL2663,RF_WL2663L,RF_WL2663,RF_AA5000B,RF_BB5000G,	\
@@ -124,9 +137,9 @@ $REQUIRE JMD_DEF.TTT
 	  RF_AAWL5000G,MZA_AC300;									\
 	D=L;												\
 	F=S3;
-      C=RF_2403L,MZA_D1,7*RF_RRP_USAF;									\
+      TX=Torrejon de Ardoz (anno 1957);									\
+	C=RF_2403L,MZA_D1,7*RF_RRP_USAF;								\
 	F=SF3;
-; Torrejon de Ardoz anno 1957
       TX="Sud Express" Madrid <- Hendaye -> Paris (anno 1958);						\
 	C=RF_7504V1|8:RF_242_2008L,CIWL_DX1270L|CIWL_DX1270,2*RF_LJ3968,2*RF_LJ3968L,RF_LJ3968,		\
 	  RF_LJ3968L,RF_WR3395,2*RF_AA5000A;								\
@@ -150,9 +163,9 @@ $REQUIRE JMD_DEF.TTT
 	C=RF_1801D,OESTE_DD,RF_DDGG417,OESTE_AAWL1203,OESTE_BB,3*OESTE_CC1261(|L);			\
 	D=L;												\
 	F=SP3;
-      C=RF_2400L,NORTE_D2,12-14*RF_R1(|H|HL|L);								\
+      TX=Villaverde Bajo (anno 1959);									\
+	C=RF_2400L,NORTE_D2,12-14*RF_R1(|H|HL|L);							\
 	F=SF3;
-; Villaverde Bajo (anno 1959)
       TX="El Iberia" Irún <-> Madrid (anno 1959);							\
 	C=RF_7101A,RF_7504V1,RF_DD5000B,3*RF_AA8001|RF_AA8000,RF_WR4080,2*RF_BB5000E,			\
 	  2*RF_BB8002|RF_BB8000,3*RF_CC5000G,RF_BB5000B;						\
@@ -160,9 +173,9 @@ $REQUIRE JMD_DEF.TTT
       TX=Bilbao <-> Miranda de Ebro (anno 1959);							\
 	C=RF_7504V1,RF_D3,RF_DDGG417,NOR_AA1,MZA_BBCOSTA,3*MZA_CCCOSTA1;				\
 	F=EP3;
-      C=RF_282_0401,NORTE_D1,12*RF_R1(|H|HL|L)|RF_RR(|H|HL);						\
+      TX=Tarragona (anno 1960);										\
+	C=RF_282_0401,NORTE_D1,12*RF_R1(|H|HL|L)|RF_RR(|H|HL);						\
 	F=SF3;
-; Tarragona anno 1960
       C=NOR_040_2731,MZA_D32320,8*RF_M3(3:|H|HL);							\
 	F=SF3;
 ; 1960
@@ -188,11 +201,14 @@ $REQUIRE JMD_DEF.TTT
 	C=MZA_1600_241,RF_DV340201,2*MZA_CCCOSTA1,MZA_BBCCCOSTA,MZA_BBCOSTA;				\
 	F=S3;
       TX=Irún <-> Madrid (anno 1963);									\
-	C=$DIR(NOR_4601L,NOR_4601),RF_242_2008,RF_DD5000G,2*RF_DDGG5000B|RF_DGDC2003|RF_DGDC2002,	\
-	  2*RF_CC5000G,RF_CC5000V,RF_CC5000B,RF_BB3000G,2*RF_CC5000(B|C|D),3*RF_AA5000(C|D|E|G|V),	\
-	  2*RF_WL2663(|L),RF_WL1;									\
+	C=$DIR(NOR_4601L,NOR_4601),$DIR(RF_242_2008L,RF_242_2008),RF_DD5000G,				\
+	  2*RF_DDGG5000B|RF_DGDC2003|RF_DGDC2002,2*RF_CC5000G,RF_CC5000V,RF_CC5000B,RF_BB3000G,		\
+	  2*RF_CC5000(B|C|D),3*RF_AA5000(C|D|E|G|V),2*RF_WL2663(|L),RF_WL1;				\
 	F=SP3;
-; last coach should be U Hansa with skirts
+      TX="Sud Express" Lisboa <- Irún - Hendaye -> Paris (anno 1963);					\
+	C=2*$DIR(MZA_1700L|MZA_1706L,MZA_1700|MZA_1706),CIWL_F1296,CIWL_T201(|L),CP_SOREFAME_B2(|L),	\
+	  CP_SOREFAME_B(|L),RF_WR3395|RF_WR4080,2*RF_WL2663(|L)|RF_WL2664(|L)|CIWL_WL3496LX(|L);	\
+	F=SP3;
       C=RF_280_2|RF_280_3|RF_277A|RF_277B|RF_277C,RF_DGDC2002,2-3*RF_BB5000_3,1-2*RF_AA5000_3,		\
 	  3-5*RF_BB5000_3;										\
 	F=EP3;
@@ -206,7 +222,9 @@ $REQUIRE JMD_DEF.TTT
 	  5*RF_M1[O:COIL3,<9,16][O:COIL3,>66,16],RF_R1(3:|H|HL|L),4*RF_X5A[O:FR_ORE03]|RF_X5HC;		\
 	F=SF3;
       TX=Granada <-> Madrid (anno 1964);								\
-	C=AND_140_4105L,AND_140_476,OESTE_DD,RF_FFF9,2*RF_CC5000G,RF_BB5000G,RF_AA5000C,RF_WL2663(|L);	\
+	C=AND_140_4105L[B:27,44,141,14][B:41,42,127,4],							\
+	  AND_140_476[B:9,44,155,14][B:12,42,139,7][B:30,38,36,6],OESTE_DD,RF_FFF9,2*RF_CC5000G,	\
+	  RF_BB5000G,RF_AA5000C,RF_WL2663(|L);								\
 	D=L;												\
 	F=SP3;
       TX=Santander <-> Madrid (08.1964);								\
@@ -235,28 +253,45 @@ $REQUIRE JMD_DEF.TTT
 	C=$DIR(NOR_4601L,NOR_4601),2*RF_GS8,OESTE_DD,RF_FFF7,RF_WL2663,RF_WR4080,RF_BBL8000,		\
 	  RF_AA5000V,2*RF_BB5000G;									\
 	F=S3;
-      C=<RF_FER_400L,RF_FRI_400L,RF_FER_400;								\
-	F=DPUR3;
-# Madrid (anno 1965)
+      TX=Madrid (anno 1965);										\
+	C=RF400;											\
+	F=DP3;
+      TX=Seville <- Valencia -> Barcelona (30.08.1965);							\
+	C=RF_462_0405,2*RF_JT(1|2),$DIR(MZA_DD1G,MZA_DDE1G),RF_D4,2*RF_WL4601(|L),RF_WR(3395|4080),	\
+	  6*RF_B10R0(1|2|2L|3|3L);									\
+	F=SP3;
+# ^^ coaches after WL a guess. Photo unclear.
+      TX=Manzanares (31.08.1965);									\
+	C=MZA_1407,RF_M_UNI,RF_X1,4*NOR_3645,NOR_3645H(|L),8*(4:NOR_3645|NOR_3645H(|L));		\
+	F=SF3;
+      TX=Caceres <-> Seville (02.09.1965);								\
+	C=$DIR(MZA_1700L,MZA_1700),RF_DFG_CORREOS,RF_DD5000(A|B|C|G),RF_CC4,RF_P3,2*RF_P1;		\
+	F=SP3;
+      TX=Almorchon <-> Cordoba (03.04.1966);								\
+	C=NOR_240,RF_J300000E,MZA_BBCOSTA,CDA_BB,RF_DV3,RF_CER1;					\
+	F=SP3;
+      TX=TER Express Pamplona -> Madrid (09.04.1966);							\
+	C=$DIR(RF_141F_2110L,RF_141F_2110),RF_DV340200,(<RF_9700ML,RF_9700RC);				\
+	F=SP3;
       TX=Madrid <- Sevilla -> Cadiz (anno 1968);							\
 	C=RF_7601,RF_DD8001|RF_DD8000,RF_BB8000|RF_BB8001,RF_AA8001|RF_AA8003,RF_BB8000|RF_BB8001,	\
-	  RF_WL2663|RF_WL2663L,2*RF_WL4601L|RF_WL4601,RF_WL2663|RF_WL2663L,RF_BB8000|RF_BB8001,		\
-	  RF_AA8001|RF_AA8003,RF_BB8000|RF_BB8001;							\
+	  RF_WL2663(|L),2*RF_WL4601(|L),RF_WL2663(|L),RF_BB8000|RF_BB8001,RF_AA8001|RF_AA8003,		\
+	  RF_BB8000|RF_BB8001;										\
 	F=EP3;
       C=RF_1608(|L)|RF_1801(|L),RF_DGDC2002|RF_DD8002VO,2-3*4:RF_BB8002VO|RF_BB5000_60,RF_AA8002VO;	\
 	F=DP3;
-      C=RF_141F_2110L|RF_141F_2110,NORTE_J1,MZA_CC2,MZA_CCCOSTA1;					\
+      TX=Miranda de Ebro (14.05.1968);									\
+	C=RF_141F_2110L|RF_141F_2110,NORTE_J1,MZA_CC2,MZA_CCCOSTA1;					\
 	F=S3;
-# Miranda de Ebro (14.05.1968)
       TX="Mare Nostrum" Port Bou <-> Alicante (anno 1968);						\
-	C=(<RF_9700M1L,RF_9700RC1)|(<RF_9700RC1L,RF_9700M1);						\
+	C=(<RF_9700ML,RF_9700RC)|(<RF_9700RCL,RF_9700M);						\
 	F=DP3;
       TX="Puerta del Sol" Paris <- Hendaye - San Sebastian - Vitoria - Miranda de Ebro - Burgos - Aranda de Duero -> Madrid Chamartin (anno 1969); \
-	C=RF_340~HW,RF_DD5000G,RF_AA8002VO,3*SNCF_4AB_UIC_B10CH,4*RF_WL4601(|L),RF_WR3395;		\
+	C=RF_340~HW,RF_DD5000G,RF_AA8002VO,3*SNCF_875970SY(|L),4*RF_WL4601(|L),RF_WR3395;		\
 	F=DP3;
-      C=RF_353AL|RF_353A,TALGO3_8;									\
+      TX=Banyoles dur Mer (08.1969);									\
+	C=RF_353A(|L),TALGO3_8;										\
 	F=P3;
-# Banyoles dur Mer 08.1969
     }
 #------------------------------------------------------------------------------
     {E4?
@@ -272,10 +307,10 @@ $REQUIRE JMD_DEF.TTT
       C=RF_281(A|B),3*((1-3@RF_HEEKM)|(1-3@RF_HEE2013));						\
 	F=EF4;
       TX=Irún <-> Vigo (anno 1973);									\
-	C=<RF_432R3EL~RC,RF_432R3F~RC;									\
+	C=<RF_432_00EL,RF_432_00F;									\
 	F=EP4;
       TX=Madrid <- Oviedo -> Gijón (anno 1973);								\
-	C=<RF_432R3EL~RC,RF_432R3F~RC;									\
+	C=<RF_432_00EL,RF_432_00F;									\
 	F=EP4;
       C=4:RF_352L|2:(RF_276030(|L))|RF_2352L,(<RF_T4EL,6*RF_T4AL,RF_T4D);				\
 	D=L;												\
@@ -288,18 +323,26 @@ $REQUIRE JMD_DEF.TTT
       TX=Irún <-> San Sebastian (anno 1974);								\
 	C=2*(<RF_WM901ESL,RF_WR901ES);									\
 	F=EP4;
-      C=(<RF_597M2L,RF_597RC2)|(<RF_597RC2L,RF_597M2);							\
+      TX=Moreda (09.1974);										\
+	C=(<RF_597M2L,RF_597RC2)|(<RF_597RC2L,RF_597M2);						\
 	F=DP4;
-# Moreda 09.1974
-      C=<RF_440OEL,RF_440OM,RF_440OF;									\
+      TX=Cerbère (12.08.1975);										\
+	C=<RF_440OEL,RF_440OM,RF_440OF;									\
 	F=EP4;
-# Cerbère 12.08.1975
+      TX="Sud Express" Lisboa <- Irún - Hendaye -> Paris (15.07.1976);					\
+	C=RF_289001,CIWL_F1296,CIWL_WL3496LX(|L),RF_WR4080,						\
+	  3*SNCF_AOC46_B9CWASG(|L)|SNCF_AOC4_B9CWAS(|L),SNCF_WAS3,					\
+	  SNCF_AOC46_B9CWASG(|L)|SNCF_AOC4_B9CWAS(|L),RF_A10R02(|L);					\
+	F=EP4;
+      TX="Sud Express" Lisboa <- Irún - Hendaye -> Paris (15.07.1976);					\
+	C=2*RF_289001,CP_J1159015,CP_WL_CAMAS_LX(|L)|CP_WL2800(|L),7*CP_B1,RF_DDMA9500A;		\
+	F=EP4;
       C=(<RF_443A_BA1L,RF_443A_BCL,RF_443A_BB,RF_443A_BA2)|						\
 	  (<RF_443A_BA2L,RF_443A_BBL,RF_443A_BC,RF_443A_BA1);						\
 	F=EP4;
-      C=<RF_440OEL,RF_440OM,RF_440OF;									\
+      TX=El Escorial (27.10.1976);									\
+	C=<RF_440OEL,RF_440OM,RF_440OF;									\
 	F=EP4;
-# El Escorial 27.10.1976
       C=RF_276030(|L),TALGO3_CATALAN;									\
 	V=10-13;											\
 	AP=[TX=TEE 70 "Catalan Talgo" Barcelona <- Port Bou - Narbonne - Lyon -> Genève (anno 1976)]|	\
@@ -307,42 +350,48 @@ $REQUIRE JMD_DEF.TTT
 	  [TX=TEE 72 "Catalan Talgo" Barcelona <- Port Bou - Narbonne - Lyon -> Genève (anno 1976)]|	\
 	  [TX=TEE 73 "Catalan Talgo" Genève <- Lyon - Narbonne - Port Bou -> Barcelona (anno 1976)];	\
 	F=EP4;
-      C=RF_593_1;											\
+      TX=Granada (anno 1977);										\
+	C=RF_593_1;											\
 	F=DP4;
-# Granada (anno 1977)
-      C=$DIR(RE_303H,RE_303HL),RF_WL2663;								\
+      TX=Madrid Atocha (12.1977);									\
+	C=$DIR(RE_303H,RE_303HL),RF_WL2663;								\
 	V=2-3;												\
 	F=DP4;
-# Madrid Atocha (12.1977)
-      C=<RF_432R3EL~RC,RF_432R3M~RC,RF_432R3F~RC;							\
+      TX=Barcelona Término (08.1978);									\
+	C=<RF_432_00EL,RF_432_01ML,RF_432_00F;								\
 	F=EP4;
-# Barcelona Término 08.1978
-      C=<RF_597M1L,RF_597RC1,RF_597RC1L,RF_597M1;							\
+      TX=Madrid Atocha (12.1978);									\
+	C=<RF_597M1L,RF_597RC1,RF_597RC1L,RF_597M1;							\
 	F=DP4;
-# Madrid Atocha 12.1978
-      C=RF_340~HW,RF_CC5000C[B:21,12,65,5][B:125,12,69,4];						\
+      TX=Madrid Atocha (12.1978);									\
+	C=RF_340~HW,RF_CC5000C[B:21,12,65,5][B:125,12,69,4];						\
 	F=DP4;
-# Madrid Atocha 12.1978
-      C=RF_BB8000G3(|L),$DIR(RF_303BL,RF_303B);								\
+      TX=Madrid Atocha (12.1978);									\
+	C=RF_BB8000G3(|L),$DIR(RF_303BL,RF_303B);							\
 	V=2-3;												\
 	F=DP4;
-# Madrid Atocha 12.1978
-      C=RF_319016L|RF_319016,RF_DV340201,RF_DD5000B,3*RF_CC5000V[B:20,13,63,5][B:126,14,67,3],		\
+      TX=Canfranc (08.1979);										\
+	C=RF_319016L|RF_319016,RF_DV340201,RF_DD5000B,3*RF_CC5000V[B:20,13,63,5][B:126,14,67,3],	\
 	  RF_AA5000V[B:22,13,61,4][B:129,13,64,4],RF_CC5000V[B:20,13,63,5][B:126,14,67,3];		\
 	F=D4;
-# Canfranc 08.1979
-      M=BACK|SIMPLE;											\
+      TX="Sud Express" Lisboa <- Irún - Hendaye -> Paris (23.09.1979);					\
+	C=RF_289001,CP_SOREFAME_D(|L),CP_WL_CAMAS_LX(|L)|CP_WL2800(|L),CP_WR1,CP_SOREFAME_A(|L),	\
+	  SNCF_WAS(1|2|4),SNCF_AOC46_B9CWASGM(|L)|SNCF_AOC4_B9CWASM(|L),SNCF_WAS(1|2|4),		\
+	  6*CP_SOREFAME_B2(|L),CP_J1159015,RF_DDMA9500(A|B);						\
+	F=EP4;
+# ^ DDm should be CP.
+      TX=Madrid Atocha (11.1979);									\
+	M=BACK|SIMPLE;											\
 	C=RF_BBL8100G2L|RF_BB8500G12,RF_308033L|RF_308033;						\
 	V=2-3;												\
 	F=O4;
-# Madrid Atocha 11.1979
       TX=Omnibus 1902 Puigcerda <-> Barcelona (anno 1979);						\
 	C=RF_281A,RF_DGDC2003|RF_DGDC2002,2*RF_BB5000_60;						\
 	F=EP4;
-      C=RF_269103,OESTE_DD,OESTE_BB,2*RF_CC5000G|RF_CC5000V,OESTE_CC1261L|OESTE_CC1261,			\
+      TX=Madrid Chanmartín (05.1980);									\
+	C=RF269G,OESTE_DD,OESTE_BB,2*RF_CC5000G|RF_CC5000V,OESTE_CC1261L|OESTE_CC1261,			\
 	  RF_BB5000G|RF_BB5000E,$DIR(RF_CCDD5000A,RF_CCDD5000C);					\
 	F=EP4;
-# Madrid Chanmartín 05.1980
       C=RF_276030(|L),TALGO3_CATALAN;									\
 	V=10-13;											\
 	AP=[TX=TEE 70 "Catalan Talgo" Barcelona <- Port Bou - Narbonne - Lyon -> Genève (anno 1980)]|	\
@@ -350,74 +399,74 @@ $REQUIRE JMD_DEF.TTT
 	  [TX=TEE 72 "Catalan Talgo" Barcelona <- Port Bou - Narbonne - Lyon -> Genève (anno 1980)]|	\
 	  [TX=TEE 73 "Catalan Talgo" Genève <- Lyon - Narbonne - Port Bou -> Barcelona (anno 1980)];	\
 	F=EP4;
-      C=<RF_432R3EL~RC,RF_432R3M~RC,RF_432R3F~RC;							\
+      TX=Lerida (anno 1980);										\
+	C=<RF_432_00EL,RF_432_01ML,RF_432_00F;								\
 	F=EP4;
-# Lerida anno 1980
-      C=<RF_444EL,RF_444M,RF_444F;									\
+      TX=Madrid Chanmartín (05.1980);									\
+	C=<RF_444EL,RF_444M,RF_444F;									\
 	F=EP4;
-# Madrid Chanmartín 05.1980
-      C=<RF_597M1L,RF_597RC1,RF_597RC1L,RF_597M1;							\
+      TX=Madrid Chanmartín (05.1980);									\
+	C=<RF_597M1L,RF_597RC1,RF_597RC1L,RF_597M1;							\
 	F=DP4;
-# Madrid Chanmartín 05.1980
       C=<1-2@(RF_TER1BL,RF_TER1A)|(RF_TER1AL,RF_TER1B);							\
 	F=DP4;
-      C=2*(<RF_440OEL,RF_440OM,RF_440OF);								\
+      TX=Barcelona (06.07.1981);									\
+	C=2*(<RF_440OEL,RF_440OM,RF_440OF);								\
 	F=EP4;
-# Barcelona 06.07.1981
-      C=RF_276058(|L),RF_TRFS1,3*RF_GS4,RF_TRFS2;							\
+      C=RF_276058(|L),(TF_4_HCFHS2141(|L)|TF_4_HFHS2148(|B|BL|F|FL|L)),3*RF_GS4,RF_TRFS2;		\
 	F=EF4;
-      C=RF_269103,RF_TG1Z(|L),TALGO3_8,TALGO3_7;							\
+      TX=Barcelona Estació de França (anno 1982);							\
+	C=RF269G,RF_TG1Z(|L),TALGO3_8,TALGO3_7;								\
 	F=EP4;
-# Barcelona Estació de França
       TX="Hispano-Expresso" Barcelona <-> Cerbère (anno 1982);						\
-	C=RF_269603[PFU],SNCF_VTU2_A(|L),4*SNCF_VTU2_B(|L);						\
+	C=RF269M[PFU],SNCF_VTU2_A(|L),4*SNCF_VTU2_B(|L);						\
 	F=EP4;
       TX=Vigo <-> Hendaye (10.06.1982);									\
-	C=<RF_432R3EL~RC,RF_432R3M~RC,RF_432R3F~RC;							\
+	C=<RF_432_00EL,RF_432_01ML,RF_432_00F;								\
 	F=EP4;
-      C=$DIR(RF_3_313,RF_3_313L),RF_DV340201,4*CP_FACS,RF_T3(|L),GT29,3*RF_GS(1|2|3|4);			\
+      TX=Pinos Puente (04.1983);									\
+	C=$DIR(RF_3_313,RF_3_313L),RF_DV340201,4*CP_FACS,RF_T3(|L),GT29,3*RF_GS(1|2|3|4);		\
 	F=DF4;
-# Pinos Puente (04.1983)
-      C=<RF_432R3EL~RC,RF_432R3M~RC,RF_432R3F~RC;							\
+      TX=Gijón (05.1983);										\
+	C=<RF_432_00EL,RF_432_01ML,RF_432_00F;								\
 	F=EP4;
-# Gijón 05.1983
-      C=RF_591EST;											\
+      TX=Merida (06.1983);										\
+	C=RF_591EST;											\
 	F=DP4;
-# Merida 06.1983
       TX=IC 71 "Catalan-Talgo" Genève <- Montpellier -> Barcelona-Sants (08.1983);			\
-	C=RF_269103,TALGO3_CATALAN;									\
+	C=RF269G,TALGO3_CATALAN;									\
 	V=9;												\
 	F=EP4;
       TX="Valencia Expreso" Valencia <-> Cerbère (anno 1983);						\
-	C=RF_269103,SNCF_VTU2_A(|L),4*SNCF_VTU2_B(|L),RF_DGDC2002O;					\
+	C=RF269G,SNCF_VTU2_A(|L),4*SNCF_VTU2_B(|L),RF_DGDC2002O;					\
 	F=EP4;
-      C=<RF_440OEL,RF_440OM,RF_440OF;									\
+      TX=Barcelona Estació de França (04.07.1983);							\
+	C=<RF_440OEL,RF_440OM,RF_440OF;									\
 	F=EP4;
-# Barcelona Estació de França (04.07.1983)
       TX=Granada <-> Sevilla S.B. (25.09.1983);								\
 	C=(<RF_597M1L,RF_597RC1)|(<RF_597RC1L,RF_597M1);						\
 	F=DP4;
       TX="Sud Express" Irún <- Medina del Campo -> Lisboa Sta Apolonia (anno 1984);			\
-	C=RF_269103,CP_SOREFAME_D(|L),2*CP_SOREFAME_B(|L),CIWL_LX1100,RF_WR3395|RF_WR4080,		\
+	C=RF269G,CP_SOREFAME_D(|L),2*CP_SOREFAME_B(|L),CIWL_LX1100,RF_WR3395|RF_WR4080,			\
 	  2*CP_SOREFAME_A(|L),RF_AA8002VO;								\
 	F=EP4;
       TX="Puerta del Sol" Paris <- Hendaye - San Sebastian - Vitoria - Miranda de Ebro - Burgos - Aranda de Duero -> Madrid Chamartin (anno 1984); \
-	C=2*RF_333021(|L),RF_DD8001,RF_BB8002VO,RF_AA8002VO,6*SNCF_UIC_B10WAS,4*RF_WL4601(|L),RF_WR3395; \
+	C=2*RF_333021(|L),RF_DD8001,RF_BB8002VO,RF_AA8002VO,6*SNCF_WAS4,4*RF_WL4601(|L),RF_WR3395;	\
 	F=DP4;
       TX=Bilbao <- Irún -> Valencia (12.05.1984);							\
 	C=<RF_597M2L,RF_597RC2,RF_597RC2L,RF_597M2;							\
 	F=DP4;
       TX=Huelva <-> Madrid (05.1984);									\
-	C=RF_269226,TALGOTP_GL;										\
+	C=RF269P,TALGOTP_GL;										\
 	F=EP4;
       TX=Madrid <-> Algeciras (05.1984);								\
 	C=(<RF_597M2L,RF_597RC2)|(<RF_597RC2L,RF_597M2);						\
 	F=DP4;
       C=<1-3@(RF_300_70FL,RF_300_70E);									\
 	F=EP4;
-      C=RF_353CL|RF_353C,2*TALGO3_8;									\
+      TX=La Parilla (06.08.1985);									\
+	C=RF_353CL|RF_353C,2*TALGO3_8;									\
 	F=P4;
-# La Parilla 06.08.1985
       TX=Torredembara <-> Barcelona (08.1984);								\
 	C=<RF_440OEL,2*RF_440OM,RF_440OF;								\
 	F=EP4;
@@ -425,69 +474,81 @@ $REQUIRE JMD_DEF.TTT
 	  RF_EALOS3D,RF_GS(2|4);									\
 	F=EF4;
       TX=Barcelona <-> Hendaye/Bilbao (anno 1985);							\
-	C=2*(<RF_432R3EL~RC,RF_432R3M~RC,RF_432R3F~RC);							\
+	C=2*(<RF_432_00EL,RF_432_01ML,RF_432_00F);							\
 	F=EP4;
       TX="Pullman Cerdanya" Barcelona <-> Puigcerda (anno 1985);					\
-	C=RF_269321|RF_269226|RF_269103,2-3*RF_B11T9200(|L);						\
+	C=RF269E|RF269P|RF269G,2-3*RF_BB9201(|L)|RF_BB9241(|L);						\
 	F=EP4;
-      C=<RF_432R3EL~RC,RF_432R3M~RC,RF_432R3F~RC;							\
+      TX=Barcelona Término (anno 1985);									\
+	C=<RF_432_00EL,RF_432_01ML,RF_432_00F;								\
 	F=EP4;
-# Barcelona Término anno 1985
       TX=IC 73 "Catalan-Talgo" Barcelona-Sants  <- Montpellier - Lyon -> Genève (08.1985);		\
-	C=RF_269226,TALGO3_CATALAN;									\
+	C=RF269P,TALGO3_CATALAN;									\
 	F=EP4;
-      C=<RF_432R3EL~RC,RF_432R3M~RC,RF_432R3F~RC;							\
+      TX=Barcelona Término (02.1986);									\
+	C=<RF_432_00EL,RF_432_01ML,RF_432_00F;								\
 	F=EP4;
-# Barcelona Término 02.1986
-      M=UNIT; D=L;											\
+      TX=Valencia (08.1986);										\
+	M=UNIT; D=L;											\
 	C1=RF_591EST;											\
 	D1=R;												\
 	C2=RF_591EST;											\
 	P=*50;												\
 	F=DPO4;
-# Valencia (08.1986)
       TX=IC 71 "Catalan-Talgo" Genève <- Montpellier -> Barcelona-Sants (anno 1987);			\
-	C=RF_269603,TALGO3_CATALAN;									\
+	C=RF_269600(A|B|C|D)(|L),TALGO3_CATALAN;							\
 	F=EP4;
       TX=Estrella "Media Luna" Irún <-> Algeciras (08.1987);						\
 	C=$DIR(RF_333084,RF_333084L),2*RF_8000B12R_EST2(|L),RF_8000A10R_EST(|L),RF_DD8100G3(|L);	\
 	F=DP4;
       TX=Estrella "Media Luna" Irún <-> Algeciras (12.1987);						\
-	C=RF_269603,2*RF_8000B12R_EST2(|L),$DIR(RF_DDET8000G3,RF_DDET8000G3L);				\
+	C=RF_269600(A|B|C|D)(|L),2*RF_8000B12R_EST2(|L),$DIR(RF_DDET8000G3,RF_DDET8000G3L);		\
 	F=EP4;
       TX=Talgo 463 "Mare Nostrum" Port Bou <-> Murcia (06.1988);					\
-	C=RF_250014|RF_250O(1|2|3|4|5)(|L)|RF_250O(1|2|3|4|5)(|L),RF_TG1Z(|L),2*TALGO3_8;		\
+	C=RF250M,RF_TG1Z(|L),2*TALGO3_8;								\
 	F=EP4;
-      C=<RF_597M2L,RF_597RC2,RF_597RC2L,RF_597M2;							\
+      TX=Canfranc (17.07.1988);										\
+	C=<RF_597M2L,RF_597RC2,RF_597RC2L,RF_597M2;							\
 	F=DP4;
-# Canfranc 17.07.1988
-      C=$DIR(RF_333084,RF_333084L),RF_B11T9200(|L),RF_BB10200O(|L),RF_AA10000(|L);			\
+      TX=Canfranc (17.07.1988);										\
+	C=$DIR(RF_333084,RF_333084L),RF_BB9201(|L)|RF_BB9241(|L),RF_BB10200O(|L),RF_AA10000(|L);	\
 	F=DP4;
-# Canfranc 17.07.1988
-      C=<RF_440OEL,RF_440OM,RF_440OF;									\
+      TX=San Sebastian (28.07.1988);									\
+	C=<RF_440OEL,RF_440OM,RF_440OF;									\
 	F=EP4;
-# San Sebastian (28.07.1988)
-      C=2*(<RF_440OEL,RF_440OM,RF_440OF);								\
+      TX=Gros-Asdeap (05.09.1988);									\
+	C=2*(<RF_440OEL,RF_440OM,RF_440OF);								\
 	F=EP4;
-# Gros-Asdeap 05.09.1988
-      C=<RF_440OEL,RF_440OM,RF_440OF;									\
+      TX=Madrid-Atocha (24.09.1988);									\
+	C=<RF_440OEL,RF_440OM,RF_440OF;									\
 	F=EP4;
-# Madrid-Atocha (24.09.1988)
       TX=Logroño <-> Pamplona (10.1988);								\
-	C=<RF_432R3EL~RC,RF_432R3M~RC,RF_432R3F~RC;							\
+	C=<RF_432_00EL,RF_432_01ML,RF_432_00F;								\
 	F=EP4;
       TX=Madrid Chanmartín <-> Pamplona (11.1988);							\
 	C=(<RF_597M1L,RF_597RC1)|(<RF_597RC1L,RF_597M1);						\
 	F=DP4;
-      C=<RF_444EL,RF_444M,RF_444F;									\
+      TX=Madrid Fuencarral (11.1988);									\
+	C=<RF_444EL,RF_444M,RF_444F;									\
 	F=EP4;
-# Madrid Fuencarral (11.1988)
-      C=2*(<RF_432R3EL~RC,RF_432R3M~RC,RF_432R3F~RC);							\
+      TX=Medina del Campo (04.1989);									\
+	C=2*(<RF_432_00EL,RF_432_01ML,RF_432_00F);							\
 	F=EP4;
-# Medina del Campo (04.1989)
       TX="Media Luna" Algeciras <-> Hendaye (25.05.1989);						\
-	C=RF_269103,RF_HABISS1A,SNCF_5UIC_B10WAS(|L),RF_8000B12R_EST1(|L),RF_BB8000G3(|L),		\
-	  RF_8000B12R_EST1(|L);										\
+	C=RF269G,RF_HABISS1A,SNCF_WAS4,RF_8000B12R_EST1(|L),RF_BB8000G3(|L),RF_8000B12R_EST1(|L);	\
+	F=E4;
+      TX=Castelldefels (04.06.1989);									\
+	C=<RF_440OEL,RF_440OM,RF_440OF;									\
+	F=EPU4;
+      TX=Castelldefels (04.06.1989);									\
+	C=<RF_444EL~JBU,RF_444M~JBU,RF_444F~JBU;							\
+	F=EPU4;
+      TX=Castelldefels (04.06.1989);									\
+	C=2*(<RF_440OEL[P2U],RF_440OM,RF_440OF);							\
+	F=EPU4;
+      TX=Castelldefels (04.06.1989);									\
+	C=RF_7601_12,$DIR(RF_303AL[B:51,42,47,9],RF_303A[B:43,42,55,10]);				\
+	V=3;												\
 	F=E4;
       TX=Figueres <-> Barcelona-Sants (anno 1989);							\
 	C=<RF_444EL,RF_444M,RF_444F;									\
@@ -496,7 +557,7 @@ $REQUIRE JMD_DEF.TTT
 	C=(<RF_444EL,RF_444M,RF_444F),(<RF_444GLEL,RF_444GLM,RF_444GLF);				\
 	F=EP4;
       TX="Media Luna" Algeciras <-> Hendaye (10.1989);							\
-	C=RF_269226,3*RF_8000BC10R_EST1(|L),$DIR(RF_R803,RF_R803L),2*RF_8000A10R_EST(|L);		\
+	C=RF269P,3*RF_8000BC10R_EST1(|L),$DIR(RF_R803,RF_R803L),2*RF_8000A10R_EST(|L);			\
 	F=EP4;
     }
 #------------------------------------------------------------------------------
@@ -508,38 +569,110 @@ $REQUIRE JMD_DEF.TTT
 	C=<RF_444EL,RF_444M,RF_444F;									\
 	F=EP5;
       TX=Madrid <-> Jaén (08.1990);									\
-	C=<RF_432R3EL~RC,RF_432R3M~RC,RF_432R3F~RC;							\
+	C=<RF_432_00EL,RF_432_01ML,RF_432_00F;								\
 	F=EP5;
-      C=<RF_432R3EL~RC,RF_432R3M~RC,RF_432R3F~RC;							\
+      TX=Madrid Fuencarral (06.10.1990);								\
+	C=<RF_432_00EL,RF_432_01ML,RF_432_00F;								\
 	F=EP5;
-# Madrid Fuencarral 06.10.1990
       TX=Interurbano 7383 Grenada <-> Almeria (anno 1991);						\
 	C=RF_593_2;											\
 	F=DP5;
-      C=<RF_432GLEL,RF_432GLM,RF_432GLF;								\
+      TX=Castelldefels (05.03.1991);									\
+	C=<RF_440OEL,RF_440OM,RF_440OF;									\
+	F=EPU5;
+      TX=Castelldefels (05.03.1991);									\
+	C=<RF_440C1EL,RF_440C1M,RF_440C1F;								\
+	F=EPU5;
+      TX=Castelldefels (05.03.1991);									\
+	C=2*RF_311L|RF_311;										\
+	F=D5;
+      TX=Castelldefels (05.03.1991);									\
+	C=RF_7601_12,14*RF_RGS1[OB:ROFF_30B(|L|P|PL),<6,12][OB:ROFF_30B(|L|P|PL),>192,12];		\
+	F=EF5;
+      TX=Castelldefels (05.03.1991);									\
+	C=RF_269259(|L)|RF_269298(|L)|RF_269306(|L),$DIR(RF_T3EGL,RF_T3EG),				\
+	  (<RF_T3EBZL,3*RF_T3EB1L,3*RF_T3EB2L,3*RF_T3EB3L,RF_T3ECL,2*RF_T3EA1,2*RF_T3EA2,RF_T3ED);	\
 	F=EP5;
-# Madrid Fuencarral anno 1991
+      TX=Castelldefels (05.03.1991);									\
+	C=<RF_440OEL,RF_440OM,RF_440OF;									\
+	F=EPU5;
+      TX=Castelldefels (05.03.1991);									\
+	C=<RF_440C1EL,RF_440C1M,RF_440C1F;								\
+	F=EPU5;
+      TX=Castelldefels (05.03.1991);									\
+	C=<RF_450RC1L,4*RF_450R1(|L),RF_269200C1(|L)|RF_269200C2(|L);					\
+	F=EP5;
+      TX=Castelldefels (05.03.1991);									\
+	C=(<RF_600B2EL,RF_600B2M,RF_600B2F)|(<RF_600B2FL,RF_600B2M,RF_600B2E);				\
+	F=EPU5;
+      TX=Castelldefels (05.03.1991);									\
+	C=RF_269222(|L),$DIR(RF_T3EGL,RF_T3EG),								\
+	  (<RF_T3EBZL,3*RF_T3EB1L,3*RF_T3EB2L,3*RF_T3EB3L,RF_T3ECL,2*RF_T3EA1,2*RF_T3EA2,RF_T3ED);	\
+	F=EP5;
+      TX=Castelldefels (05.03.1991);									\
+	C=<RF_450RC1L,4*RF_450R1(|L),RF_269200C1(|L)|RF_269200C2(|L);					\
+	F=EP5;
+      TX=Castelldefels (05.03.1991);									\
+	C=<RF_440C1EL,RF_440C1M,RF_440C1F;								\
+	F=EPU5;
+      TX=Castelldefels (05.03.1991);									\
+	C=<RF_444GLEL~JBU,RF_444GLM~JBU,RF_444GLF~JBU;							\
+	F=EPU5;
+      TX=Castelldefels (05.03.1991);									\
+	C=<RF_444EL~JBU,RF_444M~JBU,RF_444F~JBU;							\
+	F=EPU5;
+      TX=Castelldefels (05.03.1991);									\
+	C=RF_276014(|L),12*EVS_UACS3L|EVS_UACS3|EVS_GPS;						\
+	F=EF5;
+# ^ should be RENFE Uacs
+      TX=Castelldefels (05.03.1991);									\
+	C=RF269Y;											\
+	F=E5;
+      TX=Castelldefels (05.03.1991);									\
+	C=<RF_440C1EL,RF_440C1M,RF_440C1F;								\
+	F=EPU5;
+      TX=Castelldefels (05.03.1991);									\
+	C=<RF_269200C1(|L)|RF_269200C2(|L),4*RF_450R1(|L),RF_450RC1;					\
+	F=EP5;
+      TX=Castelldefels (05.03.1991);									\
+	C=RF_319016(|L);										\
+	F=D5;
+      TX=Castelldefels (05.03.1991);									\
+	C=<RF_444GLEL~JBU,RF_444GLM~JBU,RF_444GLF~JBU;							\
+	F=EPU5;
+      TX=Madrid Fuencarral (anno 1991);									\
+	C=<RF_432GLEL,RF_432GLM,RF_432GLF;								\
+	F=EP5;
       TX=Leon <-> Vigo (anno 1991);									\
 	C=<RF_448GLEL,RF_448GLM,RF_448GLF;								\
 	F=EP5;
       TX=Madrid <-> Avila (anno 1992);									\
 	C=2*(<RF_WM904BL,RF_WR904B);									\
 	F=EP5;
-      C=<RF_597MCGL,RF_597RCCG,RF_597043RCL,RF_597043M;							\
+      TX=Pamplona (12.07.1992);										\
+	C=<RF_597MCGL,RF_597RCCG,RF_597043RCL,RF_597043M;						\
 	F=DP5;
-# Pamplona 12.07.1992
-      C=RF_269103,2*RF_AA10002(|L),$DIR(RF_RRR9908L,RF_RRR9908),3*RF_8000B12R_EST2(|L);			\
+      TX=Pamplona (12.07.1992);										\
+	C=RF269G,2*RF_AA10002(|L),$DIR(RF_RRR9908L,RF_RRR9908),3*RF_8000B12R_EST2(|L);			\
 	F=EP5;
-# Pamplona 12.07.1992
-      C=<RF_446CFL,RF_446CM,RF_446CF;									\
+      TX=Fuengirola (03.1993);										\
+	C=<RF_446CFL,RF_446CM,RF_446CF;									\
 	F=EP5;
-# Fuengirola 03.1993
       TX=Talgo 463 "Mare Nostrum" Port Bou <-> Cartagena (06.1993);					\
-	C=RF_269226,TALGOTP_GL11;									\
+	C=RF269P,TALGOTP_GL11;										\
 	F=EP5;
       TX=Granada <-> Sevilla (anno 1993);								\
 	C=<RF_593_2;											\
 	F=DP5;
+      TX=Barcelona Estacio de França (06.1993);								\
+	C=RF269Y,2*TALGOTP_GL11;									\
+	F=EP5;
+      TX=Barcelona Estacio de França (06.1993);								\
+	C=RF_276201(|L)|RF_276202(|L),									\
+	  2*$DIR(RF_AA9000|RF_AA9000A|RF_AA9009,RF_AA9000L|RF_AA9000AL|RF_AA9009L),			\
+	  RF_LR_A9T01(|L)|RF_LR_A9T02(|L)|RF_LR_A9T03(|L)|RF_LR_A9T04(|L),				\
+	  3*RF_BB9201(|L)|RF_BB9201A(|L)|RF_BB9207(|L),RF_B11T9214L~JCA|RF_B11T9214~JCA;		\
+	F=EP5;
       TX=Talgo 463 "Mare Nostrum" Port Bou <-> Cartagena (08.1993);					\
 	C=RF_354,TALGOTP_GL11;										\
 	V=10-18;											\
@@ -548,11 +681,10 @@ $REQUIRE JMD_DEF.TTT
 	C=2*RF_593_2;											\
 	F=DP5;
       TX=Talgo 460 "Mare Nostrum" Cartagena <-> Cerbère (08.1994);					\
-	C=RF_250014|RF_250O(1|2|3|4|5)(|L),(<RF_TPG1L,3*RF_TPL1,RF_TPR,3*RF_TPL0,RF_TPG0);		\
+	C=RF250M,(<RF_TPG1L,3*RF_TPL1,RF_TPR,3*RF_TPL0,RF_TPG0);					\
 	F=EP5;
-      C=(RF_250001|RF_250026|RF_250601|RF_250602|RF_250014|RF_250O(1|2|3|4|5)(|L))|RF_340~BL2|		\
-	  RF_269321|RF_269226|RF_269210|RF_269715|RF_269503,1-2*RF_DDMLOADED,6-8*RF_9600(|L),		\
-	  RF_9900(|L),3*RF_9600(|L);									\
+      C=RF250M|RF250E|RF_340~BL2|RF269E|RF269P|RF269Y,1-2*RF_DDMLOADED,6-8*RF_BBL9600O(|L),		\
+	  RF_RRR9900(|L),3*RF_BBL9600O(|L);								\
 	F=5;
       TX=Vitoria <-> Irún (anno 1996);									\
 	C=3*(<RF_WM904BL,RF_WR904B);									\
@@ -560,11 +692,11 @@ $REQUIRE JMD_DEF.TTT
       TX=Talgo 201 Madrid Chanmartín <-> Irún/Hendaye (17.08.1996);					\
 	C=$DIR((RF_352003L|RF_352004BL),(RF_352003|RF_352004B)),TALGO3_7;				\
 	F=P5;
-      M=BACK|4:SIMPLE;											\
+      TX=Valladolid (08.1997);										\
+	M=BACK|4:SIMPLE;										\
 	C=RF_310L|RE_310;										\
 	V=2-4;												\
 	F=O5;
-# Valladolid (08.1997)
       TX=Málaga <-> Madrid (31.10.1997);								\
 	C=RF_269411,TALGO200_11;									\
 	F=EP5;
@@ -572,101 +704,117 @@ $REQUIRE JMD_DEF.TTT
 	C=2*(<RF_593_2);										\
 	F=DP5;
       TX=Salamanca <-> Barcelona (18.04.1998);								\
-	C=RF_333032(|L),2*RF9000,RF_9003,RF9000;							\
+	C=RF_333032(|L),2*RF_LR_B11T0101(|L)|RF_LR_B11T0102(|L)|RF_LR_B11T0201(|L)|RF_LR_B11T0202(|L),	\
+	  RF_GL_T203,RF_LR_B11T0101(|L)|RF_LR_B11T0102(|L)|RF_LR_B11T0201(|L)|RF_LR_B11T0202(|L);	\
 	F=DP5;
       TX=Centenario del la linea Calencia <-> Segorbe (05.1998);					\
 	C=RF_282_0401,RF_DDGG5000C(1|2),RF_AA5000(A|B|C|D|E),RF_BB5000(A|B|C),RF_AA5000(A|B|C|D|E);	\
 	F=SP5;
-      M=CHANGE;												\
+      TX=Madrid-Chanmartín (08.1998);									\
+	M=CHANGE;											\
 	C=RF_TG1Z(|L),2*TALGO3_7;									\
 	C1=RF_311(|L);											\
 	V1=2-4;												\
 	C2=RF_3193(01|30)(|L);										\
 	F=DPO5;
-# Madrid-Chanmartín 08.1998
-      C=RF_269210,RF_LFGSS[O:C2R16,>75,12][O:C2R14,<76,12],RF_LFGSS[O:C4R09],RF_LFGSS[O:C4R_HATSU],	\
+      TX=Vilanova (08.1998);										\
+	C=RF269Y,RF_LFGSS[O:C2R16,>75,12][O:C2R14,<76,12],RF_LFGSS[O:C4R09],RF_LFGSS[O:C4R_HATSU],	\
 	  RF_LFGSS[O:C4R_CAPITAL1],M_454SGS4[O:C2R_XTRAO1],RF_LFGSS[O:C4R_ECS],RF_LFGSS[O:C4R_HATSU],	\
 	  RF_LFGSS[O:C4R_ECS],RF_LFGSS[O:C4R_PO4],RF_LFGSS[O:C4R10],RF_LFGSS[O:C4R_ECS];		\
 	F=EF5;
-# Vilanova 08.1998
-      C=2*(<RF_432NEL~RC,RF_432NM~RC,RF_432NF~RC);							\
+      TX=Vilanova (08.1998);										\
+	C=2*(<RF_432NEL~RC,RF_432NM~RC,RF_432NF~RC);							\
 	F=EP5;
-# Vilanova 08.1998
-      C=<RF_446CFL,RF_446CM,RF_446CF;									\
+      TX=Vilanova (08.1998);										\
+	C=<RF_446CFL,RF_446CM,RF_446CF;									\
 	F=EP5;
-# Vilanova 08.1998
-      C=$DIR(RF_352FL,RF_352F),TALGO3_8;								\
+      TX=Madrid Chanmartín (08.1998);									\
+	C=$DIR(RF_352FL,RF_352F),TALGO3_8;								\
 	F=P5;
-# Madrid Chanmartín 08.1998
       TX=Salamanca <-> Guijuelo (23.09.1998);								\
 	C=RF_319205(|L),										\
 	  10*RF_T3L[O:FR_SZ06|FR_SZ04|FR_SZ01|FR_SZ05,*42,22]						\
 	  [O:FR_SZ06|FR_SZ04|FR_SZ01|FR_SZ05,*118,22];							\
 	F=DF5;
-      C=<RF_440C1EL,RF_440C1M,RF_440C1F;								\
-	F=EP5;
-# Alcocebre-Castellón 05.1999
-      C=RF_596_1;											\
+      TX=Bilbao <-> Salamanca (28.04.1999);								\
+	C=RF_333032(|L),$DIR(RF_LR_A8LV0(1|2),RF_LR_A8LV0(1|2)L),$DIR(RF_BB10218,RF_BB10218L),		\
+	  $DIR(RF_LR_BR4X01L,RF_LR_BR4X01),2*RF_LR_B11X0(1|2|3)(|L);					\
 	F=DP5;
-# Soria 08.1999
+      TX=Alcocebre-Castellón (05.1999);									\
+	C=<RF_440C1EL,RF_440C1M,RF_440C1F;								\
+	F=EP5;
+      TX=Estrella 344 "Media Luna" Irún <-> Algesiras (08.1999);					\
+	C=RF_333105(|L),RF_LR_BC10X01(|L),RF_BC11000A(|L);						\
+	F=DP6;
+      TX=Soria (08.1999);										\
+	C=RF_596_1;											\
+	F=DP5;
       TX=Zaragoza <-> Barcelona (13.09.1999);								\
 	C=<RF_444REGEL,RF_444REGM,RF_444REGF;								\
 	F=EP5;
-      C=ARCO_S252~HW,2*RF_ARCO2(|L),RF_ARCO1;								\
+      TX=Vila-Real (12.1999);										\
+	C=ARCO_S252~HW,2*RF_2200(D|E|F)(|L),RF_2000(B|C|D|E)(|L);					\
 	F=EP5;
-# Vila-Real (12.1999)
-      C=RF490;												\
+      TX=Castellón (12.1999);										\
+	C=RF490;											\
 	F=EP5;
-# Castellón 12.1999
     }
 #------------------------------------------------------------------------------
     {E6?
-      C=RF_596_1;											\
+      TX=Salamanca (20.07.2000);									\
+	C=RF_596_1;											\
 	F=DP6;
-# Salamanca 20.07.2000
-      C=RF_440A;											\
+      TX=Castellón (07.2000);										\
+	C=<RF_440C1EL,RF_440C1M,RF_440C1F;								\
 	F=LP6;
-# Castellón 07.2000
       TX=Valencia <-> Madrid Atocha (06.08.2000);							\
 	C=RF490;											\
 	F=EP6;
-      C=RF_593_2;											\
+      TX=Soria (08.2000);										\
+	C=RF_593_2;											\
 	F=DP6;
-# Soria 08.2000
-      C=<RF_444REGEL,RF_444REGM,RF_444REGF;								\
+      TX=Catalunya-Expres in Sitges (13.08.2000);							\
+	C=<RF_444REGEL,RF_444REGM,RF_444REGF;								\
 	F=EP6;
-# Catalunya-Expres in Sitges 13.08.2000
-      C=<RF_432NEL~RC,RF_432NM~RC,RF_432NF~RC;								\
+      TX=Estrella 347 "Media Luna" Algesiras <-> Hendaye (08.2000);					\
+	C=RF_333105(|L),RF_GL_B10T010(1|2)(|L),RF_GL_BC10X90(1|2|3)(|L),RF_BC11000A(|L);		\
+	F=DP6;
+      TX=Arcos de Jalon (08.2000);									\
+	C=<RF_432NEL~RC,RF_432NM~RC,RF_432NF~RC;							\
 	F=EP6;
-# Arcos de Jalon (08.2000)
-      C=<RF_592_3BFL,RF_592_3BF;									\
+      TX=Valencia (10.2000);										\
+	C=<RF_592_3BFL,RF_592_3BF;									\
 	F=DP6;
-# Valencia (10.2000)
-      C=RF_333032(|L),TALGO200_9;									\
+      TX=Lorca-San Diego (27.12.2000);									\
+	C=RF_333032(|L),TALGO200_9;									\
 	F=DP6;
-# Lorca-San Diego (27.12.2000)
-      C=<RF_BT4L,RF_BT4BL,RF_BT4AL,RF_BT4WRL,RF_BT4A,RF_BT4S1,RF_BT4;					\
+      TX=Santa María de Alameda (29.12.2000);								\
+	C=<RF_BT4L,RF_BT4BL,RF_BT4AL,RF_BT4WRL,RF_BT4A,RF_BT4S1,RF_BT4;					\
 	F=P6;
-# Santa María de Alameda (29.12.2000)
-      C=RF_269210,20*RF_LFGSS[O:CM_FORD];								\
+      TX=Las Palmas (23.01.2001);									\
+	C=RF269Y,20*RF_LFGSS[O:CM_FORD];								\
 	F=EF6;
-# Las Palmas 23.01.2001
       TX=Málaga <-> Madrid (21.02.2001);								\
 	C=2*RF_269411,TALGO200_11;									\
 	F=EP6;
-      C=RF_269210,RF_SHIMMS4768A(|L),8*RF_SHIMMS4768B(|L),RF_SHIMMS4768A(|L),3*RF_SHIMMS4768B(|L);	\
+      TX=Madrid <-> Algeciras (22.02.2001);								\
+	C=RF_333032(|L),										\
+	  (<TAL_P2_L~NEK,7*TAL_P2_B~NEK,TAL_P2_S~NEK,3*TAL_P2_T~NEK,4*TAL_P2_B~NEK,TAL_P2_S~NEK,	\
+	  2*TAL_P2_B~NEK,TAL_P2_R~NEK);									\
+	F=DP6;
+      TX=Las Palmas (02.2001);										\
+	C=RF269Y,RF_SHIMMS4768A(|L),8*RF_SHIMMS4768B(|L),RF_SHIMMS4768A(|L),3*RF_SHIMMS4768B(|L);	\
 	F=EF6;
-# Las Palmas 02.2001
       TX=Granada <-> Madrid (21.02.2001);								\
 	C=RF_3193(01|30)(|L),RF_TG1Z(|L),TALGO3_7;							\
 	V=8-10;												\
 	F=DP6;
-      C=$DIR(RF_352003L,RF_352003),TALGO3_7;								\
+      TX=Alegia (14.03.2001);										\
+	C=$DIR(RF_352003L,RF_352003),TALGO3_7;								\
 	F=P6;
-# Alegia 14.03.2001
-      C=RF_269210,3*RF_SHIMMS4774A,2*RF_SHIMMS4768B(|L),RF_SHIMMS4774A,4*RF_SHIMMS4768B(|L);		\
+      TX=Ikastegieta (03.2001);										\
+	C=RF269Y,3*RF_SHIMMS4774A,2*RF_SHIMMS4768B(|L),RF_SHIMMS4774A,4*RF_SHIMMS4768B(|L);		\
 	F=EF6;
-# Ikastegieta 03.2001
       TX=Almiera <-> Madrid (anno 2001);								\
 	C=$DIR(RF_352FL,RF_352F),TALGO3_7;								\
 	V=8-12;												\
@@ -681,27 +829,29 @@ $REQUIRE JMD_DEF.TTT
       TX=Irún <-> Madrid Chanmartín (09.05.2001);							\
 	C=$DIR(RF_352FL,RF_352F),2*TALGO3_8;								\
 	F=P6;
-      C=RF_593_2;											\
+      TX=Estrella 344 "Media Luna" Irún <-> Algesiras (06.2001);					\
+	C=RF_333105(|L),RF_LR_BC10X01(|L),RF_GL_BC10X90(1|2|3)(|L);					\
 	F=DP6;
-# Soria 30.06.2001
+      TX=Soria (30.06.2001);										\
+	C=RF_593_2;											\
+	F=DP6;
       TX="Talgo 200" Madrid Atocha <-> Córdoba Central (07.2001);					\
 	C=AVE_S252~HW,TALGO200_11;									\
 	F=EP6;
-      C=RF_252018,3*RF_ARCO1,3*RF_ARCO2(|L);								\
+      TX=Las Palmas (Castellón)(07.2001);								\
+	C=RF_252018,3*RF_2000(B|C|D|E)(|L),3*RF_2200(D|E|F)(|L);					\
 	F=EP6;
-# Las Palmas (Castellón) 07.2001
-      C=<RF_446CFL,RF_446CM,RF_446CF;									\
+      TX=Madrid Atocha (07.2001);									\
+	C=<RF_446CFL,RF_446CM,RF_446CF;									\
 	F=EP6;
-# Madrid Atocha 07.2001
-      M=BACK|4:SIMPLE;											\
-	C=RF_311(|L),RF_269210[PD],RF_269503[PD],RF_250026[PD],RF_250601[PD],RF_279003[PD],		\
-	  RF_269503[PD],RF_269715[PD];									\
+      TX=Tarragona (05.08.2001);									\
+	M=BACK|4:SIMPLE;										\
+	C=RF_311(|L),2*RF269Y[PD],2*RF250Y[PD],RF279Y[PD],2*RF269Y[PD];					\
 	V=2-4;												\
 	F=O6;
-# Tarragona 05.08.2001
-      C=<RF_444REGEL,RF_444REGM,RF_444REGF;								\
+      TX=Catalunya-Expres in Reus (05.08.2001);								\
+	C=<RF_444REGEL,RF_444REGM,RF_444REGF;								\
 	F=EP6;
-# Catalunya-Expres in Reus 05.08.2001
       TX=Tren 3923 Granada <-> Sevilla (13.09.2001);							\
 	C=RF_594;											\
 	F=DP6;
@@ -711,78 +861,80 @@ $REQUIRE JMD_DEF.TTT
       TX=Fuengirola <-> Málaga (03.22.2001);								\
 	C=<RF_446CFL,RF_446CM,RF_446CF;									\
 	F=EP6;
-      C=RF_269210[PFU],RF_269210,20*RF_SHIMMS4768B(|L)|3:RF_SHIMMS4774A;				\
+      TX=Vila-real (12.2001);										\
+	C=RF269Y[PFU],RF269Y,20*RF_SHIMMS4768B(|L)|3:RF_SHIMMS4774A;					\
 	F=EF6;
-# Vila-real 12.2001
-      M=SIMPLE|STOP;											\
-	C=RF432;											\
+      TX=Figueres (12.2001);										\
+	M=SIMPLE|STOP;											\
+	C=<RF_432NEL~JBU,RF_432NM~JBU,RF_432NF~JBU;							\
 	F=O6;
-# Figueres (12.2001)
-      C=RF_269210,9*RF_SHIMMS4774A;									\
+      TX=Andoaïn (07.02.2002);										\
+	C=RF269Y,9*RF_SHIMMS4774A;									\
 	F=EF6;
-# Andoaïn 07.02.2002
       TX=Irún <-> Madrid Chanmartín (12.02.2002);							\
-	C=RF_269715,RF_TGZ1GL(|L),TALGO3_8GL;								\
+	C=RF269Y,RF_TGZ1GL(|L),TALGO3_8GL;								\
 	F=EP6;
-      C=ARCO_S252~HW[PFU],2*RF_DDMLOADED,RF_ARCO2L,4*RF_ARCO2,RF_ARCO2L,RF_ARCOW~CDP,4*RF_ARCO1;	\
+      TX=Arco "García Lorca" in Castellón (01.04.2002);							\
+	C=ARCO_S252~HW[PFU],2*RF_DDMLOADED,RF_2200(D|E|F)L,4*RF_2200(D|E|F),RF_2200(D|E|F)L,RF_2800B,	\
+	  4*RF_2000(B|C|D|E)(|L);									\
 	F=E6;
-# "García Lorca" in Castellón 01.04.2002
-      C=<RF_446CFL,RF_446CM,RF_446CF;									\
+      TX=Las Rozas (26.04.2002);									\
+	C=<RF_446CFL,RF_446CM,RF_446CF;									\
 	F=EP6;
-# Las Rozas 26.04.2002
-      C=RF_269210,RF_SHIMMS4768B(|L),2*RF_SHIMMS4774A,RF_SHIMMS4768B(|L),2*RF_SHIMMS4774A,		\
+      TX=Burgos (26.04.2002);										\
+	C=RF269Y,RF_SHIMMS4768B(|L),2*RF_SHIMMS4774A,RF_SHIMMS4768B(|L),2*RF_SHIMMS4774A,		\
 	  2*RF_SHIMMS4768B(|L),2*RF_SHIMMS4774A,RF_SHIMMS4768B(|L),RF_SHIMMS4774A,2*RF_SHIMMS4768B(|L);	\
 	F=EF6;
-# Burgos 26.04.2002
-      M=BACK|4:SIMPLE;											\
-	C=RF_311(|L);											\
-	V=2-4;												\
-	F=O6;
-# Madrid-Chanmartín 08.2002
-      C=RF_252018,RF_TG1Z(|L),TALGO3_8,2*TALGO3_7;							\
+      TX=Villanueva de Allego (07.2002);								\
+	C=RF_252018,RF_TG1Z(|L),TALGO3_8,2*TALGO3_7;							\
 	F=EP6;
-# Villanueva de Allego (07.2002)
       TX=Vigo <-> La Coruña (anno 2002);								\
 	C=2*(<RF_592_4);										\
 	F=DP6;
       TX=Madrid Chanmartín <-> Salamanca (08.2002);							\
 	C=RF_594;											\
 	F=DP6;
-      C=<RF_446CFL,RF_446CM,RF_446CF;									\
+      TX=Madrid-Chanmartín (08.2002);									\
+	M=BACK|4:SIMPLE;										\
+	C=RF_311(|L);											\
+	V=2-4;												\
+	F=O6;
+      TX=Móstoles-El Soto (08.2002);									\
+	C=<RF_446CFL,RF_446CM,RF_446CF;									\
 	F=EP6;
-# Móstoles-El Soto (08.2002)
       TX=Salamanca <-> Barcelona (09.2002);								\
 	C=RF_333032(|L),RF_TG1Z(|L),TALGO3_8;								\
 	F=DP6;
-      C=<RF_432NEL~RC,RF_432NM~RC,RF_432NF~RC;								\
+      TX=Valladolid (11.10.2002);									\
+	C=<RF_432NEL~RC,RF_432NM~RC,RF_432NF~RC;							\
 	F=EP6;
-# Valladolid 11.10.2002
-      M=BACK|4:SIMPLE;											\
+      TX=Valladolid (11.10.2002);									\
+	M=BACK|4:SIMPLE;										\
 	C=RF_310L|RE_310,12*AUTORACKE;									\
 	V=2-4;												\
 	F=O6;
-# Should be Pecovasa Autoracks
-# Valladolid 11.10.2002
+# ^^Should be Pecovasa Autoracks
       C=RF252~HW,											\
 	  (<TAL_P2_L~NEK,7*TAL_P2_B~NEK,TAL_P2_S~NEK,3*TAL_P2_T~NEK,4*TAL_P2_B~NEK,TAL_P2_S~NEK,	\
 	  2*TAL_P2_B~NEK,TAL_P2_R~NEK);									\
 	F=EP6;
-      C=<RF_440C1EL,RF_440C1M,RF_440C1F;								\
+      TX=Valladolid (14.10.2002);									\
+	C=<RF_440C1EL,RF_440C1M,RF_440C1F;								\
 	F=EP6;
-# Valladolid 14.10.2002
-      C=RF_353DL|RF_353D,2*TALGO3_7;									\
+      TX=Andoaïn (15.10.2002);										\
+	C=RF_353DL|RF_353D,2*TALGO3_7;									\
 	F=P6;
-# Andoaïn 15.10.2002
-      C=RF_319205(|L),RF_UAS(2|3),SNCF_CERG(|L),2*RF_UAS1(|E),RF_UAS(2|3);				\
+      TX=Zaragoza-La Almozara (25.10.2002);								\
+	C=RF_319205(|L),RF_UAS(2|3),SNCF_CERG(|L),2*RF_UAS1(|E),RF_UAS(2|3);				\
 	F=DF6;
-# Zaragoza-La Almozara (25.10.2002)
-      C=ARCO_S252~HW[PFU],2*RF_DDMLOADED,RF_ARCO2L,3*RF_ARCO2,RF_B11T9214L~JMD|RF_B11T9214~JMD,		\
-	  RF_ARCO2L,2*RF_ARCO1,RF_ARCOW~CDP,2*RF_ARCO1;							\
+      TX=Arco "García Lorca" in Castellón (12.02.2003);							\
+	C=ARCO_S252~HW[PFU],2*RF_DDMLOADED,RF_2200(D|E|F)L,3*RF_2200(D|E|F),				\
+	  RF_B11T9214L~JCA|RF_B11T9214~JCA,RF_2200(D|E|F)L,2*RF_2000(B|C|D|E)(|L),RF_2800B(|L),		\
+	  2*RF_2000(B|C|D|E)(|L);									\
 	F=E6;
-# "García Lorca" in Castellón 12.02.2003
-      C=RF_269210,RF_269210[PD],RF_319205(|L),3*RF_WL26X_GL1(|L);					\
+      TX=Miraflores (27.03.2003);									\
+	C=RF269Y,RF269Y[PD],RF_319205(|L),3*RF_WL26X_GL1(|L);						\
 	F=P6;
-# Miraflores 27.03.2003
       TX=Zaragoza <-> Logroño (anno 2003);								\
 	C=<RF_432NEL,RF_432NM,RF_432NF;									\
 	F=EP6;
@@ -792,9 +944,9 @@ $REQUIRE JMD_DEF.TTT
 	C=2:RF_354(|A)|(RF_333(074|202|089)(|L))|(AVE_S252~HW|ARCO_S252~HW),1-2*TALGOTP_MOD;		\
 	V=8-16;												\
 	F=P6;
-      C=RF_269210,RF_269210[PD],2*RF_SHIMMS4768B(|L),RF_SHIMMS4774A,2*RF_SHIMMS4768B(|L);		\
+      TX=Tolosa (31.03.2003);										\
+	C=RF269Y,RF269Y[PD],2*RF_SHIMMS4768B(|L),RF_SHIMMS4774A,2*RF_SHIMMS4768B(|L);			\
 	F=EF6;
-# Tolosa 31.03.2003
       TX=Vigo <-> Madrid Chanmartin (anno 2003);							\
 	C=RF_333089,TALGOTP_MOD;									\
 	D=R;												\
@@ -803,22 +955,22 @@ $REQUIRE JMD_DEF.TTT
 	C=RF_59(2_2|3_2);										\
 	F=DP6;
       TX=Arco "García Lorca" Badajoz <-> Barcelona (19.04.2003);					\
-	C=RF_333105(|L),RF_ARCO2;									\
+	C=RF_333105(|L),RF_2200(D|E|F)(|L);								\
 	F=DP6;
-      C=RF_593_2;											\
+      TX=Madrid Fuencarral (21.04.2003);								\
+	C=RF_593_2;											\
 	F=DP6;
-# Madrid Fuencarral 21.04.2003
-      C=RF_269321|RF_269251|RF_269210|RF_269715|RF_269503,16*RF_SHIMMS4768(A|AL|B|BL);			\
+      C=RF269E|RF_269251|RF269Y,16*RF_SHIMMS4768(A|AL|B|BL);						\
 	F=EF6;
-      C=RF_440A;											\
+      TX=Gainxurizketa (23.04.2003);									\
+	C=<RF_440C1EL,RF_440C1M,RF_440C1F;								\
 	F=LP6;
-# Gainxurizketa 23.04.2003
-      C=ARCO_S252~HW[B:80,15,42,9],3*RF_ARCO2(|L);							\
+      TX=Tarragona (27.04.2003);									\
+	C=ARCO_S252~HW[B:80,15,42,9],3*RF_2200(D|E|F)(|L);						\
 	F=EP6;
-# Tarragona 27.04.2003
-      C=2*(<RF_444REGEL,RF_444REGM,RF_444REGF);								\
+      TX=Catalunya-Expres in Tarragona (27.04.2003);							\
+	C=2*(<RF_444REGEL,RF_444REGM,RF_444REGF);							\
 	F=EP6;
-# Catalunya-Expres in Tarragona 27.04.2003
       TX=Talgo 70 "Catalan-Talgo" Montepellier <-> Barcelona Sants (23.05.2003);			\
 	C=RF_252018,TALGO3_CATALAN;									\
 	F=EP6;
@@ -828,92 +980,103 @@ $REQUIRE JMD_DEF.TTT
       TX=Zaragoza Delicias <-> Logroño (30.05.2003);							\
 	C=<RF_432NEL~RC,RF_432NM~RC,RF_432NF~RC;							\
 	F=EP6;
-      C=ARCO_S252~HW[B:80,15,42,9],TALGOTP_MOD;								\
+      TX=Soto de Rey (22.06.2003);									\
+	C=ARCO_S252~HW[B:80,15,42,9],TALGOTP_MOD;							\
 	F=EP6;
-# Soto de Rey (22.06.2003)
       TX=Talgo 264 Lorca Sutullena <-> Barcelona Estació de França (anno 2003);				\
 	C=ARCO_S252~HW,2@TALGOTP_MOD;									\
 	F=EP6;
-      M=BACK|4:SIMPLE;											\
+      TX=Valladolid (09.08.2003);									\
+	M=BACK|4:SIMPLE;										\
 	C=RF_310L|RE_310,RF_B11T9214L~JCA|RF_B11T9214~JCA,$DIR(RF_GL_BR4T,RF_GL_BR4TL);			\
 	V=2-4;												\
 	F=O6;
-# Valladolid 09.08.2003
-      C=RF_269210,8*RF_HABISS(1A|1B|2A|2B|3A|3B|4A|4B);							\
+      TX=Pancorbo (09.08.2003);										\
+	C=RF269Y,8*RF_HABISS(1A|1B|2A|2B|3A|3B|4A|4B);							\
 	F=EF6;
-# Pancorbo 09.08.2003
       TX=Burgos <- Salamanca - Bilbao -> Hendaye (13.08.2003);						\
 	C=RF_333089(|L),3*RF_B11T9214L~JCA|RF_B11T9214~JCA;						\
 	F=DP6;
-      C=2*(<RF_432NEL~RC,RF_432NM~RC,RF_432NF~RC);							\
+      TX=Burgos (13.08.2003);										\
+	C=2*(<RF_432NEL~RC,RF_432NM~RC,RF_432NF~RC);							\
 	F=EP6;
-# Burgos 13.08.2003
-      C=ARCO_S252~HW,RF_TGZ1GL(|L),2*TALGO3_8GL;							\
+      TX=Miranda de Ebro (13.08.2003);									\
+	C=ARCO_S252~HW,RF_TGZ1GL(|L),2*TALGO3_8GL;							\
 	F=EP6;
-# Miranda de Ebro 13.08.2003
-      C=2*RF_321057(|L);										\
+      TX=Miranda de Ebro (13.08.2003);									\
+	C=2*RF_321057(|L);										\
 	F=D6;
-# Miranda de Ebro 13.08.2003
-      C=RF_319218L,RF_319219;										\
+      TX=Miranda de Ebro (13.08.2003);									\
+	C=RF_319218L,RF_319219;										\
 	F=D6;
-# Miranda de Ebro 13.08.2003
-      C=RF_269410,6*RF_B11T9214L~JMD|RF_B11T9214~JMD;							\
+      TX=Burgos (13.08.2003);										\
+	C=RF_269410,6*RF_B11T9214L~JCA|RF_B11T9214~JCA;							\
 	F=EP6;
-# Burgos 13.08.2003
-      C=2*(<RF_446CFL,RF_446CM,RF_446CF);								\
+      TX=Madrid Chanmartín (17.08.2003);								\
+	C=2*(<RF_446CFL,RF_446CM,RF_446CF);								\
 	F=EP6;
-# Madrid Chanmartín 17.08.2003
       TX=La Coruña <-> Vigo (18.08.2003);								\
 	C=RF_594;											\
 	F=DP6;
       TX="Valencia-Expreso" Port Bou <- Valencia -> Madrid (anno 2003);					\
-	C=RF_319218(|L),5*RF_B11T9200(|L);								\
+	C=RF_319218(|L),5*RF_BB9201(|L)|RF_BB9241(|L);							\
 	F=DP6;
-      C=RF_333(074|202)(|L)|RF_252018|RF252~HW|(RF_269210|RF_269715|RF_269503)|				\
-	  (<RF_289_10(1A|5A|8A),RF_289_101B)|(<RF_289_111A,RF_289_111B),14*RF_LAAGRSS;			\
+      C=RF_333(074|202)(|L)|RF_252018|RF252~HW|RF269Y|(<RF_289_10(1A|5A|8A),RF_289_101B)|		\
+	  (<RF_289_111A,RF_289_111B),									\
+	  14*RF_LAAGRSS1[O:BOX14_MEGACOMBI(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20), \
+	  >151,9]											\
+	  [O:BOX14_MEGACOMBI(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20),<163,9];	\
 	F=F6;
       TX=Madrid Chamartín <-> Hendaye (anno 2003);							\
 	C=<RF_448GLEL,RF_448GLM,RF_448GLF;								\
 	F=EP6;
-      C=RF_269210|RF_269715|RF_269503|RF_269604(A|B|C)(|L)|RF_269_6(A|AL|B|C|CL|D|DL),RF_LAAGRSS,	\
-	  M_400LAAGRSS[O:20BOX,<39,11][O:20BOX,>245,11],5*RF_LAAGRSS,					\
-	  3*M_400LAAGRSS[O:20BOX,<39,11][O:20BOX,>245,11],3*RF_LAAGRSS;					\
+      C=RF269Y|RF_269604(A|B|C)(|L),									\
+	  RF_LAAGRSS1[O:BOX14_MEGACOMBI(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20),	\
+	  >151,9]											\
+	  [O:BOX14_MEGACOMBI(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20),<163,9],	\
+	  M_400LAAGRSS[O:20BOX,<39,11][O:20BOX,>245,11],						\
+	  5*RF_LAAGRSS1[O:BOX14_MEGACOMBI(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20),	\
+	  >151,9]											\
+	  [O:BOX14_MEGACOMBI(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20),<163,9],	\
+	  3*M_400LAAGRSS[O:20BOX,<39,11][O:20BOX,>245,11],						\
+	  3*RF_LAAGRSS1[O:BOX14_MEGACOMBI(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20),	\
+	  >151,9]											\
+	  [O:BOX14_MEGACOMBI(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20),<163,9];	\
 	F=EF6;
       TX=Caragena <-> Madrid (09.2003);									\
 	C=RF_333089(|L),TALGO200_11;									\
 	F=DP6;
-      C=<RF_432NEL~RC,RF_432NM~RC,RF_432NF~RC;								\
+      TX=Zaragoza Delicias (09.2003);									\
+	C=<RF_432NEL~RC,RF_432NM~RC,RF_432NF~RC;							\
 	F=EP6;
-# Zaragoza Delicias 09.2003
-      C=RF_269210|RF_269715|RF_269503|RF_269604(A|B|C)(|L)|RF_269_6(A|AL|B|C|CL|D|DL),			\
-	  RF_HABISS(1|2|3|4)(A|B),HABISTW,AUTORACKF,RF_HABISS(1|2|3|4)(A|B);				\
+      C=RF269Y|RF_269604(A|B|C)(|L)|RF_269_6(A|AL|B|C|CL|D|DL),RF_HBIS,G_005,RF_HBIS,			\
+	  RF_HABISS(1|2|3|4)(A|B),3*RF_HBIS,HABISTW,AUTORACKF,RF_HBIS,RF_HABISS(1|2|3|4)(A|B);		\
 	F=EF6;
-#should be 269,Hbiss,5*Hbikks,Hbiss,Habis,3*Hbiss,DB_Habis,SNCF_Laeks,Hbiss,Habiss
-      C=RF_319218(|L),RF_SHIMMS4768B(|L),4*RF_SHIMMS4774A;						\
+#^^should be 269,Hbiss,5*Hbikks,Hbiss,Habis,3*Hbiss,DB_Habis,SNCF_Laeks,Hbiss,Habiss
+      TX=Irún (13.10.2003);										\
+	C=RF_319218(|L),RF_SHIMMS4768B(|L),4*RF_SHIMMS4774A;						\
 	F=DF6;
-# Irún 13.10.2003
       TX="Catalunya Exprés" Barcelona Flix (anno 2003);							\
 	C=<RF_448REG2EL,RF_448REG2M,RF_448REG2F;							\
 	F=EP6;
       TX="Rio Aragon" Madrid <-> Jaca (11.2003);							\
 	C=RF_319,2*RF_B11T9214(|L);									\
 	F=DP6;
-      C=<RF_444REGEL,RF_444REGM,RF_444REGF;								\
+      TX=Barcelona Estació de França (23.11.2003);							\
+	C=<RF_444REGEL,RF_444REGM,RF_444REGF;								\
 	F=EP6;
-# Barcelona Estació de França (23.11.2003)
-      C=RF_269210|RF_269715|RF_269503,RF_MA5,2*AUTORACKE,7*AUTORACKF,2*AUTORACKE,RF_MA5,AUTORACKF,	\
-	  2*AUTORACKE;											\
+      C=RF269Y,RF_MA5,2*AUTORACKE,7*AUTORACKF,2*AUTORACKE,RF_MA5,AUTORACKF,2*AUTORACKE;			\
 	F=EF6;
       TX="Talgo 200" 9128 Córdoba Central <-> Málaga (25.11.2003);					\
 	C=AVE_S252~HW,TALGO200_11;									\
 	F=EP6;
-      C=RF_269210|RF_269715|RF_269503;									\
+      TX=Valencia (12.2003);										\
+	C=RF269Y;											\
 	F=E6;
-# Valencia 12.2003
-      C=RF_319205(|L),RF_HABISS4(A|B),3*RF_HABISS3(A|B),RF_HABISS1(A|B),RF_HABISS4(A|B),		\
+      TX=Port Castello-Las Palmas (23.12.2003);								\
+	C=RF_319205(|L),RF_HABISS4(A|B),3*RF_HABISS3(A|B),RF_HABISS1(A|B),RF_HABISS4(A|B),		\
 	  RF_HABISS3(A|B),RF_HABISS2(A|B),RF_HABISS4(A|B),RF_HABISS1(A|B);				\
 	F=DF6;
-# Port Castello-Las Palmas (23.12.2003)
       C=<RF_432NEL~RC,RF_432NM~RC,RF_432NF~RC;								\
 	AP=[TX=Zaragoza Delicias <-> Castejon (anno 2004)]|						\
 	  [TX=Zaragoza Delicias <-> Logroño (anno 2003)];						\
@@ -921,9 +1084,9 @@ $REQUIRE JMD_DEF.TTT
       TX=Repsol-Butano Tarragona <-> Moncofar Castellon (23.02.2004);					\
 	C=RF_319205(|L),20*M_443LGS[O:C4T_BAY[CP:40,4,14,14,24,5,14,14],,];				\
 	F=DF6;
-# should be Combinalia containers
-      C=RF_269210|RF_269715|RF_269503,RF_SHIMMS4768(A|B)(|L),2*RF_SHIMMS4774(12:A|B),			\
-	  5*RF_SHIMMS4768(A|B)(|L),4*RF_SHIMMS4774(12:A|B);						\
+# ^^should be Combinalia containers
+      C=RF269Y,RF_SHIMMS4768(A|B)(|L),2*RF_SHIMMS4774(12:A|B),5*RF_SHIMMS4768(A|B)(|L),			\
+	  4*RF_SHIMMS4774(12:A|B);									\
 	F=EF6;
       TX=Zaragoza Delicias <-> Castejon (11.03.2004);							\
 	C=<RF_432NEL~RC,RF_432NM~RC,RF_432NF~RC;							\
@@ -931,35 +1094,37 @@ $REQUIRE JMD_DEF.TTT
       TX=Talgo 623 Barcelona Sants <-> Gijón (16.03.2004);						\
 	C=RF_252018,$DIR(RF_TGZ1GL,RF_TGZ1GLL),2*TALGO3_7GL;						\
 	F=EP6;
-      C=RF_269210,20*AUTO1(A|B|C|D);									\
+      TX=Zaragoza Delicias (18.03.2004);								\
+	C=RF269Y,20*AUTO1(A|B|C|D);									\
 	F=EF6;
-# Zaragoza Delicias 18.03.2004
-      C=RF490;												\
+      TX=Albacete (19.03.2004);										\
+	C=RF490;											\
 	F=EP6;
-# Albacete 19.03.2004
       TX=Cuenca <-> Barcelona (03.2004);								\
-	C=RF_252018,3*RF_ARCO2(|L);									\
+	C=RF_252018,3*RF_2200(D|E|F)(|L);								\
 	F=EP6;
       TX=Puigcerda <-> L'Hospitalet (04.2004);								\
 	C=<RF_440C1EL,RF_440C1M,RF_440C1F;								\
+	F=EP6;
+      TX=Madrid <-> Barcelona (08.05.2004);								\
+	C=RF_252ALT,TALGO7;										\
 	F=EP6;
       TX="Talgo 200" 9114 Madrid Atocha <-> Córdoba Central (05.06.2004);				\
 	C=AVE_S252~HW,TALGO200_11;									\
 	F=EP6;
       C=<RF_592_3BFL,RF_592_3BM,RF_592_3BF;								\
 	F=DP6;
-      C=<RF_432NEL~RC,RF_432NM~RC,RF_432NF~RC;								\
+      TX=Zaragoza Delicias (12.08.2004);								\
+	C=<RF_432NEL~RC,RF_432NM~RC,RF_432NF~RC;							\
 	F=EP6;
-# Zaragoza Delicias 12.08.2004
-      C=<RF_444REGEL,RF_444REGM,RF_444REGF;								\
+      TX=Zaragoza (12.08.2004);										\
+	C=<RF_444REGEL,RF_444REGM,RF_444REGF;								\
 	F=EP6;
-# Zaragoza 12.08.2004
-      C=RF_269210|RF_269715|RF_269503,2*M_454SGS(|4),2*M_443LGS,M_454SGS(|4),AAE_SGGMRSS90,		\
-	  2*SNCB_LGNSS1,M_454SGS(|4);									\
+      C=RF269Y,2*M_454SGS(|4),2*M_443LGS,M_454SGS(|4),G_SGGMRSS104(|L),2*SNCB_LGNSS1,M_454SGS(|4);	\
 	F=EF6;
-      C=RF_269411,TALGO200_11;										\
+      TX=Bobadilla (09.2004);										\
+	C=RF_269411,TALGO200_11;									\
 	F=EP6;
-# Bobadilla 09.2004
       TX=Valladolid <-> Logroño (02.11.2004);								\
 	C=<RF_432NEL~RC,RF_432NF~RC;									\
 	F=EP6;
@@ -967,129 +1132,141 @@ $REQUIRE JMD_DEF.TTT
 	C=RF_333089(|L),RF_TGZ1GL(|L),TALGO3_7GL;							\
 	F=DP6;
       TX=Palencia <- Valladolid -> Salamanca (17.01.2005);						\
-	C=ARCO_S252~HW[B:78,14,46,12],TALGOTP_GL;							\
+	C=ARCO_S252~HW[B:78,14,46,12],TALGO7;								\
 	F=EP6;
-#should be white w/ thin blue stripes
       TX=Madrid-Atocha <-> Sevilla Ciudad Real (anno 2005);						\
 	C=AVE;												\
 	V=12-25;											\
 	F=LP6;
-      C=RF_269210|RF_269715|RF_269503,4*CP_GBKKS,HABISTW,CP_LIS,					\
-	  11*(RF_SHIMMS4768(A|B)(|L))|(RF_SHIMMS4774(12:A|B));						\
+      C=RF269Y,4*CP_GBKKS,HABISTW,CP_LIS,11*(RF_SHIMMS4768(A|B)(|L))|(RF_SHIMMS4774(12:A|B));		\
 	F=EF6;
-      C=RF_333089(|L),RF_TGZ1GL(|L),2*TALGO3_7GL;							\
+      TX=Martutene (01.02.2005);									\
+	C=RF_333089(|L),RF_TGZ1GL(|L),2*TALGO3_7GL;							\
 	F=DP6;
-# Martutene 01.02.2005
       TX=Hendaye <-> Bilbao (01.02.2005);								\
-	C=RF_333089(|L),3*RF_B11T9214L~JMD|RF_B11T9214~JMD;						\
+	C=RF_333089(|L),3*RF_B11T9214L~JCA|RF_B11T9214~JCA;						\
 	F=DP6;
-      C=ARCO_S252~HW,3*RF_ARCO2(|L);									\
+      TX=Benicassim (19.02.2005);									\
+	C=ARCO_S252~HW,3*RF_2200(D|E|F)(|L);								\
 	F=EP6;
-# Benicassim 19.02.2005
       TX=St Vincent de Calder <-> Barcelona (03.2005);							\
 	C=2*(<RF_432NEL~RC,RF_432NM~RC,RF_432NF~RC);							\
 	F=EP6;
-      C=RF_269210,10*RF_LAAGRSS1[O:CM_MEGACOMBI,>152,9][O:CM_MEGACOMBI,<162,9];				\
+      TX=Villabona (09.03.2005);									\
+	C=RF269Y,											\
+	  10*RF_LAAGRSS1[O:BOX14_MEGACOMBI(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20), \
+	  >151,9]											\
+	  [O:BOX14_MEGACOMBI(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20),<163,9];	\
 	F=EF6;
-# Villabona 09.03.2005
       TX=Zaragoza <-> Jaca (03.05.2005);								\
 	C=RF_594;											\
 	F=DP6;
       TX=Irún <-> Madrid (08.03.2005);									\
 	C=RF_333089(|L),RF_TGZ1GL(|L),TALGO3_7GL;							\
 	F=DP6;
-      C=RF_269210|RF_269715|RF_269503,RF_311(|L),2*M_454SGS(|4),M_443LGS,2*AAE_SGGMRSS90,		\
-	  3*M_454SGS(|4),M_443LGS,3*M_454SGS(|4);							\
+      C=RF269Y,RF_311(|L),2*M_454SGS(|4),M_443LGS,2*G_SGGMRSS104(|L),3*M_454SGS(|4),M_443LGS,		\
+	  3*M_454SGS(|4);										\
 	F=F6;
-      C=RF_333089(|L),RF_TGZ1GL(|L),TALGO3_8GL;								\
+      TX=Villabona (09.03.2005);									\
+	C=RF_333089(|L),RF_TGZ1GL(|L),TALGO3_8GL;							\
 	F=DP6;
-# Villabona 09.03.2005
+      TX=Zaragoza (22.05.2005);										\
+	C=RF_252ALT,(<RF_T4D_GLL,3*RF_T4A_GL,RF_TBR_GL,7*RF_T4B_GL,RF_T42E_GL);				\
+	F=EP6;
       TX=Talgo Santander <- Madrid -> Alicante (23.04.2005);						\
 	C=RF_269_602,TALGOTP_MOD;									\
 	F=EP6;
       TX=Villa Real <-> Valencia (24.03.2005);								\
 	C=<RF_446CFL,RF_446CM,RF_446CF;									\
 	F=EP6;
-# should be 447
+# ^^should be 447
       TX=Expresso "Estrella de Estrecho" (27.04.2005);							\
-	C=RF_319331(|L),$DIR(RF_WL26X_GL1,RF_WL26X_GL1L),3*RF_B11T9214L~JMD|RF_B11T9214~JMD,		\
+	C=RF_319331(|L),$DIR(RF_WL26X_GL1,RF_WL26X_GL1L),3*RF_B11T9214L~JCA|RF_B11T9214~JCA,		\
 	  RF_DDMA9500B;											\
 	F=D6;
-# should have Eurofima B11's.
+# ^^should have Eurofima B11's.
+      TX=Terrer (03.05.2005);										\
+	C=RF_252ALT,(<TALGO7L,4*TALGO7_ML,TALGO7_2,2*TALGO7_M,TALGO7);					\
+	F=EP6;
       TX=Madrid Chamartín <-> Málaga (anno 2005);							\
 	C=<RF_448GLEL,RF_448GLM,RF_448GLF;								\
 	F=EP6;
       TX=Valencia <-> Sagunto (15.05.2005);								\
-	C=ARCO_S252~HW,3*RF_ARCO2(|L);									\
+	C=ARCO_S252~HW,3*RF_2200(D|E|F)(|L);								\
 	F=EP6;
-      C=RF_251001(|L)|5:RF_251004(|L),									\
-	  14*RF_SHIMMS4774A|RF_SHIMMS4768AL|RF_SHIMMS4768A|RF_SHIMMS4768BL|RF_SHIMMS4768B;		\
+      C=RF250Y|5:RF251B,14*RF_SHIMMS4774A|RF_SHIMMS4768(A|B)(|L);					\
 	F=EF6;
-      C=RF_251004(|L),12*RF_LAAGRSS;									\
+      TX=Valladolid Campo Grande (11.06.2005);								\
+	C=RF251B,											\
+	  12*RF_LAAGRSS1[O:BOX14_MEGACOMBI(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20), \
+	  >151,9]											\
+	  [O:BOX14_MEGACOMBI(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20),<163,9];	\
 	F=EF6;
-# Valladolid Campo Grande 11.06.2005
       TX=Madrid Chanmartín <-> Almería (06.2005);							\
 	C=RF_319331(|L),RF_TGZ1GL(|L),2*TALGO3_7GL;							\
 	V=8-10;												\
 	F=DP6;
-      C=RF_269210,20*DB_HBFIS239(A|B|C|D|E)|RF_HBFIS239(A|B|C|D);					\
+      TX=Cortes de Navara (11.06.2005);									\
+	C=RF269Y,20*DB_HBFIS239(A|B|C|D|E)|RF_HBFIS239(A|B|C|D);					\
 	F=EF6;
-# Cortes de Navara 11.06.2005
-      C=RF_333321(|L),18*RF_SHIMMS4774A;								\
+      TX=Irún Ventas (17.06.2005);									\
+	C=RF_333321(|L),18*RF_SHIMMS4774A;								\
 	F=DF6;
-# Irún Ventas 17.06.2005
       TX=Santander <-> Valladolid (25.06.2005);								\
 	C=<RF_440C1EL,RF_440C1M,RF_440C1F;								\
 	F=EP6;
-      C=<RF_432NEL~RC,RF_432NF~RC;									\
+      TX=Pamplona (10.07.2005);										\
+	C=<RF_432NEL~RC,RF_432NF~RC;									\
 	F=EP6;
-# Pamplona (10.07.2005)
-      C=RF_269503,20*RF_LFGSS[O:CM_FORD];								\
+      TX=Benicassim (11.07.2005);									\
+	C=RF269Y,20*RF_LFGSS[O:CM_FORD];								\
 	F=EF6;
-# Benicassim 11.07.2005
-      C=2*RF_596_2A;											\
+      TX=Salamanca (12.07.2005);									\
+	C=2*RF_596_2A;											\
 	F=DP6;
-# Salamanca 12.07.2005
       M=STOP|SIMPLE|BACK;										\
 	C=RF_310L|RE_310,8*RF_SHIMMS47(68A|68AL|68B|68BL|5:74A);					\
 	V=3-5;												\
 	F=O6;
-      C=RF_269410,TALGOTP_MOD;										\
+      TX=Albacete (02.08.2005);										\
+	C=RF_269410,TALGOTP_MOD;									\
 	F=EP6;
-# Albacete 02.08.2005
-      C=RF490;												\
+      TX=Albacete (02.08.2005);										\
+	C=RF490;											\
 	F=EP6;
-# Albacete 02.08.2005
-      C=RF_596_2A;											\
+      TX=Salamanca (05.08.2005);									\
+	C=RF_596_2A;											\
 	F=DP6;
-# Salamanca 05.08.2005
-      C=2*RF490;											\
+      TX=Benicassim (05.08.2005);									\
+	C=2*RF490;											\
 	F=EP6;
-# Benicassim 05.08.2005
       TX=Valladolid <-> Medina del Campo (anno 2005);							\
-	C=RF_440A;											\
+	C=<RF_440C1EL,RF_440C1M,RF_440C1F;								\
 	F=LP6;
       TX=Leon <-> Madrid Chanmartin (anno 2005);							\
-	C=RF470;											\
+	C=<RF_470REGFL,RF_470REGM,RF_470REGE;								\
 	F=LP6;
-      C=RF_440A;											\
+      TX=Gainxurizketa (07.09.2005);									\
+	C=<RF_440C1EL,RF_440C1M,RF_440C1F;								\
 	F=LP6;
-# Gainxurizketa 07.09.2005
-      C=RF_289006,10*RF_EALOS(|1B|2|2B|2C),RF_SHIMMS4774B,7*RF_SHIMMS4774A;				\
+      TX=Pasajes (22.09.2005);										\
+	C=RF_289006,10*RF_EALOS(|1B|2|2B|2C),RF_SHIMMS4774B,7*RF_SHIMMS4774A;				\
 	F=EF6;
-# Pasajes 22.09.2005
       TX=Vigo <-> A Coruña (anno 2005);									\
 	C=RF_592_4;											\
 	F=DP6;
-      C=RF_269210,10*RF_SHIMMS4774A,RF_SHIMMS4768B(|L);							\
+      TX=Sagunto (30.09.2005);										\
+	C=RF269Y,10*RF_SHIMMS4774A,RF_SHIMMS4768B(|L);							\
 	F=EF6;
-# Sagunto (30.09.2005)
       TX=Salamanca <-> Valladolid (anno 2005);								\
 	C=RF_594;											\
 	F=DP6;
-      C=RF_333032(|L),2*RF_B11T9214L~JMD|RF_B11T9214~JMD;						\
+      TX=Tolosa (Guipuzcoa)(18.10.2005);								\
+	C=RF_279012(|L),5*G_009|G_010|G_014,18*RF_SHIMMS4774A,RF_HBIS;					\
+	F=EF6;
+      TX=Legorreta (22.11.2005);									\
+	C=RF_333032(|L),2*RF_B11T9214L~JCA|RF_B11T9214~JCA;						\
 	F=DP6;
-# Legorreta (22.11.2005)
       C=RF_596_2A;											\
 	AP=[TX=Puebla de Sanabria <-> Valladolid Campo Grande (anno 2005)]|				\
 	  [TX=Santiago <-> A Corunha (anno 2005)];							\
@@ -1097,185 +1274,260 @@ $REQUIRE JMD_DEF.TTT
       TX=Madrid <-> Almería (9.12.2005);								\
 	C=RF_319331(|L),TALGO7;										\
 	F=DP6;
-      C=<RF_432NEL~RC,RF_432NF~RC;									\
+      TX=Vitoria (13.12.2005);										\
+	C=<RF_432NEL~RC,RF_432NF~RC;									\
 	F=EP6;
-# Vitoria 13.12.2005
       TX=Irún <-> Madrid Chanmartín (11.01.2006);							\
 	C=RF_333089(|L),RF_TGZ1GL(|L),TALGO3_7GL;							\
 	F=DP6;
       TX=Mataporquera <-> Santander (20.01.2006);							\
-	C=RF_269210,20*RF_EALOS(|1B|2|2B|2C);								\
+	C=RF269Y,20*RF_EALOS(|1B|2|2B|2C);								\
 	F=EF6;
-      C=<RF_446CFL,RF_446CM,RF_446CF;									\
+      TX=Ugso-Mirabelles (02.02.2006);									\
+	C=<RF_446CFL,RF_446CM,RF_446CF;									\
 	F=EP6;
-# Ugso-Mirabelles (02.02.2006)
       TX=Talgo 533 "Miguel de Unamuno" Barcelona <- Bilbao -> Salamanca -> Hendaye (23.02.2006);	\
 	C=ARCO_S252~HW[B:80,15,42,9],RF_TGZ1GL(|L),3*TALGO3_7GL;					\
 	F=EP6;
-      C=RF_440A;											\
+      TX=Andoaïn (15.03.2006);										\
+	C=<RF_440C1EL,RF_440C1M,RF_440C1F;								\
 	F=LP6;
-# Andoaïn 15.03.2006
-      C=RF_251018(|L),16*RF_LAAGRSS;									\
+      TX=Andoaïn (16.03.2006);										\
+	C=RF251Y,											\
+	  16*RF_LAAGRSS1[O:BOX14_MEGACOMBI(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20), \
+	  >151,9]											\
+	  [O:BOX14_MEGACOMBI(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20),<163,9];	\
 	F=EF6;
-# Andoaïn 16.03.2006
+      TX=Benicassim (26.02.2006);									\
+	C=RF_252ALT,2*$DIR(RF_2200(B|C)L,RF_2200(B|C)),$DIR(RF_2200(B|C),RF_2200(B|C)L),		\
+	  2*$DIR(RF_2000RO(1|2|3)L,RF_2000RO(1|2|3)),RF_2800D1(|L);					\
+	F=EP6;
       TX=Madrid <-> Salamanca (17.03.2006);								\
 	C=RF_594;											\
 	F=DP6;
       TX=Córdoba Central <-> Málaga (20.03.2006);							\
 	C=AVE_S252~HW,TALGO200_11;									\
 	F=EP6;
-      C=RF_593_2;											\
+      TX=Lerida (21.03.2006);										\
+	C=RF_593_2;											\
 	F=DP6;
-# Lerida 21.03.2006
-      C=RF_251018(|L),13*RF_SHIMMS4774A,4*RF_EALOS2(|B|C),RF_EALOS3(D|E|F),RF_EALOS2(|B|C);		\
+      TX=Villada (01.04.2006);										\
+	C=RF251Y,13*RF_SHIMMS4774A,4*RF_EALOS2(|B|C),RF_EALOS3(D|E|F),RF_EALOS2(|B|C);			\
 	F=EF6;
-# Villada (01.04.2006)
       TX=A Coruña <-> Gijón (01.04.2006);								\
 	C=ARCO_S252~HW[B:80,15,42,9],RF_TGZ1GL(|L),2*TALGO3_7GL;					\
 	F=EP6;
       TX=Diurno 280 A Coruña <-> Ourense (03.04.2006);							\
-	C=$DIR(RF_333032,RF_333032L),$DIR(RF_B11T9214L~JMD,RF_B11T9214~JMD),				\
+	C=$DIR(RF_333032,RF_333032L),$DIR(RF_B11T9214L~JCA,RF_B11T9214~JCA),				\
 	  $DIR(RF_WL26X_ROL,RF_WL26X_RO);								\
 	F=DP6;
       TX=Diurno 280 Vigo <-> Ourense (03.04.2006);							\
 	C=RF_269410,$DIR(RF_WL26X_ROL,RF_WL26X_RO);							\
 	F=EP6;
-      C=RF_279003,4*G_009|G_010|G_014,12*RF_SHIMMS4774A;						\
+      TX=Tardienta (11.04.2006);									\
+	C=RF279Y,4*G_009|G_010|G_014,12*RF_SHIMMS4774A;							\
 	F=EF6;
-# Tardienta 11.04.2006
       TX=Valencia <-> Sagunto-Zaragoza (25.04.2006);							\
 	C=RF_333076(|L),RF_EURO4000;									\
 	F=D6;
-      C=ARCO_S252~HW[B:80,15,42,9],RF_TGZ1GL(|L),2*TALGO3_7GL;						\
+      TX=Egino (09.05.2006);										\
+	C=ARCO_S252~HW[B:80,15,42,9],RF_TGZ1GL(|L),2*TALGO3_7GL;					\
 	F=EP6;
-# Egino 09.05.2006
-      C=<RF_446CFL,RF_446CM,RF_446CF;									\
+      TX=Arrankudiaga (11.05.2006);									\
+	C=<RF_446CFL,RF_446CM,RF_446CF;									\
 	F=EP6;
-# Arrankudiaga (11.05.2006)
-      C=RF_269410,TALGOTP_MOD;										\
+      TX=Alcazar de San Juan (11.05.2006);								\
+	C=RF_269410,TALGOTP_MOD;									\
 	F=EP6;
-# Alcazar de San Juan 11.05.2006
-      C=RF_269410,RF_TGZ1GL(|L),2*TALGO3_7GL;								\
+      TX=Alcazar de San Juan (11.05.2006);								\
+	C=RF_269410,RF_TGZ1GL(|L),2*TALGO3_7GL;								\
 	F=EP6;
-# Alcazar de San Juan 11.05.2006
-      C=RF_319301(|L),18*RF_HBIS;									\
+      TX=Bobadilla (18.05.2006);									\
+	C=RF_319301(|L),18*RF_HBIS;									\
 	F=DF6;
-# Bobadilla 18.05.2006
-      C=<RF_446CFL,RF_446CM,RF_446CF;									\
+      TX=Madrid-Chamartín (25.05.2006);									\
+	C=RF_252ALT,(<RF_T4D_GLL,2*RF_T4A_GL,RF_TBR_GL,4*RF_T4B_GL,RF_T42E_GL);				\
 	F=EP6;
-# Villaverde Alto (25.05.2006)
+      TX=Villaverde Alto (25.05.2006);									\
+	C=<RF_446CFL,RF_446CM,RF_446CF;									\
+	F=EP6;
       TX=Arco Granada <-> Barcelona (25.06.2006);							\
-	C=RF_319331(|L),RF_ARCO1;									\
+	C=RF_319331(|L),RF_2000(B|C|D|E)(|L);								\
 	F=DP6;
-      C=RF_269410,RF_WL26X_RO(|L),3*RF_B11T9214L~JCA|RF_B11T9214~JCA,RF_WL26X_LR2(|L),RF_WL26X_RO(|L);	\
+      TX=Brivesca (15.08.2006);										\
+	C=RF_269410,RF_WL26X_RO(|L),3*RF_B11T9214L~JCA|RF_B11T9214~JCA,RF_WL26X_LR2(|L),RF_WL26X_RO(|L); \
 	F=EP6;
-# Brivesca (15.08.2006)
-      C=RF_333089(|L),RF_TGZ1GL(|L),TALGO3_8GL;								\
+      TX=Miranda de Ebro (15.08.2006);									\
+	C=RF_333089(|L),RF_TGZ1GL(|L),TALGO3_8GL;							\
 	F=DP6;
-# Miranda de Ebro (15.08.2006)
-      C=RF_269210,7*RF_LAAGRSS;										\
+      TX=Irún (09.11.2006);										\
+	C=RF269Y,											\
+	  7*RF_LAAGRSS1[O:BOX14_MEGACOMBI(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20),	\
+	  >151,9]											\
+	  [O:BOX14_MEGACOMBI(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20),<163,9];	\
 	F=EF6;
-# Irún 09.11.2006
-      C=RF_319330(|L),RF_HABISS4(A|B),RF_HABISS1(A|B),RF_HABISS4(A|B),2*RF_HABISS1(A|B),		\
+      TX=Gobantes (17.11.2006);										\
+	C=RF_319330(|L),RF_HABISS4(A|B),RF_HABISS1(A|B),RF_HABISS4(A|B),2*RF_HABISS1(A|B),		\
 	  RF_HABISS4(A|B),RF_HABISS2(A|B),RF_HABISS4(A|B);						\
 	F=DF6;
-# Gobantes 17.11.2006
       TX=Málaga <-> Fuengirola (18.11.2006);								\
 	C=<RF_446CFL,RF_446CM,RF_446CF;									\
 	F=EP6;
       TX=Talgo 623 "Covadonga" Barcelona Sants <- Gijón-Cercanías -> A Coruña (09.12.2006);		\
 	C=ARCO_S252~HW,RF_TGZ1GL(|L),2*TALGO3_8GL;							\
 	F=EP6;
-      C=<RF_446CFL,RF_446CM,RF_446CF;									\
-	F=EP6;
-# Madrid 10.12.2006
-      C=RF_596_2A;											\
+      TX=Diurno 413 Bilbao <-> SalamancaS (09.12.2006);							\
+	C=RF_333032(|L),$DIR(RF_RO_A12T01,RF_RO_A12T01L),$DIR(RF_LR_BR4X01,RF_LR_BR4X01L),		\
+	  $DIR(RF_RO_B10T0101,RF_RO_B10T0101L);								\
 	F=DP6;
-# Salamanca 25.02.2007
+      TX=Madrid (10.12.2006);										\
+	C=<RF_446CFL,RF_446CM,RF_446CF;									\
+	F=EP6;
+      TX=Salamanca (25.02.2007);									\
+	C=RF_596_2A;											\
+	F=DP6;
       TX=Salamanca <-> Barcelona (01.06.2007);								\
 	C=RF_333076(|L),RF_TGZ1GL(|L),2*TALGO3_7GL;							\
 	F=DP6;
-      C=<RF_440C1EL,RF_440C1M,RF_440C1F;								\
+      TX=Mataporquera (26.06.2007);									\
+	C=<RF_440C1EL,RF_440C1M,RF_440C1F;								\
 	F=EP6;
-# Mataporquera (26.06.2007)
-      C=RF_251018(|L),16*RF_EALOS2(|B|C);								\
+      TX=Villanueva de la Tercia (28.06.2007);								\
+	C=RF251Y,16*RF_EALOS2(|B|C);									\
 	F=EF6;
-# Villanueva de la Tercia 28.06.2007
-      C=RF_310L|RE_310,17*SEMAT_LAEKS;									\
+      TX=Renteria (13.07.2007);										\
+	C=RF_310L|RE_310,17*SEMAT_LAEKS;								\
 	F=DF6;
-# should be yellow Laaeks
-# Renteria (13.07.2007)
-      C=2*RF470;											\
+      TX=Santa Lucia (12.08.2007);									\
+	C=2*(<RF_470REGFL,RF_470REGM,RF_470REGE);							\
 	F=LP6;
-# Santa Lucia (12.08.2007)
-      C=RF_440A;											\
+      TX=Santa Lucia (12.08.2007);									\
+	C=<RF_440C1EL,RF_440C1M,RF_440C1F;								\
 	F=LP6;
-# Santa Lucia (12.08.2007)
-      C=<RF_450EL,4*RF_451B,RF_450E;									\
+      TX=Santa Lucia (12.08.2007);									\
+	C=<RF_450EL,4*RF_451B,RF_450E;									\
 	F=EP6;
-# Santa Lucia (12.08.2007)
-      C=<RF_EUMEDEL,RF_EUMEDE2L,3*RF_EUMEDAL,RF_EUMEDWR,3*RF_EUMEDA,RF_EUMEDE2,RF_EUMEDE;		\
+      TX=Santa Lucia (12.08.2007);									\
+	C=<RF_EUROMED0L[P2U],RF_EUROMED1,2*RF_EUROMED2,RF_EUROMED3,RF_EUROMED4,RF_EUROMED5,		\
+	  RF_EUROMED6,2*RF_EUROMED7,RF_EUROMED8,RF_EUROMED0[P2U];					\
 	F=EP6;
-# Santa Lucia (12.08.2007)
-      C=RF_440A;											\
+      TX=Irún-Ventas (19.09.2007);									\
+	C=<RF_440C1EL,RF_440C1M,RF_440C1F;								\
 	F=LP6;
-# Irun-Ventas (19.09.2007)
-      C=RF_269410,20*CP_UACS_CIMPOR;									\
+      TX=Valencia <-> Tarragona (17.10.2007);								\
+	C=RF_269410,20*CP_UACS_CIMPOR;									\
 	F=EF6;
-# Valencia <-> Tarragona (17.10.2007)
-# Should be Transfesa Uacs
+# ^^Should be Transfesa Uacs
       TX=Valencia <-> Tarragona (17.10.2007);								\
 	C=ARCO_S252~HW,TALGOTP;										\
 	F=EP6;
-      C=<RF_448REGEL,RF_448REGM,RF_448REGF;								\
+      TX=Tarragona (18.10.2007);									\
+	C=<RF_448REGEL,RF_448REGM,RF_448REGF;								\
 	F=EP6;
-# Tarragona 18.10.2007
-      C=RF_269410,10*GT29[B:19,30,8,5];									\
+      TX=Tarragona (18.10.2007);									\
+	C=RF_269410,10*GT29[B:19,30,8,5];								\
 	F=EF6;
-# Tarragona 18.10.2007
-      C=2*(<RF_448REGEL,RF_448REGM,RF_448REGF);								\
+      TX=Tarragona (18.10.2007);									\
+	C=2*(<RF_448REGEL,RF_448REGM,RF_448REGF);							\
 	F=EP6;
-# Tarragona 18.10.2007
-      C=<RF_592_3BFL,RF_592_3BM,RF_592_3BF;								\
+      TX=Barcelona (19.10.2007);									\
+	C=<RF_592_3BFL,RF_592_3BM,RF_592_3BF;								\
 	F=DP6;
-# Barcelona 19.10.2007
-      C=RF_269210,10*RF_LAAGRSS;									\
+      TX=Molins de Rei (12.11.2007);									\
+	C=RF_252AVEO,2*(<RF_T4D_GLL,2*RF_T4A_GL,RF_TBR_GL,4*RF_T4B_GL,RF_T42E_GL);			\
+	F=EP6;
+      TX=Loiola (27.11.2007);										\
+	C=RF269Y,											\
+	  10*RF_LAAGRSS1[O:BOX14_MEGACOMBI(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20), \
+	  >151,9]											\
+	  [O:BOX14_MEGACOMBI(01|02|03|04|05|06|07|08|09|10|11|12|13|14|15|16|17|18|19|20),<163,9];	\
 	F=EF6;
-# Loiola 27.11.2007
-      C=(<RF_289_108A,RF_289_101B),RF_EALOS3(B|C|D|E|F),						\
+      TX=Loiola (27.11.2007);										\
+	C=(<RF_289_108A,RF_289_101B),RF_EALOS3(B|C|D|E|F),						\
 	  24*8:(RF_EALOS2|RF_EALOS2B|RF_EALOS2C)|							\
 	  (RF_EALOS|RF_EALOS1B|RF_EALOS3|RF_EALOS3B|RF_EALOS3C|RF_EALOS3D|RF_EALOS3E|RF_EALOS3F);	\
 	F=EF6;
-# Loiola 27.11.2007
-      C=RF_596_2A;											\
+      TX=Salamanca (14.01.2008);									\
+	C=RF_596_2A;											\
 	F=DP6;
-# Salamanca 14.01.2008
-      C=RF_269715[PFU],20*AUTORACKE;									\
+      TX=Salamanca <-> Medina del Campo (19.01.2008);							\
+	C=RF_333333,10*RF_EALOS2(|B|C)[O:WOOD40|WOOD35|WOOD58];						\
+	F=DF6;
+      TX=Andoaïn (Guipuzcoa)(06.02.2008);								\
+	C=RF269Y[PFU],20*SEMAT_LAEKS;									\
 	F=EF6;
-# Andoaïn (Guipuzcoa) (06.02.2008)
-# should be yellow autoracks
-      C=<RF_289101A,RF_289101B;										\
+      TX=Andoaïn (Guipuzcoa)(06.02.2008);								\
+	C=<RF_289101A,RF_289101B;									\
 	V=4;												\
 	F=E6;
-# Andoaïn (Guipuzcoa) (06.02.2008)
-      C=RF_440A;											\
+      TX=Andoaïn (06.08.2008);										\
+	C=<RF_440C1EL,RF_440C1M,RF_440C1F;								\
 	F=LP6;
-# Andoaïn 06.08.2008
       TX=Diurno 402 Irún <-> Salamanca (06.02.2008);							\
 	C=RF_269410,2*RF_WL26X_RO(|L);									\
 	F=EP6;
       TX=Altaria 610 Irún <-> Madrid Atocha (11.02.2008);						\
 	C=ARCO_S252~HW[B:77,14,49,12],TALGO7;								\
 	F=EP6;
-      C=<ET_3500UEL,2*ET_3500UM,ET_3500UF;								\
+      TX=Zumaya (13.02.2008);										\
+	C=<ET_3500UEL,2*ET_3500UM,ET_3500UF;								\
 	F=E6;
-# Zumaya 13.02.2008
-      C=<ET_3500UEL,ET_3500UM,ET_3500UF;								\
+      TX=Zumaya (13.02.2008);										\
+	C=<ET_3500UEL,ET_3500UM,ET_3500UF;								\
 	F=E6;
-# Zumaya 13.02.2008
       TX=Salamanca <- Hendaye -> Bilbao (16.02.2008);							\
 	C=RF_EURO4000,RF_333202A,3*RF_WL26X_RO(|L);							\
 	F=DP6;
+      C=(<RF_AVE103_1L,RF_AVE103_2[PU],RF_AVE103_3,RF_AVE103_4,RF_AVE103_5,RF_AVE103_6,			\
+	  RF_AVE103_7[PU],RF_AVE103_8)|									\
+	  (<RF_AVE103_1L,RF_AVE103_7L[PU],RF_AVE103_6L,RF_AVE103_5L,RF_AVE103_4L,RF_AVE103_3L,		\
+	  RF_AVE103_2L[PU],RF_AVE103_8);								\
+	F=EPU6;
+      TX=Zarzalejo <-> Avila (15.05.2008);								\
+	C=<RF_252ALT,RF_GL_B11T0201,2*RF_RO_A12T01,RF_253OP;						\
+	F=EP6;
+      TX=Salamanca <-> Fuentes de Oñoro (07.03.2009);							\
+	C=RF_333333,RF_HABISS4(A|B),RF_HABISS3(A|B),RF_HABISS4(A|B),RF_HABISS1B,RF_HABISS3(A|B),	\
+	  RF_HABISS4(A|B),RF_HABISS3(A|B),2*RF_HABISS4(A|B),RF_HABISS1B,RF_HABISS3(A|B),		\
+	  2*RF_HABISS4(A|B);										\
+	F=DF6;
+      TX=Madrid <- Zaragoza -> Lleida (12.02.2009);							\
+	C=(<RF_AVE102EL,RF_AVE102_12L,4*RF_AVE102_2,RF_AVE102_6,5*RF_AVE102_2,RF_AVE102_12,RF_AVE102E)|	\
+	  (<RF_AVE102EL,RF_AVE102_1,5*RF_AVE102_2L,RF_AVE102_6L,4*RF_AVE102_2L,RF_AVE102_1L,RF_AVE102E); \
+	F=EP6;
+      TX=Villafria <-> Sagunto (27.02.2010);								\
+	C=RF251Y,30*RF_SHIMMS4774A;									\
+	F=EF6;
+      TX=Caserio de Dueñas (13.03.2010);								\
+	C=$DIR(RF_334SL,RF_334S),2*(<RF_T4D_OPL,2*RF_T4A_OP,RF_TBR_OP,4*RF_T4B_OP,RF_T4BE_OP);		\
+	F=DP6;
+      TX=Tren 34306 Salamanca <-> Palencia (14.03.2010);						\
+	C=$DIR(RF_334SL,RF_334S),$DIR(RF_RO_A9T01,RF_RO_A9T01L),$DIR(RF_RO_BR3TL,RF_RO_BR3T),		\
+	  $DIR(RF_RO_B10T0101L,RF_RO_B10T0101);								\
+	F=DP6;
+      TX=Cuenca-Villaverde (13.07.2010);								\
+	C=<RF_592OPRFL,RF_592OPRM,RF_592OPRF;								\
+	F=DP6;
+      TX=Madrid Abroñigal <-> Lisboa Bobadela (20.07.2010);						\
+	C=RF_333333,22*G_SGGMRSS104(|L)[O:4CONTLONG,*96,11][O:4CONTLONG,*251,11];			\
+	F=DF6;
+      TX=Madrid <-> Granada (03.06.2011);								\
+	C=$DIR(RF_334SL,RF_334S),(<RF_T4D_OPL,2*RF_T4A_OP,RF_TBR_OP,4*RF_T4B_OP,RF_T4BE_OP);		\
+	F=DP6;
+      TX="Tren Hotel" in Madrid (25.11.2013);								\
+	C=RF_252064,TALGOTH;										\
+	F=EP6;
+      TX=Arco "Camino de Santiago" in Cerceda-Meirama (24.06.2014);					\
+	C=RF_EURO4000,$DIR(RF_2000RO1,RF_2000RO1L),2*$DIR(RF_2200RO1,RF_2200RO1L);			\
+	F=DP6;
+      TX=León (08.2014);										\
+	C=<RF_AVE130EL,RF_AVE130_1L,RF_AVE130_5L,RF_AVE130_3,RF_AVE130_4,6*RF_AVE130_5,RF_AVE130_1,	\
+	  RF_AVE130E;											\
+	V=10-15;											\
+	F=EP6;
+      TX=Llodio (18.09.2014);										\
+	C=RF_253OP,18*RF_HBIS,12*RF_SHIMMS4774A;							\
+	F=EF6;
     }
   %ENDPOOL;
 }
@@ -1294,9 +1546,15 @@ $REQUIRE JMD_DEF.TTT
 	F=EPU3;
       C=<1-2*(CP_2200F1L,CP_2200E(|L),CP_2200F);							\
 	F=EPU3;
+      TX="Sud Express" Lisboa <- Irún - Hendaye -> Paris (anno 1969);					\
+	C=$DIR(CP_1520B,CP_1520BL),2*CIWL_F1296,2*CP_SOREFAME_B2(|L),2*CP_WL_CAMAS_LX(|L)|CP_WL2800;	\
+	F=DP3;
     }
     {E4?
-      C=CP_1000|CP_1104|(CP_1204(|L))|(CP_1304|CP_1308),5-7*CP_G16,RF_X1,5-10*CP_G16;			\
+      TX="Sud Express" Lisboa <- Irún - Hendaye -> Paris;						\
+	C=CP_2550A,CIWL_F1296,2*CP_SOREFAME_B2(|L),2*CP_WL_CAMAS_LX(|L)|CP_WL2800;			\
+	F=EP4;
+      C=CP_1000|CP_1104|(CP_1204(|L))|(CP_1304|CP_1308),5-7*CP_G4,RF_X1,5-10*CP_G4;			\
 	F=DF4;
       C=CP_1311,CP_POST1,2*CP_B600B(|L);								\
 	F=DP4;
@@ -1322,17 +1580,17 @@ $REQUIRE JMD_DEF.TTT
       C=CP_2501~HW,CP_SOREFAME_D(|L),CP_SOREFAME_A(|L),CP_SOREFAME_B(|L),				\
 	  2*CP_CORAIL_BL~HW|CP_CORAIL_B~HW;								\
 	F=EP4;
-      C=<CP_0300ML,CP_0300M;										\
+      TX=Lisboa (11.1985);										\
+	C=<CP_0300ML,CP_0300M;										\
 	F=PU4;
-# Lisboa 11.1985
       C=CP_1520O(|L),CP_SCHINDLER_AD,2*CP_SCHINDLER_B1(|L);						\
 	F=DP4;
-      C=2*(<CP_2100FL,CP_2100EL|CP_2100E,CP_2100F);							\
+      TX=Espinho (22.08.1987);										\
+	C=2*(<CP_2100FL,CP_2100EL|CP_2100E,CP_2100F);							\
 	F=EPU4;
-# Espinho 22.08.1987
-      C=<CP_0400FL,CP_0400E;										\
+      TX=Porto (23.08.1987);										\
+	C=<CP_0400FL,CP_0400E;										\
 	F=PU4;
-# Porto 23.08.1987
       C=CP_1400(|L),2*CP_0600B;										\
 	F=DPU4;
       C=CP_1800(|L),2*RF_HABISS(1|3|4)(A|B),1-2*CP_EALOS,0-3*RF_EALOS(|1B|2|2B|2C|3|3B|3C|3D|3E|3F),	\
@@ -1343,85 +1601,92 @@ $REQUIRE JMD_DEF.TTT
 	F=O4;
       C=CP_2600(|L),2*CP_CORAIL_B,CP_CORAIL_A;								\
 	F=EP4;
-      M=BACK;												\
+      TX=Campanhã (09.1989);										\
+	M=BACK;												\
 	C=$DIR(CP_1000,CP_1000L),CP_CORAIL_BL~HW|CP_CORAIL_B~HW;					\
 	V=2;												\
 	F=DPO4;
-# Campanhã 09.1989
     }
     {E5?
-      C=$DIR(CP_1400L,CP_1400),CP_SCHINDLER_A(|L),2*CP_SOREFAME_B(|L),CP_SOREFAME_B2(|L);		\
+      TX=Train 863 to Regua in Campanhã (anno 1990);							\
+	C=$DIR(CP_1400L,CP_1400),CP_SCHINDLER_A(|L),2*CP_SOREFAME_B(|L),CP_SOREFAME_B2(|L);		\
 	F=DP5;
-# Train 863 to Regua in Campanhã station
-      C=<CP_0600BFL,CP_0600B,CP_0600ABF;								\
+      TX=Regua (18.06.1990);										\
+	C=<CP_0600BFL,CP_0600B,CP_0600ABF;								\
 	F=PU5;
-# Regua 18.06.1990
-      C=$DIR(CP_1200~HW,CP_1200L~HW),$DIR(CP_BUDD_BL,CP_BUDD_B),CP_SCHINDLER_A(|L),			\
+      TX=Faro (21.06.1990);										\
+	C=$DIR(CP_1200~HW,CP_1200L~HW),$DIR(CP_BUDD_BL,CP_BUDD_B),CP_SCHINDLER_A(|L),			\
 	  CP_SCHINDLER_A[B:5,31,225,1,#FFFFFF];								\
 	F=DP5;
-# Faro 21.06.1990
-      C=2*(<CP_0400FL,CP_0400E);									\
+      TX=Porto (23.06.1990);										\
+	C=2*(<CP_0400FL,CP_0400E);									\
 	F=PU5;
-# Porto 23.06.1990
-      C=<CP_0600BFL,CP_0600B,CP_0600ABF;								\
+      TX=Porto (07.07.1990);										\
+	C=<CP_0600BFL,CP_0600B,CP_0600ABF;								\
 	F=PU5;
-# Porto 07.07.1990
       C=[MI:25]CP_1900(|L),4-5*(2-3*CP_GBKKS,3-5*CP_EALOS,1-3*CP_GS,0-7*CP_LIS);			\
 	F=DF5;
-#Packwagenbauart etwas anders (Klo auf L-Seite hinter Lok);
+#>>Packwagenbauart etwas anders (Klo auf L-Seite hinter Lok);
       TX=IR 872 x <- Fuzeta -> Lisbon (anno 1991);							\
-	C=$DIR(CP_1800,CP_1800L),$DIR(CP_SOREFAME_DL,CP_SOREFAME_D),$DIR(CP_BUDD_BL,CP_BUDD_B),		\
+	C=$DIR(CP_1800L,CP_1800),$DIR(CP_SOREFAME_D,CP_SOREFAME_DL),$DIR(CP_BUDD_B,CP_BUDD_BL),		\
 	  2*CP_SOREFAME_B(|L),CP_SOREFAME_A(|L);							\
 	F=DP5;
-      C=(<CP_2050AFL,CP_2050AM,CP_2050AE)|(<CP_2050AEL,CP_2050AML,CP_2050AF);				\
+      TX=Lisboa (06.03.1993);										\
+	C=(<CP_2050AFL,CP_2050AM,CP_2050AE)|(<CP_2050AEL,CP_2050AML,CP_2050AF);				\
 	F=EPU5;
-# Lisboa 06.03.1993
       C=CP_1520O,CP_SCHINDLER_A(|L),3*CP_SCHINDLER_B1(|L);						\
+	F=DP5;
+      TX=Palmela (27.03.1993);										\
+	C=$DIR(CP_1520O,CP_1520OL),4*CP_B600B(|L);							\
 	F=DP5;
       TX=Évora <-> Barreiro (06.1994);									\
 	C=$DIR(CP_1200~HW,CP_1200L~HW),$DIR(CP_POST1,CP_POST1L),CP_SOREFAME_A(|L),2*CP_SOREFAME_B(|L);	\
 	F=DP5;
-      C=CP_5_750;											\
+      TX=Entrocamento (06.1994);									\
+	C=CP_5_750;											\
 	F=PU5;
-# Entrocamento 06.1994
       TX=Faro <-> Barriero (16.08.1995);								\
 	C=CP_1930,$DIR(CP_CORAIL_BR,CP_CORAIL_BRL),3*CP_CORAIL_BL~HW|CP_CORAIL_B~HW;			\
 	F=DP5;
-      C=2*(<CP_2000BEL,CP_2080AML,CP_2000BF);								\
+ # Gegenrichtung ergänzt
+ TX=Lisboa (28.08.1995);										\
+	C=(2*(<CP_2000BEL,CP_2080AML,CP_2000BF))|(2*(>CP_2000BE,CP_2080AM,CP_2000BFL));								\
 	F=EPU5;
-# Lisboa 28.08.1995
-      C=$DIR(CP_1320,CP_1320L),8*(CP_SGS(1|2))[OB:C2R15,<8,13][OB:C2R15,>131,13];			\
+      TX=S. Tiago de Cacém (16.08.1995);								\
+	C=$DIR(CP_1320,CP_1320L),8*(CP_SGS(1|2))[OB:C2R15,<8,13][OB:C2R15,>131,13];			\
 	F=DF5;
-# Train to Souselas at S. Tiago de Cacém (16.08.1995)
-      C=<CP_5_2922L|CP_5_2922,$DIR(CP_1200L~HW,CP_1200~HW);						\
+      TX=Barreiro (16.09.1995);										\
+	C=<CP_5_2922L|CP_5_2922,$DIR(CP_1200L~HW,CP_1200~HW);						\
 	V=2;												\
 	F=DP5;
-# Barreiro 16.09.1995
-      C=CP_2501~HW,2*CP_EALOS,6*CP_TDGS1,$DIR(CP_1400L,CP_1400),6*CP_TDGS1,2*CP_HIS;			\
+      TX=Alfarelos (16.03.1996);									\
+	C=CP_2501~HW,2*CP_EALOS,6*CP_TDGS1,$DIR(CP_1400L,CP_1400),6*CP_TDGS1,2*CP_HIS;			\
 	F=F5;
-# Alfarelos 16.03.1996
-      C=CP_1400(|L),(<CP_SCHINDLER_AD,4*CP_SCHINDLER_B(1|2)(|L));					\
+# Gegenrichtung + Text ergänzt
+ TX=CP_1400;										\
+      C=CP_1400(|L),(<CP_SCHINDLER_AD,4*CP_SCHINDLER_B(1|2)(|L))|\
+	  (>CP_SCHINDLER_ADL,4*CP_SCHINDLER_B(1|2)(|L));					\
 	F=DP5;
       TX=Lisboa <-> Sintra (03.1996);									\
 	C=2*(<CP_2300CEL,CP_2300CB,CP_2300CBL,CP_2300CE);						\
 	F=EPU5;
-      C=2*(<CP_2080AEL,CP_2080AML,CP_2080AF)|(<CP_2080AFL,CP_2080AM,CP_2080AE);				\
+      TX=Porto São Bento (02.05.1997);									\
+	C=2*(<CP_2080AEL,CP_2080AML,CP_2080AF)|(<CP_2080AFL,CP_2080AM,CP_2080AE);			\
 	F=EPU5;
-# Porto São Bento (02.05.1997)
-      C=(<CP_0400FL,CP_0400E)|(<CP_0400EL,CP_0400F);							\
+      TX=Porto São Bento (02.05.1997);									\
+	C=(<CP_0400FL,CP_0400E)|(<CP_0400EL,CP_0400F);							\
 	F=PU5;
-# Porto São Bento (02.05.1997)
-      C=<CP_0300BL,CP_0300M;										\
+      TX=Coimbra (06.1997);										\
+	C=<CP_0300BL,CP_0300M;										\
 	F=PU5;
-# Coimbra 06.1997
       C=CP_1400(|L),14*CP_FACS;										\
 	F=DF5;
-      C=<CP_3201FEL,CP_3201ME,CP_3201M,CP_3201F;							\
+      TX=Lisbon-Santos (07.1997);									\
+	C=<CP_3201FEL,CP_3201ME,CP_3201M,CP_3201F;							\
 	F=EPU5;
-# Lisbon-Santos 07.1997
-      C=(<CP_2080AEL,CP_2080AML,CP_2080AF)|(<CP_2080AFL,CP_2080AM,CP_2080AE);				\
+      TX=Porto (05.07.1997);										\
+	C=(<CP_2080AEL,CP_2080AML,CP_2080AF)|(<CP_2080AFL,CP_2080AM,CP_2080AE);				\
 	F=EPU5;
-# Porto 05.07.1997
       C=<CP_3500EL,2*CP_3500M,CP_3500E;									\
 	F=EPU5;
       C=CP_LE5600A~HW,12*G_RGS1;									\
@@ -1429,70 +1694,70 @@ $REQUIRE JMD_DEF.TTT
       TX=Porto <-> Coimbra (08.1997);									\
 	C=<CP_2200F1L|CP_2200FL~HW,CP_2200EL~HW|CP_2200E~HW,CP_2200F1|CP_2200F~HW;			\
 	F=EPU5;
-      C=CP_0100MG(|L);											\
+      TX=Barreira (17.06.1998);										\
+	C=CP_0100MG(|L);										\
 	F=PU5;
-# Barreira (17.06.1998)
-      C=CP_1050L|CP_1050|CP_1100|CP_1104,1-2*CP_KBKKS1|CP_KBKKS2,CP_4_UGLM1022|CP_4_US9456L|CP_4_US9456; \
+      C=CP_1050(|L)|CP_1100|CP_1104,1-2*CP_KBKKS(1|2),CP_4_UGLM1022|CP_4_US9456(|L);			\
 	F=DF5;
-      C=<CP_3500EL,2*CP_3500M,CP_3500E;									\
+      TX=Test Run - Lisboa Campolide (03.08.1999);							\
+	C=<CP_3500EL,2*CP_3500M,CP_3500E;								\
 	F=EPU5;
-# Lisboa Campolide 03.08.1999 (Versuchsfahrt)
-      C=<CP_4000FL~ROS,CP_4000BL~ROS,CP_4000EL~ROS,CP_4000E~ROS,CP_4000B~ROS,CP_4000F~ROS;		\
+      TX=Porto (03.09.1999);										\
+	C=<CP_4000FL~ROS,CP_4000BL~ROS,CP_4000EL~ROS,CP_4000E~ROS,CP_4000B~ROS,CP_4000F~ROS;		\
 	F=EPU5;
-# Porto 03.09.1999
-      C=(<CP_0412FL,CP_0412E)|(<CP_0412EL,CP_0412F);							\
+      TX=Entrocamento (09.1999);									\
+	C=(<CP_0412FL,CP_0412E)|(<CP_0412EL,CP_0412F);							\
 	F=PU5;
-# Entrocamento 09.1999
       TX=Porto <-> Vigo (08.09.1999);									\
 	C=(<CP_0450FL,CP_0450E)|(<CP_0450EL,CP_0450F);							\
 	F=PU5;
-      C=<CP_0600BFL,CP_0600B,CP_0600ABF;								\
+      TX=Porto (08.09.1999);										\
+	C=<CP_0600BFL,CP_0600B,CP_0600ABF;								\
 	F=PU5;
-# Porto 08.09.1999
       C=CP_1400(|L),2*CP_SOREFAME_B(|L);								\
 	F=DP5;
-      C=<CP_2200F1L|CP_2200FL~HW,CP_2200E~HW|CP_2200EL~HW,CP_2200F1|CP_2200F~HW;			\
+      TX=Porto (23.10.1999);										\
+	C=<CP_2200F1L|CP_2200FL~HW,CP_2200E~HW|CP_2200EL~HW,CP_2200F1|CP_2200F~HW;			\
 	F=EPU5;
-# Porto 23.10.1999
       C=1-2*CP_0350R;											\
 	F=PU5;
-      C=<CP_0300BL,CP_0300M;										\
+      TX=Abrantes (12.1999);										\
+	C=<CP_0300BL,CP_0300M;										\
 	F=PU5;
-# Abrantes 12.1999
     }
     {E6?
       TX=Coimbra-B. <-> Figueira da Foz (28.12.2000);							\
 	C=(<CP_2050BEL,CP_2050BML,CP_2050BF)|(<CP_2050BFL,CP_2050BM,CP_2050BE);				\
 	F=EPU6;
-      C=<CP_4000FL~ROS,CP_4000BL~ROS,CP_4000EL~ROS,CP_4000E~ROS,CP_4000B~ROS,CP_4000F~ROS;		\
+      TX=Coimbra-B. (28.12.2000);									\
+	C=<CP_4000FL~ROS,CP_4000BL~ROS,CP_4000EL~ROS,CP_4000E~ROS,CP_4000B~ROS,CP_4000F~ROS;		\
 	F=EPU6;
-# Coimbra-B. 28.12.2000
-      M=BACK;												\
+      TX=Entrocamento (13.06.2001);									\
+	M=BACK;												\
 	C=CP_1150(|L),CP_SOREFAME_B(|L);								\
 	V=2;												\
 	F=DPO6;
-# Entrocamento 13.06.2001
-      C=2*CP_1900(|L),20*CP_ZAES;									\
+      TX=Pinhal Novo (06.2001);										\
+	C=2*CP_1900(|L),20*CP_ZAES;									\
 	F=DF6;
-# Pinhal Novo  06.2001
-      C=$DIR(CP_1400,CP_1400L),2*CP_SOREFAME_B(|L);							\
+      TX=Estombar-Lagoa (18.08.2001);									\
+	C=$DIR(CP_1400,CP_1400L),2*CP_SOREFAME_B(|L);							\
 	F=DP6;
-# Estombar-Lagoa 18.08.2001
-      C=$DIR(CP_1400,CP_1400L),2*CP_SOREFAME_B(|L),CP_SOREFAME_A(|L);					\
+      TX=Cacém (08.2001);										\
+	C=$DIR(CP_1400,CP_1400L),2*CP_SOREFAME_B(|L),CP_SOREFAME_A(|L);					\
 	F=DP6;
-# Cacém 08.2001
-      C=1-2*CP_1960(|L),16-25*M_457SGNS2|AAE_SGNNS1|G_SGNNS1|AAE_SGNNS|G_SGS3;				\
+      C=1-2*CP_1960(|L),16-25*M_457SGNS2|RF_RGS1|RF_RGS2|G_SGNGS6|G_SGNS22|G_SGGMRSS|G_SGGMRSS104(|L);	\
 	F=DF6;
-      C=(<CP_2050BEL,CP_2050BML,CP_2050BF)|(<CP_2050BFL,CP_2050BM,CP_2050BE);				\
+      TX=Entrocamento (13.02.2002);									\
+	C=(<CP_2050BEL,CP_2050BML,CP_2050BF)|(<CP_2050BFL,CP_2050BM,CP_2050BE);				\
 	F=EPU6;
-# Entrocamento 13.02.2002
-      C=CP_1150(|L),CP_0300B(|L);									\
+      TX=Entrocamento (13.02.2002);									\
+	C=CP_1150(|L),CP_0300B(|L);									\
 	V=2;												\
 	F=DPU6;
-# Entrocamento 13.02.2002
-      C=<CP_0600BFL,CP_0600B,CP_0600ABF;								\
+      TX=Palmela (27.02.2002);										\
+	C=<CP_0600BFL,CP_0600B,CP_0600ABF;								\
 	F=PU6;
-# Palmela 27.02.2002
       TX=Regional 6715 Casa Branca <-> Évora (anno 2002);						\
 	C=CP_1200(|L),CP_BUDD_B(|L);									\
 	F=DP6;
@@ -1502,80 +1767,80 @@ $REQUIRE JMD_DEF.TTT
       TX=Queluz <-> Rossio (04.2002);									\
 	C=<CP_2400EL,CP_2400BL,CP_2400B,CP_2400E;							\
 	F=EPU6;
-      C=<CP_3500EL,2*CP_3500M,CP_3500E;									\
+      TX=Queluz-Massama (04.2002);									\
+	C=<CP_3500EL,2*CP_3500M,CP_3500E;								\
 	F=EPU6;
-# Queluz-Massama (04.2002)
-      C=<CP_2300CEL,CP_2300CB,CP_2300CBL,CP_2300CE;							\
+      TX=Lisboa (05.2002);										\
+	C=<CP_2300CEL,CP_2300CB,CP_2300CBL,CP_2300CE;							\
 	F=EPU6;
-# Lisboa 05.2002
-      C=$DIR(CP_1424,CP_1424L),2*CP_SOREFAME_B(|L);							\
+      TX=Poncinho (anno 2002);										\
+	C=$DIR(CP_1424,CP_1424L),2*CP_SOREFAME_B(|L);							\
 	F=DP6;
-# Poncinho (anno 2002)
-      C=<CP_0600BFL,CP_0600B,CP_0600ABF;								\
+      TX=Barreiro (19.06.2002);										\
+	C=<CP_0600BFL,CP_0600B,CP_0600ABF;								\
 	F=PU6;
-# Barreiro 19.06.2002
-      C=CP_0100MR(|L);											\
+      TX=Barreiro-A (19.06.2002);									\
+	C=CP_0100MR(|L);										\
 	F=PU6;
-# Barreiro-A 19.06.2002
-      C=$DIR(CP_1200~HW,CP_1200L~HW),CP_SOREFAME_A(|L),2*CP_5_2922(|L),CP_POST1(|L);			\
+      TX=Olhão (anno 2002);										\
+	C=$DIR(CP_1200~HW,CP_1200L~HW),CP_SOREFAME_A(|L),2*CP_5_2922(|L),CP_POST1(|L);			\
 	F=DP6;
-# Olhão anno 2002
-      C=2*(<CP_2100FL,CP_2100EL|CP_2100E,CP_2100F);							\
+      TX=Entrocamento (07.2002);									\
+	C=2*(<CP_2100FL,CP_2100EL|CP_2100E,CP_2100F);							\
 	F=EPU6;
-# Entrocamento 07.2002
-      C=<FERT_3500EL,FERT_3500BL,FERT_3500B,FERT_3500E;							\
+      TX=Campolide (07.2002);										\
+	C=<FERT_3500EL,FERT_3500BL,FERT_3500B,FERT_3500E;						\
 	F=E6;
-# Campolide 07.2002
-      C=(<CP_2080AEL,CP_2080AM,CP_2080AF)|(<CP_2080AFL,CP_2080AML,CP_2080AE);				\
+      TX=Guarda (08.08.2003);										\
+	C=(<CP_2080AEL,CP_2080AM,CP_2080AF)|(<CP_2080AFL,CP_2080AML,CP_2080AE);				\
 	F=EPU6;
-# Guarda 08.08.2003
       TX=Beja <-> Vendas Novas (08.2002);								\
 	C=CP_0100MR(|L);										\
 	F=PU6;
-      C=<CP_0600BFL,CP_0600B,CP_0600ABF;								\
+      TX=Regua (08.2002);										\
+	C=<CP_0600BFL,CP_0600B,CP_0600ABF;								\
 	F=PU6;
-# Regua 08.2002
       TX=Guarda <-> Covilhã (03.2003);									\
 	C=CP_0300M(|L);											\
 	F=PU6;
-      C=$DIR(CP_1400,CP_1400L),$DIR(CP_SOREFAME_B,CP_SOREFAME_BL),3*CP_SOREFAME_B2(|L),			\
+      TX=Barreiro (26.03.2003);										\
+	C=$DIR(CP_1400,CP_1400L),$DIR(CP_SOREFAME_B,CP_SOREFAME_BL),3*CP_SOREFAME_B2(|L),		\
 	  CP_SOREFAME_A2(|L);										\
 	F=DP6;
-# Barreiro 26.03.2003
-      C=<CP_2200F1L|CP_2200FL~HW,CP_2200E~HW|CP_2200EL~HW,CP_2200F1|CP_2200F~HW;			\
+      TX=Figueira da Foz (29.03.2003);									\
+	C=<CP_2200F1L|CP_2200FL~HW,CP_2200E~HW|CP_2200EL~HW,CP_2200F1|CP_2200F~HW;			\
 	F=EPU6;
-# Figueira da Foz 29.03.2003
-      C=CP_0300M(|L);											\
+      TX=Leiria (27.04.2003);										\
+	C=CP_0300M(|L);											\
 	F=PU6;
-# Leiria 27.04.2003
       TX=Lagos <-> Faro (anno 2003);									\
 	C=CP_1400(|L),2*CP_BUDD_B(|L);									\
 	F=DP6;
-      C=<CP_SOREFAME_B(|L),$DIR(CP_1400,CP_1400L);							\
+      TX=Barreiro (10.06.2003);										\
+	C=<CP_SOREFAME_B(|L),$DIR(CP_1400,CP_1400L);							\
 	V=2;												\
 	F=DP6;
-# Barreiro 10.06.2003
-      C=$DIR(CP_1400L,CP_1400),CP_SOREFAME_A(|L),CP_SOREFAME_B2(|L),2*CP_SOREFAME_B(|L);		\
+      TX=Marco de Canaveses (05.08.2003);								\
+	C=$DIR(CP_1400L,CP_1400),CP_SOREFAME_A(|L),CP_SOREFAME_B2(|L),2*CP_SOREFAME_B(|L);		\
 	F=DP6;
-# Marco de Canaveses 05.08.2003
-      C=CP_0300MO(|L);											\
+      TX=S. Martinho do Porto (05.08.2003);								\
+	C=CP_0300MO(|L);										\
 	F=PU6;
-# S. Martinho do Porto 05.08.2003
-      C=<CP_2100FL,CP_2100EL|CP_2100E,CP_2100F;								\
+      TX=Entrocamento (07.08.2003);									\
+	C=<CP_2100FL,CP_2100EL|CP_2100E,CP_2100F;							\
 	F=EPU6;
-# Entrocamento 07.08.2003
-      C=(<CP_3150EL,CP_3150M,CP_3150F),(<CP_3250FEL,CP_3250M,CP_3250ME,CP_3250F);			\
+      TX=Cascais (14.08.2003);										\
+	C=(<CP_3150EL,CP_3150M,CP_3150F),(<CP_3250FEL,CP_3250M,CP_3250ME,CP_3250F);			\
 	F=EPU6;
-# Cascais 14.08.2003
-      C=$DIR(CP_1400,CP_1400L),CP_SOREFAME_B2(|L),CP_SOREFAME_B(|L);					\
+      TX=Lagos (20.08.2003);										\
+	C=$DIR(CP_1400,CP_1400L),CP_SOREFAME_B2(|L),CP_SOREFAME_B(|L);					\
 	F=DP6;
-# Lagos 20.08.2003
-      C=<CP_0600BFL,CP_0600B,CP_0600ABF;								\
+      TX=Faro (14.09.2003);										\
+	C=<CP_0600BFL,CP_0600B,CP_0600ABF;								\
 	F=PU6;
-# Faro 14.09.2003
-      C=$DIR(CP_1400L,CP_1400),16*CP_TDGS3;								\
+      TX=Ramalhal (03.10.2003);										\
+	C=$DIR(CP_1400L,CP_1400),16*CP_TDGS3;								\
 	F=DF6;
-# Ramalhal 03.10.2003
       TX=Vilar Formoso <-> Guarda (11.2003);								\
 	C=(<CP_2050AEL,CP_2050AM,CP_2050AF)|(<CP_2050AFL,CP_2050AML,CP_2050AE);				\
 	F=EPU6;
@@ -1589,24 +1854,24 @@ $REQUIRE JMD_DEF.TTT
 	F=PU6;
       C=CP_1400(|L),2*CP_CORAIL_BG(|L),CP_CORAIL_AG(|L),CP_GEN1(|L);					\
 	F=DP6;
-      C=CP_0350R;											\
+      TX=Bifurcação de Lares (18.04.2004);								\
+	C=CP_0350R;											\
 	F=PU6;
-# Bifurcação de Lares 18.04.2004
       C=CP_2600L~HW|CP_2600~HW,3*CP_CORAIL_BG(|L),CP_CORAIL_ARGL,CP_CORAIL_AGL;				\
 	F=EP6;
       TX="Alfa-Pendular" 101/121 Lisboa <-> Porto (22.04.2004);						\
 	C=<CP_4000FL~ROS,CP_4000BL~ROS,CP_4000EL~ROS,CP_4000E~ROS,CP_4000B~ROS,CP_4000F~ROS;		\
 	F=EPU6;
-      C=<CP_2200F1L|CP_2200FL~HW,CP_2200E~HW|CP_2200EL~HW,CP_2200F1|CP_2200F~HW;			\
+      TX=Coimbra-B. (22.04.2004);									\
+	C=<CP_2200F1L|CP_2200FL~HW,CP_2200E~HW|CP_2200EL~HW,CP_2200F1|CP_2200F~HW;			\
 	F=EPU6;
-# Coimbra 22.04.2004
       TX=IC 511 Lisboa <-> Coimbra (23.04.2004);							\
 	C=CP_2600L~HW|CP_2600~HW,3*CP_CORAIL_BG(|L),CP_CORAIL_AG(|L),3*CP_CORAIL_BG(|L);		\
 	F=EP6;
-      C=CP_2501~HW,12*RF_T3(|L);									\
+      TX=Coimbra-B. (22.04.2004);									\
+	C=CP_2501~HW,12*RF_T3(|L);									\
 	F=EF6;
-# Coimbra-B. 22.04.2004
-# should be CP Us
+# ^^ should be CP Us
       C=CP_2550B,3*CP_GBKKS,CP_HIS(1|2|3|4|5)(|L)|CP_HIKKS,15*CP_GBKKS,CP_HIS(1|2|3|4|5)(|L)|CP_HIKKS,	\
 	  CP_GBKKS;											\
 	F=EF6;
@@ -1623,64 +1888,63 @@ $REQUIRE JMD_DEF.TTT
       TX=IR Cacém <-> Figueira da Foz (19.08.2004);							\
 	C=(<CP_0450EL,CP_0450F)|(<CP_0450FL,CP_0450E);							\
 	F=PU6;
-      C=CP_1960L~HW|CP_1960~HW,										\
+      TX=Louriçal (19.08.2004);										\
+	C=CP_1960L~HW|CP_1960~HW,									\
 	  18*(RF_LGNSS(1|2|3)(|L))									\
-	  [OB:C4R_CMACGM2|C4R_HANJIN4|C4R_HAPAG1|C4R_HAPAG5|C4R_KLINE2|C4R_MITSUI1|C4R_MSC1|		\
-	  C4RH_TRITON,,12];										\
+	  [OB:C4R_CMACGM2|C4R_HANJIN4|C4R_HAPAG(1|5)|C4R_KLINE2|C4R_MITSUI1|C4R_MSC1|C4RH_TRITON,,12];	\
 	F=DF6;
-# Louriçal 19.08.2004
-      C=CP_2501~HW,8*CP_UACS_CIMPOR;									\
+      TX=Aveiro (22.02.2005);										\
+	C=CP_2501~HW,8*CP_UACS_CIMPOR;									\
 	F=EF6;
-# Aveiro 22.02.2005
-      C=CP_2600L~HW|CP_2600~HW,4*CP_SOREFAME_B(|L);							\
+      TX=Lousal (05.03.2005);										\
+	C=CP_2600L~HW|CP_2600~HW,4*CP_SOREFAME_B(|L);							\
 	F=EP6;
-# Lousal 05.03.2005
-      C=(<CP_2050BEL,CP_2050BML,CP_2050BF)|(<CP_2050BFL,CP_2050BM,CP_2050BE);				\
+      TX=Entrocamento (17.04.2005);									\
+	C=(<CP_2050BEL,CP_2050BML,CP_2050BF)|(<CP_2050BFL,CP_2050BM,CP_2050BE);				\
 	F=EPU6;
-# Entrocamento 17.04.2005
       TX=IC 585 Canal <-> Coveira (28.04.2005);								\
 	C=CP_2600L~HW|CP_2600~HW,CP_CORAIL_AL~HW|CP_CORAIL_A~HW,3*CP_CORAIL_BL~HW|CP_CORAIL_B~HW;	\
 	F=EP6;
-      C=<CP_0600BFL,CP_0600B,CP_0600ABF;								\
+      TX=Faro (28.04.2005);										\
+	C=<CP_0600BFL,CP_0600B,CP_0600ABF;								\
 	F=PU6;
-# Faro 28.04.2005
-      C=CP_2600L~HW|CP_2600~HW,CP_SOREFAME_A(|L),3*CP_SOREFAME_B(|L);					\
+      TX=IC 581 in Messines (28.04.2005);								\
+	C=CP_2600L~HW|CP_2600~HW,CP_SOREFAME_A(|L),3*CP_SOREFAME_B(|L);					\
 	F=EP6;
-# A should be A with Bar
-# IC 581 in Messines 28.04.2005
-      C=CP_1900(|L),2*CP_SOREFAME_B2(|L),CP_SOREFAME_A2(|L);						\
+# ^^ A should be A with Bar
+      TX=Pinal Novo (29.04.2005);									\
+	C=CP_1900(|L),2*CP_SOREFAME_B2(|L),CP_SOREFAME_A2(|L);						\
 	F=DP6;
-# Pinal Novo 29.04.2005
-      C=CP_LE5600A~HW[O:GR_01,6,10][O:GR_04,45,10][O:GR_05,76,4][O:GR_05,90,4][O:GR_05,103,4]		\
+      TX=Praïas do Sado (29.04.2005);									\
+	C=CP_LE5600A~HW[O:GR_01,6,10][O:GR_04,45,10][O:GR_05,76,4][O:GR_05,90,4][O:GR_05,103,4]		\
 	  [O:GR_03,123,10][O:GR_05,168,4],16*CP_EALOS;							\
 	F=EF6;
-# Praïas do Sado 29.04.2005
-      C=<CP_0600BFL,CP_0600B,CP_0600ABF;								\
+      TX=Praïas do Sado (29.04.2005);									\
+	C=<CP_0600BFL,CP_0600B,CP_0600ABF;								\
 	F=PU6;
-# Praïas do Sado 28.04.2005
       TX=Porto <-> Coimbra (18.06.2004);								\
 	C=<CP_2200F1L|CP_2200FL~HW,CP_2200EL~HW|CP_2200E~HW,CP_2200F1|CP_2200F~HW;			\
 	F=EPU6;
-      C=2*$DIR(CP_1550L,CP_1550),CP_TDGS3,								\
+      TX=Alcains (29.04.2005);										\
+	C=2*$DIR(CP_1550L,CP_1550),CP_TDGS3,								\
 	  CP_SGS2[OB:C2R_KLINE|C2R_MAERSK2|C2R_MOL1|C2R_MSC1|C2R_OOCL|C2R_OOCL3|C2R_PO2|C2R_PO5];	\
 	F=DF6;
-# Alcains 29.04.2005
-      C=CP_LE5600A~HW,12*CP_KBKKS1;									\
+      TX=Pampilhosa (18.05.2005);									\
+	C=CP_LE5600A~HW,12*CP_KBKKS1;									\
 	F=EF6;
-# Pampilhosa 18.08.2005
-      C=$DIR(CP_1400L,CP_1400),CP_GABS4;								\
+      TX=Pampilhosa (18.05.2005);									\
+	C=$DIR(CP_1400L,CP_1400),CP_GABS4;								\
 	F=DF6;
-# Pampilhosa 18.05.2005
       C=CP_2600L~HW|CP_2600~HW,CP_CORAIL_AG(|L),CP_CORAIL_BG(|L),CP_CORAIL_ARG(|L),			\
 	  4*CP_CORAIL_BL~HW|CP_CORAIL_B~HW|CP_CORAIL_BG(|L);						\
 	F=EP6;
-      C=2*(<CP_3500EL,2*CP_3500M,CP_3500E);								\
+      TX=Lisboa Santa Apolónia (25.05.2005);								\
+	C=2*(<CP_3500EL,2*CP_3500M,CP_3500E);								\
 	F=EPU6;
-# Lisboa Santa Apolónia (25.05.2005)
-      C=2*CP_2550B,30*CP_EALOS;										\
+      TX=Poceirão (09.09.2005);										\
+	C=2*CP_2550B,30*CP_EALOS;									\
 	F=EF6;
-# Poceirão 09.09.2005
-      TX=IR 840 Covilhã <-> Lisboa Santa Apolónia anno 2005;						\
+      TX=IR 840 Covilhã <-> Lisboa Santa Apolónia (anno 2005);						\
 	M=UNIT; D=L; V=4-5;										\
 	C1=CP_1900(|L),CP_SOREFAME_A2(|L),2*CP_SOREFAME_B(|L);						\
 	D1=L;												\
@@ -1688,10 +1952,10 @@ $REQUIRE JMD_DEF.TTT
 	D2=R; V2=2; P=*50; T2=1,C2.PD,2,W,C2.PBU,W,1; W=3E;						\
 	F=PO6;
       C=<FERT_3500EL,FERT_3500BL,FERT_3500B,FERT_3500E;							\
-	F=EF6;
-      C=CP_1930,CP_SOREFAME_A(|L),3*CP_SOREFAME_B(|L);							\
+	F=E6;
+      TX=Porto Campanhã (26.09.2005);									\
+	C=CP_1930,CP_SOREFAME_A(|L),3*CP_SOREFAME_B(|L);						\
 	F=DP6;
-# Porto Campanhã 26.09.2005
       TX=Figueira da Foz <-> Caldas da Raínha (26.11.2005);						\
 	C=(<CP_0450EL,CP_0450F)|(<CP_0450FL,CP_0450E);							\
 	F=PU6;
@@ -1701,32 +1965,33 @@ $REQUIRE JMD_DEF.TTT
       TX=Porto <-> Penafiel (02.04.2006);								\
 	C=2*CP_3400;											\
 	F=EPU6;
-      C=CP_2550B,CP_2501~HW,CP_SOREFAME_D,CP_DOURO2;							\
+      TX=Espinho (12.06.2006);										\
+	C=CP_2550B,CP_2501~HW,CP_SOREFAME_D,CP_DOURO2;							\
 	F=EP6;
-# Espinho 12.06.2006
-      C=$DIR(CP_1400L,CP_1400),2*CP_RS,2*CP_UACS_CIMPOR;						\
+      TX=Gaia (anno 2006);										\
+	C=$DIR(CP_1400L,CP_1400),2*CP_RS,2*CP_UACS_CIMPOR;						\
 	F=DF6;
-# Gaia anno 2006
-      C=$DIR(CP_1400L,CP_1400),$DIR(CP_1400,CP_1400L),$DIR(CP_1424,CP_1424L),				\
+      TX=Gaia (anno 2006);										\
+	C=$DIR(CP_1400L,CP_1400),$DIR(CP_1400,CP_1400L),$DIR(CP_1424,CP_1424L),				\
 	  $DIR(CP_1960~HW,CP_1960L~HW),12*CP_RS;							\
 	F=DF6;
-# Gaia anno 2006
       TX=Castro Verde <-> Almodovar (09.07.2006);							\
 	C=CP_0350R;											\
 	F=PU6;
       TX=Cais do Sodré <-> Oeiras (13.08.2006);								\
 	C=(<CP_3150EL,CP_3150M,CP_3150F),(<CP_3250FEL,CP_3250M,CP_3250ME,CP_3250F);			\
 	F=EPU6;
-      C=2*(<CP_2400EL,CP_2400BL,CP_2400B,CP_2400E);							\
+      TX=Bobadela (19.08.2006);										\
+	C=2*(<CP_2400EL,CP_2400BL,CP_2400B,CP_2400E);							\
 	F=EPU6;
-# Bobadela 19.08.2006
       TX=Meleças <-> Caldas da Raínha (26.09.2006);							\
 	C=(<CP_0450EL,CP_0450F)|(<CP_0450FL,CP_0450E);							\
 	F=PU6;
-      C=CP_LE5600A~HW,											\
-	  G_RGS1[O:C2R17|C2R15|C2R19|C2R20|C2R_HANJIN1|C2S_HANJIN2,<7,12]				\
-	  [O:C2R17|C2R15|C2R19|C2R20|C2R_HANJIN1|C2S_HANJIN2,*,12]					\
-	  [O:C2R17|C2R15|C2R19|C2R20|C2R_HANJIN1|C2S_HANJIN2,>192,12],					\
+      TX=Paialvo (20.09.2006);										\
+	C=CP_LE5600A~HW,										\
+	  RF_RGS1[OB:C2R17|C2R15|C2R19|C2R20|C2R_HANJIN1|C2S_HANJIN2,<7,12]				\
+	  [OB:C2R17|C2R15|C2R19|C2R20|C2R_HANJIN1|C2S_HANJIN2,*,12]					\
+	  [OB:C2R17|C2R15|C2R19|C2R20|C2R_HANJIN1|C2S_HANJIN2,>192,12],					\
 	  M_454SGS3[O:C2R17|C2R15|C2R19|C2R20|C2R_HANJIN1|C2S_HANJIN2,<7,12]				\
 	  [O:C2R17|C2R15|C2R19|C2R20|C2R_HANJIN1|C2S_HANJIN2,*,12]					\
 	  [O:C2R17|C2R15|C2R19|C2R20|C2R_HANJIN1|C2S_HANJIN2,>192,12],					\
@@ -1734,13 +1999,12 @@ $REQUIRE JMD_DEF.TTT
 	  [O:C2R17|C2R15|C2R19|C2R20|C2R_HANJIN1|C2S_HANJIN2,*,12]					\
 	  [O:C2R17|C2R15|C2R19|C2R20|C2R_HANJIN1|C2S_HANJIN2,>192,12],CP_HIS,CP_GABS4;			\
 	F=EF6;
-# Paialvo 20.09.2006
-      C=2*(<CP_2240FL,CP_2240E(|L),CP_2240F);								\
+      TX=Barquinha (01.10.2006);									\
+	C=2*(<CP_2240FL,CP_2240E(|L),CP_2240F);								\
 	F=EPU6;
-# Barquinha 01.10.2006
-      C=<CP_3500EL,2*CP_3500M,CP_3500E;									\
+      TX=Lisboa S.A. (21.11.2006);									\
+	C=<CP_3500EL,2*CP_3500M,CP_3500E;								\
 	F=EPU6;
-# Lisboa S.A. 21.11.2006
       TX=Regional Coimbra <-> Entrocamento (26.12.2006);						\
 	C=<CP_2240FL,CP_2240E(|L),CP_2240F;								\
 	F=EPU6;
@@ -1771,16 +2035,16 @@ $REQUIRE JMD_DEF.TTT
       TX=Castanheira do Ribatejo <-> Lisboa Alcântara-Terra (23.04.2007);				\
 	C=<CP_3500EL,2*CP_3500M,CP_3500E;								\
 	F=EPU6;
-      C=CP_2501~HW,14*CP_TDGS3;										\
+      TX=Santa Iria (07.05.2007);									\
+	C=CP_2501~HW,14*CP_TDGS3;									\
 	F=EF6;
-# Santa Iria 07.05.2007
       TX=IC Lisboa <-> Guarda (09.06.2007);								\
 	C=CP_2600L~HW|CP_2600~HW,3*CP_CORAIL_BG(|L),CP_CORAIL_AG(|L);					\
 	F=EP6;
-      C=$DIR(CP_1400,CP_1400L),6*RF_T3(|L);								\
+      TX=Riachos (15.06.2007);										\
+	C=$DIR(CP_1400,CP_1400L),6*RF_T3(|L);								\
 	F=DF6;
-# Riachos 15.06.2007
-# should be CP Us
+# ^^ should be CP Us
       TX=IC Lisboa <-> Covilhã (15.06.2007);								\
 	C=CP_2600L~HW|CP_2600~HW,CP_CORAIL_AG(|L),2*CP_CORAIL_BG(|L);					\
 	F=EP6;
@@ -1796,15 +2060,44 @@ $REQUIRE JMD_DEF.TTT
       TX=IC Faro <-> Lisboa (22.08.2007);								\
 	C=CP_2600L~HW|CP_2600~HW,3*CP_CORAIL_BL~HW|CP_CORAIL_B~HW,CP_CORAIL_AL~HW|CP_CORAIL_A~HW;	\
 	F=EP6;
-      C=CP_3400;											\
+      TX=Braga (13.09.2007);										\
+	C=CP_3400;											\
 	F=EPU6;
-# Braga 13.09.2007
       C=$DIR(CP_1550L,CP_1550),2*CP_SOREFAME_A2(|L),CP_SOREFAME_B2(|L),2*CP_SOREFAME_A2(|L);		\
 	F=DP6;
 # 06.10.2007
-      C=<CP_2240FL,CP_2240EL|CP_2240E,CP_2240F;								\
+      TX=Entroncamento (09.05.2008);									\
+	C=<CP_2240FL,CP_2240EL|CP_2240E,CP_2240F;							\
 	F=EPU6;
-# Entroncamento 09.05.2008
+      TX=Quintãs (28.09.2009);										\
+	C=2*CP_LE5600A~HW,12*CP_UACS_CIMPOR,8*SNCF_UACS_CALCIA(|L);					\
+	F=EF6;
+# ^^ last 8 should be RENFE, not SNCF.
+      TX=Entrocamento (17.10.2009);									\
+	C=$DIR(CP_1550L,CP_1550),$DIR(CP_1550,CP_1550L),20*CP_TDGS3;					\
+	F=DF6;
+      TX=Castelo Branco <-> Covilhã (02.03.2010);							\
+	C=CP_0350R;											\
+	F=DP6;
+      TX=Martincança <-> Praias do Sado (04.07.2011);							\
+	C=TAKP_6001(|L),18*RF_RGS1[O:C2RO_TRITON,8,13][O:C2RO_TRITON,>192,13];				\
+	F=DF6;
+      TX=Tren 47810 Tuy <-> Louriçal (20.06.2013);							\
+	C=CP_1900(|L),15*RF_EALOS2(|B|C);								\
+	F=DF6;
+      TX=Ourém (07.2013);										\
+	C=CP_LE5600A~HW,25*CP_HIS(1|2|3|4|5)(|L);							\
+	F=EF6;
+      TX=R 5911 Lagos <-> Faro (10.09.2013);								\
+	C=(<CP_0450FL,CP_0450E)|(<CP_0450EL,CP_0450F);							\
+	F=DP6;
+      TX=Real Madrid Special Train Madrid <-> Lisboa (24.05.2014);					\
+	C=CP_LE5600A~HW,(<RF_T4D_OPL,8*RF_T4B_OP,RF_TBR_OP,3*RF_T4A_OP,RF_T4BE_OP);			\
+	F=EP6;
+# ^^ should be LE5600 with yellow side and advertising.
+      TX=Santarém (06.2014);										\
+	C=CP_LE4701,CP_LE4701[PD],12*RF_T3(|L)[O:SAND1,30][O:SAND1,106,22];				\
+	F=EF6;
 
     }
   %ENDPOOL;

@@ -3,317 +3,480 @@ $REQUIRE ZSZ_DEF.TTT
 $REQUIRE BG_DEF.TTT
 $REQUIRE FIXTRAIN.TTT
 #
-#	RoW: different pathways, background elements
+# RoW: different pathways, background elements
 #
-$SECTION NAME=PRG_BGPATH; %SECFIN; SEQ=D; AB=30;
-  C=M_V43R,3:|1:DR_GBS1500G; TB=3,[SNOW:S=20;V=50;I=2.5;B=-5],12; TE=[STOP_SNOW:T=15],WS; W=3E;		\
+$SECTION 												\
+    NAME=PRG_BGPATH;											\
+    SEQ=D; AB=30; %SECFIN;
+  C=M_V43R,3:|1:DR_GBS1500G;										\
+    TB=3,[SNOW:S=20;V=50;I=2.5;B=-5],12; TE=[STOP_SNOW:T=15],WS; W=3E;					\
     BG=M_MHELY1;
-  $SCENE NAME=PRG_SSTOP1; DY=110;
-    $PATH Y=10; W=3E; LC=2; FG=PALE1E,30*PALE1,PALE1E:*50,-3;
-      M=STOP; D=R; C=BR420; V=10; A=.25; P=*50+10; TE=3-9;
-    $ENDPATH 
-    $PATH Y=10; W=X; LC=2; BG=MR_SBOX5:*50-300;								\
-      FG=PLF1EL,3*PLF1O,PLF1L,8*PLF1O,PLF1L,5*PLF1O,20*PLF11,						\
+  $SCENE 												\
+      NAME=PRG_SSTOP1;											\
+      DY=110;
+    $PATH Y=10; LC=2;											\
+	FG=PALE1E,30*PALE1,PALE1E:*50,-3;								\
+	W=3E;
+      M=STOP;												\
+	C=BR420;											\
+	D=R; V=10; A=.25; P=*50+10; TE=3-9;
+    $ENDPATH
+    $PATH Y=10; LC=2;											\
+	BG=MR_SBOX5:*50-300;										\
+	FG=PLF1EL,3*PLF1O,PLF1L,8*PLF1O,PLF1L,5*PLF1O,20*PLF11,						\
 	3*(PLF1C,5*PLF11,PLF1V1,5*PLF11,PLF1T,5*PLF11,PLF1V1,5*PLF11),PLF1C,20*PLF11,5*PLF1O,PLF1L,	\
-	8*PLF1O,PLF1L,3*PLF1O,PLF1E:*50,-3;
-      M=STOP; D=L; C=BR420; V=10; A=.25; P=*50-10; TB=3-9;
-    $ENDPATH 
-  $ENDSCENE 
-  $GROUP NAME=PRG_TUBE1;										\
-    BG=#LT_TUNB,LT_PLAT4,LT_PLAT1,6*(LT_PLAT4,LT_PLAT3,LT_PLAT4,LT_PLAT2),LT_PLAT4,LT_PLAT1,LT_PLAT4,	\
-      LT_TUNB;												\
-    FG=(#LT_TUNF:<0;LT_TUNF:>100); WIDTH=930;
-    M=STOP; D=L; C=LT_1972DR[!L],3*LT_1972TR,LT_1972DR; P=<0+45;
-    M=STOP; D=L; C=LT_1972D[!L],3*LT_1972T,LT_1972D; P=<0+45;
-    M=STOP; D=L; C=LT_1938D[!L],3*LT_1938T,LT_1938D; P=<0+45;
-  $ENDGROUP 
-  $GROUP NAME=PRG_CROSS1; LC=2; SEQ=D; AB=100; BL=50; W=3;						\
-    BG=(SKY02:..; BG_ASL:>50,-5; TREE2:21; TREE1:33; TREE2:41; TREE2:13; TREE1:7; TREE2:71; TREE1:83;	\
-      TREE2:81; TREE1:69; TREE1:77);									\
-    FG=(PALE1:..>15-1,-3; PALE1E:>15,-3; PALE1E,15*PALE1,PALE1E:<25,-3; BG_GRAS1:..,-7;BG_UT_F:>50,-5;	\
-      BG_UT_F:>50,-7; BG_UT_F:<50,-7; BG_AS:<50,-5; CROSS1:<20,-7; CROSSIG1L:>50-47; CROSSIG1L:<50+47;	\
-      PALE1E:<50+50,-9; PALE3:<50+51..90,-1; TREE2:57,-3; TREE1:73,-7; TREE2:87,-6; TREE1:95,-3;	\
-      TREE1:64,-4);											\
-    TB=5,STOP,2,LE,5; TE=GO,5; WP=(45,<TE:FEL;55,>TE:FEL);
-    D=L; C=M_M61020,M_9907A,M_BY_AL,M_BY_C,M_BY_BL,M_1905A,M_BY_B,M_BHV_K;
-    D=L;												\
-      C=M_M62C,												\
+	8*PLF1O,PLF1L,3*PLF1O,PLF1E:*50,-3;								\
+	W=X;
+      M=STOP;												\
+	C=BR420;											\
+	D=L; V=10; A=.25; P=*50-10; TB=3-9;
+    $ENDPATH
+  $ENDSCENE
+  $GROUP 												\
+      NAME=PRG_TUBE1;											\
+      BG=#LT_TUNB,LT_PLAT4,LT_PLAT1,6*(LT_PLAT4,LT_PLAT3,LT_PLAT4,LT_PLAT2),LT_PLAT4,LT_PLAT1,		\
+      LT_PLAT4,LT_TUNB;											\
+      FG=(#LT_TUNF:<0;LT_TUNF:>100);									\
+      WIDTH=930;
+    M=STOP;												\
+      C=LT_1972DR[!L],3*LT_1972TR,LT_1972DR;								\
+      D=L; P=<0+45;
+    M=STOP;												\
+      C=LT_1972D[!L],3*LT_1972T,LT_1972D;								\
+      D=L; P=<0+45;
+    M=STOP;												\
+      C=LT_1938D[!L],3*LT_1938T,LT_1938D;								\
+      D=L; P=<0+45;
+  $ENDGROUP
+  $GROUP 												\
+      NAME=PRG_CROSS1;											\
+      LC=2; SEQ=D; AB=100; BL=50; W=3;									\
+      BG=(SKY02:..; BG_ASL:>50,-5; TREE2:21; TREE1:33; TREE2:41; TREE2:13; TREE1:7; TREE2:71;		\
+      TREE1:83; TREE2:81; TREE1:69; TREE1:77);								\
+      FG=(PALE1:..>15-1,-3; PALE1E:>15,-3; PALE1E,15*PALE1,PALE1E:<25,-3; BG_GRAS1:..,-7;		\
+      BG_UT_F:>50,-5; BG_UT_F:>50,-7; BG_UT_F:<50,-7; BG_AS:<50,-5; CROSS1:<20,-7; CROSSIG1L:>50-47;	\
+      CROSSIG1L:<50+47; PALE1E:<50+50,-9; PALE3:<50+51..90,-1; TREE2:57,-3; TREE1:73,-7; TREE2:87,-6;	\
+      TREE1:95,-3; TREE1:64,-4);									\
+      WP=(45,<TE:FEL;55,>TE:FEL);									\
+      TB=5,STOP,2,LE,5;											\
+      TE=GO,5;
+    C=M_M61020,M_9907A,M_BY_AL,M_BY_C,M_BY_BL,M_1905A,M_BY_B,M_BHV_K;					\
+      D=L;
+    C=M_M62C,												\
 	7-12*(M_148GGS2|M_157GBGS2|OBB_GBS151W|HENKEL04|M_216HEKS4|M_216HEKS1|FS_FF|M_GZKKL|VR_GBLK3|	\
-	DR_GBS1500F|DR_GBS1500G|DR_GLMMOS);
-  $ENDGROUP 
-  C=[MI:10]BR_N1BE,40*BRCOAL; BG=(SKY02:..;HBR_HEADWKS,HBR_HEADCP:<0+20;HBR_HEADB:>100); AB=100;
-  C=[MI:10]BR_N1BE,40*BROTANK; BG=SKY02:..; FG=SCENERY1:..,-48,#,SCENERY1L,SCENERY1R; AB=80; BL=60;
-  $GROUP AB=450; BL=30; BG=(BDWH/HL_133A.JPG:,,<,20;TRBED7:..,^0); DX=1852;
+	DR_GBS1500F|DR_GBS1500G|DR_GLMMOS);								\
+      D=L;
+  $ENDGROUP
+  C=[MI:10]BR_N1BE,40*BRCOAL;										\
+    BG=(SKY02:..;HBR_HEADWKS,HBR_HEADCP:<0+20;HBR_HEADB:>100);						\
+    AB=100;
+  C=[MI:10]BR_N1BE,40*BROTANK;										\
+    BG=SKY02:..;											\
+    FG=SCENERY1:..,-48,#,SCENERY1L,SCENERY1R;								\
+    AB=80;												\
+    BL=60;
+  $GROUP DX=1852; AB=450; BL=30;									\
+      BG=(BDWH_HL_133A:,,<,20;TRBED7:..,^0);
     C=SNCB_51_E3,SNCB_2048A_SM,SNCB_2048AL2_SM,SNCB_2048A1L,SNCB_2048A2;
-  $ENDGROUP 
-  M=SIMPLE; D=L; C=M_335A,M_108208L,M_4743,M_1565L,M_1574L,M_1574,M_4744L; BG=CABLE5:..;
+  $ENDGROUP
+  M=SIMPLE;												\
+    C=M_335A,M_108208L,M_4743,M_1565L,M_1574L,M_1574,M_4744L;						\
+    D=L;												\
+    BG=CABLE5:..;
   C=BR_09(BA|BB|G)|BR_11(B|BK|G)|BR_12(|BK|G|GB),2-8*BR_KQA(01|02|03|04|05|06|07|08|09|10);		\
     BG=(SKY01:..;											\
-      |FACT_02,FACT_03,|FACT_04,|FACT_05,FACT_06,0-15*FACT_07,FACT_08,0-15*FACT_09, FACT_10,		\
+      |FACT_02,FACT_03,|FACT_04,|FACT_05,FACT_06,0-15*FACT_07,FACT_08,0-15*FACT_09,FACT_10,		\
       0-10*FACT_11,FACT_12,|FACT_13,0-3*FACT_14,0-2*FACT_15,FACT_16:..,,#,FACT_01,FACT_18);		\
     AB=300;
-  M=STOP; D=L; C=PRR_GG1S1,PRR_B60B,PRR_02,PRR_P70C,PRR_P70BL,PRR_P70FAR,PRR_P70FBRA; P=<5;		\
-    T=2,PD,5,PDU,W,2; VH=70;
+  M=STOP;												\
+    C=PRR_GG1S1,PRR_B60B,PRR_02,PRR_P70C,PRR_P70BL,PRR_P70FAR,PRR_P70FBRA;				\
+    D=L; P=<5; T=2,PD,5,PDU,W,2; VH=70;
   C=FAVS,FAVPOT;
-  C=M_C50A,M_C50K; V=3; W=P;
-  C=BR212(A|B|R|_BB|VR)(|L),BAU_MCI,DB_BAUG,BAUB3Y,BAUAB3Y,BAUBD3Y; W=0;
-  M=STOP; C=ABNYMOT_2,ABNYMOT_2A; W=2;
-  C=ICE_V1; W=5E;
-  C=SEV; V=0.4;
-  C=M28Z,3*M_RES_1; W=G_48020_03;
-  C=SKL; W=Q;
-  M=BACK; C=DBG_SKL26; W=K;
-  C=M31,3*PFT1,M_PLATOV; W=r;
-  C=<BVG_475FL,BVG_475,BVG_475ML,BVG_475M,BVG_475L,BVG_475F; W=2M;
-  C=<TR08L,TR08_M,TR08; BL=50;
-  M=FOLLOW; D=R; C=(PKW002;VB_3;TRK05;O405NG_SCHLIENZ;KAMION25,KAM25POT); W=a;
-  M=FOLLOW; D=L; C=(KAMION24;IK280TL;KAMION32;ZIU5L); W=t;
+  C=M_C50A,M_C50K;											\
+    V=3; W=P;
+  C=BR212(A|B|R|_BB|VR)(|L),BAU_MCI,DB_BAUG,BAUB3Y,BAUAB3Y,BAUBD3Y;					\
+    W=0;
+  M=STOP;												\
+    C=ABNYMOT_2,ABNYMOT_2A;										\
+    W=2;
+  C=ICE_V1;												\
+    W=5E;
+  C=SEV;												\
+    V=0.4;
+  C=M28Z,3*M_RES_1;											\
+    W=G_48020_03;
+  C=SKL;												\
+    W=Q;
+  M=BACK;												\
+    C=DBG_SKL26;											\
+    W=K;
+  C=M31,3*PFT1,M_PLATOV;										\
+    W=r;
+  C=<BVG_475FL,BVG_475,BVG_475ML,BVG_475M,BVG_475L,BVG_475F;						\
+    W=2M;
+  C=<TR08L,TR08_M,TR08;											\
+    BL=50;
+  M=FOLLOW;												\
+    C=(PKW002;VB_3;TRK05;O405NG_SCHLIENZ;KAMION25,KAM25POT);						\
+    D=R; W=a;
+  M=FOLLOW;												\
+    C=(KAMION24;IK280TL;KAMION32;ZIU5L);								\
+    D=L; W=t;
   C=SH100V|SH100X|SH200F|SH200RN|SH300A|SH400A|SH200_400|SH500K|SH700|SHE1|SHE2|SHE2J|SHE2_10J;
-  M=BACK; C=<M_HARL,M_HARABL,M_HARAB,M_HAR; V=5;
-  M=CUT; D=R; C1=<ABMOT,MBY; C2=>BBMOT,MBYL; D1=L; D2=R; P=*50;
-  M=CUT; D=R; C1=AAMOT; C2=AAMOT; D1=L; D2=L; P=<10;
-  M=CUT; D=R; C1=ABYMOT; C2=<ABYX,BCYX,BCMOT; D1=R; D2=R; P=>90;
-  M=CHANGE; D=L; C=WRMOZ,3*BMOZ,AMOZ; C1=M_V63; C2=OBB_1012; P=<10; W=3E;
-  M=CHANGE; D=R; C=BAM5400,AAM5400,BAM5400L; C1=M_M41F; C2=M_M41F,BAM5400L; P=70;
-  M=CHANGE; D=R; C=GY_2067B,GY_1067B,GY_2067BL,GY_2067B; V=8; C1=M_V63,M_2057A,M_3957AL; C2=GY_V43Z;	\
-    V1=2; V2=3; V3=6; P=>105; W=3E;
-  M=STOP; D=L; C=BR218CB,BN_CB,ABN_CB,BN_CB,BDNF_CB; P=10;
-  M=STOP; D=R; C=RFZAR; P=60;
-  M=UNIT; D=R; C1=BZMOT0,BZX1,BDZX; C2=BZMOT1; D1=R; D2=R; P=*40; T1=1,C1.OPEN; T2=1,OPEN,6,CLOSE,W,1;
-  M=UNIT; D=L; C1=M_BVMOTAL,M_1076A,M_2176A,M_8076A; C2=M_8076AL,M_2176AL,M_1076AL,M_BVMOTA; D1=L; D2=L; \
-    P=*50; T1=C1.OPEN,5; T2=C2.OPEN,5,CLOSE;
-  M=UNIT; D=R; C1=RF500; C2=RF500; D1=R; D2=L; P=*40;
-$ENDSECTION 
+  M=BACK;												\
+    C=<M_HARL,M_HARABL,M_HARAB,M_HAR;									\
+    V=5;
+  M=CUT; D=R;												\
+    C1=<ABMOT,MBY;											\
+    D1=L;												\
+    C2=>BBMOT,MBYL;											\
+    D2=R; P=*50;
+  M=CUT; D=R;												\
+    C1=AAMOT;												\
+    D1=L;												\
+    C2=AAMOT;												\
+    D2=L; P=<10;
+  M=CUT; D=R;												\
+    C1=ABYMOT;												\
+    D1=R;												\
+    C2=<ABYX,BCYX,BCMOT;										\
+    D2=R; P=>90;
+  M=CHANGE;												\
+    C=WRMOZ,3*BMOZ,AMOZ;										\
+    D=L;												\
+    C1=M_V63;												\
+    C2=OBB_1012;											\
+    P=<10; W=3E;
+  M=CHANGE;												\
+    C=BAM5400,AAM5400,BAM5400L;										\
+    D=R;												\
+    C1=M_M41F;												\
+    C2=M_M41F,BAM5400L;											\
+    P=70;
+  M=CHANGE;												\
+    C=GY_2067B,GY_1067B,GY_2067BL,GY_2067B;								\
+    D=R; V=8;												\
+    C1=M_V63,M_2057A,M_3957AL;										\
+    V1=2;												\
+    C2=GY_V43Z;												\
+    V2=3; V3=6; P=>105; W=3E;
+  M=STOP;												\
+    C=BR218CB,BN_CB,ABN_CB,BN_CB,BDNF_CB;								\
+    D=L; P=10;
+  M=STOP;												\
+    C=RFZAR;												\
+    D=R; P=60;
+  M=UNIT; D=R;												\
+    C1=BZMOT0,BZX1,BDZX;										\
+    D1=R;												\
+    C2=BZMOT1;												\
+    D2=R; P=*40; T1=1,C1.OPEN; T2=1,OPEN,6,CLOSE,W,1;
+  M=UNIT; D=L;												\
+    C1=M_BVMOTAL,M_1076A,M_2176A,M_8076A;								\
+    D1=L;												\
+    C2=M_8076AL,M_2176AL,M_1076AL,M_BVMOTA;								\
+    D2=L; P=*50; T1=C1.OPEN,5; T2=C2.OPEN,5,CLOSE;
+  M=UNIT; D=R;												\
+    C1=RF500;												\
+    D1=R;												\
+    C2=RF500;												\
+    D2=L; P=*40;
+$ENDSECTION
 #--------------------------------------------------------------------------
 #
-#	Vehicle animations
+# Vehicle animations
 #
-$SECTION NAME=PRG_VEHANIM; %SECFIN; SEQ=D; AB=30;
-  M=OPEN; D=R; C=UVCS;
-  M=OPEN; C=BZMOT0,BZX1,BDZX;
-  C=CSABA; V=0.3;
-  C=UNIMOG_SNOW2; V=0.6; TG=SNOW1:..; TBGBEFORE;
-  C=M_KIAG632; V=0.35;
-  M=STOP; D=L; C=OBB1014~ZS[P4U],M_1071A,M_7191A,M_2071AL,M_2071A,M_2070A,M_20911A; T=2,PD,5,PRU,W,2;
-  M=OPEN; C=<TVL,TVP,TV;
-  M=OPEN; C=BZMOT1,2*BZX2;
-  M=OPEN; C=<SNCF_5100,SNCF_25100,SNCF_15100;
-  M=UNIT; D=R; C1=SBB_HBBILLS_UY_MIGROSL,DB_HBIS299A,SBB_HBBILLS_UYL; C2=CSD_T211_0; D1=L; V1=2; B1=.005; \
+$SECTION 												\
+    NAME=PRG_VEHANIM;											\
+    SEQ=D; AB=30; %SECFIN;
+  M=OPEN;												\
+    C=UVCS;												\
+    D=R;
+  M=OPEN;												\
+    C=BZMOT0,BZX1,BDZX;
+  C=CSABA;												\
+    V=0.3;
+  C=UNIMOG_SNOW2;											\
+    V=0.6;												\
+    TG=SNOW1:..;											\
+    TBGBEFORE;
+  C=M_KIAG632;												\
+    V=0.35;
+  M=STOP;												\
+    C=OBB1014~ZS[P4U],M_1071A,M_7191A,M_2071AL,M_2071A,M_2070A,M_20911A;				\
+    D=L; T=2,PD,5,PRU,W,2;
+  M=OPEN;												\
+    C=<TVL,TVP,TV;
+  M=OPEN;												\
+    C=BZMOT1,2*BZX2;
+  M=OPEN;												\
+    C=<SNCF_5100,SNCF_25100,SNCF_15100;
+  M=UNIT; D=R;												\
+    C1=SBB_HBBILLS_UY_MIGROSL,DB_HBIS299A,SBB_HBBILLS_UYL;						\
+    D1=L; V1=2; B1=.005;										\
+    C2=CSD_T211_0;											\
     D2=L; P=*60; T2=1;
-  M=OPEN; C=BZMOT3,BZMOT4;
-  C=SCHIEBE[V:DR_132_105F|DB_232_454|DR_156_001F|FS_ALN668_1406F|SNFT_ALN668_122F|SV_ADN602F|FVV_F3040F| \
-      BKV_SGPF|BKV_M3F|BKV_M5F];									\
+  M=OPEN;												\
+    C=BZMOT3,BZMOT4;
+  C=SCHIEBE[V:DR_132_105F|DB_232_454|DR_156_001F|FS_ALN668_1406F|SNFT_ALN668_122F|SV_ADN602F|		\
+      FVV_F3040F|BKV_SGPF|BKV_M3F|BKV_M5F];								\
     V=0.5; TB=OFF,1,C.1.1.ON,1,C.1.2.ON,1,C.1.3.ON,1,C.1.4.ON;
-  C=GB_C56_XROTM100; V=1; TB=[SNOW:S=20;V=40;I=3.5;B=-5],10,[GROW:FROM=0;UNTIL=10;TIME=25],30;		\
-    TE=STOP_SNOW,WS; XG=SNOW1:..; AP=BG_WINTER; AB=70;
-  M=BACK; D=R; C=<M_V43F,3*M_BHV_F1,M_BDT4A; V=5; P=99; T=OPEN,W,2,PD,W,5,PRU,W,2,CLOSE;
-  M=OPEN; C=<UV2YL,FP,UV2Y;
-  M=BACK; D=R; C=BDVMOT2; V=6; P=99; T=[R:A=OPEN;P=50%;D=0-5],W,2,PD,W,5,PRU,W,2,CLOSE;
-  M=OPEN; C=<SNCF_Z5600PL,SNCF_ZR2NAB,SNCF_ZR2NB,SNCF_Z8800;
-  M=OPEN; D=L; C=TMUL;
-  M=OPEN; D=L; C=BVHMOT; V=8; P=2;
-  M=OPEN; D=R; C=TMU;
-  C=GB_C56_XROTM100; V=1; TB=[SNOW:S=20;V=40;I=3.5;B=-5],10,[GROW:FROM=0;UNTIL=10;TIME=25],30;		\
-    TE=STOP_SNOW,WS; XG=SNOW1:..; AB=70;
-  M=STOP; D=R; C=OBB1116,4*OBB_BS1,AMOZ; T=2,PD,5,P3U,W,1;
-  M=BACK; D=L; C=M_V43F,M_BHV_F2L,M_BHV_F2,M_BDT3B; V=5; P=2; T=OPEN,W,2,PD,W,5,PLU,W,2,CLOSE; BKV_M5F;
-  M=OPEN; D=L; C=MUVL;
-  M=OPEN; D=R; C=MUV;
-  M=BACK; D=L; C=MAN_KIPPER3[!B]; P=<80-100; T=2,FILL,W,2; BG=DW1500:>80-65;
-$ENDSECTION 
+  C=GB_C56_XROTM100;											\
+    V=1; TB=[SNOW:S=20;V=40;I=3.5;B=-5],10,[GROW:FROM=0;UNTIL=10;TIME=25],30; TE=STOP_SNOW,WS;		\
+    XG=SNOW1:..;											\
+    AP=BG_WINTER;											\
+    AB=70;
+  M=BACK;												\
+    C=<M_V43F,3*M_BHV_F1,M_BDT4A;									\
+    D=R; V=5; P=99; T=OPEN,W,2,PD,W,5,PRU,W,2,CLOSE;
+  M=OPEN;												\
+    C=<UV2YL,FP,UV2Y;
+  M=BACK;												\
+    C=BDVMOT2;												\
+    D=R; V=6; P=99; T=[R:A=OPEN;P=50%;D=0-5],W,2,PD,W,5,PRU,W,2,CLOSE;
+  M=OPEN;												\
+    C=<SNCF_Z5600PL,SNCF_ZR2NAB,SNCF_ZR2NB,SNCF_Z8800;
+  M=OPEN;												\
+    C=TMUL;												\
+    D=L;
+  M=OPEN;												\
+    C=BVHMOT;												\
+    D=L; V=8; P=2;
+  M=OPEN;												\
+    C=TMU;												\
+    D=R;
+  C=GB_C56_XROTM100;											\
+    V=1; TB=[SNOW:S=20;V=40;I=3.5;B=-5],10,[GROW:FROM=0;UNTIL=10;TIME=25],30; TE=STOP_SNOW,WS;		\
+    XG=SNOW1:..;											\
+    AB=70;
+  M=STOP;												\
+    C=OBB1116,4*OBB_BS1,AMOZ;										\
+    D=R; T=2,PD,5,P3U,W,1;
+  M=BACK;												\
+    C=M_V43F,M_BHV_F2L,M_BHV_F2,M_BDT3B;								\
+    D=L; V=5; P=2; T=OPEN,W,2,PD,W,5,PLU,W,2,CLOSE; BKV_M5F;
+  M=OPEN;												\
+    C=MUVL;												\
+    D=L;
+  M=OPEN;												\
+    C=MUV;												\
+    D=R;
+  M=BACK;												\
+    C=MAN_KIPPER3[!B];											\
+    D=L; P=<80-100; T=2,FILL,W,2;									\
+    BG=DW1500:>80-65;
+$ENDSECTION
 #--------------------------------------------------------------------------
 #
-#	Movements
+# Movements
 #
-$SECTION NAME=PRG_MOV; AB=30; %SECFIN; SEQ=D; %TITLE(Movements)
+$SECTION 												\
+    NAME=PRG_MOV;											\
+    SEQ=D; AB=30; %SECFIN;%TITLE(Movements);
 
-M=SIMPLE; TX="M=SIMPLE;";		\
-	D=R;				\
-	C=M_V43R;			\
-	BG=M_VEZ,M_RFL,M_VD,M_RFR,M_VEZ,M_V,M_VEZ:..;	\
-	WP=(15,TB:PD;60,TB:PBU);		
-M=STOP; TX="M=STOP;";			\
-	D=L;				\
-	C=CD_162_039,CD_BT,CD_AEE1L,CD_2036A,CD_Y5WLABM,CD_POSTW;	\
-	P=20;				\
-	T=4,PU,W,1;			\
-	WP=(10,TB:(PD,PBU));		
-M=UNIT; TX="M=UNIT;";			\
-	AB=40;				\
-	FG=FL_SNCFC_F,FL_SNCFC_M1:..,-4;W=3E;V=14;D1=R;D2=L;D=R;P=>50;\
-	C1=BB67440|BB67301,F1AD,3*F1B,2*F1A,F1AB;	\
-	C2=[PBU]SNCF_CC7100;			\
-	T2=1,C2.PD,2,C2.PU,W,1,C2.PD,C2.PBU;
-M=FOLLOW; TX="M=FOLLOW;";		\
-	D=L;				\
-	C=(M_109;M_201Z;M_203;M_222;M_242Z;M_275;M_301;M_303;M_335Z;M_375;M_377;M_411;M_424;	\
-	M_424A;M_424C;M_520;M_601;M40D,M_377[!C],M_411S;M28N,M_520A[!C][R];M28Z,M_601A[R],M_601C[M]);
-M=CUT; TX="M=CUT;";											\
-	AP=	([C1=<ABMOT,MBY][C2=>BBMOT,MBYL][P=*50][D=R][D1=L][D2=R])|	\
-		([C1=AAMOT][C2=AAMOT][P=<10][D=R][D1=L][D2=L])|		\
-		([C1=ABYMOT][C2=<ABYX,BCYX,BCMOT][P=>90][D=R][D1=R][D2=R]);
-M=CUT2; TX="M=CUT2;";          															\
-	C1=KVB_4000(|[!L]);																	\
-	C2=(3:KVB_4000|1:KVB_4100_125)(|[!L]);												\
-	T2C=1,CL.C>,W,1,CR.C<,W,1;T1C=(1,CR.C<:BW,W,1)|(1,CL.C>:BW,W,1);
-M=PUSH; TX="M=PUSH;";			\
-	D=R;				\
-	C=M_BHT0,M_BHV_P,M_BHV_G,M_BHV_HL;\
-	C1=M_M44F;			\
-	C2=M_V43F;			\
-	P=@*20;				\
-	T3=1,PD,4,PBU,W,2;
-M=PUSH;	TX="M=PUSH;";			\
-	D=L;				\
-	C=M_BHT0L,M_BHV_P,M_BHV_G,M_BHV_HL;	\
-	C1=M_M44F;			\
-	C2=M_V43F;			\
-	P=@*20;				\
-	T3=1,PD,4,PBU,W,2;
-M=HEAD;	TX="M=HEAD;";			\
-	D=R;				\
-	C1=M_V43R;			\
-	C=M_2080B,M_3980BL,M_2080B;	\
-	C2=M_V43K;			\
-	P=@-0+200;			\
-	T1=2,C1.PD,3;			\
-	T2=1,PD,5,C2.PBU,2;		\
-	T3=PBU,W,2;			
-M=HEAD; TX="M=HEAD;";			\
-	D=L;				\
-	C1=M_V43R;			\
-	C=M_2080B,M_3980BL,M_2080B;	\
-	C2=M_V43K;			\
-	P=@-0+200;			\
-	T1=2,C1.PD,3;			\
-	T2=1,PD,5,C2.PBU,2;		\
-	T3=PBU,W,2;			
-M=CHANGE; TX="M=CHANGE;";		\
-	D=R;				\
-	W=3E;				\
-	C=M_2067C,M_19913AL;		\
-	C1=OBB1014;			\
-	C2=M_V43A;			\
-	T1=2,PD,W,3,PBU,W,1;		\
-	T3=1,PD,W,3,PBU,W,3;		\
-	P=100-200;
-M=CHANGE; TX="M=CHANGE;";		\
-	D=L;				\
-	W=3E;				\
-	C=M_2067C,M_19913AL;		\
-	C1=OBB1014;			\
-	C2=M_V43A;			\
-	T1=2,PD,W,3,PBU,W,1;		\
-	T3=1,PD,W,3,PBU,W,3;		\
-	P=0+200;
-M=ECHG;	TX="M=ECHG;";			\
-	D=L;				\
-	C=SBB_EW2N_D,SBB_EW2N_A,SBB_EW2N_ABL,SBB_EW2N_B;	\
-	C1=SBB_RE442_LEBOURRETZL;		\
-	C2=SBB_EM33;			\
-	C3=SBB_AE36_2;			\
-	P=15;				\
-	WP=@+20,TB:C1.PD;		\
-	T1=2;				\
-	T2=3;				\
-	T4=1,PD,4,PBU,W,2;
-M=ECHG; TX="M-ECHG;";			\
-	D=R;				\
-	C=SBB_EW2N_D,SBB_EW2N_A,SBB_EW2N_ABL,SBB_EW2N_B;	\
-	C1=SBB_RE442_LEBOURRETZL;		\
-	C2=SBB_EM33;			\
-	C3=SBB_AE36_2;			\
-	P=85;				\
-	WP=@+20,TB:C1.PD;		\
-	T1=2;				\
-	T2=3;				\
-	T4=1,PD,4,PBU,W,2;
-M=BACK;	TX="M=BACK;";									\
-	C=<OBB_4030_100L,OBB_7030_100,OBB_6030_100;					\
-	T=2,PD,5,PBU,W,1;								\
-	BG=M_VEZ,M_BKR[M],M_VEZ,M_BD,M_VEZ,M_BKR,M_VEZ,M_B,M_VEZ:..,,0-200;
-M=STOP;	TX=    [N=Blue light on the car remains on when the car stops;			\
-		G=Blaulicht bleibt an wenn der Fahrzeug anhält;				\
-		H=A kék fény tovább villog, amikor az autó megáll;];			\
-	D=L;										\
-	C=POL_VW_T4[A:FLASH,FLASH1,16,20];
-M=STOP;					\
-	C=2:BR420O5|1:(<BR420OFL,BR420OABL, BR420OF)|2:(<BR420SL,BR421S,BR420S)|ET420_USAIR|ET420_MV|ET420_KICKER|ET420_LOTTO|BR420_COKE|BR420_TD1;\
-	FG=PLF1EL,3*PLF1O,PLF1L,8*PLF1O,PLF1L,5*PLF1O,20*PLF11,3*(PLF1C,5*PLF11,PLF1V1,5*PLF11,PLF1T,5*PLF11,PLF1V1,5*PLF11),PLF1C,20*PLF11,5*PLF1O,PLF1L,8*PLF1O,PLF1L,3*PLF1O,PLF1E:*50,-3;\
-	P=*50;				\
-	V=10;				\
-	A=.8;
-M=BACK;C=M_V43R;BG=M_V,M_VEZ:..,,0-200;T=2,PD,5,PBU,W,1;
-M=UNIT; D1=L;C1=SWPA_O405NKL[CL:SWPA_SCHLEPP0,2][TL:S,SWPA_SCHLEPP];  \
-        D2=R;C2=SWPA_N4014NF_W47L[NT:S]; \
-        P=<0+100;T2=2,C2.S<,3;D=L;
-M=BACK;D=R;P=102;C=BDVMOT;T=OPEN,W,2,PD,W,5,PRU,W,2,CLOSE;
-M=STOP;					\
-	C=3:(<BR420O51L,BR421O51,BR420O51)|2:(<BR420SL,BR421S,BR420S)|ET420_USAIR|ET420_MV|ET420_KICKER|ET420_LOTTO|BR420_COKE|BR420_TD1;\
-	FG=PLF1EL,3*PLF1O,PLF1L,8*PLF1O,PLF1L,5*PLF1O,20*PLF11,3*(PLF1C,5*PLF11,PLF1V1,5*PLF11,PLF1T,5*PLF11,PLF1V1,5*PLF11),PLF1C,20*PLF11,5*PLF1O,PLF1L,8*PLF1O,PLF1L,3*PLF1O,PLF1E:*50,-3;\
-	P=*50;				\
-	V=10;				\
-	A=.8;
-M=UNIT;C1=M_V43A,M_1067A,M_2067A;D1=L;C2=M_V43R;D2=R;D=L;P=*0+200;T1=2,C1.PD,W,2;T2=2,PD,5,C2.PBU,W,2;
-M=TURN;TX="M=TURN;";			\
-	C1=RHB_G34BG;C=FAP_PG601,FTP_NP501,SVEFT_PC61;BEFORE;P=*50;
-M=RCUT;TX="M=RCUT;";			\
-	C1=SNCB_APEX;C2=SNCB_SABENA3L;P=@*20;V=4;B=0.1;A=0.1;
-M=TURN;TX="M=TURN;";			\
-	C1=M_BZMOTA;C=M_BZXA,M_BDZXA;BEHIND;P=*50;
-M=STOP;	TX=[N=Special animation;G=Fahrzeug-spezifische Animation;H=Különleges animáció;];		\
-	D=R;				\
-	C=SPZ93;			\
-	P=*40;				\
-	T=3,SHOOT,3,SHOOT,3;
-M=BACK;	TX=[N=Pantograph animation;G=Stromabnehmeranimation;H=Animált áramszedõk;];		\
-	C=M_V43A,M_V43R;		\
-	T=1,PD,5,PBU,W,1;
-$ENDSECTION      
+  TX="M=SIMPLE;";											\
+    M=SIMPLE;												\
+    C=M_V43R;												\
+    D=R;												\
+    BG=M_VEZ,M_RFL,M_VD,M_RFR,M_VEZ,M_V,M_VEZ:..;							\
+    WP=(15,TB:PD;60,TB:PBU);
+  TX="M=STOP;";												\
+    M=STOP;												\
+    C=CD_162_039,CD_BT,CD_AEE1L,CD_2036A,CD_Y5WLABM,CD_POSTW;						\
+    D=L; P=20; T=4,PU,W,1;										\
+    WP=10,TB:(PD,PBU);
+  TX="M=UNIT;";												\
+    M=UNIT; D=R; V=14;											\
+    C1=BB67440|BB67301,F1AD,3*F1B,2*F1A,F1AB;								\
+    D1=R;												\
+    C2=[PBU]SNCF_CC7100;										\
+    D2=L; P=>50; T2=1,C2.PD,2,C2.PU,W,1,C2.PD,C2.PBU; W=3E;						\
+    FG=FL_SNCFC_F,FL_SNCFC_M1:..,-4;									\
+    AB=40;
+  TX="M=FOLLOW;";											\
+    M=FOLLOW;												\
+    C=(M_109;M_201Z;M_203;M_222;M_242Z;M_275;M_301;M_303;M_335Z;M_375;M_377;M_411;M_424; M_424A;	\
+      M_424C;M_520;M_601;M40D,M_377[!C],M_411S;M28N,M_520A[!C][R];M28Z,M_601A[R],M_601C[M]);		\
+    D=L;
+  TX="M=CUT;";												\
+    M=CUT;												\
+    AP=([C1=<ABMOT,MBY][C2=>BBMOT,MBYL][P=*50][D=R][D1=L][D2=R])|					\
+      ([C1=AAMOT][C2=AAMOT][P=<10][D=R][D1=L][D2=L])|							\
+      ([C1=ABYMOT][C2=<ABYX,BCYX,BCMOT][P=>90][D=R][D1=R][D2=R]);
+  TX="M=CUT2;";												\
+    M=CUT2;												\
+    C1=KVB_4000(|[!L]);											\
+    C2=(3:KVB_4000|1:KVB_4100_125)(|[!L]);								\
+    T2C=1,CL.C>,W,1,CR.C<,W,1;										\
+    T1C=(1,CR.C<:BW,W,1)|(1,CL.C>:BW,W,1);
+  TX="M=PUSH;";												\
+    M=PUSH;												\
+    C=M_BHT0,M_BHV_P,M_BHV_G,M_BHV_HL;									\
+    D=R;												\
+    C1=M_M44F;												\
+    C2=M_V43F;												\
+    P=@*20; T3=1,PD,4,PBU,W,2;
+  TX="M=PUSH;";												\
+    M=PUSH;												\
+    C=M_BHT0L,M_BHV_P,M_BHV_G,M_BHV_HL;									\
+    D=L;												\
+    C1=M_M44F;												\
+    C2=M_V43F;												\
+    P=@*20; T3=1,PD,4,PBU,W,2;
+  TX="M=HEAD;";												\
+    M=HEAD;												\
+    C=M_2080B,M_3980BL,M_2080B;										\
+    D=R;												\
+    C1=M_V43R;												\
+    C2=M_V43K;												\
+    P=@-0+200; T1=2,C1.PD,3; T2=1,PD,5,C2.PBU,2; T3=PBU,W,2;
+  TX="M=HEAD;";												\
+    M=HEAD;												\
+    C=M_2080B,M_3980BL,M_2080B;										\
+    D=L;												\
+    C1=M_V43R;												\
+    C2=M_V43K;												\
+    P=@-0+200; T1=2,C1.PD,3; T2=1,PD,5,C2.PBU,2; T3=PBU,W,2;
+  TX="M=CHANGE;";											\
+    M=CHANGE;												\
+    C=M_2067C,M_19913AL;										\
+    D=R;												\
+    C1=OBB1014;												\
+    C2=M_V43A;												\
+    P=100-200; T1=2,PD,W,3,PBU,W,1; T3=1,PD,W,3,PBU,W,3; W=3E;
+  TX="M=CHANGE;";											\
+    M=CHANGE;												\
+    C=M_2067C,M_19913AL;										\
+    D=L;												\
+    C1=OBB1014;												\
+    C2=M_V43A;												\
+    P=0+200; T1=2,PD,W,3,PBU,W,1; T3=1,PD,W,3,PBU,W,3; W=3E;
+  TX="M=ECHG;";												\
+    M=ECHG;												\
+    C=SBB_EW2N_D,SBB_EW2N_A,SBB_EW2N_ABL,SBB_EW2N_B;							\
+    D=L;												\
+    C1=SBB_RE442_LEBOURRETZL;										\
+    C2=SBB_EM33;											\
+    C3=SBB_AE36_2;											\
+    P=15; T1=2; T2=3; T4=1,PD,4,PBU,W,2;								\
+    WP=@+20,TB:C1.PD;
+  TX="M-ECHG;";												\
+    M=ECHG;												\
+    C=SBB_EW2N_D,SBB_EW2N_A,SBB_EW2N_ABL,SBB_EW2N_B;							\
+    D=R;												\
+    C1=SBB_RE442_LEBOURRETZL;										\
+    C2=SBB_EM33;											\
+    C3=SBB_AE36_2;											\
+    P=85; T1=2; T2=3; T4=1,PD,4,PBU,W,2;								\
+    WP=@+20,TB:C1.PD;
+  TX="M=BACK;";												\
+    M=BACK;												\
+    C=<OBB_4030_100L,OBB_7030_100,OBB_6030_100;								\
+    T=2,PD,5,PBU,W,1;											\
+    BG=M_VEZ,M_BKR[M],M_VEZ,M_BD,M_VEZ,M_BKR,M_VEZ,M_B,M_VEZ:..,,0-200;
+  TX=[N=Blue light on the car remains on when the car stops; G=Blaulicht bleibt an wenn der Fahrzeug anhält; H=A kék fény tovább villog, amikor az autó megáll;]; \
+    M=STOP;												\
+    C=POL_VW_T4[A:FLASH,FLASH1,16,20];									\
+    D=L;
+  M=STOP;												\
+    C=2:BR420O5|1:(<BR420OFL,BR420OABL,BR420OF)|2:(<BR420SL,BR421S,BR420S)|ET420_USAIR|ET420_MV|	\
+      ET420_KICKER|ET420_LOTTO|BR420_COKE|BR420_TD1;							\
+    V=10; A=.8; P=*50;											\
+    FG=PLF1EL,3*PLF1O,PLF1L,8*PLF1O,PLF1L,5*PLF1O,20*PLF11,						\
+      3*(PLF1C,5*PLF11,PLF1V1,5*PLF11,PLF1T,5*PLF11,PLF1V1,5*PLF11),PLF1C,20*PLF11,5*PLF1O,PLF1L,	\
+      8*PLF1O,PLF1L,3*PLF1O,PLF1E:*50,-3;
+  M=BACK;												\
+    C=M_V43R;												\
+    T=2,PD,5,PBU,W,1;											\
+    BG=M_V,M_VEZ:..,,0-200;
+  M=UNIT; D=L;												\
+    C1=SWPA_O405NKL[CL:SWPA_SCHLEPP0,2][TL:S,SWPA_SCHLEPP];						\
+    D1=L;												\
+    C2=SWPA_N4014NF_W47L[NT:S];										\
+    D2=R; P=<0+100; T2=2,C2.S<,3;
+  M=BACK;												\
+    C=BDVMOT;												\
+    D=R; P=102; T=OPEN,W,2,PD,W,5,PRU,W,2,CLOSE;
+  M=STOP;												\
+    C=3:(<BR420O51L,BR421O51,BR420O51)|2:(<BR420SL,BR421S,BR420S)|ET420_USAIR|ET420_MV|ET420_KICKER|	\
+      ET420_LOTTO|BR420_COKE|BR420_TD1;									\
+    V=10; A=.8; P=*50;											\
+    FG=PLF1EL,3*PLF1O,PLF1L,8*PLF1O,PLF1L,5*PLF1O,20*PLF11,						\
+      3*(PLF1C,5*PLF11,PLF1V1,5*PLF11,PLF1T,5*PLF11,PLF1V1,5*PLF11),PLF1C,20*PLF11,5*PLF1O,PLF1L,	\
+      8*PLF1O,PLF1L,3*PLF1O,PLF1E:*50,-3;
+  M=UNIT; D=L;												\
+    C1=M_V43A,M_1067A,M_2067A;										\
+    D1=L;												\
+    C2=M_V43R;												\
+    D2=R; P=*0+200; T1=2,C1.PD,W,2; T2=2,PD,5,C2.PBU,W,2;
+  TX="M=TURN;";												\
+    M=TURN;												\
+    C=FAP_PG601,FTP_NP501,SVEFT_PC61;									\
+    C1=RHB_G34BG;											\
+    P=*50;												\
+    BEFORE;
+  TX="M=RCUT;";												\
+    M=RCUT; V=4; A=0.1; B=0.1;										\
+    C1=SNCB_APEX;											\
+    C2=SNCB_SABENA3L;											\
+    P=@*20;
+  TX="M=TURN;";												\
+    M=TURN;												\
+    C=M_BZXA,M_BDZXA;											\
+    C1=M_BZMOTA;											\
+    P=*50;												\
+    BEHIND;
+  TX=[N=Special animation;G=Fahrzeug-spezifische Animation;H=Különleges animáció;];			\
+    M=STOP;												\
+    C=SPZ93;												\
+    D=R; P=*40; T=3,SHOOT,3,SHOOT,3;
+  TX=[N=Pantograph animation;G=Stromabnehmeranimation;H=Animált áramszedõk;];				\
+    M=BACK;												\
+    C=M_V43A,M_V43R;											\
+    T=1,PD,5,PBU,W,1;
+$ENDSECTION
 
-$SECTION NAME=ANIM_FIRE1; LC=1; %FOOTER(© Klaus D. Schneider + Ulrich Fleischer);
-  M=STOP; DX=1680; D=R; AB=50; BL=5; W=X; Y=*; IMGY=243; \
-	BG=( \
-	    SKY02:..; \
-	    10[B:0,0,10,5,#4A4A4A]:..,^0; \
-	    DDR_H07F[AT:,FIRE1P,42,187]:<35-70+0=HOUSE; \
-	    STRAHL:>HOUSE+42,196; \
-	   ); \
-	C=MB_ATEGO_529F; V=11; P=>HOUSE-94; \
-	TB=BL_AN,BL_AN_HIN,5; \
-	T=2,HOCH23M,W,2,WASSER_AN,2,OUT,1,WASSER_AUS,W,2,AB23M,W,BL_AUS,W,1,BL_AUS_HIN,W,2;
-$ENDSECTION	
+$SECTION 												\
+    NAME=ANIM_FIRE1;											\
+    LC=1; %FOOTER(© Klaus D. Schneider + Ulrich Fleischer);
+  M=STOP;												\
+    C=MB_ATEGO_529F;											\
+    D=R; V=11; P=>HOUSE-94; TB=BL_AN,BL_AN_HIN,5;							\
+    T=2,HOCH23M,W,2,WASSER_AN,2,OUT,1,WASSER_AUS,W,2,AB23M,W,BL_AUS,W,1,BL_AUS_HIN,W,2; W=X;		\
+    BG=(SKY02:..; 10[B:0,0,10,5,#4A4A4A]:..,^0; DDR_H07F[AT:,FIRE1P,42,187]:<35-70+0=HOUSE;		\
+      STRAHL:>HOUSE+42,196;);										\
+    DX=1680;												\
+    AB=50;												\
+    BL=5;												\
+    Y=*;												\
+    IMGY=243;
+$ENDSECTION
 
-$GROUP NAME=CATENARY_CHANGE1; SEQ=F; IMGY=59; AB=20; W=3; LC=4;	\
-    BG=FL_SP_M1[BT:0,62,39,1,41,62,40,1],300:..,-4,0;		\
-    TG=FL_SP_M1,FL_FS3_F:..,-4,0; Y=*;
-  D=R; C=SBB_HERMES_UL; V=1; OVERLAP=40; TBGBEFORE;
+$GROUP 													\
+    NAME=CATENARY_CHANGE1;										\
+    LC=4; SEQ=F; IMGY=59; AB=20; W=3;									\
+    BG=FL_SP_M1[BT:0,62,39,1,41,62,40,1],300:..,-4,0;							\
+    TG=FL_SP_M1,FL_FS3_F:..,-4,0;									\
+    Y=*;
+  C=SBB_HERMES_UL;											\
+    D=R; V=1; OVERLAP=40; TBGBEFORE;
   C=OBB_X554_201;
-  D=R; C=SBB_HERMES_UL[M]; V=1; OVERLAP=40; TBGAFTER;
+  C=SBB_HERMES_UL[M];											\
+    D=R; V=1; OVERLAP=40; TBGAFTER;
   C=SBB_RE460,SBB_RE460_HIST,SBB_RE460_1902L;
-$ENDGROUP                    
+$ENDGROUP
 
-$GROUP 						\
-  NAME=MBG1;					\
-  DX=3200;					\
-  VM=HEAD,JUMP;					\
-  AB=80;					\
-  W=X;						\
-  D=R;						\
-  MBG=(						\
-    400,0,CYC,SKY02:..;				\
-    1600,20%,CYC,FAR001:,15;			\
-    1600,40%,CYC,SCENE_DESERT3;			\
-    3000,70%,CYC,SCENE_DESERT2:,15		\
-  );						\  
-  BG=(						\
-    SCENE_DESERT1:..;				\
-    CABLE5:..;					\  
-    TRBED34:..,^0;				\
-  );						\
-  TX=Moving background;
-  C=JRE_DC40SUIGUN; D=R; V=10;	
-  C=JRE_DC40IIYAMA; D=L; V=10;
+$GROUP 													\
+    NAME=MBG1;												\
+    TX=Moving background;										\
+    DX=3200; AB=80; W=X; D=R; VM=HEAD,JUMP;								\
+    BG=(SCENE_DESERT1:..; CABLE5:..; TRBED34:..,^0;);							\
+    MBG=(400,0,CYC,SKY02:..; 1600,20%,CYC,FAR001:,15; 1600,40%,CYC,SCENE_DESERT3;			\
+    3000,70%,CYC,SCENE_DESERT2:,15);
+  C=JRE_DC40SUIGUN;											\
+    D=R; V=10;
+  C=JRE_DC40IIYAMA;											\
+    D=L; V=10;
 $ENDGROUP
 
 #--------------------------------------------------------------------------
