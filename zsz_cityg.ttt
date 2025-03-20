@@ -52,14 +52,48 @@ $SECTION 												\
 #
 #    Hungary
 #
-#----------------------------- Kaposvár ---------------------------------------
   {H?
+#----------------------------- Békéscsaba -------------------------------------
+    {BUS?
+      NAME=H_BEKESCSABA;TX=Békéscsaba;									\
+	 %SAV(KOR_V7700A_075L,(Békéscsaba, Volvo 7700A));
+    }
+#----------------------------- Dunaújváros ------------------------------------
+    {BUS?
+      NAME=H_DUNAUJVAROS;TX=Dunaújváros;								\
+	 %SAV(DUV_IK280B,Dunaújváros);
+    }
+#----------------------------- Gy{x151}r -------------------------------------------
+    {BUS?
+      $GROUP 												\
+	  NAME=H_GYOR;TX=Gy{x151}r;									
+	M=FOLLOW;											\
+	  C=4-10*(IK260GYR|IK260_GY|IK260GYB|IK260B_GY|IK280GYR~HB|IK280GYB1~HB|IK280GYB2~HB|		\
+	    IK280200~HB);
+	M=FOLLOW;											\
+	  C=4-10*(IK412_GY~HB|IK412_GY~TOM|IK415H_GY|IK417GY~HB|IK417GY~TOM|E94GY|RABASZ|RABACS|	\
+	    RABACSPR|RABACS100);
+      $ENDGROUP
+    }
+#----------------------------- Hatvan -----------------------------------------
+    {BUS?
+      NAME=H_HATVAN; %SAV(HATVAN_IK260,Hatvan);
+    }
+#----------------------------- Hódmez{x151}vásárhely -------------------------------
+    {BUS?
+      NAME=H_HODMEZO; %SAV(HODM_MAN,Hódmez{x151}vásárhely);
+    }
+#----------------------------- Kaposvár ---------------------------------------
     {BUS?
       NAME=H_KAPOSVAR;											\
 	TX=Kaposvár;											\
 	M=FOLLOW;											\
 	C=(KAPV_IK415;KAP_RC;KAP_RC135;KAP_RC15;KAPV_E94;KAP_E95;KAP_E98;KAPV_N4014NF);			\
 	D=R; %ABG(STBGAU);
+    }
+#----------------------------- Kecskemét --------------------------------------
+    {BUS?
+      NAME=H_KECSKEMET; %SAV(KUN_V7700AL, Kecskemét)
     }
 #----------------------------- Pécs -------------------------------------------
     {BUS?
@@ -68,8 +102,8 @@ $SECTION 												\
 	  TX=Pécs;											\
 	  LC=1; %GBG(STBGAU,ENV_WAYA);
 	M=FOLLOW;											\
-	  C=(PS_IK556;PS_IK556D;PS_IK180;PS_IK246;IK246_ESSO;PS_IK260B;PS_IK260R;PS_IK260DAF;		\
-	    PS_IK280R; PS_IK280D;PS_IK280E;PS_IK280I);							\
+	  C=(PS_IK556;PS_IK556D;PS_IK180;PS_IK246;IK246_ESSO;PS_IK246_01[SS:10];PS_IK260B;PS_IK260R;	\
+	    PS_IK260DAF; PS_IK280R; PS_IK280D;PS_IK280E;PS_IK280I);					\
 	  D=R;
 	M=FOLLOW;											\
 	  C=(PS_IK280F;PS_IK280G;PS_IK280H;PS_IK280J;PS_IK280K;PS_IK280L;PS_IK280M; PS_IK280N;		\
@@ -79,8 +113,14 @@ $SECTION 												\
 	  C=(PS_IK280C;PS_IK280A;IK280PSA;IK280SA;PS_IK284;PS_IK284A;PS_IK410; PS_IK415;PS_IK415A;	\
 	    PS_IK435; PS_O345;PS_O345G;PS_O345G1;PS_O345G2);						\
 	  D=R;
-	C=PS_CITAROL;
+	M=FOLLOW;											\
+	  C=(PS_CITAROL;PS_IK280_52_175L[SS:10];PS_O345_112L[SS:10]);					\
+	  D=L;
       $ENDGROUP
+    }
+#----------------------------- Siófok -----------------------------------------
+    {BUS?
+      NAME=H_SIOFOK; %FAV(SIO_IK415,Siófok);
     }
 #----------------------------- Sopron -----------------------------------------
     {TRAM?
@@ -96,6 +136,10 @@ $SECTION 												\
 	C=SVV_3;
 	C=SVV_4;
       $ENDGROUP
+    }
+#----------------------------- Székesfehérvár ---------------------------------
+    {BUS?
+      NAME=H_SZFV; %FAV((SZFV_IK280B),Székesfehérvár)
     }
 #----------------------------- Szombathely ------------------------------------
     {TRAM?
