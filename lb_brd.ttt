@@ -1095,11 +1095,11 @@ $ENDPOOL
     TX=DB 44 + Schleifzug Hannover 1962;								\
       C=(<DB_3B44675L,DB_3SCHLEIFW,DB_SCHLEIF4_H_1961L,DB_SCHLEIF3_H_1961,DB_SCHLEIF2_H_1961L,		\
 	DB_SCHLEIF1_H_1961,DB_3SCHLEIFWL,DB_3B44475)|							\
-	(>DB_3B44675,DB_3SCHLEIFWL,DB_SCHLEIF4_H_1961,DB_SCHLEIF3_H_1961L,DB_SCHLEIF2_H_1961,		\
-	DB_SCHLEIF1_H_1961L,DB_3SCHLEIFW,DB_3B44475L);							\
+	(>DB_3B44675,DB_3SCHLEIFWL,DB_SCHLEIF4_H_1961,DB_SCHLEIF3_H_1961L,				\
+	DB_SCHLEIF2_H_1961|DB_SCHLEIF3_H_1962,DB_SCHLEIF1_H_1961L,DB_3SCHLEIFW,DB_3B44475L);		\
       F=SF3;
     TX=DB 44 + Schleifzug Hannover 1967;								\
-      C=(<DB_3B44239L,DB_3SCHLEIFW,DB_SCHLEIF4_H_1968L,DB_SCHLEIF3_H_1968,DB_SCHLEIF2_H_1968L,		\
+      C=(<DB_3B44239L,DB_3SCHLEIFW,DB_SCHLEIF4_H_1968L,DB_SCHLEIF3_H_1968,DB_SCHLEIF2_H_196(8|9)L,	\
 	DB_SCHLEIF1_H_1968,DB_3SCHLEIFWL,DB_3B44079M)|							\
 	(>DB_3B44239,DB_3SCHLEIFWL,DB_SCHLEIF4_H_1968,DB_SCHLEIF3_H_1968L,DB_SCHLEIF2_H_1968,		\
 	DB_SCHLEIF1_H_1968L,DB_3SCHLEIFW,DB_3B44079ML);							\
@@ -1292,7 +1292,7 @@ $ENDPOOL
 	DB_FCS23L|DB_FCS23|DB_FCS24L|DB_FCS24|DB_FCS25L),						\
 	5-7*(DB_OMM46B|DB_3B_OMM49BL|DB_OMM52HL|DB_OMM52H|DB_3B_OMM53SL|DB_3B_OMM53S|DB_3B_OMM53SL|	\
 	DB_3B_OMM53SU|DB_OMM53BL~MS1|DB_OMM53B~MS1|DB_OMM54PL|DB_OMM55B|DB_3B_OMM55|DB_OMM55P|		\
-	DB_OMM55B|DB_3B_OMM51_131|DB_3B_OMM52_132|DB_3B_OM53|DB_OMM51|DB_OMM56|DB_OMMR32B)		\
+	DB_OMM55B|DB_3B_OMM51_131|DB_3B_OMM52_132|DB_3B_OM53|DB_OMM51|DB_OMM56|DB_OMMR32B),		\
 	3*((<DB_K15BHL,DB_K15B)|(<DB_K15C,DB_K15BH)|(<DB_K15CHL,DB_K15C)|(<DB_K15D,DB_K15DH)|		\
 	(<DB_K15CHL,DB_K15BNB)|(<DB_K15CNB,DB_K15BH)|(<DB_K15NB,DB_K15CH)|(<DB_K15D,DB_K15DH)))|	\
 	(20*(DB_OKMM58ABL~MS1|DB_OKMM58AB~MS1|DB_OKMM58A~MS1|DB_OKMM58AP~MS1|DB_OKMM58BL~MS1|		\
@@ -4858,13 +4858,13 @@ $ENDPOOL
     TX=DB 151 + Militärtransport;									\
       C=(DB_151(111|030)|DB_4A_151_0(32|01))(|L),DB_BCUM252OBS(|L),					\
 	2*DB_4B_KKLM505(|L|U)[OB:BW_TRAILER3,,12][OB:BW_TRAILER3,,12],					\
-	2*DB_4B_KKLM505(|L|U)[OB:BW_MB230G[BC:-20,20],56,12][OB:BW_MB230G[BC:-20,20],10,12]|		\
-	2*DB_KBS442(|B)N(|L)[OB:BW_UNIMOG[BC:-20,20],,12]|						\
-	2*DB_REMMS3948220L[OB:BW_MAN_630L2A[BC:-20,20],10,12]|						\
+	(2*DB_4B_KKLM505(|L|U)[OB:BW_MB230G[BC:-20,20],56,12][OB:BW_MB230G[BC:-20,20],10,12])|		\
+	(2*DB_KBS442(|B)N(|L)[OB:BW_UNIMOG[BC:-20,20],,12])|						\
+	(2*DB_REMMS3948220L[OB:BW_MAN_630L2A[BC:-20,20],10,12])|					\
 	DB_REMMS3948220[OB:BW_MAN_M4510[BC:-20,20],10,12]|						\
-	3*DB_KBS442(|B)N(|L)[OB:BW_UNIMOG[BC:-20,20],,12]|						\
-	2*DB_4B_KKLM505(|L|U)[OB:BW_KTR[BC:-20,20],56,12][OB:BW_KTR[BC:-20,20],10,12]|			\
-	2*DB_4B_KKLM505(|L|U)[OB:BW_MB1017A[BC:-20,20],,12];						\
+	(3*DB_KBS442(|B)N(|L)[OB:BW_UNIMOG[BC:-20,20],,12])|						\
+	(2*DB_4B_KKLM505(|L|U)[OB:BW_KTR[BC:-20,20],56,12][OB:BW_KTR[BC:-20,20],10,12])|		\
+	(2*DB_4B_KKLM505(|L|U)[OB:BW_MB1017A[BC:-20,20],,12]);						\
       F=EF4;
     TX=DB 151 + Erzzug;											\
       C=2*DB_151(111|030)(|L),D4FFO;									\
@@ -5992,6 +5992,423 @@ $ENDPOOL
       C=MINE_EL3,6-8*MINE_COAL1;									\
       F=GENF4;
 
+### Classic Trains from Simon Treanor
+    TX=DB 601 + TEE 16/17, "Mediolanum", Munich - Milan, 1969;						\
+      C=DB_601L,DB_901_1AUEL,DB_901_2AY,DB_901_3ARY,DB_901_4WRYL,DB_901_4WRYDIA,DB_901_4WRYHEL,		\
+	DB_901_4WRYMED,DB_601_2;									\
+      F=PDU4;
+    TX=DB 140 + D 2516/2517, Den Haag - Köln, 1987;							\
+      C=SJT_DBB140_G,(3*SJT_NS_ICRB,SJT_NS_ICRA);							\
+      F=PE4;
+    TX=DB 110 + IC 2044/2045, Hannover - Schiphol, 1986;						\
+      C=(SJT_DB110_OB),(NS_ICR_BD~HEN,SJT_DBB_BM_OB,SJT_DBB_AM_B,3*SJT_DBB_BM_OB);			\
+      F=PE4;
+    TX=DB 110B + IC 2312/2313, Amsterdam - Köln, 1984;							\
+      C=(SJT_DB110B_TEE),(SJT_DB_AM_OB,3*SJT_DBB_BM_OB);						\
+      F=PE4;
+    TX=DB 110 + E 2516/2517, Den Haag - Köln, 1980;							\
+      C=SJT_DBB110B_B,(NS_D_B9,NS_D_A8,2*NS_D_B9L);							\
+      F=PE4;
+    TX=DB 110 + D 236/237 "Nord-West Express", Copenhagen - Hoek, 1980;					\
+      C=(SJT_DBB110B_B),(SJT_DB_ABM12_G,SJT_DSB_BM_R,SJT_DBB_BCM_OB,SJT_DBB_BM_OB,SJT_DB_DMS);		\
+      F=PE4;
+    TX=DB 218 + D 236/237 "Nord-West Express", Copenhagen - Hoek, 1980;					\
+      C=(SJT_DBB218_WR),(SJT_DB_ABM12_G,SJT_DSB_BM_R,SJT_DBB_BCM_OB,SJT_DBB_BM_OB,SJT_DB_DMS);		\
+      F=PD4;
+    TX=DB 103 + TEE 10/11 "Rembrandt", Amsterdam - Stuttgart, 1981;					\
+      C=SJT_DBB103_TEE,(SJT_DBB_APMZ_TEE,SJT_DBB_AVMZ_TEE,SJT_DBB_ARMZ_RB);				\
+      F=PE4;
+    TX=DB 110 + D 2520/2523, Den Haag - Köln, 1988;							\
+      C=SJT_DBB110B_OB,(NS_ICR_BD~HEN,SJT_NS_ICRA,2*SJT_NS_ICRB);					\
+      F=PE4;
+    TX=DB 103 + TEE 20/21 "Sahpir", Brussels - Frankfurt, 1978;						\
+      C=((SJT_DBB103_TEE),(SJT_DBB_ARMH_RB,SJT_TEE20_1978M,(1:SJT_DBB_AVMZ_TEE|5:)))|			\
+	(SJT_DBB103_TEE,(SJT_TEE20_1978M,2*SJT_DBB_BM_OB));						\
+      F=PE4;
+    TX=DB 103 + D 234/235, "Paris-Skandinavien-Express", Copenhagen - Paris, 1973;			\
+      C=SJT_DBB103_TEE,((0-1*SJT_D234_1973_OS-PAR),SJT_D234_1973_KOB-PAR,SJT_D234_1973_KOB-AA);		\
+      F=PE4;
+    TX=DB 218 + D 234/235, "Paris-Skandinavien-Express", Copenhagen - Paris, 1973;			\
+      C=2*SJT_DBB218_WR,(SJT_D234_1973_KOB-PAR,SJT_D234_1973_KOB-AA,SJT_D234_1973_PUT-HH);		\
+      F=PE4;
+    TX=DB 110 + IC 434/435, "Parsifal", Köln - Paris, 1984;						\
+      C=SJT_DBB110E_OB,											\
+	(SJT_SNCF_CORAILA_W1,SNCF_VSE_A9U_C1(|L),SJT_DB_WRMH_TEE,(2:5|1:6|1:7*SJT_SNCF_CORAILB_W1),	\
+	SJT_SNCF_CORAILD_W1);										\
+      F=PE4;
+    TX=DB 103 + D 224/225, Oostende - Vienna, 1987;							\
+      C=SJT_DBB103_TEE,(SJT_D224_1987M,0-1*SJT_D224_1987FF-OST);					\
+      F=PE4;
+    TX=DB 110B + D 224/225, Oostende - Vienna, 1987;							\
+      C=SJT_DB110B_1987|SJT_SNCB27,(SJT_D224_1987M,SJT_D224_1987FF-OST);				\
+      F=PE4;
+    TX=DB 103 + TEE 20/21 "Sahpir", Brussels - Frankfurt, 1978;						\
+      C=SJT_DBB103_TEE,(SJT_TEE20_1978M,2*SJT_DBB_BM_OB);						\
+      F=PE4;
+    TX=DB 181 + TEE 40/41 "Moliere", Köln - Paris, 1979;						\
+      C=SJT_DBB181_B,											\
+	(2*SJT_SNCF_MISTRAL_A,SJT_SNCF_MISTRAL_WR,SNCF_TEEM69_ABAR(|L),SJT_SNCF_MISTRAL_AD);		\
+      F=PE4;
+    TX=DB 110 + D 1432/1433, Oostende - Frankfurt, 1981;						\
+      C=(SJT_DBB110B_B,(SJT_D1433_1981F,SJT_D1433_1981K))|(SJT_DBB110B_OB,(SJT_D1433_1981F));		\
+      F=PE4;
+    TX=DB 110 + D 1420/1421, Oostende - Frankfurt, 1985;						\
+      C=(SJT_DBB110E_B,(SJT_D1420_1985K,SJT_D1420_1985F))|(SJT_DBB140_G,(SJT_D1420_1985F));		\
+      F=PE4;
+    TX=DB 110 + IC 40/41, Dortmund - Paris, 1986;							\
+      C=SJT_DBB110B_OB,											\
+	(SJT_SNCF_CORAILD_W1L,6*SJT_SNCF_CORAILB_W1,2*SJT_SNCF_CORAILA_W1,				\
+	SJT_SNCF_CORAILA_W1|SJT_DB_AVMZ_TEE,1-2*SJT_SZD_WLABM_G);					\
+      F=PE4;
+    TX=DB 181 + TEE 32/33 "Parsifal", Hamburg - Paris, 1979;						\
+      C=SJT_DBB181_B,(0-1*SJT_DBB_AVMZ_TEE,SJT_TEE32_1978M);						\
+      F=PE4;
+    TX=DB 110 + D 1234/1235, Hamburg - Brussels, 1982;							\
+      C=(SJT_DBB110_B,(SJT_DBB_BM_OB,SJT_D1234_1982M,0-1*SJT_D1218_1982M))|				\
+	(SNCB_25_5(|L),(SJT_D1234_1982M,0-1*SJT_D1218_1982M));						\
+      F=PE4;
+    TX=DB 181 + D 1018/1019, Paris - Saarbrücken, 1987;							\
+      C=SJT_DBB181_B,											\
+	(3*SJT_SNCF_CORAILB_W1,2*SNCF_VU_B6DD2_CS(|L),3*SJT_SNCF_CORAILB_W1,SJT_SNCF_CORAILA_W1,	\
+	SJT_DB_AVMZ_TEE,2*SJT_DB_BPMZ_OB,2*SJT_DBB_BM_OB);						\
+      F=PE4;
+    TX=DB 218 + EC 32/33, "Skandinavien", Copenhagen - Hamburg, 1990;					\
+      C=(SJT_DB218_OB,(<SJT_EC32_1990DE,SJT_EC32_1990M))|(SJT_DSB_MX_BR,(<SJT_EC32_1990M));		\
+      F=PD4;
+    TX=DB 110 + D 346/347, Köln - Berlin, 1989;								\
+      C=(6:SJT_DB110_OB|1:SJT_DB110B_TEE),(0-1*SJT_DBB_BDMS_OB,SJT_DB_D346_1989M);			\
+      F=PE4;
+    TX=DB 110 + D 344/345, Hoek van Holland - Berlin, 1990;						\
+      C=(SJT_DB110B_TEE,(SJT_DB_BM_1989,SJT_D344_1990M,SJT_DB_BM_1989,SJT_D344_1990B-BR))|		\
+	(DB_4C110320(|L),(SJT_DB_BM_1989,SJT_D344_1990H-HOEK,SJT_D344_1990M));				\
+      F=PE4;
+    TX=DB 218 + E 4090/4091, Kiel - Lüneberg, 1988;							\
+      C=SJT_DBB218_WR,(<SJT_DBB_BDMS_OB,SJT_DBB_ABN_S,SJT_DBB_BN_S);					\
+      F=PE4;
+    TX=DB 216 + E 2030/2031, Groningen - Braunschweig, 1980;						\
+      C=SJT_DBB216_WR,(<2*SJT_DBB_BN_S,SJT_DBB_ABN_S);							\
+      F=PD4;
+    TX=DB 141 + E 3736/3737, Bielefeld - Bad Lautenberg, 1982;						\
+      C=<DB_4BDNRZF740HL,SJT_DBB_ABN_S,SJT_DBB_BN_S,DB_4A_141KL;					\
+      F=PE4;
+    TX=DB 110 + E 2170/2171, Bielefeld - Kassel, 1979;							\
+      C=SJT_DBB110B_B,(<SJT_DB_WLABMH_TENR,SJT_DBB_ABN_S,2*SJT_DBB_BN_S,SJT_DB_BDN_S);			\
+      F=PE4;
+    TX=DB 110 + D 446/447, Cologne - Leipzig, 1989;							\
+      C=(1:SJT_DB110B_TEE|6:SJT_DBB110B_OB),(3:SJT_DB_DMS|1:),SJT_DB_D446_1989M,			\
+	(1:SJT_DB_BPMZ_OB|1:SJT_DB_BM_OB|5:);								\
+      F=PE4;
+    TX=DB 218 + D 446/447, Cologne - Leipzig, 1989;							\
+      C=SJT_DB218_OB,((6:SJT_DB_DMS|1:),SJT_DB_D446_1989M);						\
+      F=PD4;
+    TX=DB 110 + D 2940/2941, Aachen - Walkenried, 1987;							\
+      C=SJT_DBB110B_B|SJT_DR119_WR,(<SJT_DBB_BDMS_OB,SJT_DB_ABM_OB,2*SJT_DBB_BM_OB);			\
+      F=PE4;
+    TX=DB 212 + N 8340/8341, Delmenhorst - Bramsche, 1989;						\
+      C=DB_4_211B(|L),2*SJT_DB_BM_OB;									\
+      F=PE4;
+    TX=DB 103 + IC 132/133 "Hanseat", Hamburg - Cologne, 1977;						\
+      C=SJT_DBB103_TEE,											\
+	(0-1*SJT_DBB_APMZ_TEE,(6:|1:SJT_DBB_AVMZ_TEE),SJT_DBB_APMZ_TEE,SJT_DBB_WRMZ_TEE,		\
+	SJT_DBB_AVMZ_TEE,SJT_DBB_APMZ_TEE,SJT_DBB_AVMZ_TEE);						\
+      F=PE4;
+    TX=DB 103 + IC 934/935 "Albatros", Hamburg - Koeln, 1990;						\
+      C=SJT_DB103_TEE,(<11*SJT_DB_BM_1989,SJT_DB_AVMZ_TEE);						\
+      F=PE4;
+    TX=DB 103 + IC 734/735 "Alster-Kurier", Hamburg - Muenster, 1990;					\
+      C=SJT_DB103_TEE,											\
+	(SJT_DB_AVMZ_OR,SJT_DB_APMZ_TEE,SJT_DB_AVMZ_TEE,DB_4F_WRMZ135(|L),				\
+	(2:SJT_DB_BM_1989|SJT_DB_BPMZ_OR|DB_BVMZ237L),(SJT_DB_BM_1989|SJT_DB_BPMZ_OB),			\
+	3*SJT_DB_BPMZ_1993,(SJT_DB_BM_OB|SJT_DB_BVMZ_OR),DB_BVMZ237L,(6:|1:SJT_DB_BM_OB));		\
+      F=PE4;
+    TX=DB 110B + RB 8834/8835, Duisburg - Aachen 1997;							\
+      C=DB_4C110320(|L),(<DB_4C_BNB719DH(|L),SJT_DB_BN_MG,SJT_DB_ABN_MG);				\
+      F=PERU4;
+    TX=DB 218 + CB 6422/6423 Köln - Gummersbach, 1988;							\
+      C=<DB_BNRZF784L,SJT_DB_ABN_CB,SJT_DB_BN_CB,SJT_DB218_CB;						\
+      F=PDRU4;
+    TX=DB 110 + E 3020/3021, Hamm - Aachen, 1987;							\
+      C=SJT_DBB110E_B,(<2*SJT_DBB_BN_S,SJT_DBB_AM_OB,SJT_DBB_BN_S);					\
+      F=PE4;
+    TX=DB 111 + E 3150/3151, Hamm - Aachen, 1983;							\
+      C=<SJT_DB111_SB,SJT_DBB_BN_S,SJT_DBB_ABN_S,DB_4BNRZF734;						\
+      F=PE4;
+    TX=DB 111 + E 2512/2513, Venlo - Köln, 1980;							\
+      C=SJT_DB111_SB,(<SJT_DBB_BM_G,SJT_DB_ABM_G,SJT_DBB_BM_G);						\
+      F=PE4;
+    TX=DB 110 + D 2640/2641, Braunschweig - Aachen, 1988;						\
+      C=SJT_DBB110E_OB,(<2*SJT_DBB_BM_OB,SJT_DB_ABM_OB,SJT_DBB_BDMS_OB);				\
+      F=PE4;
+    TX=DB 111 + E 5523/5524, Wuppertal - Köln, 1988;							\
+      C=SJT_DB111_SB,(<SJT_DBB_BN_S,SJT_DBB_ABN_S,SJT_DB_BM_OB);					\
+      F=PE4;
+    TX=DB 103 + EC 28/29 "Johann Strauss", Köln - Vienna, 1987;						\
+      C=SJT_EC28_1987D;											\
+      F=PE4;
+    TX=DB 103 + EC 20/21 "Blauer Enzian", Dortmund - Klagenfurt, 1987;					\
+      C=SJT_DB103_TEE,(<(5:|2:SJT_DBB_BM_OB),SJT_EC20_1987SALZ);					\
+      F=PE4;
+    TX=DB 103 + EC 4/5 "Carlo Magno", Dortmund - Sestri Levante, 1987;					\
+      C=SJT_DB103_TEE,											\
+	(1:(2*SJT_DBB_BM_OB,SJT_DB_BPMZ_OB,SJT_EC4_1987M,SJT_DB_APMZ_TEE)|				\
+	1:(SJT_DBB_BM_OB,SJT_DB_BPMZ_OB,SJT_EC4_1987M,SJT_DB_APMZ_TEE,SJT_DB_DMS)|			\
+	5:(SJT_DBB_BM_OB,SJT_DB_BPMZ_OB,SJT_EC4_1987M,SJT_DB_APMZ_TEE));				\
+      F=PE4;
+    TX=DB 103 + EC 8/9 "Rheinpfeil", Hannover - Chur, 1990;						\
+      C=SJT_DB103_TEE,SJT_EC8_1990M;									\
+      F=PE4;
+    TX=DB 403 + IC 1002/1003 Lufthansa Airport Express, Düsseldorf Flughafen - Frankfurt Flughafen, 1988; \
+      C=<DB_LH403L,DB_LH4040,DB_LH4041,DB_LH403;							\
+      F=PE4;
+    TX=DB 111 + FD 1902/1903 "Bodensee", Münster - Konstanz, 1990;					\
+      C=SJT_DB111_OB,											\
+	(SJT_DBB_BDMS_OB,<2*SJT_DB_BM_OR,SJT_DB_AVMZ_TEE,SJT_DBB_ARMZ_RB,				\
+	0-2*(SJT_DB_BM_OB,SJT_DB_ABM_OB,SJT_DB_BM_OB));							\
+      F=PE4;
+    TX=DB 112 + D202/203 "Loreley", Hoek van Holland - Chiasso, 1988;					\
+      C=DB_112_308,(<NS_W2_B2,NS_ICR_B~HEN,SBB_4_RIC2BL,SBB_5_2270,SBB_4_RIC2BL,SBB_5_RIC2AL,SBB_DMS);	\
+      F=PE4;
+    TX=DB 218 + FD 1912/1913 "Allgau", Dortmund - Oberstdorf, 1990;					\
+      C=(SJT_DB218_OB,((2*SJT_DBB_BM_OB|),SJT_DB_FD1912_1990M))|					\
+	(SJT_DB110B_TEE,(SJT_DB_ABM_OB,2*SJT_DB_BM_1993,SJT_DBB_BM_OB,SJT_DB_FD1912_1990M));		\
+      F=PD4;
+#REVISIT#
+    TX=DB 110 + E 3552/3553, Koblenz - Frankfurt, 1990;							\
+      C=SJT_DBB110B_OB,(<DB_4C_BNB719DH(|L),DB_4C_ABNB703(|L));						\
+      F=PE4;
+    TX=DB 103 + EC 12/13, "Blauer Enzian", Dortmund - Klagenfurt, 1990;					\
+      C=(SJT_DB103_TEE|SJT_DB103_OR|SJT_DBB103_TEE),(<SJT_EC12_1990SALZ);				\
+      F=PE4;
+    TX=DB 111 + AE 9620/9621, "Christoforus", Dortmund - Munich, 1990;					\
+      C=SJT_DB111_SB,(<2*SJT_DB_AVMZ_TEE,SJT_DB_WRMH_TEE,3*SJT_DB_AVMZ_TEE,3*SJT_DDM_LOADED);		\
+      F=PE4;
+    TX=DB 110 + N 7319/7320, Köln-Koblenz, 1988;							\
+      C=SJT_DBB110E_B,(<SJT_DBB_BN_S,SJT_DBB_AM_OB,2*SJT_DBB_BN_S);					\
+      F=PE4;
+    TX=DB 141 + IC 982/983, "Wiesbaden-City", Wiesbaden - Mainz, 1988;					\
+      C=<DB_4A_141KL,SJT_DB_AVMZ_OR,SJT_DB_BPMZ_OB,DB_141_195;						\
+      F=PE4;
+#REVISIT#
+    TX=DB 103 + D 202/203 "Loreley", Amsterdam/Dortmund - Milan, 1986;					\
+      C=SJT_DB103_TEE,,											\
+	(<1-2*SBB_EUR_BMOL~TBR,SBB_EUR_AMO~TBR,2*SBB_EUR_BMO~TBR,FS_DX,FS_3070GA,1-2*FS_2270GAL,	\
+	DB_WRBUMZ139P,DB_4BM235,DB_4ABM225S);								\
+      F=PE4;
+#REVISIT#
+    TX=DB 112 + D 200/2001 "Italien-Holland-Express", Amsterdam - Rimini, 1990;				\
+      C=DB_112_308,											\
+	(<0-1*DBAG_BCM243AZL,0-1*BM235R~HEN,3*FS_2270RB,1-2*DBAG_BCM243AZL,1-4*DBAG_BCM243AZL,		\
+	NS_WLABMH,DB_WLABSMH166RTENL,1-2*DBAG_BCM243AZL);						\
+      F=PE5;
+    TX=DB 110 + D 1218/1219, Oostende - Salzburg, 1977;							\
+      C=SJT_DBB110E_B,(SJT_DB_WLABMH_TENR,1-2*SJT_DB_BCM_B,SJT_DBB_BM_OB,SJT_DBB_AM_OB,3*SJT_DBB_BM_G);	\
+      F=PE4;
+    TX=DB 141 + N 7032/7033, Koblenz - Wiesbaden, 1986;							\
+      C=DB_4A_141KL,(<SJT_DBB_ABN_S,SJT_DBB_BN_S);							\
+      F=PER4;
+    TX=DB 103 + EC 26 "Frans Hals", Amsterdam - Munich, 1988;						\
+      C=SJT_DBB103_TEE,(<SJT_DB_AVMZ_TEE,SJT_EC26_1988M,4*SJT_DB_BPMZ_OB,1-2*SJT_DBB_BM_OB);		\
+      F=PE4;
+    TX=DB 103 + EC 2/3 "Rembrandt", Amsterdam - Chur, 1989;						\
+      C=SJT_DB103_TEE,(<SJT_DB_BM_OB,SJT_DB_BPMZ_OB,SJT_DB_BM_OB,SJT_EC2_1989M,SJT_DB_AVMZ_TEE);	\
+      F=PE4;
+    TX=DB 110 + D 618/619, Hamburg - Stuttgart, 1977;							\
+      C=SJT_DB110B_TEE,											\
+	(4-7*SJT_DBB_BM_OB,SJT_DBB_AM_B,SJT_DBB_WRMZ_TEE,2*SJT_DBB_BM_OB,SJT_DBB_AM_OB,SJT_DBB_BM_G,	\
+	0-1*(SJT_DB_ABM_OB,SJT_DBB_BM_OB));								\
+      F=PE4;
+    TX=DB 103 + IC 126/127 "Münchner Kindl", Hannover - Munich, 1977;					\
+      C=SJT_DBB103_TEE,(<2-3*SJT_DBB_AVMZ_TEE,SJT_DBB_ARMZ_TEE,SJT_DBB_APMZ_TEE,1-3*SJT_DBB_AVMZ_TEE);	\
+      F=PE4;
+    TX=DB 103 + IC 810/811 "Toller Bomberg", Hamburg - Munich, 1990;					\
+      C=SJT_DB103_OR,(7:1|1:2|6:0*SJT_DB_BM_OB),(DB_BVMZ237L|SJT_DB_BM_OB),SJT_DB_BM_OB,		\
+	SJT_DB_BPMZ_OR,SJT_DB_BPMBZ_OR,2*(DB_BVMZ237L|SJT_DB_BM_OB),SJT_DB_ARMZ_TEE,SJT_DB_AVMZ_TEE,	\
+	SJT_DB_APMZ_OR,SJT_DB_AVMZ_TEE;									\
+      F=PE4;
+    TX=DB 103 + IC 616/617 "Friedrich Schiller", Munich - Dortmund, 1990;				\
+      C=SJT_DB_IC616_1990W|SJT_DB_IC616_1990S;								\
+      F=PE4;
+    TX=DB 103 + IC 614/615 "Drachenfels", Munich - Dortmund, 1990;					\
+      C=SJT_DB103_TEE,											\
+	((1:2|2:3|11:1*SJT_DB_BM_OB),2*SJT_DB_BPMZ_OB,SJT_DB_BPMBZ_OB,2*SJT_DB_BM_OB,DBAG_5ARMZ211L,	\
+	SJT_DB_AVMZ_OR,SJT_DB_APMZ_TEE,SJT_DB_AVMZ_TEE);						\
+      F=PE4;
+    TX=DB 103 + IC 516/517 "Holderlin", Munich - Hannover, 1990;					\
+      C=SJT_DB103_TEE,											\
+	((2:3|2:2|3:1*SJT_DB_BM_OB),3*SJT_DB_BPMZ_OR,SJT_DB_BPMBZ_OB,2*SJT_DB_BM_OB,SJT_DB_WRMZ_OR,	\
+	SJT_DB_AVMZ_TEE,SJT_DB_APMZ_TEE,SJT_DB_AVMZ_TEE);						\
+      F=PE4;
+    TX=DB 103 + IC 514/515 "Heinrich der Lowe", Munich - Braunschweig, 1990;				\
+      C=SJT_DB103_TEE,											\
+	(1-4*(SJT_DB_BM_OR|SJT_DB_BM_OB),<2*SJT_DB_BPMZ_OR,SJT_DB_BPMBZ_OR,2*SJT_DB_BM_OR,		\
+	DBAG_5ARMZ211L,SJT_DB_AVMZ_OR,SJT_DB_APMZ_OR,SJT_DB_AVMZ_OR);					\
+      F=PE4;
+    TX=DB 181 + D 2052/2053, Koblenz - Luxembourg, 1989;						\
+      C=DBAG_5_181_211(|L),(<SJT_DBB_BDMS_OB,SJT_DB_BM_OB,SJT_DBB_AM_OB,2*SJT_DBB_BM_OB);		\
+      F=PE4;
+    TX=DB 110B + D 1620/1621, Dormund - Trier;								\
+      C=SJT_DB110B_TEE,(<1-2*SJT_DB_BM_OR,SJT_DB_BM_OB,2*SJT_DB_BM_OR,SJT_DB_BM_OB,SJT_DB_ABM_OB);	\
+      F=PE4;
+    TX=DB 101 + IR 2536/2537, Munster - Saarbrucken;							\
+      C=SJT_DB101_VR,											\
+	((2:|5:(2*DBAG_BIMZ2647W(|L))),SJT_DB_BIMDZ_W,3*DBAG_BIMZ2647W(|L),DBAG_BIMZ264_7(|L),		\
+	SJT_DB_ARKIMBZR_W,DBAG_AIMZ261_7(|L));								\
+      F=PE4;
+    TX=DB 628 + RB 5956/5957, Kaiserslautern - Kusel, 1990;						\
+      C=(<DBAG_628_257A,DBAG_628_257B)|(<DBAG_628_601A,DBAG_628_601B);					\
+      F=PD4;
+    TX=DB 103 + EC 78/79, "Helvetia", Hamburg - Zurich, 1990;						\
+      C=SJT_DB103_OR,(<2*SJT_DB_BM_OB,SJT_EC78_1990M);							\
+      F=PE4;
+    TX=DB 120 + IC 580/581, "Herrenchiemsee", Hamburg - Munich, 1989;					\
+      C=DB_120_123,											\
+	((3:(1-2*SJT_DB_BPMZ_OB),SJT_DB_IC580_1989M))|							\
+	(1:(1-2*SJT_DB_BPMZ_OB,SJT_DB_IC580_1989M,SJT_DB_AVMZ_TEE)|(3:(SJT_DB_IC580_1989M)));		\
+      F=PE4;
+    TX=DB 120 + FD 1980/1981, "Königsee", Hamburg - Berchtesgaden, 1989;				\
+      C=(DB_120_123,(SJT_DB_FD1980_1989MU,SJT_DB_FD1980_1989M,SJT_DB_FD1980_1989FL))|			\
+	(SJT_DB110B_OB,(SJT_DB_FD1980_1989M,0-1*SJT_DB_FD1980_1989FL));					\
+      F=PE4;
+    TX=DB 103 + IR 1682/1683, Hamburg - Fulda, 1989;							\
+      C=SJT_DB103_OR,											\
+	(<(2:2|5:1*(DBAG_BIMZ264_7(|L)|SJT_DBB_BM_OB)),5*DBAG_BIMZ264_7(|L),DBAG_ARKIMBZ262_2,		\
+	DBAG_AIMZ261_7(|L));										\
+      F=PE4;
+    TX=DB 103 + EC 80/81, "Karwendel", Hamburg - Innsbruck, 1987;					\
+      C=((SJT_DBB103_TEE|SJT_DB120_TEE),(SJT_EC80_1987MW,SJT_EC80_1987M,SJT_EC80_1987GP))|		\
+	(SJT_DB120_TEE,(SJT_EC80_1987MW,SJT_EC80_1987M))|(SJT_DB120_TEE,(SJT_EC80_1987M));		\
+      F=PE4;
+    TX=DB 111 + IR 1776/1777, Hamburg - Konstanz, 1989;							\
+      C=(7:SJT_DB111_OR|6:SJT_DB110B_OR|1:SJT_DB120_TEE),						\
+	(0-1*SJT_DB_BM_OB,(SJT_DB_BM_OB|DBAG_BIMZ264_7(|L)),5*DBAG_BIMZ264_7(|L),DBAG_ARKIMBZ262_2,	\
+	DBAG_AIMZ261_7(|L));										\
+      F=PE4;
+    TX=DB 103 + IC 698/699, "Konsul", Hamburg - Stuttgart, 1990;					\
+      C=SJT_DB103_TEE,											\
+	(<SJT_DB_AVMZ_TEE,SJT_DB_APMZ_TEE,SJT_DB_AVMZ_TEE,SJT_DB_ARMZ_TEE,2*SJT_DB_BM_OB,		\
+	SJT_DB_BPMBZ_OB,SJT_DB_BPMZ_OB,(2:5|1:4|4:3*SJT_DB_BM_OB));					\
+      F=PE4;
+    TX=DB 103 + IC 698/699 "Konsul", Hamburg - Stuttgart, 1989;						\
+      C=SJT_DB103_OR,0-1*SJT_DB_DMS,(0|2)*SJT_DB_BM_OR,SJT_DB_BM_OB,2*SJT_DB_BPMZ_OB,SJT_DB_BPMBZ_OR,	\
+	2*SJT_DB_BM_OB,SJT_DB_ARMZ_TEE,2*SJT_DB_AVMZ_TEE,SJT_DB_APMZ_TEE;				\
+      F=PE4;
+    TX=DB 232 + IR 2982/2983 "Alpenland", Lubeck - Oberstdorf;						\
+      C=(DB_232_510|DB_120_123|(2*SJT_DB218_OR)),							\
+	(SJT_DB_AVMZ_OR,SJT_DB_WRMZ_OR,2*SJT_DB_BVMZ_OR,SJT_DB_BPMBZ_OR,2*SJT_DB_BVMZ_OR,		\
+	SJT_DB_BPMBZ_OR);										\
+      F=PE4;
+    TX=DB 103 + D 18100, Hamburg - Munich, 1986;							\
+      C=SJT_DBB103_TEE,(<3*SJT_DBB_AVMZ_TEE,SJT_DBB_WRMZ_TEE,SJT_DBB_WRMH_TEE,2*SJT_DBB_AVMZ_TEE);	\
+      F=PE4;
+    TX=DB 103 + IC 692/693 "Hohenstaufen", Hamburg - Munich, 1990;					\
+      C=SJT_DB103_TEE,											\
+	((1:4|1:3|2:2|10:1*SJT_DB_BM_OB),(SJT_DB_BM_OB|DB_BVMZ237L),SJT_DB_BPMZ_OB,2*DB_BVMZ237L,	\
+	DB_4F_WRMZ135(|L),SJT_DB_AVMZ_TEE,SJT_DB_APMZ_TEE,SJT_DB_AVMZ_TEE);				\
+      F=PE4;
+    TX=DB 103 + IC 696/697 "Nymphenburg", Munich - Hamburg, 1990;					\
+      C=SJT_DB103_TEE,											\
+	((5:1|6:2|3:3*SJT_DB_BM_OB),(SJT_DB_BM_OB|DB_BVMZ237L),2*SJT_DB_BPMZ_OB,SJT_DB_BPMBZ_OR,	\
+	2*(SJT_DB_BM_OB|DB_BVMZ237L),SJT_DB_WRMZ_OR,SJT_DB_AVMZ_TEE,SJT_DB_APMZ_TEE,			\
+	(6:1|1:2*SJT_DB_AVMZ_OR));									\
+      F=PE4;
+    TX=DB 103 + IC 694/695 "Kieler Foerde", Munich - Kiel, 1990;					\
+      C=SJT_DB103_TEE,											\
+	((7:2|2:3|5:4*SJT_DB_BM_OB),2*SJT_DB_BPMZ_OR,SJT_DB_BPMBZ_OR,SJT_DB_BPMZ_OR,DB_BVMZ237L,	\
+	SJT_DB_WRMZ_OR,SJT_DB_AVMZ_TEE,SJT_DB_APMZ_OR,(5:1|2:2*SJT_DB_AVMZ_TEE));			\
+      F=PE4;
+    TX=DB 120 + IC 784/785 "Wetterstein", Hamburg - Mittenwald, 1990;					\
+      C=DB_120_123,											\
+	(SJT_DB_AVMZ_OR,SJT_DB_APMZ_OR,SJT_DB_AVMZ_OR,SJT_DB_WRMZ_OR,SJT_DB_BVMZ_OR,DB_BVMZ237L,	\
+	SJT_DB_BPMBZ_OR,2-5*(SJT_DB_BPMZ_OR|SJT_DB_BPMZ_OB));						\
+      F=PE4;
+    TX=DB 103 + IC 610/611 "Chiemgau", Wiesbaden - Salzburg, 1989;					\
+      C=SJT_IC610_1989D;										\
+      F=PE4;
+    TX=ÖBB 1044 + IC 610/611 "Chiemgau", Wiesbaden - Salzburg, 1989;					\
+      C=SJT_IC610_1989A;										\
+      F=PE4;
+    TX=DB 103 + EC 20/21 "Blauer Enzian", Dortmund - Klagenfurt, 1987;					\
+      C=SJT_DB103_TEE,(<(5:|2:SJT_DBB_BM_OB),SJT_EC20_1987SALZ);					\
+      F=PE4;
+    TX=DB 103 + IC 592/593 "Baden-Kurier", Basel - Munich, 1990;					\
+      C=SJT_DB103_TEE,											\
+	((2:2|1:3|11:1*SJT_DB_BM_OB),2*SJT_DB_BPMZ_OB,SJT_DB_BPMBZ_OB,2*SJT_DB_BM_OB,SJT_DB_ARMZ_TEE,	\
+	SJT_DB_AVMZ_TEE,SJT_DB_APMZ_TEE,SJT_DB_AVMZ_OR);						\
+      F=PE4;
+    TX=DB 103 + IC 594/595 "Saar-Kurier", Saarbrücken - Munich, 1990;					\
+      C=DB_5_103101LH(|L),										\
+	((6:2|1:1*SJT_DB_BM_OB),2*SJT_DB_BPMZ_OB,SJT_DB_BPMZ_OR,2*SJT_DB_BM_OB,SJT_DB_ARMZ_TEE,		\
+	SJT_DB_AVMZ_TEE,SJT_DB_APMZ_OR,(6:1|1:0*SJT_DB_AVMZ_OR));					\
+      F=PE4;
+    TX=DB 103 + IC 610/611 "Chiemgau", Wiesbaden - Salzburg, 1990;					\
+      C=SJT_DB103_OR,											\
+	(0-2*SJT_DB_BM_OB,(SJT_DB_BM_OB|DB_BVMZ237L),SJT_DB_BM_OR,SJT_DB_BPMZ_OB,SJT_DB_BPMBZ_OB,	\
+	2*(DB_BVMZ237L|SJT_DB_BM_OB),SJT_DB_ARMZ_TEE,SJT_DB_AVMZ_TEE,SJT_DB_APMZ_OR,			\
+	(2:|5:SJT_DB_AVMZ_TEE));									\
+      F=PE4;
+    TX=DB 103 + IC 690/691 "Herkules", Kassel - Munich, 1990;						\
+      C=SJT_DB103_OR,											\
+	(SJT_DB_AVMZ_OR,SJT_DB_APMZ_OR,SJT_DB_AVMZ_OR,2*SJT_DB_BM_OB,SJT_DB_BPMBZ_OR,2*SJT_DB_BPMZ_OB,	\
+	(1:2|6:1*SJT_DB_BM_OB));									\
+      F=PE4;
+    TX=DB 110 + E 3110/3111, Donauwörth - Munich, 1988;							\
+      C=SJT_DBB110E_OB,(<SJT_DBB_BN_S,DB_4C_ABNB703(|L));						\
+      F=PE4;
+    TX=DB 111 + RB 4678/4679, Ingolstadt - Treuchtlingen, 1988;						\
+      C=<5:DBAG_111_036|1:SJT_DBB111_OB,DBAG_5BN448,DBAG_5BDNF466;					\
+      F=PRE4;
+    TX=DB 141 + N Holzkirchen - Rosenheim, 1982;							\
+      C=DB_141_195,DB_4C_BNB719DHL|DB_4C_BNB719DH,DB_4C_ABNB703L|DB_4C_ABNB703,				\
+	2:SJT_DBB_BN716_S|3:SJT_DBB_BN719_S;								\
+      F=PRE4;
+    TX=DB 141 + E 3424/3425, Würzburg - Nürnberg, 1989;							\
+      C=SJT_DBB141_OB,(<SJT_DBB_BN_S,DB_4C_ABNB703(|L),SJT_DBB_BN_S);					\
+      F=PE4;
+    TX=DB 103 + IC 884/885 "Lucas Cranach", Nurnberg - Munich, 1988;					\
+      C=(SJT_DB_E10|SJT_DBB103_TEE),(<(6:1|1:2*SJT_DB_BPMZ_OB),2*SJT_DBB_BM_OB,SJT_DB_AVMZ_TEE);	\
+      F=PE4;
+    TX=DB 103 + IC 596/597 "Adler", Nurnberg - Munich, 1985;						\
+      C=SJT_DBB103_TEE,(<SJT_DBB_AVMZ_TEE,2*SJT_DBB_BM_OB,SJT_DB_BPMZ_OB);				\
+      F=PE4;
+    TX=SBB 420 + EC 92/93, "Schweizerland", Munich - Zurich, 1987;					\
+      C=(SJT_SBB420TEE),(3*SJT_DB_BPMZ_OB,SJT_SBB_WR_TEE,2*SJT_DB_AVMZ_TEE,SJT_DB_BPMZ_OB);		\
+      F=PE4;
+    TX=DB 218 + EC 92/93, "Schweizerland", Munich - Zurich, 1987;					\
+      C=((2*SJT_DB218_TEE)),(3*SJT_DB_BPMZ_OB,SJT_SBB_WR_TEE,2*SJT_DB_AVMZ_TEE,SJT_DB_BPMZ_OB);		\
+      F=PD4;
+    TX=DB 218 + EC 96/97 "Gottfried Keller", Munich - Zurich, 1987;					\
+      C=((SJT_DBB218_OB,SJT_DB218_TEE)),(3*SJT_DB_BPMZ_OB,SJT_SBB_WRM_O,SJT_DB_AVMZ_TEE,SJT_DB_BPMZ_OR); \
+      F=PD4;
+    TX=DB 218 + EC 92 "Schweizerland", Munich - Bern, 1990;						\
+      C=2:(((2*SJT_DB218_OB)),(SJT_EC92_1990M))|1:(SJT_SBB420RED,(SJT_EC92_1990M,FS_UICX75DZO(|L)));	\
+      F=PD4;
+    TX=DB 218 + TEE 66/67 "Bavaria", Munich - Zurich, 1978;						\
+      C=SJT_DBB218_WR,(SJT_DBB_AVMZ_TEE,SJT_DBB_APMZ_TEE,SJT_SBB_WR_TEE);				\
+      F=PD4;
+    TX=DB 110 + EC 84/85, "Barbarossa", Stuttgart - Milan, 1987;					\
+      C=SJT_DBB110B_OB,(SJT_EC84_1987M,SJT_DB_ABM_OB,SJT_DB_BM_OB);					\
+      F=PE4;
+    TX=DB 103 + EC 70/71 "Colosseum", Frankfurt - Rome, 1990;						\
+      C=(SJT_DB103_OR),											\
+	(SJT_DB_AVMZ_OR,SJT_DB_APMZ_TEE,SJT_DB_AVMZ_TEE,SJT_DB_WRMH_OR,2*SJT_DB_BM_OB,SJT_DB_BPMBZ_OR,	\
+	2*SJT_DB_BPMZ_OB,SJT_DB_BPMZ_OR);								\
+      F=PE4;
+    TX=DB 111 + EC 82/83 "Hermann Hesse", Stuttgart - Milan, 1987;					\
+      C=(SJT_DB111_OB),(SJT_SBB_AM_O,2*SJT_SBB_BM_O);							\
+      F=PE4;
+    TX=DB 103 + EC 26 "Frans Hals", Amsterdam - Munich, 1988;						\
+      C=SJT_DBB103_TEE,(<SJT_DB_AVMZ_TEE,SJT_EC26_1988M,4*SJT_DB_BPMZ_OB,1-2*SJT_DBB_BM_OB);		\
+      F=PE4;
+    TX=DB 103 + EC 68/69, "Mozart", Paris - Vienna, 1990;						\
+      C=((SJT_DB103_TEE),(11:6|3:4*(SJT_OEBB_BVMZ_O),SJT_EC68_1990M));					\
+      F=PE4;
+    TX=DB 181 + EC 68/69, "Mozart", Paris - Vienna, 1990;						\
+      C=DBAG_4_181_201(|L),(5:6|1:4*(SJT_OEBB_BVMZ_O),SJT_EC68_1990M);					\
+      F=PE4;
+    TX=DB 181 + EC 68/69, "Mozart", Paris - Vienna, 1990;						\
+      C=DBAG_4_181_201(|L),(3*SJT_DB_BM_OB,6*SJT_OEBB_BVMZ_O,SJT_EC68_1990M);				\
+      F=PE4;
+
   }
 %ENDPOOL;
 %ADDPOOL(POOL_GER,DE_ENV)
@@ -6056,7 +6473,7 @@ $ENDPOOL
       F=EP5;
     TX=DB 103.1 + IR;											\
       C=DB_103_KVR|DB_103151_1987,									\
-	(<(2*DBAG_BIMZ259~JMU),3*DBAG_BIMZ259L~JMU,DBAG_BIMZ259L~JMU,DB_BPMZ291_2RKL,DBAG_BIMZ264_7,		\
+	(<(2*DBAG_BIMZ259~JMU),3*DBAG_BIMZ259L~JMU,DBAG_BIMZ259L~JMU,DB_BPMZ291_2RKL,DBAG_BIMZ264_7,	\
 	DBAG_ABOMZ229_1);										\
       F=EP5;
     TX=DB 103.1 + IR;											\
@@ -7391,6 +7808,1354 @@ $ENDPOOL
 	RZD_HABIILLNSS;											\
       F=XDNF5;
 
+### Classic Trains from Simon Treanor
+    TX=DB 103 + EC 141/152 "Bonifacius", Amsterdam - Köln, 1993;					\
+      C=SJT_DB103_1993,											\
+	(2*SJT_DB_AVMZ_1993,SJT_DB_BVMZ_1993,SJT_DB_BPMBZ_1993,2*SJT_DB_BPMZ_1993,SJT_DB_BM_1993);	\
+      F=PE5;
+    TX=DB 103 + EC 143/150 "Erasmus", Schiphol - Köln, 1994;						\
+      C=SJT_DB103_1993,(SJT_DB_AVMZ_OR,DBAG_5ARMZ211L,3*SJT_DB_BVMZ_OR,SJT_DB_BPMBZ_OR,SJT_DB_BPMZ_OR);	\
+      F=PE5;
+    TX=DB 103 + EC 140/153 "Hieronymus Bosch", Amsterdam - Köln, 1993;					\
+      C=SJT_DB103_1993,											\
+	(SJT_DB_APMZ_1993,SJT_DB_AVMZ_1993,SJT_DB_ARMZ_1993,SJT_DB_BVMZ_1993,3*SJT_DB_BPMZ_1993);	\
+      F=PE5;
+    TX=DB 103 + EC 144/149 "Johannes Vermeer", Amsterdam - Köln, 2000;					\
+      C=SJT_DB103_2000,(SJT_DB_AVMZ_W,DBAG_5ARMZ211L,2*DBAG_BVMZ185W(|L),DBAG_BPMBZ295,SJT_DB_BPMZ_W);	\
+      F=PE5;
+    TX=DB 103 + EC 146/147 "Piet Mondriaan", Amsterdam - Köln, 1991;					\
+      C=SJT_DB103_1993,(SJT_DB_AVMZ_TEE,SJT_DB_BPMZ_OB,SJT_DB_BPMBZ_OB,SJT_DB_BPMZ_OB);			\
+      F=PE5;
+    TX=DB 110B + D 1808/1809 Eindhoven - Köln, 1995;							\
+      C=SJT_DB110B_OR,(SJT_NS_ICRA,SJT_NS_ICRB,NS_ICR_BD~HEN,SJT_NS_ICRB);				\
+      F=PE5;
+    TX=DB 110B + D 1826/1827, Den Haag - Köln, 1991;							\
+      C=SJT_DB110B_OB,(3*SJT_DB_BM_OB,SJT_DB_ABM21_OB,SJT_BLX_ICA);					\
+      F=PE5;
+    TX=DB 103 + D 214/215, Amsterdam - Munich, 1996;							\
+      C=SJT_DB103_1993,((SJT_D215_1996_A-W,SJT_EN225_1996_OST-M)|(SJT_D215_1996_A-W,SJT_D215_1996_A-M)); \
+      F=PE5;
+    TX=DB 103 + EC 144/149 "Johannes Vermeer", Amsterdam - Köln, 1994;					\
+      C=SJT_DB103_TEE|SJT_NS1700,									\
+	(<SJT_DB_BPMBZ_OR,SJT_DB_BPMZ_OR,SJT_DB_BVMZ_OR,SJT_DB_BVMSZ_OR,SJT_DB_ARMZL_OR,SJT_DB_AVMZ_OR); \
+      F=PE5;
+    TX=DB 110 + D 1818/1819, Den Haag - Köln, 1993;							\
+      C=SJT_DB110_OB,(SJT_DB_AM_OB,3*SJT_DB_BM_1993);							\
+      F=PE5;
+    TX=DB 112 + IR 2344/2345, Berlin - Schiphol, 1995;							\
+      C=SJT_DB112_OR|SJT_DB111_OB,SJT_IR2344_1995M;							\
+      F=PE5;
+    TX=DB 232 + IR 2344/2345, Berlin - Schiphol, 1995;							\
+      C=SJT_DR132_WR,((1:SJT_DB_BM_OR|6:),SJT_IR2344_1995M);						\
+      F=PD5;
+    TX=DB 151 + Dillingen - Maaskvlate, 1997;								\
+      C=(2@DB_151_AKOB|DB_151_081),22*SJT_DB_FALS;							\
+      F=FE5;
+    TX=DB 103 + EC 140/153 "Hieronymus Bosch", Amsterdam - Köln, 1996;					\
+      C=SJT_DB103_OR,											\
+	(SJT_DB_APMZ_OR,SJT_DB_AVMZ_OR,DBAG_5ARMZ211L,3*SJT_DB_BPMZ_OR,SJT_DB_BVMZ_OR,(2:SJT_DB_DMS|5:)); \
+      F=PE5;
+    TX=DB 110B + D 1240/1241, Hoek - Hamm, 1993;							\
+      C=SJT_DB110B_1993,										\
+	(SJT_DR_BCM,SJT_DR_ABM,PKP_BDUNG(|L),SJT_PKP_BCM_B,SJT_SZD_WLABM_G,SJT_DSB_ABM_R,		\
+	SJT_DBB_BCM_OB,2*SJT_DB_BM_1993);								\
+      F=PE5;
+    TX=DB 101 + EC 140/141, "Erasmus", Amsterdam - Köln, 1999;						\
+      C=(1:(SJT_DB101_VR|DBAG_103233(|L))),								\
+	((0-<2*SJT_DB_BM_OR,DBAG_BVMZ185VRHL,SJT_DB_BPMBZ_VR,2*DBAG_BVMZ185VRHL,DBAG_5ARMZ211L,		\
+	DBAG_AVMZ111_1VR(|L))|										\
+	(3*SJT_DB_BPMZ_VR,DBAG_BVMZ185VRHL,DBAG_5ARMZ211L,SJT_DB_APMZ_VR,DBAG_AVMZ111_1VR(|L)));	\
+      F=PE5;
+    TX=DB 232 + D 242/243, Paris - Berlin, 1994;							\
+      C=DB_232_510,											\
+	(((DBAG_WLAB176(|L),SJT_DBB_BCM_OB,SJT_DB_BM_1993)|SJT_DBB_BCM_OB),3*SJT_SNCF_CORAILB_W1,	\
+	SNCF_VU_B6DD2_CS(|L),1-3*DBAG_5BCM242_1(|L),DBAG_WLAB176(|L));					\
+      F=PD5;
+    TX=DB 110B + D 318/319, Köln - Oostende, 1991;							\
+      C=SJT_DB110B_OB,											\
+	(SJT_SNCB_I6DMS_O,4*SNCB_2171O(|L),2*SNCB_1971O(|L),(11:|2:SJT_DB_BM_OB|1:SNCB_2171O(|L)));	\
+      F=PE5;
+    TX=DB 101 + IC 423/424, Oostende - Köln, 2001;							\
+      C=SJT_DB101_VR,											\
+	(0-2*SNCB_I6_2170N(|L),2*SNCB_I6_1970N(|L),5-6*SJT_SNCB_I10B_O,0-1*SJT_SNCB_I6DMS_W);		\
+      F=PE5;
+    TX=DB 103 + EN 224/225 "Donauwalzer", Brussels - Vienna, 1996;					\
+      C=SJT_DB103_1993,SJT_EN225_1996_OST-W,SJT_D215_1996_A-W;						\
+      F=PE5;
+    TX=DB 110B + D 326/327, Oostende - Cologne, 1992;							\
+      C=SJT_DB110B_1993,										\
+	(SJT_DB_BM_1993,4*SJT_SNCB_I10B_O,SNCB_I4_3980OL,2*SNCB_I10_1170O(|L),SJT_SNCB_I6DMS_O,		\
+	SJT_SNCB_I5BCM_B,(|(SNCB_I4_2980OL,2*SJT_SZD_WLABM_G,SNCB_I4_3980O)));				\
+      F=PE5;
+    TX=DB 218 + D 232/233 "Nord-Express", Copenhagen - Oostende, 1997;					\
+      C=2*SJT_DB218_OR,(DB_5T2S(|L),SJT_D232_1997_KOB-OST,SJT_D232_1997_PUT-AA);			\
+      F=PD5;
+    TX=DB 110 + D 232/233 "Nord-Express", Copenhagen - Oostende, 1997;					\
+      C=(SJT_DB110_OR,(DB_5T2S(|L),SJT_D232_1997_KOB-OST,SJT_D232_1997_PUT-AA))|			\
+	(SJT_SNCB27,(SJT_D232_1997_KOB-OST,SJT_D232_1997_AA-OST));					\
+      F=PE5;
+    TX=DB 103 + EC 46/47 "Alexander von Humboldt", Berlin - Brussels, 1994;				\
+      C=SJT_DB103_1993,											\
+	((2:SJT_DB_BM_1993|5:),5*SJT_DB_BPMZ_1993,2*SJT_DB_BVMZ_1993,SJT_DB_WRMH_OR,SJT_DB_AVMZ_1993,	\
+	SJT_DB_APMZ_1993,SJT_DB_AVMZ_1993);								\
+      F=PE5;
+    TX=DB 103 + EC 36/37 "Felix Timmermans", Köln - Brussels, 1996;					\
+      C=SJT_DB103_OR,											\
+	(SJT_DB_AVMZ_OR,SJT_DB_APMZ_OR,SJT_DB_AVMZ_OR,SJT_DB_WRMH_OR,2*SJT_DB_BVMZ_OR,			\
+	5*SJT_DB_BPMZ_OR,(2:SJT_DB_BM_1993|5:));							\
+      F=PE5;
+    TX=DB 120 + NZ 242/243, Paris - Berlin, 2005;							\
+      C=SJT_DB120_VR,											\
+	(SJT_DB_WLABMZ_VR,SJT_DB_BVCMBZ_VR,2*SJT_DB_BVCMZ_VR,DB_WRMBZ(|L),3*SJT_DB_BOMZ_VR,		\
+	2*SJT_DB_BVCMZ_VR,SJT_DB_BVCMBZ_VR,2*SJT_DB_WLABMZ_VR);						\
+      F=PE5;
+    TX=DB 103 + D 242/243, Paris - Berlin, 1994;							\
+      C=SJT_DB103_TEE,(DBAG_WLAB176(|L),SJT_DBB_BCM_OB,SJT_DB_BM_1993);					\
+      F=PE5;
+    TX=DB 112 + AZ 13542/13543, Bordeaux - Berlin, 2002;						\
+      C=SJT_DB112_VR,(2*SJT_DB_WLABMZ_VR,DB_WRMBZ(|L),4*SJT_DB_BVCMZ_VR,6*SJT_DDM_LOADED);		\
+      F=PE5;
+    TX=DB 120 + EN 324/325 "Donauwalzer", Brussels - Vienna, 2003;					\
+      C=6:SJT_DB120_VR,(2*SJT_OEBB_WLABM_BG,2-3*SJT_OEBB_BCM_WB,3*SJT_OEBB_BVMZ_G|SJT_OEBB_BVMZ_R);	\
+      F=PE5;
+    TX=DB 103 + EC 40/41 "Moliere", Dortmund - Brussels, 1992;						\
+      C=(SJT_DB103_1993,(SJT_DB_BPMZ_1993|SJT_EC40_1992NZ,SJT_EC40_1992M))|				\
+	((SJT_SNCB27|SJT_SNCF40100),(0-1*SJT_DB_BPMZ_1993,SJT_EC40_1992M));				\
+      F=PE5;
+    TX=DB 101 + EN 348/349, "Jan Kiepura", Warsaw - Brussels, 2005;					\
+      C=SJT_DB101_VR,											\
+	(BCH_WLABMEE2L,3*RZD_6WLABMEE(|L),0-1*CNL_WRMBZ138,PKP_ADMNU_Z1|PKP_BDMNU_Z1,			\
+	2-3*SJT_PKP_BVCMBZ_JK,2-3*PKP_WRMNOUZ1251001(|L));						\
+      F=PE5;
+    TX=DB 181 + EC 166/169 Stuttgart - Lyon, 2004;							\
+      C=(SJT_DB181_VR),											\
+	(SJT_DB_AVMZ_W,SJT_DB_APMZ_W,SJT_DB_WRMZ_W,SJT_DB_BVMSZ_W,DBAG_BPMBZ295,3*SJT_DB_BPMZ_W,	\
+	SJT_DB_BPMDZF_W);										\
+      F=PE5;
+    TX=DB 181 + EC 58/59 "Goethe", Frankfurt - Paris, 1992;						\
+      C=DBAG_4_181_201(|L),(<5*SJT_SNCF_CORAILB_W1,SJT_SNCF_CORAILWR,2*SJT_SNCF_CORAILA_W1);		\
+      F=PE5;
+    TX=DB 110B + EC 54/55 "Gustave Eiffel", Leipzig - Paris, 1992;					\
+      C=SJT_DB110B_OB|DBAG_5_181_211(|L)|SJT_DB112_OR,							\
+	(6*SJT_SNCF_CORAILB_W1,SJT_SNCF_CORAILWR,2*SJT_SNCF_CORAILA_W1);				\
+      F=PE5;
+    TX=DB 101 + EC 56/57 "Henrich Heine", Prague - Paris, 1999;						\
+      C=(1:SJT_DB101_VR|13:SJT_DB103_2000),								\
+	(5*SJT_DB_BPMZ_VR,2*DBAG_BVMZ185VRHL,SJT_DB_WRMZ_VR,SJT_DB_APMZ_VR,DBAG_AVMZ111_1VR(|L));	\
+      F=PE5;
+    TX=DB 181 + EC 68/69, "Marie Curie", Paris - Stuttgart, 1994;					\
+      C=SJT_DB181_OR,(<2*SJT_DB_AVMZ_1993,SJT_DB_WRMH_OR,SJT_DB_BVMZ_1993,6:4|1:6*SJT_DB_BPMZ_1993);	\
+      F=PE5;
+    TX=DB 101 + EC 166/167 Strasbourg - Stuttgart, 2005;						\
+      C=SJT_DB101_VR|DBAG_4_181_201(|L),								\
+	(SJT_DB_AVMZ_W,SJT_DB_APMZ_W,SJT_DB_WRMZ_W,SJT_DB_BVMSZ_W,DBAG_BPMBZ295,DBAG_BVMZ185W(|L),	\
+	2*SJT_DB_BPMZ_W,SJT_DB_BIMDZ_W);								\
+      F=PE5;
+    TX=DB 103 + EC 66/67 "Maurice Ravel", Paris - Munich, 1993;						\
+      C=SJT_DB103_1993|DBAG_5_181_211(|L),								\
+	(1:5|6:4*SJT_DB_BPMZ_1993,SJT_DB_BVMZ_1993,SJT_DB_ARMH_TEE,2*SJT_DB_AVMZ_1993);			\
+      F=PE5;
+    TX=DB 101 / 181 + EC 60/61 Strasbourg - Munich, 2003;						\
+      C=2:(<SJT_EC60_2003M,SJT_DB101_VR)|1:(SJT_DB181_VR,(<SJT_EC60_2003M));				\
+      F=PE5;
+    TX=DB 181 + EC 52/53 "Victor Hugo", Frankfurt - Paris, 1993;					\
+      C=DBAG_5_181_211(|L),(<6*SJT_SNCF_CORAILB_W1,SJT_SNCF_CORAILWR,2*SJT_SNCF_CORAILA_W1);		\
+      F=PE5;
+    TX=DB 103 + EC 66/67, "Maurice Ravel", Paris - Munich, 1999;					\
+      C=(SJT_DB103_TEE|SJT_DB181_OR),									\
+	((2:4|5:3*SJT_DB_BPMZ_OR),SJT_DB_BPMBZ_OR,2*SJT_DB_BVMZ_OR,SJT_DB_ARMH_OR,2*SJT_DB_AVMZ_OR);	\
+      F=PE5;
+    TX=DB 181 + EC 64/65, "Mozart", Paris - Vienna, 1999;						\
+      C=((DBAG_4_181_201(|L)|SJT_DB101_VR),(SJT_EC64_1999GP,SJT_EC64_1999M))|				\
+	(SJT_OEBB1044_RED,(0-1*(SJT_EC64_1999GM,SJT_EC64_1999GP),SJT_EC64_1999M));			\
+      F=PE5;
+    TX=DB 103 + EC 62/63, "Bartok Bela", Munich - Budapest, 1999;					\
+      C=(SJT_DB103_TEE),										\
+	(MAVS_61_1991(|L),MAVS_61_1091(|L),MAVS_61_8891(|L),2*SJT_MAV_BVMZ_B1,3*SJT_MAV_BPMZ_B1,	\
+	2*SJT_MAV_BVMZ_B1);										\
+      F=PE5;
+    TX=DB 181 + EC 54/55, "Gustave Eiffel", Paris - Frankfurt, 1999;					\
+      C=SJT_DB181_VR,(<6*SJT_SNCF_CORAILB_W2,SJT_SNCF_CORAILWR,2*SJT_SNCF_CORAILA_W2);			\
+      F=PE5;
+    TX=DB 181 + EC 52/53, "Heinrich Heine", Paris - Frankfurt, 1999;					\
+      C=SJT_DB181_OR,(<6*SJT_SNCF_CORAILB_W2,SJT_SNCF_CORAILWR,2*SJT_SNCF_CORAILA_W2);			\
+      F=PE5;
+    TX=DB 101 + EC 64/65, Paris - Munich, 2005;								\
+      C=(SJT_DB101,SJT_EC64_2005M)|((SJT_DB181_VR),(<SJT_EC64_2005M,(5:|2:SJT_EC64_2005F)));		\
+      F=PE5;
+#Vogelfluglinie
+    TX=DB 218 + EC 188/189, "Berthel Thorvaldsen", Copenhagen - Hamburg, 1994;				\
+      C=(SJT_DB218_TEE,(<SJT_EC188_1994M,SJT_EC188_1994DE))|(DSB_ME,(<SJT_EC188_1994M));		\
+      F=PD5;
+    TX=DB 218 + EC 194/195, "Hamlet", Copenhagen - Hamburg, 1991;					\
+      C=(SJT_DBB218_OB,(<SJT_EC194_1991M,SJT_DB_BPMZ_OR,SJT_DB_BM_OB))|					\
+	(SJT_DSB_MX_BR,(<SJT_EC194_1991M));								\
+      F=PD5;
+    TX=DB 218 + EC 184/185, "Thomas Mann", Copenhagen - Hamburg, 1993;					\
+      C=(SJT_DB218_OR,(<SJT_EC184_1993M,SJT_DB_BPMZ_1993,SJT_DB_BM_1993))|				\
+	(SJT_DSB_MX_BR,(<SJT_EC184_1993M));								\
+      F=PD5;
+    TX=DB 218 + EC 184/185, "Soren Kierkergaard", Copenhagen - Hamburg, 1992;				\
+      C=(SJT_DB218_OB,(<SJT_EC184_1992M,SJT_DB_BPMZ_1993,SJT_DB_BM_1993))|(DSB_ME,(<SJT_EC184_1992M));	\
+      F=PD5;
+    TX=DB 101 + IC 1930/1931, Münster (Örtze) - Berlin, 2007;						\
+      C=(<SJT_DB101,SJT_DB_IC1930_2007M)|(SJT_DB218_VR,(<SJT_DB_IC1930_2007M));				\
+      F=PE5;
+    TX=DB 111 + IC2344/2345, "Ijselmeer", Schiphol - Berlin, 1997;					\
+      C=(SJT_DB111_OR|SJT_DB103_OR),(SJT_IR2344_1997M),(1:(DBAG_BIMZ264_7(|L)|SJT_DB_BM_OR)|6:);	\
+      F=PE5;
+    TX=DB 101 + MET 1030/1031, Köln - Hamburg, 2001;							\
+      C=DBAG_APMBZF7,DBAG_APMKZ6,DBAG_APMZ5,DBAG_APMZ4,DBAG_APMKZ3,DBAG_APMZ2,DBAG_APMZ1,		\
+	(99:DBAG_101_130|1:SJT_DB101_VR);								\
+      F=PE5;
+    TX=DB 110 + D 2712/2713, Köln - Norddeich, 2001;							\
+      C=SJT_DB110_VR,											\
+	(<3*(DBAG_BIMZ2647W(|L)|DBAG_BIMZ264_7(|L)),SJT_DB_BM_OR,					\
+	3*(DBAG_BIMZ2647W(|L)|DBAG_BIMZ264_7(|L)));							\
+      F=PE5;
+    TX=DB 112 + IR 2332, Oldenburg - Dresden, 2001;							\
+      C=<SJT_DB_BIMDZFL_W,SJT_DB_BIMDZ_B,5*DBAG_BIMZ264_7(|L),SJT_DB_ARKIMBZR_W,DBAG_AIMZ261_7(|L),	\
+	SJT_DB112_VR;											\
+      F=PE5;
+    TX=DB 103 + UEx 1066/1067 UrlaubsExpress Mecklenberg-Vorpommern, Wolgast - Dortmund, 2000;		\
+      C=DBAG_103220L|DBAG_103220,									\
+	(<DBAG_DMSDZ859,DBAG_BPMZ857,DBAG_BVMKZ856,DBAG_BPMZ857,DBAG_WRKMZ858,DBAG_BPMZ857,		\
+	DBAG_BPMZ857L,DBAG_BPMZ857,DBAG_WGMZ852,DBAG_DMSDZ859);						\
+      F=PE5;
+    TX=DB 120 + E 3370/3371, Bremen - Osnabrück, 1993;							\
+      C=DB_120_123,(<SJT_DBB_BDMS_OB,SJT_DBB_BN_S,SJT_DB_AM_OB,SJT_DBB_BN_S);				\
+      F=PE5;
+    TX=DB 110 + IR 2456/2457, Aachen - Chemnitz, 1993;							\
+      C=(SJT_DB110_OR|SJT_DB111_OR|DB_232_510),								\
+	(<DBAG_AIMZ261_7(|L),DBAG_ARKIMBZ262_2L,5*DBAG_BIMZ264_7(|L),SJT_DB_BIMDZ_B);			\
+      F=PE5;
+    TX=DB 103 + IR 2340/2341 "Wesertal", Schiphol - Berlin, 1998;					\
+      C=SJT_DB103_OR,((3:SJT_DB_BM_OB|DBAG_BIMZ264_7(|L))|4:),SJT_DB_BIMDZDR_B,DBAG_BIMZ264_7(|L),	\
+	SJT_IR2340_1998M;										\
+      F=PE5;
+    TX=DB 103 + IC 734/735 "Westfalen", Kiel - Köln, 1996;						\
+      C=SJT_DB103_TEE,											\
+	(SJT_DB_DMS,SJT_DB_BM_OR,SJT_DB_BM_OR,SJT_DB_BPMZ_OR,SJT_DB_BM_OR,SJT_DB_BPMZ_OR,		\
+	SJT_DB_BPMBZ_OR,SJT_DB_BM_OR,DBAG_5ARMZ211L,SJT_DB_AVMZ_OR,SJT_DB_APMZ_OR,SJT_DB_AVMZ_OR);	\
+      F=PE5;
+    TX=DB 103 + IC 544/545 "Else Laske-Schüler", Berlin - Koblenz, 1996;				\
+      C=SJT_DB103_1993,((2*SJT_DB_BM_1993)|),DB_BOMZ236(|L),3*SJT_DB_BPMZ_OR,SJT_DB_BPMBZ_OR,		\
+	2*DB_BOMZ236(|L),SJT_DB_WRMZ_OR,SJT_DB_AVMZ_OR,SJT_DB_APMZ_OR,SJT_DB_AVMZ_OR;			\
+      F=PE5;
+    TX=DB 181 + IR 2334/2335, Binz - Saarbrücken, 1996;							\
+      C=(SJT_DB181_OR,((6:(SJT_DB_BM_OR|DBAG_BIMZ264_7(|L))|1:),SJT_DB_IR2334_1996M))|			\
+	(SJT_DB111_OR|DB_232_510,(SJT_DB_IR2334_1996M,SJT_DB_IR2334_1996_ROS_SAR))|			\
+	(SJT_DB143_WR,(SJT_DB_IR2334_1996M));								\
+      F=PE5;
+    TX=DB 218 + IR 2482/2483, Emden - Bad Harzburg, 1993;						\
+      C=SJT_DB218_OR|SJT_DB112_OR|SJT_DB111_OB,								\
+	(DBAG_BIMZ264_7(|L),SJT_DB_BIMDZDR_B,3*DBAG_BIMZ264_7(|L),DBAG_ARKIMBZ262_2,DBAG_AIMZ261_7(|L)); \
+      F=PE5;
+    TX=DB 141 + RE 3020/3021, Bad Bentheim - Wolfsburg, 1998;						\
+      C=SJT_DB141_G,(<SJT_DB_BN_MG,DB_4C_BNB719DH(|L),SJT_DB_BN_MG,SJT_DB_ABN_MG,SJT_DBB_BDMS_OB);	\
+      F=PE5;
+    TX=DB 110 + D 1738/1739, Flensburg - Köln, 1997;							\
+      C=SJT_DB110_OB,(<5*SJT_DB_BM_OB,2*SJT_DB_BM_OR,SJT_DB_BM_OB);					\
+      F=PE5;
+    TX=DB 112 + D 1682/1683 - Bremerhaven - Bremen, 1993;						\
+      C=SJT_DB112_OR,(<SJT_DB_AVMZ_OR,2*SJT_DB_BM_OB,SJT_DB_BPMZ_OB,SJT_DB_BM_OB);			\
+      F=PE5;
+    TX=DB 110B + D 1732/1733, Flensburg - Köln, 1994;							\
+      C=SJT_DB110B_OB|SJT_DB218_OB,(<4*SJT_DB_BM_OB);							\
+      F=PE5;
+    TX=DB 218 + EC 174/175, "Alois Negrelli", Aarhus - Prague, 2003;					\
+      C=(SJT_DB218_VR|SJT_DB101|CD_372_012(|L),(<2*CD_6BMZ(|L),SJT_EC174_2003M))|			\
+	(DSB_MEB,(<SJT_EC174_2003M));									\
+      F=PD5;
+    TX=DB 628 + RB 4926/4927, Hamburg - Soltau, 1997;							\
+      C=(<DBAG_628_257A,DBAG_628_257B)|(<DBAG_628_601A,DBAG_628_601B);					\
+      F=PD5;
+    TX=DB 402 – ICE2 + ICE 657/658 "Anna Seghers", Düsseldorf - Berlin, 1998;				\
+      C=<DBAG_402L,2*DBAG_805L,DBAG_807L,3*DBAG_806L,DBAG_808;						\
+      F=PE5;
+    TX=DB 110 + D 2344/2345, Schiphol - Berlin, 1993;							\
+      C=SJT_DB110B_1993,(<SJT_D2344_1993M,0-1*SJT_DB_BOMZ_DR);						\
+      F=PE5;
+    TX=DB 103 + IR 2342/2343 "Havelsee", Schiphol - Berlin, 2001;					\
+      C=SJT_DB103_2000,(<6:2|1:3*(DBAG_BIMZ264_7(|L)),SJT_DB_BIMDZ_B,SJT_IR2342_2001M);			\
+      F=PE5;
+    TX=DB 103 + IC 1608/1609, Berlin - Köln, 1998;							\
+      C=SJT_DB103_OR,(<DBAG_AVMZ111_1VR(|L),5*SJT_DB_BM_OR);						\
+      F=PD5;
+    TX=DB 218 + RB 10128/10129 "Der Borkener", Langenberg - Borken, 2000;				\
+      C=<SJT_DB218_VR,SJT_DB_BN_MG,SJT_DB_ABN_MG,SJT_DB_BNDFW_VR;					\
+      F=PD5;
+    TX=DB 141 + RE 21424/21425 "Emsland-Express", Emden - Münster, 2000;				\
+      C=<SJT_DB141_G,SJT_DB_BN_MG,SJT_DB_BN_VR,SJT_DB_ABN_MG,SJT_DB_BNDFW_VR;				\
+      F=PD5;
+    TX=DB 110B + D 444/445, Köln - Görlitz, 1991;							\
+      C=SJT_DB110B_OB|SJT_DR119_WR,									\
+	(<2*SJT_DR_BM,SJT_DR_ABM,2*SJT_DR_AM,DB_BOMZ236(|L),DR_4BDME8280(|L),6*SJT_DR_BM);		\
+      F=PD5;
+    TX=DB 212 + RB 25030/25031, Emden - Emden - Aussenhafen, 2001;					\
+      C=DB_5_212R(|L),(<2*SJT_DB_BN_MG,DB_4C_ABNB703(|L));						\
+      F=PD5;
+    TX=DB 111 + IR2342/2343 "Havelsee", Schiphol - Berlin, 1997;					\
+      C=(SJT_DB111_OR|SJT_DB103_TEE,(SJT_IR2342_1997M,(2:(SJT_DB_BM_OR|DBAG_BIMZ264_7(|L))|5:)))|	\
+	(SJT_NS1700,(SJT_IR2342_1997M));								\
+      F=PE5;
+    TX=DB 110E + E 3024/3025, Bad Bentheim - Uelzen, 1994;						\
+      C=SJT_DB110E_OR,(<SJT_DBB_BDMS_OB,2*SJT_DB_BN_MG,SJT_DB_ABN_MG);					\
+      F=PE5;
+    TX=DB 216 + D 6426/6427, Leer - Oldenburg, 1991;							\
+      C=SJT_DB216_OB,(<SJT_DB_ABM_OB,SJT_DBB_BM_OB,SJT_DBB_BDMS_OB);					\
+      F=PD5;
+    TX=DB 103 + IR 2544/2545 "Osnabrücker Land", Hannover - Bad Bentheim, 1997;				\
+      C=(7:SJT_DB103_OR|5:SJT_DB112_OR|2:SJT_DB111_OB),							\
+	(<SJT_DB_BIMDZ_B,4*DBAG_BIMZ264_7(|L),DBAG_ARKIMBZ262_2,DBAG_AIMZ261_7(|L));			\
+      F=PD5;
+    TX=DB 110B + IR 2140/2141, Norddeich Mole - Leipzig, 1991;						\
+      C=((SJT_DB110B_TEE|SJT_DB112_OR|SJT_DB218_OR),							\
+	(2*(SJT_DB_BM_OB|DBAG_BIMZ264_7(|L)),SJT_DB_IR2140_1991M))|(SJT_DB218_OB,(SJT_DB_IR2140_1991M)); \
+      F=PD5;
+    TX=DB 110B + IC 554/555 "Weser-City", Bremerhaven - Hannover, 1991;					\
+      C=SJT_DB110B_TEE,											\
+	(2:(SJT_DB_IC554_1991M,SJT_DBB_BM_OB))|(3:(SJT_DB_AVMZ_1993,SJT_DB_IC554_1991M))|		\
+	(9:(SJT_DB_IC554_1991M));									\
+      F=PD5;
+    TX=DB 218 + RE 14580/14581, Hamburg - Cuxhaven, 2004;						\
+      C=<SJT_DB218_VR,3*SJT_DB_BN_VR,SJT_DB_ABN_VR,SJT_DB_BNDFK_VR;					\
+      F=PD5;
+#REVISIT#
+    TX=DB 101 + IC 2443/2340, Münster - Berlin, 2006;							\
+      C=SJT_DB101,											\
+	(<SJT_DB_AVMZ_W,SJT_DB_ARKIMBZL_W,SJT_DB_BVMSZ_W,DBAG_BPMBZ295,SJT_DB_BPMDZ_W,4*SJT_DB_BPMZ_W);	\
+      F=PE5;
+    TX=DB 101 + IC 2131/2132, "Ostfriesland", Norddeich - Cottbus, 2006;				\
+      C=1:(SJT_DB_BPMDZFL_W,3*SJT_DB_BPMZ_W,DBAG_BPMBZ295,SJT_DB_BVMSZ_W,SJT_DB_ARKIMBZR_W,		\
+	SJT_DB_AVMZ_W,SJT_DB101)|									\
+	6:(SJT_DB_BIMDZFL_W,2*SJT_DB_BPMZ_W,DBAG_BVMZ185W(|L),DBAG_BPMBZ295,SJT_DB_BVMSZ_W,		\
+	SJT_DB_ARKIMBZR_W,SJT_DB_AVMZ_W,SJT_DB101);							\
+      F=PE5;
+    TX=DB 103 + IR 2640/2641 "Sanssouci", Aachen - Berlin, 1997;					\
+      C=SJT_DB103_OR,											\
+	(5:1|2:SJT_DB_BM_OR,2*DBAG_BIMZ264_7(|L),SJT_DB_BIMDZ_B,5*DBAG_BIMZ264_7(|L),			\
+	DBAG_ARKIMBZ262_2,DBAG_AIMZ261_7(|L));								\
+      F=PE5;
+    TX=DB 218 + IC 2310/2311 "Nordfriesland", Westerland - Stuttgart;					\
+      C=SJT_DB_IC2310_2020DE1;										\
+      F=PD5;
+    TX=DB 101 + IC 2310/2311 "Nordfriesland", Westerland - Stuttgart;					\
+      C=SJT_DB_IC2310_2020DE2;										\
+      F=PE5;
+    TX=DB 110B + RE 3148/3149, Braunschweig - Norddeich Mole, 1998;					\
+      C=SJT_DB110B_OB,											\
+	(<SJT_DBB_BDMS_OB,SJT_DB_BN_MG,DB_4C_BNB719DH(|L),SJT_DB_BN_MG,2*SJT_DB_ABN_MG,			\
+	DB_4C_BNB719DH(|L));										\
+      F=PE5;
+    TX=DB 110 + D 340/341, Schiphol - Berlin, 1996;							\
+      C=SJT_D340_1996DE;										\
+      F=PE5;
+    TX=DB 415 ICE-T + EXE 1846/1847, Hannover-Meese/Laatzen - Berlin, 2000;				\
+      C=2*(29:SJT_ICET7_21DB|3:SJT_ICET7_21OEBB);							\
+      F=PE5;
+    TX=DB 112 + IR 2486/2487 "Havelland", Norddeich - Berlin, 2000;					\
+      C=SJT_DB112_VR,											\
+	(<(1:4|6:3*DBAG_BIMZ264_7(|L)),2*SJT_DB_BIMDZ_W,2*DBAG_BIMZ264_7(|L),DBAG_ARKIMBZ262_2,		\
+	DBAG_AIMZ261_7(|L));										\
+      F=PE5;
+    TX=DB 112 + IR 2580/2581 "Mark Brandenburg", Cottbus - Bremen, 2000;				\
+      C=SJT_DB112_VR,											\
+	(3*(DBAG_BIMZ264_7(|L)|DBAG_BIMZ2647W(|L)),2*(SJT_DB_BIMDZ_B|SJT_DB_BIMDZ_W),			\
+	2*(DBAG_BIMZ264_7(|L)|DBAG_BIMZ2647W(|L)),SJT_DB_ARKIMBZL_W,DBAG_AIMZ261_7(|L));		\
+      F=PE5;
+    TX=DB 101 + IR 2540/2541 "Wilheimstein", Berlin - Munster, 2000;					\
+      C=SJT_DB101,											\
+	(<DBAG_AIMZ261_7(|L),DBAG_ARKIMBZ262_2L,4*(DBAG_BIMZ264_7(|L)|DBAG_BIMZ2647W(|L)),		\
+	SJT_DB_BIMDZ_W,DBAG_BIMZ2647W(|L));								\
+      F=PE5;
+    TX=DB 103 + IR 2708/2709 "Roland", Berlin - Oldenburg, 2000;					\
+      C=SJT_DB103_TEE,(<7*(DBAG_6BIMZ2647(|L)|DBAG_BIMZ2647W(|L)|DBAG_BIMZ264_7(|L)),SJT_DB_AVMZ_OR);	\
+      F=PE5;
+    TX=DB 219 + RB Angermünde - Szczecin, 2000;								\
+      C=DBAG_6_219_025L|DBAG_6_219_025|DBAG_6_219_077L|DBAG_6_219_077|DBAG_6_219_158L|DBAG_6_219_158|	\
+	DBAG_6_219_166L|DBAG_6_219_166|DBAG_6_229_100L|DBAG_6_229_100|DBAG_6_229_173L|DBAG_6_229_173,	\
+	(<PKPPR_BDU111ALL|PKPPR_BDU111AL,PKPPR_ADU112AG,PKPPR_BDU111ALL|PKPPR_BDU111AL);		\
+      F=PD5;
+    TX=DB 110B + D 246/247 "Moscow-Express", Berlin - Moscow, 2006;					\
+      C=SJT_DB110B_VR,SJT_D246_2005M;									\
+      F=PE5;
+    TX=DB 624 + RE 5800/5801, Berlin - Szzecin, 2004;							\
+      C=2*(<BR624VRL~KMN,BR924VR~KMN,BR624VR~KMN);							\
+      F=PRD5;
+    TX=DB 180 + EC 42/43, "Berolina", Berlin - Warsaw, 1993;						\
+      C=SJT_DB180_WR,(<5-6*SJT_PKP_BVMZ_BR,PKP_WRBD2,SJT_DB_AVMZ_OR);					\
+      F=PE5;
+    TX=DB 180 + EC 40/41, "Varsovia", Berlin - Warsaw, 1999;						\
+      C=SJT_DB180_VR,											\
+	(2*SJT_DB_AVMZ_2000,SJT_DB_WRMZ_OR,SJT_DB_BOMZ_VR,SJT_DB_BVMZ_2000,SJT_DB_BPMZ_2000,		\
+	SJT_DB_BPMZ_2000,1-2*SJT_DB_BOMZ_VR,(1:DB_BOMZ236(|L)|6:));					\
+      F=PE5;
+    TX=DB 112 + IR 2376/2377, Rostock - Berlin, 2000;							\
+      C=<SJT_DB_BPMDZFL_VR,5*(DBAG_BIMZ264_7(|L)|DBAG_BIMZ2647W(|L)),DBAG_AVMZ111_1VR(|L),		\
+	(13:|1:DBAG_BIMZ264_7(|L)),SJT_DB112_VR;							\
+      F=PE5;
+    TX=DB 112 + IR 2106/2107 "Pommersche Bucht", Binz - Lauda, 2000;					\
+      C=SJT_DB112_VR,											\
+	(DBAG_AIMZ261_7(|L),SJT_DB_ARKIMBZL_W,5*(DBAG_BIMZ264_7(|L)|DBAG_BIMZ2647W(|L)),		\
+	2*(SJT_DB_BIMDZ_W|SJT_DB_BIMDZ_B));								\
+      F=PE5;
+    TX=DB 112 + IR 2270/2271 "Vier Tore", Chemnitz - Neubrandenburg, 2000;				\
+      C=<SJT_DB_BPMDZFL_W,4*(DBAG_BIMZ264_7(|L)|DBAG_BIMZ2647W(|L)),SJT_DB_AVMZ_OR,			\
+	(13:|1:DBAG_BIMZ264_7(|L)),SJT_DB112_OR;							\
+      F=PE5;
+#Hamburg-Berlin-Dresden-Prague
+    TX=DB 112 + EC 176/177 "Porta Bohemica", Hamburg - Prague, 1999;					\
+      C=CD_372_012(|L),											\
+	(5:(SJT_EC176_2009M)|1:(SJT_DB_BM_OR,SJT_EC176_2009M,<2*SJT_DB_BM_OR)|				\
+	1:(SJT_EC176_2009M,<2*SJT_DB_BM_OR));								\
+      F=PE5;
+    TX=DB 101 + EC 370/371, Aarhus - Prague, 2005;							\
+      C=SJT_DB101,(<SJT_EC370_2005M,((3*DBAG_BVMZ185W(|L))|));						\
+      F=PE5;
+    TX=CD 372 + EC 168/169, "Jan Hus", Dresden - Prague 2000;						\
+      C=CD_372_012(|L),											\
+	(<3-4*SJT_DB_BPMZ_VR,2*DBAG_BVMZ185VRHL,SJT_DB_WRMZ_VR,SJT_DB_APMZ_VR,DBAG_AVMZ111_1VR(|L));	\
+      F=PE5;
+    TX=DB 101 + EC 176/177, "Porta Bohemica", Hamburg - Prague, 2006;					\
+      C=SJT_DB101,											\
+	(DBAG_BPMBZ295,3*SJT_DB_BPMZ_W,DBAG_BPMBZ295,SJT_DB_BVMSZ_W,SJT_DB_WRMZ_W,SJT_DB_APMZ_W,	\
+	SJT_DB_AVMZ_W);											\
+      F=PE5;
+    TX=CD 372 + EC 278/279, "Smetana", Dresden - Vienna, 2004;						\
+      C=(CD_372_012(|L),(<SJT_EC278_2004M))|								\
+	(SJT_OEBB1116_RED,(<SJT_EC278_2004M,SJT_OEBB_APMZ_G,2*SJT_PKP_BVMZ_BR));			\
+      F=PE5;
+    TX=DB 120 + IR 2284/2285, DB Interregio Finale, Berlin - Chemnitz, 2006;				\
+      C=SJT_DB120_VR,											\
+	(<SJT_DB_BIMDZ_W,DBAG_BIMZ264_7(|L),DBAG_6BIMZ2647(|L),DBAG_BIMZ2647W(|L),DBAG_AIMZ261_7(|L));	\
+      F=PE5;
+    TX=DB 218 + IC 536/537 "Carl Maria von Weber", Hamburg - Berlin, 1995;				\
+      C=2*SJT_DB218_OR,											\
+	(SJT_DB_APMZ_1993,SJT_DB_AVMZ_1993,DBAG_5ARMZ211L,2*DB_BOMZ236(|L),SJT_DB_BPMBZ_1993,		\
+	SJT_DB_BPMZ_1993,3*DB_BOMZ236(|L),(2:SJT_DB_BM_1993|5:));					\
+      F=PD5;
+    TX=DB 219 + IC 534/535 "Elbflorenz", Hamburg - Dresden, 1993;					\
+      C=SJT_DB219_OR|SJT_DB112_OR,									\
+	(SJT_DB_APMZ_1993,SJT_DB_AVMZ_1993,SJT_DB_WRMH_OR,SJT_DB_BM_1993,SJT_DB_BPMBZ_1993,		\
+	2*SJT_DB_BPMZ_1993,(5:|2:(2*SJT_DB_BM_1993)),SJT_DB_BDMS_OR,2*SJT_DB_BM_1993);			\
+      F=PD5;
+    TX=DB 112 + EC 176/177 "Porta Bohemica", Hamburg - Prague, 1999;					\
+      C=SJT_DB112_VR,											\
+	(5:(SJT_EC176_2009M)|1:(SJT_DB_BM_OR,SJT_EC176_2009M,<2*SJT_DB_BM_OR)|				\
+	1:(SJT_EC176_2009M,<2*SJT_DB_BM_OR));								\
+      F=PE5;
+    TX=DB 218 + IC 132/135, "Emil Nolde", Westerland - Berlin, 1991;					\
+      C=(2*SJT_DB218_OB),										\
+	(SJT_DB_APMZ_TEE,SJT_DB_AVMZ_TEE,DBAG_5ARMZ211L,2*SJT_DB_BM_OB,SJT_DB_BPMBZ_OR,			\
+	2*SJT_DB_BPMZ_OB,((SJT_DB_BM_OB,SJT_DBB_BDMS_OB)|(SJT_DBB_BDMS_OB,SJT_DB_BM_OB)),		\
+	0-1*SJT_DB_BM_OB);										\
+      F=PD5;
+    TX=DB 101 + IC 2070/2071, Hamburg - Dresden, 2007;							\
+      C=SJT_DB101,											\
+	(<SJT_DB_BIMDZ_W,2*SJT_DB_BPMZ_W,DBAG_BPMBZ295,SJT_DB_BVMSZ_W,SJT_DB_WRMZ_W,SJT_DB_APMZ_W,	\
+	SJT_DB_AVMZ_W);											\
+      F=PE5;
+    TX=DB 112 + IR 304/305, "Neptun", Berlin - Copenhagen, 1995;					\
+      C=SJT_DB112_OR,											\
+	(10:(SJT_IR304_1995D,SJT_IR304_1995M))|(2:(SJT_DB_BM_1993,SJT_IR304_1995D,SJT_IR304_1995M))|	\
+	(1:(SJT_DB_BM_1993,SJT_IR304_1995D,DBAG_BIMZ259(|L),SJT_IR304_1995M))|				\
+	(1:(SJT_IR304_1995D,DBAG_BIMZ259(|L),SJT_IR304_1995M));						\
+      F=PE5;
+    TX=DB 120 + EC 174/175, Hamburg - Budapest, 2005;							\
+      C=SJT_DB120_VR,SJT_EC174_2005M;									\
+      F=PE5;
+    TX=DB 120 + IC 708/709 "Friedrich-Ludwig-Jahn", Hamburg - Erfurt, 1996;				\
+      C=<DBAG_BIMDZF269_0L,2*SJT_DB_BPMZ_OR,SJT_DB_BPMBZ_OR,SJT_DB_BM_OR,SJT_DB_BM_OB,DBAG_5ARMZ211L,	\
+	SJT_DB_AVMZ_TEE,SJT_DB_APMZ_OR,DB_120_123;							\
+      F=PE5;
+    TX=DB 210 + IC 630/631, Hamburg - Berln, 1996;							\
+      C=2*SJT_DB210_1996,										\
+	(SJT_DB_APMZ_OR,SJT_DB_AVMZ_OR,DBAG_5ARMZ211L,2*DB_BOMZ236(|L),SJT_DB_BPMBZ_OR,SJT_DB_BPMZ_OR,	\
+	DB_BOMZ236(|L),<2*SJT_DB_BM_OR);								\
+      F=PD5;
+    TX=DB 401 + ICE 648/649 "Elbe-Kurier", Dresden - Berlin, 1996;					\
+      C=<DB_401L,4*DB_801L,DB_804L,DB_803L,6*DB_802L,DB_401;						\
+      F=PE5;
+    TX=DB 218 + IC 636/637 "Emil Nolde", Berlin - Westerland, 1996;					\
+      C=2*DBAG_218212L|DBAG_218212|DBAG_218272L|DBAG_218272,						\
+	(SJT_DB_APMZ_OR,SJT_DB_AVMZ_OR,DBAG_5ARMZ211L,SJT_DB_BM_OR,SJT_DB_BPMBZ_OR,2*SJT_DB_BPMZ_OR,	\
+	SJT_DB_BM_OR,SJT_DB_BDMS_OR)|									\
+	(2*SJT_DB_AVMZ_OR,DBAG_5ARMZ211L,SJT_DB_BM_OB,SJT_DB_BPMBZ_OR,2*SJT_DB_BPMZ_OR,SJT_DB_BM_OB,	\
+	SJT_DB_BPMZ_OR,SJT_DB_BM_OR);									\
+      F=PD5;
+    TX=DB 210 + IC 538/539 "Helene Lange", Berlin - Hamburg, 1996;					\
+      C=2*SJT_DB210_1996,										\
+	(SJT_DB_BOMZ_DR,SJT_DB_BPMZ_OR,SJT_DB_BM_OB,SJT_DB_BDMS_OR,SJT_DB_BPMBZ_OR,SJT_DB_AVMZ_OR,	\
+	SJT_DB_ARMZ_TEE);										\
+      D=L; P=>100-80;											\
+      F=PD5;
+
+    TX=DB 112 + IR 2276/2277 "Neptun", Rostock - Chemnitz, 2000;					\
+      C=<SJT_DB_BPMDZFL_W,4*DBAG_BIMZ264_7(|L),SJT_DB_AVMZ_W,SJT_DB112_VR;				\
+      F=PE5;
+    TX=DB 101 + D 2730/2731, Flensburg - Berlin, 2000;							\
+      C=SJT_DB101,(<5*(SJT_DB_BM_OB|SJT_DB_BM_OR),DBAG_AVMZ111_1VR(|L));				\
+      F=PE5;
+    TX=DB 216 + Freight 2000;										\
+      C=SJT_DBB216_WR,15*SJT_NACCO_EANOS;								\
+      F=FD5;
+    TX=DB 101 + IC 538/539 "Clara Zetkin", Hamburg - Berlin, 2000;					\
+      C=SJT_DB101,											\
+	(SJT_DB_AVMZ_OR,SJT_DB_APMZ_OR,SJT_DB_ARKIMBZL_W,SJT_DB_BM_OR,2*SJT_DB_BPMZ_OR,SJT_DB_BIMDZ_W,	\
+	(1:|13:(<2*SJT_DB_BM_OR)));									\
+      F=PE5;
+    TX=DB 112 + IR 2278/2279 "Muritz", Rostock - Chemnitz, 2000;					\
+      C=<SJT_DB_BPMDZFL_W,4*(DBAG_BIMZ264_7(|L)|DBAG_BIMZ2647W(|L)),DBAG_AVMZ111_1VR(|L),SJT_DB112_VR;	\
+      F=PE5;
+    TX=DB 112 + IC 872/873 "Max Liebermann", Hamburg - Dresden, 2000;					\
+      C=SJT_DB112_OR,											\
+	(<2*SJT_DB_BM_OR,SJT_DB_BIMDZ_W,2*SJT_DB_BPMZ_W,SJT_DB_BM_OR,SJT_DB_ARKIMBZL_W,SJT_DB_APMZ_OR,	\
+	SJT_DB_AVMZ_W);											\
+      F=PE5;
+    TX=DB 112 + IR 2272/2273 "Augustusburg", Chemnitz - Rostock, 2000;					\
+      C=<SJT_DB_BPMDZFL_W,4*(DBAG_BIMZ264_7(|L)|DBAG_BIMZ2647W(|L)),SJT_DB_AVMZ_W,SJT_DB112_VR;		\
+      F=PE5;
+    TX=DB 101 + IC 532/533 "Karl Friedrich Schenkel", Berlin - Hamburg, 2000;				\
+      C=SJT_DB101,											\
+	(<2*SJT_DB_BM_OR,SJT_DB_BIMDZ_B,2*SJT_DB_BPMZ_OR,SJT_DB_BM_OR,DBAG_ARKIMBZ262_2,		\
+	SJT_DB_APMZ_OR,SJT_DB_AVMZ_OR);									\
+      F=PE5;
+    TX=DB 110E + E 8844/8845, Duisburg - Köln, 1993;							\
+      C=SJT_DB110E_OR,(<SJT_DB_BM_OB,SJT_DR_ABM,SJT_DB_BM_OB,DB_4C_ABNB703(|L),DB_4C_BNB719DH(|L));	\
+      F=PE5;
+    TX=DB 111 + RE 10024/10025, Aachen - Bielefeld, 1999;						\
+      C=<SJT_DB111_OR,2*SJT_DB_DABZ_MG,2*SJT_DB_DBZ_MG,SJT_DB_DBZFR_MG;					\
+      F=PE5;
+    TX=DB 218 + RE Langenberg - Dorsten, 2003;								\
+      C=<DBAG_6BNRDZF463L|DBAG_BNRDZF463_1VRL|DBAG_BDNF464HHL|DBAG_BDNF464_2HHL|DBAG_BNDF464VRL|	\
+	DBAG_BDNF465_FERVETL,										\
+	1:DBAG_ABN416(|L)|4:SJT_DB_ABN417_VR|1:DBAG_ABN418(|L)|2:SJT_DB_ABN419_VR,			\
+	2*1:SJT_DB_BN433_VR|2:SJT_DB_BN440_VR|2:SJT_DB_BN447_VR|2:SJT_DB_BN448_VR|1:DBAG_BN454V(|L),	\
+	DBAG_218212L|DBAG_218212|DBAG_218272L|DBAG_218272;						\
+      F=PDRU5;
+    TX=DB 110B + RE 22080/22081, Köln - Koblenz, 2001;							\
+      C=SJT_DB110B_OB,											\
+	(<SJT_DB_ABN_VR,SJT_DB_BN_VR,DB_4C_BNB719DH(|L),DBAG_BND447_9(|L),SJT_DB_BN_VR,SJT_DB_BN_MG);	\
+      F=PE5;
+    TX=DB 143 + S3, Oberhausen - Hattingen, 1997;							\
+      C=<SJT_DB143_O,DB_5BX794(|L),DB_5ABX791(|L),DB_5BXF796;						\
+      F=PERU5;
+    TX=DB 103 + IR 2748/2749, Aachen - Hannover, 1994;							\
+      C=SJT_DB103_OR,											\
+	(1:(3*DBAG_BIMZ264_7(|L),SJT_DB_IR2748_1994M,DBAG_AIMZ261_7(|L))|				\
+	3:(DBAG_BIMZ264_7(|L),SJT_DB_IR2748_1994M,DBAG_AIMZ261_7(|L))|					\
+	1:(DBAG_BIMZ264_7(|L),SJT_DB_IR2748_1994M)|1:(SJT_DB_IR2748_1994M));				\
+      F=PE5;
+    TX=DB 140 + E 3085/3086, Emmerich - Düsseldorf, 1994;						\
+      C=<SJT_DB140_OB,SJT_DB_BN_MG,DB_4C_ABNB703(|L),SJT_DB_BNDFK_MG;					\
+      F=PE5;
+    TX=DB 110B + D 1734/1735, Hamburg - Düsseldorf, 1994;						\
+      C=SJT_DB110B_OB,6*SJT_DB_BM_OB;									\
+      F=PE5;
+    TX=DB 110E + RB 11524/11525, Mönchengladbach - Köln, 2000;						\
+      C=SJT_DB110E_VR,(<2*DB_4C_BNB719DH(|L),SJT_DB_BN_VR,SJT_DB_ABN_VR);				\
+      F=PE5;
+    TX=NS DE 2 + RB 3741/3742, Heerlen - Aachen, 1997;							\
+      C=NS_DE2YL|NS_DE2Y|NS_DE2YAL|NS_DE2YA|NS_DE2YBL|NS_DE2YB|NS_DE2YPL|NS_DE2YP;			\
+      F=PE5;
+    TX=DB 110B + E 3012/3013, Aachen, Bielefeld, 1993;							\
+      C=SJT_DB110B_TEE,(<4*SJT_DB_BN_MG,SJT_DB_ABN_MG,DBAG_5BNRD451(|L));				\
+      F=PE5;
+    TX=DB 111 + RE 10022/10023, Aachen - Bielefeld, 1999;						\
+      C=<SJT_DB111_SB,2*SJT_DB_DABZ_MG,SJT_DB_DBZ_VR,SJT_DB_DBZ_MG,SJT_DB_DBZFR_MG;			\
+      F=PE5;
+    TX=DB 218 + RE 10214/10215, Borken - Essen, 1999;							\
+      C=<SJT_DB218_OR,SJT_DB_BN_MG,SJT_DB_ABN_MG,SJT_DB_BNDFK_VR;					\
+      F=PE5;
+#Rhine
+    TX=DB 103 + IC 500/501, "Heinrich der Löwe", Berlin - Basel, 1991;					\
+      C=SJT_DB103_TEE,											\
+	(1-3*SJT_DB_BM_OR,3*SJT_DB_BPMZ_OR,SJT_DB_BPMBZ_OR,SJT_DB_BM_OB,SJT_DB_WRMZ_OR,			\
+	SJT_DB_AVMZ_TEE,SJT_DB_APMZ_OR,2*SJT_DB_AVMZ_OR);						\
+      F=PE5;
+    TX=DB 101 + EC 100/101, "Matterhorn", Wiesbaden - Brig, 1999;					\
+      C=SJT_DB101_VR,(<2*SJT_SBB_AM_EC,SJT_SBB_WRM_P,5-6*SJT_SBB_BM_EC,SJT_DB_BM_OR);			\
+      F=PE5;
+    TX=DB 103 + EC 18/19, "Andreas Hofer", Dortmund - Innsbruck, 1991;					\
+      C=SJT_DB103_1993,(<SJT_EC18_1991M,(3:|4:SJT_DB_BPMZ_OR));						\
+      F=PE5;
+    TX=DB 103 + EC 128/129 "Anton Brückner", Hamburg - Linz, 1992;					\
+      C=SJT_DB103_1993,											\
+	(SJT_DB_BVMZ_OR,3*SJT_DB_BPMZ_OR,SJT_DB_BPMBZ_OR,2*SJT_DB_BVMZ_OR,DB_4F_WRMZ135(|L),		\
+	SJT_DB_AVMZ_OR,SJT_DB_APMZ_OR,SJT_DB_AVMZ_OR);							\
+      F=PE5;
+    TX=DB 103 + EC 100/101 "Matterhorn", Dortmund - Brig, 1991;						\
+      C=SJT_DB103_TEE,(<SJT_EC100_1991M,(6:|1:(2*SJT_DB_BM_1993)));					\
+      F=PE5;
+    TX=DB 101 + EC 28/29 "Joseph Haydn", Dortmund - Vienna, 2001;					\
+      C=<SJT_DB101,SJT_OEBB_AVMZ_R,SJT_OEBB_WRMZ_R,2*SJT_OEBB_BVMZ_R,3*SJT_OEBB_BPMZ_R,			\
+	2*SJT_OEBB_BVMZ_R,SJT_DB_BPMDZF_VR;								\
+      F=PE5;
+    TX=DB 103 + EC 50/51 "Karlstein", Dortmund - Prague, 1998;						\
+      C=((SJT_DB103_OR|DBAG_103233(|L)),(<(5:|2:SJT_DB_AVMZ_OR),SJT_EC50_1998M))|			\
+	((CSD_363_002|SJT_DB232_VR),(<SJT_EC50_1998M));							\
+      F=PE5;
+    TX=DB 101 + EC 106/107 "Mont Blanc", Dortmund - Geneva, 1998;					\
+      C=SJT_DB101_VR,(SJT_DB_BM_OR,2*SJT_DB_BPMZ_OR,SJT_EC106_1998M,SJT_DB_AVMZ_OR);			\
+      F=PE5;
+    TX=DB 103 + EC 108/109 "Thunersee", Berlin - Interlaken, 1994;					\
+      C=(SJT_DB103_1993,(SJT_EC108_1994M,DB_BOMZ236(|L),0-1*(DB_BOMZ236(|L)|SJT_DB_BIMDZ_B)))|		\
+	(SJT_SBB620,(SJT_EC108_1994M));									\
+      F=PE5;
+    TX=DB 101 + EC 12/13 "Paganini", Dortmund - Verona, 2002;						\
+      C=(SJT_DB101_VR|SJT_DB120_VR),(<SJT_EC12_2002M,(5:|2:DBAG_BVMZ185W(|L)));				\
+      F=PE5;
+    TX=DB 101 + EC 28/29 "Prinz Eugen", Hamburg - Vienna, 1997;						\
+      C=SJT_DB101_VR,(<SJT_EC28_1997M,(3:|4:(SJT_DB_AVMZ_OR)));						\
+      F=PE5;
+    TX=DB 101 + EC 2/3 "Rembrandt", Amsterdam - Chur, 2002;						\
+      C=SJT_DB101_VR,(<SJT_EC2_2002M,SJT_EC2_2002CH,(6:|1:SJT_DB_BPMZ_W));				\
+      F=PE5;
+    TX=DB 103 + EC 8/9 "Tiziano", Dortmund - Milan, 1992;						\
+      C=SJT_DB103_TEE,											\
+	(<SJT_DB_AVMZ_OR,SJT_DB_APMZ_TEE,SJT_SBB_WRM_P,SJT_EC8_1992M,(6:1|1:2*SJT_DB_BM_OB));		\
+      F=PE5;
+    TX=DB 101 + EC 4/5 "Verdi", Dortmund - Milan, 2002;							\
+      C=SJT_DB101,											\
+	(<SJT_DB_AVMZ_W,SJT_DB_APMZ_W,SJT_DB_WRMZ_OR,SJT_EC4_2002M,(5:0|1:1|1:2*SJT_DB_BPMZ_W));	\
+      F=PE5;
+    TX=DB 101 + EC 2/3 "Berner Oberland", Amsterdam - Interlaken, 2003;					\
+      C=SJT_DB101_VR,SJT_EC2_2003M;									\
+      F=PE5;
+    TX=DB 111 + IC 924/925 "Airport City", Düsseldorf - Frankfurt, 1994;				\
+      C=<DB_APZF209ICML,2*DB_BPZB298ICM,SJT_DB111_OR;							\
+      F=PE5;
+    TX=DB 111 + D 1126/1127, Dortmund - Innsbruck, 1996;						\
+      C=SJT_DB111_OR,(<0-1*(DB_5T2S(|L),2*SJT_DB_BCM_OB),3*SJT_DB_BCM_OB,2*SJT_DB_BM_1993);		\
+      F=PE5;
+    TX=DB 111 + IR 2212/2213 "Murgtal", Emden - Freudenstadt, 1995;					\
+      C=(SJT_DB111_OR,(<SJT_DB_IR2212_1995M,4*DBAG_BIMZ264_7(|L)))|(SJT_DB218_OR,(<SJT_DB_IR2212_1995M)); \
+      F=PE5;
+    TX=DB 103 + EC 24/25 "Fransz Liszt", Dortmund - Budapest, 1996;					\
+      C=SJT_DB103_TEE,(<0-1*SJT_DB_AVMZ_OR,SJT_EC24_1996M);						\
+      F=PE5;
+    TX=DB 103 + EC 2/3 "Rembrandt", Amsterdam - Chur, 1994;						\
+      C=SJT_DB103_1993,											\
+	(<SJT_SBB_AM_EC,SJT_EC2_1994M,2*SJT_SBB_BM_O,SJT_DB_BM_OR,0-1*SJT_SBB_BM_EC,(1:SJT_DB_BM_OB|6:)); \
+      F=PE5;
+    TX=DB 120 + CNL 407/408 "Komet", Hamburg - Zurich, 2005;						\
+      C=SJT_DB120_VR,											\
+	(CNL_BP_SLEEPERETTE(|L),3*SJT_CNL_BCM,SJT_CNL_WRM,SJT_CNL_DWLABM,CNL_WLABM,SJT_CNL_DWLABM,	\
+	3*CNL_WLABM,3*SJT_CNL_BCM,CNL_BP_SLEEPERETTE(|L));						\
+      F=PE5;
+    TX=DB 101 + EC 8/9, Hamburg - Chur, 2006;								\
+      C=<SJT_EC8_2006M,SJT_DB101_VR;									\
+      F=PE5;
+    TX=DB 103 + EC 22/23 "Johann Strauss", Köln - Vienna, 1997;						\
+      C=SJT_DB103_OR,(<SJT_EC22_1997M,(6:|1:SJT_DB_BM_OR));						\
+      F=PE5;
+    TX=NS 1700 + EC 104/105 "Berner Oberland", Amsterdam - Interlaken, 1995;				\
+      C=(SJT_DB103_TEE),(SJT_SBB_AM_EC,SJT_EC104_1995M,2*SJT_DB_BPMZ_OR,SJT_DB_BVMZ_OR);		\
+      F=PE5;
+    C=(DB_4_103105L,(<2*DB_4AVUMZ111_2L,0-1*DB_APUMZ121L~HEN,DB_4AVUMZ111_2L,0-1*DB_APUMZ121L~HEN)),	\
+	(<DB_4AVUMZ111_2L,DB_APUMZ121L~HEN,DB_4A_WRUMH132_2RL,DB_4A_ARDMH105L);				\
+      F=PE5;
+    TX=DB 101 + IC 118/119, Dortmund - Innsbruck, 2004;							\
+      C=<SJT_IC118_2004M,SJT_DB101;									\
+      F=PE5;
+    TX=DB 218 + IC 118/119, Dortmund - Innsbruck, 2004;							\
+      C=2*SJT_DB218_VR,(<SJT_IC118_2004M);								\
+      F=PD5;
+    TX=DB 103 + EC 128/129, "Anton Brückner", Hamburg - Linz, 1993;					\
+      C=SJT_DB103_1993|SJT_OEBB1044_ORANGE,								\
+	(SJT_DB_BVMZ_1993,3*SJT_DB_BPMZ_1993,SJT_DB_BPMBZ_1993,2*SJT_DB_BVMZ_1993,SJT_DB_WRMZ_OR,	\
+	SJT_DB_AVMZ_1993,SJT_DB_APMZ_1993,SJT_DB_AVMZ_1993);						\
+      F=PE5;
+    TX=DB 141 + RE 3460/3461, Koblenz - Frankfurt, 1996;						\
+      C=SJT_DBB141_OB,(<2*DB_4C_BNB719DH(|L),SJT_DB_ABN_MG,DBAG_5BNRD451(|L));				\
+      F=PE5;
+    TX=DB 110B + AE 1520/1521, "Christoforus", Düsseldorf - Munich, 1996;				\
+      C=SJT_DB110B_OB,(<2-4*SJT_DB_AVMZ_OR,SJT_DB_WRMZ_OR,2-3*SJT_DB_AVMZ_OR,6*SJT_DDM_LOADED);		\
+      F=PE5;
+    TX=DB 103 + IR 2214/2215, Norddeich - Karlsruhe, 1997;						\
+      C=SJT_DB103_OR,											\
+	((4:(SJT_DB_IR2214_1997M,DBAG_AIMZ261_7(|L))|							\
+	1:(SJT_DB_BM_OR,SJT_DB_IR2214_1997M,DBAG_AIMZ261_7(|L))|1:(SJT_DB_IR2214_1997M)|		\
+	1:((SJT_DB_BM_OR|DBAG_BIMZ264_7(|L)),SJT_DB_IR2214_1997M)));					\
+      F=PE5;
+
+    TX=DB 101 + IC 504/505 "Schauinsland", Hamburg - Basel, 1999;					\
+      C=SJT_DB101_VR,											\
+	(5:2|2:1*(SJT_DB_AVMZ_OR),DBAG_AVMZ111_1VR(|L),SJT_DB_APMZ_OR,DBAG_5ARMZ211L,			\
+	2*(SJT_DB_BOMZ_VR|SJT_DB_BM_OR),SJT_DB_BPMBZ_OR,4*SJT_DB_BPMZ_OR,				\
+	(DB_BOMZ236(|L)|SJT_DB_BM_OR),(6:|1:SJT_DB_BM_OR));						\
+      F=PE5;
+    TX=DB 101 + EC 24/25, Dortmund - Budapest, 2007;							\
+      C=SJT_DB101_VR,											\
+	(2*SJT_OEBB_BVMZ_G,3*SJT_OEBB_BPMZ_G,2*SJT_OEBB_BPMZ_G,SJT_OEBB_WRMZ_G,SJT_OEBB_AVMZ_G,		\
+	SJT_OEBB_AVMZ_R);										\
+      F=PE5;
+    TX=DB 103 + FD 1902/1903 "Bodensee", Dortmund - Konstanz, 1992;					\
+      C=SJT_DB103_1993,(<SJT_DB_FD1902_1992M|SJT_DB_FD1902_1992KA);					\
+      F=PE5;
+    TX=DB 103 + EN 224/225 "Donauwalzer", Oostende - Vienna, 1994;					\
+      C=(SJT_DB103_TEE,(SJT_EN224_1994BRU-W,SJT_D214_1994BRU-M))|					\
+	(SJT_DB103_OR,(SJT_EN224_1994BRU-W,SJT_EN224_1994A-W));						\
+      F=PE5;
+    TX=MRCE 103 + D 214/215, Amsterdam - Munich, 1994;							\
+      C=((SJT_DB103_OR),(SJT_EN224_1994A-W,SJT_D214_1994A-M))|						\
+	(SJT_DB103_OR,(SJT_D214_1994A-M,SJT_D214_1994BRU-M));						\
+      F=PE5;
+    TX=DB 120 + IC 612/613, "Bacchus", Münster - Munich, 1994;						\
+      C=DB_120_123|SJT_DB103_TEE,(5:|2:SJT_DB_BVMZ_OR),							\
+	4*(<SJT_DB_BPMZ_OR,SJT_DB_BPMBZ_OR,2*SJT_DB_BVMZ_OR,SJT_DB_WRMZ_OR,SJT_DB_AVMZ_OR,		\
+	SJT_DB_APMZ_OR,SJT_DB_AVMZ_OR);									\
+      F=PE5;
+    TX=DB 120 + IC 516/517, "Friedrich Schiller", Dortmund - Stuttgart, 1994;				\
+      C=DB_120_123,(1:(<3*SJT_DB_BPMZ_OR,SJT_DB_IC516_1994M)|6:(<SJT_DB_IC516_1994M,SJT_DB_AVMZ_OR));	\
+      F=PE5;
+    TX=DB 120 + IC 520/521 "Spessart", Kiel - Munich, 1994;						\
+      C=(SJT_DB120_TEE,(SJT_DB_IC520_1994M))|								\
+	((SJT_DB103_OR|SJT_DB103_TEE|(2*SJT_DB218_OR)),(SJT_DB_IC520_1994M,SJT_DB_IC520_1994N));	\
+      F=PE5;
+    TX=DB 111 + IR 2312/2313, Norddeich - Karlsruhe, 1994;						\
+      C=SJT_DB111_OR,											\
+	(<DBAG_AIMZ261_7(|L),DBAG_ARKIMBZ262_2L,4*DBAG_BIMZ264_7(|L),SJT_DB_BIMDZ_B,			\
+	(6:|1:(SJT_DB_BM_1993|DBAG_BIMZ264_7(|L))));							\
+      F=PE5;
+#REVISIT#
+    TX=MRCE 103 + D 201/202 "Schweiz-Express", Amsterdam - Basel, 1995;					\
+      C=SJT_DB103_TEE,											\
+	(<NS_T2S_4T,NS_BCM_BL|NS_BCM_B|NS_BCVMH140L|NS_BCVMH140|NS_BCVMH_160L|NS_BCVMH160,		\
+	0-1*NS_BCVMH140L,DB_4BDMS273SL,2*DBAG_BM233OBL,DB_4ABM223BB,					\
+	0-2*NS_BCM_BL|NS_BCM_B|NS_BCVMH140L|NS_BCVMH140|NS_BCVMH_160L|NS_BCVMH160,0-1*NS_BCVMH140L,	\
+	NS_T2S_4T,NS_BCVMH140L);									\
+      F=PE5;
+    TX=DB 103 + EC 2/3 "Rembrandt", Amsterdam - Chur, 1995;						\
+      C=SJT_DB103_TEE,(<SJT_SBB_AM_EC,SJT_EC2_1995M,2*SJT_SBB_BM_EC,SJT_DB_BM_OR);			\
+      F=PE5;
+#REVISIT#
+#REVISIT#
+    TX=DB 120 + IC 514/515 "Bacchus", Dortmund - Stuttgart, 1995;					\
+      C=SJT_DB120_TEE,											\
+	(SJT_DB_AVMZ_OR,SJT_DB_APMZ_OR,SJT_DB_AVMZ_OR,DB_4F_WRMZ135(|L),2*SJT_DB_BVMZ_OR,		\
+	SJT_DB_BPMBZ_OR,2*SJT_DB_BPMZ_OR,2*SJT_DB_BVMZ_OR);						\
+      F=PE5;
+    TX=DB 120 + IC 516/517 "Friedrich Schiller", Dortmund - Munich, 1991;				\
+      C=DB_120_123,											\
+	(SJT_DB_AVMZ_TEE,SJT_DB_APMZ_OR,SJT_DB_AVMZ_TEE,SJT_DB_WRMZ_OR,(1:2|6:1*SJT_DB_BVMZ_OR),	\
+	SJT_DB_BPMBZ_OB,4*SJT_DB_BPMZ_OR,								\
+	(5:SJT_DB_BVMZ_OR|1:SJT_DB_BPMZ_OR|1:(SJT_DB_BVMZ_OR,SJT_DB_BPMZ_OR)));				\
+      F=PE5;
+    TX=DB 218 + D 2334/2335, Rostock - Koblenz, 1993;							\
+      C=SJT_DB218_OR|SJT_DB112_OR|DBAG_4_181_201(|L),							\
+	(0-1*SJT_DB_DMS,2*(SJT_DB_BM_1993|DBAG_BIMZ259(|L)),(SJT_DB_BIMDZ_B|SJT_DB_BM_1993),		\
+	5*(DBAG_BIMZ264_7(|L)|SJT_DB_BM_1993),SJT_DB_AVMZ_OR|SJT_DB_AM_OB);				\
+      F=PE5;
+    TX=DB 127 + AE 1516/1517 "Timm Kröger", Westerland - Kornwestheim, 1993;				\
+      C=BR127~DK,(<2-4*DB_5T2S(|L),3-4*SJT_DB_BCM_OB,3-6*SJT_DDM_LOADED);				\
+      F=PE5;
+    TX=DB 120 + EC 12/13 "Paganini", Dortmund - Venice, 1993;						\
+      C=(SJT_DB120_TEE,(<SJT_EC12_1993M,SJT_DB_DMS))|(DB_120_123,(<SJT_EC12_1993M,0-1*SJT_DB_DMS));	\
+      F=PE5;
+#REVISIT#
+    TX=DB 110/120 + AG 1274/1275, Fredericia - Bourg St. Maurice, 2006;					\
+      C=DBAG_110_316U|SJT_DB120_VR,									\
+	(<3*(NS_BCM_BL|SJT_NS_BCM_B|NS_BCVMH140L|NS_BCVMH140|NS_BCVMH_160L|NS_BCVMH160),SNCB_MU_WLL),	\
+	(<DBAG_WRMZ134D,DB_WLABMH174,7*DB_BCVMBZ248);							\
+      F=PE6;
+    TX=DB 103/120/181 + IR 2430/2431, "Wattenmeer", Cuxhaven - Luxembourg, 1998;			\
+      C=(SJT_DB103_OR,(SJT_DB_IR2430_1998M))|(SJT_DB103_OR,(DBAG_BIMZ264_7(|L),SJT_DB_IR2430_1998M))|	\
+	(SJT_DB120_VR,(SJT_DB_IR2430_1998M))|								\
+	(DBAG_4_181_201(|L),((|DBAG_BIMZ264_7(|L)),SJT_DB_IR2430_1998M));				\
+      F=PE5;
+    TX=DB 218 + IR 2430/2431, "Wattenmeer", Cuxhaven - Luxembourg, 1998;				\
+      C=SJT_DB218_OB,(SJT_DB_IR2430_1998M);								\
+      F=PD5;
+    TX=DB 103 + EC 118, "Karwendel", Dortmund - Innsbruck, 1991;					\
+      C=(SJT_DB103_TEE|DB_120_123),(SJT_EC118_1991MW,SJT_EC118_1991IB,SJT_EC118_1991GP);		\
+      F=PE5;
+    TX=DB 101 + CNL 312/313, "Donau Kurier", Dortmund - Vienna, 2005;					\
+      C=(SJT_DB101,(<SJT_CNL312_2005M))|(SJT_DB101_VR,(<SJT_NZ300_2005M,SJT_CNL312_2005M));		\
+      F=PE5;
+    TX=DB 218 + IC 800/801 "Theodor Storm", Westerland - Karlsruhe, 2000;				\
+      C=SJT_DB101_VR,SJT_DB_IC800_2000M,2*SJT_DB_BM_OR;							\
+      F=PE5;
+    C=2*SJT_DB218_VR,SJT_DB_IC800_2000M,0-1*(2*SJT_DB_BM_OR);						\
+      F=PD5;
+    TX=DB 101 + IR 2218/2219, "Bergstrasse", Norddeich - Karlsruhe, 2000;				\
+      C=SJT_DB101,											\
+	(<DBAG_AIMZ261_7(|L),DBAG_ARKIMBZ262_2L,2*DBAG_BIMZ264_7(|L),SJT_DB_BIMDZ_W,			\
+	(13:4|14:5*DBAG_BIMZ264_7(|L)));								\
+      F=PE5;
+    TX=DB 101 + IC 118/119, "Alpenland", Münster - Seefeld, 1999;					\
+      C=(14:SJT_DB101|7:SJT_DB120_VR|7:SJT_DB103_TEE),							\
+	(<SJT_IC118_1999M,SJT_IC718_1999M)|(SJT_DB103_OR,SJT_IC118_1999M);				\
+      F=PE5;
+    TX=DB 101 + IC 718/719, "Alpenland", Münster - Berchtesgaden, 1999;					\
+      C=(14:SJT_DB101|7:SJT_DB120_VR|7:SJT_DB103_TEE),							\
+	(<SJT_IC118_1999M,SJT_IC718_1999M)|(SJT_DB111_VR,SJT_IC118_1999M);				\
+      F=PE5;
+    TX=DB 101 + EC 24/25, "Fransz Liszt", Köln - Budapest, 2001;					\
+      C=<SJT_EC24_2001M,SJT_DB101;									\
+      F=PE5;
+    TX=DB 101 + EC 22/23, "Johann Strauss", Köln - Vienna, 1999;					\
+      C=SJT_DB101,3*SJT_OEBB_AVMZ_R,SJT_OEBB_WRMZ_R,2*SJT_OEBB_BVMZ_R,3*SJT_OEBB_BPMZ_R,		\
+	2*SJT_OEBB_BVMZ_R,DB_BIMDZF269_2;								\
+      F=PE5;
+    TX=DB 101 + EC 18/19, "Andreas Hofer", Dortmund - Innsbruck, 1999;					\
+      C=SJT_DB101_VR,											\
+	(2*SJT_DB_AVMZ_OR,SJT_DB_APMZ_OR,SJT_DB_WRMZ_OR,2*SJT_DB_BVMZ_OR,SJT_DB_BPMBZ_OR,		\
+	3*SJT_DB_BPMZ_OR,2*SJT_DB_BVMZ_OR);								\
+      F=PE5;
+    TX=ÖBB 1044 + EC 16/17, "Max Reinhardt", Munich - Vienna, 1999;					\
+      C=SJT_OEBB1044_RED,(<SJT_OEBB_AVMZ_R,SJT_OEBB_WRMZ_G,2*SJT_OEBB_BVMZ_R,(6:1|1:2*SJT_OEBB_BPMZ_R)); \
+      F=PE5;
+    TX=DB 101 + EC 12/13, "Leonardo da Vinci", Dortmund - Milan, 1999;					\
+      C=SJT_DB101_VR,(<SJT_EC12_1999M);									\
+      F=PE5;
+    TX=DB 101 + EC 4/5, "Verdi", Dortmund - Milan, 1999;						\
+      C=SJT_DB101,											\
+	(<DBAG_AVMZ111_1VR(|L),SJT_DB_APMZ_VR,SJT_DB_WRMZ_VR,SJT_EC4_1999M,(1:1|1:2|5:0*SJT_DB_BM_VR));	\
+      F=PE5;
+    TX=DB 101 + EC 8/9, "Tiziano", Magdeburg - Milan, 1999;						\
+      C=2:((SJT_DB101_VR),										\
+	((2:(SJT_EC8_1999C)|3:(SJT_DB_AVMZ_OR,SJT_EC8_1999C)|						\
+	1:(SJT_DB_AVMZ_OR,SJT_EC8_1999C,SJT_DB_BM_OR)|1:(SJT_EC8_1999C,<2*SJT_DB_BM_OR))));		\
+      F=PE5;
+    TX=DB 101 + EC 4/5, "Verdi", Dortmund - Milan, 1999;						\
+      C=SJT_DB101,											\
+	(<DBAG_AVMZ111_1VR(|L),SJT_DB_APMZ_VR,SJT_DB_WRMZ_VR,SJT_EC4_1999M,(1:1|1:2|5:0*SJT_DB_BM_VR));	\
+      F=PE5;
+    TX=DB 101 + IC 1818/1819, Berlin - Stuttgart, 2007;							\
+      C=<((DBAG_APMBZF7W,DBAG_APMKZ6W,DBAG_APMZ5W,DBAG_APMZ4W,DBAG_APMKZ3W,DBAG_APMZ2W,DBAG_APMZ1W)|	\
+	(DBAG_APMBZF7WB,DBAG_APMKZ6WB,DBAG_APMZ5WB,DBAG_APMZ4WB,DBAG_APMKZ3WB,DBAG_APMZ2WB,		\
+	DBAG_APMZ1WB)),SJT_DB101_VR;									\
+      F=PE5;
+    TX=DB 120 + IC 1946/1947, Berlin - Karlsruhe, 2007;							\
+      C=SJT_DB120_VR,											\
+	(SJT_DB_AVMZ_W,SJT_DB_ARKIMBZL_W,5*DBAG_BIMZ2647W(|L),						\
+	((DBAG_BIMZ2647W(|L),SJT_DB_BPMDZ_W)|2*SJT_DB_BIMDZ_W))|SJT_DB101,				\
+	(<DBAG_BIMZ2647W(|L),SJT_DB_BIMDZ_W,DBAG_BIMZ2647W(|L),SJT_DB_AVMZ_W,SJT_DB_ARKIMBZL_W,		\
+	SJT_DB_BIMDZ_W,DBAG_BIMZ2647W(|L));								\
+      F=PE5;
+    TX=DB BPMDZFL + IC 2112/2113, Hamburg - Stuttgart, 2006;						\
+      C=<SJT_DB_BPMDZFL_W,5*SJT_DB_BPMZ_W,SJT_DB_BVMSZ_W,SJT_DB_WRMZ_W,SJT_DB_AVMZ_W,SJT_DB_APMZ_W,	\
+	SJT_DB_AVMZ_W,SJT_DB101;									\
+      F=PE5;
+    TX=DB 110E + IC 118/119 "Alpenland", Munster - Seefeld, 2001;					\
+      C=(SJT_DB110E_OB|SJT_DB110E_OR),									\
+	(<SJT_IC118_2001S)|((6:DB_120_123|SJT_DB101_VR),(<SJT_IC118_2001M,SJT_IC118_2001S));		\
+      F=PE5;
+    TX=DB 103 + EC 2/3 "Rembrandt", Amsterdam - Chur, 1991;						\
+      C=SJT_DB103_TEE,(<SJT_SBB_AM_EC,SJT_EC2_1991M,2*SJT_SBB_BM_EC,1-2*SJT_DB_BM_OB);			\
+      F=PE5;
+    TX=DB 103 + IR 2218/2219 "Bergstrasse", Norddeich - Karlsruhe, 1998;				\
+      C=SJT_DB103_OR,											\
+	(<DBAG_AIMZ261_7(|L),SJT_DB_ARKIMBZL_W,4*DBAG_BIMZ264_7(|L),2*SJT_DB_BIMDZ_B,			\
+	(6:|1:SJT_DB_BPMZ_OR));										\
+      F=PE5;
+    TX=DB 103 + IC 118/119 "Karwendel", Munster - Innsbruck, 1995;					\
+      C=(SJT_DB103_TEE|SJT_DB111_OB),									\
+	(2*SJT_DB_BVMZ_OR,3*SJT_DB_BPMZ_OR,SJT_DB_BPMBZ_OR,2*SJT_DB_BVMZ_OR,SJT_DB_WRMZ_OR,		\
+	SJT_DB_AVMZ_OR,SJT_DB_APMZ_OR,2*SJT_DB_AVMZ_OR);						\
+      F=PE5;
+    TX=DB 120 + IC 616/617 "Ludwig Uhland", Munster - Munich, 1991;					\
+      C=(DB_120_123|SJT_DB103_OR),									\
+	((3:SJT_DB_BPMZ_OB|11:SJT_DB_BPMZ_OB),DB_BVMZ237L,4*SJT_DB_BPMZ_OB,SJT_DB_BPMBZ_OB,		\
+	DB_BVMZ237L,DB_4F_WRMZ135(|L),SJT_DB_AVMZ_TEE,SJT_DB_APMZ_TEE,SJT_DB_AVMZ_TEE);			\
+      F=PE5;
+    TX=DB 111 + IR 2130/2131, Emden - Stuttgart, 1993;							\
+      C=SJT_DB111_OR,											\
+	(<DBAG_AIMZ261_7(|L),DBAG_ARKIMBZ262_2L,3*DBAG_BIMZ264_7(|L),SJT_DB_BIMDZ_B,			\
+	(6:1|1:2*DBAG_BIMZ264_7(|L)))|									\
+	(DBAG_AIMZ261_7(|L),DBAG_ARKIMBZ262_2L,2*DBAG_BIMZ264_7(|L),SJT_DB_BM_OB,SJT_DB_BIMDZ_B,	\
+	2*SJT_DB_BM_OB);										\
+      F=PE5;
+    TX=DB 120 + IC 618/619 "Gutenberg", Münster - Stuttgart, 1993;					\
+      C=DB_120_123,											\
+	(2:2|5:0*(SJT_DB_BVMZ_OR),3*SJT_DB_BPMZ_OR,SJT_DB_BPMBZ_OR,2*SJT_DB_BVMZ_OR,SJT_DB_WRMZ_OR,	\
+	SJT_DB_AVMZ_OR,SJT_DB_APMZ_OR,SJT_DB_AVMZ_OR);							\
+      F=PE5;
+    TX=DB 103 + IC 512/513 "Diplomat", Dortmund - Stuttgart, 1998;					\
+      C=SJT_DB103_TEE,											\
+	(DBAG_AVMZ111_1VR(|L),SJT_DB_AVMZ_OR,(SJT_DB_APMZ_VR|DBAG_AVMZ111_1VR(|L)),SJT_DB_WRMZ_OR,	\
+	2*SJT_DB_BVMZ_OR,SJT_DB_BPMBZ_VR,2*SJT_DB_BPMZ_OR,(1:3|6:1*(SJT_DB_BVMZ_OR|DBAG_BVMZ185VRHL)));	\
+      F=PE5;
+    TX=DB 120 + EC 12/13 "Leonardo da Vinci", Dortmund - Milan, 1995;					\
+      C=DB_120_123,(<0-1*DB_POSTMRZ,SJT_EC12_1995M);							\
+      F=PE5;
+    TX=DB 103 + IC 714/175 "Patrizier", Hamburg - Stuttgart, 1991;					\
+      C=SJT_DB103_TEE,											\
+	(1-2*<SJT_DB_BM_OB,2*SJT_DB_BPMZ_OB,SJT_DB_BPMBZ_OB,2*SJT_DB_BM_OB,SJT_DB_WRMZ_OR,		\
+	SJT_DB_AVMZ_TEE,SJT_DB_AVMZ_OR,SJT_DB_APMZ_TEE,0-1*SJT_DB_AVMZ_TEE);				\
+      F=PE5;
+    TX=DB 103 + IR 2216/2217 "Murgtal", Norddeich - Seebrugg/Alpirsbach, 1997;				\
+      C=SJT_DB103_OR,(<SJT_DB_IR2216_1997M,0-1*SJT_DB_IR2916_1997M);					\
+      F=PE5;
+    TX=SBB 420 + Antwerp - Basel, 2007;									\
+      C=SJT_SBB420C_CTMIX;										\
+      F=FE5;
+    TX=DB 151 + Gremberg - Kornwestheim, 2007;								\
+      C=SJT_DB151_VR,											\
+	(<3*SJT_VTG_SHIMMS,SJT_DB_SAHIMMSS,SJT_DB_SHIMMS,SJT_VTG_ZAGS_W,3*SJT_TCRL,SJT_DB_HABBINS,	\
+	6*SJT_ZAGS_W);											\
+      F=PE5;
+    TX=DB 401 + ICE 922/923 "Friedrich Harkort", Nurnberg - Berlin;					\
+      C=<DB_401L,6*DB_802,DB_803,DB_804,4*DB_801,DB_401;						\
+      F=PE5;
+    TX=DB 101 + IR 2534/2535, Mannheim - Munster, 1999;							\
+      C=SJT_DB101_VR,											\
+	(<(6:|1:DBAG_BIMZ2647W(|L)),SJT_DB_BIMDZ_B,4*DBAG_BIMZ264_7(|L),SJT_DB_ARKIMBZR_W,		\
+	DBAG_AIMZ261_7(|L));										\
+      F=PE5;
+    TX=DB 101 + IC 620/621 "Heinrich der Lowe", Regensburg - Dresden, 1999;				\
+      C=SJT_DB_BPMDZFL_VR,SJT_DB_BPMZ_OR,3*SJT_DB_BPMZ_VR,SJT_DB_BPMBZ_VR,<2*SJT_DB_BM_OR,		\
+	DBAG_5ARMZ211L,SJT_DB_APMZ_VR,DBAG_AVMZ111_1VR(|L),SJT_DB101_VR;				\
+      F=PE5;
+    TX=DB 101 + IC 506/507 "Kaiserstuhl", Basel - Hamburg, 1999;					\
+      C=SJT_DB101_VR,(6:|1:SJT_DB_BM_OR),2*SJT_DB_AVMZ_OR,SJT_DB_APMZ_W,SJT_DB_WRMZ_OR,			\
+	2*(SJT_DB_BM_OR|SJT_DB_BVMZ_OR),DBAG_BPMBZ295,2*SJT_DB_BPMZ_W,2*SJT_DB_BPMZ_OR,SJT_DB_BPMDZF_W;	\
+      F=PE5;
+    TX=DB 103 + IR 2218/2219 "Bergstrasse", Karlsruhe - Norddeich Mole, 1999;				\
+      C=SJT_DB103_OR,											\
+	(DBAG_AIMZ261_7(|L),SJT_DB_ARKIMBZL_W,2*DBAG_BIMZ264_7(|L),2*DBAG_BIMZ2647W(|L),		\
+	DBAG_BIMZ264_7(|L),SJT_DB_BIMDZ_B,(5:|2:DBAG_BIMZ264_7(|L)));					\
+      F=PE5;
+    TX=DB 401 + ICE 920/921 "Elspeth Langgasser", Nurnberg - Berlin, 1999;				\
+      C=<DB_401L,6*DB_802,DB_803,DB_804,4*DB_801,DB_401;						\
+      F=PE5;
+    TX=DB 101 + IC 600/601 "Hanseat", Basel - Kiel, 1999;						\
+      C=SJT_DB101_VR,											\
+	((11:|3:SJT_DB_BM_OR),DB_BOMZ236(|L),4*SJT_DB_BPMZ_OR,DBAG_BPMBZ295,2*DB_BOMZ236(|L),		\
+	DBAG_5ARMZ211L,SJT_DB_APMZ_OR,2*SJT_DB_AVMZ_W);							\
+      F=PE5;
+    TX=DB 101 + IC 528/529 "Regensburger Domspatzen", Passau - Dresden, 1999;				\
+      C=SJT_DB_BPMDZFL_VR,2*SJT_DB_BPMZ_OR,2*SJT_DB_BPMZ_VR,DBAG_BPMBZ295,<2*SJT_DB_BM_OR,		\
+	DBAG_5ARMZ211L,SJT_DB_APMZ_VR,SJT_DB_AVMZ_W,SJT_DB_AVMZ_OR,SJT_DB101_VR;			\
+      F=PE5;
+    TX=DB 101 + IC 504/505 "Schauinsland", Basel - Hamburg, 1999;					\
+      C=SJT_DB101_VR,											\
+	(5:2|2:1*(SJT_DB_AVMZ_OR),DBAG_AVMZ111_1VR(|L),SJT_DB_APMZ_OR,DBAG_5ARMZ211L,			\
+	2*(SJT_DB_BOMZ_VR|SJT_DB_BM_OR),SJT_DB_BPMBZ_OR,4*SJT_DB_BPMZ_OR,				\
+	(DB_BOMZ236(|L)|SJT_DB_BM_OR),(6:|1:SJT_DB_BM_OR));						\
+      F=PE5;
+    TX=DB 103 + IR 2214/2215, Emden - Karlsruhe, 1999;							\
+      C=SJT_DB103_TEE,											\
+	((2:|2:(DBAG_BIMZ264_7(|L),DBAG_AIMZ261_7(|L))|3:DBAG_AIMZ261_7(|L)),DBAG_BIMZ264_7(|L),	\
+	SJT_DB_BIMDZ_B,SJT_DB_BIMDZ_W,3*DBAG_BIMZ264_7(|L),SJT_DB_ARKIMBZR_W,DBAG_AIMZ261_7(|L));	\
+      F=PE5;
+    TX=DB 401 + ICE 824/825 "Gerhard Mercator", Berlin - Nurnberg, 1999;				\
+      C=<DB_401L,6*DB_802,DB_803,DB_804,4*DB_801,DB_401;						\
+      F=PE5;
+    TX=DB 401 + IC 826/827 "Joseph von Fraunhofer", Berlin - Munich, 1999;				\
+      C=<DB_401L,6*DB_802,DB_803,DB_804,4*DB_801,DB_401;						\
+      F=PE5;
+    TX=DB 103 + IC 2432/2433, Münster - Luxembourg, 2001;						\
+      C=((SJT_DB103_TEE|SJT_DB101_VR),(DBAG_BIMZ264_7(|L),SJT_DB_BIMDZ_W,SJT_DB_IR2432_2001M))|		\
+	(SJT_DB181_VR,(SJT_DB_IR2432_2001M));								\
+      F=PE5;
+    TX=DB 110 + D 1726/1727, Krefeld - Trier, 1995;							\
+      C=SJT_DB110_OB|SJT_DB110_OR,(<SJT_DB_AM_OB,2*SJT_DB_BM_OB,SJT_DB_BM_OR,1-2*SJT_DB_BM_OB);		\
+      F=PE5;
+    TX=DB 101 + IC 422/433, "Borkum", Emden Aussenhafen - Luxembourg, 2007;				\
+      C=SJT_DB101|DBAG_4_181_201(|L)|SJT_DB218_VR,							\
+	(SJT_DB_AVMZ_W,SJT_DB_ARKIMBZL_W,SJT_DB_BVMSZ_W,DBAG_BPMBZ295,(2:3|1:2*SJT_DB_BPMZ_W),		\
+	SJT_DB_BIMDZ_W);										\
+      F=PE5;
+    TX=DB 218 + RE 3628/3629, Cologne - Trier, 1996;							\
+      C=SJT_DB218_OR,(<DB_DDUU498E(|L),DB_4C_BNB719DH(|L),DB_4C_ABNB703(|L),SJT_DB_BM_OB);		\
+      F=PE5;
+    TX=DB 181 + E 3962/3963, Koblenz - Saarbrücken, 1994;						\
+      C=DBAG_4_181_201(|L),(<SJT_DB_AM_OB,DBAG_5BNRD451(|L),SJT_DB_BN_MG,2*SJT_DB_BM_OB);		\
+      F=PE5;
+    TX=DB 218 + E 3652/3653, Köln, Trier, 1994;								\
+      C=SJT_DB218_OR,(<SJT_DB_BM_OB,DB_4C_ABNB703(|L),2*SJT_DB_BM_OB);					\
+      F=PE5;
+    TX=DB 212 + RB 5908/5909, Kaiserslautern - Kusel, 1995;						\
+      C=DB_5_211B(|L),(<DB_4C_BNB719DH(|L),SJT_DB_BM_OB);						\
+      F=PE5;
+    TX=CFL 4018 + Luxembourg - Cologne, 2000;								\
+      C=SJT_CFL4000_ZANS;										\
+      F=FE5;
+#Mid-German
+    TX=DB 103 + EC 74/75, "Havelland", Berlin - Zurich, 1992;						\
+      C=(SJT_DB103_TEE|SJT_DB103_OR|SJT_DR132_WR),							\
+	((2:5|5:4*SJT_DB_BPMZ_OR),SJT_DB_BPMBZ_OB,SJT_DB_BVMZ_OR,SJT_DB_WRMZ_OR,SJT_DB_AVMZ_TEE,	\
+	SJT_DB_APMZ_OR,SJT_DB_AVMZ_TEE);								\
+      F=PE5;
+    TX=DB 103 + D 470/471, "Komet", Hamburg - Basel, 1995;						\
+      C=SJT_DB103_OR,(DB_5T2S(|L),SJT_SBB_BC_NIGHT,DBAG_5ARMZ211L,2-4*DB_5T2S(|L),4*SJT_SBB_BC_NIGHT);	\
+      F=PE5;
+    TX=DB 103 + EC 72/73, "Otto Lilienthal", Berlin - Zurich, 1991;					\
+      C=(SJT_DB103_TEE,(0-1*SJT_DB_BM_OB,SJT_EC72_1991M))|						\
+	((SJT_DR132_WR|SJT_DB120_TEE),(SJT_EC72_1991M));						\
+      F=PE5;
+    TX=DB 120 + IC 880/881 "Steinhuder Meer", Bremen - Munich, 1991;					\
+      C=DB_120_123|SJT_DB103_OR,									\
+	(SJT_DB_AVMZ_FD,SJT_DB_APMZ_OR,SJT_DB_AVMZ_FD,SJT_DB_WRMH_OR,2*SJT_DB_BVMZ_OR,SJT_DB_BPMBZ_OB,	\
+	DB_BPMZ293FD(|L),SJT_DB_BVMZ_OR,DB_BPMZ293FD(|L),DB_BVMZ237L);					\
+      F=PE5;
+    TX=DB 120 + IR 2682/2683, "Alpenland", Hamburg - Oberstdorf, 1994;					\
+      C=SJT_DB120_TEE|SJT_DB218_OB,									\
+	(<DBAG_AIMZ261_7(|L),DBAG_ARKIMBZ262_2L,4*DBAG_BIMZ264_7(|L),SJT_DB_BIMDZ_B,			\
+	(3:DBAG_BIMZ264_7(|L)|4:));									\
+      F=PE5;
+    TX=DB 401 + ICE 70/71 "Helvetia", Hamburg - Zurich, 1994;						\
+      C=<DB_401L,3*DB_801L,DB_804L,DB_803L,5*DB_802L,DB_401;						\
+      F=PE5;
+    TX=DB 120 + IC 1992/1993, Berlin - Stuttgart, 2007;							\
+      C=SJT_DB120_VR,											\
+	(DBAG_BIMZ2647W(|L),SJT_DB_BIMDZ_W,DBAG_BIMZ2647W(|L),SJT_DB_AVMZ_W,SJT_DB_ARKIMBZL_W,		\
+	DBAG_BVMZ185W(|L),SJT_DB_BIMDZ_W);								\
+      F=PE5;
+    TX=DB 101 + IC 2150/2151, Düsseldorf - Stralsund, 2006;						\
+      C=SJT_DB_BIMDZFL_W,SJT_DB_BPMZ_W,DBAG_BVMZ185W(|L),DBAG_BPMBZ295,SJT_DB_BVMSZ_W,			\
+	SJT_DB_ARKIMBZR_W,SJT_DB_AVMZ_W,SJT_DB101;							\
+      F=PE5;
+    TX=DB 218 + E 3884/3885, Hagen - Kassel, 1991;							\
+      C=<SJT_DBB218_OB,3*DB_4C_BNB719DH(|L),DB_4C_ABNB703(|L),(DB_4C_BDNRZF740|SJT_DB_BNDFK_MG);	\
+      F=PE5;
+    TX=DB 112 + IR 2100/2101, Frankfurt - Stralsund, 2000;						\
+      C=SJT_DB112_OR,											\
+	(<DBAG_AIMZ261_7(|L),DBAG_ARKIMBZ262_2L,5*DBAG_BIMZ264_7(|L),					\
+	2*(SJT_DB_BIMDZ_B|DBAG_BIMZ2647W(|L)));								\
+      F=PE5;
+    TX=DB 112 + IR 2008/2009 "Saale-Unstrut", Frankfurt - Stralsund, 2000;				\
+      C=SJT_DB112_OR,(<2*SJT_DB_BIMDZ_B,5*DBAG_BIMZ264_7(|L),DBAG_ARKIMBZ262_2,DBAG_AIMZ261_7(|L));	\
+      F=PE5;
+    TX=DB 219 + IR 456/457, Dresden - Wroclaw, 2001;							\
+      C=SJT_DB219_VR,(<SJT_DB_BIMDZDR_B,2*SJT_DB_BIMDZDR_B,SJT_PKP_WRMZ_DR,DBAG_AIMZ2617W(|L));		\
+      F=PD5;
+    TX=DB 110 + IR 264/265, "Franz Kafka", Prague/Dresden - Munich, 1995;				\
+      C=(SJT_DB110_OR),(<SJT_DB_BIMDZDR_B,2*DBAG_BIMZ264_7(|L),SJT_CD_WRMZ_O,DBAG_5AM201_1(|L));	\
+      F=PE5;
+    TX=DB 103 + ICN 1900/1901, Berlin - Munich, 1995;							\
+      C=SJT_DB103_OR,(<SJT_DB_ICN_TALGO17,(3*SJT_DDM_LOADED|));						\
+      F=PE5;
+    TX=DB 218 + N 8564/8565, Bebra - Gotha, 1993;							\
+      C=SJT_DB218_OB,3*SJT_DB_BYU_MG;									\
+      F=PD5;
+    TX=DB 103 + IC 650/651, "Wartburg", Saarbrücken - Dresden, 1993;					\
+      C=SJT_DB103_TEE|DBAG_4_181_201(|L)|DB_232_510,							\
+	(2*SJT_DB_AVMZ_OR,(SJT_MITROPA_WR|SJT_DB_ARMH_OR),2*SJT_DB_BM_1993,SJT_DB_BPMBZ_OR,		\
+	SJT_DB_BPMZ_OB,(5:1|1:2|1:3*(SJT_DB_BM_1993)));							\
+      F=PE5;
+    TX=DB 218 + N 8562/8563, Bebra - Gotha, 1993;							\
+      C=SJT_DB218_OB,2*SJT_DR_DBU_BRW;									\
+      F=PD5;
+    TX=DB 143 + D 2858/2859, Erfurt - Leipzig, 1994;							\
+      C=SJT_DB143_OR,											\
+	(<DBAG_5ABOM222L~HEN,DBAG_5BDOMSB274_1(|L),(6:3|1:4*(DBAG_BIMZ259(|L)|SJT_DB_BOMZ_DR)));	\
+      F=PE5;
+    TX=DB 112 + D 2204/2205, Berlin - Würzburg, 1994;							\
+      C=SJT_DB112_OR|SJT_DB219_OR,									\
+	(<SJT_DB_AVMZ_OR|DBAG_AIMZ261_7(|L),2*(SJT_DB_BM_1993|DBAG_BIMZ259(|L)),SJT_DB_BIMDZDR_B);	\
+      F=PE5;
+    TX=DB 143 + RE Kassel - Halle, 2007;								\
+      C=<DBAG_BNDZF479L|DBAG_BNDZFB479_2L|DBAG_BNRBDKZF479L|DBAG_BDNZF479_2L|DBAG_BNRDZF480VRL|		\
+	DBAG_BNRBDZF480L~KMN|DBAG_BDNZF481L|DBAG_BNRBDKZF481RL|DBAG_BYBDZF482_1L,			\
+	DBAG_ABY407L|DBAG_ABY407|DBAG_ABY407_1L|DBAG_ABY407_1|DBAG_6ABYU408PL|DBAG_6ABYU408P,		\
+	2*DBAG_BYU438_0L|DBAG_BYU438_0|DBAG_BYU438_1L|DBAG_BYU438_1|DBAG_BYU438_GP200L|			\
+	DBAG_BYU438_GP200|DBAG_BYU438_0RL|DBAG_BYU438_0R|DBAG_BYU438_1RL|DBAG_BYU438_1R|		\
+	DBAG_BYU438GP200RL|DBAG_BYU438GP200R,								\
+	DBAG_6_143_112L|DBAG_6_143_112|DBAG_6_143_883L|DBAG_6_143_883|DBAG_6_143_112UL|			\
+	DBAG_6_143_112U|DBAG_6_143_883UL|DBAG_6_143_883U;						\
+      F=PE5;
+    TX=DB 110 + D 350/351, Berlin - Frankfurt, 1991;							\
+      C=5:(SJT_DB110_OB,(SJT_DB_D350_1989M))|								\
+	14:((SJT_DB110_OB|SJT_DR132_WR),(SJT_DB_D350_1989M,SJT_DBB_BDMS_OB))|				\
+	2:(SJT_DB110_OB,(SJT_DB_D350_1989M,SJT_DB_BM_1989))|7:(SJT_DR132_WR,(SJT_DB_D350_1989M));	\
+      F=PE5;
+    TX=DB 229 + IR 2560/2561, Karlsruhe - Gera, 1995;							\
+      C=(SJT_DB229_OR,(SJT_DB_IR2561_1995M))|								\
+	((SJT_DB120_VR|SJT_DBB110E_B),									\
+	((1:(SJT_DB_BM_OR,DBAG_BIMZ259(|L))|5:DBAG_BIMZ259(|L)|1:),SJT_DB_IR2561_1995M));		\
+      F=PE5;
+    TX=DB 612 + E 3984/3985, Erfurt - Schweinfurt, 1994;						\
+      C=<BR614GWL~KMN,BR914GW~KMN,BR614GW~KMN;								\
+      F=PD5;
+    TX=DB 120 + IC 706/707 "Bertolt Brecht", Berlin - Munich, 1993;					\
+      C=(SJT_DB120_TEE|SJT_DB103_1993|DB_232_510|SJT_DB112_OR),						\
+	(SJT_DB_APMZ_1993,SJT_DB_AVMZ_1993,DBAG_5ARMZ211L,2*SJT_DB_BM_1993,SJT_DB_BPMBZ_1993,		\
+	SJT_DB_BPMZ_1993,2*SJT_DB_BM_1993);								\
+      F=PE5;
+    TX=DB 103 + IC 804/805 "Hans Sachs", Berlin - Nürnberg, 1993;					\
+      C=(SJT_DB103_1993|DB_232_510|SJT_DB112_OR),							\
+	(0-1*SJT_DB_BPMZ_1993,SJT_DB_BPMBZ_1993,2*SJT_DB_BM_1993,SJT_DB_AVMZ_1993);			\
+      F=PE5;
+    TX=DB 103 + IC 700/701, "Saaletal", Halle - Munich, 1993;						\
+      C=(SJT_DB103_1993|DB_120_123|DB_232_510),(<SJT_DB_AVMZ_1993,3-4*SJT_DB_BM_1993);			\
+      F=PE5;
+    TX=DB 612 + IC 1566/1567, Dresden - Nürnberg, 2004;							\
+      C=2*DBAG_612_172;											\
+      F=PD5;
+    TX=DB 120 + IC 804/805, "Bertolt Brecht", Kiel - Munich, 1997;					\
+      C=(6:DB_120_123|4:SJT_DB112_VR|4:SJT_DB101_VR),							\
+	(SJT_DB_AVMZ_OR,SJT_DB_APMZ_OR,DBAG_5ARMZ211L,<2*SJT_DB_BM_OR,SJT_DB_BPMBZ_OR,			\
+	2*SJT_DB_BPMZ_OR,SJT_DB_BM_OR,DB_BIMDZF269_2);							\
+      F=PE5;
+    TX=DB 141 + RB 7312/7313, Naumburg - Saalfeld, 1996;						\
+      C=SJT_DBB141_OB,2*DB_4C_BNB719DH(|L);								\
+      F=PER5;
+    TX=DB 219 + RB 4480/4881, Senftenberg - Arnsdorf, 1995;						\
+      C=SJT_DR119_WR,(<DBAG_5ABOM222L~HEN,SJT_DB_BOMZ_DR);						\
+      F=PD5;
+    TX=DB 101 + IC 2450/2451, Stralsund - Halle, 2006;							\
+      C=SJT_DB_BIMDZFL_W,SJT_DB_BPMZ_W,DBAG_BVMZ185W(|L),DBAG_BPMBZ295,SJT_DB_BVMSZ_W,			\
+	SJT_DB_ARKIMBZR_W,SJT_DB_AVMZ_W,SJT_DB101;							\
+      F=PE5;
+    TX=DB 120 + IC 2418/2419, Berlin - Halle, 2007;							\
+      C=<SJT_DB_BPMDZFL_W,3*SJT_DB_BPMZ_W,SJT_DB_BVMSZ_W,2*SJT_DB_APMZ_W,SJT_DB120_VR;			\
+      F=PE5;
+    TX=DB 143 + IR 2812/2813, Leipzig - Saalfeld, 1999;							\
+      C=SJT_DB143_WR,(<3*SJT_DB_BIMDZDR_B,DBAG_ABOMZ229_1);						\
+      F=PE5;
+    TX=DB 112 + IR 328/329 "Mare Balticum", Berlin - Elk, 2000;						\
+      C=(SJT_DB112_VR|SJT_DB232_VR),									\
+	(<DBAG_BIMZ264_7(|L),SJT_DB_BIMDZ_B,4*DBAG_BIMZ264_7(|L),SJT_PKP_WRMZ_DR,DBAG_AIMZ261_7(|L));	\
+      F=PE5;
+#REVISIT#
+    TX=DB 112 + IR 316/317, "Kurt Tucholsky", Berlin - Malmö, 1999;					\
+      C=SJT_DB112_VR,(5:(<SJT_DB_BIMDZ_B,SJT_IR316_1999M)|1:(<SJT_IR316_1999M,SJT_DB_BIMDZ_B));		\
+      F=PE5;
+    TX=DB 120 + EC 10/11, "Mimara", Berlin - Zagreb, 1999;						\
+      C=(SJT_DB120_VR|SJT_DB103_TEE|SJT_DB103_OR),(<(5:|2:SJT_OEBB_BVMZ_R),SJT_EC10_1999M),		\
+	SJT_DB_AVMZ_OR;											\
+      F=PE5;
+    TX=DB 111 + D 2002/2003, Berlin - Oberstdorf, 1991;							\
+      C=(SJT_DB111_OR|SJT_DR243_WR|SJT_DR119_WR|SJT_DB218_OB),						\
+	(SJT_DR_AM,SJT_MITROPA_WR,4*SJT_DR_BM,DR_4BDME8280(|L),2*SJT_DR_BM,SJT_DR_ABM);			\
+      F=PE5;
+    TX=DB 111 + D 2006/2007, Berlin - Munich, 1991;							\
+      C=(SJT_DB111_OB|SJT_DR243_WR|SJT_DR132_WR),							\
+	(<SJT_DR_BM,2*DB_BOMZ236(|L),SJT_DR_AM,DBAG_ABOMZ229_1L,3-4*SJT_DR_BM);				\
+      F=PE5;
+    TX=DB 232 + IR 2064/2065 "Nebelhorn", Dresden - Oberstdorf, 1998;					\
+      C=DB_232_510,(<SJT_DB_IR2064_1998M,(6:|1:(SJT_DB_BM_OR|DBAG_BIMZ264_7(|L))));			\
+      F=PD5;
+    TX=DB 232 + D 1660/1661 "Gottfried Semper", Dresden - Nurnberg, 2000,;				\
+      C=SJT_DB232_VR,DR_AMZ210(|L),DB_BOMZ236(|L),SJT_DB_BOMZ_VR,DB_BOMZ236(|L),SJT_DB_BOMZ_DR,		\
+	DBAG_5BDOMSB274_1(|L);										\
+      F=PE5;
+    TX=DB 103 + EC 10/11 "Mimara", Berlin - Zagreb, 1998;						\
+      C=(SJT_DB103_OR|SJT_DB101|DB_120_123),								\
+	(4:((SJT_DB_APMZ_OR|DBAG_5AM201_1(|L)),SJT_EC10_1998M)|2:(SJT_EC10_1998M,SJT_OEBB_BVMZ_R)|	\
+	1:(SJT_EC10_1998M));										\
+      F=PE5;
+    TX=DB 232 + EC 10/11, "Mimara", Leipzig - Zagreb, 1993;						\
+      C=DB_232_510,(<(0-1*DB_DDUU498E(|L)),SJT_EC10_1993M);						\
+      F=PE5;
+    TX=DB 232 + EC 10/11, "Mimara", Leipzig - Zagreb, 1993;						\
+      C=DB_232_510,(<SJT_EC10_1994M,SJT_EC10_1994V-L,SJT_EC10_1994M-L);					\
+      F=PD5;
+    TX=DB 101 + EN 229 "Spree-Donau-Kurier", Berlin - Budapest, 2000;					\
+      C=SJT_DB101,											\
+	(<SJT_DB_ABM_OB,SJT_OEBB_BVMZ_R,2*SJT_OEBB_BCM_WB,OBB_WLABMZ7171_4(|L),SJT_EN228_2000M);	\
+      F=PE5;
+#SW Germany
+    TX=DB 110B + EC 86/87, "Schwabenland", ,Stuttgart - Zurich, 1987;					\
+      C=(SJT_DB110B_TEE,(SJT_DB_BM_OB,SJT_DB_ABM_OB,SJT_EC87_1987SCH,SJT_EC87_1987M))|			\
+	(SJT_SBB420,((0-1*SJT_EC87_1987SCH),SJT_EC87_1987M));						\
+      F=PE5;
+    TX=DB 103 + IC 1022/1023 Lufthansa-Airport-Express, Frankfurt Flughafen - Stuttgart, 1990;		\
+      C=DB_5_103101LH(|L),3*DBAG_AVMZ106LH(|L);								\
+      F=PE5;
+    TX=DB 110E + N 7262/7263, Karlsruhe - Heidelberg, 1991;						\
+      C=SJT_DB110E_OB,(<DB_4C_BNB719DH(|L),DB_4C_ABNB703(|L),DB_4C_BNB719DH(|L));			\
+      F=PE5;
+    TX=DB 112 + IRE 19040/19041, Karlsruhe - Stuttgart, 2004;						\
+      C=<SJT_DB112_VR,DBAG_6BIMZ2647(|L),DBAG_BIMZ2647W(|L),2*DBAG_6BIMZ2647(|L),DBAG_BIMZ264_7(|L),	\
+	DBAG_6AIMZ2617(|L),SJT_DB112_VR;								\
+      F=PE5;
+    TX=DB 415 + ICE 180/181, Frankfurt - Zurich, 2006;							\
+      C=(DBAG_415_5L,DBAG_415_6L,DBAG_415_7L,DBAG_415_1L,DBAG_415_0)|					\
+	(DBAG_415_5L,DBAG_415_6L,DBAG_415_7L,DBAG_415_1L,DBAG_415_0);					\
+      F=PE5;
+    TX=DB 101 + IR 2216/2217 "Höllental", Norddeich - Seebrugg, 2001;					\
+      C=SJT_DB101_VR,(<0-1*(<DBAG_BIMZ2647W(|L),DBAG_BIMZ264_7(|L),SJT_DB_BIMDZ_B),SJT_DB_IR2216_2001M); \
+      F=PE5;
+    TX=SBB RABe 1055 + EC 158/159 "Uetliberg", Stuttgart - Zurich, 1993;				\
+      C=SBB_RABE_1055FL,SBB_RABE_1055AL,SBB_RABE_1055WR,(SBB_RABE_1055EL|SBB_RABE_1055E),		\
+	SBB_RABE_1055A,SBB_RABE_1055F;									\
+      F=PE5;
+    TX=SBB RABe 1055 + EC 154/155 "Killesberg", Stuttgart - Zurich, 1993;				\
+      C=SBB_RABE_1055FL,SBB_RABE_1055AL,SBB_RABE_1055WR,(SBB_RABE_1055EL|SBB_RABE_1055E),		\
+	SBB_RABE_1055A,SBB_RABE_1055F;									\
+      F=PE5;
+    TX=DB 103 + EC 14/15 "Patscherkorfel", Saarbrücken - Innsbruck, 1993;				\
+      C=SJT_DB103_1993,											\
+	(SJT_DB_APMZ_1993,SJT_DB_AVMZ_1993,SJT_DB_ARMH_TEE,2*SJT_DB_BVMZ_1993,SJT_DB_BPMBZ_1993,	\
+	3-4*SJT_DB_BPMZ_1993)|DB_120_123,								\
+	(SJT_DB_APMZ_1993,SJT_DB_AVMZ_1993,SJT_DB_ARMH_TEE,2*SJT_DB_BVMZ_1993,SJT_DB_BPMBZ_1993,	\
+	3-4*SJT_DB_BPMZ_1993);										\
+      F=PE5;
+    TX=DB 120 + EC 18/19, "Andreas Hofer", Dortmund - Innsbruck, 1991;					\
+      C=SJT_DB120_TEE,(<SJT_EC18_1991M,(3:|4:SJT_DB_BPMZ_OR));						\
+      F=PE5;
+    TX=DB 120 + EC 18/19, "Andreas Hofer", Dortmund - Innsbruck, 1999;					\
+      C=SJT_DB120_VR,											\
+	(2*SJT_DB_AVMZ_OR,SJT_DB_APMZ_OR,SJT_DB_WRMZ_OR,2*SJT_DB_BVMZ_OR,SJT_DB_BPMBZ_OR,		\
+	3*SJT_DB_BPMZ_OR,2*SJT_DB_BVMZ_OR);								\
+      F=PE5;
+    C=<SJT_DB_BNDFKL_MG,DB_4C_BNB719DH(|L),SJT_DB_ABN_MG,SJT_DB218_OR;					\
+      F=PRE5;
+    TX=DB 218 + IR 2916/2917 "Murgtal", (Norddeich) Karlsruhe - Alpirsbach, 1997;			\
+      C=SJT_DB218_OR|SJT_DB120_VR,SJT_DB_IR2916_1997M;							\
+      F=PE5;
+    TX=DB 141 + RB 15108/15109, Murnau - Oberammergau, 1996;						\
+      C=<SJT_DBB141_OB,SJT_DB_ABN_MG,SJT_DB_BNDFK_MG;							\
+      F=PRE5;
+    TX=DB 110B + IR 2882/2883, Würzburg - Munich, 1995;							\
+      C=SJT_DB110B_OR,											\
+	(<SJT_DB_BIMDZ_B|(DB_DDUU498E(|L),DBAG_BIMZ264_7(|L)),3*DBAG_BIMZ264_7(|L),SJT_DB_AM_IR);	\
+      F=PE5;
+    TX=DB 140 + R 5418/5419, Garmisch-Partenkirchen - Reutte, 1993;					\
+      C=SJT_DB140_OB,(<SJT_OEBB_SCHB_O,OBB_4A1_BDPO8235(|L));						\
+      F=PE5;
+    TX=DB 420 + S5 Herrsching - Ebersberg, 1991;							\
+      C=1-2*(<DB_420OYL,DB_421OY,DB_420OY)|DB_420O1|DB_420O3;						\
+      F=PRE5;
+    TX=DB 111 + E 3970/3971, Augsburg - Munich, 1993;							\
+      C=<SJT_DB111_SB,SJT_DB_DABZ_MG,3*SJT_DB_DBZ_MG,DBAG_5DABGBUZF760;					\
+      F=PE5;
+    TX=DB 218 + IR 264/265, "Franz Kafka", Munich - Prague, 1999;					\
+      C=SJT_DB218_OR,(SJT_IR264_1999M,(2|1)*CD_B249);							\
+      F=PE5;
+    TX=DB 111 + IR 264/265, "Franz Kafka", Munich - Prague, 1999;					\
+      C=SJT_DB111_OR,(SJT_IR264_1999M);									\
+      F=PE5;
+    TX=DB 218 + IR 264/265, "Franz Kafka", Munich - Prague, 1999;					\
+      C=SJT_DB218_OR,(SJT_IR264_1999M);									\
+      F=PD5;
+    TX=DB 141 + RB 71686/687, Murnau - Oberammergau, 2001;						\
+      C=<DBAG_5BYBDZF482_1L,SJT_DB_ABN402_MG|DBAG_5_ABNRZ417(|L),DB_141_230;				\
+      F=PRE5;
+#REVISIT#
+    TX=DB 111 + IR 2064/2065 "Nebelhorn", Dresden - Oberstdorf, 1998;					\
+      C=SJT_DB111_OR,(<SJT_DB_IR2064_1998M,(6:|1:(SJT_DB_BM_OR|DBAG_BIMZ264_7(|L))));			\
+      F=PE5;
+    TX=DB 120 + EC 10/11, "Mimara", Leipzig - Zagreb, 1993;						\
+      C=(9:DB_120_123|5:SJT_DB103_1994),(<(0-1*DB_DDUU498E(|L)),SJT_EC10_1993M);			\
+      F=PE5;
+    TX=DB 103 + EC 10/11, "Mimara", Leipzig - Zagreb, 1994;						\
+      C=SJT_DB103_1993,(<(1:DB_DDUU498E(|L)|6:),SJT_EC10_1994M,SJT_EC10_1994V-L,SJT_EC10_1994M-L);	\
+      F=PE5;
+    TX=DB 111 + SE 3962/3963, Augsburg - Munich, 1994;							\
+      C=<SJT_DB111_SB,2*SJT_DB_DBZ_MG,SJT_DB_DABZ_MG,SJT_DB_DBZFR_MG;					\
+      F=PE5;
+    TX=DB 111 + RB 5412/5413, Munich - Innsbruck, 1998;							\
+      C=<DBAG_5BYBDZF482_1L,SJT_DB_BN_MG,2*SJT_DB_ABN_MG,2*SJT_DB_BN_MG,SJT_DB111_OR;			\
+      F=PRE5;
+    TX=DB 218 + EC 92/93, "Angelika Kauffmann", Munich - Zurich, 1999;					\
+      C=(2*SJT_DB218_VR),((3:4|4:3*SJT_SBB_BM_EC),SJT_SBB_WRM_P,2*SJT_SBB_AM_EC,0-1*DB_DDUU498E(|L));	\
+      F=PD5;
+    TX=DB 218 + EC 166/167 "Albert Einstein", Prague - Bern, 1996;					\
+      C=SJT_DB218_TEE,(SJT_EC166_1995M);								\
+      F=PD5;
+    TX=DB 120 + EC 166/167 "Albert Einstein", Prague - Bern, 1996;					\
+      C=DB_120_123,(SJT_EC166_1995M);									\
+      F=PE5;
+    TX=DB 218 + EC 166/167 "Albert Einstein", Prague - Bern, 1996;					\
+      C=(2*SJT_DB218_OR),(SJT_EC166_1995M,DB_DDUU498E(|L));						\
+      F=PD5;
+    TX=DB 218 + EC 196/197, "Albert Einstein", Munich - Zurich, 2001;					\
+      C=(2*SJT_DB218_VR),((3:4|4:3*(SJT_SBB_BM_EC)),SJT_SBB_EW4_WR,2*SJT_SBB_AM_EC);			\
+      F=PD5;
+    TX=DB 111 + EC 166/167, "Albert Einstein", Prague - Zurich, 1999;					\
+      C=(SJT_DB111_VR),(<2*SJT_SBB_AM_EC,SJT_CD_WRMZ_O,5*SJT_SBB_BM_EC);				\
+      F=PE5;
+    TX=DB 218 + EC 166/167, "Albert Einstein", Prague - Zurich, 1999;					\
+      C=((2*SJT_DB218_VR)|SJT_DB232_VR),(<2*SJT_SBB_AM_EC,SJT_CD_WRMZ_O,5*SJT_SBB_BM_EC);		\
+      F=PD5;
+    TX=DB 218 + EC 92/93, "Angelika Kauffmann", Munich - Zurich, 1999;					\
+      C=((2*SJT_DB218_VR)),((3:4|4:3*SJT_SBB_BM_EC),SJT_SBB_WRM_P,2*SJT_SBB_AM_EC,0-1*DB_DDUU498E(|L));	\
+      F=PD5;
+    TX=DB 101 + EC 100/101, "Matterhorn", Wiesbaden - Brig, 2000;					\
+      C=SJT_DB101,(2*SJT_SBB_AM_EC,SJT_SBB_EW4_WR,5-6*SJT_SBB_BM_EC,DBAG_BVMZ185W(|L));			\
+      F=PE5;
+    TX=DB 101 + NZ 300/301, Dortmund - Florence, 2005;							\
+      C=(SJT_DB101,(SJT_NZ300_2005M))|(SJT_DB101_VR,(SJT_NZ300_2005M,SJT_CNL312_2005M));		\
+      F=PE5;
+    TX=DB 120 + NZ 300/301, Dortmund - Florence, 2005;							\
+      C=SJT_DB120_VR,(SJT_NZ300_2005M,SJT_CNL312_2005M);						\
+      F=PE5;
+    TX=DB 111 + D 380/381, Stuttgart - Milan, 1995;							\
+      C=SJT_DB111_OR,(1:2|1:1|5:0*SJT_DB_BM_1993),(SJT_D380_1995M);					\
+      F=PE5;
+    TX=DB 120 + D 380/381, "Monte Ceneri", Singen - Milan, 1999;					\
+      C=DB_120_123,(4*SJT_SBB_BM_EC,2*SJT_SBB_AM_EC);							\
+      F=PE5;
+    TX=DB 120 + EC 14/15 "Patscherkorfel", Saarbrücken - Innsbruck, 1993;				\
+      C=DB_120_123,											\
+	(SJT_DB_APMZ_1993,SJT_DB_AVMZ_1993,SJT_DB_ARMH_TEE,2*SJT_DB_BVMZ_1993,SJT_DB_BPMBZ_1993,	\
+	3-4*SJT_DB_BPMZ_1993);										\
+      F=PE5;
+    TX=DB 103 + EC 18/19, "Andreas Hofer", Dortmund - Innsbruck, 1999;					\
+      C=SJT_DB103_OR,											\
+	(2*SJT_DB_AVMZ_OR,SJT_DB_APMZ_OR,SJT_DB_WRMZ_OR,2*SJT_DB_BVMZ_OR,SJT_DB_BPMBZ_OR,		\
+	3*SJT_DB_BPMZ_OR,2*SJT_DB_BVMZ_OR);								\
+      F=PE5;
+    TX=DB 232 + EC 10/11, "Mimara", Leipzig - Zagreb, 1994;						\
+      C=SJT_EC10_1994DE1;										\
+      F=PD5;
+    TX=DB 103 + EC 10/11, "Mimara", Leipzig - Zagreb, 1994;						\
+      C=SJT_EC10_1994DE2;										\
+      F=PE5;
+    TX=DB 101 + EC 114/115, "Wörthersee", Dortmund - Klagenfurt, 2004;					\
+      C=(SJT_DB101|SJT_DB120_VR),									\
+	(2*SJT_OEBB_BVMZ_G,3*SJT_OEBB_BPMZ_G,2*SJT_OEBB_BVMZ_G,SJT_OEBB_WRMZ_R,2*SJT_OEBB_AVMZ_R);	\
+      F=PE5;
+    TX=DB 120 + EC 64/65 "Mozart", Paris - Vienna, 1996;						\
+      C=DB_120_123,(SJT_EC64_1996G-P,SJT_EC64_1996M);							\
+      F=PE5;
+    TX=DB 181 + D 262/263, "Orient Express", Paris - Budapest, 1995;					\
+      C=(DBAG_4_181_201(|L)|SJT_DB103_TEE),(SJT_D262_1995M|SJT_D263_1995M);				\
+      F=PE5;
+    TX=DB 103 + D 268/269, "Kalman Imre", Munich - Budapest, 1995;					\
+      C=SJT_DB103_TEE,(SJT_D268_1995SZ,SJT_D268_1995M);							\
+      F=PE5;
+    TX=DB 101 + EC 24/25, "Fransz Liszt", Köln - Budapest, 2001;					\
+      C=<SJT_EC24_2001M,SJT_DB101;									\
+      F=PE5;
+    TX=DB 103 + EC 62/63, "Bela Bartok", Munich - Budapest, 1993;					\
+      C=(SJT_DB103_1993),										\
+	(5*SJT_MAV_BVMZ_B1,(SJT_MAV_BVMZ_B1|SJT_DB_BVMZ_1993),MAVS_61_8891(|L),				\
+	(SJT_DB_AVMZ_1993|MAVS_61_1991(|L)),(SJT_DB_AVMZ_1993|SJT_DB_APMZ_1993|MAVS_61_1991(|L)));	\
+      F=PE5;
+    TX=DB 181 + EC 64/65 "Mozart", Paris - Vienna, 1996;						\
+      C=SJT_DB181_OR,(SJT_EC64_1996G-P,SJT_EC64_1996M);							\
+      F=PE5;
+    TX=DB 103 + EC 64/65 "Mozart", Paris - Vienna, 1996;						\
+      C=SJT_DB103_OR,(SJT_EC64_1996G-P,SJT_EC64_1996M);							\
+      F=PE5;
+    TX=DB 103 + EC 60/61, "Rosenkavalier", Munich - Vienna, 1992;					\
+      C=SJT_DB103_TEE,(6:(<2*SJT_OEBB_BVMZ_O,SJT_EC60_1992M,SJT_OEBB_AVMZ_R)|1:(<SJT_EC60_1992M));	\
+      F=PE5;
+    TX=DB 120 + IR 2192/2193, Karlsruhe - Salzburg, 1998;						\
+      C=<SJT_DB120_VR,DBAG_AIMZ261_7(|L),DBAG_ARKIMBZ262_2L,6*DBAG_BIMZ264_7(|L),DBAG_BIMDZF269_0;	\
+      F=PE5;
+    TX=DB 101 + EC 62/63 "Bartok Bela", Munich - Budapest, 2004;					\
+      C=(SJT_DB101),											\
+	(SJT_OEBB_BVMZ_G,3*SJT_OEBB_BPMZ_G,2*SJT_OEBB_BVMZ_G,MAVS_61_8891(|L),2*SJT_OEBB_APMZ_G);	\
+      F=PE5;
+    TX=DB 101 + EN 229 "Spree-Donau-Kurier", Berlin - Budapest;						\
+      C=SJT_DB101,(<SJT_OEBB_BVMZ_R,2*SJT_OEBB_BCM_WB,OBB_WLABMZ7171_4(|L),SJT_EN228_2000M);		\
+      F=PE5;
+    TX=DB 103 + EC 22/23 "Johann Strauss", Köln - Vienna, 1997;						\
+      C=SJT_DB103_TEE,(<SJT_EC22_1997M);								\
+      F=PE5;
+    TX=DB 101 + EC 22/23 "Johann Strauss", Köln - Vienna, 1999;						\
+      C=SJT_DB101,3*SJT_OEBB_AVMZ_R,SJT_OEBB_WRMZ_R,2*SJT_OEBB_BVMZ_R,3*SJT_OEBB_BPMZ_R,		\
+	2*SJT_OEBB_BVMZ_R,DB_BIMDZF269_2;								\
+      F=PE5;
+    TX=DB 103 + EC 24/25 "Fransz Liszt", Dortmund - Budapest, 1996;					\
+      C=SJT_DB103_OR,(<SJT_EC24_1996M);									\
+      F=PE5;
+    TX=DB 103 + EC 28/29 "Prinz Eugen", Hamburg - Vienna, 1997;						\
+      C=SJT_DB103_OR,(<SJT_EC28_1997M);									\
+      F=PE5;
+    TX=DB 101 + EC 28/29 "Joseph Haydn", Dortmund - Vienna, 2001;					\
+      C=<SJT_DB101,SJT_OEBB_AVMZ_R,SJT_OEBB_WRMZ_R,2*SJT_OEBB_BVMZ_R,3*SJT_OEBB_BPMZ_R,			\
+	2*SJT_OEBB_BVMZ_R,SJT_DB_BPMDZF_VR;								\
+      F=PE5;
+
   }
   {E6?
 #Epoche 6
@@ -7437,7 +9202,7 @@ $ENDPOOL
 	DBAG_BCM243AZL,DBAG_BCM243B,DBAG_WLAB175B[BC:-20,-20]);						\
       F=EP6;
     TX=DB 101 + IR;											\
-      C=<DBAG_BIMDZF269_0L,DBAG_BIMZ259L~JMU,DBAG_BIMZ264_7L,DBAG_BIMZ264_7,2*DBAG_BIMZ259~JMU,			\
+      C=<DBAG_BIMDZF269_0L,DBAG_BIMZ259L~JMU,DBAG_BIMZ264_7L,DBAG_BIMZ264_7,2*DBAG_BIMZ259~JMU,		\
 	DBAG_ARKIMBZ262_2L[O:DBAG_LW,26,12],DBAG_AMZ210L,DBAG_P101_2000;				\
       F=EPU6;
     TX=DB 101 + IC;											\
@@ -7458,7 +9223,7 @@ $ENDPOOL
 	2*DB_BCVMZ248_1,DB_DDM915_5,DB_DDM915_6);							\
       F=EP6;
     TX=DB 101 + Interregio-Wendezug;									\
-      C=<DBAG_BIMDZF269_0L,DBAG_BIMZ259L~JMU,DBAG_BIMZ264_7L,DBAG_BIMZ264_7,2*DBAG_BIMZ259~JMU,			\
+      C=<DBAG_BIMDZF269_0L,DBAG_BIMZ259L~JMU,DBAG_BIMZ264_7L,DBAG_BIMZ264_7,2*DBAG_BIMZ259~JMU,		\
 	DBAG_ARKIMBZ262_2[O:DBAG_LW,26,12],DBAG_AMZ210L,DB_101001;					\
       F=EPU6;
     TX=DB 101 + Nachtzug Budapest-Wien;									\
@@ -12144,7 +13909,7 @@ $ENDPOOL
       C=SIE_193(V|_901(|L)|_923(|L)|_921(|L)|_922(|L)|_902(|L)),D6FCM|D6FP1;				\
       F=EF6;
     TX=Deutschland Siemens 193 + Güterzug;								\
-      C=SIE_193_(876_25J|876M|823|822|821|970)(|L),D6FCM|D6FP1;					\
+      C=SIE_193_(876_25J|876M|823|822|821|970)(|L),D6FCM|D6FP1;						\
       F=EF6;
     TX=Deutschland Siemens ER20 + Güterzug;								\
       C=SIE_ER20M(|L),D6FCM|D6FP1;									\
@@ -12189,8 +13954,8 @@ $ENDPOOL
 	(<2*GFF_BCMH_OPTIMAL,TRAIN_WLABMZ7070L,2*TRAIN_BDCML,TRAIN_BOMZ236)|				\
 	(>2*GFF_BCMH_OPTIMA,TRAIN_WLABMZ7070,2*TRAIN_BDCM,TRAIN_BOMZ236L);				\
       F=EP6;
-    TX=DB 111 + Train Rental International (TRI) RE 52370 (RE90) Nürnberg Hbf - Stuttgart Hbf 2025; \
-      C=(<DBAG_111150U(|L),TRAIN_BDUU,2*TRAIN_BRNDZF481H,TRAIN_BNRZ451H,TRAIN_ABNRZ417H);				\
+    TX=DB 111 + Train Rental International (TRI) RE 52370 (RE90) Nürnberg Hbf - Stuttgart Hbf 2025;	\
+      C=<DBAG_111150U(|L),TRAIN_BDUU,2*TRAIN_BRNDZF481H,TRAIN_BNRZ451H,TRAIN_ABNRZ417H;			\
       F=EPU6;
     TX=Deutschland Train Rental International (TRI)110 428 zieht Verstärkerzug Tübingen 2021;		\
       C=(<TRAIN_110428(|L),TRAIN_BNRZ451HL,TRAIN_BNRZ451H,2*TRAIN_BNRZ451HL,TRAIN_ABNRZ417H,		\
@@ -12655,6 +14420,638 @@ $ENDPOOL
       C=RAI_347(096A|079A|096B|079B|096C|975A|975B)(|L),RZD_ZB5651MK4,RZD_104022,RZD_20_58571696,	\
 	RZD_HABIILLNSS;											\
       F=XDNF6;
-  }
 
+### Classic Trains from Simon Treanor
+    TX=DB 120 + NX 242/243 "Perseus", Paris - Berlin, 2008;						\
+      C=SJT_DB120_VR|SJT_DB101_VR,									\
+	(SJT_DB_BOMZ_VR,SJT_DB_BVCMZ_VR,SJT_DB_BVCMBZ_VR,2*SJT_DB_WLABMZ_VR,DB_WRMBZ(|L),		\
+	SJT_DB_BOMZ_VR,SJT_DB_BVCMZ_VR,SJT_DB_BVCMBZ_VR,SJT_DB_WLABMZ_VR,0-1*RZD_6WLABMEE);		\
+      F=PE6;
+    TX=DB 110B + D 13220/13221, Brussels - Zell am See, 2008;						\
+      C=SJT_DB110B_VR|(SJT_SNCB27|SNCB_16C(|L)),							\
+	(SNCB_I6_2170M(|L),1-2*SNCB_I6_5190(|L),SNCB_I10_2170N(|L));					\
+      F=PE6;
+    TX=DB ICE3 + ICE 211/212, Brussels - Frankfurt, 2019;						\
+      C=SJT_ICE3_NS;											\
+      F=PEU6;
+    TX=DB 186 + Antwerp - Ludwigshafen, 2020;								\
+      C=SJT_DB186_TANKMIX;										\
+      F=FE6;
+    TX=DB ICE3 + ICE 16/17, Brussels - Frankfurt, 2021;							\
+      C=SJT_ICE3M_12G;											\
+      F=PE6;
+    TX=DB 181 + EN 452/453, Paris - Moscow, 2018;							\
+      C=SJT_DB181_VR|SJT_DB101_VR,									\
+	(RZD_6WLSRMEE1(|L),5-7*RZD_6WLABMEE1(|L),SJT_PKP_WRMZ_IC1,2-3*RZD_6WLSRMEE1(|L));		\
+      F=PE6;
+    TX=DB 605 ICE-TD + ICE 32/33, Copenhagen - Hamburg, 2013;						\
+      C=1-2*SJT_ICETD_12|SJT_ICETD_21;									\
+      F=PD6;
+    TX=DB 218 + IC 2416/2417, Fehmarn-Burg - Cologne, 2020;						\
+      C=SJT_DB218_VR,SJT_DB_IC2416_2020M;								\
+      F=PD6;
+#Northern Germany
+    TX=DB 146 + IC 2048/2049, Köln - Dresden, 2017;							\
+      C=SJT_IC2L_146;											\
+      F=PE6;
+    TX=DB 101 + IC 142/143, Intercity Berlijn, Amsterdam - Berlin, 2017;				\
+      C=SJT_DB101,											\
+	(<SJT_DB_AVMZ_W,SJT_DB_ARKIMBZR_W,SJT_DB_BVMSZ_W,DBAG_BPMBZ295,4*SJT_DB_BPMZ_W,SJT_DB_BPMDZ_W);	\
+      F=PE6;
+    TX=DB 114 + Schleswig-Holstein Express, Flensburg - Hamburg, 2010;					\
+      C=<DBAG_BYBDZF1SHL|DBAG_BYBDZF2SHL,4*DBAG_BIMZ1SHL|DBAG_BIMZ1SH|DBAG_BIMZ2SHL|DBAG_BIMZ2SH,	\
+	DBAG_AIMZ1SHL|DBAG_AIMZ1SH|DBAG_AIMZ2SHL|DBAG_AIMZ2SH,						\
+	DBAG_6_112_124L|DBAG_6_112_124|DBAG_6_112_124UL|DBAG_6_112_124U|DBAG_6_114_027L|		\
+	DBAG_6_114_027|DBAG_6_114_027UL|DBAG_6_114_027U;						\
+      F=PE6;
+    TX=DB 402 – ICE2 + ICE 546+556/547+557, Düsseldorf/Köln - Berlin, 2018;				\
+      C=1-2*SJT_ICE2_12OR;										\
+      F=PE6;
+    TX=DB 103 + IC 2416/2417, Flensburg - Köln, 2012;							\
+      C=SJT_DBB103_TEE,											\
+	(<SJT_DBB_AVMZ_TEE,SJT_DBB_ARMH_TEE,4*SJT_DBB_BM_OB,DBAG_AIMZ2617W(|L),DBAG_6AIMZ2617(|L));	\
+      F=PE6;
+    TX=DB 185 + Senftenberg - Oberhausen, 2019;								\
+      C=(20:SJT_DB185_VR|4:SJT_DB185_RL|1:SJT_DB185_AD),30*(DBAG_6_EAOS106(D|L)|DB_EAOS1);		\
+      F=PE6;
+    TX=DB 145 + Seelze - Hamburg, 2019;									\
+      C=SJT_DB145_VR,16*SJT_GATX_ZAS;									\
+      F=PE6;
+    TX=DB 151 + Salzgitter - Hamburg, 2016;								\
+      C=2*DB_151_AKVR2|DBAG_151_037|DBC_151_032|DBAG_151_062U|DBAG_151_069U,30*SJT_DB_FALS;		\
+      D=L;												\
+      F=PE6;
+    TX=DB 218 + IC 2416/2417, Fehmarn-Burg - Cologne, 2020;						\
+      C=SJT_DB_IC2416_2020DE1;										\
+      F=PD6;
+    TX=DB 101 + IC 2416/2417, Fehmarn-Burg - Cologne, 2020;						\
+      C=SJT_DB_IC2416_2020DE2;										\
+      F=PE6;
+    TX=DB 101 + IC 146/147, Amsterdam - Berlin, 2021;							\
+      C=SJT_DB101,SJT_IC146_2021M;									\
+      F=PE6;
+    TX=DB 232 + Fredericia - Maschen, 2015;								\
+      C=SJT_DB232_MIX4;											\
+      F=FD6;
+    TX=DB 103 + IC 648/649 "Adolph von Menzel", Cologne - Berln;					\
+      C=1:(SJT_DB103_OR,(SJT_DB_IC648_1996M,2*SJT_DB_BM_OB))|						\
+	2:(SJT_DB112_OR,(SJT_DB_IC648_1996M,<2*SJT_DB_BM_OR))|4:(SJT_DR112_OR,SJT_DB_IC648_1996M);	\
+      F=PE6;
+    TX=DB 146 + IC 2430/2431 "Borkum", Emden - Cottbus, 2019;						\
+      C=<DBAG_146561,DBAG_DAPZA687_2(|L),3*DBAG_DBPZA682_2(|L),DBAG_DBPBZFA668_2;			\
+      F=PE6;
+    TX=DB 101 + IC 1926/1927, Cologne - Berlin, 2019;							\
+      C=(SJT_DB101,											\
+	(SJT_DB_AVMZ_W,SJT_DB_ARKIMBZL_W,SJT_DB_BVMSZ_W,DBAG_BPMBZ295,2*SJT_DB_BPMZ_W,SJT_DB_BIMDZ_W,	\
+	SJT_DB_APMZ_W))|										\
+	(SJT_DB101,SJT_DB_APMZ_W,SJT_DB_ARKIMBZR_W,SJT_DB_BVMSZ_W,DBAG_BPMBZ295,2*SJT_DB_BPMZ_W,	\
+	SJT_DB_BIMDZFR_W);										\
+      F=PE6;
+    TX=DB 101 + IC 2242/2243, Berlin - Munster, 2019;							\
+      C=SJT_DB101,											\
+	(<SJT_DB_AVMZ_W,SJT_DB_ARKIMBZL_W,SJT_DB_BVMSZ_W,SJT_DB_BPMZ_W,4*SJT_DB_BPMZ_W,SJT_DB_BPMDZ_W);	\
+      F=PE6;
+    TX=NEG VT 71 + NEG Dagebüll Mole - Niebüll (Frankfurt), 2020;					\
+      C=(<NEG_VT71ML,NEG_VT71M),(<SJT_DB_BPMDZFL_W,SJT_DB_BPMZ_W);					\
+      F=PD6;
+#North/East of Berlin
+    TX=ATC 186 + EC 54/55, Berlin-Gdans- Express, 2014;							\
+      C=SJT_ATC186PLAIN,(<PKP_BDMNU_Z2B,SJT_PKP_BVMBZ_IC1,SJT_PKP_WRMZ_IC1,SJT_PKP_AVMZ_IC1);		\
+      F=PE6;
+    TX=CD 372 + EC 46/47 Berlin-Warszawa-Express, 2011;							\
+      C=CD_372_006(|L),											\
+	(<DBAG_BVMZ185BWE(|L),PKP_IC_BMNOPUVZ_BWE2,2*DBAG_BVMZ185BWE(|L),SJT_PKP_WRMZ_IC1,SJT_BWE_AVMZ); \
+      F=PE6;
+    TX=DB 180 + EC 178/179, "Carl Maria von Weber", Szczecin - Prague, 2011;				\
+      C=SJT_DB232_VR,(<SJT_EC178_2011M,(1:DBAG_BIMZ2647W(|L)|6:));					\
+      F=PD6;
+    TX=DB 101 + EC 172/173, "Vindobona", Hamburg - Vienna, 2009;					\
+      C=((SJT_DB101),(<SJT_EC172_2009M,SJT_DB_AVMZ_W))|(SJT_OEBB1216_2009,(<SJT_EC172_2009M));		\
+      F=PE6;
+    TX=DB 101 + EC 378/379 "Porta Bohemica", Kiel - Prague, 2016;					\
+      C=(SJT_CD371_B),(<6*SJT_CD_BVMZ_B,SJT_CD_WRMZ_B,2*SJT_CD_APMZ_B);					\
+      F=PE6;
+    TX=ÖBB 1216 + RJ 256/257 "Vindobona", Berlin - Vienna, 2021;					\
+      C=<CD_RJ_AL,CD_RJ_BL,4*CD_RJ_CL,CD_RJ_FL,(23:SJT_CD1216_RJ|1:OBB_1216_229(|L)|1:SJT_OEBB1216);	\
+      F=PE6;
+    TX=DB 180 + EC 178/179, "Carl Maria von Weber", Szczecin - Prague, 2011;				\
+      C=SJT_DB101|SJT_DB232_VR,(<SJT_EC178_2011M,(1:DBAG_BIMZ2647W(|L)|6:));				\
+      F=PE6;
+    TX=DB 101 + EC 170/171, "Hungaria", Berlin - Budapest, 2014;					\
+      C=SJT_DB101,(SJT_EC170_2011M,(5:DBAG_BPMBZ295|1:SJT_DB_BIMDZ_W|1:));				\
+      F=PE6;
+    TX=DB 101 + EC 178/179 "Alois Negrelli", Berlin - Prague, 2017;					\
+      C=SJT_DB101,(<3*SJT_CD_BVMZ_B,SJT_CD_BPMZ_B,CD_2191N,SJT_CD_WRMZ_B,SJT_CD_APMZ_B);		\
+      F=PE6;
+    TX=DB 182 + IRE 4272/4723, Hamburg-Berlin-Express, 2018;						\
+      C=SJT_DB182_VR,6*SJT_DB_BIMZ_HBE;									\
+      F=PE6;
+    TX=DB 101 + EC 174/175, "Jan Jesenius", Hamburg - Budapest, 2009;					\
+      C=(SJT_DB101|SJT_DB120_VR),									\
+	(DBAG_BPMBZ295,4*SJT_DB_BPMZ_W,SJT_DB_BVMSZ_W,MAVS_61_8891(|L),SJT_DB_APMZ_W,SJT_DB_AVMZ_W);	\
+      F=PE6;
+    TX=CD 193 + EC 176/177, "Berliner", Hamburg - Prague, 2019;						\
+      C=CD_193N(|L),											\
+	(<0-1*SJT_CD_BVMZ_B,SJT_CD_BPMZ_B,CD_2191N,3*SJT_CD_BVMZ_B,SJT_CD_WRMZ_B,			\
+	(5:1|2:2*SJT_CD_APMZ_B));									\
+      F=PE6;
+    TX=DB 101 + EC 378/379 "Porta Bohemica", Kiel - Prague, 2016;					\
+      C=(SJT_DB101),(<6*SJT_CD_BVMZ_B,SJT_CD_WRMZ_B,2*SJT_CD_APMZ_B);					\
+      F=PE6;
+    TX=DB 101 + EC 172/173, "Vindobona", Hamburg - Villach, 2011;					\
+      C=(SJT_DB101),											\
+	(SJT_DB_BPMZ_W,3*SJT_OEBB_BPMZ_G,2*SJT_OEBB_BVMZ_G,SJT_OEBB_WRMZ_G,SJT_OEBB_AVMZ_G,		\
+	SJT_DB_APMZ_W);											\
+      F=PE6;
+#Ruhr
+    TX=DB 120 + DB Ersatzzug (Köln), 2018;								\
+      C=<DBAG_120_1VL|DBAG_120_1V|DBAG_120_1VGL|DBAG_120_1VG|DBAG_120_1VUL|DBAG_120_1VU|DBAG_1201VRUL|	\
+	DBAG_1201VRU|DB_120_1VR,1:DBAG_AVMZ107WH(|L)|5:SJT_DB_AVMZ108_W|1:SJT_DB_AVMZ109_W,		\
+	2*DBAG_BIMZ2647WL|DBAG_BIMZ2647W,DBAG_BPMBZ295,2*DBAG_BIMZ2647WL|DBAG_BIMZ2647W,		\
+	1:DBAG_AVMZ107WH(|L)|5:SJT_DB_AVMZ108_W|1:SJT_DB_AVMZ109_W,					\
+	SJT_DB_BPMZ291_W|SJT_DB_BPMZ292_W|SJT_DB_BPMZ294_W|SJT_DB_BPMZ295_W,				\
+	DBAG_BIMZ2647WL|DBAG_BIMZ2647W,DBAG_BIMDZF271WB|DBAG_BIMDZF269_2W|DBAG_BIMDZF269_0W;		\
+      F=PE6;
+    TX=DB 143 + S6 Essen - Köln, 2012;									\
+      C=<DB_6BXFL,SJT_DB_ABX_VR,2*SJT_DB_BX_VR,SJT_DB143_VR;						\
+      F=PERU6;
+    TX=DB 143 + RB 12514/12515, Rhein-Erft-Bahn, Rommelskirchen - Koblenz, 2018;			\
+      C=<SJT_DB143_VR,2*SJT_DB_DBZ_VR,DBAG_6DABPBZF762S;						\
+      F=PERU6;
+    TX=DB 422 + S1, Dortmund - Solingen, 2017;								\
+      C=2*DBAG_422;											\
+      F=PERU6;
+    TX=DB 423 + S12, Düren - Au, 2012;									\
+      C=2*DB_423;											\
+      F=PERU6;
+    TX=DB 420 + S12, Düren - Hennef, 2016;								\
+      C=2*(<DB_420VRML,(DB_421ABVRML|DB_421ABVRM),DB_420VRM);						\
+      F=PERU6;
+    TX=DB 422 + S1, Dortmund - Solingen, 2019;								\
+      C=2*(<DB_422_SRRML,(DB_432_SRRML|DB_432_SRRM),DB_422_SRRM);					\
+      F=PE6;
+    TX=DB 101 + IC 2150/2151, Gera - Düsseldorf, 2019;							\
+      C=SJT_DB101|DBAG_245E(|L),SJT_DB_AVMZ_W,								\
+	(SJT_DB_BVMSZ_W,DBAG_BPMBZ295)|(DBAG_BPMBZ295,SJT_DB_BVMSZ_W),SJT_DB_BPMZ_W,SJT_DB_BIMDZFR_W;	\
+      F=PE6;
+    TX=DB 101 + IC 2416/2417, Fehmarn-Burg - Cologne, 2020;						\
+      C=<SJT_DB101,SJT_DB_IC2416_2020M;									\
+      F=PE6;
+    TX=DB 101 + IC 2310/2311 "Nordfriesland", Westerland - Stuttgart, 2020;				\
+      C=<SJT_DB_IC2310_2020DM,SJT_DB_IC2310_2020M,SJT_DB101;						\
+      F=PE6;
+    TX=DB 185 + Oberhausen - Andernach, 2020;								\
+      C=SJT_DB185_PIPES;										\
+      F=PE6;
+    TX=DB 151 + Oberhausen - Andernach, 2021;								\
+      C=2*SJT_DB151_VR,30*NS_SAHMMS2;									\
+      F=FE6;
+    TX=DB 120 + Decin - Krefeld, 2019;									\
+      C=SJT_DB120_TCRL;											\
+      F=FE6;
+    TX=DB 101 + IC 2312/2313, Hamburg - Stuttgart, 2021;						\
+      C=6:((SJT_DB101_VR,(SJT_DB_IC2312_2021M))|(SJT_DB_IC2312_2021M,SJT_DB101))|			\
+	1:(SJT_DB_IC2312_2021M,SJT_DB_IC2312_2021X,SJT_DB101);						\
+      F=PE6;
+    TX=DB 101 + EC 6/7, Hamburg - Interlaken, 2016;							\
+      C=SJT_DB101,SJT_EC6_2016M;									\
+      F=PE6;
+    TX=DB 101 + EC 8/9 Hamburg - Zurich, 2017;								\
+      C=SJT_DB101_VR,SJT_EC8_2017M;									\
+      F=PE6;
+    TX=DB 101 + IC 118/119 "Bodensee", Münster - Innsbruck, 2017;					\
+      C=SJT_DB101|(2*SJT_DB218_VR)|SJT_OEBB1116_RED,							\
+	(<5*SJT_OEBB_BPMZ_G,SJT_OEBB_BVMZ_G,SJT_OEBB_ADMSZ_G,SJT_OEBB_AVMZ_G);				\
+      F=PE6;
+    TX=DB 101 + IC 2022/2023, Hamburg - Frankfurt, 2017;						\
+      C=<SJT_DB_BPMDZFL_W,SJT_DB_BPMZ_W,DBAG_BPMBZ295,4*SJT_DB_BPMZ_W,SJT_DB_BVMSZ_W,			\
+	SJT_DB_ARKIMBZR_W,SJT_DB_AVMZ_W,SJT_DB_APMZ_W,SJT_DB101_VR;					\
+      F=PE6;
+    TX=DB ICE3 + ICE 612/613, Dortmund - Munich, 2016;							\
+      C=2*SJT_ICE3_12|SJT_ICE3_21;									\
+      F=PE6;
+    TX=ÖBB 1016 + EC 114/115, "Wörthersee", Dortmund - Klagenfurt, 2008;				\
+      C=SJT_DB101_VR,											\
+	(2*SJT_OEBB_BVMZ_G,3*SJT_OEBB_BPMZ_G,2*SJT_OEBB_BVMZ_G,SJT_OEBB_WRMZ_G,SJT_OEBB_AVMZ_R,		\
+	SJT_OEBB_AVMZ_G);										\
+      F=PE6;
+    TX=DB 110B + D 13480/13481, Brussels - Siers, 2018;							\
+      C=SJT_DB110B_TEE,(<3*DBAG_T1L,10*DBAG_T2);							\
+      F=PE6;
+    TX=HGK 185 + D 13290/13291 "Bergland-Express", Utrecht - Bludenz, 2008;				\
+      C=HGK_185BG|SLB_1216_940,										\
+	(<2*SBB_WLABM33MS,SVG_BM,2*SVG_BCM2,EUEX_WGM,SVG_BM_POP,SVG_BCM2,SBB_WLABM33MS,SBB_WLABM33MSL);	\
+      F=PE6;
+#REVISIT#
+    TX=DB 101 + IC 118/119, "Bodensee", Dortmund - Innsbruck, 2019;					\
+      C=SJT_DB101_VR,(<SJT_OEBB_AVMZ_G,SJT_OEBB_ADMSZ_G,SJT_OEBB_BVMZ_G,5*SJT_OEBB_BPMZ_G);		\
+      F=PE6;
+    TX=DB 218 + IC 118/119, "Bodensee", Dortmund - Innsbruck, 2019;					\
+      C=2*SJT_DB218_VR,											\
+	(SBB_APM1990_1M(|L),SJT_OEBB_ADMSZ_G,SJT_OEBB_WRMZ_G,SJT_OEBB_BVMZ_NJ,7*SJT_OEBB_BPMZ_G);	\
+      F=PD6;
+    TX=DB 101 + IC 118/119, "Bodensee", Dortmund - Innsbruck, 2019;					\
+      C=SJT_DB101_VR,											\
+	(SBB_APM1990_1M(|L),SJT_OEBB_ADMSZ_G,SJT_OEBB_WRMZ_G,SJT_OEBB_BVMZ_NJ,7*SJT_OEBB_BPMZ_G);	\
+      F=PE6;
+    TX=DB 101 + EC 6/7, "Rätia", Hamburg - Chur, 2013;							\
+      C=SJT_DB101_VR,SJT_EC6_2003M;									\
+      F=PE6;
+    TX=DB 101 + IC 2216/2217 "Greifswalder Bodden", Greifswald - Stuttgart, 2019;			\
+      C=<SJT_DB_BPMDZFL_W,SJT_DB_BPMZ_W,DBAG_BPMBZ295,4*SJT_DB_BPMZ_W,SJT_DB_BVMSZ_W,			\
+	SJT_DB_ARKIMBZR_W,SJT_DB_AVMZ_W,SJT_DB_APMZ_W,							\
+	(6:|1:(SJT_DB_APMZ_W,DBAG_BPMBZ295,SJT_DB_BPMZ_W)),SJT_DB101_VR;				\
+      F=PE6;
+    TX=DB ICE3 + ICE 100/101, Dortmund - Basel, 2019;							\
+      C=2*SJT_ICE3_12|SJT_ICE3_21;									\
+      F=PE6;
+#REVISIT#
+    TX=DB 145 + Novara - Lübeck, 2019;									\
+      C=DBS_145S2,18*HUPAC_SCHONI;									\
+      F=FE6;
+    TX=DB 185 + Bludenz - Bremerhaven, 2019;								\
+      C=SJT_DB185_HBBLINS;										\
+      F=FE6;
+    TX=DB 185 + Bremerhaven - Buchs, 2019;								\
+      C=SJT_DB185_HBBLINS;										\
+      F=FE6;
+#REVSIT#
+    TX=DB 145 + Zeebrugge - Chiasso, 2019;								\
+      C=DB_145AU1(|L),24*SJT_UKCONTAINERS;								\
+      F=FE6;
+    TX=DB 101 + NJ 424/425, Brussels - Innsbruck/Vienna, 2020;						\
+      C=(SJT_DB101_VR,(SJT_NJ424_2020I,SJT_NJ40420_2020M))|						\
+	(SNCB_18N(|L)|SJT_OEBB1116_RED,(SJT_NJ424_2020W,SJT_NJ424_2020I))|				\
+	(SJT_OEBB1116_RED,(SJT_NJ420_2020W,SJT_NJ490_2020M));						\
+      F=PE6;
+    TX=DB 186 + Antwerp - Ludwigshafen, 2020;								\
+      C=SJT_DB186_TANKMIX;										\
+      F=FE6;
+    TX=ÖBB 1116 + NJ 424/425, Brussels - Innsbruck/Vienna, 2020;					\
+      C=(SJT_OEBB1116_RED,(SJT_NJ424_2020I,SJT_NJ40420_2020M))|						\
+	(SNCB_18N(|L)|SJT_OEBB1116_RED,(SJT_NJ424_2020W,SJT_NJ424_2020I))|				\
+	(SJT_OEBB1116_RED,(SJT_NJ420_2020W,SJT_NJ490_2020M));						\
+      F=PE6;
+    TX=DB 186 + Antwerp - Ludwigshafen, 2020;								\
+      C=SJT_DB186_VR,22*SJT_VTG_ZACS;									\
+      F=FE6;
+    TX=DB 101 + EC 6/7, Hamburg - Interlaken, 2020;							\
+      C=SJT_DB101,SJT_EC6_2020M;									\
+      F=PE6;
+    TX=DB 101 + IC 118/119, Münster - Innsbruck, 2008;							\
+      C=(<SJT_DB101,SJT_IC118_2008M)|((2*SJT_DB218_VR),(<SJT_IC118_2008M))|				\
+	(SJT_OEBB1116_EURO,(<SJT_IC118_2008M));								\
+      F=PE6;
+    TX=DB IC2310 + IC 2310/2311 "Nordfriesland", Westerland - Stuttgart, 2020;				\
+      C=<SJT_DB_IC2310_2020DM,SJT_DB_IC2310_2020M,SJT_DB101;						\
+      F=PE6;
+    TX=ÖBB 1116 + Passau - Aachen, 2020;								\
+      C=SJT_OEBB1116_MIX1;										\
+      F=FE6;
+    TX=DB 101 + IC 134/135 "Ostfriesland", Norddeich - Luxembourg, 2011;				\
+      C=SJT_DB101,SJT_IC134_2011M;									\
+      F=PE6;
+    TX=MRCE 182 + EC 6/7, Hamburg - Chur, 2011;								\
+      C=SJT_MRCE182,SJT_EC6_2011M;									\
+      F=PE6;
+    TX=ÖBB 1116 + NJ 420/40490, Amsterdam/Brussels - Innsbruck/Vienna, 2021;				\
+      C=4:SJT_OEBB1116_RED|1:SJT_OEBB1116_AD,								\
+	(<SJT_OEBB_BCM_NJ,2*OBB_WLABMZ7290NJ(|L),SJT_OEBB_BVMZ_NJ,2*SJT_OEBB_BVMZ_NJ,			\
+	OBB_WLABMZ7290NJ(|L),OBB_BVCMBZNJ(|L),SJT_OEBB_BCM_NJ,SJT_OEBB_BVMZ_NJ,SJT_OEBB_BVMZ_G,		\
+	OBB_WLABMZ7290NJ(|L),OBB_BVCMBZNJ(|L),SJT_OEBB_BCM_NJ);						\
+      F=PE6;
+    TX=DB 101 + EC 100/101, Hamburg - Chur, 2010;							\
+      C=SJT_DB101,(<DBAG_BIMZ2647W(|L),SJT_EC100_2010M);						\
+      F=PE6;
+    TX=DB 101 + IC 118/119 "Bodensee", Dortmund - Innsbruck, 2021;					\
+      C=SJT_DB101,SJT_IC118_2021M;									\
+      F=PE6;
+    TX=DB 120 + ST 99580, Cologne - Mainz, 2021;							\
+      C=SJT_DB120_VR,3*DBAG_DIENSTMZ308(|L);								\
+      F=FE6;
+    TX=DB 193 + Rommerskirchen - Saal (Donau), 2020;							\
+      C=SJT_DB193_VR_SHIMMS;										\
+      F=FE6;
+    TX=DB 185 + Rotterdam - Brescia, 2021;								\
+      C=SJT_DB185_CONTAINERS;										\
+      F=FE6;
+    TX=DB 101 + IC 118/119, Münster - Innsbruck, 2009;							\
+      C=<45:SJT_DB101_VR|3:SJT_DB101_ADR|2:SJT_DB101_ADM,						\
+	(<SJT_OEBB_AVMZ_G,SJT_DB_AVMZ_W,SJT_DB_ARKIMBZR_W,SJT_DB_BVMSZ_W,4*SJT_DB_BPMZ_W,		\
+	SJT_DB_BPMDZF_W);										\
+      F=PE6;
+    TX=DB 103 + IC 714/175 "Patrizier", Hamburg - Stuttgart, 1991;					\
+      C=SJT_DB103_TEE,											\
+	(1-2*<SJT_DB_BM_OB,2*SJT_DB_BPMZ_OB,SJT_DB_BPMBZ_OB,2*SJT_DB_BM_OB,SJT_DB_WRMZ_OR,		\
+	SJT_DB_AVMZ_TEE,SJT_DB_AVMZ_OR,SJT_DB_APMZ_TEE,0-1*SJT_DB_AVMZ_TEE);				\
+      F=PE5;
+    TX=ELL 193 + Krefeld - Passau, 2020;								\
+      C=SJT_ELL193_TCRL;										\
+      F=FE6;
+    TX=DB 185 + Koeln - Saarbrucken, 2020;								\
+      C=SJT_DB185_MIX10;										\
+      F=FE6;
+    TX=DB 120 + Neuss - Hegyeshalom, 2021;								\
+      C=SJT_DB120_FALS;											\
+      F=FE6;
+    TX=DB 403 + ICE 528/529 "Werdenfelser Land", Dortmund - Garmisch-Partenkirchen, 2021;		\
+      C=2*<DB_403AFL,DB_403AE,DB_403B3,DB_403WRL,DB_403B2,DB_403B1,DB_403BE,DB_403BF;			\
+      F=PE6;
+    TX=DB 147 + Gremberg - Mannheim, 2020;								\
+      C=SJT_DB147_MIX9;											\
+      F=PE6;
+#Mosel
+    TX=DB 429 + RE 4118+5118/4119+5119, Koblenz - Mannheim/Luxembourg, 2018;				\
+      C=<(DBAG_429SE1L,DBAG_429SE2L,DBAG_429SE3L,DBAG_429SE4L,DBAG_429SE1)|				\
+	(DBAG_429SE5L,DBAG_429SE4,DBAG_429SE3,DBAG_429SE2,DBAG_429SE5),CFL_2300EL,CFL_2300ML,CFL_2300E;	\
+      F=PE6;
+    TX=DB 628 + RB Bullay - Traben-Trarbach, 2016;							\
+      C=(<DBAG_628_258A,DBAG_628_258B)|(<DB_928_4VRBL,DB_628_4VRB)|(<DB_928_4VRBRL,DB_628_4VRBR);	\
+      F=PE6;
+    TX=DB 442 + RB Koblenz - Trier, 2018;								\
+      C=(DB_442_MB_AL,DB_442_MB_BL,DB_442_MB_CL,DB_442_MB_D)|						\
+	(DB_442_MB_DL,DB_442_MB_C,DB_442_MB_B,DB_442_MB_A);						\
+      F=PE6;
+    TX=DB 641 + RE 86396/86397, Trier - Metz, 2019;							\
+      C=<DBAG_641|DBAG_641R,SNCF_X73500~CDP;								\
+      F=PE6;
+    TX=CFL 2200 + TER 88734/88735, Luxembourg - Metz, 2019;						\
+      C=SJT_CFL2200;											\
+      F=FE6;
+    TX=DB 181 + IC 134/135 "Ostfriesland", Norddeich - Luxembourg, 2011;				\
+      C=DBAG_4_181_201(|L),SJT_IC134_2011M;								\
+      F=PE6;
+    TX=DB 101 + CNL 478/479 "Berliner", Berlin - Zurich, 2008;						\
+      C=SJT_DB101,(<SJT_CNL478_2008M);									\
+      F=PE6;
+    TX=DB 401 + ICE 596/597, Berlin - Munich, 2018;							\
+      C=<DB_401VRL,5*DB_802VRL,DB_803VRL,DB_802VRL,DB_804VR,DB_801VR,3*DB_801VRL,DB_401VR;		\
+      F=PE6;
+    TX=DB 101 + IC 2355/2356 "Arkona", Binz - Frankfurt, 2012;						\
+      C=SJT_DB101,(2:SJT_DB_BIMDZ_W|5:),SJT_DB_AVMZ_W,SJT_DB_ARKIMBZL_W,SJT_DB_BVMSZ_W,DBAG_BPMBZ295,	\
+	2*SJT_DB_BPMZ_W,SJT_DB_BIMDZFR_W;								\
+      F=PE6;
+    TX=DB 101 + NJ 470/471, Berlin/Hamburg - Zurich, 2019;						\
+      C=((6:SJT_SBB460RED|1:SJT_SBB420RED|7:SJT_DB101_VR),(SJT_NJ470_2019M,SJT_NJ40470_2019M))|		\
+	(SJT_DB101_VR,(SJT_NJ470_2019M|SJT_NJ40470_2019M));						\
+      F=PE6;
+    TX=DB 218 + RB 23170/23171, Bad Laasphe, Marburg, 2011;						\
+      C=<SJT_DBB218_WR,SJT_DB_BN_VR,SJT_DB_ABN_VR,SJT_DB_BNDFW_VR;					\
+      F=PDR6;
+    TX=DB 643 + RE 4284/4285, Koblenz - Giessen, 2014;							\
+      C=(<DB_643_0ABML,0-1*DB_943_0ML,DB_643_0BM)|(<DB_643_0BML,0-1*DB_943_0M,DB_643_0ABM);		\
+      F=PE6;
+    TX=SBB 482 + Hamburg - Ulm, 2019;									\
+      C=SJT_SBB482_CARGO,(30*VTG_ZACNS);								\
+      F=EF6;
+    TX=DB 412 + ICE 771/772, Hamburg - Stuttgart, 2019;							\
+      C=DB_812_14L,DB_812_12L,DB_412_11L,DB_812_10L,DB_412_09L,DB_812_07L,2*DB_412_05L,DB_812_04L,	\
+	2*DB_412_02L,DB_812_01;										\
+      F=PE6;
+    TX=DB 151 + Dillenburg - Kreuztal, 2021;								\
+      C=SJT_DB151_VR,(<2*SJT_DBC_TAMNS,16*SJT_DBC_SHIMMS);						\
+      F=PE6;
+    TX=DB 185 + Hamburg - Schwechat, 2021;								\
+      C=SJT_DB185_TANKS;										\
+      F=EF6;
+    TX=DB 401 + ICE 72/73 "Thunersee", Berlin - Interlaken;						\
+      C=<DB_401L,3*DB_801L,DB_804L,DB_803L,5*DB_802L,DB_401;						\
+      F=PE6;
+    TX=DB 401 + ICE 592/593 "Walter Gropius", Berlin - Munich;						\
+      C=<DB_401L,4*DB_801L,DB_804L,DB_803L,6*DB_802L,DB_401;						\
+      F=PE6;
+    TX=DB 401 + ICE 794/795 "Wlihelm von Humboldt", Berlin - Munich;					\
+      C=<DB_401L,4*DB_801L,DB_804L,DB_803L,6*DB_802L,DB_401;						\
+      F=PE6;
+    TX=DB 401 + ICE 276-279, Interlaken - Berlin, 2019;							\
+      C=<DB_401CHVRL,3*DB_801VR,DB_801VRL,DB_804VRL,DB_802VR,DB_803VR,5*DB_802VR,DB_401CHVR;		\
+      F=PE6;
+    TX=DB 401 + ICE 876-879, Berlin - Karlsruhe, 2019;							\
+      C=<DB_401VRL,3*DB_801VR,DB_801VRL,DB_804VRL,DB_802VR,DB_803VR,5*DB_802VR,DB_401VR;		\
+      F=PE6;
+    TX=DB 411 + ICE 1686/1687, Hamburg - Kassel, 2021;							\
+      C=DB_411BPF_GL,DBAG_411S2_6,DBAG_411S2_7,DBAG_411S2_8,DBAG_411S2_2,DBAG_411S2_1L,DB_411APF_G;	\
+      F=PE6;
+#Eastern Germany
+    TX=DB 101 + ICE 1002/1003, Berlin - Munich, 2017;							\
+      C=((DBAG_APMBZF7W,DBAG_APMKZ6W,DBAG_APMZ5W,DBAG_APMZ4W,DBAG_APMKZ3W,DBAG_APMZ2W,DBAG_APMZ1W)|	\
+	(DBAG_APMBZF7WB,DBAG_APMKZ6WB,DBAG_APMZ5WB,DBAG_APMZ4WB,DBAG_APMKZ3WB,DBAG_APMZ2WB,		\
+	DBAG_APMZ1WB)),SJT_DB101_VR;									\
+      F=PE6;
+    TX=ALEX 183 + Ex 355/356 "Albert Einstein", Prague - Munich, 2011;					\
+      C=SJT_ALEX183|ALEX_223_062(|L),(SJT_EX355_2011M);							\
+      F=PE6;
+    TX=DB 442 + S5, Halle - Zwickau, 2018;								\
+      C=(DBAG_442_SMD_AL,DBAG_442_SMD_BL,DBAG_442_SMD_CL,DBAG_442_SMD_B,DBAG_442_SMD_D)|		\
+	(DBAG_442_SMD_DL,DBAG_442_SMD_BL,DBAG_442_SMD_C,DBAG_442_SMD_B,DBAG_442_SMD_A);			\
+      F=PE6;
+    TX=DB 101 + IC 2238/2239 "Warnow", Warnemünde - Leipzig, 2014;					\
+      C=(SJT_DB101_VR|SJT_DB110B_VR),									\
+	(<SJT_DB_AVMZ_W,SJT_DB_BVMSZ_W,DBAG_BPMBZ295,SJT_DB_BPMZ_W,SJT_DB_BPMDZ_W);			\
+      F=PE6;
+    TX=DB 612 + RE 3444/3445, Dresden - Nürnberg, 2014;							\
+      C=2*DBAG_612R|DBAG_612RR|(<DB_612_103ABL,DB_612_103B);						\
+      F=PD6;
+    TX=DB 642 + RB 36787/36788, Magdeburg - Haldensleben, 2009;						\
+      C=DBAG_642_GEN_A12L|DBAG_642_GEN_A12;								\
+      F=PDRU6;
+    TX=DB 646 + RE 36228/36229, Wittstock - Hennigsdorf, 2017;						\
+      C=2*DBAG_646_0AML|DBAG_646_0AM|DBAG_646_2ML|DBAG_646_2M;						\
+      F=PE6;
+    TX=DB 143 + RE 23652/23653, Berlin - Zwickau, 2011;							\
+      C=SJT_DB143_VR,(<DBAG_6BIMZ2647(|L),SJT_DB_ABN_VR,SJT_DB_BN_VR);					\
+      F=PE6;
+    TX=DB 4110 + IC 94/95, Berlin - Vienna, 2021;							\
+      C=(DB_4110_1ABPZFAL,DB_4110_2BPZAL,DB_4110_3BPBZAL,DB_4110_4BPZFA)|				\
+	(DB_4110_4BPZFAL,DB_4110_3BPBZA,DB_4110_2BPZA,DB_4110_1ABPZFA);					\
+      F=PE6;
+    TX=MRCE 182 + RB 16324/16325, Halle - Eisenach, 2012;						\
+      C=<SJT_DB_BNDFW_REG,3*SJT_DB_BN_REG,SJT_DB_ABN_REG,SJT_MRCE182;					\
+      F=PRE6;
+    TX=DB 415 ICE-T + ICE 1694/1695, Frankfurt - Berlin, 2019;						\
+      C=<(29:SJT_ICET7_21DB|3:SJT_ICET7_21OEBB),							\
+	(3:|4:(DBAG_415_5L,DBAG_415_6L,DBAG_415_7L,DBAG_415_1L,DBAG_415_0)|				\
+	(DBAG_415_5L,DBAG_415_6L,DBAG_415_7L,DBAG_415_1L,DBAG_415_0));					\
+      F=PE6;
+    TX=DB 412 + ICE 500/501, Berlin - Munich, 2021;							\
+      C=<DB_812_14L,DB_812_12L,DB_412_11L,DB_812_10L,DB_412_09L,DB_812_07L,2*DB_412_05L,DB_812_04L,	\
+	2*DB_412_02L,DB_812_01G;									\
+      F=PEU6;
+    TX=DB 147 + Nürnberg - Saalfeld, 2021;								\
+      C=SJT_DB147_MIX10;										\
+      F=PE6;
+    TX=DB 120 + IC 183/186, Stuttgart - Zurich, 2013;							\
+      C=(1:SJT_DB120_VR|1:SJT_DB110B_VR|5:SJT_DB101_VR|7:SJT_SBB420RED),				\
+	(<4*SBB_2090REFITL,SBB_1090REFIT);								\
+      F=PE6;
+    TX=DB 111 + RB 19348/19349, Plochingen - Geislingen, 2014;						\
+      C=<SJT_DB_BNDFWL_VR,SJT_DB_BN_VR,SJT_DB_ABN_VR,SJT_DB111_VR;					\
+      F=PE6;
+    TX=DB 120 + IC 182/183, Stuttgart - Zurich, 2011;							\
+      C=7:SJT_SBB420RED|1:SJT_DB101|6:SJT_DB120_VR,(<4*SBB_2090REFITL,SBB_1090EXCISS(|L));		\
+      F=PE6;
+    TX=DB 147 + IC 2068/2069, Karlsruhe - Nürnberg, 2019;						\
+      C=<DB_147_5WC(|L),DBAG_DAPZA687_2(|L),3*DBAG_DBPZA682_2(|L),DBAG_DBPBZFA668_2;			\
+      F=PE6;
+    TX=DB 147 + RB 19126/19127, Osterburken - Stuttgart, 2018;						\
+      C=<DBAG_147008Z,SJT_DB_ABN_REG,4*SJT_DB_BN_REG,SJT_DB_BNDFK_REG;					\
+      F=PE6;
+    TX=DB 611 + IRE 3208/3209, Ulm - Neustadt, 2014;							\
+      C=DB_611R|DB_611RR;										\
+      F=PE6;
+    TX=DB 612 + IRE 3048/3049, Ulm - Basel, 2018;							\
+      C=2*(<DBAG_612_5BWML,DBAG_612_5BWM)|(<DBAG_612_0BWML,DBAG_612_0BWM);				\
+      F=PE6;
+    TX=DB 641 + DB 17366/17377, Basel - Waldshut, 2017;							\
+      C=2*DBAG_641|DBAG_641R;										\
+      F=PE6;
+    TX=DB 425 + S1 Homburg - Osterburken, 2019;								\
+      C=DBAG_425L|DBAG_425;										\
+      F=PE6;
+    TX=ÖBB 1016 + IC 2396/2397, Frankfurt - Stuttgart, 2019;						\
+      C=SJT_OEBB1016_RED,										\
+	(SJT_OEBB_BPMZ_G,SJT_OEBB_BVMZ_G,SJT_OEBB_AVMZ_G,SJT_OEBB_ADMSZ_G,SJT_OEBB_WRMZ_G,		\
+	SJT_OEBB_BVMZ_G,3*SJT_OEBB_BPMZ_G);								\
+      F=PE6;
+    TX=ÖBB 1116 + EC 112/113 "Blauer Enzian", Frankfurt - Klagenfurt, 2020;				\
+      C=<SJT_OEBB1116_RED,SJT_EC112_2020M,SJT_OEBB_AVMZ_G,SJT_OEBB_BVMZ_G,SJT_OEBB_BPMZ_G,		\
+	OBB_1116_141C(|L);										\
+      F=PE6;
+    TX=DB 101 + IC 2310/2311 "Nordfriesland", Westerland - Stuttgart, 2020;				\
+      C=<SJT_DB_IC2310_2020DM,SJT_DB_IC2310_2020M,SJT_DB101;						\
+      F=PE6;
+    TX=DB 101 + IC 2292/2293, Frankfurt - Stuttgart, 2020;						\
+      C=<SJT_DB101,2*SJT_DB_AVMZ_W,SJT_DB_ARKIMBZ_W,SJT_DB_BVMSZ_W,DBAG_BPMBZ295,3*SJT_DB_BPMZ_W,	\
+	SJT_DB_BPMDZF_W;										\
+      F=PE6;
+    TX=ÖBB 1116 + IC 2056/2057, Frankfurt - Saarbrucken, 2011;						\
+      C=SJT_OEBB1116,											\
+	(<SJT_DB_BIMDZ_W,DBAG_BIMZ2647W(|L),SJT_DB_AVMZ_W,DBAG_BPMBZ295,SJT_DB_AVMZ_W,SJT_DB_APMZ_W);	\
+      F=PE6;
+    TX=DB 120 + IC 181/182, Frankfurt - Zurich, 2012;							\
+      C=(5:DBAG_120_112|2:SJT_DB101),SJT_IC182_2012M|(4:SJT_DB120_VR|2:SJT_DB110B_VR|1:SJT_DB101),	\
+	SJT_IC182_2012M;										\
+      F=PE6;
+    TX=DB 218 + IC 118/119 "Bodensee", Dortmund - Innsbruck, 2021;					\
+      C=SJT_DB218_OR,SJT_DB218_VR,SJT_IC118_2021M;							\
+      F=PE6;
+    TX=DB 185 + Mannheim - Chiasso, 2021;								\
+      C=SJT_DB185_STEEL;										\
+      F=FE6;
+    TX=DB 101 + IC 2051/2054, Frankfurt - Saarbrücken, 2011;						\
+      C=(1:SJT_DB101|2:SJT_DB120_VR|4:SJT_DB181),							\
+	(SJT_DB_APMZ_W,SJT_DB_AVMZ_W,DBAG_BPMBZ295,SJT_DB_AVMZ_W,DBAG_BIMZ2647W(|L),SJT_DB_BIMDZ_W);	\
+      F=PE6;
+#Bavaria
+    TX=DB 101 + RE 4038/4039 München-Nürnberg-Express, 2010;						\
+      C=<DBAG_BPMBDZF296_3MNL,2*DBAG_BPMZ295MN(|L),DBAG_ABVMSZ184MN(|L),DBAG_BPMBDZ295_8MN(|L),		\
+	SJT_DB101_VR;											\
+      F=PE6;
+    TX=DB 111 + RE 59498/59499, Munich - Mittenwald, 2013;						\
+      C=<SJT_DB111_AD,2*SJT_DB_BN_REG,SJT_DB_ABN_REG,SJT_DB_BN_REG,SJT_DB_BNDFK_REG;			\
+      F=PE6;
+    TX=DB 111 + RB 5424/5425, Munich - Innsbruck, 2013;							\
+      C=<DBAG_111_017,2*SJT_DB_BN_REG,SJT_DB_ABN_REG,SJT_DB_BN_REG,SJT_DB_BNDFW_REG;			\
+      F=PE6;
+    TX=MRCE 182 + IC 2082/2083, "Königsee", Hamburg - Berchtesgaden, 2012;				\
+      C=SJT_MRCE182,(<SJT_DB_IC2082_2012M,0-1*SJT_DB_IC2084_2012M);					\
+      F=PE6;
+    TX=DB 218 + IC 2084/2085, "Nebelhorn", (Hamburg) Augsburg - Oberstdorf, 2012;			\
+      C=SJT_DB218_VR,(<SJT_DB_IC2084_2012M);								\
+      F=PD6;
+    TX=DB 218 + RE 57508/57509, Munich - Füssen, 2014;							\
+      C=<SJT_DB218_VR,SJT_DB_BN_REG,SJT_DB_ABN_REG,SJT_DB_BN_REG,SJT_DB_BNDFK_REG;			\
+      F=PD6;
+    TX=DB 111 + RE 4618/4619, Frankfurt - Würzburg, 2016;						\
+      C=<SJT_DB111_VR,SJT_DB_PUMA_BD,4*SJT_DB_PUMA_B,SJT_DB_PUMA_ABFR;					\
+      F=PE6;
+    TX=DB 101 + NJ 420/40490, Amsterdam/Hamburg - Innsbruck, 2021;					\
+      C=45:SJT_DB101_VR|3:SJT_DB101_ADR|2:SJT_DB101_ADM,						\
+	(<SJT_OEBB_BVMZ_NJ,SJT_OEBB_BVMZ_G,OBB_WLABMZ7290NJ(|L),OBB_BVCMBZNJ(|L),SJT_OEBB_BCM_NJ,	\
+	OBB_WLABMZ7290NJ(|L),2*SJT_OEBB_BCM_NJ,SJT_OEBB_BVMZ_G,SJT_OEBB_BVMZ_NJ);			\
+      F=PE6;
+    TX=DB 232 + Hengersberg - Osterhofen, 2021;								\
+      C=SJT_DB232_RNS;											\
+      F=FD6;
+    TX=ÖBB 1116 + Kirchbichl - Rohrdorf, 2020;								\
+      C=SJT_OEBB1116_FALS;										\
+      F=FE6;
+    TX=DB 403 + ICE 528/529 "Werdenfelser Land", Dortmund - Garmisch-Partenkirchen, 2021;		\
+      C=<DB_403AFL,DB_403AE,DB_403B3,DB_403WRL,DB_403B2,DB_403B1,DB_403BE,DB_403BF;			\
+      F=PE6;
+    TX=SBB 420 Cargo + EC 194/195, Munich - Zurich, 2019;						\
+      C=SJT_SBB420CARGO,										\
+	(3*SBB_2090REFITL,SBB_2090REFIT,SBB_2090REFITL,SJT_SBB_EW4_WR,SBB_APM1990_1M(|L),SBB_1090REFIT); \
+      F=PE6;
+    TX=SBB 420 Cargo + EC 190/191, Munich - Zurich, 2017;						\
+      C=(SJT_SBB420CARGO),										\
+	(3*SBB_2090REFITL,SBB_2090REFIT,SJT_SBB_EW4_WR,SBB_APM1990_1M(|L),SBB_1090REFIT);		\
+      F=PE6;
+#Allgau
+    TX=DB 218 + EC 194/195, Munich - Zurich, 2019;							\
+      C=(2*SJT_DB218_VR),										\
+	(3*SBB_2090REFITL,SBB_2090REFIT,SBB_2090REFITL,SJT_SBB_EW4_WR,SBB_APM1990_1M(|L),SBB_1090REFIT); \
+      F=PD6;
+    TX=DB 218 + EC 190/191, Munich - Zurich, 2017;							\
+      C=((2*SJT_DB218_VR)),										\
+	(3*SBB_2090REFITL,SBB_2090REFIT,SJT_SBB_EW4_WR,SBB_APM1990_1M(|L),SBB_1090REFIT);		\
+      F=PD6;
+    TX=DB 650 + RB 22830/22831, Aulendorf - Lindau, 2018,;						\
+      C=DB_650_0L|DB_650_0|DB_650_1L|DB_650_1|DB_650_2L|DB_650_2;					\
+      F=PRDU6;
+    TX=DB 218 + ALX 84136/84137, Munich (Immenstadt) - Oberstdorf, 2019;				\
+      C=SJT_DBB218_OB,(<SJT_ALEX_BOM_TQ,SJT_ALEX_BM_TQ,ALEX_3992508);					\
+      F=PD6;
+    TX=DB 218 + IR 2064/2065 "Nebelhorn", Dresden - Oberstdorf;						\
+      C=2*SJT_DB218_OR,(<SJT_DB_IR2064_1998M);								\
+      F=PD6;
+    TX=DB 218 + IC 118/119, Münster - Innsbruck, 2009;							\
+      C=2*DBAG_218182L|DBAG_218182|DBAG_218410L|DBAG_218410|DBAG_218182ZL|DBAG_218182Z|DBAG_218410Z|	\
+	DBAG_218475L|DBAG_218475|DBAG_218182UL|DBAG_218182U|DBAG_218410UL|DBAG_218410U|DBAG_218475UL|	\
+	DBAG_218475U,											\
+	(<SJT_OEBB_AVMZ_G,SJT_DB_AVMZ_W,SJT_DB_ARKIMBZR_W,SJT_DB_BVMSZ_W,4*SJT_DB_BPMZ_W,		\
+	SJT_DB_BPMDZF_W);										\
+      F=PD6;
+    TX=DB 185 + GZ 69725, Limburg - Domodossola, 2019;							\
+      C=2*SJT_DB185_VR,20*SJT_SBB_EANOS;								\
+      F=FE6;
+    TX=DB 185 + Mannheim - Chiasso, 2019;								\
+      C=SJT_DB185_SHIMMS;										\
+      F=FE6;
+    TX=DB 185 + Mannheim - Chiasso, 2012;								\
+      C=SJT_DB185_HBBLINS;										\
+      F=FE6;
+    TX=DB 103 + IC 1280/281, "Grossglockner", Munich - Schwarzach, 2017;				\
+      C=(SJT_DB103_TEE),										\
+	(SJT_DB_BPMDZ_W,SJT_DB_BPMZ_W,SJT_DB_BPMBKZ_W,SJT_DB_APMZ_W,DBAG_BPMBZ295,SJT_DB_BVMSZ_W,	\
+	SJT_DB_ARKIMBZR_W,SJT_DB_AVMZ_W);								\
+      F=PE6;
+    TX=DB 193 + Hannover - Verona, 2021;								\
+      C=SJT_DB193_VR_ROLA;										\
+      F=FE6;
+    TX=DB 101 + EC 218/219, "Chiemgau", Graz - Erfurt, 2018;						\
+      C=<SJT_DB_BPMDZFL_W,2*SJT_DB_BPMZ_W,DBAG_BVMZ185W(|L),DBAG_BPMBZ295,SJT_DB_BVMSZ_W,		\
+	SJT_DB_ARKIMBZR_W,SJT_DB_AVMZ_W,SJT_DB_APMZ_W,SJT_DB101_VR;					\
+      F=PE6;
+    TX=ÖBB 1116 + EC 112/113 "Blauer Enzian", Frankfurt - Klagenfurt, 2020;				\
+      C=SJT_EC112_2020D;										\
+      F=PE6;
+    TX=DB 101 + EN 264/265, "Orient Express", Strasbourg - Vienna, 2008;				\
+      C=SJT_DB101_VR,(SJT_EN264_2008M,SJT_NZ300_2008W);							\
+      F=PE6;
+    TX=DB 101 + EN 264/265, "Orient Express", Strasbourg - Vienna, 2008;				\
+      C=(SJT_DB101_VR,(<SJT_EN264_2008M,SJT_NZ300_2008W))|(SJT_DB181_VR,(<SJT_EN264_2008M));		\
+      F=PE6;
+    TX=DB 411 + ICE 20/21, Frankfurt - Vienna, 2019;							\
+      C=(DBAG_411S2_0L,DBAG_411S2_1,DBAG_411S2_2L,DBAG_411S2_8L,DBAG_411S2_7L,DBAG_411S2_6L,		\
+	DBAG_411S2_5)|											\
+	(DBAG_411S2_0_TZ1153L,DBAG_411S2_1_TZ1153,DBAG_411S2_2_TZ1153L,DBAG_411S2_8_TZ1153,		\
+	DBAG_411S2_7_TZ1153,DBAG_411S2_6_TZ1153L,DBAG_411S2_5_TZ1153);					\
+      F=PE6;
+    TX=ALEX 223 + Ex 355/356, "Karel Capek", Prague - Munich, 2014;					\
+      C=(ALEX_223_062(|L)|SJT_ALEX183),									\
+	(CD_8571NL,CD_BBDGMSEE236(|L),SJT_CD_BEE_B,SJT_CD_BVMZ_B,CD_2170N);				\
+      F=PE6;
+
+  }
 %ENDPOOL;
