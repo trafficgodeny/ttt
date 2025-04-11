@@ -383,16 +383,15 @@ $REQUIRE TRAINDEF.TTT
 	C=(<DSB_3005(|L),6*DSB_5BN,DSB_5ADNS)|(<DSB_5ADNSL,6*DSB_5BN(|L),DSB_3020(|L));			\
 	F=EP6;
       TX=DSB EA + Regionalzug;										\
-	C=(<DSB_30(02|05|20)(|L),2*DSB_B_1,DSB_BK_1,DSB_ABS_1)|					\
+	C=(<DSB_30(02|05|20)(|L),2*DSB_B_1,DSB_BK_1,DSB_ABS_1)|						\
 	  (>DSB_30(02|05|20)(|L),2*DSB_B_1L,DSB_BK_1L,DSB_ABS_1L);					\
 	F=EPRU6;
       TX=DSB EA + Regionalzug;										\
-	C=(<DSB_30(02|05|20)(|L),2*DSB_B_2,DSB_BK_2,DSB_ABS_2)|					\
+	C=(<DSB_30(02|05|20)(|L),2*DSB_B_2,DSB_BK_2,DSB_ABS_2)|						\
 	  (>DSB_30(02|05|20)(|L),2*DSB_B_2L,DSB_BK_2L,DSB_ABS_2L);					\
 	F=EPRU6;
-      TX=DSB EB + Regionalzug Re 2269 Helsingør - Næstved 2024;										\
-	C=(<DSB_EB2(|L),3*DSB_B_3,DSB_BK_3,DSB_ABS_3)|					\
-	  (>DSB_EB2(|L),3*DSB_B_3L,DSB_BK_3L,DSB_ABS_3L);					\
+      TX=DSB EB + Regionalzug Re 2269 Helsingør - Næstved 2024;						\
+	C=(<DSB_EB2(|L),3*DSB_B_3,DSB_BK_3,DSB_ABS_3)|(>DSB_EB2(|L),3*DSB_B_3L,DSB_BK_3L,DSB_ABS_3L);	\
 	F=EPRU6;
       TX=DSB EA + Regionalzug;										\
 	C=(<DSB_30(02|05|20)(|L),3*DSB_DOSTO_B4M(|L),DSB_DOSTO_ABS4M)|					\
@@ -434,20 +433,20 @@ $REQUIRE TRAINDEF.TTT
       TX=Daenemark CFL Cargo 668;									\
 	C=CFLC_66BXL2M(|L),D6FCM;									\
 	F=DF6;
-      TX=Daenemark GoCollective A/S LINT 41;									\
-	C=GOCO_DESIRO;									\
+      TX=Daenemark GoCollective A/S LINT 41;								\
+	C=GOCO_DESIRO;											\
 	F=DPR6;
-      TX=Daenemark GoCollective A/S Desiro;									\
-	C=GOCO_DESIRO_EXDSB;									\
+      TX=Daenemark GoCollective A/S Desiro;								\
+	C=GOCO_DESIRO_EXDSB;										\
 	F=DPR6;
       TX=Daenemark Lokalbanen 41;									\
 	C=LB_41;											\
 	F=DPRU6;
-      TX=Daenemark Lokaltog A/S MF 1000;						\
+      TX=Daenemark Lokaltog A/S MF 1000;								\
 	C=LT_MF1000;											\
 	F=DPRU6;
-      TX=Daenemark Lokaltog A/S Regiosprinter;						\
-	C=LTOG_REGIOSPRINTER;											\
+      TX=Daenemark Lokaltog A/S Regiosprinter;								\
+	C=LTOG_REGIOSPRINTER;										\
 	F=DPRU6;
       TX=Daenemark Lyngby-Nærum Jernbane Regio Sprinter;						\
 	C=LNJ_RS~LIP;											\
@@ -463,9 +462,54 @@ $REQUIRE TRAINDEF.TTT
 	C=VLA_41;											\
 	F=DPU6;
     }
+
+### Classic Trains from Simon Treanor
+
+    {E4?
+      TX=DSB MX + D 236/237 "Nord-West Express", Copenhagen - Hoek, 1980;				\
+	C=(SJT_DSB_MX_BR),(SJT_DB_ABM12_G,SJT_DSB_BM_R,SJT_DBB_BCM_OB,SJT_DBB_BM_OB,SJT_DB_DMS);	\
+	F=PD4;
+      TX=DSB MX + D 234/235, "Paris-Skandinavien-Express", Copenhagen - Paris, 1973;			\
+	C=SJT_DSB_MX_BR,(SJT_D234_1973_KOB-PAR,SJT_D234_1973_KOB-AA);					\
+	F=PE4;
+      TX=DSB MX + EC 32/33, "Skandinavien", Copenhagen - Hamburg, 1990;					\
+	C=SJT_DSB_MX_BR,(<SJT_EC32_1990M);								\
+	F=PD4;
+    }
+    {E5?
+      TX=DSB ME + D 232/233 "Nord-Express", Copenhagen - Oostende, 1997;				\
+	C=DSB_ME,(DB_5T2S(|L),SJT_D232_1997_KOB-OST);							\
+	F=PE5;
+      TX=DSB IC3 + EC 230/231, "Absalon", Copenhagen - Hamburg, 2006;					\
+	C=DSB_IC3~LIP;											\
+	F=PD5;
+      TX=DSB ME + EC 188/189, "Berthel Thorvaldsen", Copenhagen - Hamburg, 1994;			\
+	C=DSB_ME,(<SJT_EC188_1994M);									\
+	F=PD5;
+      TX=DSB MX + EC 194/195, "Hamlet", Copenhagen - Hamburg, 1991;					\
+	C=SJT_DSB_MX_BR,(<SJT_EC194_1991M);								\
+	F=PD5;
+      TX=DSB MX + EC 184/185, "Thomas Mann", Copenhagen - Hamburg, 1993;				\
+	C=SJT_DSB_MX_BR,(<SJT_EC184_1993M);								\
+	F=PD5;
+      TX=DSB ME + EC 184/185, "Soren Kierkergaard", Copenhagen - Hamburg, 1992;				\
+	C=DSB_ME,(<SJT_EC184_1992M);									\
+	F=PD5;
+      TX=DSB ME + EC 370/371, Aarhus - Prague, 2005;							\
+	C=DSB_MEB,(<SJT_EC370_2005M);									\
+	F=PE5;
+      TX=DSB MX + IR 304/305, "Neptun", Berlin - Copenhagen, 1995;					\
+	C=SJT_DSB_MX_BR,(SJT_IR304_1995M);								\
+	F=PE5;
+      TX=DSB 3002 + AG 1274/1275, Fredericia - Bourg St. Maurice, 2006;					\
+	C=(DSB_3002L),											\
+	  (<3*NS_BCM_BL|NS_BCM_B|NS_BCVMH140L|NS_BCVMH140|NS_BCVMH_160L|NS_BCVMH160,SNCB_MU_WLL),	\
+	  (<DBAG_WRMZ134D,DB_WLABMH174,7*DB_BCVMBZ248);							\
+	F=PE5;
+    }
+
   %ENDPOOL;
 }
-
 ###############################################################################
 ##                                                                           ##
 ##                                  Norway                                   ##
@@ -653,8 +697,7 @@ $REQUIRE TRAINDEF.TTT
       TX=NSB EL11.2098 mit Kurswagen (B3 + B2)für die Nachtzüge nach Bergen und Oslo,1994;		\
 	C=NSB_5_EL112098(|L),(<NSB_5_WLAB4L,NSB_5_WLAB5)|(<NSB_5_WLAB5L,NSB_5_WLAB4);			\
 	F=EP5;
-      TX=NSB EL11.2110 mit Touristenzug aus B23-Wagen und einem Mittelwagen der Triebzugreihe Bm67,	\
-	  um 1992;											\
+      TX=NSB EL11.2110 mit Touristenzug aus B23-Wagen und einem Mittelwagen der Triebzugreihe Bm67, um 1992; \
 	C=NSB_5_EL112110(|L),(<NSB_5_B1L,2*NSB_5_B2L,NSB_5_BD1)|(<NSB_5_BD1L,2*NSB_5_B2,NSB_5_B1);	\
 	F=EP5;
       TX=NSB EL13;											\
@@ -822,8 +865,9 @@ $REQUIRE TRAINDEF.TTT
       TX=CargoNet Di 8000 + Rangierzug;									\
 	C=CGN_6DI8707(|L),3*N6FS;									\
 	F=DF6;
-      TX=CargoNet EURO Dual, Cargo Net, Nr. 2159-004;									\
-	C=CGN_2159004(|L),N6FL;W=R;									\
+      TX=CargoNet EURO Dual, Cargo Net, Nr. 2159-004;							\
+	C=CGN_2159004(|L),N6FL;										\
+	W=R;												\
 	F=DF6;
       TX=Cargolink DE 27000 + Güterzug;									\
 	C=CGLI_6DE270006(|L),N6FL;									\
@@ -852,13 +896,15 @@ $REQUIRE TRAINDEF.TTT
 	C=(<GANO_BM73DL,GANO_BM73C,GANO_BM73B,GANO_BM73A)|						\
 	  (>GANO_BM73D,GANO_BM73CL,GANO_BM73BL,GANO_BM73AL);						\
 	F=DPU6;
-       TX=Norway Grendland Rail EuroDual 2159-008;			\
-        C=GRER_2159(|L)[PD],12*(NSB_6_ROOS(3:1|1:2|1:3)[OB:WOOD2(27|29|33|35|28|37)(|[M]),14,13]\
-        [OB:WOOD2(27|29|33|35|28|37)(|[M]),84,13][OB:WOOD2(27|29|33|35|28|37)(|[M]),151,13]); \
+      TX=Norway Grendland Rail EuroDual 2159-008;							\
+	C=GRER_2159(|L)[PD],										\
+	  12*(NSB_6_ROOS(3:1|1:2|1:3)[OB:WOOD2(27|29|33|35|28|37)(|[M]),14,13]				\
+	  [OB:WOOD2(27|29|33|35|28|37)(|[M]),84,13][OB:WOOD2(27|29|33|35|28|37)(|[M]),151,13]);		\
 	F=DF6;
-        TX=Norway Grendland Rail EuroDual 2159-008;			\
-        C=GRER_2159(|L),12*(NSB_6_ROOS(3:1|1:2|1:3)[OB:WOOD2(27|29|33|35|28|37)(|[M]),14,13]\
-        [OB:WOOD2(27|29|33|35|28|37)(|[M]),84,13][OB:WOOD2(27|29|33|35|28|37)(|[M]),151,13]); \
+      TX=Norway Grendland Rail EuroDual 2159-008;							\
+	C=GRER_2159(|L),										\
+	  12*(NSB_6_ROOS(3:1|1:2|1:3)[OB:WOOD2(27|29|33|35|28|37)(|[M]),14,13]				\
+	  [OB:WOOD2(27|29|33|35|28|37)(|[M]),84,13][OB:WOOD2(27|29|33|35|28|37)(|[M]),151,13]);		\
 	F=EF6;
       TX=MTAS DI3;											\
 	C=MTAS_6DI3629(|L),N6FL;									\
@@ -867,8 +913,8 @@ $REQUIRE TRAINDEF.TTT
 	C=OBA_EL1321(61|25)(|L),									\
 	  (<OBA_B3BDL,OBA_B3WL1L,OBA_B3BL,2*OBA_B3WL2L)|(<2*OBA_B3WL2,OBA_B3B,OBA_B3WL1,OBA_B3BD);	\
 	F=EP6;
-      TX=NSB DI4 + Norske Tog Ft 475 Trondheim - Bodø 2025;									\
-	C=NSB_6DI4651(|L),NTOG_FDE,3*NTOG_B5,NTOG_FR51L,NTOG_B5,2*($DIR(NTOG_WLAB2SJNL|NTOG_WLAB2SJN));									\
+      TX=NSB DI4 + Norske Tog Ft 475 Trondheim - Bodø 2025;						\
+	C=NSB_6DI4651(|L),NTOG_FDE,3*NTOG_B5,NTOG_FR51L,NTOG_B5,2*($DIR(NTOG_WLAB2SJNL|NTOG_WLAB2SJN));	\
 	F=DP6;
       TX=Norwegen Norske Tog EL 18;									\
 	C=NTOG_EL182253,5*NTOG_B5;									\
@@ -889,8 +935,8 @@ $REQUIRE TRAINDEF.TTT
 	C=NSB_6_EL182248(|L),2*VY_B7_4,VY_FR7_3,VY_BFWL1,3*$DIR(VY_WLAB2|VY_WLAB2L),VY_B7_4,VY_B7_4;	\
 	F=EP6;
       TX=Norwegen Vygruppen BM 74: Rt 111/387 Oslo - Göteborg C 2025;					\
-	C=(<VY_BM74AL,VY_BM74B,VY_BM74C,VY_BM74D,VY_BM74E)|\
-	(>VY_BM74A,VY_BM74BL,VY_BM74CL,VY_BM74DL,VY_BM74EL);		\
+	C=(<VY_BM74AL,VY_BM74B,VY_BM74C,VY_BM74D,VY_BM74E)|						\
+	  (>VY_BM74A,VY_BM74BL,VY_BM74CL,VY_BM74DL,VY_BM74EL);						\
 	F=EPUP6;
     }
   %ENDPOOL;
@@ -1263,8 +1309,8 @@ $REQUIRE TRAINDEF.TTT
 	  (>SJ_X2,3*SJ_X2_UA2,SJ_X2_URB2L,2*SJ_X2_UA2L,SJ_X2_UA2XL);					\
 	F=EPU6;
       TX=SJ X2;												\
-	C=(<SJ_X2CL,3*SJ_X2C_UA2C,SJ_X2C_URB2CL,2*SJ_X2C_UA2CL,SJ_X2C_UB2XC)|\	
-	(>SJ_X2C,3*SJ_X2C_UA2CL,SJ_X2C_URB2C,2*SJ_X2C_UA2C,SJ_X2C_UB2XCL);					\
+	C=(<SJ_X2CL,3*SJ_X2C_UA2C,SJ_X2C_URB2CL,2*SJ_X2C_UA2CL,SJ_X2C_UB2XC)|				\
+	  (>SJ_X2C,3*SJ_X2C_UA2CL,SJ_X2C_URB2C,2*SJ_X2C_UA2C,SJ_X2C_UB2XCL);				\
 	F=EPU6;
       TX=SJ X10;											\
 	C=SJ_X10A|SJ_X10~V3;										\
@@ -1326,8 +1372,8 @@ $REQUIRE TRAINDEF.TTT
       TX=Schweden MLT Y1;										\
 	C=MLT_Y1~LIP;											\
 	F=DPU6;
-      TX=Schweden Motala Verkstad 1419;										\
-	C=MOTALA_1419(|L),6*DBB_RGS_SCH;											\
+      TX=Schweden Motala Verkstad 1419;									\
+	C=MOTALA_1419(|L),6*DBB_RGS_SCH;								\
 	F=DPU6;
       TX=Schweden Railcare 4000;									\
 	C=RACA_4000(|L),S6F(1|2);									\
