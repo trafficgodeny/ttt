@@ -1093,7 +1093,7 @@ $ENDPOOL
 	FG=SCENE_4TRK[MSK:SCENE_4TRKM,#FF0000,0,0]:,-16;						\
 	Y0=16;												\
 	IMGY=51;
-      M=OPEN; POOL=POOL_TOKAIDO; D=R; P=*50; TE=40;
+      M=OPEN; POOL=POOL_TOKAIDO; D=R; P=*50; TE=4;
     $ENDPATH
   $ENDSCENE
 #------------------  46 -----------------------------------------------
@@ -1442,16 +1442,16 @@ $ENDPOOL
       BG=SCENE_OOIMACHIB:,19;										\
       FG=SCENE_OOIMACHIF;
     $PATH Y0=20;
-      POOL=POOL_KEIHIN; D=L; V=9; TE=30;
+      POOL=POOL_KEIHIN; D=L; V=9; TE=10;
     $ENDPATH
     $PATH Y0=20;
-      POOL=POOL_KEIHIN; D=R; V=9; TB=10; TE=20;
+      POOL=POOL_KEIHIN; D=R; V=9; TB=4; TE=5;
     $ENDPATH
     $PATH Y0=22;
-      POOL=POOL_TOKAIDO; D=L; V=9; TB=20; TE=10;
+      POOL=POOL_TOKAIDO; D=L; V=9; TB=6; TE=5;
     $ENDPATH
     $PATH Y0=22;
-      POOL=POOL_TOKAIDO; D=R; V=9; TB=30;
+      POOL=POOL_TOKAIDO; D=R; V=9; TB=8;
     $ENDPATH
   $ENDSCENE
 #------------------  84 -----------------------------------------------
@@ -1461,18 +1461,18 @@ $ENDPOOL
       BG=SCENE_YURAKUCHOB;										\
       FG=SCENE_YURAKUCHOF:,26;
     $PATH Y0=30; IMGY=50;
-      POOL=POOL_TOKAIDO; D=L; V=8-10; TE=80;
-      POOL=POOL_KEIHIN; D=L; V=8-10; TE=80;
+      POOL=POOL_TOKAIDO; D=L; V=8-10; TE=8;
+      POOL=POOL_KEIHIN; D=L; V=8-10; TE=8;
     $ENDPATH
     $PATH Y0=30; IMGY=50;
-      POOL=POOL_TOKAIDO; D=R; V=8-10; TB=40; TE=40;
-      POOL=POOL_KEIHIN; D=R; V=8-10; TB=40; TE=40;
+      POOL=POOL_TOKAIDO; D=R; V=8-10; TB=4; TE=4;
+      POOL=POOL_KEIHIN; D=R; V=8-10; TB=4; TE=4;
     $ENDPATH
     $PATH Y0=30; IMGY=50;
-      POOL=POOL_YAMANOTE; D=L; V=8-10; TB=20; TE=60;
+      POOL=POOL_YAMANOTE; D=L; V=8-10; TB=2; TE=6;
     $ENDPATH
     $PATH Y0=30; IMGY=50;
-      POOL=POOL_YAMANOTE; D=R; V=8-10; TB=60; TE=20;
+      POOL=POOL_YAMANOTE; D=R; V=8-10; TB=6; TE=2;
     $ENDPATH
   $ENDSCENE
 #------------------  85 -----------------------------------------------
@@ -2337,18 +2337,17 @@ $ENDPOOL
       DX=220; DY=80; YDIR=U;										\
       BG=SCENE_TKTBB:<0+23,33;
     $PATH Y=9;												\
-	BG=SCENE_TKTBM:,-9;										\
-	SEQ=B;
+	BG=SCENE_TKTBM:,-9;										
       C=JNR_591;											\
-	D=R; V=6; TB=2; TE=[SI:N=IR];
+	D=R; V=6; TB=[WI:N=ST;B=1],2; TE=[SI:N=IR];
       C=JNR_391;											\
-	D=R; V=6; TB=[WI:N=ST],2; TE=[SI:N=IR];
+	D=R; V=6; TB=[WI:N=ST;B=1],2; TE=[SI:N=IR];
     $ENDPATH
     $PATH Y=37; IMGY=32;
       C=<TB_JNR_591CL,TB_JNR_591D,TB_JNR_591E;								\
-	D=L; V=4; TB=[WI:N=IR],2; TE=[SI:N=ST];
+	D=L; V=4; TB=[WI:N=IR],2; TE=[SI:N=ST],2;
       C=TB_JR_391AL;											\
-	D=L; V=4; TB=[WI:N=IR],2; TE=2;
+	D=L; V=4; TB=[WI:N=IR],2; TE=[SI:N=ST],2;
     $ENDPATH
   $ENDSCENE
 #------------------ 152 -----------------------------------------------
@@ -2452,15 +2451,15 @@ $ENDPOOL
 	BG=SCENE_AQUAM:,-9;										\
 	D=R;
       C=<TOY_SH0A,TOY_SH0B,TOY_SH0C,TOY_SH0D;								\
-	TB=2; TE=[SI:N=I1];
+	TB=[WI:N=I2;B=1],2; TE=[SI:N=I1];
       C=<TOY_SH0A,TOY_SH0B,TOY_SH0C,TOY_SH0D;								\
-	TB=[WI:I2],2; TE=[SI:N=I1];
+	TB=[WI:N=I2;B=1],2; TE=[SI:N=I1];
     $ENDPATH
     $PATH Y=17; D=L;
       C=TOY_SH0AQ1,TOY_SH0AQ2,TOY_SH0AQ3,TOY_SH0AQ4;							\
-	TB=[WI:N=I1],2; TE=[SI:N=I2];
+	TB=[WI:N=I1],2; TE=[SI:N=I2],2;
       C=TOY_SH0AQ1,TOY_SH0AQ2,TOY_SH0AQ3,TOY_SH0AQ4;							\
-	TB=[WI:N=I1],2; TE=2;
+	TB=[WI:N=I1],2; TE=[SI:N=I2],2;
     $ENDPATH
   $ENDSCENE
 #------------------ 161 -----------------------------------------------
@@ -3726,7 +3725,7 @@ $ENDPOOL
       LC=2; DX=220; AB=13; BL=9;									\
       BG=SCENE_SAKUNAMIB;										\
       FG=(SCENE_SAKUNAMIF:,-9;INTRO_SAKUNAMI:,-9;);							\
-      ENV=[TB=W,2][TE=2][V-5];
+      ENV=[TB=W,2][TE=2][V=5];
     AP=[D=L][C=JR_ED44,JR_OHAFU33CK,JR_OHA35K,JR_OHA35CK,JNR_SUROHA32K,JR_OHAFU33CKL]|			\
 	[D=R][C=JR_ED44,JR_OHAFU33CKL,JNR_SUROHA32K,JR_OHA35CK,JR_OHA35K,JR_OHAFU33CK];
     C=JNR_ED45_1,(<JR_G1,JR_GO1,JR_G3,JR_G4,JR_G4,JR_GO1,JR_GO1),					\
