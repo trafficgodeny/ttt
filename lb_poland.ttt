@@ -1002,7 +1002,7 @@ $REQUIRE TRAINDEF.TTT
 	PKP_BMNOPUZ_154AA,PKP_B11MNOUZ_136A_IC6);							\
       F=EP6;
     TX=PKP EU 44 + IC;											\
-      C=PKP_(EU44SUPERNET|EU44HUAWEI|EU44GALAXY)(|L),PL6PIC;						\
+      C=PKP(_EU44SUPERNET|EU44HUAWEI|_EU44GALAXY)(|L),PL6PIC;						\
       F=EP6;
     TX=PKP EU 44 + EIC 71000 (41)Berlin Hbf - Warszawa Wsch. 2016;					\
       C=PKP_EU44|PKP_EU44R|PKP_EU44_009,								\
@@ -1104,7 +1104,7 @@ $REQUIRE TRAINDEF.TTT
       C=MRCE_189_151(|L),PL6PIC;									\
       F=EP6;
     TX=PKPIC EU200 + IC 116/14000/1  Silesia:  Warszawa Wsch. - Bohumín (- Praha hl.n.) 2024;		\
-      C=PKPIC_E4MSU,											\
+      C=PKP_EU160(|L),											\
 	(<PKP_A9MNOPUZ158AM,PKP_WRMNOUZ407AML,PKP_B10BMNOUZ177A10,PKP_B11MNOUZ176A10,			\
 	PKP_B9MNOPUZ175A10,PKP_B9MNOPUVZ175A20,CD_BDMPZ227N2,CD_BHMPZ228N2DO,CD_BMZ245N2HR,		\
 	CD_ARMPEE829,ZSSK_AMPEER,PKP_B9MNOPUZ175A10)|							\
@@ -1943,92 +1943,5 @@ $REQUIRE TRAINDEF.TTT
       C=PKP_OL49_59(|L),PAWO_B11P120,PKPPR_BDU111AL(|L),IRIPK_A9OU112,IRIPK_A9OUY112;			\
       F=SPR6;
   }
-
-### Classic Trains from Simon Treanor
-
-  {E5?
-    TX=PKP EU07 + EN 348/349, "Jan Kiepura", Warsaw - Brussels, 2005;					\
-      C=SJT_PKP_EU07_G,											\
-	(BCH_WLABMEE2L,3*RZD_6WLABMEE(|L),0-1*CNL_WRMBZ138,PKP_ADMNU_Z1|PKP_BDMNU_Z1,			\
-	2-3*SJT_PKP_BVCMBZ_JK,2-3*PKP_WRMNOUZ1251001(|L));						\
-      F=PE5;
-    TX=PKP EU07 + EC 42/43, "Berolina", Berlin - Warsaw, 1993;						\
-      C=SJT_PKP_EU07_G,(<5-6*SJT_PKP_BVMZ_BR,PKP_WRBD2,SJT_DB_AVMZ_OR);					\
-      F=PE5;
-    TX=PKP EU07 + EC 40/41, "Varsovia", Berlin - Warsaw, 1999;						\
-      C=SJT_PKP_EU07_G,											\
-	(2*SJT_DB_AVMZ_2000,SJT_DB_WRMZ_OR,SJT_DB_BOMZ_VR,SJT_DB_BVMZ_2000,SJT_DB_BPMZ_2000,		\
-	SJT_DB_BPMZ_2000,1-2*SJT_DB_BOMZ_VR,(1:DB_BOMZ236(|L)|6:));					\
-      F=PE5;
-    TX=PKP EU07 + IR 328/329 "Mare Balticum", Berlin - Elk, 2000;					\
-      C=(SJT_PKP_EU07_G),										\
-	(<DBAG_BIMZ264_7(|L),SJT_DB_BIMDZ_B,4*DBAG_BIMZ264_7(|L),SJT_PKP_WRMZ_DR,DBAG_AIMZ261_7(|L));	\
-      F=PE5;
-    TX=PKP EU09 + EC 106/107, "Praha", Warsaw - Prague, 2006;						\
-      C=PKP_EP09_046A,SJT_EC106_2006M;									\
-      F=PE5;
-    TX=PKP EU09 + EC 104/105, "Sobieski", Warsaw - Vienna, 2003;					\
-      C=(PKP_EP09_046A),										\
-	(4-5*PKP_BDUNG(|L),SJT_PKP_WRMZ_DR,(SJT_PKP_APMZ_BR|PKP_ADMNU51),SJT_OEBB_ABVMZ_G,		\
-	SJT_OEBB_BVMZ_G);										\
-      F=PE5;
-    TX=PKP EU07 + D 246/247 "Moscow-Express", Berlin - Moscow, 2006;					\
-      C=SJT_PKP_EU07_G,SJT_D246_2005M;									\
-      F=PE5;
-  }
-  {E6?
-    TX=PKP EU07 + EN 452/453, Paris - Moscow, 2018;							\
-      C=SJT_PKP_EU07_IC|SJT_PKP_EU44_IC,								\
-	(RZD_6WLSRMEE1(|L),5-7*RZD_6WLABMEE1(|L),SJT_PKP_WRMZ_IC1,2-3*RZD_6WLSRMEE1(|L));		\
-      F=PE6;
-    TX=PKP EU44 + EC 40/41, Berlin-Warszawa-Express, 2017;						\
-      C=SJT_PKP_EU44_IC,										\
-	(<PKP_BBMNOUZ_157A(|L),PKP_B10BMNOUZ167BL,2*SJT_PKP_BVMZ_IC2,PKP_WRMNOUZ_407A(|L),		\
-	PKP_A9EMNOUZ_156A(|L));										\
-      F=PE6;
-    TX=MRCE 182 + EC 248/249, "Wawel", Hamburg - Krakow, 2012;						\
-      C=(SJT_MRCE182,((1:DBAG_BIMZ2647W(|L)|1:SJT_DB_BIMDZ_W|12:),SJT_EC248_2012M))|			\
-	(SJT_PKP_EU07_G|PKP_LDE2100(|L),(SJT_EC248_2012M));						\
-      F=PE6;
-    TX=PKP EU44 + EC 56/57 "Wawel", Berlin - Krakow, 2021;						\
-      C=SJT_PKP_EU44,											\
-	(SJT_PKP_APMZ_IC1,SJT_PKP_WRMZ_IC1,SJT_PKP_BVMBZ_IC1,SJT_PKP_BVMZ_IC,SJT_PKP_BPMZ_IC2,		\
-	(PKP_BBMNOUZ_157A(|L)|SJT_PKP_BPMZ_IC2));							\
-      F=PE6;
-    TX=PKP EU44 + EC 42/43, Warsaw - Berlin, 2019;							\
-      C=SJT_PKP_EU44,											\
-	(<PKP_BBMNOUZ_157A(|L),PKP_B10BMNOUZ167BL,2*SJT_PKP_BVMZ_IC1,PKP_WRMNOUZ_407A(|L),		\
-	PKP_A9EMNOUZ_156A(|L));										\
-      F=PE6;
-    TX=PKP EU09 + EC 104/105, "Sobieski", Gdynia - Vienna, 2018;					\
-      C=(PKP_EP09IC(|L)),										\
-	(SJT_PKP_AVMZ_IC1,SJT_PKP_WRMZ_IC1,2*SJT_PKP_BVMZ_IC1,SJT_PKP_BVMZ_IC2,SJT_PKP_BPMZ_IC1,	\
-	SJT_OEBB_BVMZ_G);										\
-      F=PE6;
-    TX=PKP EU09 + Ex 112/113, "Porta Moravica", Warsaw - Prague, 2018;					\
-      C=PKP_EP09IC(|L),(SJT_EX112_2018M);								\
-      F=PE6;
-    TX=PKP EU07 + D 406/407, "Chopin", Warsaw - Vienna, 2011;						\
-      C=SJT_PKP_EU07_IC,(SJT_D406_2011M);								\
-      F=PE6;
-    TX=PKP EU07 + D 406/407, "Chopin", Warsaw - Prague, 2012;						\
-      C=SJT_PKP_EU07_IC,(SJT_D406_2012HW,SJT_D406_2012M);						\
-      F=PE6;
-    TX=PKP EU07 + EC 108/109, "Comenius", Krakow - Prague, 2008;					\
-      C=SJT_PKP_EU07_G,(SJT_EC108_2008P,SJT_EC108_2008M);						\
-      F=PE6;
-    TX=PKP EU07 + EC 102/103, "Polonia", Warsaw - Vienna, 2008;						\
-      C=(SJT_PKP_EU07_IC),(SJT_EC102_2008M);								\
-      F=PE6;
-    TX=PKP EU07 + EC 100/101 "Moravia", Katowice - Vienna, 2021;					\
-      C=(SJT_PKP_EU07_IC),(SJT_PKP_AVMZ_IC1,SJT_PKP_WRMZ_IC1,2*SJT_PKP_BPMZ_IC1,SJT_PKP_BVMZ_IC1);	\
-      F=PE6;
-    TX=PKP EU07 + TLK (1)31110/(1)31111 "Poloniny", Warsaw - Przemysl, 2018;				\
-      C=SJT_PKP_EU07_IC,(<SJT_PKP_BM_IC,PKP_AB9NOU112ATL,SJT_PKP_AM_IC);				\
-      F=PE6;
-    TX=PKP EU07 + R 402/403, "Wydmy", Leba - Bohumin, 2019;						\
-      C=SJT_PKP_EU07_IC,(<SJT_PKP_WLAB_B,5*CD_2170N,SJT_CD_BDS_B,4*CD_2170N,SJT_PKP_WLAB_B);		\
-      F=PE6;
-
-  }
 %ENDPOOL;
+

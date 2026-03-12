@@ -81,8 +81,7 @@ $REQUIRE TRAINDEF.TTT
 	F=EF45;
       TX=CFR 40;											\
 	C=CFR_CL40SO(10|11)(|L),									\
-	  (<(CFR_2180BMEE|CFR_2180SO02)(|L),2*(CFR_1980AMEE|CFR_1980SO02)(|L),CFR_WR2,CFR_BMZL~ZS,	\
-	  CFR_BMZ~ZS);											\
+	  (<(2*CFR_2180BMEEL),CFR_1980AMEEL|CFR_1980AMEE,CFR_WR2,CFR_BMZL~ZS,CFR_BMZ~ZS);		\
 	F=EP45;
       TX=CFR 40 + P 2021,Bucuresti Basarab - Simeria 1980;						\
 	C=CFR_CL40B,(<CFR_TA9050G,3*CFR_BAFMD2147P,CFR_AAFMD1147G,5*CFR_BAFMD2147P);			\
@@ -133,7 +132,7 @@ $REQUIRE TRAINDEF.TTT
 	C=CFR_CL47SO02L|CFR_CL47SO02,RO4FL;								\
 	F=EF45;
       TX=CFR 60;											\
-	C=CFR_060DA2,5-8*RO4FS;										\
+	C=CFR_060DA2,5-8*RO4FS;								\
 	F=DF4;
       TX=CFR 60;											\
 	C=CFR_LDE2100(C|B|A)(|L),RO4PR1;								\
@@ -189,13 +188,8 @@ $REQUIRE TRAINDEF.TTT
       TX=CFR 78;											\
 	C=CFR_78D|CFR_78E;										\
 	F=DPU5;
-
-### Classic Trains from Simon Treanor
-      TX=CFR 40 + EC 46/47, "Traianus", Budapest - Bucharest, 2000;					\
-	C=(SJT_CFR40_GB|SJT_MAV_V43_B),(<MAVS_61_1091(|L),MAVS_61_8891(|L),3*SJT_MAV_BPMZ_B1);		\
-	F=PE5;
-
     }
+
     {E6?
       TX=CFR 40 + IR 473 Ister,Budapest-Keleti  - Bucuresti Nord Gr.A 2015;				\
 	C=CFR_CL40SO(14|13)(|L),									\
@@ -218,8 +212,7 @@ $REQUIRE TRAINDEF.TTT
 	C=CFR_410_241,RO6F3|RO6F1|(2*RO6F2);								\
 	F=EF6;
       TX=CFR 40 + IR 1596 Craiova - Bucuresti Nord 2021;						\
-	C=CFR_CL40SO14(|L),										\
-	  (2*CFR_2083SO01,CFR_1983SO01,2*CFR_2083SO01)|(2*CFR_2083SO01L,CFR_1983SO01L,2*CFR_2083SO01L);	\
+	C=CFR_CL40SO14(|L),2*CFR_BEE2083,CFR_AEE1983,2*CFR_BEE2083;					\
 	F=EP6;
 
       TX=CFR 40 + IR 1596 Craiova - Bucuresti Nord 2021;						\
@@ -254,7 +247,7 @@ $REQUIRE TRAINDEF.TTT
 	C=CFR_CL40SO14(|L),CFR_A1956B,CFR_2616;								\
 	F=EPRU6;
       TX=CFR 40 + IR 1543 Brasov - Iasi 2024;								\
-	C=CFR_CL40SO19(|L),CFR_2068B,CFR_AEEM3076M(|L),CFR_2068B;					\
+	C=CFR_CL40SO14(|L),CFR_2068B,CFR_AEEM3076M(|L),CFR_2068B;					\
 	F=EPU6;
       TX=CFR 41 + IRN 472 Bucuresti Nord - Budapest-Keleti 2021;					\
 	C=CFR_CL40SO14(|L),										\
@@ -297,17 +290,16 @@ $REQUIRE TRAINDEF.TTT
 	C=CFR_CL46A(|L),RO6P1;										\
 	F=EP6;
       TX=CFR 47;											\
-	C=CFR_(LE6600PHS(|L)|CL47PHSO02(|L)|CL47PHSO03(|L)|CL47SO02(|L)|47_04(|L)),			\
-	  RO6F3|RO6F1|(2*RO6F2);									\
+	C=CFR_(LE6600PHS(|L)|CL47PHSO02(|L)|CL47PHSO03(|L)|CL47SO02(|L)|477_871P),RO6F3|RO6F1|(2*RO6F2); \
 	F=EF6;
       TX=CFR 47 + IC-IR 75 Transsylvania:Budapest-Keleti - Brasov 2015;					\
 	C=CFR_CL47SO0(1|3)(|L),(<(3*CFR_B2186),CFR_A1090,MAVS_AMXZ_A,3*MAVS_B2080,MAVS_A1980);		\
 	F=EP6;
-      TX=CFR 47 + IC 581 Bucuresti Nord - Constanta 2025;						\
-	C=CFR_CL47PHSO03(|L),(<CFR_B2191,CFR_AMEET197695,CFR_6BR8987,3*CFR_B2191);			\
+      TX=CFR 47 + IC 581 Bucuresti Nord - Constanta 2025;											\
+	C=CFR_CL47PHSO03(|L),(<CFR_B2191,CFR_AMEET197695,CFR_6BR8987,3*CFR_B2191); \
 	F=EF6;
       TX=CFR 48 + Rangierzug;										\
-	C=CFR_48SO01(|L)|CFR_CL481SO01(|L),CFR_WRMZ8896M,CFR_BMEET2176_9;				\
+	C=CFR_48SO01(|L),CFR_WRMZ8896M,CFR_BMEET2176_9;							\
 	F=EF6;
       TX=CFR 60;											\
 	C=(CFR_CL60SO18L|CFR_CL60SO18),									\
@@ -323,8 +315,7 @@ $REQUIRE TRAINDEF.TTT
 	C=(CFR_LDE2100DL|CFR_LDE2100D|CFR_LDE2100G|CFR_LDE2100GL|CFR_LDE2100HL|CFR_LDE2100H|		\
 	  CFR_LDE2100IL|CFR_LDE2100I|CFR_LDE2100CL|CFR_LDE2100C|CFR_LDE2100FL|CFR_LDE2100F|CFR_CL60FL|	\
 	  CFR_CL60F|CFR_CL60GL|CFR_CL60G|CFR_CL60NL|CFR_CL60N|CFR_CL60SO16L|CFR_CL60SO16),		\
-	  (<CFR_2920DML,CFR_2920SO03,CFR_2920SO02,CFR_2920SO01,CFR_1947B2,2*CFR_2920DM)|		\
-	  (<CFR_2920DM,CFR_2920SO03L,CFR_2920SO02L,CFR_2920SO01L,CFR_1947B2L,2*CFR_2920DML);		\
+	  (<CFR_2920DML,2*CFR_2920DM);									\
 	F=DF56;
       TX=CFR 60/61;											\
 	C=(CFR_CL60SO16L|CFR_CL60SO16|CFR_CL60SO19L|CFR_CL60SO19|CFR_CL60SO20L|CFR_CL60SO20),		\
@@ -342,9 +333,7 @@ $REQUIRE TRAINDEF.TTT
 	  CFR_CL60SO17L|CFR_CL60SO17,(<CFR_5941F,CFR_3951AB,CFR_2051D,CFR_DPOST_MB0);			\
 	F=DP56;
       TX=CFR 60 + IR 1830 Galati - Cluj Napoca 2024;							\
-	C=CFR_CL60SO17(|L),										\
-	  (<CFR_1983SO02,CFR_BD8449B[BC:-10,-30],3*CFR_B2049M[BC:-10,-30])|				\
-	  (>CFR_1983SO02L,CFR_BD8449B[BC:-10,-30],3*CFR_B2049M[BC:-10,-30]);				\
+	C=CFR_CL60SO17(|L),CFR_AEE1983M,CFR_BD8449B,3*CFR_B2049M;					\
 	F=DP6;
       TX=CFR 63;											\
 	C=CFR_(CL63SO02|CL63SO02L|CL63L|CL63),CFR_2626B2L,CFR_2626B2,CFR_2626B1L|CFR_2626B1;		\
@@ -359,9 +348,8 @@ $REQUIRE TRAINDEF.TTT
 	C=CFR_CL63SO02(|L),CFR_6B2176,CFR_B2187M,CFR_6B2186,CFR_1976ALEE(|L);				\
 	F=DP6;
       TX=CFR 64 + IRN 1941 Satu Mare - Constanta 2024;							\
-	C=CFR_CL63SO02(|L),4*CFR_2076SO02(|L),CFR_6B2176[BC:-10,-30],					\
-	  CFR_WLABMEE7170_2017(|L)[BC:-10,-30],CFR_ACBCEE4431M[BC:-10,-30],2*CFR_6B2176[BC:-10,-30],	\
-	  CFR_ACBCEE4431M(|L)[BC:-10,-30],CFR_WLABMEE7170_2017(|L)[BC:-10,-30];				\
+	C=CFR_CL63SO02(|L),4*CFR_BLEE2076B(|L),CFR_6B2176,CFR_WLABMEE7170_2017(|L),CFR_ACBCEE4431M,	\
+	  2*CFR_6B2176,CFR_ACBCEE4431M,CFR_WLABMEE7170_2017(|L);					\
 	F=DP6;
       TX=CFR 65;											\
 	C=CFR_CL65SO0(3|4)(|L),14*(CFR_FALS05|CFR_FALSSO01|CFR_FALSSO02|CFR_FALSSO03)(|L);		\
@@ -381,8 +369,8 @@ $REQUIRE TRAINDEF.TTT
 	C=CFR_CL69SO04|CFR_CL69SO05|CFR_CL69SO08|CFR_CL69SO09|CFR_CL69SO10,				\
 	  10*(CFR_ZAS73SO0(1|2|3|4)(|L)([BC:-15,-40,9,12,115]|[BC:-8,-20,9,12,115]));			\
 	F=DF6;
-      TX=CFR 69 + R 9694 Anina - Oravita 2024;								\
-	C=CFR_CL69SO08(|L),2*CFR_B2829YG;								\
+      TX=CFR 69 + R 9694 Anina - Oravita 2024;											\
+	C=CFR_CL69SO08(|L),2*CFR_B2829YG;			\
 	F=DPR6;
       TX=CFR 70/71;											\
 	C=CFR_700A|CFR_700B(|L)|CFR_700C(|L)|CFR_LDE4000B(|L)|CFR_LDE4000SO03(|L),CFR_CL70SO02(|L),	\
@@ -427,11 +415,10 @@ $REQUIRE TRAINDEF.TTT
 	  CFR_LDH25SO01|CFR_LDH25SO02L|CFR_LDH25SO02|CFR_LDH25SO03L|CFR_LDH25SO03;			\
 	F=DPU56;
       TX=CFR 96 Desio;											\
-	C=CFR_96ABL|CFR_DESIRO~ZS;									\
-	P=<5; T=OPEN,W,1,CLOSE;										\
-	F=DPROUT6;
+	C=CFR_96ABL|CFR_DESIRO~ZS;P=<5; T=OPEN,W,1,CLOSE;						\
+      F=DPROUT6;
       TX=CFR IR RE;											\
-	C=<CFR_IR_REAL,CFR_IR_REB,CFR_IR_REC;								\
+	C=<CFR_IR_REAL,CFR_IR_REB,CFR_IR_REC;									\
 	F=EPRU6;
       TX=Rumänien Astra TransCarpatic (ATC)IC2:IR 15533 Bucuresti Nord - Brasov 2019;			\
 	C=<ACTA_IC2AL,ACTA_IC2B;									\
@@ -526,13 +513,10 @@ $REQUIRE TRAINDEF.TTT
       TX=Grup Feroviar Roman LDE 2100 + Güterzug;							\
 	C=GFR_LDE2100AL|GFR_LDE2100A|GFR_LDE2100BL|GFR_LDE2100B|GFR_LDE2100ND2L|GFR_LDE2100ND2,RO6F1;	\
 	F=DF6;
-      TX=Rumänien InterRegional Calatori (IRC) 57 0569;							\
+      TX=Rumänien InterRegional Calatori (IRC)57 0569;							\
 	C=IRC_57_0569;											\
 	F=DPRU6;
-      TX=Rumänien InterRegional Calatori (IRC) 628;							\
-	C=(<IRC_628DB_ABL,IRC_628DB_B)|(<IRC_628DB_BL,IRC_628DB_B);					\
-	F=DPRU6;
-      TX=Rumänien InterRegional Calatori (IRC) 628:IR 15704 Oradea - Cluj Napoca 2017;			\
+      TX=Rumänien InterRegional Calatori (IRC)628:IR 15704 Oradea - Cluj Napoca 2017;			\
 	C=<IRC_628L,IRC_628;										\
 	F=DPRU6;
       TX=Rumänien Oil Terminal Constanta 80 + Güterzug;							\
@@ -614,7 +598,7 @@ $REQUIRE TRAINDEF.TTT
 	C=<TFC_78AL,TFC_78A;										\
 	F=DPRU6;
       TX=Rumänien Transferoviar 643;									\
-	C=TFC_643;											\
+	C=TFC_12_1100;											\
 	F=DPRU6;
       TX=Rumänien Transferoviar 12 - 1100;								\
 	C=TFC_12_1100;											\
@@ -674,13 +658,10 @@ $REQUIRE TRAINDEF.TTT
 	C=CTF_CL40AL|CTF_CL40A,RO6F1;									\
 	F=EF6;
       TX=Rumänien Constantin Grup 40 + Güterzug;							\
-	C=CTIN_(CL40SO01)(|L)|CTIN_40_02(|L),RO6F3;							\
+	C=CTIN_CL40SO01(|L)|CTIN_40_02(|L),RO6F3;							\
 	F=EF6;
       TX=Rumänien Constantin Grup 43 + Güterzug;							\
 	C=CTIN_CL43SO01(|L),RO6F3;									\
-	F=EF6;
-      TX=Rumänien Constantin Grup 48 + Güterzug;							\
-	C=CTIN_CL48SO01(|L),D6FCM;									\
 	F=EF6;
       TX=Rumänien CargoTransVagon 40 + Güterzug;							\
 	C=CTV_CL40(|SO02|SO03|SO04)(|L),RO6F1;								\
@@ -689,7 +670,7 @@ $REQUIRE TRAINDEF.TTT
 	C=CTV_47_01(|L),RO6FRL;										\
 	F=EF6;
       TX=Rumänien CargoTransVagon 48 + Güterzug;							\
-	C=1:(CTV_48SO01(|L))|3:CTV_CL48SO0(2|4|3)(|L),RO6FR;						\
+	C=CTV_48SO01(|L),RO6FR;										\
 	F=EF6;
       TX=Rumänien CargoTransVagon 46 + Güterzug;							\
 	C=CTV_CL46SO01L|CTV_CL46SO01,RO6F1;								\
@@ -701,10 +682,7 @@ $REQUIRE TRAINDEF.TTT
 	C=DSRR_48SO0(1|2|3|4)(|L),RO6FR|RO6FGL;								\
 	F=EF6;
       TX=Rumänien E-P Rail Romania 48 + Güterzug;							\
-	C=1:(EPR_48SO01(|L))|3:EPR_CL48SO0(2|4|3)(|L),RO6FT;						\
-	F=EF6;
-      TX=Rumänien E-P Rail Romania 48 + Güterzug;							\
-	C=4:(EPR_48SO3(5|6|7|8)(|L))|1:EPR_CL48SO39(|L),RO6FT;						\
+	C=DSRR_48SO0(1|2|3|4)(|L),RO6FT;								\
 	F=EF6;
       TX=Rumänien Grup Feroviar Roman 43 + Güterzug;							\
 	C=GFR_CL43(SO02|A)(|L),RO6F3;									\
@@ -724,17 +702,11 @@ $REQUIRE TRAINDEF.TTT
       TX=Rumänien European Rail Transport Feroviar 40 + Güterzug;					\
 	C=IRTT_40_01(|L),RO6F3;										\
 	F=EF6;
-      TX=Rumänien Logistik und Transport GmbH 48 + Güterzug;						\
+      TX=Rumänien Logistik und Transport GmbH 40 + Güterzug;						\
 	C=LTE_48SO0(1|2|3|4)(|L),RO6FGL;								\
 	F=EF6;
-      TX=Rumänien Logistik und Transport GmbH 48 + Güterzug;						\
-	C=LTE_CL48SO0(5|6|7)(|L),D6FCM;									\
-	F=EF6;
-      TX=Rumänien Logistik und Transport GmbH 48 + Güterzug;						\
-	C=LTE_CL48SO0(5|6|7)(|L),D6FCM;									\
-	F=EF6;
-      TX=Rumänien PSP Cargo Group SA 58 + Güterzug;							\
-	C=PSPRO_CL48SO01L|PSPCG_CL48SO01,D6FZM;								\
+      TX=Rumänien Rolling Stock Company 40 + Güterzug;							\
+	C=RSTK_CL40SO01L|RSTK_CL40SO01,RO6F3;								\
 	F=EF6;
       TX=Rumänien Rompetrol Logistics 40 + Güterzug;							\
 	C=RP_CL40L|RP_CL40|RP_CL40SO02L|RP_CL40SO02,Z_D_E6_G_Kessel2;					\
@@ -755,7 +727,7 @@ $REQUIRE TRAINDEF.TTT
 	C=2*SFT_44SO01(|L),(<ATCA_BPMZ,2*ATCA_BCMZ,ATCA_WLABMZ);					\
 	F=EP6;
       TX=Rumänien Softrans 48 + Güterzug;								\
-	C=SFT_48SO0(1|2)(|L),RO6F2;									\
+	C=SFT_48SO0(1|2),RO6F2;										\
 	F=EF6;
       TX=Rumänien Astra TransCarpatic (ATC)40;								\
 	C=ATCA_40SO01(|L),(<ATCA_BPMZ,2*ATCA_BCMZ,ATCA_WLABMZ);						\
@@ -778,8 +750,8 @@ $REQUIRE TRAINDEF.TTT
       TX=Rumänien Transferoviar Grup 43 + Güterzug;							\
 	C=TFG_CL43SO0(1|2)(|L),RO6F(3|1)|(2*RO6F2);							\
 	F=EF6;
-      TX=Rumänien Transferoviar Grup 48 + Güterzug;							\
-	C=TFG_CL48SO01(|L),D6FCM;									\
+      TX=Rumänien Transferoviar Grup 40 + Güterzug;							\
+	C=TFG_CL40SO01(|L)|TFG_40_02(|L),RO6F3;								\
 	F=EF6;
       TX=Rumänien Techno Trans Feroviar 40 + Güterzug;							\
 	C=THF_40SO01(|L),RO6F(3|1)|(2*RO6F2);								\
@@ -787,24 +759,14 @@ $REQUIRE TRAINDEF.TTT
       TX=Rumänien Unicom Tranzit 47 + Güterzug;								\
 	C=UTZ_47_01(|L)|UFT_CL47SO01(|L),RO6F(3|1)|(2*RO6F2);						\
 	F=EF6;
-      TX=United Railways SRL 48 + Güterzug;								\
-	C=UWAY_CL48SO01(|L),D6FCM;									\
-	F=EF6;
       TX=Rumänien Unicom Tranzit 40 + Güterzug;								\
-	C=UTZ_CL40SO0(1|2|3)(|L),RO6F(3|1)|(2*RO6F2);							\
+	C=UTZ_CL40SO0(1|2)(|L),RO6F(3|1)|(2*RO6F2);							\
 	F=EF6;
       TX=Rumänien Unifertrans 40 + Güterzug;								\
 	C=[PFU]UFT_CL40(A|B)(|L),RO6FT;									\
 	F=EF6;
-
       TX=Rumänien Tim Rail Cargo 40 + Güterzug;								\
 	C=TRCR_40SO01(|L),RO6FR;									\
-	F=EF6;
-      TX=Rumänien Vest Trans Rail 40 + Güterzug;							\
-	C=VETR_CL40SO0(3|4)(|L),D6FCM;									\
-	F=EF6;
-      TX=Rumänien Vest Trans Rail 48 + Güterzug;							\
-	C=VETR_CL48SO01(|L)[PFU],D6FZM;									\
 	F=EF6;
       TX=Rumänien Vest Trans Rail 40 + Güterzug;							\
 	C=VETR_CL40SO01(|L)|VETR_40_02(|L),RO6F(3|1)|(2*RO6F2);						\
@@ -812,17 +774,6 @@ $REQUIRE TRAINDEF.TTT
       TX=Rumänien Vest Trans Rail 43 + Güterzug;							\
 	C=VETR_CL43SO01(|L),RO6FGL;									\
 	F=EF6;
-
-### Classic Trains from Simon Treanor
-      TX=CFR 44 + D 346/347, "Dacia", Vienna - Bucharest, 2012;						\
-	C=(SJT_CFR44_GB),										\
-	  (<2*CFR_2190B11(|L),CFR_WRMZ1,SJT_CFR_ABCMEE_BG,SJT_CFR_WLABM_BY,CFR_7091WLABL);		\
-	F=PE6;
-      TX=CFR 65 + EC 143/144, "Transsylvania", Vienna - Bucharest, 2019;				\
-	C=(SJT_CFR65_GB),										\
-	  ((MAVS_61_1991(|L)|MAVS_APMZ1091_1M(|L)|SJT_OEBB_AVMZ_G),MAVS_WRBUMZ(|L),SJT_MAV_BVMZ_B1,	\
-	  SJT_MAV_BB,CFR_1070A11MEE);									\
-	F=PE6;
     }
   %ENDPOOL;
 }
@@ -835,37 +786,6 @@ $REQUIRE TRAINDEF.TTT
 
 {SLO?
   %ADDPOOL(POOL_SLO,SLO_ENV[TX#=SLOVENIA])
-    {E5?
-### Classic Trains from Simon Treanor
-
-      TX=SZ + D 220/221 "Simplon Express", Paris - Belgrade, 1991;					\
-	C=(SJT_SZ363Y),											\
-	  (SJT_SNCF_BCM_G1,SJT_SNCF_BCM_B1,SJT_SNCF_ABCM_B1,SJT_FS_BCM_MG,SJT_SNCF_ADM_G1,		\
-	  SJT_SNCF_BCM_G1,JZ_BMZ,JZ_WLBL_7069_7);							\
-	F=PE5;
-      TX=SZ 342 + EC 314/315, "Agram", Salzburg - Zagreb, 2005;						\
-	C=SZ_342,SJT_EC314_2005M;									\
-	F=PE5;
-      TX=SZ 363 + EC 10/11, "Mimara", Leipzig - Zagreb, 1994;						\
-	C=SJT_EC10_1994SZ;										\
-	F=PE5;
-      TX=SZ 363 + EC 156/157 "Croatia", Vienna - Zagreb, 2004;						\
-	C=(SZ_363E),(SJT_EC156_2004M);									\
-	F=PE5;
-      TX=SZ 363 + EC 10/11 "Mimara", Berlin - Zagreb, 1998;						\
-	C=SZ_363E,SJT_EC10_1998M;									\
-	F=PE5;
-      TX=SZ 363 + EC 10/11, "Mimara", Leipzig - Zagreb, 1993;						\
-	C=(SJT_SZ363Y),(SJT_EC10_1993M);								\
-	F=PE5;
-      TX=SZ + EC 10/11, "Mimara", Berlin - Zagreb, 1999;						\
-	C=(SZ_363E),(SJT_EC10_1999M);									\
-	F=PE5;
-      TX=SZ 363 + EC 10/11, "Mimara", Leipzig - Zagreb, 1994;						\
-	C=(SJT_SZ363Y),(SJT_EC10_1994M);								\
-	F=PE5;
-    }
-
     {E6?
       TX=SZ 664;											\
 	C=SZ_664(|L),3*HZ_2417(A|B|C)(|L);								\
@@ -979,38 +899,10 @@ $REQUIRE TRAINDEF.TTT
       TX=Slovenien SZ ET 312.1;										\
 	C=SZ_312_1L|SZ_312_1;										\
 	F=EPM56;
-
-### Classic Trains from Simon Treanor
-
-      TX=SZ + EC 150/151, "Emona", Vienna - Ljubljana, 2019;						\
-	C=SZ_342,											\
-	  (SJT_OEBB_ADMSZ_G,SJT_OEBB_BPMZ_G,SZ_6WEELMT,2*SJT_SZ_BEELM,(1:SJT_HZ_BVMZ|3:SJT_SZ_BEELM));	\
-	F=PE6;
-      TX=SZ 363 + EC 150/151 "Emona", Vienna - Ljubljana, 2009;						\
-	C=SZ_363E,(SJT_EC150_2009M);									\
-	F=PE6;
-      TX=SZ 363 + EC 158/159, "Croatia", Vienna - Zagreb, 2008;						\
-	C=SZ_363E,(2*SJT_SZ_BEELM,SJT_EC158_2008M);							\
-	F=PE6;
-      TX=SZ 363 + EC 255/256, Vienna - Maribor, 2009;							\
-	C=(SZ_363E),(3*SJT_OEBB_BVMZ_G,SJT_OEBB_BPMZ_G,SJT_OEBB_BVMZ_G,SJT_OEBB_WRMZ_G,SJT_OEBB_AVMZ_G); \
-	F=PE6;
-      TX=ÖBB 1044 + EC 158/159, "Croatia", Vienna - Zagreb, 2019;					\
-	C=(SJT_OEBB1044_RED),(SJT_EC158_2019M);								\
-	F=PE6;
-      TX=SZ 342 + EC 150/151 "Emona", Vienna - Ljubljana, 2021;						\
-	C=SJT_EC150_2021SZ;										\
-	F=PE6;
-      TX=SZ 541 + EC 210/211, "Sava", Villach - Vinkovci, 2019;						\
-	C=(SZ_541_001(|L)),(SJT_SZ_ABEELM,2*SJT_SZ_BEELM,2*HZ_BEEMT);					\
-	F=PE6;
-      TX=SZ 541 + D 314/315, "Alpine Pearls", Villach - Belgrade, 2012;					\
-	C=(SZ_541_001(|L)),(ZSRB_BCM5010SS2,ZSRB_BCM5022E,2*SJT_SZ_BEELM,SJT_SZ_ABEELM);		\
-	F=PE6;
-
     }
   %ENDPOOL;
 }
+
 ###############################################################################
 ##                                                                           ##
 ##                                  Croatia                                  ##
@@ -1035,25 +927,8 @@ $REQUIRE TRAINDEF.TTT
       TX=HZ 610/617;											\
 	C=<JZ_610L,3*JZ_617,JZ_610;									\
 	F=DPU5;
-
-### Classic Trains from Simon Treanor
-      TX=HZ 1142 + EC 314/315, "Agram", Salzburg - Zagreb, 2005;					\
-	C=HZ_1142(|L),SJT_EC314_2005M;									\
-	F=PE5;
-      TX=HZ 1142 + EC 156/157 "Croatia", Vienna - Zagreb, 2004;						\
-	C=(HZ_1142(|L)),(SJT_EC156_2004M);								\
-	F=PE5;
-      TX=HZ 1142 + EC 10/11, "Mimara", Berlin - Zagreb, 1999;						\
-	C=(HZ_1142(|L)),(SJT_EC10_1999M);								\
-	F=PE5;
-      TX=HZ 1142 + EC 10/11, "Mimara", Leipzig - Zagreb, 1994;						\
-	C=(HZ_1142(|L)),(SJT_EC10_1994M);								\
-	F=PE5;
-      TX=HZ 1141 + EC 10/11, "Mimara", Leipzig - Zagreb, 1993;						\
-	C=(SJT_HZ1141_O),(SJT_EC10_1993M);								\
-	F=PE5;
-
     }
+
     {E6?
       TX=HZ 2041;											\
 	C=HZ_2041AL|HZ_2041A|HZ_2041BL|HZ_2041B,HZ_EASZ,JZ_EAS|JZ_EAS_B,ZRS_EAS;			\
@@ -1181,26 +1056,6 @@ $REQUIRE TRAINDEF.TTT
       TX=HZ 7121 ICN 521 Zagreb GK - Split 2022;							\
 	C=(<HZ_7123A2L,HZ_7123B2)|(>HZ_7123A2,HZ_7123B2L);						\
 	F=DPU6;
-
-### Classic Trains from Simon Treanor
-      TX=HZ 1142 + EC 158/159, "Croatia", Vienna - Zagreb, 2019;					\
-	C=HZ_1142(|L),(SJT_EC212_2019M,SJT_EC158_2019M);						\
-	F=PE6;
-      TX=HZ 1142 + EC 158/159, "Croatia", Vienna - Zagreb, 2008;					\
-	C=HZ_1142(|L),(SJT_EC158_2008M);								\
-	F=PE6;
-      TX=HZ 1142 + EC 210/211, "Sava", Villach - Vinkovci, 2019;					\
-	C=(HZ_1142(|L)),(SJT_SZ_ABEELM,2*SJT_SZ_BEELM,2*HZ_BEEMT);					\
-	F=PE6;
-      TX=HZ 1142 + EC 212/213, "Mimara", Villach - Zagreb, 2019;					\
-	C=HZ_1142(|L),(SJT_EC212_2019M,SJT_EC158_2019M);						\
-	F=PE6;
-      TX=HZ 1142 + D 314/315, "Alpine Pearls", Villach - Belgrade, 2012;				\
-	C=(HZ_1142(|L)),(ZSRB_BCM5010SS2,ZSRB_BCM5022E,2*SJT_SZ_BEELM,SJT_SZ_ABEELM);			\
-	F=PE6;
-      TX=HZ 1142 + IC 201/204 "Agram", Budapest - Zagreb, 2019;						\
-	C=HZ_1142,(SJT_IC204_2019M);									\
-	F=PE6;
 
     }
   %ENDPOOL;
@@ -1448,15 +1303,8 @@ $REQUIRE TRAINDEF.TTT
       TX=ZSRB 812 + 818;										\
 	C=ZSRB_5_8123L|ZSRB_5_8123|ZSRB_5_812(A|B)(|L),ZSRB_5_818(A|B)(|L);				\
 	F=DPU5;
-
-### Classic Trains from Simon Treanor
-      TX=Zeleznice Srbije 441 + G 340/341, "Beograd", Budapest - Belgrade, 2006;					\
-	C=ZSRB_444,											\
-	  (0-1*SJT_SNCF_BCM_B1,0-1*SJT_OEBB_WLABM_BG,SJT_JZ_BL,BDZ_6BCM5940(|L),SJT_BDZ_WLABM,		\
-	  SJT_OEBB_BCM_WB,SJT_OEBB_WLABM_BG);								\
-	F=PE5;
-
     }
+
     {E6?
       TX=ZSRB 710;											\
 	C=ZSRB_710A;											\
@@ -1525,19 +1373,17 @@ $REQUIRE TRAINDEF.TTT
 	  ZSRB_POSTL0010);										\
 	F=EP56;
 
-      TX=Srbija Voz (SV) 461 + 441 + B 433 Lovcen: Bar - Zemun 2024;					\
-	C=SVO_461R,SVO_441,										\
-	  (<3*ZCG_WLABM1L,ZCG_BCM1L,JZ_WLBL,SVO_ACBC4L,SVO_BCL4L,SVO_BEELMT4,SVO_BEELMT3L,SVO_AL3L,	\
-	  2*JZ_DDAM)|											\
-	  (>3*ZCG_WLABM1,ZCG_BCM1,JZ_WLBLL,SVO_ACBC4,SVO_BCL4,SVO_BEELMT4L,SVO_BEELMT3,SVO_AL3,		\
-	  2*JZ_DDAM);											\
+      TX=Srbija Voz (SV) 461 + 441 + B 433 Lovcen: Bar - Zemun 2024;						\
+	C=SVO_461R,SVO_441,											\
+	  (<3*ZCG_WLABM1L,ZCG_BCM1L,JZ_WLBL,SVO_ACBC4L,SVO_BCL4L,SVO_BEELMT4,SVO_BEELMT3L,SVO_AL3L,2*JZ_DDAM)|		\
+	  (>3*ZCG_WLABM1,ZCG_BCM1,JZ_WLBLL,SVO_ACBC4,SVO_BCL4,SVO_BEELMT4L,SVO_BEELMT3,SVO_AL3,2*JZ_DDAM);			\
 	F=EP6;
-      TX=ŽPCG 461 + Srbija Voz (SV) 441 + B 433 Lovcen: Bar - Zemun 2024;				\
-	C=SVO_461R,2*SVO_441,										\
+      TX=ŽPCG 461 + Srbija Voz (SV) 441 + B 433 Lovcen: Bar - Zemun 2024;						\
+	C=SVO_461R,2*SVO_441,											\
 	  (<ZCG_WLABM1,ZCG_WLABM1L,ZCG_BCM1L,SVO_ACBC4L,SVO_AEELMT4,JZ_WLBL,SVO_AL3L,JZ_DDAM)|		\
-	  (>ZCG_WLABM1L,ZCG_WLABM1,ZCG_BCM1,SVO_ACBC4,SVO_AEELMT4L,JZ_WLBLL,SVO_AL3,JZ_DDAM);		\
+	  (>ZCG_WLABM1L,ZCG_WLABM1,ZCG_BCM1,SVO_ACBC4,SVO_AEELMT4L,JZ_WLBLL,SVO_AL3,JZ_DDAM);			\
 	F=EP6;
-      TX=Srbija Voz (SV) 441 + B 433 Lovcen: Topcider - Bar 2020;					\
+      TX=Srbija Voz (SV) 441 + B 433 Lovcen: Topcider - Bar 2020;						\
 	C=SVO_441,											\
 	  (<2*SVO_ACBCM4L,SVO_BEELMT3L,ZSRB_SALON9980601L,ZCG_BC1L,2*ZCG_WLABM1L,JZ_DDAM)|		\
 	  (>2*SVO_ACBCM4,SVO_BEELMT3,ZSRB_SALON9980601,ZCG_BC1,2*ZCG_WLABM1,JZ_DDAM);			\
@@ -1552,16 +1398,12 @@ $REQUIRE TRAINDEF.TTT
       TX=Srbija Voz (SV) 410 + IC 543 Novi Sad - Beograd Centar 2022;					\
 	C=<SVO_410EL,SVO_410M,SVO_410ML,SVO_410E;							\
 	F=EPU6;
-      TX=Srbija Voz (SV) 413/417;									\
-	C=SVO_413_417A;											\
+      TX=Srbija Voz (SV) 413/417;					\
+	C=SVO_413_417A;							\
 	F=EPU6;
-      TX=Srbija Voz (SV) 413/417;									\
-	C=SVO_413_417B;											\
+      TX=Srbija Voz (SV) 413/417;					\
+	C=SVO_413_417B;							\
 	F=EPU6;
-### Classic Trains from Simon Treanor
-      TX=Zeleznice Srbije 441 + EC 344/345, "Avala", Prague - Belgrade, 2010;						\
-	C=2*ZSRB_444,(SJT_EC344_2010B,SJT_ZSSK_BC,SJT_EC344_2010M);					\
-	F=PE6;
 
     }
   %ENDPOOL;
@@ -2067,11 +1909,10 @@ $REQUIRE TRAINDEF.TTT
       TX=OSE A 9100;											\
 	C=OSE_A910(7|3)(|L),5*RHB_34T1,RHB_34T2,RHB_34T3,RHB_34T4,RHB_34T5,RFFSA_PED2;			\
 	F=DFN5;
-      TX=OSE A 9204 + Freight train 2000;								\
-	C=OSE_A9204(|L),OSE_Z4NG(|L),13:(OSE_G2NG1|OSE_G2NG1(3:|[!KO1]|[!KO2])|OSE_G2NG2),		\
-	  OSE_PE_BD2(|L);										\
+      TX=OSE A 9204 + Freight train 2000;											\
+	C=OSE_A9204(|L),OSE_Z4NG(|L),13:(OSE_G2NG1|OSE_G2NG1(3:|[!KO1]|[!KO2])|OSE_G2NG2),OSE_PE_BD2(|L);									\
 	F=DFN5;
-      TX=OSE A 9401;											\
+     TX=OSE A 9401;											\
 	C=OSE_A9401,VIC_T457,VIC_T252;									\
 	F=DFN5;
 
@@ -2488,6 +2329,10 @@ $REQUIRE TRAINDEF.TTT
       TX=TCDD DH 95000;											\
 	C=TCDD_DH95000L|TCDD_DH95000,1-2*TK5F1K;							\
 	F=DF5;
+#      TX=TCDD DH 11500;
+# C=TCDD_DH11505,
+# 1-2*TK5F1K;
+# F=DF5;
       TX=TCDD DH 11500;											\
 	C=TCDD_DH11505,1-2*TK5F1K;									\
 	F=DF5;

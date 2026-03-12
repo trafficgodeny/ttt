@@ -1038,10 +1038,11 @@ $REQUIRE TRAINDEF.TTT
 	C=DSRC_SD9(|L),USA3FMIXL3,WEYT_3CAB;								\
 	F=DF3;
       TX=Duluth,South Shore & Atlantic Railway AS616 + RS1;						\
-	C=$DIR(DSSA_203L,DSSA_203),DSSA_RS1_101(|L),USA3FMIXL1,WEYT_3CAB;				\
+	C=$DIR(DSSA_203L,DSSA_203),DSSA_RS1_101(|L),				\
+	  USA3FMIXL1,WEYT_3CAB;								\
 	F=DF3;
       TX=Duluth,South Shore & Atlantic Railway DT66;							\
-	C=DSSA_DT66_301,USA3FMIXK1,USA3FMIXK9;								\
+	C=DSSA_DT66_301,USA3FMIXK1,USA3FMIXK9;							\
 	F=DF3;
       TX=USA Detroit and Toledo Shore Line Railroad GP7;						\
 	C=$DIR(DTSL_42_GP7L,DTSL_42_GP7),USA3FMIXL1,WEYT_3CAB;						\
@@ -2123,10 +2124,6 @@ $REQUIRE TRAINDEF.TTT
       TX=USA Rock Island Railroad GP18;									\
 	C=RI_GP18~NEK2,USA3FMIXD4,USA3FRIC;								\
 	F=DF3;
-      TX=USA Chicago,Rock Island and Pacific Railroad Ta 601 + Texas Rocket;				\
-	C=(<ROCK_P_TA_195(0|5)L[#D:L],ROCK_TEX_M1,ROCK_TEX_M3,ROCK_TEX_E)|				\
-	  (>ROCK_P_TA_195(0|5)[#D:R],ROCK_TEX_M1L,ROCK_TEX_M3L,ROCK_TEX_EL);				\
-	F=DPU2;
       TX=USA Richmond Pacific Railroad Corporation GP15;						\
 	C=RPRC_GP151SO01(|L),USA3FMIXL3,WEYT_3CAB;							\
 	F=DF3;
@@ -3490,9 +3487,6 @@ $REQUIRE TRAINDEF.TTT
 	F=DF4;
       TX=USA Duluth,Missabe & Iron Range Railway SW9;							\
 	C=DMIR_SD9(|SO02)(|L),USA4FMIXD1,USA4FDMIC;							\
-	F=DF4;
-      TX=USA Duluth, South Shore and Atlantic R.R. Co. AS 616;						\
-	C=DSA_AS616_203,USA4FS;										\
 	F=DF4;
       TX=USA Dakota,Missouri Valley & Western R.R. Inc. GP35;						\
 	C=DMVW_GP35SO01(|L),USA4FMIX2S,(BN_10107(|L)|CNJ_NE_91502(|L)|WEYT_3CAB);			\
@@ -5284,7 +5278,7 @@ $REQUIRE TRAINDEF.TTT
 	C=SAL_GP30_512(|L),USA4FMIXD2,USA4FSALC;							\
 	F=DF4;
       TX=USA South Buffalo Railway S-6 41 + 43;								\
-	C=(SBRR_41_43|SBRR_44_46),									\
+	C=(SBRR_41_43|SBRR_44_46),										\
 	  10*((NYC_888F|PLE_889F|CR_F41A|CR_F41B|PC_F41A|PRR_F41ORIG|PRR_F41LATE)(|L)			\
 	  [O:STEEL3(4|5|6|7|8),9,11][O:STEEL3(4|5|6|7|8),51,11]);					\
 	F=DF5;
@@ -6064,8 +6058,8 @@ $REQUIRE TRAINDEF.TTT
       TX=USA Yankeetown Docks Corporation SD38-2;							\
 	C=YDC_SD382SO(1|2)(|L),USA4FMIX2S,(BN_10107(|L)|CNJ_NE_91502(|L)|WEYT_3CAB);			\
 	F=DF4;
-      TX=USA Winchester and Western R.R. Co. RS11 + S-6;						\
-	C=$DIR(WW_RS11SO01L,WW_RS11SO01),WW_80(|L),							\
+      TX=USA Winchester and Western R.R. Co. RS11 + S-6;\
+      C=$DIR(WW_RS11SO01L,WW_RS11SO01),WW_80(|L),							\
 	  15*((PLE_HT_81500|LEF_HT_3500|BO_HT_528019|CI_HT_1377|CNA_HT_330312|NYC_H1B_488807|		\
 	  EAMX_HT_316|HCSX_HT_140187)(|L)[O:BALLAST(48|49|54|53)(|[M])]);				\
 	F=DF4;
@@ -6401,12 +6395,8 @@ $REQUIRE TRAINDEF.TTT
 	C=WTRR_87(|L),WRNX_2840_TMPI_ACF27(|L),AFPX_TANK43(|L),CRGX_TANK43(|L),DMIX_TANK43(|L),		\
 	  GATX_TANK43H(|L);										\
 	F=DF5;
-### Classic Trains from Simon Treanor
-      TX=ACELA + Boston - Washington, 1999;								\
-	C=<ACELA_LOCL,2*ACELA_P1L,ACELA_P2L,ACELA_P3L,ACELA_P4L,ACELA_P5L,ACELA_LOC;			\
-	F=PE5;
-
     }
+
     {E6?
       TX=USA Amtrack ACELA;										\
 	C=(<ACELA_LOCL,3*ACELA_P1,ACELA_P4,,ACELA_P2,ACELA_P3,ACELA_P5,ACELA_LOC)|			\
@@ -7193,7 +7183,7 @@ $REQUIRE TRAINDEF.TTT
 	F=DF6;
       TX=USA Winchester and Western R.R. Co. SD9 + GP38;						\
 	C=$DIR(WW_SD9SO01L,WW_SD9SO01),WW_RS11SO01(|L),USA6FMIX1;					\
-	F=DF6;
+	F=DF3;
 
       TX=USA Green BAY_BIX734 & Western Railroad C430;							\
 	C=WW_GP38_2197(|L),USA6FMIX1;									\
@@ -7251,7 +7241,7 @@ $REQUIRE TRAINDEF.TTT
 	C=$DIR(CPR_C424SO01L,CPR_C424SO01),CPR_C630SO01(|L),CPR_H1666_7009(|L),CAN3FCPR;		\
 	F=DF3;
       TX=Canadian Pacific Railway RS23;									\
-	C=CPR_RS23(|L),(6*CPR_G52)|(5*CPR_PS40);							\
+	C=CPR_RS23(|L),(6*CPR_G52)|(5*CPR_PS40);								\
 	F=DF3;
       TX=Canadian Pacific Railway SD40 + GP38-2 + GP30;							\
 	C=$DIR(CPR_SD40SO1L,CPR_SD40SO1),CPR_GP382SO01(|L),CPR_GP30SO01(|L),CAN3FCPR;			\
@@ -7685,10 +7675,6 @@ $REQUIRE TRAINDEF.TTT
       TX=Mexico Ferrocarril Sonora Baja California,S.A. de C.V. FT;					\
 	C=$DIR(SBC_2203_FTL,SBC_2203_FT),MEX4FNDEM;							\
 	F=DF3;
-      TX=Mexico Ferrocarril Sonora Baja California,S.A. de C.V. FP7;					\
-	C=$DIR(SBC_FP7_2101L,SBC_FP7_2101),4*NYC_442BRIDGEIC_4069B(|L),2*IC_106CAIRO_4167(|L),		\
-	  4*NYC_442BRIDGEIC_4069B(|L);									\
-	F=DP3;
 
     }
     {E4?
