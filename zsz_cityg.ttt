@@ -488,7 +488,7 @@ $SECTION NAME=CITYG; POOL=CYMODE; LT=25; FIN=S;
     }
 #----------------------------- Böblingen -------------------------------------
     {BUS?
-      NAME=D_BOBLINGEN; %FAV(PFLI_O305,Böblingen)
+      NAME=D_BOBLINGEN; %FAV(PFLI_O305,Böblingen);
     }
 #----------------------------- Brandenburg -----------------------------------
     {TRAM|BUS?
@@ -546,6 +546,8 @@ $SECTION NAME=CITYG; POOL=CYMODE; LT=25; FIN=S;
 	  C=(BWG_6_8165L,BWG_6_8471L)|(BWG_6_8165,BWG_6_8471);
 	TX=Braunschweig 6x Tw 0051;									\
 	  C=BWG_6_0051(|L);
+	TX=Braunschweig 6x Tw Serie 95..;								\
+	  C=BWG_GT6S_WIEDERAUFBAULL;
 	TX=Braunschweig 6x Tw Serie 95..;								\
 	  C=BWG_7GT6S(|L),BWG_6GT6S(|L);
 	TX=Braunschweig 8xNF Tw Serie 07.. + Bw 74..;							\
@@ -1818,6 +1820,8 @@ $SECTION NAME=CITYG; POOL=CYMODE; LT=25; FIN=S;
 	    C=MAINZ_M8CW;
 	  TX=Mainz GT6M;										\
 	    C=MAINZ_GT6M_ZR;
+	  TX=Mainz GT6M;										\
+	    C=MAINZ_GT6M_207_VOLKSBANK;
 	  TX=Mainz Variobahn;										\
 	    C=MAINZ_VARIO;
 	}
@@ -7018,7 +7022,8 @@ $SECTION NAME=CITYG; POOL=CYMODE; LT=25; FIN=S;
   {SU|ARM?
 #----------------------------- Yerevan ----------------------------------------
     {CRAIL?
-      NAME=ARM_YEREVAN;	TX=Yerevan;									\
+      NAME=ARM_YEREVAN;											\
+	TX=Yerevan;											\
 	C=<YEREVAN_81717L,|YEREVAN_81717,YEREVAN_81714;
     }
   }
@@ -7109,7 +7114,7 @@ $SECTION NAME=CITYG; POOL=CYMODE; LT=25; FIN=S;
 	  NAME=US_ATLANTA;										\
 	  TX=MARTA Atlanta;										\
 	  LX=1;												\
-	  {CRAIL?;;
+	  {CRAIL?;;;;
 	C=(4:3|1:1)*(MARTA_BREDA512L,MARTA_BREDA511);
       }
       {BUS?
@@ -7146,7 +7151,7 @@ $SECTION NAME=CITYG; POOL=CYMODE; LT=25; FIN=S;
 	  NAME=US_CHICAGO;										\
 	  TX=Chicago;											\
 	  LC=1;												\
-	  {TRAM?;;;;;
+	  {TRAM?;;;;;;;
 	C=(CSL_4002(|A|B))(|L); %LBG(STBGUS,ENV_WAYT1);
       }
     }
@@ -7395,22 +7400,22 @@ $SECTION NAME=CITYG; POOL=CYMODE; LT=25; FIN=S;
 	TX=Washington DC;										\
 	C=2*WMATA_BREDA1; %LBG(STBGFO,ENV_WAYM);
     }
-  }
 #----------------------------- Orange County ----------------------------------
-  {BUS?
-    NAME=US_ORANGECOUNTY; %FAV(OCTA_NABI_40LFWLNG_1998,Orange County);
-  }
+    {BUS?
+      NAME=US_ORANGECOUNTY; %FAV(OCTA_NABI_40LFWLNG_1998,Orange County);
+    }
 #----------------------------- San Mateo County -------------------------------
-  {BUS?
-    NAME=US_SANMATEOCOUNTY; %FAV(SAMTR_NABI_436_2002,San Mateo County);
-  }
+    {BUS?
+      NAME=US_SANMATEOCOUNTY; %FAV(SAMTR_NABI_436_2002,San Mateo County);
+    }
 #----------------------------- Snohomish County -------------------------------
-  {BUS?
-    NAME=US_SNOHOMISHCOUNTY; %FAV(SNOH_IKUS_436_1991,Snohomish County);
-  }
+    {BUS?
+      NAME=US_SNOHOMISHCOUNTY; %FAV(SNOH_IKUS_436_1991,Snohomish County);
+    }
 #----------------------------- Ventura County ---------------------------------
-  {BUS?
-    NAME=US_VENTURACOUNTY; %FAV(SCAT_NABI_40LFWLNG_2001,Ventura County);
+    {BUS?
+      NAME=US_VENTURACOUNTY; %FAV(SCAT_NABI_40LFWLNG_2001,Ventura County);
+    }
   }
 #==============================================================================
 #
@@ -7967,7 +7972,7 @@ $SECTION NAME=CITYG; POOL=CYMODE; LT=25; FIN=S;
 
 # Kobe
     {TRAM?
-      $GROUP LC=2; /* %GBG(STBGJP05C,ENV_WAYT1); */
+      $GROUP LC=2; /*; %GBG(STBGJP05C,ENV_WAYT1);
 	TX=Kobe 200;											\
 	  C=KOBE_0200;
 	TX=Kobe 300;											\
@@ -7988,13 +7993,13 @@ $SECTION NAME=CITYG; POOL=CYMODE; LT=25; FIN=S;
 	  C=KOBE_1000O;
 	TX=Kobe 1100;											\
 	  C=J_1100|J_1150|KOBE_1100|KOBE_1100A|KOBE_1100B|KOBE_1100C|KOBE_1100D|KOBE_1150;
-	TX=Kobe Portliner 8000;											\
+	TX=Kobe Portliner 8000;										\
 	  C=<J_8101,J_8201,2*J_8301,J_8501,J_8601;
 	TX=Kobe 8000;											\
 	  C=<KOBE_8000AL,KOBE_8000B,2*KOBE_8000C,KOBE_8000D,KOBE_8000E;
-	TX=Kobe Portliner 2000;											\
+	TX=Kobe Portliner 2000;										\
 	  C=<KOBE_2000AL,KOBE_2000B,2*KOBE_2000C,KOBE_2000D,KOBE_2000E;
-	TX=Kobe Portliner 2000 Ikea livery;									\
+	TX=Kobe Portliner 2000 Ikea livery;								\
 	  C=<KOBE_8000IKEA1L,KOBE_8000IKEA2,KOBE_8000IKEA3,KOBE_8000IKEA4,KOBE_8000IKEA5,KOBE_8000IKEA6;
       $ENDGROUP
     }

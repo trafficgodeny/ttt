@@ -375,7 +375,10 @@ $REQUIRE TRAINDEF.TTT
 	C=(<RF_600A1EL,RF_600A1M,RF_600A1E)|(<RF_600C1EL,RF_600C1M,RF_600C1F)|				\
 	  (<RF_600C1FL,RF_600C1M,RF_600C1E);								\
 	F=EPU3;
-      TX=Renfe 700;											\
+       TX=Renfe 612;											\
+	C=(<RF_WM612L,RF_WR612,RF_WRCD612);								\
+	F=EPU3;
+     TX=Renfe 700;											\
 	C=<RF_WMD704L,RF_WM704;										\
 	F=EPU3;
       TX=Renfe 800;											\
@@ -1107,8 +1110,11 @@ $REQUIRE TRAINDEF.TTT
       TX=Renfe 435;											\
 	C=<RF_435BEL,RF_435BM,RF_435BE,RF_435AEL,RF_435AM,RF_435AE;					\
 	F=EPU5;
-      TX=Renfe 436;											\
+      TX=Renfe 437;											\
 	C=<RF_WM437L,RF_WR437,RF_WRCD437;								\
+	F=EPU5;
+      TX=Renfe 438;											\
+	C=<RF_WMD438L,RF_WRC438;								\
 	F=EPU5;
 
 # Historic
@@ -1512,8 +1518,11 @@ $REQUIRE TRAINDEF.TTT
       TX=Spanien Athos Rail 269.517;									\
 	C=ATHOS_269517(|L),2*E5FLM;									\
 	F=EF6;
-      TX=Spanien Captrain EURO 6000 256;								\
-	C=CAPT_256013(|L),E5FL(1|2);									\
+      TX=Portugal, Captrain Euro 4000;									\
+	C=CAPT_0006_001,P6FL1;										\
+	F=DF6;
+      TX=Spanien Captrain EURO 6000 008;								\
+	C=CAPT_0006_008,E5FL(1|2);									\
 	W=R;												\
 	F=DF6;
       TX=Spanien COMSA 214;										\
@@ -1589,9 +1598,15 @@ $REQUIRE TRAINDEF.TTT
       TX=Spanien FEVE 1660 + coal train 2011;								\
 	C=FEVE_1660(|L),9*FEVE_FA(1|2)(|L)[O:COAL(58|59|61)[|M],31][O:COAL(58|59|61)[|M],69,36];	\
 	F=DNF6;
-      TX=Spanien Ferrocarrils de la Generalitat de Catalunya:Lerida - La Pobla 311;			\
+      TX=Spanien Ferrocarrils de la Generalitat de Catalunya:Lerida - La Pobla 331;			\
 	C=FGC_331;											\
 	F=DRPUN6;
+      TX=Spanien Ferrocarrils de la Generalitat de Catalunya: 353.03 + 04 on the Castellbisbal - El Morrot line to the SEAT factory in Martorell 2011; \
+	C=(<FGC_35304L,10*FGC_SGNSS[O:C3P_SEAT(4|3|2|1),8,12][O:C3P_SEAT(4|3|2|1),103,12],		\
+	  FGC_35304[!N3])|										\
+	  (<FGC_35304L[!N3],10*FGC_SGNSS[O:C3P_SEAT(4|3|2|1),8,12][O:C3P_SEAT(4|3|2|1),103,12],		\
+	  FGC_35304);											\
+	F=DFU6;
       TX=Spanien Ferrocarrils de la Generalitat de Catalunya 257.01 + transporte de automóviles;	\
 	C=FGC_257_01(|L)[PD],(<FGC_L65000EL,5*FGC_L65000M,FGC_L65000E);					\
 	W=R;												\
@@ -1639,6 +1654,9 @@ $REQUIRE TRAINDEF.TTT
 	F=DF6;
       TX=Spanien Low Cost Rail 269.060;									\
 	C=LCR_269060(|L),2*E5FLM;									\
+	F=EF6;
+      TX=Spain Low Cost Rail 269.098 + empty "Pool Ibérico Ferroviario" car-transport waggons / Muriedas - Pamplona 2023; \
+	C=LCR_269098(|L),19*XPIF_LEKS(1|2);								\
 	F=EF6;
       TX=Spanien Medway 269 355;									\
 	C=MED_269_355D,E5FLM;										\
@@ -1818,6 +1836,14 @@ $REQUIRE TRAINDEF.TTT
 	F=SP4;
 
 # Portugal V
+      TX=CP 1309 + P Barreio 1983;									\
+	C=CP_1311(|L),CP_4_2BAG1O(|L),2*CP_B600B2(|L);							\
+	F=DP4;
+      TX=CP 1305 + P Barreio - Lagos 1983;								\
+	C=CP_1311(|L),											\
+	  (<CP_BUDD_BD3L,CP_BUDD_B3(|L),2*CP_SOREFAME_B2(|L),CP_BUDD_BA3(|L))|				\
+	  (>CP_BUDD_BD3,CP_BUDD_B3(|L),2*CP_SOREFAME_B2(|L),CP_BUDD_BA3(|L));				\
+	F=DP4;
       TX=CP 1300;											\
 	C=CP_1308|CP_1304,P4FS1;									\
 	F=DF4;
@@ -1898,6 +1924,11 @@ $REQUIRE TRAINDEF.TTT
 	  (<CP_4_GLM1022L,CP_4_GLM10230H3L,CP_4_GLM10231L,CP_EKKLO,CP_ELOS,CP_EKKLS2,			\
 	  CP_4_GKKLMS1385HL,CP_4_GKKLMS1385H3L,CP_4_GLM10231,CP_FACS,CP_KBKKS1,CP_SGS2,DB_HBFIS239A);	\
 	F=DF5;
+      TX=CP 1400 + Personenzug;										\
+	C=CP_1400(|L),										\
+	  (<CP_BUDD_BD2L,CP_BUDD_B2(|L),CP_BUDD_A2(|L),CP_BUDD_BA2(|L))|\
+	  (>CP_BUDD_BD2,CP_BUDD_B2(|L),CP_BUDD_A2(|L),CP_BUDD_BA2(|L));	\
+	F=DPR5;
       TX=CP 1520 + Personenzug;										\
 	C=CP_1520O|CP_1520OL,(<(4*(CP_B600ABL|CP_B600AB|CP_B600BL|CP_B600B)));				\
 	F=DP5;
@@ -1924,7 +1955,7 @@ $REQUIRE TRAINDEF.TTT
 	  (<CP_SOREFAME_A2|CP_SOREFAME_A2L,CP_A1,CP_WR1,CP_B1,CP_SOREFAME_B2,CP_SOREFAME_B2L,CP_D1);	\
 	F=DP5;
       TX=CP 1960;											\
-	C=CP_1960(|L)~HW,P6FL1;						\
+	C=CP_1960(|L)~HW,P6FL1;										\
 	F=DF5;
 
       TX=CP 300;											\
@@ -1965,8 +1996,8 @@ $REQUIRE TRAINDEF.TTT
 	F=EP5;
       TX=CP 2500;											\
 	C=CP_2501(|L)~HW|CP_2501~JMD,									\
-	  (<CP_BUDD_BDL,CP_CF1L|CP_CF1|CP_BUDD_WRL|CP_BUDD_WR,CP_BUDD_A|CP_BUDD_AL,3*CP_BUDD_B)|	\
-	  (>CP_BUDD_BD,CP_CF1|CP_CF1|CP_BUDD_WR|CP_BUDD_WR,CP_BUDD_A|CP_BUDD_AL,3*CP_BUDD_B);		\
+	  (<CP_BUDD_BD3L,CP_CF1L|CP_CF1|CP_BUDD_WRL|CP_BUDD_WR,CP_BUDD_A3|CP_BUDD_A3L,3*CP_BUDD_B3)|	\
+	  (>CP_BUDD_BD3,CP_CF1|CP_CF1|CP_BUDD_WR|CP_BUDD_WR,CP_BUDD_A3|CP_BUDD_A3L,3*CP_BUDD_B3);	\
 	F=EF5;
       TX=CP 2500 + Holzzug 61080 Sabóia - Praias Sado (Portugal),21. Dezember 2007;			\
 	C=CP_2501(|L)~HW,										\
@@ -2060,8 +2091,8 @@ $REQUIRE TRAINDEF.TTT
       TX=CP 592 - C 421 Porto-Campanhã - Vigo 2024;							\
 	C=CP_1424B(|L),(<CP_592A1L,CP_592B1L,CP_592A1);							\
 	F=DPRU6;
-      TX=CP 1964 + Rescue van (ex CP bagage van) 2010;											\
-	C=CP_6_1964(|L),CP_6_RESCUE(|L);						\
+      TX=CP 1964 + Rescue van (ex CP bagage van) 2010;							\
+	C=CP_6_1964(|L),CP_6_RESCUE(|L);								\
 	F=DF6;
 #E
       TX=CP 4000 Alfa Pendular 132: Braga - Lisboa-Santa Apolónia 2024;					\
@@ -2081,11 +2112,14 @@ $REQUIRE TRAINDEF.TTT
 	C=CP_2600(|L)~HW,(<2*CP_A1R,4*CP_B1R);								\
 	F=EP6;
 #privat
+      TX=Portugal, Captrain Euro 4000;									\
+	C=CAPT_0006_001,P6FL1;										\
+	F=DF6;
       TX=Portugal, Captrain 1563;									\
-	C=CAPT_1563(|L),P6FL1;							\
+	C=CAPT_1563(|L),P6FL1;										\
 	F=DF6;
       TX=Portugal, Convenca / FCC 1445;									\
-	C=CONV_1445(|L),CP_US11,CP_US22,CP_US13,CP_US21,CP_US23,CP_US12;							\
+	C=CONV_1445(|L),CP_US11,CP_US22,CP_US13,CP_US21,CP_US23,CP_US12;				\
 	F=DF6;
       TX=Portugal, Fergrupo 1500;									\
 	C=FGRP_1500(|L),5*CP_KBKKS1[OB:PYLON3,,13];							\
@@ -2099,16 +2133,25 @@ $REQUIRE TRAINDEF.TTT
       TX=Portugal, Ferrovias 1512;									\
 	C=FERV_1200(|L),5*CP_KBKKS1[OB:PYLON3,,13];							\
 	F=DF6;
+      TX=Portugal, Takargo Rail 1445 mit Schienentransport 2018;					\
+	C=[!LAD]TAKP_6_1445(|L),									\
+	  (<TAKP_6_USELL[OB:#RAIL8,39,13],TAKP_6_RSL[OB:#RAIL9,,13],TAKP_6_RS2L[OB:#RAIL9,,13],		\
+	  2*TAKP_6_RSL[OB:#RAIL9,,13],TAKP_6_RS2L[OB:#RAIL9,,13],TAKP_6_RSL[OB:#RAIL9,,13],		\
+	  TAKP_6_USEL[OB:#RAIL8,0,13])|									\
+	  (<TAKP_6_USERL[OB:#RAIL8,39,13],TAKP_6_RS[OB:#RAIL9,,13],TAKP_6_RS2[OB:#RAIL9,,13],		\
+	  2*TAKP_6_RS[OB:#RAIL9,,13],TAKP_6_RS2[OB:#RAIL9,,13],TAKP_6_RS[OB:#RAIL9,,13],		\
+	  TAKP_6_USER[OB:#RAIL8,0,13]);									\
+	F=DF6;
       TX=Portugal, Takargo Rail 1565;									\
 	C=TAKP_1565(|L),P6FL1;										\
 	F=DF6;
       TX=Portugal, Takargo Rail 6001;									\
 	C=TAKP_6001(|L),P6FL1;										\
 	F=DF6;
-       TX=Portugal, Medway 1446 + Güterzug;								\
-	C=MEDW_1446(|L),12*MEDW_EALOS(1|2)(|L);											\
+      TX=Portugal, Medway 1446 + Güterzug;								\
+	C=MEDW_1446(|L),12*MEDW_EALOS(1|2)(|L);								\
 	F=DF6;
-     TX=Portugal, Metro de Mirandela 9503;								\
+      TX=Portugal, Metro de Mirandela 9503;								\
 	C=MT_9503;											\
 	F=DPR6;
       TX=Portugal, Neopul_1502;										\
@@ -2117,17 +2160,17 @@ $REQUIRE TRAINDEF.TTT
       TX=Portugal, Neopul;										\
 	C=NEOPUL_316004[#D:R]|NEOPUL_316004L[#D:L],5*CP_SGS1[OB:BALLAST(20|17|49|53)(|[M]),,19];	\
 	F=DF6;
-      TX=Portugal, Somafel 1200;										\
+      TX=Portugal, Somafel 1200;									\
 	C=SOMF_1200(|L),5*CP_SGS1[OB:BALLAST(20|17|49|53)(|[M]),,19];					\
 	F=DF6;
-      TX=Portugal, Somafel 1525;										\
+      TX=Portugal, Somafel 1525;									\
 	C=SOMF_1525(|L),5*CP_SGS1[OB:BALLAST(20|17|49|53)(|[M]),,19];					\
 	F=DF6;
-      TX=Portugal, Somafel 1441 + ballast train new railway link Évora - Eastern line 2023;										\
-	C=SOMF_1441(|L),15*SOMF_FF([O:GRAVEL(19|20)(|[M]),25,23][O:GRAVEL(19|20)(|[M]),105,23]);					\
+      TX=Portugal, Somafel 1441 + ballast train new railway link Évora - Eastern line 2023;		\
+	C=SOMF_1441(|L),15*SOMF_FF([O:GRAVEL(19|20)(|[M]),25,23][O:GRAVEL(19|20)(|[M]),105,23]);	\
 	F=DF6;
-      TX=Portugal, Somafel 1556 + ballast train;										\
-	C=SOMF_1556(|L),15*SOMF_FF([O:GRAVEL(19|20)(|[M]),25,23][O:GRAVEL(19|20)(|[M]),105,23]);					\
+      TX=Portugal, Somafel 1556 + ballast train;							\
+	C=SOMF_1556(|L),15*SOMF_FF([O:GRAVEL(19|20)(|[M]),25,23][O:GRAVEL(19|20)(|[M]),105,23]);	\
 	F=DF6;
 
 #privat E
@@ -2139,6 +2182,11 @@ $REQUIRE TRAINDEF.TTT
 	F=DF6;
       TX=Portugal,Medway 5600 + Zementzug;								\
 	C=MEDW_5600S(|L),12*CP_UACS_CIMPOR(|L);								\
+	F=EF6;
+      TX=Portugal,Medway 5600 + Containerzug;								\
+	C=MEDW_5600S(|L),										\
+	  12*CP_6SGGMRSS[O:(10:C4IH26|10:C4IH_MSC2|C4IH25),26,11]					\
+	  [O:(10:C4IH26|10:C4IH_MSC2|C4IH25),191,11];							\
 	F=EF6;
       TX=Portugal,Medway 269 355 + Zementzug;								\
 	C=MEDW_269_355,12*(CP_TDGS1|CP_TDGS2|CP_TDGS3);							\

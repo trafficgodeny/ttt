@@ -105,6 +105,12 @@ $REQUIRE JMD_DEF.TTT
       TX=SZD 2TE136;											\
 	C=SZD_2TE136_0001,SU4FL1;									\
 	F=DF4;
+      TX=SZD DP0;											\
+	C=(<SZD_DP0A1L,(SZD_DP0A2,SZD_DP0A3)|(SZD_DP0A3L,SZD_DP0A2L),SZD_DP0A1);									\
+	F=DF4;
+      TX=SZD DP0;											\
+	C=(<SZD_DP0B1L,(SZD_DP0B2,SZD_DP0B3)|(SZD_DP0B3L,SZD_DP0B2L),SZD_DP0B1);									\
+	F=DF4;
       TX=SZD CS1;											\
 	C=SZD_CS1,SU4FL1;										\
 	F=EXF4;
@@ -134,6 +140,9 @@ $REQUIRE JMD_DEF.TTT
       TX=SZD A1600;											\
 	C=SZD_A160(1|2|3|4|5),SZD_N1A,RZD_FIRE2,RZD_4824341,RZD_FIRE3,RZD_FIRE1,SZD_N1B;		\
 	F=EF4;
+      TX=SZD ER200;											\
+	C=<SZD_ER200DTL,SZD_ER200MPL,SZD_ER200ML,SZD_ER200MPL,SZD_ER200ML,SZD_ER200MP,SZD_ER200ML;										\
+	F=EF5;
 
     }
   }
@@ -260,7 +269,17 @@ $REQUIRE JMD_DEF.TTT
       TX=RZD ACH2;											\
 	C=RZD_ACH2_114;											\
 	F=DPU6;
-      TX=RZD CHS7;											\
+      TX=RZD AC2;											\
+	C=RZD_AC2_KANAS(|L);											\
+	F=DPU6;
+      TX=RZD RA1;											\
+	C=RZD_RA1;											\
+	F=DPU6;
+       TX=RZD CHS 200 + NEVSKY-Express;											\
+	C=(<7*RZD_NEVSKY_B,RZD_NEVSKY_WR,RZD_NEVSKY_S,5*RZD_NEVSKY_A)|\
+	(>7*RZD_NEVSKY_BL,RZD_NEVSKY_WRL,RZD_NEVSKY_SL,5*RZD_NEVSKY_AL);								\
+	F=EP6;
+     TX=RZD CHS7;											\
 	C=RZD_CHS7SO03|RZD_CHS7SO04|RZD_CHS7SO05|RZD_CHS7SO07|RZD_CHS7SO08|RZD_CHS7SO09|RZD_CHS7SO10|	\
 	  RZD_CHS7SO11|RZD_CHS7SO12|RZD_CHS7SO13|RZD_CHS7SO14|RZD_CHS7SO15|RZD_CHS7SO16|RZD_CHS7SO17|	\
 	  RZD_CHS7SO18|RZD_CHS7SO19,RUS6PL1;								\
@@ -279,6 +298,9 @@ $REQUIRE JMD_DEF.TTT
       TX=RZD EP2;											\
 	C=RZD_EP2K,RUS6PL1;										\
 	F=EP6;
+
+
+
       TX=RZD EP20;											\
 	C=RZD_EP20K,RUS6PL1;										\
 	F=EP6;
@@ -380,6 +402,16 @@ $REQUIRE JMD_DEF.TTT
       TX=RZD ED 9;											\
 	C=(<RZD_ED9M1L,(<RZD_ED9M2,RZD_ED9M3)|(<RZD_ED9M3L,RZD_ED9M2L),RZD_ED9M1)|			\
 	  (<RZD_ED9M1L,(<RZD_ER9PK2,RZD_ED9M3)|(<RZD_ED9M3L,RZD_ER9PK2L),RZD_ED9M1);			\
+	F=EPU6;
+      TX=RZD DT1;											\
+	C=(<RZD_DT1_1L,(RZD_DT1_2L,RZD_DT1_3L)|(RZD_DT1_3,RZD_DT1_2),RZD_DT1_1)|			\
+	  (<RZD_ED9M1L,(<RZD_ER9PK2,RZD_ED9M3)|(<RZD_ED9M3L,RZD_ER9PK2L),RZD_ED9M1);			\
+	F=EPU6;
+      TX=RZD ES1;											\
+	C=(<RZD_ES1_1L,RZD_ES1_2L,RZD_ES1_3,RZD_ES1_2,RZD_ES1_1);		\
+	F=EPU6;
+      TX=RZD ES250;											\
+	C=(<RZD_ES250_1L,RZD_ES250_2L,RZD_ES250_3L,RZD_ES250_3,RZD_ES250_2,RZD_ES250_1);		\
 	F=EPU6;
     }
   }
@@ -485,6 +517,9 @@ $REQUIRE JMD_DEF.TTT
       TX=Ukranine UZ DR1;										\
 	C=<UZ_D1BWML,2*UZ_D1BWR,UZ_D1BWM;								\
 	F=DPU6;
+      TX=Ukranine DPKR3;										\
+	C=<UZ_DPKR3AL,UZ_DPKR3B,UZ_DPKR3C;								\
+	F=DPU6;
       TX=Ukranine UZ ChS7;										\
 	C=UZ_CHS7SO(01|02|03|04|05|06|07|08|09|10|11|12),RUS6FL1;					\
 	F=EF6;
@@ -557,68 +592,81 @@ $REQUIRE JMD_DEF.TTT
   }
 #-----------------------------------------------------------------------------
 #
-# Weissrussland - Byelorus
+# Weissrussland - Belarus
 #
 
   {BCH?
     {E5?
-      TX=Weissrussland CHS4T;										\
+      TX=Belarus CHS4T;										\
 	C=BCH_CHS4TSO0(1|2)(|L),BER5PL1;								\
-	F=EP5;
+	F=EP5; 
+       TX=Belarus BCH MDP;									\
+	C=(<BCH_MDP1L,BCH_MDP2,BCH_MDP3)|(<BCH_MDP3L,BCH_MDP2,BCH_MDP1);											\
+	DPRU5;
+       TX=Belarus BCH DR1;									\
+	C=(<BCH_DR1A1L,BCH_DR1B1,BCH_DR1C1)|(<BCH_DR1C1L,BCH_DR1B1,BCH_DR1A1);											\
+	DPRU5;
+       TX=Belarus BCH DR1;									\
+	C=(<BCH_DR1A2L,BCH_DR1B2,BCH_DR1A2);											\
+	DPRU5;
 
+ 
     }
     {E6?
-      TX=Weissrussland BCH M62 + DRB1;									\
+      TX=Belarus BCH M62 + DRB1;									\
 	C=(<BCH_2M62A[BT:176][BT:173,16,4][COBR:175],BCH_DRB1PP,BCH_DRB1MG)|				\
 	  (<BCH_DRB1MGL,BCH_DRB1PPL,BCH_2M62A[BT:0,0,175][BT:174,16,4][COBL:175]);			\
 	DPU6;
-      TX=Weissrussland BCH DR3-730M Gomel-Mogilev 2019;							\
+      TX=Belarus BCH DR3-730M Gomel-Mogilev 2019;							\
 	C=(<BCH_DR3_1L,BCH_DR3_2,BCH_DR3_3)|(>BCH_DR3_1,BCH_DR3_2L,BCH_DR3_3L)|				\
 	  (<BCH_DR3_1ML,BCH_DR3_2M,BCH_DR3_3M)|(>BCH_DR3_1M,BCH_DR3_2ML,BCH_DR3_3ML);			\
 	DPU6;
-      TX=Weissrussland BCH DP1 2019;									\
+      TX=Belarus BCH DP1 2019;									\
 	C=BCH_DP1;											\
 	DPRU6;
-      TX=Weissrussland CHS 4T;										\
+      TX=Belarus CHS 4T;										\
 	C=BCH_CHS4TSO01(|L),										\
 	  (<9*BCH_WLABZ,2@(RZD_WL1(|L)~HEN),RZD_WLABM(|62)G)|						\
 	  (<(9*BCH_WKZ),2*RZD_WL1~HEN,RZD_WLABM(|62)G)|(<(9*BCH_WKZL),2*RZD_WL1L~HEN,RZD_WLABM(|62)G);	\
 	F=EP6;
-      TX=Weissrussland CHS 4T;										\
+      TX=Belarus CHS 4T;										\
 	C=BCH_CHS4TSO01(|L),(<BCH_BAG1(|L),4*BCH_61417(7|8)BL,BCH_WR1),4*BCH_61820L;			\
 	F=EP6;
-      TX=Weissrussland CHS 4T + S 101 Minsk - Varna 2012;						\
+      TX=Belarus CHS 4T + S 101 Minsk - Varna 2012;						\
 	C=BCH_CHS4TSO0(1|2)(|L),(<(9*BCH_WK),3*BCH_WK,3*RZD_(K|SVL)_SC);				\
 	F=EP6;
-      TX=Weissrussland CHS 4T;										\
+      TX=Belarus CHS 4T;										\
 	C=BCH_CHS4TSO0(1|2)(|L),									\
 	  (<(3*BCH_WLABMEE62BL,3*(BCH_6WLABMEEL|BCH_WLABMEE_FPS1),3*BCH_WLABMEE62AL))|			\
 	  (<(3*(BCH_WLABMEE1(|L)|BCH_6WLABMEE(|L)),3*(BCH_WLABMEE3|BCH_WLABMEE1L),3*BCH_WLABMEE_FPS2))|	\
 	  (<(3*BCH_WLABMEE62B,3*BCH_WLABMEE62A,3*BCH_6WLABMEE));					\
 	F=EP6;
-      TX=Weissrussland CHS 4T + B  1004 Minsk - Varna 2009;						\
+      TX=Belarus CHS 4T + B  1004 Minsk - Varna 2009;						\
 	C=BCH_CHS4TSO0(1|2)(|L),(<(9*BCH_WLABM52),2*RZD_WLABME);					\
 	F=EP6;
       TX=BCH VL80S;											\
 	C=BCH_VL80SO0(1|2),RUS6FL1;									\
 	F=EF6;
-      TX=Weissrussland CHS 4T;										\
+      TX=Belarus CHS 4T;										\
 	C=BCH_CHS4TSO0(1|2)(|L),									\
 	  (<(3*BCH_WLABMEE62BL,3*BCH_6WLABMEEL,3*BCH_WLABMEE62AL))|					\
 	  (<(3*BCH_WLABMEE62B,3*BCH_WLABMEE62A,3*BCH_6WLABMEE));					\
 	F=EP6;
-      TX=Weissrussland CHS 4T + C 032/031:Riga pas. - Kyjiw-Pass. 2020;					\
+      TX=Belarus CHS 4T + C 032/031:Riga pas. - Kyjiw-Pass. 2020;					\
 	C=BCH_CHS4TSO0(1|2)(|L),									\
 	  (<(4*UZ_WKMOD),10*UZ_WKMOD3,BCH_61779,BCH_WKMOD2,2*BCH_61779,BCH_WKMOD2)|			\
 	  (>(4*UZ_WKMOD),10*UZ_WKMOD3,BCH_61779L,BCH_WKMOD2L,2*BCH_61779L,BCH_WKMOD2L);			\
 	F=EP6;
-      TX=Weissrussland BS EPr;										\
+      TX=Belarus BS EPr;										\
 	C=(<BCH_EPR_AL,BCH_EPR_BL,BCH_EPR_C,BCH_EPR_D)|(<BCH_EPR_DL,BCH_EPR_CL,BCH_EPR_B,BCH_EPR_A);	\
 	F=EPUX6;
-      TX=Weissrussland BS EPg;										\
+      TX=Belarus BS EPg;										\
 	C=(<BCH_EPG_AL,BCH_EPG_BL,BCH_EPG_C,BCH_EPG_D)|(<BCH_EPG_DL,BCH_EPG_CL,BCH_EPG_B,BCH_EPG_A);	\
 	F=EPUX6;
-      TX=Weissrussland EPm,Minsk-Gomel 2019;								\
+      TX=Belarus ER9;								\
+	C=(<BCH_ER9E_1L,BCH_ER9E_2L,BCH_ER9E_3,BCH_ER9E_2L,BCH_ER9E_2L,BCH_ER9E_3,BCH_ER9E_2L,BCH_ER9E_1);		\
+	F=EPU6;
+      TX=Belarus EPm,Minsk-Gomel 2019;								\
 	C=2*(<BCH_EPM_1L,BCH_EPM_2,BCH_EPM_3,BCH_EPM_4,BCH_EPM_5,BCH_EPM_6,BCH_EPM_7)|			\
 	  (>BCH_EPM_1,BCH_EPM_2L,BCH_EPM_3L,BCH_EPM_4L,BCH_EPM_5L,BCH_EPM_6L,BCH_EPM_7L);		\
 	F=EP6;
@@ -714,6 +762,9 @@ $REQUIRE JMD_DEF.TTT
       TX=Lettland PV A/S 'Pasažieru Vilciens' ER2;							\
 	C=(<PV_ER2_01L,PV_ER2_02,PV_ER2_03L,PV_ER2_02,PV_ER2_02L,PV_ER2_01)|				\
 	  (PV_ER2_01L,PV_ER2_02,PV_ER2_02L,PV_ER2_03,PV_ER2_02L,PV_ER2_01);				\
+	F=EPU6;
+      TX=Lettland PV 16EV;						\
+	C=(<PV_16EV_AL,PV_16EV_B,PV_16EV_C,PV_16EV_D);				\
 	F=EPU6;
 
     }
@@ -908,6 +959,10 @@ $REQUIRE JMD_DEF.TTT
 	TX=Armenien UKZD - Südkaukasischer Eisenbahn VL 10 + Nachtzug;					\
 	  C=ARM_VL10_(148|825|1646),4*(ARM_056_20562|ARM_056_16834);					\
 	  F=EP6;
+	TX=Armenien Harawkowkasjan Jerkatughi (HJe) VL 10 + T 201 Armenia: Batumi - Yerevan 2025;					\
+	  C=ARM_VL10V,12*ARM_PLA;					\
+	  F=EP6;
+
       }
     }
   %ENDPOOL;

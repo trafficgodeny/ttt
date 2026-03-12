@@ -1,8 +1,7 @@
 # { [ (
 
 {FILELEVEL=1?
-  $SPOOL N=CITMODE; SEQ=C;\
-    AB=25; BL=20; VAR=BGTYPE=3,BGUP=83; DIS=20; ST=1;
+  $SPOOL N=CITMODE; SEQ=C; AB=25; BL=20; VAR=BGTYPE=3,BGUP=83; DIS=20; ST=1;
   $ENDPOOL
 
   $OPTGDEF 1
@@ -200,6 +199,8 @@ $SECTION NAME=CITYS; LC=1; AB=30; POOL=CITMODE; LT=25; %SECFIN;
 	    C=BHEV_L07;
 	  TX=Budapesti Helyiérdekû Vasút M08;								\
 	    C=BHEV_M08J;
+	  TX=Budapesti Helyiérdekû Vasút 117;								\
+	    C=MHEV_117;
 	  TX=Milleneumi Földalatti Vasút M1;								\
 	    C=FAVP|FAVS|(<FAVSZ,FAVPOT|MFAVDR);								\
 	    W=F;
@@ -396,7 +397,7 @@ $SECTION NAME=CITYS; LC=1; AB=30; POOL=CITMODE; LT=25; %SECFIN;
 #==============================================================================
 #
 # Germany
-#  
+#
   {D|DDR|BRD?
 #------------------------------------------------------------------------------
 #
@@ -542,6 +543,8 @@ $SECTION NAME=CITYS; LC=1; AB=30; POOL=CITMODE; LT=25; %SECFIN;
 	    C=((BVG_5T6A2MSL|BVG_5T6A2MEL),BVG_5B6A2ML)|((BVG_5T6A2MS|BVG_5T6A2ME),BVG_5B6A2M);
 	  TX=Gt6N 1000;											\
 	    C=BVG_GT6N2L|BVG_GT6N2;
+	  TX=Gt6N 1000;											\
+	    C=BVG_GT6N_SCHULTHEISS|BVG_GT6N_EMEUKAL;
 	  TX=Gt6N 1000;											\
 	    C=BVG_GT6NL|BVG_GT6N;
 	  TX=GtN-ZR-Serie 2000;										\
@@ -1487,7 +1490,11 @@ $SECTION NAME=CITYS; LC=1; AB=30; POOL=CITMODE; LT=25; %SECFIN;
 	      C=(<D_3K53CTL[#D=L],D_3K53CB|D_3K53SB,D_3K53CT[PD])|					\
 		(<D_3K53CTL[PD][#D=R],D_3K53CB|D_3K53SB,D_3K53CT);
 	    TX=8xZRGelTw 1261 - 1264,ex 1251 - 1258,Typ K53U Umbau 1964;				\
-	      C=(D_5K53U,D_5K53UB)|(D_4K53U,D_4K53UB);
+	      C=D_4K53U[!ZK],D_4K53UB;
+	    TX=8xZRGelTw 1261 - 1264,ex 1251 - 1258,Typ K53U Umbau 1964;				\
+	      C=D_5K53U,D_5K53UB;
+	    TX=8xZRGelTw 1262 - 1203 K53U Umbau 1964;							\
+	      C=D_2262R,D_1203RJ;
 	    TX=K53U + Speisewagen;									\
 	      C=D_4K53U,D_3K53SB;
 	    TX=K 66;											\
@@ -2026,11 +2033,13 @@ $SECTION NAME=CITYS; LC=1; AB=30; POOL=CITMODE; LT=25; %SECFIN;
       {TRAM?
 	$GROUP 												\
 	    NAME=D_F_T1;										\
-	    LC=1; %GBG((STBGMD|STBGFO),ENV_WAYT1);
+	    LC=1; %GBG((STBGEU),ENV_WAYT1);
 	  TX=Pferdebahn/Horsetram;									\
 	    M=FOLLOW;											\
 	    C=(FTG_HT;VGF_HT);										\
 	    V=1;
+	  TX=Frankfurt-Offenbacher Trambahn;								\
+	    C=FOTG_TW(|L),0-2*FOTG_BW;
 	  TX=Milano 1500 Test;										\
 	    C=F_23;
 	  TX=Typ A mit s;										\
@@ -2047,110 +2056,243 @@ $SECTION NAME=CITYS; LC=1; AB=30; POOL=CITMODE; LT=25; %SECFIN;
 	    C=VGF_E1,VGF_EB;
 	  TX=Typ E + cu;										\
 	    C=VGF_E,VGF_CUB;
+	$ENDGROUP
+	$GROUP 												\
+	    NAME=D_F_T6;										\
+	    LC=1; %GBG((STBGMD|STBGFO|STBGEU),ENV_WAYT2);
 	  TX=Typ F + f;											\
-	    C=VGF_F(1|2|3),1-2@(VGF_FB(1|2));
-	  TX=Typ G + g 1946;										\
-	    C=VGF_G_US,1-2*VGF_GB_US;
-	  TX=Typ H + h;											\
-	    C=VGF_H,VGF_HB;
-	  TX=Typ H + gk;										\
-	    C=VGF_H,VGF_GKB;
-	  TX=Typ H + h 1946;										\
-	    C=VGF_H_US,0-2*VGF_HB_US;
-	  TX=Typ HkAB=15;										\
-	    C=VGF_HK1972;
-	  TX=Typ I + e + e;										\
-	    C=VGF_I,2*VGF_EB;
-	  TX=Typ I + e + e;										\
-	    C=VGF_I,2*VGF_IB;
-	  TX=Typ K + gk Aufbauwagen;									\
-	    C=VGF_AUFBAU,2*VGF_AUFBAUB;
-	  TX=Typ K + k Aufbauwagen;									\
-	    C=VGF_K,VGF_KB;
-	  TX=Typ K + k Aufbauwagen;									\
-	    C=VGF_K,0-2*VGF_KB|VGF_KAB11|VGF_KOB;
-	  TX=Typ K Ebbelweiexpress;									\
-	    C=VGF_5KEE|VGF_6KEE;
-	  TX=Typ K 101-125 + k + k;									\
-	    C=SSF_34K,2*(SSF_34K|SSF_34KB1|SSF_34KB2|SSF_34KB3);
+	    C=VGF_FK409,VGF_F1503;
+	  TX=Typ FK 409 + fv 1535 - 1969;								\
+	    C=VGF_FK409_1969,VGF_FV1535_1969;
+	  TX=Typ FK 410 + f 1503 - 1974;								\
+	    C=VGF_F410_1972,VGF_FV1503_1972;
+	  TX=Typ F 415 + g 1584 - 1960;									\
+	    C=VGF_F416_1955,VGF_G1584_1960;
+	  TX=Typ F 416 + f 1501 - 1955;									\
+	    C=VGF_F416_1955,VGF_F1501_1955;
+	  TX=Typ FK 455 + f 1509 - 1962;								\
+	    C=VGF_FK455_1962,VGF_F1509_1962;
+	  TX=Typ FK 456 + fv 1532 + fv 1542 - 1962;							\
+	    C=VGF_F456_1969,VGF_FV1532_1969,VGF_FV1542_1968;
+	  TX=Typ G 9 + g 1584 - 1960;									\
+	    C=VGF_G9_1960,VGF_G1584_1960;
+	  TX=Typ G 24 + fv 1538 - 1964;									\
+	    C=VGF_G24_1964,VGF_FV1538_1964;
+	  TX=Typ HV + h;										\
+	    C=VGF_HV515_1968,VGF_H1557;
+	  TX=Typ H 505 + g 16xx + g 1633 - 1967;							\
+	    C=VGF_H505_1967,VGF_G16XX_1967,VGF_G1633_1966;
+	$ENDGROUP
+	$GROUP 												\
+	    NAME=D_F_T7;										\
+	    LC=1; %GBG((STBGMD|STBGFO|STBGEU),ENV_WAYT2);
+	  TX=Typ J553 + k 1721 - 1974;									\
+	    C=VGF_J553_1974[!DW],VGF_J1451_1974;
+	  TX=Typ J555 + k 1721 - 1966;									\
+	    C=VGF_J555_1966[!DW],VGF_K1721_1966;
+	  TX=Typ J555 + e 1435;										\
+	    C=VGF_J555_1974[!DW],VGF_E1409_1974;
+	  TX=Typ J555 + j 1462 - 1974;									\
+	    C=VGF_J555_1974[!DW],VGF_J1462_1970;
+	  TX=Typ J580 + j 1468 - 1975;									\
+	    C=VGF_J1580_1975[!DW],VGF_J1468_1975;
+	  TX=Typ J589 + j 1461 - 1969;									\
+	    C=VGF_J589_1969[!DW],VGF_J1461_1969;
+	  TX=Typ J591 + f 1509 - 1966;									\
+	    C=VGF_J591_1966[!DW],VGF_F1509_1962;
+	  TX=Typ K 101 + ko 1738 - 1977;								\
+	    C=VGF_K101_1977,FFM_KO1738_1977;
+	  TX=Typ K 102 + ko 1738 + k 1701 - 1974;							\
+	    C=VGF_K102_1974,VGF_KO1738_1974,VGF_KO1701_1974;
+	  TX=Typ K 103 + k 1722 - 1974;									\
+	    C=VGF_K103_1974[!DW],VGF_KO1701_1974;
+	  TX=Typ K 109 + k 1676 - 1963;									\
+	    C=VGF_K109_1963[!DW],VGF_K1676_1963;
+	  TX=Typ K + k;											\
+	    C=VGF_K461_1950,VGF_GK1669_1950;
+	  TX=Typ K 461 + gk 1670 - 1975;								\
+	    C=VGF_K461_1975[!DW],VGF_GK1670_1975;
+	  TX=Typ K 461 + gk 1666 - 1975;								\
+	    C=VGF_K461_1975[!DW],VGF_GK1666_1975;
+	  TX=Typ K 469 +  gk 1667 - 1977;								\
+	    C=VGF_K469_1977,VGF_GK1667_1977;
+	  TX=Typ K 469 + j 1460 + e 1409;								\
+	    C=VGF_K469_1977,VGF_J1460_1974,VGF_E1409_1974;
+	  TX=Typ K 475 + h 1557 + h 1560 - 1974;							\
+	    C=FFM_K475_1976[O:VGF_WOTD,28,30],2*VGF_H1560_1974;
+	  TX=Typ K 475 + ko 1732 + k 1728 - 1976;							\
+	    C=FFM_K475_1976,VGF_KO1732_1976,VGF_K1728_1977;
+	  TX=Typ K 478 + gk 1663 + ko 1737 - 1970;							\
+	    C=VGF_K478_1970[!DW],VGF_GK1663_1970,VGF_KO1737_1970;
+	  TX=Typ K 481 + e + e - 1974;									\
+	    C=VGF_K481_1972[!DW],VGF_E1447_1974,VGF_E14XX_1974;
+	  TX=Typ K 481 + gk 1665 1972;									\
+	    C=VGF_K481_1972[!DW],VGF_GK1665_1968;
+	  TX=Typ K 481 + ko 1737 - 1974;								\
+	    C=VGF_K481_1972[!DW],VGF_KO1737_1970;
+	  TX=Typ K Ebbelweiexpress 1977;								\
+	    C=VGF_K107EEX,VGF_K1703EEX;
+	  TX=Typ K Ebbelweiexpress 2007;								\
+	    C=VGF_K107EEX[!E6],VGF_K1703EEX;
 	$ENDGROUP
 	$GROUP 												\
 	    NAME=D_F_T2;										\
-	    LC=1; %GBG(STBGEU,ENV_WAYT2);
-	  TX=Typ L + l;											\
-	    C=(SSF_3LL,SSF_3LBL)|(SSF_3L,SSF_3LB);
-	  TX=Typ L + l;											\
-	    C=(SWF_4L,SWF_4LB)|(SWF_4LL,SWF_4LBL);
-	  TX=Typ L + l;											\
-	    C=(VGF_L3,VGF_L3B)|(VGF_L3L,VGF_L3BL)|(VGF_5L124|VGF_5L1242,SWF_4LB);
-	  TX=Typ L + l;											\
-	    C=(SSF_L1,SSF_L1B)|(SSF_L1L,SSF_L1BL);
-	  TX=Typ L mit ka;										\
-	    C=(VGF_KAB30,VGF_L2~WSI)|(VGF_L2L~WSI,VGF_KAB31);
-	  TX=Typ M + m;											\
-	    C=(SWF_M1L,SSF_MB1L)|(SWF_M1,SSF_MB1);
-	  TX=Typ M + m;											\
-	    C=(SSF_34M1L|SSF_34M2L|SSF_34MVL|SSF_M1L,SSF_MB1L)|						\
-	      (SSF_M1|SSF_34MV|SSF_34M2|SSF_34M1,SSF_MB1);
-	  TX=Typ M;											\
-	    C=SWF_45M600|SWF_45M600L|SWF_45M1|SWF_45M2L|SWF_45M2;
-	  TX=Typ M;											\
-	    C=((SSF_4MT1L|SSF_4MT2L),SSF_MB1L)|((SSF_4MT1|SSF_4MT2),SSF_MB1);
-	  TX=Typ M + m;											\
-	    C=((SWF_4MT1L|SWF_4MT2L),SWF_MB1L)|((SWF_4MT1|SWF_4MT2),SWF_MB1);
+	    LC=1; %GBG((STBGMD|STBGFO|STBGEU),ENV_WAYT2);
+	  TX=Typ L 205 + ka 1676 - 1970;								\
+	    C=(VGF_L205_1965L,FFM_KA1676_1970L)|(VGF_L205_1965,VGF_KA1676_1970);
+	  TX=Typ L 205 + l 1215 - 1965;									\
+	    C=(VGF_L205_1965L,VGF_L1215_1965L)|(VGF_L205_1965,VGF_L1215_1965);
+	  TX=Typ L 212 + l 1212 - 1979;									\
+	    C=(VGF_L212_1979L,VGF_L1212_1979L)|(VGF_L212_1979,VGF_L1212_1979);
+	  TX=Typ L 217 + l 1237 - 1970;									\
+	    C=(VGF_L217_1969L,VGF_L1237_1970L)|(VGF_L217_1969,VGF_L1237_1970);
+	  TX=Typ L 217 + l 1207 - 1991;									\
+	    C=(VGF_L217_1991L,VGF_L1207_1991L)|(VGF_L241_1991,VGF_L1207_1991);
+	  TX=Typ Lv 218 + l 1215 1978;									\
+	    C=(VGF_L218_1978L,VGF_L1227_1978L)|(VGF_L218_1978,VGF_L1227_1978);
+	  TX=Typ L 229 + l 1227 - 1978;									\
+	    C=(VGF_L229_1978L,VGF_L1227_1978L)|(VGF_L229_1978,VGF_L1227_1978);
+	  TX=Typ L 235 + l 1204 1978;									\
+	    C=(VGF_L235_1974L,VGF_L1204_1974L)|(VGF_L235_1974,VGF_L1204_1974);
+	  TX=Typ L 236 + ka 1683 - 1978;								\
+	    C=(VGF_L236_1978L,VGF_KA1683_1978L)|(VGF_L236_1978,VGF_KA1683_1978);
+	  TX=Typ L 241 + l 1241 - 1991;									\
+	    C=(VGF_L241_1991L,VGF_L1241_1991L)|(VGF_L241_1991,VGF_L1241_1991);
+	  TX=Typ M 600;											\
+	    C=VGF_M600_1980(|L);
+	  TX=Typ M 604 + l 1229 - 1979;									\
+	    C=(VGF_M604_1980L,VGF_L235_1974L)|(VGF_M604_1980,VGF_L235_1974);
+	  TX=Typ M 604 + m 1824 - 1993;									\
+	    C=(VGF_M604_1992L,,VGF_M1824_1994L)|(VGF_M604_1992,,VGF_M1824_1994);
+	  TX=Typ Mt 619 + mt 1808 1978;									\
+	    C=(VGF_MT618_1978L,VGF_MT1808_1978L)|(VGF_MT618_1978,VGF_MT1808_1978);
+	  TX=Typ Mt 627 + mt 1810 1977;									\
+	    C=(VGF_MT627_1976L,VGF_M1810_1978L)|(VGF_MT627_1976,VGF_M1810_1978);
+	  TX=Typ Mt 627 + mt 1810 1977;									\
+	    C=(VGF_MT627_1976L,VGF_M1810_1978L)|(VGF_MT627_1976,VGF_M1810_1978);
+	  TX=Typ Mt 629 + mt 1825 1971;									\
+	    C=(VGF_MT629_1971L,VGF_MT1825_1971L)|(VGF_MT629_1971,VGF_MT1825_1971);
+	  TX=Typ Mt 627 + mt 1826 1977;									\
+	    C=(VGF_MT627_1976L,FFM_MT1826_1977L)|(VGF_MT627_1976,FFM_MT1826_1977);
+	  TX=Typ M 630 + m 1803 1978;									\
+	    C=(VGF_M630_1978L,VGF_M1803_1979L)|(VGF_M630_1978,VGF_M1803_1979);
+	  TX=Typ M 634 + m 1824 1994;									\
+	    C=(VGF_M634_1994L,VGF_M1824_1994L)|(VGF_M634_1994,VGF_M1824_1994);
+	  TX=Typ M 634 + m 1819 1994;									\
+	    C=(VGF_M634_1994L,VGF_M1819_1994L)|(VGF_M634_1994,VGF_M1819_1994);
+	  TX=Typ Mt 643 + mt 1820 1977;									\
+	    C=(VGF_MT643_1977L,VGF_MT1820_1977L)|(VGF_MT643_1977,VGF_MT1820_1977);
+	$ENDGROUP
+	$GROUP 												\
+	    NAME=D_F_T8;										\
+	    LC=1; %GBG((STBGMD|STBGFO|STBGEU),ENV_WAYT2);
+	  TX=Typ N 1963;										\
+	    C=VGF_N810_1963(|L);
+	  TX=Typ N 820 + ka 1682 1979;									\
+	    C=(VGF_N820_1978L,VGF_KA1682_1979L)|(VGF_N820_1978,VGF_KA1682_1979);
+	  TX=Typ N 807 + ka 1690 1972;									\
+	    C=(VGF_N807_1972L,VGF_KA1690_1972L)|(VGF_N807_1972,VGF_KA1690_1972);
+	  TX=Typ N 803 - 1975;										\
+	    C=VGF_N803_1975(|L);
+	  TX=Typ N 820 - 1991;										\
+	    C=VGF_N820_1991(|L);
 	  TX=Typ N;											\
-	    C=SSF_34NL|SSF_34N;
+	    C=VGF_N808_FR(|L)|VGF_N815_KICKER(|L)|VGF_N812_WERTKAUF98(|L);
 	  TX=Typ N;											\
-	    C=SWF_N828_WERTKAUFL|SWF_N828_WERTKAUF|SWF_N830_SAUDIL|SWF_N830_SAUDI|VGF_N802_TMOBILEL|	\
-	      VGF_N802_TMOBILE|VGF_N808_FRL|VGF_N808_FR|VGF_N812_WERTKAUF98L|VGF_N812_WERTKAUF98|	\
-	      VGF_N815_KICKERL|VGF_N815_KICKER|VGF_N817_FAZL|VGF_N817_FAZ;
-	  TX=Typ N mit ka;										\
-	    C=(VGF_N1L,VGF_KAB11)|(VGF_KAB10,VGF_N1)|(VGF_N2L~TIS,VGF_KAB21)|(VGF_KAB20,VGF_N2~TIS);
+	    C=VGF_N802_TMOBILE(|L)|SWF_N828_WERTKAUF(|L)|SWF_N830_SAUDI(|L);
+	  TX=Typ N 817;											\
+	    C=VGF_N817_FAZ(|L);
 	  TX=Typ N;											\
-	    C=SWF_4NL|SWF_4N|SWF_56NL|SWF_56N;
-	  TX=Typ N;											\
-	    C=VGF_6N1L|VGF_6N1|VGF_6N2L|VGF_6N2;
+	    C=VGF_6N(1|2)(|L);
+	  TX=Typ O 901 - 1969;										\
+	    C=VGF_O901_1969;
+	  TX=Typ O 901 - 1973;										\
+	    C=FFM_O901_1973;
+	  TX=Typ O 901 - 1978;										\
+	    C=VGF_O901_1978;
+	  TX=Typ O 905 - 1985;										\
+	    C=SWF_O905_1985;
+	  TX=Typ O 907;											\
+	    C=VGF_O907ABELE02|VGF_O907ABELE97;
+	  TX=Typ O 907;											\
+	    C=VGF_6O902|VGF_O901BBOCK|VGF_O902COLA|VGF_O904_HR3~PHG;
 	  TX=Typ O;											\
 	    C=SWF_46O;
 	  TX=Typ O;											\
-	    C=SSF_34O;
-	  TX=Typ O;											\
 	    C=VGF_6O1|VGF_6O2;
-	  TX=Typ O;											\
-	    C=VGF_6O902|VGF_O901BBOCK|VGF_O902COLA|VGF_O904_HR3~PHG|SWF_O905_1985|VGF_O908_CARLSBERG|	\
-	      SWF_O905_1985|VGF_O907ABELE97|VGF_O907ABELE02;
 	$ENDGROUP
 	$GROUP 												\
 	    NAME=D_F_T3;										\
-	    TX=Typ P;											\
-	    LC=1;											\
-	    C=VGF_P_1A|VGF_P_1B|VGF_P_2; %GBG(STBGMD,ENV_WAYT2);
-	  TX=Typ R;											\
-	    C=VGF_ZR|VGF_ZR;
+	    LC=1; %GBG((STBGMD|STBGFO),ENV_WAYT3);
+	  TX=Typ P 710 - 1975;										\
+	    C=VGF_P710_1975(|L);
+	  TX=Typ P 716 - 1978;										\
+	    C=VGF_P716_1978(|L);
+	  TX=Typ P 720 - 1978;										\
+	    C=VGF_P720_1978(|L);
+	  TX=Typ Pt 148 - 2025;										\
+	    C=VGF_PT148_2025(|L);
+	  TX=Typ Pt 750 - 1986;										\
+	    C=VGF_PT750_1986(|L);
+	  TX=Typ R 014;											\
+	    C=VGF_R014(|L);
+	  TX=Typ R 019;											\
+	    C=VGF_R019(|L);
+	  TX=Typ R 029;											\
+	    C=VGF_R029(|L);
+	  TX=Typ R 032;											\
+	    C=VGF_R032(|L);
 	  TX=Typ S;											\
-	    C=VGF_S1|VGF_SA;
+	    C=VGF_S208(|L);
+	  TX=Typ S;											\
+	    C=VGF_S210(|L);
+	  TX=Typ S Traktion;										\
+	    C=VGF_S210(|L),VGF_S208(|L);
+	  TX=Typ T;											\
+	    C=VGF_T303(|[!L]);
 	$ENDGROUP
 	$GROUP 												\
 	    NAME=D_F_T4;										\
 	    LC=1; %GBG((STBGMD|STBGFO),ENV_WAYT3);
 	  TX=Typ Pt;											\
-	    C=2@VGF_PT_1A|VGF_PT_1A|VGF_PT_1B|VGF_PT_1B|VGF_PT_2A|VGF_PT_2A|VGF_PT_2B|VGF_PT_2B;
+	    C=VGF_PT661_1984(|L),VGF_PT750_1986;
+	  TX=Typ Pt 690 - 2000;										\
+	    C=VGF_PT690_2000(|[!L]);
+	  TX=Typ Pt 661 - 1984;										\
+	    C=VGF_PT661_1984(|L);
+	  TX=Typ Pt 738 - 2024;										\
+	    C=VGF_PT738_2025(|[!L]);
 	  TX=Typ Ptb;											\
-	    C=3*(VGF_PTB_1A|VGF_PTB_1A|VGF_PTB_1B|VGF_PTB_1B);
+	    C=2*VGF_PTB733_1998(|L);
 	  TX=Typ Ptb;											\
-	    C=3*(VGF_PTB_2A|VGF_PTB_2A|VGF_PTB_2B|VGF_PTB_2B);
-	  TX=U2;											\
-	    C=VGF_U2A;
-	  TX=U2;											\
-	    C=3*VGF_U2B~FLE;
-	  TX=U2;											\
-	    C=3*VGF_U2C~FLE;
-	  TX=U3;											\
-	    C=3*VGF_U3_2~WSI;
-	  TX=U3;											\
-	    C=3*VGF_U3_3~WSI;
-	  TX=U4;											\
-	    C=3*VGF_U4~FLE;
+	    C=VGF_PTB731_2013(|[!L]),VGF_PTB713_2009(|[!L]),VGF_PTB731_2013(|[!L]);
+	  TX=U1;											\
+	    C=VGF_U1_301_1972(|L);
+	  TX=U1 301 + 302 - 1975;									\
+	    C=(2*VGF_U1_301_1975)|(2*VGF_U1_301_1975L);
+	  TX=U2 - 1994;											\
+	    C=VGF_U2_363_1983,VGF_U2_382_1994;
+	  TX=U2 354 + 333 - 1975;									\
+	    C=VGF_U2_333_1974,VGF_U2_354_1975;
+	  TX=U2 372 + 375 - 1978;									\
+	    C=(2*VGF_U2_372_1978)|(2*VGF_U2_372_1978[!L]);
+	  TX=U2E - 2010;										\
+	    C=VGF_U2E_367_2010,2*VGF_U2E_402_2010;
+	  TX=U2H - 2009;										\
+	    C=3*VGF_U2H_325_2009;
+	  TX=U3 1990;											\
+	    C=3*VGF_U3_451_1990(|L);
+	  TX=U3 2000;											\
+	    C=2*VGF_U3_451_2000(|L);
+	  TX=U4 1998;											\
+	    C=3*VGF_U4_520(|L);
+	  TX=U4 2015;											\
+	    C=2*VGF_U4_501(|L);
+	  TX=U5 600 + 800;										\
+	    C=(<VGF_U5_600(|L),VGF_U5_800L,VGF_U5_800)|(<VGF_U5_800L,VGF_U5_800,VGF_U5_600(|L));
+	  TX=U5 800 + 1900;										\
+	    C=<VGF_U5_800L,VGF_U5_1900(|L),VGF_U5_800;
+
 	$ENDGROUP
 # maintenance
 	$GROUP 												\
@@ -2171,10 +2313,6 @@ $SECTION NAME=CITYS; LC=1; AB=30; POOL=CITMODE; LT=25; %SECFIN;
 	  TX=WERBEWAGEN;										\
 	    C=WGF_SUNILT,WGF_SUNILB;
 	$ENDGROUP
-      }
-      {TRAM?
-	TX=Frankfurt-Offenbacher Trambahn;								\
-	  C=FOTG_TW(|L),0-2*FOTG_BW; %LBG(STBGEU,ENV_WAYT1);
       }
       {BUS?
 	$GROUP 												\
@@ -4205,6 +4343,7 @@ $SECTION NAME=CITYS; LC=1; AB=30; POOL=CITMODE; LT=25; %SECFIN;
 	    C=SWN_COMBINO~TIS;
 	    C=SWN_COMBINOL~PH;
 	    C=SWN_COMBINO~PNR;
+	    C=SWN_COMBINO_SONNENHOF[SP:195,58];
 	  $ENDGROUP
 	  $GROUP 											\
 	      NAME=D_NDH_T7;										\
@@ -5173,6 +5312,10 @@ $SECTION NAME=CITYS; LC=1; AB=30; POOL=CITMODE; LT=25; %SECFIN;
 		(VBZ_BE461_2035,VBZ_BE24_2425)|(VBZ_BE461_2029,VBZ_BE461_2306)|VBZ_BE461_20(02|35)L|;
 	    TX=Tram 2000 + NF-Mittelteil;								\
 	      C=((VBZ_TRAM2000S1L)[#D:L])|((VBZ_TRAM2000S1)[#D:R]);
+	    TX=Typ Cobra;										\
+	      C=VBZ_30(03_FITNESPARK_MIGROS|05_TECHNOPARK|12_VBZ|14_ERNST_UND_YOUNG|			\
+		16_MUSEUM_RIETBERG|21_ZKB|28_APG|30_HARDTURMPARK|35_FLY_EMIRATES|42_NOCH_NICHTS|	\
+		49_IMMOSCOUNT24|50_ZHDK|82_EWZ|87_EDELWEISS)(|L);
 	    TX=Typ Cobra;										\
 	      C=VBZ_COBRA(1|V|V_NOCHNIE|V_WBG)(|L)|VBZ_COBRA2(|L)|VBZ_3087(|L);
 	    TX=Typ Cobra;										\
@@ -6203,7 +6346,7 @@ $SECTION NAME=CITYS; LC=1; AB=30; POOL=CITMODE; LT=25; %SECFIN;
 	$GROUP 												\
 	    NAME=F_75_TT1;										\
 	    LC=3; %GBG((STBGFO|STBGEU),ENV_WAYT9);
-; T4
+# T4
 	  TX=SNCF U25500  Paris T4;									\
 	    C=SNCF_U25500_IDFT;										\
 	    V=8;											\
@@ -6478,7 +6621,7 @@ $SECTION NAME=CITYS; LC=1; AB=30; POOL=CITMODE; LT=25; %SECFIN;
 #==========================================================================
 #
 # Netherlands
-#	
+#
   {NL?
 #--------------------------------------------------------------------------
 #
@@ -6731,7 +6874,7 @@ $SECTION NAME=CITYS; LC=1; AB=30; POOL=CITMODE; LT=25; %SECFIN;
 #==============================================================================
 #
 # Italy
-#  
+#
   {I?
 #------------------------------------------------------------------------------
 #
@@ -7397,11 +7540,13 @@ $SECTION NAME=CITYS; LC=1; AB=30; POOL=CITMODE; LT=25; %SECFIN;
 #==============================================================================
 #
 # Slovakia
-#  
+#
   {SK|CSD?
 #----------------------------- Bratislava -------------------------------------
     {CRAIL|TRAM|BUS?
-      $SECTION NAME=SK_BA; TX=Bratislava; LC=5;								\
+      $SECTION NAME=SK_BA;										\
+	  TX=Bratislava;										\
+	  LC=5;												\
 	  ENV=$EBG(STBGEO),									       &\
 	  $EWX(WT,ENV_WAYT1),									       &\
 	  $EWX(WA,ENV_WAYA); %TITLE(Bratislava);%SECFIN;
@@ -7988,20 +8133,18 @@ $SECTION NAME=CITYS; LC=1; AB=30; POOL=CITMODE; LT=25; %SECFIN;
 #==============================================================================
 #
 # Bulgaria
-#  
+#
   {BG?
 #------------------------------------------------------------------------------
 #
 # Sofia
 #
     {CRAIL|TRAM|BUS?
-      $SECTION NAME=BG_SOFIA;										\
-	  %TITLE(Sofia);%SECFIN;											\
-	  LC=4;												\
+      $SECTION NAME=BG_SOFIA; LC=4;									\
 	  ENV=$EBG(STBGEO),									       &\
 	  $EWX(WT,$FLG(X,ENV_WAYO,ENV_WAYT1)),							       &\
 	  $EWX(WA,ENV_WAYA),									       &\
-	  $CBG(WM,(STBGUB|STBGFO),ENV_WAYM);
+	  $CBG(WM,(STBGUB|STBGFO),ENV_WAYM); %TITLE(Sofia);%SECFIN;
 	{CRAIL?
 	  $GROUP 											\
 	      NAME=BG_SOFIA_M1;										\
@@ -8057,7 +8200,7 @@ $SECTION NAME=CITYS; LC=1; AB=30; POOL=CITMODE; LT=25; %SECFIN;
 #==============================================================================
 #
 # Russia
-#  
+#
   {RZD|SU?
 #------------------------------------------------------------------------------
 #
@@ -8154,7 +8297,7 @@ $SECTION NAME=CITYS; LC=1; AB=30; POOL=CITMODE; LT=25; %SECFIN;
 #==============================================================================
 #
 # USA
-#  
+#
   {USA?
 #------------------------------------------------------------------------------
 #
@@ -8162,161 +8305,161 @@ $SECTION NAME=CITYS; LC=1; AB=30; POOL=CITMODE; LT=25; %SECFIN;
 #
     {CRAIL|BUS?
       $SECTION NAME=US_NEWYORK; SEQ=D; BL=16; %SECFIN;%TITLE(New York);
-      {CRAIL?
-	$GROUP 												\
-	    NAME=US_NY_S1;										\
-	    LC=1; %GBG((STBGFO|STBGUB),ENV_WAYM);
-	  TX=GIBBS;											\
-	    C=3*(IRT_GIBBS_MOD_G|IRT_GIBBS_MOD_G);
-	  TX=GIBBS;											\
-	    C=6*(IRT_GIBBS_2DR|IRT_GIBBS_4DR|IRT_GIBBS_MOD_EARLY|IRT_GIBBS_MOD|IRT_GIBBS_MUDC);
-	  TX=Deck Roof;											\
-	    C=(6*IRT_DECKROOF)|(6*IRT_DECKROOF_GN);
-	  TX=Headley;											\
-	    C=(6*(IRT_HI_V_HEADLEY_EARLY|IRT_HI_V_HEADLEY|IRT_HI_V_TRAILER|IRT_HI_V_HEADLEY_MUDC))|	\
-	      (6*(IRT_HI_V_HEADLEY_MUDC_G|IRT_HI_V_TRAILER_G));
-	  TX=Steinway;											\
-	    C=(6*(IRT_LO_V_MOTOR|IRT_LO_V_TRAILER_MUDC|IRT_LO_V_MOTOR_MUDC))|				\
-	      (6*(IRT_LO_V_MOTOR_G|IRT_LO_V_MOTOR_MUDC_G|IRT_LO_V_TRAILER_MUDC_G|BMT_LO|BMT_LO_4581|	\
-	      IRT_LO_V_WF));
-	$ENDGROUP
-      }
-      {BUS?
-	$GROUP US_NY_B1; AMOD=[SS:10];
-	  C=FACC_2132L;
-	  C=FD_GM_TDH5303_JFK;
-	$ENDGROUP
-      }
-      {CRAIL?
-	$GROUP 												\
-	    NAME=US_NY_S2;										\
-	    LC=1; %GBG((STBGFO|STBGUB),ENV_WAYM);
-	  TX=R12;											\
-	    C=(6*IRT_R12TR)|(6*IRT_R12_1948)|(6*NYCS_R12SB);
-	  TX=R15;											\
-	    C=(6*NYCS_R15SB)|(6*IRT_R15O)|(6*IRT_R15G);
-	  TX=R17;											\
-	    C=6*(IRT_R17M);
-	  TX=R21;											\
-	    C=(6*NYCS_R21SB)|(6*NYCS_R21W)|(6*IRT_R21G);
-	  TX=R29;											\
-	    C=(6*IRT_R29TR1|IRT_R29TR2)|(6*NYCS_R29SB1|NYCS_R29SB2)|(6*NYCS_R29W1|NYCS_R29W2)|		\
-	      (6*NYCS_R29FR1|NYCS_R29FR2);
-	$ENDGROUP
-	$GROUP 												\
-	    NAME=US_NY_S3;										\
-	    LC=1; %GBG((STBGFO|STBGUB),ENV_WAYM);
-	  TX=R33;											\
-	    C=(6*(IRT_R33G1|IRT_R33G2))|(6*(NYCS_R33WF_1964|NYCS_R36WF_1964A|NYCS_R36WF_1964B))|	\
-	      (6*(NYCS_R33WF_W|NYCS_R36WF_W1|NYCS_R36WF_W2))|						\
-	      (6*(NYCS_R33WF_FR|NYCS_R36WF_FR1|NYCS_R36WF_FR2))|(6*(NYCS_R36WF_SB1|NYCS_R36WF_SB2));
-	  TX=R 62;											\
-	    C=6*NYCS_R62|NYCS_R62S|NYCS_R62DBL|NYCS_R62DB|NYCS_R62DBM;
-	$ENDGROUP
-	$GROUP 												\
-	    NAME=US_NY_S4;										\
-	    LC=2; %GBG((STBGFO|STBGUB),ENV_WAYM);
-	  TX=BMT 200-2600;										\
-	    C=(5*(BMT_STD_2000|BMT_STD_2400|BMT_STD_2500|BMT_STD_2600|BMT_STD_4000))|			\
-	      (6*(BMT_STD_2400_GN|BMT_STD_2500_GN|BMT_STD_2600_GN));
-	  TX=BMT Triplex;										\
-	    C=2*(BMT_TRI_EARLY|BMT_TRI_LATE);
-	  TX=BMT Q;											\
-	    C=(6*(BMT_Q_1939A|BMT_Q_1939B|BMT_Q_1939C|BMT_QX_1939B|BMT_QX_1939C))|			\
-	      (6*(BMT_Q_1945A|BMT_Q_1945B|BMT_Q_1945C|BMT_QX_1945B|BMT_QX_1945C))|			\
-	      (6*(BMT_Q_1950A|BMT_Q_1950B|BMT_Q_1950C))|(6*(BMT_Q_1958A|BMT_Q_1958B|BMT_Q_1958C));
-	  TX=BMT Pullmann;										\
-	    C=2*BMT_EXP_PULLMAN;
-	  TX=BMT Budd;											\
-	    C=2*BMT_EXP_BUDD;
-	  TX=BMT Multi;											\
-	    C=2*BMT_MULTI;
-	  TX=BMT Compt;											\
-	    C=3*BMT_COMPT;
-	  TX=BMT R16;											\
-	    C=(5*BMT_R16G)|(5*BMT_R16_5TH_AVE)|(5*BMT_R16TR);
-	$ENDGROUP
-	$GROUP 												\
-	    NAME=US_NY_S5;										\
-	    LC=2; %GBG((STBGFO|STBGUB),ENV_WAYM);
-	  TX=IND R1;											\
-	    C=5*(IND_R1_100L|IND_R1_100|IND_R1_200L|IND_R1_200);
-	  TX=IND R4;											\
-	    C=5*(IND_R4L|IND_R4)|(5*(NYCS_R4MTAL|NYCS_R4MTA));
-	  TX=IND R10;											\
-	    C=(5*IND_R10TR)|(5*IND_R10_1964)|(5*NYCS_R10SB)|(5*IND_R10G);
-	  TX=IND R11;											\
-	    C=5*(IND_R11);
-	  TX=IRT R26;											\
-	    C=<NYCS_R26B1,9*NYCS_R26B2|NYCS_R26B3|NYCS_R26B4|NYCS_R26B5|NYCS_R26B6;
-	  TX=IRT R26;											\
-	    C=<NYCS_R26R1,9*NYCS_R26R2|NYCS_R26R3|NYCS_R26R4|NYCS_R26R5|NYCS_R26R6;
-	  TX=IRT R26;											\
-	    C=<NYCS_R26W1,9*NYCS_R26W2|NYCS_R26W3|NYCS_R26W4|NYCS_R26W5|NYCS_R26W6;
-	$ENDGROUP
-	$GROUP 												\
-	    NAME=US_NY_S6;										\
-	    LC=2; %GBG((STBGFO|STBGUB),ENV_WAYM);
-	  TX=NYC IRT R26;										\
-	    C=<NYCS_R26WB1,9*NYCS_R26WB2|NYCS_R26WB3|NYCS_R26WB4|NYCS_R26WB5|NYCS_R26WB6;
-	  TX=IND R30;											\
-	    C=(5*(IND_R30G1|IND_R30G2))|(5*(IND_R30TR1|IND_R30TR2))|(5*(NYCS_R30SB1,NYCS_R30SB2))|	\
-	      (5*(NYCS_R30FR1|NYCS_R30FR2));
-	  TX=NYCTA R32;											\
-	    C=<NYCS_R32A1,7*NYCS_R32A2|NYCS_R32A3|NYCS_R32A4|NYCS_R32A4|NYCS_R32A5;
-	  TX=IND R32;											\
-	    C=(5*NYCS_R32O)|(5*NYCS_R32GOH);
-	  TX=IND R38;											\
-	    C=5*(NYCS_R38O|NYCS_R38AC|NYCS_R38GOH);
-	  TX=IND R34;											\
-	    C=5*(NYCS_R34);
-	  TX=R38;											\
-	    TXY=15;											\
-	    C=<NYCS_R38A1,7*NYCS_R38A2|NYCS_R38A3|NYCS_R38A4|NYCS_R38A5;
-	  TX=R 40;											\
-	    C=(4*(<NYCS_R40M1,NYCS_R40M2))|(4*(<NYCS_R40M_GOH1,NYCS_R40M_GOH2))|			\
-	      (<NYCS_R40A,6*(<NYCS_R40GOH2,NYCS_R40GOH1),NYCS_R40B);
-	  TX=R 40;											\
-	    C=4*(<NYCS_R40M1,NYCS_R40M2)|(4*(<NYCS_R40M_GOH1,NYCS_R40M_GOH2));
-	$ENDGROUP
-	$GROUP 												\
-	    NAME=US_NY_S7;										\
-	    LC=2; %GBG((STBGFO|STBGUB),ENV_WAYM);
-	  TX=R 42;											\
-	    C=(3*(<NYCS_R42A,NYCS_R42B))|(3*(<NYCS_R42_GOH1,NYCS_R42_GOH2));
-	  TX=R 46;											\
-	    C=(<NYCS_R46A_JFKL,4*NYCS_R46B_JFKL,NYCS_R46A_JFK)|						\
-	      (<NYCS_R46A_GOHL,3*NYCS_R46B_BICEN,NYCS_R46A_BICEN)|					\
-	      (<NYCS_R46A_GOHL,NYCS_R46B_GOHL,NYCS_R46B_GOH,NYCS_R46A_GOH)|				\
-	      (<NYCS_R46A_MTAL,NYCS_R46B_MTAL,NYCS_R46B_MTA,NYCS_R46A_MTA);
-	  TX=R46;											\
-	    C=<NYCS_R46AFL,6*NYCS_R46A1,NYCS_R46AF;
-	  TX=R62;											\
-	    C=<NYCS_R62FL,8*NYCS_R62M,NYCS_R62F;
-	  TX=R 68;											\
-	    C=3*(<NYCS_R68,NYCS_R68_GOH);
-	  TX=NYCTA R110;										\
-	    C=<NYCS_R110FL,8*NYCS_R110M1|NYCS_R110M2|NYCS_R110M3,NYCS_R110F;
-	  TX=NYCTA R142;										\
-	    C=<NYCS_R142FL,8*NYCS_R142M1|NYCS_R142M2|NYCS_R142M3,NYCS_R142F;
-	  TX=SIRT;											\
-	    C=(5*SIRT_ME1B)|(5*BMT_ME1)|(5*SIRT_ME1G);
-	$ENDGROUP
-	$GROUP 												\
-	    NAME=US_NY_SM;										\
-	    LC=1; %GBG((STBGFO|STBGUB),ENV_WAYM);
-	  TX=Arbeitswagen/maintenance;									\
-	    C=NYCTA_LO_V_RIDER|NYCTA_LO_V_WKM|NYCTA_R12_WM|NYCTA_R127|NYCTA_R134|NYCTA_R15_RIDER|	\
-	      NYCTA_R30_RAC|NYCTA_R33_MONEY|NYCTA_R33_PUMP|NYCTA_R33_RIDER;
-	  TX=IND R1;											\
-	    C=5*(IND_R1_100L|IND_R1_100|IND_R1_200L|IND_R1_200);
-	  TX=IND R1;											\
-	    C=5*(IND_R1_100L|IND_R1_100|IND_R1_200L|IND_R1_200);
-	  TX=BMT R16;											\
-	    C=(5*BMT_R16G)|(5*BMT_R16_5TH_AVE)|(5*BMT_R16TR);
-	  TX=BMT R16;											\
-	    C=(5*BMT_R16G)|(5*BMT_R16_5TH_AVE)|(5*BMT_R16TR);
-	$ENDGROUP
+	{CRAIL?
+	  $GROUP 											\
+	      NAME=US_NY_S1;										\
+	      LC=1; %GBG((STBGFO|STBGUB),ENV_WAYM);
+	    TX=GIBBS;											\
+	      C=3*(IRT_GIBBS_MOD_G|IRT_GIBBS_MOD_G);
+	    TX=GIBBS;											\
+	      C=6*(IRT_GIBBS_2DR|IRT_GIBBS_4DR|IRT_GIBBS_MOD_EARLY|IRT_GIBBS_MOD|IRT_GIBBS_MUDC);
+	    TX=Deck Roof;										\
+	      C=(6*IRT_DECKROOF)|(6*IRT_DECKROOF_GN);
+	    TX=Headley;											\
+	      C=(6*(IRT_HI_V_HEADLEY_EARLY|IRT_HI_V_HEADLEY|IRT_HI_V_TRAILER|IRT_HI_V_HEADLEY_MUDC))|	\
+		(6*(IRT_HI_V_HEADLEY_MUDC_G|IRT_HI_V_TRAILER_G));
+	    TX=Steinway;										\
+	      C=(6*(IRT_LO_V_MOTOR|IRT_LO_V_TRAILER_MUDC|IRT_LO_V_MOTOR_MUDC))|				\
+		(6*(IRT_LO_V_MOTOR_G|IRT_LO_V_MOTOR_MUDC_G|IRT_LO_V_TRAILER_MUDC_G|BMT_LO|BMT_LO_4581|	\
+		IRT_LO_V_WF));
+	  $ENDGROUP
+	}
+	{BUS?
+	  $GROUP US_NY_B1; AMOD=[SS:10];
+	    C=FACC_2132L;
+	    C=FD_GM_TDH5303_JFK;
+	  $ENDGROUP
+	}
+	{CRAIL?
+	  $GROUP 											\
+	      NAME=US_NY_S2;										\
+	      LC=1; %GBG((STBGFO|STBGUB),ENV_WAYM);
+	    TX=R12;											\
+	      C=(6*IRT_R12TR)|(6*IRT_R12_1948)|(6*NYCS_R12SB);
+	    TX=R15;											\
+	      C=(6*NYCS_R15SB)|(6*IRT_R15O)|(6*IRT_R15G);
+	    TX=R17;											\
+	      C=6*(IRT_R17M);
+	    TX=R21;											\
+	      C=(6*NYCS_R21SB)|(6*NYCS_R21W)|(6*IRT_R21G);
+	    TX=R29;											\
+	      C=(6*IRT_R29TR1|IRT_R29TR2)|(6*NYCS_R29SB1|NYCS_R29SB2)|(6*NYCS_R29W1|NYCS_R29W2)|	\
+		(6*NYCS_R29FR1|NYCS_R29FR2);
+	  $ENDGROUP
+	  $GROUP 											\
+	      NAME=US_NY_S3;										\
+	      LC=1; %GBG((STBGFO|STBGUB),ENV_WAYM);
+	    TX=R33;											\
+	      C=(6*(IRT_R33G1|IRT_R33G2))|(6*(NYCS_R33WF_1964|NYCS_R36WF_1964A|NYCS_R36WF_1964B))|	\
+		(6*(NYCS_R33WF_W|NYCS_R36WF_W1|NYCS_R36WF_W2))|						\
+		(6*(NYCS_R33WF_FR|NYCS_R36WF_FR1|NYCS_R36WF_FR2))|(6*(NYCS_R36WF_SB1|NYCS_R36WF_SB2));
+	    TX=R 62;											\
+	      C=6*NYCS_R62|NYCS_R62S|NYCS_R62DBL|NYCS_R62DB|NYCS_R62DBM;
+	  $ENDGROUP
+	  $GROUP 											\
+	      NAME=US_NY_S4;										\
+	      LC=2; %GBG((STBGFO|STBGUB),ENV_WAYM);
+	    TX=BMT 200-2600;										\
+	      C=(5*(BMT_STD_2000|BMT_STD_2400|BMT_STD_2500|BMT_STD_2600|BMT_STD_4000))|			\
+		(6*(BMT_STD_2400_GN|BMT_STD_2500_GN|BMT_STD_2600_GN));
+	    TX=BMT Triplex;										\
+	      C=2*(BMT_TRI_EARLY|BMT_TRI_LATE);
+	    TX=BMT Q;											\
+	      C=(6*(BMT_Q_1939A|BMT_Q_1939B|BMT_Q_1939C|BMT_QX_1939B|BMT_QX_1939C))|			\
+		(6*(BMT_Q_1945A|BMT_Q_1945B|BMT_Q_1945C|BMT_QX_1945B|BMT_QX_1945C))|			\
+		(6*(BMT_Q_1950A|BMT_Q_1950B|BMT_Q_1950C))|(6*(BMT_Q_1958A|BMT_Q_1958B|BMT_Q_1958C));
+	    TX=BMT Pullmann;										\
+	      C=2*BMT_EXP_PULLMAN;
+	    TX=BMT Budd;										\
+	      C=2*BMT_EXP_BUDD;
+	    TX=BMT Multi;										\
+	      C=2*BMT_MULTI;
+	    TX=BMT Compt;										\
+	      C=3*BMT_COMPT;
+	    TX=BMT R16;											\
+	      C=(5*BMT_R16G)|(5*BMT_R16_5TH_AVE)|(5*BMT_R16TR);
+	  $ENDGROUP
+	  $GROUP 											\
+	      NAME=US_NY_S5;										\
+	      LC=2; %GBG((STBGFO|STBGUB),ENV_WAYM);
+	    TX=IND R1;											\
+	      C=5*(IND_R1_100L|IND_R1_100|IND_R1_200L|IND_R1_200);
+	    TX=IND R4;											\
+	      C=5*(IND_R4L|IND_R4)|(5*(NYCS_R4MTAL|NYCS_R4MTA));
+	    TX=IND R10;											\
+	      C=(5*IND_R10TR)|(5*IND_R10_1964)|(5*NYCS_R10SB)|(5*IND_R10G);
+	    TX=IND R11;											\
+	      C=5*(IND_R11);
+	    TX=IRT R26;											\
+	      C=<NYCS_R26B1,9*NYCS_R26B2|NYCS_R26B3|NYCS_R26B4|NYCS_R26B5|NYCS_R26B6;
+	    TX=IRT R26;											\
+	      C=<NYCS_R26R1,9*NYCS_R26R2|NYCS_R26R3|NYCS_R26R4|NYCS_R26R5|NYCS_R26R6;
+	    TX=IRT R26;											\
+	      C=<NYCS_R26W1,9*NYCS_R26W2|NYCS_R26W3|NYCS_R26W4|NYCS_R26W5|NYCS_R26W6;
+	  $ENDGROUP
+	  $GROUP 											\
+	      NAME=US_NY_S6;										\
+	      LC=2; %GBG((STBGFO|STBGUB),ENV_WAYM);
+	    TX=NYC IRT R26;										\
+	      C=<NYCS_R26WB1,9*NYCS_R26WB2|NYCS_R26WB3|NYCS_R26WB4|NYCS_R26WB5|NYCS_R26WB6;
+	    TX=IND R30;											\
+	      C=(5*(IND_R30G1|IND_R30G2))|(5*(IND_R30TR1|IND_R30TR2))|(5*(NYCS_R30SB1,NYCS_R30SB2))|	\
+		(5*(NYCS_R30FR1|NYCS_R30FR2));
+	    TX=NYCTA R32;										\
+	      C=<NYCS_R32A1,7*NYCS_R32A2|NYCS_R32A3|NYCS_R32A4|NYCS_R32A4|NYCS_R32A5;
+	    TX=IND R32;											\
+	      C=(5*NYCS_R32O)|(5*NYCS_R32GOH);
+	    TX=IND R38;											\
+	      C=5*(NYCS_R38O|NYCS_R38AC|NYCS_R38GOH);
+	    TX=IND R34;											\
+	      C=5*(NYCS_R34);
+	    TX=R38;											\
+	      TXY=15;											\
+	      C=<NYCS_R38A1,7*NYCS_R38A2|NYCS_R38A3|NYCS_R38A4|NYCS_R38A5;
+	    TX=R 40;											\
+	      C=(4*(<NYCS_R40M1,NYCS_R40M2))|(4*(<NYCS_R40M_GOH1,NYCS_R40M_GOH2))|			\
+		(<NYCS_R40A,6*(<NYCS_R40GOH2,NYCS_R40GOH1),NYCS_R40B);
+	    TX=R 40;											\
+	      C=4*(<NYCS_R40M1,NYCS_R40M2)|(4*(<NYCS_R40M_GOH1,NYCS_R40M_GOH2));
+	  $ENDGROUP
+	  $GROUP 											\
+	      NAME=US_NY_S7;										\
+	      LC=2; %GBG((STBGFO|STBGUB),ENV_WAYM);
+	    TX=R 42;											\
+	      C=(3*(<NYCS_R42A,NYCS_R42B))|(3*(<NYCS_R42_GOH1,NYCS_R42_GOH2));
+	    TX=R 46;											\
+	      C=(<NYCS_R46A_JFKL,4*NYCS_R46B_JFKL,NYCS_R46A_JFK)|					\
+		(<NYCS_R46A_GOHL,3*NYCS_R46B_BICEN,NYCS_R46A_BICEN)|					\
+		(<NYCS_R46A_GOHL,NYCS_R46B_GOHL,NYCS_R46B_GOH,NYCS_R46A_GOH)|				\
+		(<NYCS_R46A_MTAL,NYCS_R46B_MTAL,NYCS_R46B_MTA,NYCS_R46A_MTA);
+	    TX=R46;											\
+	      C=<NYCS_R46AFL,6*NYCS_R46A1,NYCS_R46AF;
+	    TX=R62;											\
+	      C=<NYCS_R62FL,8*NYCS_R62M,NYCS_R62F;
+	    TX=R 68;											\
+	      C=3*(<NYCS_R68,NYCS_R68_GOH);
+	    TX=NYCTA R110;										\
+	      C=<NYCS_R110FL,8*NYCS_R110M1|NYCS_R110M2|NYCS_R110M3,NYCS_R110F;
+	    TX=NYCTA R142;										\
+	      C=<NYCS_R142FL,8*NYCS_R142M1|NYCS_R142M2|NYCS_R142M3,NYCS_R142F;
+	    TX=SIRT;											\
+	      C=(5*SIRT_ME1B)|(5*BMT_ME1)|(5*SIRT_ME1G);
+	  $ENDGROUP
+	  $GROUP 											\
+	      NAME=US_NY_SM;										\
+	      LC=1; %GBG((STBGFO|STBGUB),ENV_WAYM);
+	    TX=Arbeitswagen/maintenance;								\
+	      C=NYCTA_LO_V_RIDER|NYCTA_LO_V_WKM|NYCTA_R12_WM|NYCTA_R127|NYCTA_R134|NYCTA_R15_RIDER|	\
+		NYCTA_R30_RAC|NYCTA_R33_MONEY|NYCTA_R33_PUMP|NYCTA_R33_RIDER;
+	    TX=IND R1;											\
+	      C=5*(IND_R1_100L|IND_R1_100|IND_R1_200L|IND_R1_200);
+	    TX=IND R1;											\
+	      C=5*(IND_R1_100L|IND_R1_100|IND_R1_200L|IND_R1_200);
+	    TX=BMT R16;											\
+	      C=(5*BMT_R16G)|(5*BMT_R16_5TH_AVE)|(5*BMT_R16TR);
+	    TX=BMT R16;											\
+	      C=(5*BMT_R16G)|(5*BMT_R16_5TH_AVE)|(5*BMT_R16TR);
+	  $ENDGROUP
 	}
       $ENDSECTION
     }

@@ -111,6 +111,9 @@ $REQUIRE TRAINDEF.TTT
       TX=SNCB 260;											\
 	C=SNCB_260G1M(|L),2*B3F2S;									\
 	F=DF3;
+      TX=SNCB 270 shunting;										\
+	C=SNCB_270001(|L),B3F2S;									\
+	F=DF3; 
       TX=SNCB 270;											\
 	C=SNCB_270G1M(|L),4*B3F2S;									\
 	F=DF3;
@@ -208,6 +211,9 @@ $REQUIRE TRAINDEF.TTT
 	C=SNCB_64G1M(|L),2*SNCB_34_M1B10(|L),SNCB_34_M1A5B4(|L),$DIR(SNCB_34_M1B8D,SNCB_34_M1B8DL);
       TX=SNCB 66 + Güterzug;										\
 	C=SNCB_66(|G1)M(|L),B4F2S;									\
+	F=DF4;
+      TX=SNCB 70 shunting;										\
+	C=SNCB_7004(|L),B4F2S;									\
 	F=DF4;
       TX=SNCB HLD76;											\
 	C=SNCB_76GYM,SEGI_(KB|KM|K67)M(|L);								\
@@ -573,8 +579,8 @@ $REQUIRE TRAINDEF.TTT
       TX=SNCB 18;											\
 	C=<SNCB_18NL|SNCB_18N,3*SNCB_I11_B~ZS,2*SNCB_I11_A~ZS,2*SNCB_I11_B~ZS,SNCB_I11_BDX~ZS;		\
 	F=EF6;
-      TX=SNCB 18 + OTC 54 Bruxelles-Midi/Brussel-Zuid - Paris Nord 2025;											\
-	C=<SNCB_18N(|L),SNCB_I11A_OUIGO,6*SNCB_I11B_OUIGO,SNCB_I11_BDX;		\
+      TX=SNCB 18 + OTC 54 Bruxelles-Midi/Brussel-Zuid - Paris Nord 2025;				\
+	C=<SNCB_18N(|L),SNCB_I11A_OUIGO,6*SNCB_I11B_OUIGO,SNCB_I11_BDX;					\
 	F=EP6;
       TX=SNCB 27;											\
 	C=<SNCB_2716L|SNCB_2716,2*SNCB_M6_BL,SNCB_M6_A,SNCB_M6_BL,SNCB_M6_BDX;				\
@@ -601,8 +607,485 @@ $REQUIRE TRAINDEF.TTT
 	F=EF6;
 
     }
-  %ENDPOOL;
-}
+### Classic Trains from Simon Treanor
+    {E3?
+      TX=SBB Ram + TEE 90/93 "Edelweiss", Amsterdam - Zurich, 1969;					\
+	C=SJT_SBB_RAM_TEE;										\
+	F=PE3;
+    }
+    {E4?
+      TX=SNCB 25 + IC Amsterdam - Brussels, 1986;							\
+	C=<SNCB_25_5,SNCB_I4_3980BX,SNCB_I4_1980BXL,2*NS_W1_B4,NS_PLAN_DRST;				\
+	F=PE4;
+      TX=SNCB 16 + TEE 80/81 "Ile de France", Amsterdam - Paris, 1979;					\
+	C=SNCB_16Y(|L),(SJT_SNCF_CORAILB_W1,SJT_SNCF_PBA_WR,2*SJT_SNCF_PBA_A,SJT_SNCF_PBA_AD);		\
+	F=PE4;
+      TX=SNCB 23 + Amsterdam - Paris, 1979;								\
+	C=SNCB_2305L|SNCB_2305,										\
+	  (<NS_D_RD3,SNCF_VSE_A9U_C1L|SNCF_VSE_A9U_C1,SNCF_VU_A4B6U_C1L|SNCF_VU_A4B6U_C1,		\
+	  SNCF_VSE_B11U_COL|SNCF_VSE_B11U_CO|SNCF_VTU_B10UL|SNCF_VTU_B10U|SNCF_VTU2_B10UL|		\
+	  SNCF_VTU2_B10U|SNCF_VTU_B10AL|SNCF_VTU_B10A|SNCF_VTU_B10BL|SNCF_VTU_B10B|SNCF_VTU_B10CL|	\
+	  SNCF_VTU_B10C|SNCF_VTU_B11A|SNCF_VTU_B11AL|SNCF_VTU_B11BL|SNCF_VTU_B11B|SNCF_VTU_B11CL|	\
+	  SNCF_VTU_B11C|SNCF_VTU_B11DL|SNCF_VTU_B11D|SNCF_VU_B11U_COL|SNCF_VU_B11U_CO,			\
+	  SNCF_VSE_B11U_C1|SNCF_VSE_B11U_C1L,SNCF_VU_B6DU_EFL|SNCF_VU_B6DU_EF,				\
+	  2*SNCF_875970SYL|SNCF_875970SY|SNCF_875970_1967L|SNCF_875970_1967|SNCF_875970_1985L|		\
+	  SNCF_875970_1985|SNCF_875970_1992L|SNCF_875970_1992);						\
+	F=PE4;
+      TX=SNCB 55 + D 1138/1139 Amsterdam - Luxembourg, 1988;						\
+	C=SNCB_5_5519(|L),(2*SJT_NS_ICRB,NS_ICR_BD~HEN,SJT_NS_ICRA,SJT_NS_ICRB,OBB_9570O(|L));		\
+	F=PE4;
+      TX=SNCB 55 + D 1138/1139 Amsterdam - Luxembourg, 1988;						\
+	C=SNCB_5_5519(|L),(2*SJT_NS_ICRB,NS_ICR_BD~HEN,SJT_NS_ICRA,SJT_NS_ICRB,OBB_9570O(|L));		\
+	F=PE4;
+      TX=SNCB 20 + D 294/295, Brussels - Rome, 1986;							\
+	C=SNCB_20B2,SJT_CIWL_WR,SJT_D294_1986M;								\
+	F=PE4;
+      TX=SNCB 18 + D 282/283, Amsterdam - Paris, 1978;							\
+	C=(SJT_SNCB18BY),SJT_D282_1978M;								\
+	F=PE4;
+      TX=SNCB 16 + IC 136/137 "Diamant", Köln - Paris, 1981;						\
+	C=SNCB_16Y(|L),(2*SJT_DBB_AVMZ_TEE,SJT_SNCF_BVMZ_O,4*SJT_SNCF_CORAILB_W1,SNCF_VU_B6DD2_CS);	\
+	F=PE4;
+      TX=SNCB 23 + D 1432/1433, Oostende - Frankfurt, 1981;						\
+	C=(SNCB_2305(|L),(SJT_D1433_1981F,SJT_D1433_1981K))|(SJT_DBB110B_OB,(SJT_D1433_1981F));		\
+	F=PE4;
+      TX=SNCB 23 + D 1420/1421, Oostende - Frankfurt, 1985;						\
+	C=(SNCB_2305(|L),(SJT_D1420_1985K,SJT_D1420_1985F))|(SJT_DBB140_G,(SJT_D1420_1985F));		\
+	F=PE4;
+      TX=DB 110 + D 312/313, Oostende - Cologne, 1990;							\
+	C=SJT_SNCB27|SJT_DB110_OR,									\
+	  ((|(SJT_SZD_WLABM_G,SNCB_I4_2980OL)),SJT_SNCB_WLABM_TEN,SJT_SNCB_I6DMS_O,			\
+	  2*SNCB_I10_1170O(|L),SNCB_I4_3980O,4*SJT_SNCB_I10B_O,SJT_DB_BM_OB);				\
+	F=PE4;
+      TX=SNCB 27 + IC 40/41, Dortmund - Paris, 1986;							\
+	C=SJT_SNCB27,											\
+	  (SJT_SNCF_CORAILD_W1L,6*SJT_SNCF_CORAILB_W1,2*SJT_SNCF_CORAILA_W1,				\
+	  SJT_SNCF_CORAILA_W1|SJT_DB_AVMZ_TEE,1-2*SJT_SZD_WLABM_G);					\
+	F=PE4;
+      TX=SNCB 27 + IC 40/41, Dortmund - Paris, 1986;							\
+	C=SJT_SNCB27,											\
+	  (SJT_SNCF_CORAILD_W1L,6*SJT_SNCF_CORAILB_W1,2*SJT_SNCF_CORAILA_W1,				\
+	  SJT_SNCF_CORAILA_W1|SJT_DB_AVMZ_TEE,1-2*SJT_SZD_WLABM_G);					\
+	F=PE4;
+      TX=SNCB 23 + D 434/435, "Parsifal", Cologne - Paris, 1979;					\
+	C=(SNCB_2301(|L)),										\
+	  (SJT_SNCF_BCM_G1,0-1*SJT_SZD_WLABM_G,SJT_DR_ABM_G,SJT_SNCF_DM_G1,(5:1|1:2*SJT_SNCF_BVMZ_O),	\
+	  2*SJT_SNCF_CORAILB_W1,SJT_DB_WRMH_TEE,2-3*SJT_SNCF_CORAILA_W1);				\
+	F=PE4;
+      TX=SNCB 23 + D 234/235, "Paris-Skandinavien-Express", Copenhagen - Paris, 1973;			\
+	C=(SNCB_2305(|L)),(SJT_D234_1973_OS-PAR,SJT_D234_1973_KOB-PAR);					\
+	F=PE4;
+      TX=SNCB 27 + D 224/225, Oostende - Vienna, 1987;							\
+	C=SJT_SNCB27,(SJT_D224_1987M,SJT_D224_1987FF-OST);						\
+	F=PE4;
+      TX=SNCB 27 + IC 434/435, "Parsifal", Köln - Paris, 1984;						\
+	C=SJT_SNCB27,											\
+	  (SJT_SNCF_CORAILA_W1,SNCF_VSE_A9U_C1(|L),SJT_DB_WRMH_TEE,(2:5|1:6|1:7*SJT_SNCF_CORAILB_W1),	\
+	  SJT_SNCF_CORAILD_W1);										\
+	F=PE4;
+      TX=SNCB 25 + D 1234/1235, Hamburg - Brussels, 1982;						\
+	C=SNCB_25_5(|L),(SJT_D1234_1982M,0-1*SJT_D1218_1982M);						\
+	F=PE4;
+      TX=SNCB 16/18 + TEE 20/21 "Sahpir", Brussels - Frankfurt, 1978;					\
+	C=(SNCB_16Y(|L)|SJT_SNCB18BY),SJT_DBB_ARMH_RB,SJT_TEE20_1978M,SJT_DBB_AVMZ_TEE;			\
+	F=PE4;
+      TX=SNCB 16 + IC 136/137 "Diamant", Köln - Paris, 1981;						\
+	C=SNCB_16Y(|L),(2*SJT_DBB_AVMZ_TEE,SJT_SNCF_BVMZ_O,4*SJT_SNCF_CORAILB_W1,SNCF_VU_B6DD2_CS);	\
+	F=PE4;
+      TX=SNCB 18 + IC 314/315, Oostende - Köln, 1988;							\
+	C=SJT_SNCB18BY|SNCB_16C(|L),									\
+	  (<SJT_DB_DMS,2*SNCB_I10_1170O(|L),SNCB_I4_3980BX,5*SJT_SNCB_I10B_O,SJT_DBB_BM_OB);		\
+	F=PE4;
+      TX=SNCB 23 + D 810/811, Oostende - Aachen, 1981;							\
+	C=SNCB_2301(|L),										\
+	  (<0-1*SJT_DB_ABM_OB,SJT_SZD_WLABM_G,SJT_SNCB_I2B_G,(2:DR_4BCM5080(|L)|5:),			\
+	  SJT_SNCB_WLABM_TEN,SJT_DSB_ABM_R);								\
+	F=PE4;
+      TX=SNCB 18 + D 320/321, Oostende - Cologne, 1979;							\
+	C=SNCB_18O(|L),(SJT_SNCB_I6DMS_O,3*SNCB_I6BO,DB_BDUMS282|SNCB_I2_A3R,SNCB_I6AO);		\
+	F=PE4;
+      TX=SNCB 16 + D 314/315, Oostende - Cologne, 1988;							\
+	C=SNCB_16C(|L),(SJT_DB_DMS,2*SNCB_I10_1170O(|L),SNCB_I4_3980BX,5*SJT_SNCB_I10B_O,SJT_DBB_BM_OB); \
+	F=PE4;
+      TX=SNCB 27 + D 312/313, Oostende - Cologne, 1990;							\
+	C=SJT_SNCB27,											\
+	  ((|(SJT_SZD_WLABM_G,SNCB_I4_2980OL)),SJT_SNCB_WLABM_TEN,SJT_SNCB_I6DMS_O,			\
+	  2*SNCB_I10_1170O(|L),SNCB_I4_3980O,4*SJT_SNCB_I10B_O,SJT_DB_BM_OB);				\
+	F=PE4;
+      TX=SNCB 16 + TEE 42/43 "Diamant", Brussels - Cologne, 1974;					\
+	C=SJT_SNCB16B,(<SJT_DBB_AVMZ_TEE,SJT_DBB_ARMH_TEE,SJT_DBB_APMZ_TEE);				\
+	F=PE4;
+      TX=SNCB 16 + D 432/433, Paris - Cologne, 1980;							\
+	C=SNCB_16Y(|L)|SNCB_18O(|L),									\
+	  (SJT_DBB_AM_B,SJT_DB_ABM12_OB,3*SJT_DBB_BM_G,SJT_DBB_BDMS_OB,					\
+	  (1:(SJT_DBB_BM_G,(SJT_DBB_BM_OB|SJT_SNCF_BCM_G1),SJT_DBB_BM_G)|11:));				\
+	F=PE4;
+      TX=SNCB 18 + IC 428/429 "Saphir", Oostende - Cologne, 1981;					\
+	C=SNCB_18O(|L),											\
+	  (<SJT_DBB_APMZ_TEE,SJT_DB_AVMZ_TEE,SJT_CIWL_WR,SJT_DBB_BM,SJT_DBB_BM|SJT_SNCB_I1B_G,		\
+	  1-2*SJT_DBB_BM);										\
+	F=PE4;
+      TX=SNCB 23 + D 434/435, "Parsifal", Cologne - Paris, 1979;					\
+	C=(SNCB_2301(|L)),										\
+	  (SJT_SNCF_BCM_G1,0-1*SJT_SZD_WLABM_G,SJT_DR_ABM_G,SJT_SNCF_DM_G1,(5:1|1:2*SJT_SNCF_BVMZ_O),	\
+	  2*SJT_SNCF_CORAILB_W1,SJT_DB_WRMH_TEE,2-3*SJT_SNCF_CORAILA_W1);				\
+	F=PE4;
+      TX=SNCB 18 + IC 148/149, Köln - Brussels, 1982;							\
+	C=SJT_SNCB18BY,(<3@SJT_DBB_BM_OB|SJT_DB_BPMZ_OB,SNCB_I2_A3R,2*SJT_DB_AVMZ_TEE);			\
+	F=PE4;
+      TX=SNCB 27 + IC 434/435, "Parsifal", Köln - Paris, 1984;						\
+	C=SJT_SNCB27,											\
+	  (SJT_SNCF_CORAILA_W1,SNCF_VSE_A9U_C1(|L),SJT_DB_WRMH_TEE,(2:5|1:6|1:7*SJT_SNCF_CORAILB_W1),	\
+	  SJT_SNCF_CORAILD_W1);										\
+	F=PE4;
+      TX=SNCF 40100 + FD 32/33, Köln - Paris, 1986;							\
+	C=SJT_SNCF40100,(SNCF_VU_B6DD2_CSL,4*SJT_SNCF_CORAILB_W1,SJT_DB_WRMH_TEE,2*SJT_SNCF_CORAILA_W1); \
+	F=PE4;
+      TX=SNCB 1210 + IC Antwerp - Lille, 1989;								\
+	C=<SNCB_1210L|SNCB_1210,5*SNCB_M4RBML|SNCB_M4RBM|SNCB_M4RFBML|SNCB_M4RFBM,			\
+	  SNCB_M4RADXM|SNCB_M4RFADXM;									\
+	F=PE4;
+      TX=SNCB 51 + Brussels - Lille, 1984;								\
+	C=SNCB_51_E3L|SNCB_51_E3,									\
+	  (<2*SNCB_M2BGL~ZS|SNCB_M2BG~ZS,SNCB_M2AGL~ZS|SNCB_M2AG~ZS,4*SNCB_M2BGL~ZS|SNCB_M2BG~ZS,	\
+	  SNCB_M2BGL~ZS|SNCB_M2BG~ZS);									\
+	F=PE4;
+      TX=SNCB 27 + P 3498, Welkenraedt - Liers, 1984;							\
+	C=SJT_SNCB27,(<4*SNCB_K2B(|L),SJT_SNCB_K1AD);							\
+	F=PE4;
+      TX=SNCB M4 + IC Antwerp - Lille, 1986;								\
+	C=<SNCB_M4RFADXML,4*SNCB_M4RBML|SNCB_M4RBM|SNCB_M4RFBML|SNCB_M4RFBM,SNCB_12;			\
+	F=PE4;
+      TX=SNCB 20 + D 142/143, Brussels - Luxembourg, 1979;						\
+	C=SNCB_20A,(<2*SNCB_I4_1980(|L),SNCB_I2_ARRL,3*SNCB_K3B(|L));					\
+	F=PE4;
+      TX=SNCB 22 + D 150/151, Brussels - Luxembourg, 1980;						\
+	C=SNCB_2210(|L),(<SNCB_I2_A3R,2*SNCB_I4_1980(|L),3*SJT_SNCB_M4B_R);				\
+	F=PE4;
+      TX=SNCB AM80 + Brussels - Luxembourg, 1984;							\
+	C=4*(<SNCB_AM80_ABDXRML,SNCB_AM80_BXRM)|(<SNCB_AM80_BXRML,SNCB_AM80_ABDXRM);			\
+	F=PE4;
+      TX=SNCB 55 + D 296/297, Amsterdam - Basel, 1979;							\
+	C=(SNCB_3_5512(|L)),(<SBB_DMS(|L),SJT_SBB_AM_G1,2*SBB_4_RIC2B(|L));				\
+	F=PE4;
+      TX=SNCB 20 + D 298/299, Oostende - Milan, 1979;							\
+	C=SNCB_20A,(SJT_D298_1979_FR,SJT_D298_1979_CH,SJT_D298_1979_IT);				\
+	F=PE4;
+      TX=SNCB 20 + D 396/397, Brussels - Zurich, 1980;							\
+	C=SNCB_20B2,(<3*SJT_SBB_BM_O,SJT_SBB_WR_TEE,2*SJT_SBB_AM_O);					\
+	F=PE4;
+      TX=SNCB 20 + D 396/397, Brussels - Zurich, 1982;							\
+	C=(SNCB_20A),(<4*SJT_SBB_AM_G1,SNCF_Y_WRRB(|L),SJT_SBB_AM_G1);					\
+	F=PE4;
+      TX=SNCB 26 + D 1295/1296, Brussels - Rimini, 1986;						\
+	C=SNCB_26YB,											\
+	  (2*SJT_FS_BM_MG,SJT_FS_BCM_G,SJT_FS_BM_MG,SNCB_I4_3980,SJT_SNCB_WLABM_TEN,2*SJT_FS_BM_MG,	\
+	  2*SJT_SNCB_I5BCM_B,SJT_SNCB_I6DMS_O);								\
+	F=PE4;
+      TX=SNCB 20 + EC 94/95, Brussels - Chur, 1990;							\
+	C=SNCB_20B2,(<SJT_EC94_1990M);									\
+	F=PE4;
+      TX=SNCB 23 + D 1218/1219, Oostende - Salzburg, 1977;						\
+	C=SNCB_2305(|L),										\
+	  (SJT_DB_WLABMH_TENR,1-2*SJT_DB_BCM_B,SJT_DBB_BM_OB,SJT_DBB_AM_OB,3*SJT_DBB_BM_G);		\
+	F=PE4;
+    }
+    {E5?
+      TX=SNCB 25 + D 1186/1187, "Riviera Express", Amsterdam - Ventimiglia, 1995;			\
+	C=(SNCB_25_5(|L)),										\
+	  (SJT_SNCF_CORAILBC,SJT_NS_WRMZ_B,SJT_SNCF_CORAILBC,SNCF_VU_ACBCUX,SJT_SNCF_CORAILBC,		\
+	  SJT_DB_AVMZ_OR);										\
+	F=PE5;
+      TX=SNCB 27 + D 1138/1139, Amsterdam - Luxembourg, 2002;						\
+	C=SJT_SNCB27,(2*SJT_NS_ICRB,NS_ICR_BD~HEN,SJT_NS_ICRA,SJT_NS_ICRB,0-1*SJT_NS_AVMZ,SJT_DB_DMS);	\
+	F=PE5;
+      TX=SNCB 11 + IC 618/619, Amsterdam - Brussels, 2002;						\
+	C=<NS_BNL_BSL~HEN,SJT_BLX_ICB,SJT_NS_ICRB,SJT_BLX_ICBD,SJT_BLX_ICAB,SJT_BLX_ICA,SNCB_1181;	\
+	F=PE5;
+      TX=SNCB 27 + D 1385/1388, Den Bosch - Avignon, 1994;						\
+	C=SJT_SNCB27,											\
+	  (2*SJT_SNCF_CORAILBC,SJT_NS_WLABM_B,2*SJT_SNCF_CORAILBC,2*SJT_NS_WLABM_B,SJT_NS_WRMZ_B),	\
+	  4-8*SJT_SNCF_LESS[C1:SJT_1990S_CARS][C2:SJT_1990S_CARS][C3:SJT_1990S_CARS][C4:SJT_1990S_CARS]; \
+	F=PE5;
+      TX=SNCB 11 + IC 2486/2487, Amsterdam - Brussels, 1995;						\
+	C=<SNCB_1181,SJT_BLX_ICA,SJT_BLX_ICAB,SJT_BLX_ICBD,SJT_BLX_ICB,SJT_NS_ICRB,SJT_BLX_ICB,		\
+	  NS_BNL_BS~HEN;										\
+	F=PE5;
+      TX=SNCB 11 + IC 632/633, Amsterdam - Brussels, 2003;						\
+	C=<SNCB_1181,SJT_BLX_ICA,SJT_NS_ICRA,SJT_BLX_ICBD,SJT_BLX_ICB,2*SJT_NS_ICRB,NS_BNL_BS~HEN;	\
+	F=PE5;
+#Brussels-Liege-Aachen-Cologne
+      TX=SNCB 16 + EC 46/47 "Alexander von Humboldt", Berlin - Brussels, 1994;				\
+	C=(SNCB_16C(|L)|SJT_SNCB18BY),									\
+	  ((2:SJT_DB_BM_1993|5:),5*SJT_DB_BPMZ_1993,2*SJT_DB_BVMZ_1993,SJT_DB_WRMH_OR,			\
+	  SJT_DB_AVMZ_1993,SJT_DB_APMZ_1993,SJT_DB_AVMZ_1993);						\
+	F=PE5;
+      TX=SNCB 16 + EC 36/37 "Felix Timmermans", Köln - Brussels, 1996;					\
+	C=SNCB_16C(|L),											\
+	  (SJT_DB_AVMZ_OR,SJT_DB_APMZ_OR,SJT_DB_AVMZ_OR,SJT_DB_WRMH_OR,2*SJT_DB_BVMZ_OR,		\
+	  5*SJT_DB_BPMZ_OR,(2:SJT_DB_BM_1993|5:));							\
+	F=PE5;
+      TX=SNCB 27 + NZ 242/243, Paris - Berlin, 2005;							\
+	C=SJT_SNCB27|SJT_SNCF15000_RG,									\
+	  (SJT_DB_WLABMZ_VR,SJT_DB_BVCMBZ_VR,2*SJT_DB_BVCMZ_VR,DB_WRMBZ(|L),3*SJT_DB_BOMZ_VR,		\
+	  2*SJT_DB_BVCMZ_VR,SJT_DB_BVCMBZ_VR,2*SJT_DB_WLABMZ_VR);					\
+	F=PE5;
+      TX=SNCB 16 + D 242/243, Paris - Berlin, 1994;							\
+	C=SNCB_16C(|L),											\
+	  (((DBAG_WLAB176(|L),SJT_DBB_BCM_OB,SJT_DB_BM_1993)|SJT_DBB_BCM_OB),3*SJT_SNCF_CORAILB_W1,	\
+	  SNCF_VU_B6DD2_CS(|L),1-3*DBAG_5BCM242_1(|L),DBAG_WLAB176(|L));				\
+	F=PE5;
+      TX=SNCB 27 + AZ 13542/13543, Bordeaux - Berlin, 2002;						\
+	C=SJT_SNCB27,(2*SJT_DB_WLABMZ_VR,DB_WRMBZ(|L),4*SJT_DB_BVCMZ_VR,6*SJT_DDM_LOADED);		\
+	F=PE5;
+      TX=SNCB 27 + EN 224/225 "Donauwalzer", Brussels - Vienna, 1996;					\
+	C=SJT_SNCB27,(<SJT_EN225_1996_OST-W,SJT_D215_1996_A-W);						\
+	F=PE5;
+      TX=SNCB 16 + EN 324/325 "Donauwalzer", Brussels - Vienna, 2003;					\
+	C=SNCB_16D(|L),(2*SJT_OEBB_WLABM_BG,2-3*SJT_OEBB_BCM_WB,3*SJT_OEBB_BVMZ_G|SJT_OEBB_BVMZ_R);	\
+	F=PE5;
+      TX=SNCB16/27 + EN 324/325 "Donauwalzer", Brussels - Vienna, 2003;					\
+	C=SNCB_16D(|L)|SJT_SNCB27,									\
+	  (2*SJT_OEBB_WLABM_BG,2-3*SJT_OEBB_BCM_WB,3*SJT_OEBB_BVMZ_G|SJT_OEBB_BVMZ_R);			\
+	F=PE5;
+      TX=SNCB 16 + D 426/427, Oostende - Cologne, 1997;							\
+	C=SNCB_16C(|L),											\
+	  (<SJT_SNCB_I6DMS_W,0-1*SNCB_I4_3980OL,2*SJT_SNCB_I11A,4*SJT_SNCB_I11B,3*SJT_F_SNCB_I10B);	\
+	F=PE5;
+      TX=DB 112 + EC 46/47 "Alexander von Humboldt", Brussels - Berlin, 1996;				\
+	C=(SJT_DB112_VR|SJT_DB103_OR),((2:SJT_DB_BM_OR|5:),SJT_EC46_1997M);				\
+	F=PE5;
+      TX=SNCB 16 + EC 36/37 "Felix Timmermans", Brussels - Cologne, 1997;				\
+	C=SNCB_1601(|L),										\
+	  (SJT_DB_AVMZ_OR,SJT_DB_APMZ_OR,SJT_DB_AVMZ_OR,SJT_DB_WRMH_OR,SJT_DB_BVMZ_OR,SJT_DB_BPMZ_OR,	\
+	  SJT_DB_BPMZ_OR,SJT_DB_BPMZ_OR);								\
+	F=PE5;
+      TX=SNCB 16 + EN 348/349, "Jan Kiepura", Warsaw - Brussels, 2005;					\
+	C=SNCB_16C(|L),											\
+	  (BCH_WLABMEE2L,3*RZD_6WLABMEE(|L),0-1*CNL_WRMBZ138,PKP_ADMNU_Z1|PKP_BDMNU_Z1,			\
+	  2-3*SJT_PKP_BVCMBZ_JK,2-3*PKP_WRMNOUZ1251001(|L));						\
+	F=PE5;
+#Brussels-Liege-Aachen-Cologne
+      TX=SNCB 18 + EC 34/35 "Memling", Dortmund - Oostende, 1997;					\
+	C=SJT_SNCB18BY,											\
+	  (<2*SNCB_I10_2170M(|L),SNCB_2171O(|L),SNCB_I6_2170M(|L),SJT_DB_WRMH_OR,2*SNCB_I6_1970M(|L));	\
+	F=PE5;
+      TX=SNCB 16 + D 318/319, Köln - Oostende, 1991;							\
+	C=SNCB_16C(|L)|SJT_SNCB18BY|SJT_SNCB27|SJT_DB110B_OB,						\
+	  (SJT_SNCB_I6DMS_O,4*SNCB_2171O(|L),2*SNCB_1971O(|L),(11:|2:SJT_DB_BM_OB|1:SNCB_2171O(|L)));	\
+	F=PE5;
+      TX=Thalys + THA 9428/9429, Köln - Paris, 2003;							\
+	C=THAL_TR_2L,THAL_W1L,THAL_W2,THAL_W3,THAL_W4BAR,THAL_W5,THAL_W6,THAL_W7,THAL_W8,THAL_TR_2;	\
+	F=PE5;
+      TX=SNCB 27 + IC 423/424, Oostende - Köln, 2001;							\
+	C=SJT_SNCB27,											\
+	  (0-2*SNCB_I6_2170N(|L),2*SNCB_I6_1970N(|L),5-6*SJT_SNCB_I10B_O,0-1*SJT_SNCB_I6DMS_W);		\
+	F=PE5;
+      TX=SNCB 27 + EN 224/225 "Donauwalzer", Brussels - Vienna, 1996;					\
+	C=(SJT_SNCB27,(SJT_EN225_1996_OST-W,SJT_EN225_1996_OST-M))|					\
+	  (SJT_DB103_1993|SJT_OEBB1044_ORANGE,SJT_EN225_1996_OST-W,SJT_D215_1996_A-W);			\
+	F=PE5;
+      TX=SNCB 27 + D 326/327, Oostende - Cologne, 1992;							\
+	C=SJT_SNCB27,											\
+	  (SJT_DB_BM_1993,4*SJT_SNCB_I10B_O,SNCB_I4_3980OL,2*SNCB_I10_1170O(|L),SJT_SNCB_I6DMS_O,	\
+	  SJT_SNCB_I5BCM_B,(|(SNCB_I4_2980OL,2*SJT_SZD_WLABM_G,SNCB_I4_3980O)));			\
+	F=PE5;
+      TX=SNCB 16 + D 426/427, Oostende - Cologne, 1997;							\
+	C=SNCB_16C(|L),											\
+	  (<SJT_SNCB_I6DMS_W,0-1*SNCB_I4_3980OL,2*SJT_SNCB_I11A,4*SJT_SNCB_I11B,3*SJT_F_SNCB_I10B);	\
+	F=PE5;
+      TX=SNCB 16 + EC 46/47 "Alexander von Humboldt", Brussels - Berlin, 1996;				\
+	C=SNCB_16C(|L),SJT_EC46_1997M;									\
+	F=PE5;
+      TX=SNCB 16 + EC 36/37 "Felix Timmermans", Brussels - Cologne, 1997;				\
+	C=SNCB_1601(|L),										\
+	  (SJT_DB_AVMZ_OR,SJT_DB_APMZ_OR,SJT_DB_AVMZ_OR,SJT_DB_WRMH_OR,SJT_DB_BVMZ_OR,SJT_DB_BPMZ_OR,	\
+	  SJT_DB_BPMZ_OR,SJT_DB_BPMZ_OR);								\
+	F=PE5;
+      TX=SNCB 16 + EC 48/49, "Memling", Oostende - Cologne, 1991;					\
+	C=SJT_SNCB16B,(<3*SNCB_I10_2170M(|L),2*SNCB_I6_2170M(|L),SJT_SNCB_WRM_G,2*SNCB_I6_1970M(|L));	\
+	F=PE5;
+      TX=SNCB 16 + EC 34/35, "Memling", Oostende - Dortmund, 1997;					\
+	C=SNCB_1602(|L),(<2*SNCB_I10_2170M(|L),2*SNCB_I6_2170M(|L),SJT_DB_WRMH_OR,2*SNCB_I6_1970M(|L));	\
+	F=PE5;
+      TX=SNCB 16 + D 426/427, Oostende - Cologne, 1997;							\
+	C=SNCB_16C(|L),											\
+	  (<SJT_SNCB_I6DMS_W,0-1*SNCB_I4_3980OL,2*SJT_SNCB_I11A,4*SJT_SNCB_I11B,3*SJT_F_SNCB_I10B);	\
+	F=PE5;
+      TX=SNCB 16 + EC 34/35 "Memling", Oostende - Dortmund, 1998;					\
+	C=(SNCB_16D(|L)|SJT_SNCB18BY),									\
+	  (SJT_DB_BPMZ_OR,SJT_DB_BPMZ_VR,SJT_DB_BM_OR,SJT_DB_BVMZ_OR,SJT_DB_WRMH_OR,2*SJT_DB_AVMZ_OR);	\
+	F=PE5;
+      TX=SNCB I11BDXL + IC 510/511, Oostende - Eupen, 2005;						\
+	C=<SNCB_I11_BDXL~ZS,6*SJT_SNCB_I11B,2*SJT_SNCB_I11A,3*SJT_SNCB_I11B,SNCB_13~ZS;			\
+	F=PE5;
+      TX=SNCB 21 + IC 2015/2016, Antwerp - Charleroi, 2005;						\
+	C=<SJT_SNCB21,3*SJT_SNCB_M6B,SJT_SNCB_M6A,2*SJT_SNCB_M6B,SJT_SNCB27;				\
+	F=PE5;
+      TX=SNCB 27 + IC 1732/1733, Verviers - Quevrain, 2001;						\
+	C=<SJT_SNCB27,5*SJT_SNCB_M4B_W,SNCB_M4WADXML;							\
+	F=PE5;
+      TX=SNCB 20 + D 1270/1271, Brussels - Cerbere, 2001;						\
+	C=SNCB_20B2|SJT_SNCF6500_GR,									\
+	  (<SJT_SNCF_BCM_G1,SJT_SNCB_DISCO,2*SJT_SNCB_I5BCM_BP,SNCB_I6_1970N(|L),SJT_SNCB_I6DMS_O);	\
+	F=PE5;
+      TX=SNCB AM96 + IC 2312/2313, Antwerp - Lille, 2007;						\
+	C=2*SJT_SNCB_AM96;										\
+	F=PE5;
+      TX=SNCB 20 + D 102/103 Brussels - Luxembourg, 1995;						\
+	C=SNCB_20B2,(<SNCB_I4_2980_RT(|L),2*SNCB_I4_2980OL,SNCB_I4_3980OL,SNCB_1971O(|L));		\
+	F=PE5;
+      TX=SNCB AM75 + IC 630/631, Roosendaal - Oostende, 1994;						\
+	C=SJT_SNCB_AM75_R4|SJT_SNCB_AM75_R3;								\
+	F=PE5;
+      TX=SNCB AM96 + IC 912/935, Lille - Herstal, 2007;							\
+	C=SJT_SNCB_AM96_12|SJT_SNCB_AM96_21;								\
+	F=PE5;
+      TX=SNCB AM66 + L 5663/5684, Huy - Namur, 2007;							\
+	C=(<SNCB_AM66WABML,SNCB_AM66WBM)|(<SNCB_AM66WBML,SNCB_AM66WABM),				\
+	  0-1*(<SNCB_AM66WABML,SNCB_AM66WBM)|(<SNCB_AM66WBML,SNCB_AM66WABM);				\
+	F=PE5;
+      TX=SNCB AM86 + L 3364/3485, Vilvoorde - Haale, 2005;						\
+	C=(<SNCB_AM86MRML,SNCB_AM86MBRM)|(<SNCB_AM86MBRML,SNCB_AM86MRM);				\
+	F=PE5;
+      TX=SNCB 16 + P 7006/8003, Scharbeek - Oostende, 2005;						\
+	C=SNCB_16C(|L),(<4*SJT_SNCB_M4B_W,SNCB_M4WAM(|L),3*SJT_SNCB_M4B_W,SNCB_M4WAM(|L));		\
+	F=PE5;
+      TX=SNCB 13 + IR 4016/4017, Liers - Gouvy, 2004;							\
+	C=(SNCB_13~ZS,(SJT_SNCB_I11A,3*SJT_SNCB_I11B))|							\
+	  (SNCB_15B~GOU,(SJT_CFL_WEGB_GC,2*SNCB_I10_2170N(|L),SNCB_APM,SJT_SNCB_I6DMS_O));		\
+	F=PE5;
+      TX=SNCB 27 + IC 2216/2228, Gent - Genk, 2003;							\
+	C=2*SJT_SNCB27,(<4*SJT_SNCB_M6B,2*SJT_SNCB_M6A,4*SJT_SNCB_M6B);					\
+	F=PE5;
+      TX=SNCB 15 + IR 4017/4028, Liers - Gouvy, 2003;							\
+	C=SNCB_15B~GOU,(<0-1*SJT_CFL_WEGB_GC,2*SJT_SNCB_I10B_O,SNCB_I10_1170O(|L),SJT_SNCB_I6DMS_O);	\
+	F=PE5;
+      TX=SNCB 20 + Luxembourg - Blankenberge, 1991;							\
+	C=SNCB_20B2,											\
+	  (<SBB_5_RIC2AL|SBB_5_RIC2A,4*CFL_B5ML|CFL_B5M|CFL_B5L|CFL_B5,					\
+	  CFL_ABD5ML|CFL_ABD5M|CFL_ABD15ML|CFL_ABD15M,6*CFL_B5ML|CFL_B5M|CFL_B5L|CFL_B5);		\
+	F=PE5;
+      TX=SNCB 26 + IC Blankenberge - Luxembourg, 1998;							\
+	C=SNCB_26,											\
+	  (<CFL_ABD5ML|CFL_ABD5M|CFL_ABD15ML|CFL_ABD15M,SNCB_I11_AL~ZS|SNCB_I11_A~ZS,			\
+	  2*SNCB_I6_1970NL|SNCB_I6_1970N,CFL_BR2L|CFL_BR2,CFL_ABD5ML|CFL_ABD5M|CFL_ABD15ML|CFL_ABD15M,	\
+	  CFL_BD5ML|CFL_BD5M|CFL_BD5|CFL_BD5L,								\
+	  CFL_AB5L|CFL_AB5|CFL_AB15L|CFL_AB15|CFL_AB5ML|CFL_AB5M|CFL_AB15ML|CFL_AB15M,			\
+	  2*CFL_BD5ML|CFL_BD5M|CFL_BD5|CFL_BD5L);							\
+	F=PE5;
+      TX=SNCB 20 + EC 90/91 "Vauban", Brussels - Brig, 2005;						\
+	C=SNCB_20B2,(2*SJT_SNCB_I11A,3*SJT_SNCB_I11B,SBB_2090REFITL,(5:SBB_1090REFIT|2:));		\
+	F=PE5;
+      TX=SNCB 20 + D 498/499, Brussels - Basel, 2001;							\
+	C=SNCB_20B2,											\
+	  (OBB_9570O(|L),SJT_SNCB_I10B_O,SNCB_I6_2170N(|L),SJT_SBB_BC_NIGHT,SJT_SBB_WLAB_NIGHT,		\
+	  SJT_SBB_BC_NIGHT);										\
+	F=PE5;
+      TX=SNCB 20 + EC 94/95, Brussels - Chur, 1997;							\
+	C=SNCB_20B2,(<SJT_SBB_BM_O,SJT_SBB_AM_O,SNCB_I2_A3R,SJT_SBB_AM_O,3*SJT_SBB_BM_O);		\
+	F=PE5;
+      TX=SNCB 27 + EC 96/97 "Iris", Brussels - Chur, 2000;						\
+	C=SJT_SNCB27,(SJT_SNCB_I11WR,SJT_EC96_2000M,SJT_SNCB_I10B_O);					\
+	F=PE5;
+      TX=SNCB 27 + EC 90/91 "Vauban", Brussels - Milan, 2001;						\
+	C=SJT_SNCB27,SNCB_I6_2170N(|L),SJT_SNCB_I10B_O,SJT_EC90_2001M;					\
+	F=PE5;
+      TX=SNCB 20 + D Scharbeek - Ancona, 1998;								\
+	C=(SNCB_20B2),(<SNCB_I6_2170M(|L),SJT_EC90_1999M);						\
+	F=PE5;
+      TX=SNCB 20 + EC 90/91 "Vauban", Brussels - Interlaken, 2007;					\
+	C=(SNCB_20B2),(SNCB_I6_2170N(|L),SJT_EC90_2007M);						\
+	F=PE5;
+      TX=SNCB 27 + EN 224/225 "Donauwalzer", Oostende - Vienna, 1994;					\
+	C=SJT_SNCB27,(SJT_EN224_1994BRU-W,SJT_D214_1994BRU-M);						\
+	F=PE5;
+      TX=SNCB 27 + D 13226/13227 "Bergland-Express", Rotterdam - San Candido/Innichen, 2006;		\
+	C=(1-2*SNCB_2716),										\
+	  (<SNCB_P_WL,SNCB_T2_5,SNCB_I6_5190,3*SNCB_I5_5070L,SNCB_I10_8990L,SNCB_I5_5070L,2*SNCB_P_WL,	\
+	  2*SNCB_I5_5070L,SNCB_T2_5,2*SNCB_I5_5070L);							\
+	F=PE5;
+    }
+    {E6?
+      TX=ATC 186 + IC 9216/9217, Amsterdam - Brussels, 2011;						\
+	C=SJT_ATC186PLAIN,(<5*SJT_OEBB_BPMZ_G,1*NS_1871EXOBB);						\
+	F=PE6;
+      TX=ATC 186 + IC 9228/9229, Amsterdam - Brussels, 2011;						\
+	C=SJT_ATC186PLAIN,(<SJT_OEBB_AVMZ_G,SJT_OEBB_BPMZ_G,NS_1871EXOBB,3*SJT_OEBB_BPMZ_G);		\
+	F=PE6;
+      TX=SNCB 27 + NX 242/243 "Perseus", Paris - Berlin, 2008;						\
+	C=SJT_SNCB27,											\
+	  (SJT_DB_BOMZ_VR,SJT_DB_BVCMZ_VR,SJT_DB_BVCMBZ_VR,2*SJT_DB_WLABMZ_VR,DB_WRMBZ(|L),		\
+	  SJT_DB_BOMZ_VR,SJT_DB_BVCMZ_VR,SJT_DB_BVCMBZ_VR,SJT_DB_WLABMZ_VR,0-1*RZD_6WLABMEE);		\
+	F=PE6;
+      TX=SNCB 27 + D 13220/13221, Brussels - Zell am See, 2008;						\
+	C=(SJT_SNCB27|SNCB_16C(|L)),(SNCB_I6_2170M(|L),1-2*SNCB_I6_5190(|L),SNCB_I10_2170N(|L));	\
+	F=PE6;
+      TX=DB 186 + Antwerp - Ludwigshafen, 2020;								\
+	C=SJT_DB186_TANKMIX;										\
+	F=FE6;
+      TX=DB 406 – ICE3 + ICE 16/17, Brussels - Frankfurt, 2021;						\
+	C=SJT_ICE3M_12G;										\
+	F=PEU6;
+#BELGIUM DOMESTIC
+      TX=SNCB I11BDXL + IC 416/147, Maastricht - Brussels, 2008;					\
+	C=<SNCB_I11_BDXL~ZS,2*SJT_SNCB_I11B,2*SJT_SNCB_I11A,4*SJT_SNCB_I11B,SNCB_13~ZS,SJT_SNCB_I11A,	\
+	  SNCB_I11_BDX~ZS;										\
+	F=PE6;
+      TX=SNCB AM96 + IC 1536/1537, Genk - Knokke, 2008;							\
+	C=2|4*SJT_SNCB_AM96;										\
+	F=PE6;
+      TX=SNCB 11 + IC 2116/2117, Brussels - Arlon, 2008;						\
+	C=SNCB_1181,(<4*SJT_SNCB_M6B,2*SJT_SNCB_M6A,SNCB_M6_ABD,3*SJT_SNCB_M6B);			\
+	F=PE6;
+      TX=SNCB 27 + IC 2206/2207, Genk - Gent, 2008;							\
+	C=<SJT_SNCB27,2*SJT_SNCB_M6B,SNCB_M6_ABDL,SJT_SNCB_M6B,SJT_SNCB_M6A,2*SJT_SNCB_M6B,SNCB_M6_BDX;	\
+	F=PE6;
+      TX=SNCB 18 + P 7001, Oostende - Scharbeek, 2019;							\
+	C=SNCB_18N(|L),(<SNCB_M4WADM(|L),5*SJT_SNCB_M4B_W,SNCB_M4WADM(|L));				\
+	F=PE6;
+      TX=SNCB 18 + IC 508/509, Oostende - Eupen, 2020;							\
+	C=<SNCB_18N(|L),SNCB_I10_2170N(|L),4*SJT_SNCB_I11B,2*SJT_SNCB_I11A,4*SJT_SNCB_I11B,		\
+	  SNCB_I11_BDX~ZS;										\
+	F=PE6;
+      TX=SNCB 15 + IR 4016/4027, Liers - Gouvy, 2008;							\
+	C=SNCB_15B~GOU,(<2*(SNCB_I6_2170N(|L)|SNCB_I6_2170M(|L)),SNCB_I6_2170N(|L),SNCB_I6_1970N(|L));	\
+	F=PE6;
+      TX=SNCB AM66 + L 5665/5688, Huy - Tamines, 2008;							\
+	C=1-2*(<SNCB_AM66WABML,SNCB_AM66WBM)|(<SNCB_AM66WBML,SNCB_AM66WABM);				\
+	F=PE6;
+      TX=SNCB AM66 + IR 3815/3831, Jambes - Tournai, 2008;						\
+	C=0-1*(<SNCB_AM66WABML,SNCB_AM66WBM)|(<SNCB_AM66WBML,SNCB_AM66WABM),				\
+	  (SNCB_AM75RXARML,SNCB_AM75M1RML,SNCB_AM75M2RML,SNCB_AM75RXBRM)|				\
+	  (SNCB_AM75RXBRML,SNCB_AM75M2RM,SNCB_AM75M1RM,SNCB_AM75RXARM);					\
+	F=PE6;
+#Brussels-Luxembourg-Strasbourg-Basel
+      TX=SNCB 13 + P 7655, Arlon - Luxembourg, 2019;							\
+	C=<SNCB_I11_BDXL~ZS,SJT_SNCB_I11B,SNCB_I10_2170N(|L),SNCB_APM,2*SNCB_I10_2170N(|L),SNCB_13~ZS;	\
+	F=PE6;
+      TX=SNCB 20 + EC 96/97 "Iris", Brussels - Zurich, 2009;						\
+	C=SNCB_20B2,(<2*SJT_SBB_AM_EC,3*SJT_SBB_BM_EC,SNCB_I6_2170N(|L));				\
+	F=PE6;
+      TX=SNCB 20 + EC 205/296 "Jean Monnet", Brussels - Basel, 2009;					\
+	C=SNCB_20B2,											\
+	  (SNCF_VU_B6D4L,2*SJT_SNCF_CORAILB_G1,SJT_SNCF_CORAILAB_G1,3*SJT_SNCF_CORAILB_TER,		\
+	  SJT_SNCF_CORAILB_G1);										\
+	F=PE6;
+      TX=SNCB 13 + EC 90/91 "Vauban" Farewell, Brussels - Basel, 2016;					\
+	C=SNCB_13~ZS,											\
+	  (<2*SBB_APM1990_1M(|L),SNCB_I6_1970N(|L),SJT_SNCB_I11WR,4*SNCB_I6_2170N(|L),			\
+	  SNCB_I10_2170N(|L));										\
+	F=PE6;
+      TX=SNCB 27 + D 13298/13299 "Bergland-Express", Rotterdam - Innsbruck, 2008;			\
+	C=2*SJT_SNCB27,(<SNCB_P_WL,SNCB_T2_5L,2*DB_BTE_A,BTE_WGMH,4*DB_BTE_A,SNCB_T2_5,SNCB_P_WL);	\
+	F=PE6;
+      TX=SNCB 13 + Zeebrugge - Chiasso, 2019;								\
+	C=SNCB_13M(|L),24*SJT_UKCONTAINERS;								\
+	F=FE6;
+    }
+
+  }
+%ENDPOOL;
 ######################################################################
 #                             Niederlande                            #
 ######################################################################
@@ -700,12 +1183,8 @@ $REQUIRE TRAINDEF.TTT
       TX=NS 2000;											\
 	C=NS_2000(L|~EB)[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],NL12F;			\
 	F=SF2;
-      TX=NS 2114 + Eilzug;										\
-	C=NS_2114(|L),NL2PSC;										\
-	F=SP2;
-      TX=NS 2100 + Eilzug;										\
-	C=NS_2100L|NS_2100[BC:-75,-30][OT:BUFFER5L,0,8][OT:BUFFER5R,>,8][NB:B,BA8],			\
-	  NS_D7521GL|NS_D7521G,(<NS_CESC_8107GVL,NS_BC9C,NS_C12CG1,NS_C12CO1);				\
+      TX=NS 2103 + Eilzug;										\
+	C=NS_2_2103(|L),NL2PSC;										\
 	F=SP2;
       TX=NS 2701;											\
 	C=NS_2A_2701(|L),NL2P2;										\
@@ -821,7 +1300,7 @@ $REQUIRE TRAINDEF.TTT
 	C=NS_2_60(01|05|07|17)(|L),NL2PSC;								\
 	F=SP2;
       TX=NS 6100 + Personenzug;										\
-	C=NS_2_6110(|L),NL2PSC;										\
+	C=NS_2_61(10|03)(|L),NL2PSC;										\
 	F=SP2;
       TX=NS 6100 + Personenzug;										\
 	C=NS_6100KL|NS_6100L|NS_6100|NS_6100AL|NS_6100A|NS_6100BL|NS_6100B|NS_6100CL|NS_6100C|		\
@@ -969,8 +1448,13 @@ $REQUIRE TRAINDEF.TTT
       TX=NS 1700;											\
 	C=NS_3B1762(|L),NL3PLA;										\
 	F=S32;
-      TX=NS 2114 + Schnellzug;										\
-	C=NS_2114(|L),NL3PLA;										\
+      TX=NS 1835 + königlicher Zug - Hofplein-Linie 30.08.1948;						\
+	C=NS_3B1762(|L),										\
+	  (<NS_D6061GL,NS_3A_SALK7L,NS_3A_PWK6,NS_D6061G)|						\
+	  (>NS_D6061G,NS_3A_SALK7,NS_3A_PWK6L,NS_D6061GL);						\
+	F=SP3;
+      TX=NS 2100 + Personenzug;										\
+	C=NS_(3_2104|2114)(|L),NL3PRA;								\
 	F=SP3;
       TX=NS 3400;											\
 	C=NS_3A3419(|L),NL3FLS;										\
@@ -1091,6 +1575,9 @@ $REQUIRE TRAINDEF.TTT
       TX=NS 2200/2300;											\
 	C=NS_2201L|NS_2201|NS_2202L|NS_2202|NS_2275L|NS_2275|NS_2301L|NS_2301|NS_2278L|NS_2278,		\
 	  (<NS_3B_CHOK1450BL,NS_3B_CHOP1460L,NS_3B_CHOP1460,NS_3B_CHOP1469H,NS_25101E,NS_25101N);	\
+	F=DF3;
+      TX=NS 2223 + Mp 9202 + 9222 1961;											\
+	C=[PD]NS_2223(|L),PTT_MP9221(|L),PTT_MP9201(|L);	\
 	F=DF3;
       TX=NS 2400 + Personenzug;										\
 	C=NS_2417(|L),NL3PRA;										\
@@ -1225,6 +1712,9 @@ $REQUIRE TRAINDEF.TTT
 	C=NS_1100_2AL|NS_1100_2A|NS_1100_2BL|NS_1100_2B,						\
 	  (<(2*NS_W1_B1L),NS_E_A4L|NS_E_A4,2*NS_W1_B1,NS_E_BKD);					\
 	F=EP3;
+      TX=NS 1138 + königlicher Zug Sr8 + Sr9 + D6 nach Zeeland Zugfahrt von Baarn nach Vlissingen zur Eröffnung des neuen Rathauses von Vlissingen 21.05.1965;										\
+	C=NS_1102(|L),(<NS_3B_D6,NS_3B_SR9,NS_3B_SR8)|(>NS_3B_D6L,NS_3B_SR9L,NS_3B_SR8L);					\
+	F=EP3;
       TX=NS 1200 + Personenzug;										\
 	C=NS_1200T(|L)~GOU,										\
 	  (<(1-3*NS_C12C_B(|L)),2*NS_C12C_B(|L),1-3*NS_C12C_B(|L))|					\
@@ -1262,15 +1752,21 @@ $REQUIRE TRAINDEF.TTT
 	  (<NS_L_P3L|NS_L_P3|NS_L_P4L|NS_L_P4|NS_L_P5L|NS_L_P5,NS_E_RD~GOU,				\
 	  NS_E_B~GOU|NS_E_B7L|NS_E_B7,NS_E_A6L|NS_E_A~GOU|NS_E_A6,NS_E_AB6L|NS_E_AB6,NS_E_B6L|NS_E_B6);	\
 	F=EP3;
+      TX=NS 1305 + königlicher Zug - Lech (A) - Baarn 10.01.1955;						\
+	C=NS_1306(|L),NS_3A_VERW1(|L),NS_3A_PWK6(|L),NS_3A_SALK7(|L),NS_3A_SALK8(|L);						\
+	F=SP3;
 
 # ET
 
       TX=NS 9000 =9900;											\
 	C=NS_MB9925|NS_MBC9910|NS_MC9901,NS_C8001G;							\
 	F=EPU3;
-      TX=NS Mat 24;											\
-	C=<NS_MCD_9101GVL,NS_CES_8101G,NS_BECM_8551GV,NS_AEC_8501G,NS_MC_9001G;				\
-	F=EPU3;
+      TX=MP 9223 + PlanD Post + MP 9203 1963;											\
+	C=PTT_MP9221(|L),NS_D_POST1963(|L),PTT_MP9201(|L);				\
+	F=EP3;
+      TX=MP 9232 + PlanD Post 1965;											\
+	C=PTT_MP9231(|L),NS_3_E_POST(|L);				\
+	F=EP3;
       TX=NS Mat 35;											\
 	C=(<NS_MAT35BCKL~EB,NS_MAT35BCK~EB)|(<NS_MAT35CDKL~EB,NS_MAT35CDK~EB)|				\
 	  (<NS_MAT35CKL~EB,NS_MAT35CK~EB);								\
@@ -1344,13 +1840,20 @@ $REQUIRE TRAINDEF.TTT
       TX=NS 614 + Werkwagen;										\
 	C=NS_614(|L),(NS_WERKW505(|L)|(NS_WERKW505LO[#D:L])|NS_WERKW503(|L)|NS_WERKW504(|L));		\
 	F=DF4;
+
       TX=NS 2200 + Wendezug 1970-1980er Jahre;								\
-	C=(<NS_2294,NS_E_B7,NS_E_AB6L,NS_E_B7L,NS_E_B7,NS_4_ENG501,NS_4A_2200N8L)|			\
+	C=(<,NS_4A_EB,NS_4A_EAB1,2*NS_4A_EB,)|			\
 	  (>NS_2294L,NS_E_B7L,NS_E_AB6,NS_E_B7,NS_E_B7L,NS_4_ENG501,NS_4A_2200N8);			\
 	F=DPRU4;
+
+
       TX=NS 2200 + Wendezug 1970-1980er Jahre;								\
-	C=(<NS_2294,NS_E_B7,NS_E_B7L,NS_E_B7,NS_4_ENG501,NS_2210L)|					\
-	  (>NS_2294L,NS_E_B7L,NS_E_B7,NS_E_B7L,NS_4_ENG501,NS_2210L);					\
+	C=(<NS_2294,NS_4A_EB,NS_4A_EAB1L,NS_4A_EBL,NS_4A_EB,NS_4_ENG501,NS_4A_2200N8L)|			\
+	  (>NS_2294L,NS_4A_EBL,NS_4A_EAB1,NS_4A_EB,NS_4A_EBL,NS_4_ENG501,NS_4A_2200N8);			\
+	F=DPRU4;
+      TX=NS 2200 + Wendezug 1970-1980er Jahre;								\
+	C=(<NS_2294,NS_4A_EB,NS_4A_EBL,NS_4A_EB,NS_4_ENG501,NS_2210L)|					\
+	  (>NS_2294L,NS_4A_EBL,NS_4A_EB,NS_4A_EBL,NS_4_ENG501,NS_2210L);					\
 	F=DPRU4;
       TX=NS 2200 + Erzzug Ruhrgebiet - Rotterdam 1973;							\
 	C=4*NS_22(01|00A)(|L),28*NS_FALS25(10AL|10A|10BL|10B|20AL|20A|20BL|20B|20|10);			\
@@ -1455,6 +1958,9 @@ $REQUIRE TRAINDEF.TTT
 
 # E
 
+      TX=NS 1007 + 1158 + Zementzug Goes - Rotterdam IJsselmonde 1977;											\
+	C=NS_1000~HW,NS_4A1158(|L)[PD],8*NS_UCS3810(|L);					\
+	F=EF4;
       TX=NS 1143;											\
 	C=NS_1143,(<NS_E_B5,2*NS_E_A4,NS_E_B5L,NS_E_B4|NS_E_B4L);					\
 	F=EP4;
@@ -1475,9 +1981,16 @@ $REQUIRE TRAINDEF.TTT
       TX=NS 1100 + Güterzug;										\
 	C=NS_1137(|L)|NS_1107(|L)|NS_1122(|L),NL4FL1;							\
 	F=EF45;
+      TX=NS 1100 + Postzug 1984;										\
+	C=NS_1121(|L),2*NS_HBBKKSS_RPOSTH;		\
+	F=EF4;
       TX=NS 1150 Nase + Plan D;										\
 	C=NS_1130,NS_D_RD3,NS_D_B9L,NS_D_B9SL,NS_D_A8SL,NS_D_A8L,NS_D_B9L,2*NS_D_B9SL;			\
 	F=EP4;
+      TX=NS 1200 + königlicher Zug 1970;											\
+	C=[!EP4]NS_4_1200B(|[!L]),(<NS_D_A8L,NS_3B_SR9,NS_3B_SR8L)|\
+	(>NS_D_A8,NS_3B_SR9L,NS_3B_SR8);		\
+	F=EF4;
       TX=NS 1200;											\
 	C=NS_1200NL|NS_1200N,										\
 	  (<NS_D_RD3L,NS_D_A8,NS_K_AB2L|NS_K_AB2|NS_K_AB3L|NS_K_AB3,NS_K_B3L|NS_K_B3,NS_D_B9);		\
@@ -1845,7 +2358,7 @@ $REQUIRE TRAINDEF.TTT
       TX=NS 2700 CAF Civity 2022;									\
 	C=NS_CIVITY_2300Y;										\
 	F=EPU56;
-      TX=NS 3200/3300;					\
+      TX=NS 3200/3300;											\
 	C=<NS_3300I1L,NS_3300I2L,NS_3300I3L,NS_3300I4L,NS_3300I4,NS_3300I3,NS_3300I7,NS_3300I1;		\
 	F=EPU6;
       TX=NS 3200/3300 IC 9531 Brussel Zuid - Lelystad Centrum 2024;					\
@@ -1959,8 +2472,8 @@ $REQUIRE TRAINDEF.TTT
       TX=Arriva GT28E;											\
 	C=AR_GTWE28L|AR_GTWE28;										\
 	F=EPU6;
-      TX=Niederlande Arriva LINT 41H Blauwnet RS 24 Oldenzaal - Zutphen 2025;									\
-	C=AR_41H_BLAUWNETM;								\
+      TX=Niederlande Arriva LINT 41H Blauwnet RS 24 Oldenzaal - Zutphen 2025;				\
+	C=AR_41H_BLAUWNETM;										\
 	F=DPRU6;
       TX=DB Cargo Nederland 6400;									\
 	C=(DBS_6400VRM|DBS_6400EYM)(|L),2*D6FZKM;							\
@@ -2070,8 +2583,8 @@ $REQUIRE TRAINDEF.TTT
       TX=Nedtrain 200;											\
 	C=NEDTRAIN_200,EURAILSCOUT_UMR(|L);								\
 	F=DF6;
-      TX=Nederland Rail Force One EURO 9000 Nr. 2019-303;										\
-	C=RFOFS_2019303(|L),D6FCM;										\
+      TX=Nederland Rail Force One EURO 9000 Nr. 2019-303;						\
+	C=RFOFS_2019303(|L),D6FCM;									\
 	F=EF6;
       TX=Nederland Rail Terminal Born 500;								\
 	C=RTBORN_500~EB,Z_D_E6_G_KK(3|1|2);								\
@@ -2227,9 +2740,312 @@ $REQUIRE TRAINDEF.TTT
 	C=ATC_186001,NL6PIH;										\
 	F=EP6;
     }
+### Classic Trains from Simon Treanor
+    {E4?
+
+      TX=NS ICM + EC 66/67 "Admiraal de Ruijter", Amsterdam - Hoek van Holland (London), 1987;		\
+	C=3*<NS_ICMG_MBKL,NS_ICMG_AB,NS_ICMG_SBFK;							\
+	F=PE4;
+      TX=NS 1700 + SPR 5656/5657, Utrecht - Zwolle - 2018;						\
+	C=<SJT_NS1700,2*NS_DDM_BV~HEN,NS_DDM_ABV~HEN,NS_DDM_BVK~HEN;					\
+	F=PE4;
+      TX=NS 1800 + IC 952/953, Zaandvort - Heerlen, 1989;						\
+	C=NS_1840,(<NS_W1_B7,2*SJT_NS_ICRB,SJT_NS_ICRA,2*SJT_NS_ICRB);					\
+	F=PE4;
+      TX=NS 1100 + IC 1648/1649, Amsterdam - Enschede, 1984;						\
+	C=SJT_NS1100,(<SJT_NS_ICRB,NS_E_A~GOU,3*NS_E_B~GOU);						\
+	F=PE4;
+      TX=NS 1800 + IC 852/853, Zandvoort - Maastricht, 1983;						\
+	C=NS_1840,(<SJT_NS_ICRB,SJT_NS_ICRA,SJT_NS_ICRB,NS_ICR_BD~HEN,NS_ICR_BD~HEN);			\
+	F=PE4;
+      TX=NS 1200 + IC 956/957, Zandvoort - Heerlen, 1982;						\
+	C=SJT_NS1200,(<NS_E_B6L,SJT_NS_ICRA,SJT_NS_ICRB,NS_ICR_BD~HEN,SJT_NS_ICRB);			\
+	F=PE4;
+      TX=NS 1100 + EC 26 "Frans Hals", Amsterdam - Munich, 1988;					\
+	C=SJT_NS1100,SJT_EC26_1988M;									\
+	F=PE4;
+      TX=NS 1200 + D 2516/2517, Den Haag - Köln, 1987;							\
+	C=SJT_NS1200,(3*SJT_NS_ICRB,SJT_NS_ICRA);							\
+	F=PE4;
+      TX=NS 1100 + IC 2044/2045, Hannover - Schiphol, 1986;						\
+	C=(SJT_NS1100),(NS_ICR_BD~HEN,SJT_DBB_BM_OB,SJT_DBB_AM_B,3*SJT_DBB_BM_OB);			\
+	F=PE4;
+      TX=NS 1100 + IC 2312/2313, Amsterdam - Köln, 1984;						\
+	C=(SJT_NS1100),(SJT_DB_AM_OB,3*SJT_DBB_BM_OB);							\
+	F=PE4;
+      TX=NS 1000 + E 2516/2517, Den Haag - Köln, 1980;							\
+	C=SJT_NS1000,(NS_D_B9,NS_D_A8,2*NS_D_B9L);							\
+	F=PE4;
+      TX=NS 1100 + D 236/237 "Nord-West Express", Copenhagen - Hoek, 1980;				\
+	C=(SJT_NS1100),(SJT_DB_ABM12_G,SJT_DSB_BM_R,SJT_DBB_BCM_OB,SJT_DBB_BM_OB,SJT_DB_DMS);		\
+	F=PE4;
+      TX=NS 1100 + TEE 10/11 "Rembrandt", Amsterdam - Stuttgart, 1981;					\
+	C=SJT_NS1100,(SJT_DBB_APMZ_TEE,SJT_DBB_AVMZ_TEE,SJT_DBB_ARMZ_RB);				\
+	F=PE4;
+      TX=NS 1300 + D 2520/2523, Den Haag - Köln, 1988;							\
+	C=SJT_NS1300Y,(NS_ICR_BD~HEN,SJT_NS_ICRA,2*SJT_NS_ICRB);					\
+	F=PE4;
+      TX=NS 1800 + EC 2/3 "Rembrandt", Amsterdam - Chur, 1989;						\
+	C=NS_1840,SJT_EC2_1989M;									\
+	F=PE4;
+      TX=NS 1200 + Amsterdam - Paris, 1979;								\
+	C=NS_1211L~GOU|NS_1211~GOU|NS_1212L~GOU|NS_1212~GOU|NS_1220L~GOU|NS_1220~GOUB,			\
+	  (<NS_D_RD3,SNCF_VSE_A9U_C1L|SNCF_VSE_A9U_C1,SNCF_VU_A4B6U_C1L|SNCF_VU_A4B6U_C1,		\
+	  SNCF_VSE_B11U_COL|SNCF_VSE_B11U_CO|SNCF_VTU_B10UL|SNCF_VTU_B10U|SNCF_VTU2_B10UL|		\
+	  SNCF_VTU2_B10U|SNCF_VTU_B10AL|SNCF_VTU_B10A|SNCF_VTU_B10BL|SNCF_VTU_B10B|SNCF_VTU_B10CL|	\
+	  SNCF_VTU_B10C|SNCF_VTU_B11A|SNCF_VTU_B11AL|SNCF_VTU_B11BL|SNCF_VTU_B11B|SNCF_VTU_B11CL|	\
+	  SNCF_VTU_B11C|SNCF_VTU_B11DL|SNCF_VTU_B11D|SNCF_VU_B11U_COL|SNCF_VU_B11U_CO,			\
+	  SNCF_VSE_B11U_C1|SNCF_VSE_B11U_C1L,SNCF_VU_B6DU_EFL|SNCF_VU_B6DU_EF,				\
+	  2*SNCF_875970SYL|SNCF_875970SY|SNCF_875970_1967L|SNCF_875970_1967|SNCF_875970_1985L|		\
+	  SNCF_875970_1985|SNCF_875970_1992L|SNCF_875970_1992);						\
+	F=PE4;
+      TX=NS 1200 + D 9131/9134 "Gascogne Express", Den Bosch - Biarritz, 1985;				\
+	C=SJT_NS1200,(5*SJT_SNCF_BCM_B1,SJT_NS_WRMZ_TEE,3*NS_T2S_4T(|L)),				\
+	  4-8*SJT_SNCF_LESS[C1:SJT_1980S_CARS][C2:SJT_1980S_CARS][C3:SJT_1980S_CARS][C4:SJT_1980S_CARS]; \
+	F=PE4;
+      TX=NS Benelux + D 168/169 Amsterdam - Brussels, 1980;						\
+	C=2*(<NS_BNLX_BDK2L~GOU,NS_BNLX_ABK2~GOU);							\
+	F=PE4;
+      TX=NS 1300 + D 282/283, Amsterdam - Paris, 1986;							\
+	C=(SJT_NS1300B),										\
+	  (SJT_DBB_BM_OB,SJT_DBB_AM_OB,SJT_SNCF_BCM_G1,SJT_DBB_BDMS_OB,2*SJT_DBB_BM_OB,SJT_DBB_BM_G);	\
+	F=PE4;
+      TX=NS 1200 + D 282/283, Amsterdam - Paris, 1978;							\
+	C=(SJT_NS1200),SJT_D282_1978M;									\
+	F=PE4;
+      TX=NS 1200 + D 296/297, Amsterdam - Basel, 1979;							\
+	C=(SJT_NS1200B),(<SBB_DMS(|L),SJT_SBB_AM_G1,2*SBB_4_RIC2B(|L));					\
+	F=PE4;
+      TX=NS 1300 + D 344/345, Hoek van Holland - Berlin, 1990;						\
+	C=SJT_NS1300Y,(SJT_D344_1990H-HOEK,SJT_D344_1990M);						\
+	F=PE4;
+      TX=NS 1100 + D202/203 "Loreley", Hoek van Holland - Chiasso, 1988;				\
+	C=NS_1144,(<NS_W2_B2,NS_ICR_B~HEN,SBB_4_RIC2BL,SBB_5_2270,SBB_4_RIC2BL,SBB_5_RIC2AL,SBB_DMS);	\
+	F=PE4;
+      TX=NS 1500 + TEE 24/25 "Erasmus", Den Haag - Munich, 1975;					\
+	C=(NS_1500EL,(<2*DB_4AVUMZ111_2L,0-1*DB_APUMZ121L~HEN,DB_4AVUMZ111_2L,0-1*DB_APUMZ121L~HEN)),	\
+	  (<DB_4AVUMZ111_2L,DB_APUMZ121L~HEN,DB_4A_WRUMH132_2RL,DB_4A_ARDMH105L);			\
+	F=PE5;
+    }
+    {E5?
+
+      TX=NS 1700 + IC Haarlem - Maastricht, 1999;							\
+	C=NS_1737|NS_1784L|NS_1784,(<3*NS_ICP_A~HEN,6*NS_ICP_B~HEN,NS_ICP_BKD~HEN);			\
+	F=PE5;
+      TX=NS SGM + SPR 4056/4057, Amsterdam - Rotterdam, 1995;						\
+	C=<NS_SGM0AFL,NS_SGM1AML,NS_SGM1A3E;								\
+	F=PE5;
+      TX=NS 1700 + IC 3654/3655, Zwolle - Roosendaal, 2005;						\
+	C=<SJT_NS1700,2*SJT_NS_ICRB,SJT_BLX_ICAB,NS_ICR_BD~HEN,NS_ICR_BS~HEN;				\
+	F=PE5;
+      TX=NS 1200 + IC 950/951, Zandvoort - Heerlen, 1992;						\
+	C=SJT_NS1200,(<NS_W1_B7L,2*SJT_NS_ICRA,NS_ICR_BD~HEN,NS_W1_B7L,2*SJT_NS_ICRB);			\
+	F=PE5;
+      TX=NS 1840 + Veendam - Waalhaven-Zuid, 1995;							\
+	C=NS_1840,											\
+	  20*G_SGNS6[P:C1,10,12][P:C2,100,12]								\
+	  [C1:(C3016|C3009|C3_EG1|C3I_CMA_CGM1|C3I_FLORENS1|C3012|C3010)]				\
+	  [C2:(C3016|C3009|C3_EG1|C3I_CMA_CGM1|C3I_FLORENS1|C3012|C3010)];				\
+	F=PE5;
+#REVISIT#
+      TX=NS 711 + IC Amsterdam - Nijmegen, 1992;							\
+	C=<NS_711BDK8HL,NS_359BKH,NS_711BK10L,NS_711B10L~EB,NS_711A10L~EB,NS_711BK10E~EB;		\
+	F=PE5;
+      TX=NS 1700 + IC 2548/2549, Den Haag - Heerlen, 2002;						\
+	C=SJT_NS1700,											\
+	  (<SJT_NS_ICK_B,SJT_DB_BM_OR,NS_ICR_B,2*SJT_DB_BM_OR,SJT_NS_ICK_BD,NS_ICR_B,NS_ICR_A,		\
+	  SJT_NS_ICK_B);										\
+	F=PE5;
+#Emmerich and Venlo
+      TX=NS 1700 + EC 141/152 "Bonifacius", Amsterdam - Köln, 1993;					\
+	C=SJT_NS1700,											\
+	  (2*SJT_DB_AVMZ_1993,SJT_DB_BVMZ_1993,SJT_DB_BPMBZ_1993,2*SJT_DB_BPMZ_1993,SJT_DB_BM_1993);	\
+	F=PE5;
+      TX=NS 1700 + EC 143/150 "Erasmus", Schiphol - Köln, 1994;						\
+	C=SJT_NS1700,(SJT_DB_AVMZ_OR,DBAG_5ARMZ211L,3*SJT_DB_BVMZ_OR,SJT_DB_BPMBZ_OR,SJT_DB_BPMZ_OR);	\
+	F=PE5;
+      TX=NS 1700 + EC 140/153 "Hieronymus Bosch", Amsterdam - Köln, 1993;				\
+	C=SJT_NS1700,											\
+	  (SJT_DB_APMZ_1993,SJT_DB_AVMZ_1993,SJT_DB_ARMZ_1993,SJT_DB_BVMZ_1993,3*SJT_DB_BPMZ_1993);	\
+	F=PE5;
+      TX=NS 1700 + EC 144/149 "Johannes Vermeer", Amsterdam - Köln, 2000;				\
+	C=SJT_NS1700,(SJT_DB_AVMZ_W,DBAG_5ARMZ211L,2*DBAG_BVMZ185W(|L),DBAG_BPMBZ295,SJT_DB_BPMZ_W);	\
+	F=PE5;
+      TX=NS 1100 + EC 146/147 "Piet Mondriaan", Amsterdam - Köln, 1991;					\
+	C=SJT_NS1100,(SJT_DB_AVMZ_TEE,SJT_DB_BPMZ_OB,SJT_DB_BPMBZ_OB,SJT_DB_BPMZ_OB);			\
+	F=PE5;
+      TX=NS 1700 + D 1808/1809 Eindhoven - Köln, 1995;							\
+	C=SJT_NS1700,(SJT_NS_ICRA,SJT_NS_ICRB,NS_ICR_BD~HEN,SJT_NS_ICRB);				\
+	F=PE5;
+      TX=NS 1100 + D 1826/1827, Den Haag - Köln, 1991;							\
+	C=SJT_NS1100,(3*SJT_DB_BM_OB,SJT_DB_ABM21_OB,SJT_BLX_ICA);					\
+	F=PE5;
+      TX=NS 1100 + D 214/215, Amsterdam - Munich, 1996;							\
+	C=SJT_NS1100,(SJT_NS_ICRB,SJT_D215_1996_A-W,SJT_D215_1996_A-M);					\
+	F=PE5;
+      TX=NS 1700 + EC 144/149 "Johannes Vermeer", Amsterdam - Köln, 1994;				\
+	C=SJT_NS1700,											\
+	  (SJT_DB_BPMBZ_OR,SJT_DB_BPMZ_OR,SJT_DB_BVMZ_OR,SJT_DB_BVMSZ_OR,SJT_DB_ARMZL_OR,		\
+	  SJT_DB_AVMZ_OR);										\
+	F=PE5;
+      TX=NS 1500 + D 1818/1819, Den Haag - Köln, 1993;							\
+	C=NS_1500E(|L),(SJT_DB_AM_OB,3*SJT_DB_BM_1993);							\
+	F=PE5;
+      TX=NS 1700 + IR 2344/2345, Berlin - Schiphol, 1995;						\
+	C=SJT_NS1700,SJT_IR2344_1995M;									\
+	F=PE5;
+      TX=NS 1700 + EC 140/153 "Hieronymus Bosch", Amsterdam - Köln, 1996;				\
+	C=SJT_NS1700,											\
+	  (SJT_DB_APMZ_OR,SJT_DB_AVMZ_OR,DBAG_5ARMZ211L,3*SJT_DB_BPMZ_OR,SJT_DB_BVMZ_OR,		\
+	  (2:SJT_DB_DMS|5:));										\
+	F=PE5;
+      TX=NS 1800 + Dillingen - Maaskvlate, 1997;							\
+	C=(2@NS_1840),22*SJT_DB_FALS;									\
+	F=FE5;
+      TX=NS 1800 + D 1240/1241, Hoek - Hamm, 1993;							\
+	C=NS_1840,											\
+	  (SJT_DR_BCM,SJT_DR_ABM,PKP_BDUNG(|L),SJT_PKP_BCM_B,SJT_SZD_WLABM_G,SJT_DSB_ABM_R,		\
+	  SJT_DBB_BCM_OB,2*SJT_DB_BM_1993);								\
+	F=PE5;
+
+      TX=NS 1200 + EC 2/3 "Rembrandt", Amsterdam - Chur, 1991;						\
+	C=SJT_NS1200,SJT_EC2_1991M;									\
+	F=PE5;
+      TX=NS 1700 + EC 2/3 "Rembrandt", Amsterdam - Chur, 1994;						\
+	C=SJT_NS1700,SJT_EC2_1994M;									\
+	F=PE5;
+      TX=NS 1800 + EC 2/3 "Rembrandt", Amsterdam - Chur, 1995;						\
+	C=NS_1840,(<SJT_EC2_1995M);									\
+	F=PE5;
+      TX=NS 1700 + EC 2/3 "Rembrandt", Amsterdam - Chur, 2002;						\
+	C=SJT_NS1700,(<SJT_EC2_2002M);									\
+	F=PE5;
+      TX=NS 1700 + EC 2/3 "Berner Oberland", Amsterdam - Interlaken, 2003;				\
+	C=SJT_NS1700,SJT_EC2_2003M;									\
+	F=PE5;
+      TX=NS BNL + IC Beneluxtrein, Amsterdam - Brussels, 1998;						\
+	C=<NS_BNL_BL~HEN|NS_BNL_B~HENSL,NS_BNL_AL~HEN|NS_BNL_A~HENB,2*NS_BNL_BL~HEN|NS_BNL_B~HEN,	\
+	  NS_BNL_BL~HEN|NS_BNL_B~HEND,NS_BNL_AL~HEN|NS_BNL_A~HENB,NS_BNL_AL~HEN|NS_BNL_A~HEN,SNCB_1181;	\
+	F=PE5;
+      TX=NS 1700 + D 1138/1139, Amsterdam - Luxembourg, 2002;						\
+	C=SJT_NS1700,(2*SJT_NS_ICRB,NS_ICR_BD~HEN,SJT_NS_ICRA,SJT_NS_ICRB,0-1*SJT_NS_AVMZ,SJT_DB_DMS);	\
+	F=PE5;
+      TX=NS 1300 + D 1385/1388, Den Bosch - Avignon, 1994;						\
+	C=SJT_NS1300Y,											\
+	  (2*SJT_SNCF_CORAILBC,SJT_NS_WLABM_B,2*SJT_SNCF_CORAILBC,2*SJT_NS_WLABM_B,SJT_NS_WRMZ_B),	\
+	  4-8*SJT_SNCF_LESS[C1:SJT_1990S_CARS][C2:SJT_1990S_CARS][C3:SJT_1990S_CARS][C4:SJT_1990S_CARS]; \
+	F=PE5;
+      TX=NS 1700 + IC2344/2345, "Ijselmeer", Schiphol - Berlin, 1997;					\
+	C=SJT_NS1700,(SJT_IR2344_1997M);								\
+	F=PE5;
+      TX=NS 1200 + IR 2340/2341 "Wesertal", Schiphol - Berlin, 1998;					\
+	C=SJT_NS1200,SJT_IR2340_1998M;									\
+	F=PE5;
+      TX=NS 1300 + D 2344/2345, Schiphol - Berlin, 1993;						\
+	C=SJT_NS1300Y,(<NS_ICR_BD~HEN,SJT_D2344_1993M);							\
+	F=PE5;
+      TX=NS 1700 + IR 2342/2343 "Havelsee", Schiphol - Berlin, 2001;					\
+	C=SJT_DB103_2000,(<6:2|1:3*(DBAG_BIMZ264_7(|L)),SJT_DB_BIMDZ_B,SJT_IR2342_2001M);		\
+	F=PE5;
+      TX=NS 1200 + D 340/341, Schiphol - Berlin, 1996;							\
+	C=SJT_D340_1996NL;										\
+	F=PE5;
+      TX=NS 1700 + EC 104/105 "Berner Oberland", Amsterdam - Interlaken, 1995;				\
+	C=SJT_NS1700,(SJT_EC104_1995M);									\
+	F=PE5;
+      C=(NS_1500EL,(<2*DB_4AVUMZ111_2L,0-1*DB_APUMZ121L~HEN,DB_4AVUMZ111_2L,0-1*DB_APUMZ121L~HEN)),	\
+	  (<DB_4AVUMZ111_2L,DB_APUMZ121L~HEN,DB_4A_WRUMH132_2RL,DB_4A_ARDMH105L);			\
+	F=PE5;
+      TX=NS 1700 + D 214/215, Amsterdam - Munich, 1994;							\
+	C=((SJT_NS1700),(SJT_EN224_1994A-W,SJT_D214_1994A-M))|						\
+	  (SJT_DB103_OR,(SJT_D214_1994A-M,SJT_D214_1994BRU-M));						\
+	F=PE5;
+      TX=NS 1600 + D 201/202 "Schweiz-Express", Amsterdam - Basel, 1995;				\
+	C=NS_1603,											\
+	  (<NS_T2S_4T,NS_BCM_BL|NS_BCM_B|NS_BCVMH140L|NS_BCVMH140|NS_BCVMH_160L|NS_BCVMH160,		\
+	  0-1*NS_BCVMH140L,DB_4BDMS273SL,2*DBAG_BM233OBL,DB_4ABM223BB,					\
+	  0-2*NS_BCM_BL|NS_BCM_B|NS_BCVMH140L|NS_BCVMH140|NS_BCVMH_160L|NS_BCVMH160,0-1*NS_BCVMH140L,	\
+	  NS_T2S_4T,NS_BCVMH140L);									\
+	F=PE5;
+    }
+    {E6?
+      TX=ACTS 1250 + D 13290/13291 "Bergland-Express", Utrecht - Bludenz, 2008;				\
+	C=ACTS_1250A,											\
+	  (<2*SBB_WLABM33MS,SVG_BM,2*SVG_BCM2,EUEX_WGM,SVG_BM_POP,SVG_BCM2,SBB_WLABM33MS,		\
+	  SBB_WLABM33MSL);										\
+	F=PE6;
+      TX=NS 186 + IC 962/963 Intercity Direct, Amsterdam - Breda, 2018;					\
+	C=<NS_186AC(|L),SJT_NS_ICRB,SJT_NS_ICRA,2*SJT_NS_ICRB,SJT_NS_ICRA,NS_ICR_BS~HEN,NS_186AC(|L);	\
+	F=PE6;
+      TX=NS 186 + NS Royal Train, 2017;									\
+	C=<NS_186ACL|NS_186AC,3*NS_ICR_KON~HEN,NS_186ACL|NS_186AC;					\
+	F=PE6;
+      TX=NS NID + IC 542/543, Rotterdam - Zwolle, 2018;							\
+	C=2*<NS_NID_EL,NS_NID_ABL,NS_NID_B,NS_NID_S;							\
+	F=PE6;
+      TX=NS IRM + IC 2274/2275, Amsterdam - Vlissingen, 2019;						\
+	C=<NS_IRML,NS_IRMML,2*NS_VIRMB,NS_IRMM1,NS_IRM;							\
+	F=PE6;
+      TX=NS SLT + SPR 5872/5873, Amsterdam - Hoofdorp, 2019;						\
+	C=(NS_SLT_ABFL,NS_SLT_EPBL,NS_SLT_ABL,NS_SLT_BL,NS_SLT_EBL,NS_SLT_ABF)|				\
+	  (NS_SLT_ABFL,NS_SLT_EBL,NS_SLT_B2,NS_SLT_AB,NS_SLT_EPB,NS_SLT_ABF);				\
+	F=PE6;
+      TX=NS SGM + SPR 4882/4883, Amsterdam - Alkmaar, 2019;						\
+	C=2*<NS_SGMM3EL,NS_SGMM3ML,NS_SGMM2F;								\
+	F=PE6;
+      TX=NS 1840 + Lutterade - Kijfhoek, 2019;								\
+	C=SJT_NS1800_ZAS;										\
+	F=PE6;
+      TX=ELL 193 + IC 146/147, Amsterdam - Berlin, 2021;						\
+	C=SJT_ELL193,SJT_IC146_2021M;									\
+	F=PE6;
+      TX=NS ICE3 + ICE 104/105, Amsterdam - Basel, 2018;						\
+	C=2*SJT_ICE3M|SJT_ICE3_NS;									\
+	F=PE6;
+      TX=ELL 193 + NJ 420/40490, Amsterdam/Brussels - Innsbruck/Vienna, 2021;				\
+	C=(ELL_VEC(|L)|SJT_ELL193_AD),									\
+	  (<SJT_OEBB_BCM_NJ,2*OBB_WLABMZ7290NJ(|L),SJT_OEBB_BVMZ_NJ,2*SJT_OEBB_BVMZ_NJ,			\
+	  OBB_WLABMZ7290NJ(|L),OBB_BVCMBZNJ(|L),SJT_OEBB_BCM_NJ,SJT_OEBB_BVMZ_NJ,SJT_OEBB_BVMZ_G,	\
+	  OBB_WLABMZ7290NJ(|L),OBB_BVCMBZNJ(|L),SJT_OEBB_BCM_NJ);					\
+	F=PE6;
+      TX=DB 189 + Kijfhoek - Gremberg, 2008;								\
+	C=SJT_RLN189_MIX1;										\
+	F=FE6;
+      TX=BOXX VECTRON + Maaskvlakte - Worth (Rhein), 2020;						\
+	C=SJT_BOXX193_CONTAINERS;									\
+	F=FE6;
+      TX=ELL 193 + Maaksvlakte - Bitterfeld, 2021;							\
+	C=SJT_ELL193_TANKS;										\
+	F=FE6;
+      TX=DB 193 + Kijfhoek - Cologne, 2020;								\
+	C=SJT_DB193_VR_MIX12;										\
+	F=FE6;
+      TX=NS 186 + IC 9267/9268 Intercity Brussels, Amsterdam - Brussels, 2018;				\
+	C=<NS_186AC(|L),2*SJT_NS_ICRB,NS_ICR_BD~HEN,SJT_NS_ICRA,3*SJT_NS_ICRB,NS_186AC(|L);		\
+	F=PE6;
+      TX=ATC 186 + IC 9224/9225, Amsterdam - Brussels, 2011;						\
+	C=SJT_ATC186PLAIN,(<SJT_NS_ICRB,3*SJT_FYRA_B,2*SJT_FYRA_A,SJT_FYRA_B,NS_HSA_BD4L,SJT_FYRA_B);	\
+	F=PE6;
+      TX=ATC 186 + IC 9214/9215, Amsterdam - Brussels, 2017;						\
+	C=SJT_ATC186PLAIN,(<2*SNCB_I10_2170N(|L),SNCB_APM,4*SNCB_I10_2170N(|L));			\
+	F=PE6;
+      TX=ATC 186 + IC 9224/9225, Amsterdam - Brussels, 2010;						\
+	C=SJT_ATC186PLAIN,(<SJT_FYRA_B,SJT_BLX_ICA,2*SJT_FYRA_A,2*SJT_FYRA_A,NS_BNL_BS~HEN);		\
+	F=PE6;
+      TX=NS 1700 + IC 142/143, Intercity Berlijn, Amsterdam - Berlin, 2017;				\
+	C=SJT_NS1700,											\
+	  (<SJT_DB_AVMZ_W,SJT_DB_ARKIMBZR_W,SJT_DB_BVMSZ_W,DBAG_BPMBZ295,4*SJT_DB_BPMZ_W,		\
+	  SJT_DB_BPMDZ_W);										\
+	F=PE6;
+      TX=ACTS 1250 + D 13290/13291 "Bergland-Express", Utrecht - Bludenz, 2008;				\
+	C=ACTS_1250A,											\
+	  (<2*SBB_WLABM33MS,SVG_BM,2*SVG_BCM2,EUEX_WGM,SVG_BM_POP,SVG_BCM2,SBB_WLABM33MS,		\
+	  SBB_WLABM33MSL);										\
+	F=PE6;
+    }
+
   %ENDPOOL;
 }
-
 ###############################################################################
 #
 # Luxembourg
@@ -2424,6 +3240,39 @@ $REQUIRE TRAINDEF.TTT
 	C=CFL_185_519|CFL_185_523~MB|MRCE_185_5_CFL1M(|L)|MRCE_185_5_CFL2M(|L),Z_D_E6_C2;		\
 	F=EF6;
     }
+### Classic Trains from Simon Treanor
+
+    {E4?
+      TX=CFL1800 + D 9131/9134 "Gascogne Express", Den Bosch - Biarritz, 1985;				\
+	C=SJT_CFL1800,(5*SJT_SNCF_BCM_B1,SJT_NS_WRMZ_TEE,3*NS_T2S_4T(|L)),				\
+	  4-8*SJT_SNCF_LESS[C1:SJT_1980S_CARS][C2:SJT_1980S_CARS][C3:SJT_1980S_CARS][C4:SJT_1980S_CARS]; \
+	F=PE4;
+    }
+    {E5?
+      TX=CFL3000 + D 1138/1139, Amsterdam - Luxembourg, 2002;						\
+	C=CFL_3000~ZS,(2*SJT_NS_ICRB,NS_ICR_BD~HEN,SJT_NS_ICRA,SJT_NS_ICRB,0-1*SJT_NS_AVMZ,SJT_DB_DMS);	\
+	F=PE5;
+      TX=CFL 2000 + L Athus - Luxembourg, 1993;								\
+	C=CFL_2000~MLG|CFL_2000A~MLG|(CFL_2000M1L,CFL_2000R1)|(CFL_2000R1L,CFL_2000M1)|			\
+	  (CFL_2000M2L,CFL_2000R2)|(CFL_2000R2L,CFL_2000M2);						\
+	F=PE5;
+      TX=CFL3000 + D 18020/18021, Blankenberge - Luxembourg, 2007;					\
+	C=CFL_3000~ZS,											\
+	  (<2*SNCB_I6_1970N(|L),SJT_CFL_WEGABD_GC,CFL_BR2(|L),SJT_CFL_WEGB_GC,SJT_CFL_WEGABD_GC,	\
+	  2*SNCB_I6_2170N(|L));										\
+	F=PE5;
+    }
+    {E6?
+      TX=CFL3000 + IR 110/111, Liers - Luxembourg, 2008;						\
+	C=CFL_3000~ZS,(<SNCB_I6_1970N(|L),3*SNCB_I6_2170N(|L));						\
+	F=PE6;
+      TX=CFL 3000 + IC 18117/18118 Arlon - Luxembourg, 2008;						\
+	C=<CFL_3000~ZS,2*SJT_CFL_DBPZ,CFL_DABPBZF~KMN;							\
+	F=PE6;
+      TX=CFL4000 + RE3714/3715, Luxembourg - Troisvierges, 2017;					\
+	C=<CFL_4018E,3*SJT_CFL_DBPZ,CFL_DABPBZF~KMN;							\
+	F=PE6;
+    }
+
   %ENDPOOL;
 }
-

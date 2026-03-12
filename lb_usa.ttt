@@ -94,6 +94,14 @@ $REQUIRE TRAINDEF.TTT
       TX=USA Baltimore and Ohio Q3 4531;								\
 	C=BO_Q3_4531(|L),USA2FMIX,USA2PBO1;								\
 	F=SP2;
+      TX=USA Baltimore and Ohio 50 + Royal Blue 1936;								\
+	C=(<BO_501936L[#D:L],BO_RPO1935L,3*BO_COACH1935L,BO_DINER1935L,2*BO_PARLOR1935L,BO_TAIL1935L)|\
+	(>BO_501936[#D:R],BO_RPO1935,3*BO_COACH1935,BO_DINER1935,2*BO_PARLOR1935,BO_TAIL1935);								\
+	F=SPU2;
+      TX=USA Baltimore and Ohio 50 + Royal Blue 1937;								\
+	C=(<BO_501936L[#D:L],BO_SMOKER1937L,2*BO_COACH1935L,BO_DINER1935L,2*BO_PARLOR1935L,BO_TAIL1935L)|\
+	(>BO_501936[#D:R],BO_SMOKER1937,2*BO_COACH1935,BO_DINER1935,2*BO_PARLOR1935,BO_TAIL1935);								\
+	F=SPU2;
       TX=USA Chicago,Burlington & Quincy Railroad Zephyr;						\
 	C=CBQ_ZEPHYRL[#D:L]|CBQ_ZEPHYR[#D:R]|CBQ_ZEPHYROL[#D:L]|CBQ_ZEPHYRO[#D:R];			\
 	F=DPU2;
@@ -249,6 +257,9 @@ $REQUIRE TRAINDEF.TTT
 # USA Diesel
       TX=USA Chesapeake & Ohio Railway F7;								\
 	C=(<CO_F7ASO01L,CO_F7BSO01(|L),CO_F7ASO01),USA2FMIX,USA2FCOC;					\
+	F=DF2;
+      TX=USA New York, New Haven & Hartford Railroad DEY-2;								\
+	C=NH_09010910_1936(|L),USA2FMIXK(1|2|3);					\
 	F=DF2;
       TX=USA Seaboard Air Line F3;									\
 	C=(<SAL_F3AL_4023,SAL_F3A_4030)|(<SAL_F3A_4030L,SAL_F3A_4023),USA2FMIX,USA2FSALC;		\
@@ -553,6 +564,9 @@ $REQUIRE TRAINDEF.TTT
       TX=USA Arizona Eastern Railway Company E8;							\
 	C=(<AZER_E8ASO01L,AZER_E8ASO01),USAP3PU;							\
 	F=DP3;
+      TX=USA Bangor & Aroostook "98 ton";								\
+	C=BAR_3(0|4)(|L),USA3FMIXK(1|2|3|4|5|6|7|8|9);					\
+	F=DF3;
       TX=USA Bangor & Aroostook E7;									\
 	C=(<BAR_E7ASO01L,BAR_E7ASO01),USAP3PU;								\
 	F=DP3;
@@ -1606,6 +1620,9 @@ $REQUIRE TRAINDEF.TTT
       TX=USA New Georgia Railroad E8;									\
 	C=(<NEWG_E8ASO01L,NEWG_E8ASO01),USA3FMIXL4,WEYT_3CAB;						\
 	F=DF3;
+      TX=USA New York, New Haven & Hartford Railroad DEY-2;								\
+	C=NH_09010910_1950(|L),USA3FMIXK(1|2|3|4|5|6|7|8|9);					\
+	F=DF3;
       TX=USA NH BESLER;											\
 	C=NH_BESLERL|NH_BESLER,USA3FMIXD1,USA3FNHC;							\
 	F=SF3;
@@ -2388,8 +2405,8 @@ $REQUIRE TRAINDEF.TTT
       TX=USA Southern Pacific Railroad U50 + SD7;							\
 	C=(SP_U50_9951[#D:R]|SP_U50_9951L[#D:L]),SP_SD7(|L),USA3FMIXD2,USA3FUPC;			\
 	F=DF3;
-      TX=USA Southern Pacific Railroad SD35;								\
-	C=SP_SD35(|L),USA3FMIXD5,USA3FSPC;								\
+      TX=USA Southern Pacific Railroad C643 DH + SD35;							\
+	C=$DIR(SP_C643DH_9150L,SP_C643DH_9150),SP_SD35(|L),USA3FMIXD5,USA3FSPC;				\
 	F=DF3;
       TX=USA Springfield Terminal Railway Company SD35;							\
 	C=SPRT_SD35(|L),USA3FMIXL3,WEYT_3CAB;								\
@@ -5683,6 +5700,9 @@ $REQUIRE TRAINDEF.TTT
       TX=USA Savage Services Corp. SD40-2;								\
 	C=SVGX_SD402SO1(|L),USA4FMIX4S,SSW_1(0|1)(|L);							\
 	F=DF4;
+      TX=USA Seaview Transportation Co. ES44;						\
+	C=$DIR(SVTX_ES44ACSO01L,SVTX_ES44ACSO01),SVTX_ES44ACSO01(|L),USA4FMIX4S;									\
+	F=DF4;
       TX=USA Savage Services Corp. GP38-2;								\
 	C=SVGX_GP382SO01(|L),USA4FMIX3S,SSW_1(0|1)(|L);							\
 	F=DF4;
@@ -6278,6 +6298,14 @@ $REQUIRE TRAINDEF.TTT
 	C=$DIR(CSX_3003B_BQ237_1993L,CSX_3003B_BQ237_1993),CSX_3009_BQ237_1991(|L),			\
 	  CSX_3002B_BQ237_1992(|L),USA5FMIXD;								\
 	F=DF5;
+      TX=USA CSX Corporation ES44;									\
+	C=$DIR(CSX_ES44HERSO0(1|4|9)L,CSX_ES44HERSO0(1|4|9)),CSX_ES44HERSO0(2|5|8)(|L),\
+	CSX_ES44HERSO0(3|6|7)(|L),USA5FMIXD;								\
+	F=DF5;
+      TX=USA CSX Corporation ES44;									\
+	C=$DIR(CSX_ES44HERSO(11|14|17)L,CSX_ES44HERSO(11|14|17)),CSX_ES44HERSO(12|15|19)(|L),\
+	CSX_ES44HERSO(13|16|18)(|L),CSX_ES44HERSO(10|20|21)(|L),USA5FMIXD;								\
+	F=DF5;
       TX=USA Duluth,Missabe & Iron Range Railway C630;							\
 	C=DMIR_C630SO01(|L),DMIR_C222(|L),5*DMIR_MINIQUAD;						\
 	F=DF5;
@@ -6755,7 +6783,7 @@ $REQUIRE TRAINDEF.TTT
 	C=$DIR(HVRX_MRS1_1813(A|B)L,HVRX_MRS1_1813(A|B)),(PRR_121ALANSON,NH_PB_6100_1949BL,DRGW_960);	\
 	F=DP6;
       TX=USA Iowa Interstate ES44AC;									\
-	C=IAIS_ES44ACSO0(1|2)(|L),USA6FMIX2;								\
+	C=$DIR(IAIS_ES44ACSO03L,IAIS_ES44ACSO03),IAIS_ES44ACSO01,IAIS_ES44ACSO02(|L),USA6FMIX2;								\
 	F=DF6;
       TX=USA Illionis Central C636;									\
 	C=IC_C636(|L),USA6FMIX1;									\
@@ -7785,26 +7813,17 @@ $REQUIRE TRAINDEF.TTT
       TX=Mexico DAK Americas LLC B39-8;									\
 	C=DAKX_B398SO01(|L),USA6FTANK;									\
 	F=DF6;
-      TX=Ferrocarriles Nacionales de Mexico U 36C;							\
-	C=FNDM_U36CSO1(|L),MEX6FFNDM,USA6FCON1;								\
-	F=DF6;
-      TX=Ferrocarriles Nacionales de Mexico C 628;							\
-	C=FNDM_C628SO01(|L),MEX6FFNDM,USA6FCON1;							\
-	F=DF6;
-      TX=Ferrocarriles Nacionales de Mexico M 636;							\
-	C=FNDM_M636SO01(|L),MEX6FFNDM,USA6FCON1;							\
+      TX=Ferrocarriles Nacionales de Mexico U 36C + C 628 + M 636;							\
+	C=$DIR(FNDM_U36CSO1,FNDM_U36CSO1L),FNDM_C628SO01(|L),FNDM_M636SO01(|L),MEX6FFNDM,USA6FCON1;								\
 	F=DF6;
       TX=Mexico Ferrocarril del Sureste,S.A. de C.V. AC 4400;						\
 	C=FSRR_AC4400(|L),MEX6FFNDM,USA6FCON1;								\
 	F=DF6;
-      TX=Ferrocarril Mexicano,S.D. de C.V. ES44AC;							\
-	C=FXE_ES44ACSO01(|L),MEX6FFXE,USA6FCON1;							\
+      TX=Ferrocarril Mexicano,S.D. de C.V. ES44AC + Ferromex ES44;							\
+	C=$DIR(FXE_ES44ACSO01,FXE_ES44ACSO01L),FMEX_ES44ACSO01(|L),MEX6FFXE,USA6FCON1;							\
 	F=DF6;
-      TX=Ferrocarril Mexicano,S.D. de C.V. SD 70;							\
-	C=FXE_SD70ACE(|L),MEX6FFXE,USA6FCON1;								\
-	F=DF6;
-      TX=Ferrocarril Mexicano,S.D. de C.V. AC 4400;							\
-	C=FXE_AC4400(|L),MEX6FFXE,USA6FCON1;								\
+      TX=Ferrocarril Mexicano,S.D. de C.V. SD 70 + AC 4400;							\
+	C=$DIR(FXE_SD70ACE,FXE_SD70ACEL),FXE_AC4400(|L),MEX6FFXE,USA6FCON1;								\
 	F=DF6;
       TX=Mexico Kansas City Southern de Mexico SD70 ACE;						\
 	C=KCSM_SD70ACESO1(|L),USA6FCON1;								\
@@ -7812,11 +7831,8 @@ $REQUIRE TRAINDEF.TTT
       TX=Ferrocarriles Nacionales de Mexico CENP;							\
 	C=NDEM_CENPL[#D:L]|NDEM_CENP[#D:R],MEX6FNDEM;							\
 	F=DF6;
-      TX=Ferrocarriles Nacionales de Mexico C 628;							\
-	C=NDEM_C628SO01(|L),MEX6FNDEM;									\
-	F=DF6;
-      TX=Ferrocarriles Nacionales de Mexico C 630;							\
-	C=NDEM_C630SO01(|L),MEX6FNDEM;									\
+      TX=Ferrocarriles Nacionales de Mexico C 628 + C 630;							\
+	C=$DIR(NDEM_C628SO01,NDEM_C628SO01L),NDEM_C630SO01(|L),MEX6FNDEM;									\
 	F=DF6;
       TX=Ferrocarriles Nacionales de Mexico EA02;							\
 	C=NDEM_EA021,MEX6FNDEM;										\
