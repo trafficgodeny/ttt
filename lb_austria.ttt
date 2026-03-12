@@ -1094,7 +1094,7 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
       C=OBB_2093G|OBB_2093R,(<MZEL_H_GGMBL,MZEL_GGMBB1,MZEL_GGMBBL,MZEL_FH);				\
       F=DNF4;
     TX=ÖBB 2095 + Persoenezug;										\
-      C=OBB_2095A|OBB_2095BL|OBB_2095B,(<OBB_B4JL,OBB_B4J,OBB_BD4J);					\
+      C=OBB_2095A|OBB_2095BL|OBB_2095B,(<OBB_B4JL,OBB_B4J,OBB_BD4IPS42J);				\
       F=DNP4;
     TX=ÖBB 2095;											\
       C=OBB_2095A|OBB_2095AL,(<OBB_2WG1,2*OBB_2WG2,OBB_DINS1);						\
@@ -1133,7 +1133,7 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
       C=MZEL_1099_009,(<MZEL_4B4~FRG,2*MZEL_4B4AL,MZEL_4BD4AL);						\
       F=ENP4;
     TX=ÖBB 1099 + Personenzug;										\
-      C=MZEL_1099007,4*OBB_KWG_BBM,OBB_KWG_BDML2A;							\
+      C=MZEL_1099007,4*OBB_B4IPS31J,OBB_KWG_BDML2A;							\
       F=ENF4;
 
 #Schmalspur elektrisch
@@ -1429,7 +1429,7 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
       C=OBB_2091R(3|4),(<OBB_S_WG_BSCH,OBB_S_WG_BSCH1,OBB_S_WG_BDSCH1);					\
       F=EP5;
     TX=ÖBB 2095;											\
-      C=OBB_2095R~FA,(<OBB_KWG_BUND1,2*OBB_KWG_BUND3);							\
+      C=OBB_2095R~FA,(<OBB_B4IPS31V,2*OBB_KWG_BUND3);							\
       F=DNF5;
     TX=Achenseebahn;											\
       C=(<ACB_2,2*ACB_O[#D:R])|(<ACB_2,2*ACB_C[#D:R]);							\
@@ -1445,7 +1445,7 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
 #Schmalspur elektrisch ÖBB
     TX=ÖBB 1099 + Personenzug;										\
       C=MZEL_6_1099_007(|L)|MZEL_1099008,								\
-	(<OBB_KWG_BUND2,OBB_KWG_BUND1,OBB_KWG_BUND3,OBB_KWG_BUND4,MZEL_CYC1|MZEL_GGMS168XXB);		\
+	(<OBB_KWG_BUND2,OBB_B4IPS31V,OBB_KWG_BUND3,OBB_KWG_BUND4,MZEL_CYC1|MZEL_GGMS168XXB);		\
       F=ENF5;
     TX=ÖBB 1099 + Rollwagenzug;										\
       C=MZEL_6_1099_007(|L)|MZEL_1099008,((OBB_RWKL[#D:L])|(#OBB_RWKL[#D:R])),				\
@@ -2250,4 +2250,539 @@ $DEF OBB1216PWERB=OBB_1216_(019AC|012|226(|A)|141|210|228|229|050W|025|226A)(|L)
       F=ENPRU6;
 
   }
+### Classic Trains from Simon Treanor
+
+  {E4?
+    TX=ÖBB 1044 + D 224/225, Oostende - Vienna, 1987;							\
+      C=SJT_OEBB1044_ORANGE,(SJT_D224_1987M);								\
+      F=PE4;
+    TX=DB 103 + EC 28/29 "Johann Strauss", Köln - Vienna, 1987;						\
+      C=SJT_EC28_1987AT;										\
+      F=PE4;
+    TX=DB 103 + EC 28/29, "Johann Strauss", Köln - Vienna, 1990;					\
+      C=SJT_DB103_TEE,(<SJT_EC28_1990M,(0|2)*SJT_DB_DMS);						\
+      F=PE4;
+    TX=ÖBB 1044 + EC 20/21 "Blauer Enzian", Dortmund - Klagenfurt, 1987;				\
+      C=SJT_OEBB1044_ORANGE,((<SJT_EC20_1987SALZ)|(<0-1*(SJT_DBB_BM_OB,SJT_DB_BPMZ_OB),SJT_EC20_1987M)); \
+      F=PE4;
+    TX=ÖBB 1044 + EC 68/69, "Mozart", Paris - Vienna, 1990;						\
+      C=((SJT_OEBB1044_ORANGE),(11:6|3:4*(SJT_OEBB_BVMZ_O),SJT_EC68_1990M));				\
+      F=PE4;
+    TX=ÖBB 1044 + EC 28/29, "Johann Strauss", Köln - Vienna, 1990;					\
+      C=SJT_OEBB1044_ORANGE,(<SJT_EC28_1990M);								\
+      F=PE4;
+  }
+  {E5?
+    TX=ÖBB 1044 + EC 64/65, "Mozart", Paris - Vienna, 1999;						\
+      C=SJT_OEBB1044_RED,(0-1*(SJT_EC64_1999GM,SJT_EC64_1999GP),SJT_EC64_1999M);			\
+      F=PE5;
+    TX=ÖBB 1044 + EC 128/129 "Anton Brückner", Hamburg - Linz, 1992;					\
+      C=SJT_OEBB1044_RED,										\
+	(SJT_DB_BVMZ_OR,3*SJT_DB_BPMZ_OR,SJT_DB_BPMBZ_OR,2*SJT_DB_BVMZ_OR,DB_4F_WRMZ135(|L),		\
+	SJT_DB_AVMZ_OR,SJT_DB_APMZ_OR,SJT_DB_AVMZ_OR);							\
+      F=PE5;
+    TX=ÖBB 1116 + EC 24/25 "Fransz Liszt", Dortmund - Budapest, 2004;					\
+      C=(SJT_OEBB1116_RED,2*SJT_OEBB_AVMZ_R,SJT_OEBB_WRMZ_R,2*SJT_OEBB_BVMZ_G,3*SJT_OEBB_BPMZ_G,	\
+	2*SJT_OEBB_BVMZ_G,SJT_OEBB1116_RED)|								\
+	(SJT_OEBB1116_RED,2*SJT_OEBB_AVMZ_R,SJT_OEBB_WRMZ_R,SJT_OEBB_BVMZ_G,SJT_OEBB_BVMZ_R,		\
+	2*SJT_OEBB_BPMZ_G,SJT_OEBB_BPMZ_G,SJT_OEBB_BVMZ_G,SJT_MAV_BVMZ_B1,SJT_OEBB1116_RED);		\
+      F=PE5;
+    TX=ÖBB 1044 + IC 118/119, Dortmund - Innsbruck, 2004;						\
+      C=SJT_OEBB1044_RED,(<SJT_IC118_2004M);								\
+      F=PE5;
+    TX=ÖBB 1044 + EN 224/225 "Donauwalzer", Oostende - Vienna, 1994;					\
+      C=SJT_OEBB1044_RED,(SJT_EN224_1994BRU-W,SJT_EN224_1994A-W);					\
+      F=PE5;
+    TX=ÖBB 1042 + EC 118, "Karwendel", Dortmund - Innsbruck, 1991;					\
+      C=(2*SJT_OEBB1042_ORANGE),									\
+	(SJT_EC118_1991MW,SJT_EC118_1991IB,SJT_EC118_1991GP)|						\
+	(SJT_OEBB1042_ORANGE,((0-1*SJT_EC118_1991MW),SJT_EC118_1991IB));				\
+      F=PE5;
+    TX=ÖBB 1044 + EC 80/81 "Garda", Munich - Milan, 1992;						\
+      C=(SJT_OEBB1044_ORANGE),(5*FS_4B2071EU(|L),SJT_OEBB_WRMZ_O,2*FS_4B1971EU(|L));			\
+      F=PE5;
+    TX=ÖBB 1116 + EC 88/89, "Leonardo da Vinci", Munich - Milan, 2004;					\
+      C=SJT_OEBB1116_RED,										\
+	(6*FS_2190XN(|L),SJT_FS_WRM_WR,SJT_FS_AVM_W,							\
+	0-1*(SJT_DB_AVMZ_W,DBAG_BIMZ2647W(|L),SJT_DB_BPMZ_W,DBAG_BIMZ2647W(|L)));			\
+      F=PE5;
+    TX=ÖBB 1044 + EC 14/15 "Patscherkorfel", Saarbrücken - Innsbruck, 1993;				\
+      C=SJT_OEBB1044_ORANGE,										\
+	(SJT_DB_APMZ_1993,SJT_DB_AVMZ_1993,SJT_DB_ARMH_TEE,2*SJT_DB_BVMZ_1993,SJT_DB_BPMBZ_1993,	\
+	3-4*SJT_DB_BPMZ_1993);										\
+      F=PE5;
+    TX=ÖBB 1042 + D 1280/1281, "Grossglockner", München - Zell am See, 1995;				\
+      C=SJT_OEBB1042_ORANGE,(<SJT_OEBB_BVMZ_R,SJT_OEBB_LSB_O,SJT_OEBB_LSA_O,2*SJT_OEBB_LSB_O);		\
+      F=PE5;
+    TX=ÖBB 1016 + EC 82/83, "Val Gardena", Munich - Verona, 2002;					\
+      C=(SJT_OEBB1016_RED),(SJT_FS_DMS_W,(2:6|5:4*FS_2190XN(|L)),SJT_FS_WRM_WG,2*SJT_FS_AVM_W);		\
+      F=PE5;
+    TX=ÖBB 1016 + EC 86/87 "Tiepolo", Munich - Venice, 2001;						\
+      C=SJT_OEBB1016|SJT_OEBB1116|SJT_OEBB1216,(<6*FS_2190PL,FS_8890XL,FS_1990P);			\
+      F=PE5;
+    TX=ÖBB 1044 + EC 84/85, "Michaelangelo", Munich - Rome, 1995;					\
+      C=(SJT_OEBB1044_RED),(3*FS_5A1971(|L),SJT_OEBB_WRMZ_R,9*FS_5B2071(|L));				\
+      F=PE5;
+    TX=ÖBB 1044 + EC 80/81, "Garda", Munich - Milan, 1999;						\
+      C=(SJT_OEBB1044_RED),(6*FS_5B2071(|L),FS_8890E(|L),2*FS_5A1971(|L));				\
+      F=PE5;
+    TX=ÖBB 1044 + EC 12/13 "Paganini", Dortmund - Venice, 1993;						\
+      C=SJT_OEBB1044_ORANGE,(<SJT_EC12_1993M);								\
+      F=PE5;
+    TX=ÖBB 1044 + EC 12/13, "Leonardo da Vinci", Dortmund - Milan, 1999;				\
+      C=SJT_OEBB1044_RED,(<SJT_EC12_1999M);								\
+      F=PE5;
+    TX=ÖBB 1044 + EC 12/13 "Leonardo da Vinci", Dortmund - Milan, 1995;					\
+      C=SJT_OEBB1044_ORANGE,(<SJT_EC12_1995M);								\
+      F=PE5;
+    TX=ÖBB 1216 + EC 12/13 "Paganini", Dortmund - Verona, 2002;						\
+      C=SJT_OEBB1216_RED,(<SJT_EC12_2002M);								\
+      F=PE5;
+    TX=ÖBB 1044 + EC 18/19, "Andreas Hofer", Dortmund - Innsbruck, 1991;				\
+      C=SJT_OEBB1044_ORANGE,(<SJT_EC18_1991M);								\
+      F=PE5;
+    TX=ÖBB 1044 + D 280/281, Munich - Innsbruck, 1991;							\
+      C=SJT_OEBB1044_RED,(<SJT_DB_AM_OB,3*SJT_DB_BM_OB);						\
+      F=PE5;
+    TX=ÖBB 1044 + EC 12/13 "Leonardo da Vinci", Dortmund - Milan, 1995;					\
+      C=SJT_OEBB1044_ORANGE,(<SJT_EC12_1995M);								\
+      F=PE5;
+#Tauernbahn
+    TX=ÖBB 1044 + EC 10/11, "Mimara", Leipzig - Zagreb, 1994;						\
+      C=SJT_EC10_1994AT;										\
+      F=PE5;
+    TX=ÖBB 1116 + EC 114/115, "Wörthersee", Dortmund - Klagenfurt, 2004;				\
+      C=SJT_OEBB1116,											\
+	(2*SJT_OEBB_BVMZ_G,3*SJT_OEBB_BPMZ_G,2*SJT_OEBB_BVMZ_G,SJT_OEBB_WRMZ_R,2*SJT_OEBB_AVMZ_R);	\
+      F=PE5;
+    TX=ÖBB 1044 + EC 314/315, "Agram", Salzburg - Zagreb, 2005;						\
+      C=SJT_OEBB1044_RED,(SJT_EC314_2005M,2*SJT_OEBB_BVMZ_G);						\
+      F=PE5;
+    TX=ÖBB 1016 + EC 190/191, "Hugo von Hoffnungsthal", Munich - Klagenfurt, 2000;			\
+      C=SJT_OEBB1016,(<(0-1*SJT_EC190_2000SZ),SJT_EC190_2000M);						\
+      F=PE5;
+    TX=ÖBB 1016 + EC 32/33, "Allegro Stradivari", Vienna - Venice, 2005;				\
+      C=(SJT_OEBB1016_RED|SJT_FS412T),(<SJT_FS_DMS_W,SJT_FS_AVM_WT,SJT_FS_WRM_WR,4*SJT_FS_BVM_WT);	\
+      F=PE5;
+    TX=ÖBB 1016 + IC 310/311, Villach - Ljubljana, 2004;						\
+      C=(SZ_363E|SJT_OEBB1016_RED),(<SJT_IC310_2004M);							\
+      F=PE5;
+    TX=FUC TAURUS + REX 1819/1820, "MICOTRA", Villach - Trieste;					\
+      C=FUC_E190_301(|L),(<(1:(2*OBB_6B9570(|L),SJT_OEBB_BVMZ_G)|2:),2*SJT_OEBB_BPMZ_G,SJT_OEBB_BVMZ_G); \
+      F=PE5;
+    TX=ÖBB 1044 + EC 10/11, "Mimara", Leipzig - Zagreb, 1993;						\
+      C=SJT_OEBB1044_RED,(<SJT_EC10_1993M);								\
+      F=PE5;
+    TX=ÖBB 1044 + EC 10/11 "Mimara", Berlin - Zagreb, 1998;						\
+      C=SJT_OEBB1044_ORANGE,										\
+	(2:((SJT_DB_APMZ_OR|DBAG_5AM201_1(|L)),SJT_EC10_1998M)|2:(SJT_EC10_1998M,SJT_OEBB_BVMZ_R)|	\
+	3:(SJT_EC10_1998M));										\
+      F=PE5;
+    TX=ÖBB 1044 + EC 10/11, "Mimara", Berlin - Zagreb, 1999;						\
+      C=SJT_OEBB1044_RED,(<(5:|2:SJT_OEBB_BVMZ_R),SJT_EC10_1999M),SJT_DB_AVMZ_OR;			\
+      F=PE5;
+    TX=ÖBB 1044 + EC 12/13, "Blauer Enzian", Dortmund - Klagenfurt, 1993;				\
+      C=SJT_OEBB1044_ORANGE,(<SJT_EC12_1993M);								\
+      F=PE5;
+#Westbahn
+    TX=ÖBB 1016 + EC 164/165, "Kaiserin Elizabeth", Salzburg - Zurich, 2004;				\
+      C=((SJT_OEBB1016),(SJT_EC164_2004M))|								\
+	(SJT_OEBB1016,(SJT_EC164_2004M,SJT_OEBB_BPMZ_G,2*SJT_OEBB_BVMZ_G));				\
+      F=PE5;
+    TX=ÖBB 6010 + EC 16/17, "Max Reinhardt", Munich - Vienna, 1994;					\
+      C=(OBB_6010_026L,OBB_7210_026,OBB_7310_026L,OBB_7110_026,OBB_7110_026L,OBB_4010_026)|		\
+	(OBB_6010_015L,OBB_7210_015,OBB_7310_015,OBB_7110_015,OBB_7010_015,OBB_4010_015);		\
+      F=PEU5;
+    TX=ÖBB 1044 + EC 64/65 "Mozart", Paris - Vienna, 1996;						\
+      C=SJT_OEBB1044_RED,(SJT_EC64_1996M,0-1*(SJT_EC64_1996G-P,2*SJT_OEBB_BVMZ_R));			\
+      F=PE5;
+    TX=ÖBB 1044 + D 262/263, "Orient Express", Paris - Budapest, 1995;					\
+      C=(SJT_OEBB1044_RED),(SJT_D262_1995M|SJT_D263_1995M);						\
+      F=PE5;
+    TX=ÖBB 1044 + D 268/269, "Kalman Imre", Munich - Budapest, 1995;					\
+      C=SJT_OEBB1044_RED,SJT_D268_1995M;								\
+      F=PE5;
+    TX=ÖBB 1116 + EC 62/63 "Bartok Bela", Munich - Budapest, 2004;					\
+      C=(SJT_OEBB1116),											\
+	(SJT_OEBB_BVMZ_G,3*SJT_OEBB_BPMZ_G,2*SJT_OEBB_BVMZ_G,MAVS_61_8891(|L),2*SJT_OEBB_APMZ_G);	\
+      F=PE5;
+    TX=ÖBB 1016 + EC 164/165, "Kaiserin Elizabeth", Salzburg - Zurich, 2004;				\
+      C=SJT_OEBB1016,(SJT_EC164_2004M,SJT_OEBB_BPMZ_G,2*SJT_OEBB_BVMZ_G);				\
+      F=PE5;
+    TX=ÖBB 4010 + EC 120/121, "Johannes Kepler", Frankfurt - Vienna, 1993;				\
+      C=(OBB_4010_015L,OBB_7010_015L,OBB_7110_015L,OBB_7310_015,OBB_7210_015L,OBB_6010_015)|		\
+	(OBB_4010_026L,OBB_7010_026L,OBB_7310_026,OBB_7210_026L,OBB_6010_026);				\
+      F=PEU5;
+    TX=ÖBB 6010 + EC 16/17, "Max Reinhardt", Munich - Vienna, 1994;					\
+      C=(OBB_6010_026L,OBB_7210_026,OBB_7310_026L,OBB_7110_026,OBB_7110_026L,OBB_4010_026)|		\
+	(OBB_6010_015L,OBB_7210_015,OBB_7310_015,OBB_7110_015,OBB_7010_015,OBB_4010_015);		\
+      F=PEU5;
+    TX=ÖBB 1044 + EC 166/167, "Stachus", Munich - Vienna, 1992;						\
+      C=SJT_OEBB1044_ORANGE,(<2*JZ_ALM,SJT_OEBB_WRMZ_O,SJT_OEBB_BVMZ_O,4*JZ_BLM);			\
+      F=PE5;
+    TX=ÖBB 1044 + E 1604/1605, Vienna - Bischofshofen, 1995;						\
+      C=SJT_OEBB1044_ORANGE,										\
+	(2*SJT_OEBB_LSB_O,SJT_OEBB_BVMZ_R,SJT_OEBB_LSB_O,SJT_OEBB_LSA_O,OBB_9570O(|L),			\
+	0-1*SJT_DDM_LOADED);										\
+      F=PE5;
+    TX=ÖBB 1016 + EC 162/163, "Transalpin", Zurich - Vienna, 2005;					\
+      C=(SJT_OEBB1016_RED),										\
+	(2*SJT_SBB_BM_EC,2*SJT_OEBB_BPMZ_G,2*SJT_OEBB_BVMZ_G,SJT_OEBB_BPMZ_G,SJT_OEBB_BVMZ_G,		\
+	SJT_SBB_EW4_WR,SJT_OEBB_ADMSZ_G,SBB_1990100(|L),SJT_OEBB_APMZ_G,(3:SJT_SBB_AM_EC|4:));		\
+      F=PE5;
+    TX=ÖBB 1116 + EC 24/25 "Fransz Liszt", Dortmund - Budapest, 2004;					\
+      C=(SJT_OEBB1116_RED,2*SJT_OEBB_AVMZ_R,SJT_OEBB_WRMZ_R,2*SJT_OEBB_BVMZ_G,3*SJT_OEBB_BPMZ_G,	\
+	2*SJT_OEBB_BVMZ_G,SJT_OEBB1116_RED)|								\
+	(SJT_OEBB1116_RED,2*SJT_OEBB_AVMZ_R,SJT_OEBB_WRMZ_R,SJT_OEBB_BVMZ_G,SJT_OEBB_BVMZ_R,		\
+	2*SJT_OEBB_BPMZ_G,SJT_OEBB_BPMZ_G,SJT_OEBB_BVMZ_G,SJT_MAV_BVMZ_B1,SJT_OEBB1116_RED);		\
+      F=PE5;
+    TX=ÖBB 1116 + EC 24/25, Dortmund - Budapest, 2007;							\
+      C=SJT_OEBB1116_RED,										\
+	(2*SJT_OEBB_BVMZ_G,3*SJT_OEBB_BPMZ_G,2*SJT_OEBB_BPMZ_G,SJT_OEBB_WRMZ_G,SJT_OEBB_AVMZ_G,		\
+	SJT_OEBB_AVMZ_R);										\
+      F=PE5;
+    TX=ÖBB 1116 + EC 68/69 "Mozart", Munich - Vienna, 2006;						\
+      C=SJT_OEBB1116_RED,										\
+	(0-1*SJT_OEBB_AVMZ_R,SJT_OEBB_AVMZ_G,SJT_OEBB_WRMZ_G,SJT_OEBB_ABVMZ_G,SJT_OEBB_BVMZ_G,		\
+	SJT_OEBB_BPMZ_G,2*SJT_OEBB_BVMZ_G);								\
+      F=PE5;
+    TX=ÖBB 1016 + OEC 668/669, Bregenz - Graz, 2007;							\
+      C=SJT_OEBB1016,											\
+	(SJT_DDM_LOADED,SJT_OEBB_ABVMZ_G,SJT_OEBB_APMZ_G,SJT_OEBB_ADMSZ_G,SJT_OEBB_WRMZ_G,		\
+	SJT_OEBB_BVMZ_G,SJT_OEBB_BPMZ_G,3*SJT_OEBB_CSB);						\
+      F=PE5;
+    TX=ÖBB 1044 + EC 70/71, "Antonin Dvorzak", Prague - Vienna, 2000;					\
+      C=SJT_OEBB1044_RED,CD_6APMZ(|L),SJT_CD_WRMZ_O,							\
+	2*(<SJT_OEBB_BVMZ_R,SJT_OEBB_BPMZ_R,(CD_6BMZ(|L)|SJT_OEBB_BVMZ_R));				\
+      F=PE5;
+    TX=ÖBB 1044 + EC 72/73, "Smetana", Prague - Vienna, 2005;						\
+      C=(SJT_OEBB1044_RED),(3*CD_BPEE1(|L),2*SJT_CD_BEE_GW,SJT_CD_WRMZ_O,SJT_ZSSK_APEER);		\
+      F=PE5;
+    TX=ÖBB 1044 + EC 40/41, "Lehár", Vienna - Budapest, 2007;						\
+      C=(SJT_OEBB1044_RED),										\
+	(SJT_OEBB_BVMZ_G,3*SJT_OEBB_BPMZ_G,2*SJT_OEBB_BVMZ_G,MAVS_61_8891(|L),2*SJT_OEBB_APMZ_G);	\
+      F=PE5;
+    TX=ÖBB 1216 + EN 229 "Spree-Donau-Kurier", Berlin - Budapest;					\
+      C=SJT_OEBB1216,											\
+	(SJT_OEBB_BVMZ_R,MAVS_61_1991(|L),SJT_EN228_2000M,MAVS_WRBUMZ(|L),SJT_MAV_BPMZ_B1,M_2070(|L),	\
+	M_B1);												\
+      F=PE5;
+    TX=ÖBB 1116 + EC 24/25, Dortmund - Budapest, 2007;							\
+      C=SJT_OEBB1116_RED,										\
+	(2*SJT_OEBB_BVMZ_G,3*SJT_OEBB_BPMZ_G,2*SJT_OEBB_BPMZ_G,SJT_OEBB_WRMZ_G,SJT_OEBB_AVMZ_G,		\
+	SJT_OEBB_AVMZ_R);										\
+      F=PE5;
+#Südbahn
+    TX=ÖBB 1016 + EC 30/31, "Carlo Goldoni", Vienna - Venice, 2004;					\
+      C=SJT_OEBB1016,SJT_OEBB1116,(SJT_EC30_2004M,0-1*SJT_EC30_2004L);					\
+      F=PE5;
+    TX=ÖBB 1044 + EC 156/157 "Croatia", Vienna - Zagreb, 2004;						\
+      C=((SJT_OEBB1044_RED),(SJT_EC156_2004M))|(SJT_OEBB1116,(2*SJT_OEBB_BPMZ_G,SJT_EC156_2004M));	\
+      F=PE5;
+  }
+  {E6?
+    TX=ÖBB 1042 + Eisernerz - Leoben, 1996;								\
+      C=OBB_5_1042018L|OBB_5_1042018|OBB_5_1042036L|OBB_5_1042036|OBB_5_1042587L|OBB_5_1042587|		\
+	OBB_5_1042624L|OBB_5_1042624|OBB_6_1142607L|OBB_6_1142607|OBB_6_1142610L|OBB_6_1142610|		\
+	OBB_6_1142614L|OBB_6_1142614,20*SJT_DBC_FANS;							\
+      F=PE5;
+    TX=ÖBB 1044 + D 13220/13221, Brussels - Zell am See, 2008;						\
+      C=SJT_OEBB1044_RED,(SNCB_I6_2170M(|L),1-2*SNCB_I6_5190(|L),SNCB_I10_2170N(|L));			\
+      F=PE6;
+    TX=ÖBB 1016 + EC 172/173, "Vindobona", Hamburg - Villach, 2011;					\
+      C=(SJT_OEBB1016),											\
+	(SJT_DB_BPMZ_W,3*SJT_OEBB_BPMZ_G,2*SJT_OEBB_BVMZ_G,SJT_OEBB_WRMZ_G,SJT_OEBB_AVMZ_G,		\
+	SJT_DB_APMZ_W);											\
+      F=PE6;
+    TX=ÖBB 1016 + EC 114/115, "Wörthersee", Dortmund - Klagenfurt, 2008;				\
+      C=SJT_OEBB1016_EURO,										\
+	(2*SJT_OEBB_BVMZ_G,3*SJT_OEBB_BPMZ_G,2*SJT_OEBB_BVMZ_G,SJT_OEBB_WRMZ_G,SJT_OEBB_AVMZ_R,		\
+	SJT_OEBB_AVMZ_G);										\
+      F=PE6;
+    TX=ÖBB 1016 + IC 118/119, "Bodensee", Dortmund - Innsbruck, 2019;					\
+      C=SJT_OEBB1044_RED,(<SJT_OEBB_AVMZ_G,SJT_OEBB_ADMSZ_G,SJT_OEBB_BVMZ_G,5*SJT_OEBB_BPMZ_G);		\
+      F=PE6;
+    TX=ÖBB 1016 + IC 118/119, "Bodensee", Dortmund - Innsbruck, 2019;					\
+      C=SJT_OEBB1016_RED,										\
+	(SBB_APM1990_1M(|L),SJT_OEBB_ADMSZ_G,SJT_OEBB_WRMZ_G,SJT_OEBB_BVMZ_NJ,7*SJT_OEBB_BPMZ_G);	\
+      F=PE6;
+    TX=ÖBB 1116 + CNL 420/421, "Eridanus", Amsterdam - Vienna, 2009;					\
+      C=SJT_OEBB1116_2008,(<SJT_CNL420_2009M,SJT_EN490_2009M);						\
+      F=PE6;
+    TX=ÖBB 1116 + EN 490 2009;										\
+      C=SJT_OEBB1116_2008,(<(0-1*SJT_CNL420_2009M),SJT_EN490_2009M);					\
+      F=EP6;
+    TX=ÖBB 1016 + Duisburg - Wels, 2019;								\
+      C=SJT_OEBB1016_MIX2;										\
+      F=FE6;
+    TX=ÖBB 2143 + ALX 84158/84159, Munich (Immenstadt) - Oberstdorf, 2018;				\
+      C=SJT_OEBB2143_ORANGE,(<SJT_ALEX_BOM_TQ,SJT_ALEX_BM_TQ,ALEX_3992508);				\
+      F=PD6;
+#Brenner
+    TX=ÖBB 1216 + EC 80/81, DB-ÖBB Eurocity, Munich - Verona, 2018;					\
+      C=SJT_OEBB1216_BRENN,										\
+	(SJT_OEBB_AVMZ_G,SJT_OEBB_ADMSZ_G,SJT_OEBB_WRMZ_G,3*SJT_OEBB_BPMZ_G,SJT_OEBB_BVMZ_G,		\
+	2*SJT_OEBB_BPMZ_G,0-1*SJT_OEBB_BVMZ_G);								\
+      F=PE6;
+    TX=ÖBB 1116 + REX 1870/1871, Innsbruck - Lienz, 2013;						\
+      C=SJT_OEBB1116_RED,4*SJT_OEBB_BVMZ_G;								\
+      F=PE6;
+    TX=ÖBB 1116 + EN 484/485, "Lupus", Munich - Rome, 2009;						\
+      C=((SJT_OEBB1116),(SJT_EN484_2009M))|(FS_E402120(|L),(SJT_EN234_2009M,SJT_EN484_2009M));		\
+      F=PE6;
+    TX=ÖBB 1216 + EC 80/81, "Garda", Munich - Verona, 2008;						\
+      C=SJT_OEBB1216_EURO,(<SJT_DB_APMZ_W,SJT_DB_WRMZ_W,SJT_DB_BVMSZ_W,DBAG_BPMBZ295,4*SJT_DB_BPMZ_W);	\
+      F=PE6;
+    TX=ÖBB 1044 + IC 1280/281, "Grossglockner", Munich - Schwarzach, 2017;				\
+      C=(SJT_OEBB1044_RED),										\
+	(SJT_DB_BPMDZ_W,SJT_DB_BPMZ_W,SJT_DB_BPMBKZ_W,SJT_DB_APMZ_W,DBAG_BPMBZ295,SJT_DB_BVMSZ_W,	\
+	SJT_DB_ARKIMBZR_W,SJT_DB_AVMZ_W);								\
+      F=PE6;
+    TX=ÖBB 1216 + EC 88/89 DB-ÖBB Eurocity, Munich - Bologna, 2020;					\
+      C=OBB_1216_229(|L),										\
+	(SJT_OEBB_AVMZ_G,SJT_OEBB_ADMSZ_G,SJT_OEBB_WRMZ_G,SJT_OEBB_BVMZ_G,2*SJT_OEBB_BPMZ_G,		\
+	SJT_OEBB_BVMZ_G,2*SJT_OEBB_BPMZ_G);								\
+      F=PE6;
+    TX=ÖBB 1116 + NJ 420/40490, Amsterdam/Hamburg - Innsbruck, 2021;					\
+      C=(SJT_OEBB1116_RED|SJT_OEBB1116_AD),								\
+	(<OBB_WLABMZ7290NJ(|L),2*SJT_OEBB_BCM_NJ,SJT_OEBB_BVMZ_G,SJT_OEBB_BVMZ_NJ,SJT_OEBB_BVMZ_NJ,	\
+	SJT_OEBB_BVMZ_G,OBB_WLABMZ7290NJ(|L),OBB_BVCMBZNJ(|L),SJT_OEBB_BCM_NJ);				\
+      F=PE6;
+    TX=Dispolok 189 + EC 84/85 DB-ÖBB Eurocity, Munich - Bologna, 2010;					\
+      C=SJT_DISPO189,											\
+	(<SJT_DB_APMZ_W,SJT_DB_WRMZ_W,SJT_DB_BVMSZ_W,DBAG_BPMBZ295,3*SJT_DB_BPMZ_W,			\
+	(1:|6:DBAG_BIMZ2647W(|L)));									\
+      F=PE6;
+    TX=ÖBB 1216 + EC 84/85, DB-ÖBB Eurocity, Munich - Bologna, 2012;					\
+      C=SJT_OEBB1216,											\
+	(0-1*DBAG_BIMZ2647W(|L),(6:3|1:4*SJT_OEBB_BVMZ_G),2*SJT_OEBB_BPMZ_G,SJT_OEBB_BVMZ_G,		\
+	SJT_OEBB_WRMZ_G,SJT_OEBB_AVMZ_G);								\
+      F=PE6;
+    TX=ÖBB 1044 + IC 718/719, "Ennstal", Salzburg - Graz, 2018;						\
+      C=<SJT_OEBB1044_RED,SJT_OEBB_ADMSZ_G,SJT_OEBB_BVMZ_G,SJT_OEBB_BPMZ_G,SJT_OEBB_BVMZ_G,		\
+	SJT_OEBB_CSBTR;											\
+      F=PE6;
+#REVISIT#
+    TX=ÖBB 1016 + ASTB 9602/9603 Autoschleuse Tauernbahn, Mallnitz - Bockstein, 2011;			\
+      C=<OBB_8033CL,OBB_AUFFAHRTL,OBB_RAMPER,11*OBB_SAADKMS_Q,OBB_RAMPERL,OBB_AUFFAHRT,			\
+	SJT_OEBB1016|SJT_OEBB1116|SJT_OEBB1216;								\
+      F=PE6;
+    TX=ÖBB 1116 + EC 112/113, Siegen - Klagenfurt, 2010;						\
+      C=(SJT_OEBB1116,(<SJT_EC112_2010M))|(<SJT_OEBB1116,SJT_EC112_2010V,SJT_EC112_2010M,SJT_OEBB1116);	\
+      F=PE6;
+    TX=ÖBB 1044 + IC 512/513, Salzburg - Graz, 2008;							\
+      C=SJT_OEBB1044_RED,										\
+	(DBAG_ABIMDZ265_6L,SJT_DB_BIMDZ_W,DBAG_BIMZ264_7(|L),DBAG_BIMZ2647W(|L),SJT_OEBB_BPMZ_R,	\
+	DBAG_BIMZ2647W(|L),DBAG_6BIMZ2647(|L),DBAG_AIMZ2617W(|L));					\
+      F=PE6;
+    TX=ÖBB 1116 + EC 110/111, Munich - Klagenfurt, 2010;						\
+      C=SJT_OEBB1116,(<(0-1*SJT_EC110_2010V),SJT_EC110_2010M);						\
+      F=PE6;
+    TX=ÖBB 1116 + EC 112/113 "Blauer Enzian", Frankfurt - Klagenfurt, 2020;				\
+      C=SJT_EC112_2020AT;										\
+      F=PE6;
+    TX=ÖBB 1044 + Villach - Wels, 2019;									\
+      C=SJT_OEBB1044_RED,SJT_OEBB1116,30*SJT_GATX_ZAS;							\
+      F=FE6;
+    TX=ÖBB 1116 + EC 160/161, "Vorarlberg", Zurich - Vienna, 2008;					\
+      C=((SJT_OEBB1116_2008),(SJT_EC160_2008M))|(SJT_OEBB1116_2008,(SJT_EC160_2008M,2*SJT_OEBB_BVMZ_G)); \
+      F=PE6;
+    TX=ÖBB 1116 + NJ 464/465, Zurich - Graz, 2019;							\
+      C=(SJT_OEBB1116_RED),(SJT_NJ464_2019V,SJT_NJ464_2019M);						\
+      F=PE6;
+    TX=ÖBB 1116 + NJ 464/465, Zurich - Graz, 2019;							\
+      C=SJT_OEBB1116_RED,(0-1*(SJT_DDM_LOADED,SJT_NJ464_2019V),SJT_NJ464_2019M,2*SJT_DDM_LOADED);	\
+      F=PE6;
+    TX=ÖBB 1116 + EC 162/163, "Transalpin", Basel - Vienna, 2009;					\
+      C=(SJT_OEBB1116_RED),										\
+	(3-5*SJT_SBB_BM_EC,2*SJT_OEBB_BVMZ_G,SJT_OEBB_BPMZ_G,SJT_OEBB_BVMZ_G,SJT_SBB_EW4_WR,		\
+	SJT_OEBB_ADMSZ_G,SJT_OEBB_AVMZ_G,SBB_1990100(|L),0-1*SJT_SBB_AM_EC);				\
+      F=PE6;
+    TX=ÖBB 1044 + NJ 464/465, Zurich - Graz, 2019;							\
+      C=SJT_OEBB1044_RED,(SJT_NJ464_2019M,2*SJT_DDM_LOADED);						\
+      F=PE6;
+    TX=ÖBB 1116 + NJ 466/467, Zurich - Vienna, 2018;							\
+      C=2*SJT_OEBB1116_RED,(SJT_NJ466_2018M,SJT_NJ466_2018B,SJT_NJ466_2018P);				\
+      F=PE6;
+    TX=DB 411 + ICE 20/21, Frankfurt - Vienna, 2019;							\
+      C=(DBAG_411S2_0L,DBAG_411S2_1,DBAG_411S2_2L,DBAG_411S2_8L,DBAG_411S2_7L,DBAG_411S2_6L,		\
+	DBAG_411S2_5)|											\
+	(DBAG_411S2_0_TZ1153L,DBAG_411S2_1_TZ1153,DBAG_411S2_2_TZ1153L,DBAG_411S2_8_TZ1153,		\
+	DBAG_411S2_7_TZ1153,DBAG_411S2_6_TZ1153L,DBAG_411S2_5_TZ1153);					\
+      F=PE6;
+    TX=ÖBB 1116 + EN 464/465, "Zürichsee", Zurich - Graz, 2012;						\
+      C=(2*SJT_OEBB1116,(SJT_EN464_2012V-F,SJT_EN464_2012V-Z,SJT_EN464_2012M,SJT_EN464_2012G-F))|	\
+	(SJT_OEBB1116,(SJT_EN464_2012V-Z,SJT_EN464_2012M))|						\
+	(SJT_SBB420RED,(SJT_EN464_2012V-Z,SJT_EN464_2012M));						\
+      F=PE6;
+    TX=ÖBB 1116 + D 1280/1281, "Grossglocker", Munich - Zell am See, 2008;				\
+      C=(SJT_OEBB1116_EURO),(SJT_DB_AVMZ_W,5*DBAG_BIMZ2647W(|L));					\
+      F=PE6;
+    TX=ÖBB 1044 + EC 163/164 "Transalpin", Zurich - Graz, 2018;						\
+      C=SJT_OEBB1044_RED,										\
+	(SBB_APM1990_1M(|L),SJT_OEBB_ADMSZ_G,SJT_OEBB_WRMZ_G,SJT_OEBB_BVMZ_G,7*SJT_OEBB_BPMZ_G);	\
+      F=PE6;
+    TX=ÖBB 2016 + D 963/966, Munich - Linz, 2009;							\
+      C=SJT_OEBB2016_RED,(<3*SJT_OEBB_BVMZ_G,SJT_OEBB_BAVMZ_G);						\
+      F=PD6;
+    TX=ÖBB 1116 + RJ 64/65, Munich - Vienna, 2018;							\
+      C=1-2*((19:SJT_OEBB1116_RJ|1:SJT_OEBB1116),OBB_RAILJET5L,3*OBB_RAILJET4L,OBB_RAILJET3L,		\
+	OBB_RAILJET2L,OBB_RAILJET1);									\
+      F=PE6;
+    TX=ÖBB 1116 + RE 1942/1943, REX 200, Vienna - Amstetten, 2014;					\
+      C=SJT_OEBB1116,5*SJT_OEBB_BVMZ_G,0-1*(SJT_OEBB_BVMZ_G,SJT_OEBB_BPMZ_G,2*SJT_OEBB_BVMZ_G);		\
+      F=PE6;
+    TX=ÖBB 1016 + REX 5562/5597, Lindau - Bludenz, 2014;						\
+      C=5:(<SJT_OEBB1016,4*SJT_OEBB_WIESEL_B,SJT_OEBB_WIESEL_BTR)|2:SJT_OEBB4024_G;			\
+      F=PE6;
+    TX=ÖBB 1044 + EN 464/465, "Zürichsee", Zurich - Graz, 2012;						\
+      C=SJT_OEBB1044_RED,(SJT_EN464_2012M,SJT_EN464_2012G-F);						\
+      F=PE6;
+    TX=ÖBB 4011 + ICE 20/21, Frankfurt - Vienna, 2017;							\
+      C=(OBB_4011_0_2006L,OBB_4011_1_2006,OBB_4011_2_2006L,OBB_4011_8_2006L,OBB_4011_7_2006,		\
+	OBB_4011_6_2006,OBB_4011_5_2006)|								\
+	(OBB_4011_0_2007L,OBB_4011_1_2007,OBB_4011_2_2007L,OBB_4011_8_2007L,OBB_4011_7_2007L,		\
+	OBB_4011_6_2007L,OBB_4011_5_2007);								\
+      F=PEU6;
+    TX=ÖBB 1116 + NJ 466/467, Zurich - Vienna, 2018;							\
+      C=SJT_OEBB1116,(SJT_NJ466_2018V,SJT_NJ466_2018M);							\
+      F=PE6;
+    TX=ÖBB 1044 + EC 163/164, "Transalpin", Zurich - Graz, 2019;					\
+      C=(SJT_OEBB1044_RED|(2*SJT_OEBB1116)),								\
+	(SBB_APM1990_1M(|L),SJT_OEBB_ADMSZ_G,SJT_OEBB_WRMZ_G,SJT_OEBB_BVMZ_NJ,7*SJT_OEBB_BPMZ_G);	\
+      F=PE6;
+    TX=ÖBB 1044 + Wels - Leoben, 2019;									\
+      C=2*SJT_OEBB1044_RED,(<2*SJT_NACCO_EANOS,12*SJT_DB_SNPS_WD,SJT_CAPT_EAOS,OBB_EANOS,SJT_CAPT_EAOS); \
+      F=FE6;
+    TX=ÖBB 1042 + R 3976/3977, Steyrling - Linz, 2014;							\
+      C=<SJT_OEBB1042_RED,3*SJT_OEBB_CSB,SJT_OEBB_CSBTR;						\
+      F=PE6;
+    TX=ÖBB 1116 + IC 748/849, Salzburg - Vienna, 2008;							\
+      C=SJT_OEBB1116_EURO,										\
+	(SJT_OEBB_BVMZ_G,SJT_OEBB_BDMSZ_G,SJT_OEBB_APMZ_G,2*SJT_OEBB_BCM_WB,OBB_WLABMZ7171_4(|L),	\
+	2*SJT_OEBB_BVMZ_G)|SJT_OEBB1116_EURO,								\
+	(SJT_OEBB_APMZ_G,SJT_OEBB_BDMSZ_G,SJT_OEBB_BVMZ_G,SJT_OEBB_BPMZ_G,2*SJT_OEBB_BVMZ_G,		\
+	OBB_WLABMZ7171_4(|L),2*SJT_OEBB_BCM_WB);							\
+      F=PE6;
+    TX=ÖBB 1116 + EC 162/163, "Transalpin", Basel - Vienna, 2008;					\
+      C=(SJT_OEBB1116_EURO),										\
+	((4:4-5|3:3-4*SJT_SBB_BM_EC),3*SJT_OEBB_BVMZ_G,SJT_OEBB_BPMZ_G,SJT_OEBB_BVMZ_G,SJT_SBB_EW4_WR,	\
+	SJT_OEBB_ADMSZ_G,SBB_1990100(|L),0-1*SJT_SBB_AM_EC);						\
+      F=PE6;
+    TX=ÖBB 1042 + D 1280/1281, "Grossglocker", Munich - Zell am See, 2008;				\
+      C=(SJT_OEBB1042_RED|SJT_OEBB1116_EURO),(<SJT_DB_AVMZ_W,5*DBAG_BIMZ2647W(|L));			\
+      F=PE6;
+    TX=ÖBB 1116 + EN 246/247, Vienna - Bregenz, 2008;							\
+      C=SJT_OEBB1116_EURO,										\
+	(SJT_OEBB_DWLABM_G,OBB_WLABMZ7571_4(|L),3*SJT_OEBB_BCM_G,2*SJT_OEBB_BVMZ_G,			\
+	0-1*(3-5*SJT_DDM_LOADED));									\
+      F=PE6;
+    TX=ÖBB 1116 + EC 163/164 "Transalpin", Zurich - Graz, 2020;						\
+      C=1-2*SJT_OEBB1116,SJT_EC164_2020M;								\
+      F=PE6;
+    TX=DB 4110 + IC 94/95, Berlin - Vienna, 2021;							\
+      C=(DB_4110_1ABPZFAL,DB_4110_2BPZAL,DB_4110_3BPBZAL,DB_4110_4BPZFA)|				\
+	(DB_4110_4BPZFAL,DB_4110_3BPBZA,DB_4110_2BPZA,DB_4110_1ABPZFA);					\
+      F=PEU6;
+    TX=ÖBB 5047 + R 3166/3167, Linz - Neuhaus Niederwaldkirchen, 2021;					\
+      C=OBB_6_5047;											\
+      F=PDU6;
+    TX=ÖBB 1044 + IC 118/119 "Bodensee", Dortmund - Innsbruck, 2021;					\
+      C=SJT_OEBB1044_RED,SJT_IC118_2021M;								\
+      F=PE6;
+    TX=ÖBB 1016 + EC164/165 "Transalpin", Zurich - Graz, 2021;						\
+      C=1-2*SJT_OEBB1016_RED,SJT_EC164_2021M;								\
+      F=PE6;
+    TX=ÖBB 1116 + IC 118/119, Münster - Innsbruck, 2009;						\
+      C=SJT_OEBB1116_RED|SJT_OEBB1116_AD,								\
+	(<SJT_OEBB_AVMZ_G,SJT_DB_AVMZ_W,SJT_DB_ARKIMBZR_W,SJT_DB_BVMSZ_W,4*SJT_DB_BPMZ_W,		\
+	SJT_DB_BPMDZF_W);										\
+      F=PE6;
+    TX=ÖBB 1016 + EC 102/103, "Polonia", Warsaw - Vienna, 2008;						\
+      C=(SJT_OEBB1016),(SJT_EC102_2008M,SJT_EC102_2008C);						\
+      F=PE6;
+    TX=ÖBB 1044 + D 406/407, "Chopin", Warsaw - Vienna, 2011;						\
+      C=SJT_OEBB1044_RED,(SJT_D406_2011B,SJT_D406_2011M,SJT_D406_2011K);				\
+      F=PE6;
+    TX=ÖBB 1216 + D 406/407, "Chopin", Warsaw - Prague, 2012;						\
+      C=SJT_OEBB1216,(SJT_D406_2012A,SJT_D406_2012M,SJT_D406_2012C);					\
+      F=PE6;
+    TX=ÖBB 1216 + IC 570/571, "Zdenek Fibrich", Prague - Breclav, 2010;					\
+      C=SJT_OEBB1216,(<SJT_CD_APEE_RW,CD_WRMZN1L,2*SJT_CD_BEE_GW,2*CD_BPEE1(|L));			\
+      F=PE6;
+    TX=ÖBB 1116 + Ostrava - Trieste, 2016;								\
+      C=SJT_OEBB1116,25*SJT_HUPAC_SGGNS[C1:SJT_2020_TRAILERS];						\
+      F=FE6;
+#Vienna-Budapest/Bratislava
+    TX=ÖBB 1116 + CAT 9014/9015, CityAirportTrain (Vienna), 2018;					\
+      C=<CAT_DBPFNL,2*CAT_DBPN(|L),(24:OBB_1116_141C(|L)|1:SJT_OEBB1116);				\
+      F=PE6;
+    TX=ÖBB 2016 + REX 2509/2514, "Theben", Vienna - Bratislava, 2014;					\
+      C=<SJT_OEBB_CSBTL,2*SJT_OEBB_CSB,SJT_ZSSK_BPMZ,SJT_OEBB2016_RED;					\
+      F=PD6;
+    TX=ÖBB 1116 + Gyor - Vienna, 2020;									\
+      C=SJT_OEBB1116_MIX4;										\
+      F=FE6;
+    TX=ÖBB 1044 + EC 150/151 "Emona", Vienna - Ljubljana, 2009;						\
+      C=SJT_OEBB1044_RED,(2*SJT_OEBB_LSB_O,SJT_EC150_2009M);						\
+      F=PE6;
+    TX=ÖBB 1016 + EC 255/256, Vienna - Maribor, 2009;							\
+      C=(SJT_OEBB1016),											\
+	(3*SJT_OEBB_BVMZ_G,SJT_OEBB_BPMZ_G,SJT_OEBB_BVMZ_G,SJT_OEBB_WRMZ_G,SJT_OEBB_AVMZ_G);		\
+      F=PE6;
+    TX=ÖBB 1216 + RJ 72/73, "Bedrich Smetana", Prague - Graz, 2018;					\
+      C=<CD_RJ_AL,CD_RJ_BL,4*CD_RJ_CL,CD_RJ_FL,(23:SJT_CD1216_RJ|1:OBB_1216_229(|L)|1:SJT_OEBB1216);	\
+      F=PE6;
+    TX=ÖBB 1044 + REX 1952/1975, "Schwarztal", Vienna - Mürzzuschlag, 2014;				\
+      C=<SJT_OEBB_CSBTL,4*SJT_OEBB_CSB,SJT_OEBB1044_RED;						\
+      F=PE6;
+    TX=ÖBB 1116 + EN 234/235, "Allegro Tosca", Vienna - Rome, 2009;					\
+      C=((SJT_OEBB1116|FS_E402120(|L)),(<SJT_EN234_2009A,SJT_EN234_2009M))|				\
+	(FS_E402120(|L),(<SJT_EN234_2009M,SJT_EN484_2009M));						\
+      F=PE6;
+    TX=ÖBB 1044 + EC 150/151, "Emona", Vienna - Ljubljana, 2019;					\
+      C=SJT_OEBB1044_RED,										\
+	(SJT_OEBB_ADMSZ_G,SJT_OEBB_BPMZ_G,SZ_6WEELMT,2*SJT_SZ_BEELM,(1:SJT_HZ_BVMZ|3:SJT_SZ_BEELM));	\
+      F=PE6;
+    TX=ÖBB 4024 + REX 1562/1565, Vienna - Nickelsdorf, 2019;						\
+      C=OBB_4024|OBB_4024;										\
+      F=PEU6;
+    TX=ÖBB 1116 + EN 234/235, "Allegro Tosca", Vienna - Rome, 2009;					\
+      C=((SJT_OEBB1116|FS_E402120(|L)),(<SJT_EN234_2009A,SJT_EN234_2009M))|				\
+	(FS_E402120(|L),(<SJT_EN234_2009M,SJT_EN484_2009M));						\
+      F=PE6;
+    TX=ÖBB 1116 + EC 158/159, "Croatia", Vienna - Zagreb, 2008;						\
+      C=SJT_OEBB1116_EURO,(0-1*(SJT_OEBB_CSB,SJT_OEBB_ABVMZ_G),2*SJT_SZ_BEELM,SJT_EC158_2008M);		\
+      F=PE6;
+    TX=ÖBB 1044 + EC 158/159, "Croatia", Vienna - Zagreb, 2019;						\
+      C=(SJT_OEBB1044_RED),(SJT_EC158_2019M);								\
+      F=PE6;
+    TX=ÖBB 1216 + EC 30/31, "Allegro Johann Strauss", Vienna - Venice, 2008;				\
+      C=(SJT_OEBB1216_EURO),										\
+	(SJT_OEBB_APMZ_G,SJT_OEBB_WRMZ_G,SJT_OEBB_BVMZ_G,SJT_OEBB_BPMZ_G,2*SJT_OEBB_BVMZ_G,		\
+	(3:|1:SJT_DDM_LOADED));										\
+      F=PE6;
+    TX=ÖBB 1044 + EC 163/164 "Transalpin", Zurich - Graz, 2020;						\
+      C=SJT_OEBB1044_RED,SJT_EC164_2020M;								\
+      F=PE6;
+    TX=ÖBB 1044 + EC 150/151 "Emona", Vienna - Ljubljana, 2021;						\
+      C=SJT_EC150_2021AT;										\
+      F=PE6;
+    TX=ÖBB 1216 + EC 212/213, "Mimara", Villach - Zagreb, 2019;						\
+      C=SJT_OEBB1216,(SJT_EC212_2019M);									\
+      F=PE6;
+    TX=ÖBB 1216 + EC 100/101, "Joze Plecnik", Prague - Salzburg, 2009;					\
+      C=SJT_OEBB1216,(SJT_EC100_2009M);									\
+      F=PE6;
+    TX=ÖBB 1216 + D 206/207, "Matthias Braun", Salzburg - Prague, 2009;					\
+      C=SJT_OEBB1216,(SJT_D206_2009M);									\
+      F=PE6;
+    TX=ÖBB 1216 + D 206/207, Salzburg - Prague, 2008;							\
+      C=SJT_OEBB1216_EURO,(SJT_D206_2008M);								\
+      F=PE6;
+    TX=ÖBB 2016 + IC 317/318, "Raba", Budapest - Graz, 2018;						\
+      C=SJT_OEBB2016_RED,(3*SJT_GYSEV_BVMZ);								\
+      F=PE6;
+  }
+
 %ENDPOOL;
