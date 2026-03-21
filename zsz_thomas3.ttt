@@ -48,7 +48,6 @@ $POOL NAME=TH3_AL;
   C=TH3_BERTIE1L;
   C=TH3_BERTIE2L;
   C=TH3_BERTIE4L;
-  C=TH3_BERTIE5L;
   C=TH3_BERTIE3L;
   C=TH3_BERTIE6L;
   C=TH3_BULGY1L;
@@ -56,10 +55,8 @@ $POOL NAME=TH3_AL;
   C=TH3_BULGY7L;
   C=TH3_BULGY2L;
   C=TH3_BULGY4L;
-  C=TH3_BULGY5L;
   C=TH3_BULGY8L;
   C=TH3_BULGY9L;
-  C=TH3_BULGY12L;
   C=TH3_BULGY11L;
   C=TH3_AUDDL;
 $ENDPOOL
@@ -110,9 +107,13 @@ $POOL NAME=TH3_STP;
 $ENDPOOL
 
 %DEF(TH3_MIX=POOL=TH3_(4:P|4:X|1:XL|6:F1);)
+%DEF(TH3_MIXL=POOL=TH3_(4:P|4:X|1:XL|6:F1);)
+%DEF(TH3_MIXR=POOL=TH3_(4:P|4:X|6:F1);)
 %DEF(TH3_STP=POOL=TH3_STP;)
 $SECTION NAME=THOMAS3; LC=2; IMGY=170;
-  $SCENE DX=1934; DY=394; YDIR=U;									\
+  $SCENE 												\
+      NAME=TH3_LSUDDERY1;										\
+      DX=1934; DY=394; YDIR=U;										\
       BG=TH3_LOWER_SUDDERYB;
     $PATH Y=8; D=L;
       POOL=TH3_AX|TH3_AL;
@@ -142,79 +143,92 @@ $SECTION NAME=THOMAS3; LC=2; IMGY=170;
     $ENDPATH
   $ENDSCENE
 
-  $SCENE DX=2136; DY=719; YDIR=U;									\
+  $SCENE 												\
+      NAME=TH3_BLUEBELL1;										\
+      DX=2136; DY=719; YDIR=U;										\
       BG=TH3_BLUEBELL_VALLEY;										\
       IMGY=170;
     $PATH Y=71; LC=2; V=12-20;
-      %TH3_MIX;
+      %TH3_MIXL;
     $ENDPATH
     $PATH Y=293; LC=2; V=12-20;
-      %TH3_MIX;
+      %TH3_MIXR;
     $ENDPATH
   $ENDSCENE
 
-  $SCENE DX=2437; DY=751; YDIR=U; VM=HEAD;								\
+  $SCENE DX=2437; DY=751; YDIR=U; VM=HEAD; NAME=TH3_GLENNOCK1;								\
       BG=TH3_GLENNOCK1;											\
-      FG=TH3_GLENNOCK1[MSK:TH3_GLENNOCK1M,#FFFFFF];
+      FG=TH3_GLENNOCK1[MSK:TH3_GLENNOCK1M,#FFFFFF];							\
+      TH3_GLENNOCK1;
     $PATH Y=41; LC=2; D=L; V=12-20;
-      %TH3_MIX;
+      %TH3_MIXL;
     $ENDPATH
     $PATH Y=59; LC=2; D=R; V=12-20;
       %TH3_STP; P=*50;
     $ENDPATH
   $ENDSCENE
 
-  $SCENE DX=1955; DY=1309; YDIR=U; VM=HEAD;								\
+  $SCENE 												\
+      NAME=TH3_ELSBRIDGE2;										\
+      DX=1955; DY=1309; YDIR=U; VM=HEAD;								\
       BG=TH3_ELSBRIDGE2;										\
       FG=TH3_ELSBRIDGE2F:,433;
     $PATH Y=467; LC=2; D=L; V=13-20;
-      %TH3_MIX;
+      %TH3_MIXL;
     $ENDPATH
     $PATH Y=487; LC=2; D=R; V=13-20;
-      %TH3_MIX;
+      %TH3_MIXR;
     $ENDPATH
   $ENDSCENE
 
-  $SCENE DX=1558; DY=565; YDIR=U;									\
+  $SCENE 												\
+      NAME=TH3_HAUNTED2;										\
+      DX=1558; DY=565; YDIR=U;										\
       BG=TH3_HAUNTED_FOREST_NIGHT;
     $PATH Y=19; LC=2; D=L; V=13-20; AMOD=[BC:-0.7,0];
-      %TH3_MIX;;
+      %TH3_MIXL;
     $ENDPATH
     $PATH Y=36; LC=2; D=R; V=13-20; AMOD=[BC:-0.7,0];
-      %TH3_MIX;
+      %TH3_MIXR;
     $ENDPATH
   $ENDSCENE
 
-  $SCENE DX=1558; DY=565; YDIR=U;									\
+  $SCENE 												\
+      NAME=TH3_HAUNTED1;										\
+      DX=1558; DY=565; YDIR=U;										\
       BG=TH3_HAUNTED_FOREST_DAY;
     $PATH Y=19; LC=2; D=L; V=13-20;
-      %TH3_MIX;;
+      %TH3_MIXL;
     $ENDPATH
     $PATH Y=36; LC=2; D=R; V=13-20;
-      %TH3_MIX;
+      %TH3_MIXR;
     $ENDPATH
   $ENDSCENE
 
-  $SCENE DX=2500; DY=1300; YDIR=U; VM=CONT;								\
+  $SCENE 												\
+      NAME=TH3_VIADUCT3;										\
+      DX=2500; DY=1300; YDIR=U; VM=CONT;								\
       BG=TH3_VIADUCT3;											\
       FG=TH3_VIADUCT3F:<0+232,770;
     $PATH Y=784; LC=2; D=L; V=13-20;
-      %TH3_MIX;;
+      %TH3_MIXL;
     $ENDPATH
     $PATH Y=808; LC=2; D=R; V=13-20;
-      %TH3_MIX;
+      %TH3_MIXR;
     $ENDPATH
   $ENDSCENE
-
-  $SCENE DX=1918; DY=906; YDIR=U;									\
+ 
+  $SCENE 												\
+      NAME=TH3_RHENEAS1;										\
+      DX=1918; DY=906; YDIR=U;										\
       BG=TH3_RHENEAS_VIADUCT;										\
       FG=TH3_RHENEAS_VIADUCT[MSK:TH3_RHENEAS_VIADUCTM,#FFFFFF,,300];					\
       AMOD=[SM:0.5];
     $PATH Y=300; LC=2; D=L; V=6-10;
-      %TH3_MIX;
+      %TH3_MIXL;
     $ENDPATH
     $PATH Y=300; LC=2; D=R; V=6-10;
-      %TH3_MIX;
+      %TH3_MIXR;
     $ENDPATH
   $ENDSCENE
 $ENDSECTION
